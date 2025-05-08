@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class VpcInformation(AWSProperty):
     """
-    `VpcInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-connector-vpcinformation.html>`__
+    `VpcInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-connector-vpcinformation.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class VpcInformation(AWSProperty):
 
 class Connector(AWSObject):
     """
-    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-connector.html>`__
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorad-connector.html>`__
     """
 
     resource_type = "AWS::PCAConnectorAD::Connector"
@@ -38,7 +38,7 @@ class Connector(AWSObject):
 
 class DirectoryRegistration(AWSObject):
     """
-    `DirectoryRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-directoryregistration.html>`__
+    `DirectoryRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorad-directoryregistration.html>`__
     """
 
     resource_type = "AWS::PCAConnectorAD::DirectoryRegistration"
@@ -51,7 +51,7 @@ class DirectoryRegistration(AWSObject):
 
 class ServicePrincipalName(AWSObject):
     """
-    `ServicePrincipalName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-serviceprincipalname.html>`__
+    `ServicePrincipalName <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorad-serviceprincipalname.html>`__
     """
 
     resource_type = "AWS::PCAConnectorAD::ServicePrincipalName"
@@ -64,7 +64,7 @@ class ServicePrincipalName(AWSObject):
 
 class ValidityPeriod(AWSProperty):
     """
-    `ValidityPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-validityperiod.html>`__
+    `ValidityPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-validityperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class ValidityPeriod(AWSProperty):
 
 class CertificateValidity(AWSProperty):
     """
-    `CertificateValidity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-certificatevalidity.html>`__
+    `CertificateValidity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-certificatevalidity.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class CertificateValidity(AWSProperty):
 
 class EnrollmentFlagsV2(AWSProperty):
     """
-    `EnrollmentFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-enrollmentflagsv2.html>`__
+    `EnrollmentFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-enrollmentflagsv2.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class EnrollmentFlagsV2(AWSProperty):
 
 class ApplicationPolicy(AWSProperty):
     """
-    `ApplicationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicy.html>`__
+    `ApplicationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-applicationpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class ApplicationPolicy(AWSProperty):
 
 class ApplicationPolicies(AWSProperty):
     """
-    `ApplicationPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicies.html>`__
+    `ApplicationPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-applicationpolicies.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class ApplicationPolicies(AWSProperty):
 
 class KeyUsageFlags(AWSProperty):
     """
-    `KeyUsageFlags <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageflags.html>`__
+    `KeyUsageFlags <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-keyusageflags.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class KeyUsageFlags(AWSProperty):
 
 class KeyUsage(AWSProperty):
     """
-    `KeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusage.html>`__
+    `KeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-keyusage.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class KeyUsage(AWSProperty):
 
 class ExtensionsV2(AWSProperty):
     """
-    `ExtensionsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv2.html>`__
+    `ExtensionsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-extensionsv2.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class ExtensionsV2(AWSProperty):
 
 class GeneralFlagsV2(AWSProperty):
     """
-    `GeneralFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv2.html>`__
+    `GeneralFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-generalflagsv2.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class GeneralFlagsV2(AWSProperty):
 
 class PrivateKeyAttributesV2(AWSProperty):
     """
-    `PrivateKeyAttributesV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv2.html>`__
+    `PrivateKeyAttributesV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyattributesv2.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class PrivateKeyAttributesV2(AWSProperty):
 
 class PrivateKeyFlagsV2(AWSProperty):
     """
-    `PrivateKeyFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html>`__
+    `PrivateKeyFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyflagsv2.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class PrivateKeyFlagsV2(AWSProperty):
 
 class SubjectNameFlagsV2(AWSProperty):
     """
-    `SubjectNameFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv2.html>`__
+    `SubjectNameFlagsV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-subjectnameflagsv2.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class SubjectNameFlagsV2(AWSProperty):
 
 class TemplateV2(AWSProperty):
     """
-    `TemplateV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev2.html>`__
+    `TemplateV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-templatev2.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class TemplateV2(AWSProperty):
 
 class EnrollmentFlagsV3(AWSProperty):
     """
-    `EnrollmentFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-enrollmentflagsv3.html>`__
+    `EnrollmentFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-enrollmentflagsv3.html>`__
     """
 
     props: PropsDictType = {
@@ -243,7 +243,7 @@ class EnrollmentFlagsV3(AWSProperty):
 
 class ExtensionsV3(AWSProperty):
     """
-    `ExtensionsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv3.html>`__
+    `ExtensionsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-extensionsv3.html>`__
     """
 
     props: PropsDictType = {
@@ -254,7 +254,7 @@ class ExtensionsV3(AWSProperty):
 
 class GeneralFlagsV3(AWSProperty):
     """
-    `GeneralFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv3.html>`__
+    `GeneralFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-generalflagsv3.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class GeneralFlagsV3(AWSProperty):
 
 class KeyUsagePropertyFlags(AWSProperty):
     """
-    `KeyUsagePropertyFlags <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusagepropertyflags.html>`__
+    `KeyUsagePropertyFlags <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-keyusagepropertyflags.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class KeyUsagePropertyFlags(AWSProperty):
 
 class KeyUsageProperty(AWSProperty):
     """
-    `KeyUsageProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageproperty.html>`__
+    `KeyUsageProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-keyusageproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -288,7 +288,7 @@ class KeyUsageProperty(AWSProperty):
 
 class PrivateKeyAttributesV3(AWSProperty):
     """
-    `PrivateKeyAttributesV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html>`__
+    `PrivateKeyAttributesV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyattributesv3.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class PrivateKeyAttributesV3(AWSProperty):
 
 class PrivateKeyFlagsV3(AWSProperty):
     """
-    `PrivateKeyFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html>`__
+    `PrivateKeyFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyflagsv3.html>`__
     """
 
     props: PropsDictType = {
@@ -315,7 +315,7 @@ class PrivateKeyFlagsV3(AWSProperty):
 
 class SubjectNameFlagsV3(AWSProperty):
     """
-    `SubjectNameFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv3.html>`__
+    `SubjectNameFlagsV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-subjectnameflagsv3.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class SubjectNameFlagsV3(AWSProperty):
 
 class TemplateV3(AWSProperty):
     """
-    `TemplateV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev3.html>`__
+    `TemplateV3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-templatev3.html>`__
     """
 
     props: PropsDictType = {
@@ -352,7 +352,7 @@ class TemplateV3(AWSProperty):
 
 class EnrollmentFlagsV4(AWSProperty):
     """
-    `EnrollmentFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-enrollmentflagsv4.html>`__
+    `EnrollmentFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-enrollmentflagsv4.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class EnrollmentFlagsV4(AWSProperty):
 
 class ExtensionsV4(AWSProperty):
     """
-    `ExtensionsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-extensionsv4.html>`__
+    `ExtensionsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-extensionsv4.html>`__
     """
 
     props: PropsDictType = {
@@ -377,7 +377,7 @@ class ExtensionsV4(AWSProperty):
 
 class GeneralFlagsV4(AWSProperty):
     """
-    `GeneralFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-generalflagsv4.html>`__
+    `GeneralFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-generalflagsv4.html>`__
     """
 
     props: PropsDictType = {
@@ -388,7 +388,7 @@ class GeneralFlagsV4(AWSProperty):
 
 class PrivateKeyAttributesV4(AWSProperty):
     """
-    `PrivateKeyAttributesV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html>`__
+    `PrivateKeyAttributesV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyattributesv4.html>`__
     """
 
     props: PropsDictType = {
@@ -402,7 +402,7 @@ class PrivateKeyAttributesV4(AWSProperty):
 
 class PrivateKeyFlagsV4(AWSProperty):
     """
-    `PrivateKeyFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-privatekeyflagsv4.html>`__
+    `PrivateKeyFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-privatekeyflagsv4.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class PrivateKeyFlagsV4(AWSProperty):
 
 class SubjectNameFlagsV4(AWSProperty):
     """
-    `SubjectNameFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html>`__
+    `SubjectNameFlagsV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-subjectnameflagsv4.html>`__
     """
 
     props: PropsDictType = {
@@ -436,7 +436,7 @@ class SubjectNameFlagsV4(AWSProperty):
 
 class TemplateV4(AWSProperty):
     """
-    `TemplateV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev4.html>`__
+    `TemplateV4 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-templatev4.html>`__
     """
 
     props: PropsDictType = {
@@ -454,7 +454,7 @@ class TemplateV4(AWSProperty):
 
 class TemplateDefinition(AWSProperty):
     """
-    `TemplateDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html>`__
+    `TemplateDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-template-templatedefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -466,7 +466,7 @@ class TemplateDefinition(AWSProperty):
 
 class Template(AWSObject):
     """
-    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html>`__
+    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorad-template.html>`__
     """
 
     resource_type = "AWS::PCAConnectorAD::Template"
@@ -482,7 +482,7 @@ class Template(AWSObject):
 
 class AccessRights(AWSProperty):
     """
-    `AccessRights <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html>`__
+    `AccessRights <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorad-templategroupaccesscontrolentry-accessrights.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class AccessRights(AWSProperty):
 
 class TemplateGroupAccessControlEntry(AWSObject):
     """
-    `TemplateGroupAccessControlEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html>`__
+    `TemplateGroupAccessControlEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html>`__
     """
 
     resource_type = "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry"

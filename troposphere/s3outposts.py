@@ -12,7 +12,7 @@ from .validators import integer
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-accesspoint-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class VpcConfiguration(AWSProperty):
 
 class AccessPoint(AWSObject):
     """
-    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html>`__
+    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3outposts-accesspoint.html>`__
     """
 
     resource_type = "AWS::S3Outposts::AccessPoint"
@@ -37,7 +37,7 @@ class AccessPoint(AWSObject):
 
 class AbortIncompleteMultipartUpload(AWSProperty):
     """
-    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html>`__
+    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class AbortIncompleteMultipartUpload(AWSProperty):
 
 class FilterTag(AWSProperty):
     """
-    `FilterTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filtertag.html>`__
+    `FilterTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-filtertag.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class FilterTag(AWSProperty):
 
 class FilterAndOperator(AWSProperty):
     """
-    `FilterAndOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html>`__
+    `FilterAndOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-filterandoperator.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class FilterAndOperator(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class Filter(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class Rule(AWSProperty):
 
 class LifecycleConfiguration(AWSProperty):
     """
-    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html>`__
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-bucket-lifecycleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class Bucket(AWSObject):
     """
-    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html>`__
+    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3outposts-bucket.html>`__
     """
 
     resource_type = "AWS::S3Outposts::Bucket"
@@ -121,7 +121,7 @@ class Bucket(AWSObject):
 
 class BucketPolicy(AWSObject):
     """
-    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html>`__
+    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3outposts-bucketpolicy.html>`__
     """
 
     resource_type = "AWS::S3Outposts::BucketPolicy"
@@ -134,7 +134,7 @@ class BucketPolicy(AWSObject):
 
 class FailedReason(AWSProperty):
     """
-    `FailedReason <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-failedreason.html>`__
+    `FailedReason <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3outposts-endpoint-failedreason.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class FailedReason(AWSProperty):
 
 class Endpoint(AWSObject):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3outposts-endpoint.html>`__
     """
 
     resource_type = "AWS::S3Outposts::Endpoint"

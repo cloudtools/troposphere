@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-dataset-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class DataSource(AWSProperty):
 
 class DatasetImportJob(AWSProperty):
     """
-    `DatasetImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html>`__
+    `DatasetImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-dataset-datasetimportjob.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class DatasetImportJob(AWSProperty):
 
 class Dataset(AWSObject):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-personalize-dataset.html>`__
     """
 
     resource_type = "AWS::Personalize::Dataset"
@@ -52,7 +52,7 @@ class Dataset(AWSObject):
 
 class DatasetGroup(AWSObject):
     """
-    `DatasetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html>`__
+    `DatasetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-personalize-datasetgroup.html>`__
     """
 
     resource_type = "AWS::Personalize::DatasetGroup"
@@ -67,7 +67,7 @@ class DatasetGroup(AWSObject):
 
 class Schema(AWSObject):
     """
-    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html>`__
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-personalize-schema.html>`__
     """
 
     resource_type = "AWS::Personalize::Schema"
@@ -81,7 +81,7 @@ class Schema(AWSObject):
 
 class AutoMLConfig(AWSProperty):
     """
-    `AutoMLConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-automlconfig.html>`__
+    `AutoMLConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-automlconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class AutoMLConfig(AWSProperty):
 
 class CategoricalHyperParameterRange(AWSProperty):
     """
-    `CategoricalHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-categoricalhyperparameterrange.html>`__
+    `CategoricalHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-categoricalhyperparameterrange.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class CategoricalHyperParameterRange(AWSProperty):
 
 class ContinuousHyperParameterRange(AWSProperty):
     """
-    `ContinuousHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-continuoushyperparameterrange.html>`__
+    `ContinuousHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-continuoushyperparameterrange.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class ContinuousHyperParameterRange(AWSProperty):
 
 class IntegerHyperParameterRange(AWSProperty):
     """
-    `IntegerHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-integerhyperparameterrange.html>`__
+    `IntegerHyperParameterRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-integerhyperparameterrange.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class IntegerHyperParameterRange(AWSProperty):
 
 class AlgorithmHyperParameterRanges(AWSProperty):
     """
-    `AlgorithmHyperParameterRanges <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-algorithmhyperparameterranges.html>`__
+    `AlgorithmHyperParameterRanges <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-algorithmhyperparameterranges.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class AlgorithmHyperParameterRanges(AWSProperty):
 
 class HpoObjective(AWSProperty):
     """
-    `HpoObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoobjective.html>`__
+    `HpoObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-hpoobjective.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class HpoObjective(AWSProperty):
 
 class HpoResourceConfig(AWSProperty):
     """
-    `HpoResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hporesourceconfig.html>`__
+    `HpoResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-hporesourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class HpoResourceConfig(AWSProperty):
 
 class HpoConfig(AWSProperty):
     """
-    `HpoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-hpoconfig.html>`__
+    `HpoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-hpoconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -174,7 +174,7 @@ class HpoConfig(AWSProperty):
 
 class SolutionConfig(AWSProperty):
     """
-    `SolutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-solution-solutionconfig.html>`__
+    `SolutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-personalize-solution-solutionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class SolutionConfig(AWSProperty):
 
 class Solution(AWSObject):
     """
-    `Solution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html>`__
+    `Solution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-personalize-solution.html>`__
     """
 
     resource_type = "AWS::Personalize::Solution"

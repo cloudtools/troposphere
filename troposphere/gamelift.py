@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class RoutingStrategy(AWSProperty):
     """
-    `RoutingStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html>`__
+    `RoutingStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-alias-routingstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class RoutingStrategy(AWSProperty):
 
 class Alias(AWSObject):
     """
-    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html>`__
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-alias.html>`__
     """
 
     resource_type = "AWS::GameLift::Alias"
@@ -39,7 +39,7 @@ class Alias(AWSObject):
 
 class StorageLocation(AWSProperty):
     """
-    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html>`__
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-build-storagelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class StorageLocation(AWSProperty):
 
 class Build(AWSObject):
     """
-    `Build <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html>`__
+    `Build <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-build.html>`__
     """
 
     resource_type = "AWS::GameLift::Build"
@@ -69,7 +69,7 @@ class Build(AWSObject):
 
 class ConnectionPortRange(AWSProperty):
     """
-    `ConnectionPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-connectionportrange.html>`__
+    `ConnectionPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-connectionportrange.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class ConnectionPortRange(AWSProperty):
 
 class DeploymentConfiguration(AWSProperty):
     """
-    `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html>`__
+    `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-deploymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class DeploymentConfiguration(AWSProperty):
 
 class GameSessionCreationLimitPolicy(AWSProperty):
     """
-    `GameSessionCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-gamesessioncreationlimitpolicy.html>`__
+    `GameSessionCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-gamesessioncreationlimitpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class GameSessionCreationLimitPolicy(AWSProperty):
 
 class IpPermission(AWSProperty):
     """
-    `IpPermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html>`__
+    `IpPermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-ippermission.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class IpPermission(AWSProperty):
 
 class LocationCapacity(AWSProperty):
     """
-    `LocationCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html>`__
+    `LocationCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-locationcapacity.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class LocationCapacity(AWSProperty):
 
 class LocationConfiguration(AWSProperty):
     """
-    `LocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html>`__
+    `LocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-locationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class LocationConfiguration(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class LogConfiguration(AWSProperty):
 
 class TargetConfiguration(AWSProperty):
     """
-    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-targetconfiguration.html>`__
+    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-targetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class TargetConfiguration(AWSProperty):
 
 class ScalingPolicy(AWSProperty):
     """
-    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html>`__
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-scalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class ScalingPolicy(AWSProperty):
 
 class ContainerFleet(AWSObject):
     """
-    `ContainerFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html>`__
+    `ContainerFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-containerfleet.html>`__
     """
 
     resource_type = "AWS::GameLift::ContainerFleet"
@@ -210,7 +210,7 @@ class ContainerFleet(AWSObject):
 
 class ContainerDependency(AWSProperty):
     """
-    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html>`__
+    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-containerdependency.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +221,7 @@ class ContainerDependency(AWSProperty):
 
 class ContainerEnvironment(AWSProperty):
     """
-    `ContainerEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html>`__
+    `ContainerEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-containerenvironment.html>`__
     """
 
     props: PropsDictType = {
@@ -232,7 +232,7 @@ class ContainerEnvironment(AWSProperty):
 
 class ContainerMountPoint(AWSProperty):
     """
-    `ContainerMountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html>`__
+    `ContainerMountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-containermountpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class ContainerMountPoint(AWSProperty):
 
 class ContainerPortRange(AWSProperty):
     """
-    `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
+    `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class ContainerPortRange(AWSProperty):
 
 class PortConfiguration(AWSProperty):
     """
-    `PortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>`__
+    `PortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class PortConfiguration(AWSProperty):
 
 class GameServerContainerDefinition(AWSProperty):
     """
-    `GameServerContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html>`__
+    `GameServerContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class GameServerContainerDefinition(AWSProperty):
 
 class ContainerHealthCheck(AWSProperty):
     """
-    `ContainerHealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>`__
+    `ContainerHealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class ContainerHealthCheck(AWSProperty):
 
 class SupportContainerDefinition(AWSProperty):
     """
-    `SupportContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-supportcontainerdefinition.html>`__
+    `SupportContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containergroupdefinition-supportcontainerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -317,7 +317,7 @@ class SupportContainerDefinition(AWSProperty):
 
 class ContainerGroupDefinition(AWSObject):
     """
-    `ContainerGroupDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html>`__
+    `ContainerGroupDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-containergroupdefinition.html>`__
     """
 
     resource_type = "AWS::GameLift::ContainerGroupDefinition"
@@ -338,7 +338,7 @@ class ContainerGroupDefinition(AWSObject):
 
 class AnywhereConfiguration(AWSProperty):
     """
-    `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
+    `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class AnywhereConfiguration(AWSProperty):
 
 class CertificateConfiguration(AWSProperty):
     """
-    `CertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>`__
+    `CertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-certificateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +358,7 @@ class CertificateConfiguration(AWSProperty):
 
 class ResourceCreationLimitPolicy(AWSProperty):
     """
-    `ResourceCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html>`__
+    `ResourceCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -369,7 +369,7 @@ class ResourceCreationLimitPolicy(AWSProperty):
 
 class ServerProcess(AWSProperty):
     """
-    `ServerProcess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html>`__
+    `ServerProcess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-serverprocess.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class ServerProcess(AWSProperty):
 
 class RuntimeConfiguration(AWSProperty):
     """
-    `RuntimeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html>`__
+    `RuntimeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-fleet-runtimeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -393,7 +393,7 @@ class RuntimeConfiguration(AWSProperty):
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-fleet.html>`__
     """
 
     resource_type = "AWS::GameLift::Fleet"
@@ -428,7 +428,7 @@ class Fleet(AWSObject):
 
 class TargetTrackingConfiguration(AWSProperty):
     """
-    `TargetTrackingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html>`__
+    `TargetTrackingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class TargetTrackingConfiguration(AWSProperty):
 
 class AutoScalingPolicy(AWSProperty):
     """
-    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html>`__
+    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -449,7 +449,7 @@ class AutoScalingPolicy(AWSProperty):
 
 class InstanceDefinition(AWSProperty):
     """
-    `InstanceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html>`__
+    `InstanceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gameservergroup-instancedefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class InstanceDefinition(AWSProperty):
 
 class LaunchTemplate(AWSProperty):
     """
-    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html>`__
+    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gameservergroup-launchtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -472,7 +472,7 @@ class LaunchTemplate(AWSProperty):
 
 class GameServerGroup(AWSObject):
     """
-    `GameServerGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html>`__
+    `GameServerGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-gameservergroup.html>`__
     """
 
     resource_type = "AWS::GameLift::GameServerGroup"
@@ -495,7 +495,7 @@ class GameServerGroup(AWSObject):
 
 class FilterConfiguration(AWSProperty):
     """
-    `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html>`__
+    `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -505,7 +505,7 @@ class FilterConfiguration(AWSProperty):
 
 class GameSessionQueueDestination(AWSProperty):
     """
-    `GameSessionQueueDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-gamesessionqueuedestination.html>`__
+    `GameSessionQueueDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gamesessionqueue-gamesessionqueuedestination.html>`__
     """
 
     props: PropsDictType = {
@@ -515,7 +515,7 @@ class GameSessionQueueDestination(AWSProperty):
 
 class PlayerLatencyPolicy(AWSProperty):
     """
-    `PlayerLatencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html>`__
+    `PlayerLatencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -526,7 +526,7 @@ class PlayerLatencyPolicy(AWSProperty):
 
 class PriorityConfiguration(AWSProperty):
     """
-    `PriorityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html>`__
+    `PriorityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-gamesessionqueue-priorityconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -537,7 +537,7 @@ class PriorityConfiguration(AWSProperty):
 
 class GameSessionQueue(AWSObject):
     """
-    `GameSessionQueue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html>`__
+    `GameSessionQueue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-gamesessionqueue.html>`__
     """
 
     resource_type = "AWS::GameLift::GameSessionQueue"
@@ -557,7 +557,7 @@ class GameSessionQueue(AWSObject):
 
 class Location(AWSObject):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-location.html>`__
     """
 
     resource_type = "AWS::GameLift::Location"
@@ -570,7 +570,7 @@ class Location(AWSObject):
 
 class GameProperty(AWSProperty):
     """
-    `GameProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html>`__
+    `GameProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-matchmakingconfiguration-gameproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -581,7 +581,7 @@ class GameProperty(AWSProperty):
 
 class MatchmakingConfiguration(AWSObject):
     """
-    `MatchmakingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html>`__
+    `MatchmakingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-matchmakingconfiguration.html>`__
     """
 
     resource_type = "AWS::GameLift::MatchmakingConfiguration"
@@ -609,7 +609,7 @@ class MatchmakingConfiguration(AWSObject):
 
 class MatchmakingRuleSet(AWSObject):
     """
-    `MatchmakingRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingruleset.html>`__
+    `MatchmakingRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-matchmakingruleset.html>`__
     """
 
     resource_type = "AWS::GameLift::MatchmakingRuleSet"
@@ -623,7 +623,7 @@ class MatchmakingRuleSet(AWSObject):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-script-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -636,7 +636,7 @@ class S3Location(AWSProperty):
 
 class Script(AWSObject):
     """
-    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html>`__
+    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-gamelift-script.html>`__
     """
 
     resource_type = "AWS::GameLift::Script"
@@ -651,7 +651,7 @@ class Script(AWSObject):
 
 class DeploymentDetails(AWSProperty):
     """
-    `DeploymentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html>`__
+    `DeploymentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-gamelift-containerfleet-deploymentdetails.html>`__
     """
 
     props: PropsDictType = {

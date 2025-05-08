@@ -21,7 +21,7 @@ from .validators.codedeploy import (
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codedeploy-application.html>`__
     """
 
     resource_type = "AWS::CodeDeploy::Application"
@@ -35,7 +35,7 @@ class Application(AWSObject):
 
 class MinimumHealthyHosts(AWSProperty):
     """
-    `MinimumHealthyHosts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html>`__
+    `MinimumHealthyHosts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class MinimumHealthyHosts(AWSProperty):
 
 class TimeBasedCanary(AWSProperty):
     """
-    `TimeBasedCanary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html>`__
+    `TimeBasedCanary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-timebasedcanary.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class TimeBasedCanary(AWSProperty):
 
 class TimeBasedLinear(AWSProperty):
     """
-    `TimeBasedLinear <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html>`__
+    `TimeBasedLinear <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-timebasedlinear.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class TimeBasedLinear(AWSProperty):
 
 class TrafficRoutingConfig(AWSProperty):
     """
-    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html>`__
+    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-trafficroutingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class TrafficRoutingConfig(AWSProperty):
 
 class MinimumHealthyHostsPerZone(AWSProperty):
     """
-    `MinimumHealthyHostsPerZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html>`__
+    `MinimumHealthyHostsPerZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class MinimumHealthyHostsPerZone(AWSProperty):
 
 class ZonalConfig(AWSProperty):
     """
-    `ZonalConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-zonalconfig.html>`__
+    `ZonalConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentconfig-zonalconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class ZonalConfig(AWSProperty):
 
 class DeploymentConfig(AWSObject):
     """
-    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html>`__
+    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codedeploy-deploymentconfig.html>`__
     """
 
     resource_type = "AWS::CodeDeploy::DeploymentConfig"
@@ -119,7 +119,7 @@ class DeploymentConfig(AWSObject):
 
 class Alarm(AWSProperty):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-alarm.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class Alarm(AWSProperty):
 
 class AlarmConfiguration(AWSProperty):
     """
-    `AlarmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html>`__
+    `AlarmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -141,7 +141,7 @@ class AlarmConfiguration(AWSProperty):
 
 class AutoRollbackConfiguration(AWSProperty):
     """
-    `AutoRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html>`__
+    `AutoRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class AutoRollbackConfiguration(AWSProperty):
 
 class BlueInstanceTerminationOption(AWSProperty):
     """
-    `BlueInstanceTerminationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-blueinstanceterminationoption.html>`__
+    `BlueInstanceTerminationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-blueinstanceterminationoption.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class BlueInstanceTerminationOption(AWSProperty):
 
 class DeploymentReadyOption(AWSProperty):
     """
-    `DeploymentReadyOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html>`__
+    `DeploymentReadyOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deploymentreadyoption.html>`__
     """
 
     props: PropsDictType = {
@@ -174,7 +174,7 @@ class DeploymentReadyOption(AWSProperty):
 
 class GreenFleetProvisioningOption(AWSProperty):
     """
-    `GreenFleetProvisioningOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html>`__
+    `GreenFleetProvisioningOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class GreenFleetProvisioningOption(AWSProperty):
 
 class BlueGreenDeploymentConfiguration(AWSProperty):
     """
-    `BlueGreenDeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html>`__
+    `BlueGreenDeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class BlueGreenDeploymentConfiguration(AWSProperty):
 
 class GitHubLocation(AWSProperty):
     """
-    `GitHubLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-githublocation.html>`__
+    `GitHubLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deployment-revision-githublocation.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class GitHubLocation(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class S3Location(AWSProperty):
 
 class Revision(AWSProperty):
     """
-    `Revision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>`__
+    `Revision <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class Revision(AWSProperty):
 
 class Deployment(AWSProperty):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deployment.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class Deployment(AWSProperty):
 
 class DeploymentStyle(AWSProperty):
     """
-    `DeploymentStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html>`__
+    `DeploymentStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-deploymentstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class DeploymentStyle(AWSProperty):
 
 class ECSService(AWSProperty):
     """
-    `ECSService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ecsservice.html>`__
+    `ECSService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-ecsservice.html>`__
     """
 
     props: PropsDictType = {
@@ -270,7 +270,7 @@ class ECSService(AWSProperty):
 
 class Ec2TagFilters(AWSProperty):
     """
-    `Ec2TagFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html>`__
+    `Ec2TagFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -282,7 +282,7 @@ class Ec2TagFilters(AWSProperty):
 
 class Ec2TagSetListObject(AWSProperty):
     """
-    `Ec2TagSetListObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html>`__
+    `Ec2TagSetListObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class Ec2TagSetListObject(AWSProperty):
 
 class Ec2TagSet(AWSProperty):
     """
-    `Ec2TagSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html>`__
+    `Ec2TagSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-ec2tagset.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class Ec2TagSet(AWSProperty):
 
 class ElbInfoList(AWSProperty):
     """
-    `ElbInfoList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-elbinfo.html>`__
+    `ElbInfoList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-elbinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class ElbInfoList(AWSProperty):
 
 class TargetGroupInfo(AWSProperty):
     """
-    `TargetGroupInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgroupinfo.html>`__
+    `TargetGroupInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-targetgroupinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -322,7 +322,7 @@ class TargetGroupInfo(AWSProperty):
 
 class TrafficRoute(AWSProperty):
     """
-    `TrafficRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-trafficroute.html>`__
+    `TrafficRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-trafficroute.html>`__
     """
 
     props: PropsDictType = {
@@ -332,7 +332,7 @@ class TrafficRoute(AWSProperty):
 
 class TargetGroupPairInfo(AWSProperty):
     """
-    `TargetGroupPairInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html>`__
+    `TargetGroupPairInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +344,7 @@ class TargetGroupPairInfo(AWSProperty):
 
 class LoadBalancerInfo(AWSProperty):
     """
-    `LoadBalancerInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html>`__
+    `LoadBalancerInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class LoadBalancerInfo(AWSProperty):
 
 class OnPremisesInstanceTagFilters(AWSProperty):
     """
-    `OnPremisesInstanceTagFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html>`__
+    `OnPremisesInstanceTagFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -371,7 +371,7 @@ class OnPremisesInstanceTagFilters(AWSProperty):
 
 class TagFilter(AWSProperty):
     """
-    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html>`__
+    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -383,7 +383,7 @@ class TagFilter(AWSProperty):
 
 class OnPremisesTagSetListObject(AWSProperty):
     """
-    `OnPremisesTagSetListObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html>`__
+    `OnPremisesTagSetListObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html>`__
     """
 
     props: PropsDictType = {
@@ -393,7 +393,7 @@ class OnPremisesTagSetListObject(AWSProperty):
 
 class OnPremisesTagSet(AWSProperty):
     """
-    `OnPremisesTagSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html>`__
+    `OnPremisesTagSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html>`__
     """
 
     props: PropsDictType = {
@@ -403,7 +403,7 @@ class OnPremisesTagSet(AWSProperty):
 
 class TriggerConfig(AWSProperty):
     """
-    `TriggerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html>`__
+    `TriggerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codedeploy-deploymentgroup-triggerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -415,7 +415,7 @@ class TriggerConfig(AWSProperty):
 
 class DeploymentGroup(AWSObject):
     """
-    `DeploymentGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html>`__
+    `DeploymentGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codedeploy-deploymentgroup.html>`__
     """
 
     resource_type = "AWS::CodeDeploy::DeploymentGroup"

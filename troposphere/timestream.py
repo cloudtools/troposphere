@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Database(AWSObject):
     """
-    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html>`__
+    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-timestream-database.html>`__
     """
 
     resource_type = "AWS::Timestream::Database"
@@ -26,7 +26,7 @@ class Database(AWSObject):
 
 class S3Configuration(AWSProperty):
     """
-    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-s3configuration.html>`__
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-s3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class S3Configuration(AWSProperty):
 
 class LogDeliveryConfiguration(AWSProperty):
     """
-    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html>`__
+    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class LogDeliveryConfiguration(AWSProperty):
 
 class InfluxDBInstance(AWSObject):
     """
-    `InfluxDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html>`__
+    `InfluxDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-timestream-influxdbinstance.html>`__
     """
 
     resource_type = "AWS::Timestream::InfluxDBInstance"
@@ -77,7 +77,7 @@ class InfluxDBInstance(AWSObject):
 
 class ErrorReportConfiguration(AWSProperty):
     """
-    `ErrorReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html>`__
+    `ErrorReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-errorreportconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class ErrorReportConfiguration(AWSProperty):
 
 class SnsConfiguration(AWSProperty):
     """
-    `SnsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html>`__
+    `SnsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-snsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class SnsConfiguration(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html>`__
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-notificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class NotificationConfiguration(AWSProperty):
 
 class ScheduleConfiguration(AWSProperty):
     """
-    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html>`__
+    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-scheduleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class ScheduleConfiguration(AWSProperty):
 
 class DimensionMapping(AWSProperty):
     """
-    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html>`__
+    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-dimensionmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class DimensionMapping(AWSProperty):
 
 class MultiMeasureAttributeMapping(AWSProperty):
     """
-    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html>`__
+    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class MultiMeasureAttributeMapping(AWSProperty):
 
 class MixedMeasureMapping(AWSProperty):
     """
-    `MixedMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html>`__
+    `MixedMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class MixedMeasureMapping(AWSProperty):
 
 class MultiMeasureMappings(AWSProperty):
     """
-    `MultiMeasureMappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html>`__
+    `MultiMeasureMappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-multimeasuremappings.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class MultiMeasureMappings(AWSProperty):
 
 class TimestreamConfiguration(AWSProperty):
     """
-    `TimestreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html>`__
+    `TimestreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-timestreamconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class TimestreamConfiguration(AWSProperty):
 
 class TargetConfiguration(AWSProperty):
     """
-    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html>`__
+    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-scheduledquery-targetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -191,7 +191,7 @@ class TargetConfiguration(AWSProperty):
 
 class ScheduledQuery(AWSObject):
     """
-    `ScheduledQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html>`__
+    `ScheduledQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-timestream-scheduledquery.html>`__
     """
 
     resource_type = "AWS::Timestream::ScheduledQuery"
@@ -212,7 +212,7 @@ class ScheduledQuery(AWSObject):
 
 class MagneticStoreRejectedDataLocation(AWSProperty):
     """
-    `MagneticStoreRejectedDataLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html>`__
+    `MagneticStoreRejectedDataLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-magneticstorerejecteddatalocation.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class MagneticStoreRejectedDataLocation(AWSProperty):
 
 class MagneticStoreWriteProperties(AWSProperty):
     """
-    `MagneticStoreWriteProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html>`__
+    `MagneticStoreWriteProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-magneticstorewriteproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -233,7 +233,7 @@ class MagneticStoreWriteProperties(AWSProperty):
 
 class RetentionProperties(AWSProperty):
     """
-    `RetentionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-retentionproperties.html>`__
+    `RetentionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-retentionproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class RetentionProperties(AWSProperty):
 
 class PartitionKey(AWSProperty):
     """
-    `PartitionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html>`__
+    `PartitionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-partitionkey.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class PartitionKey(AWSProperty):
 
 class Schema(AWSProperty):
     """
-    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-schema.html>`__
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-timestream-table-schema.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class Schema(AWSProperty):
 
 class Table(AWSObject):
     """
-    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html>`__
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-timestream-table.html>`__
     """
 
     resource_type = "AWS::Timestream::Table"

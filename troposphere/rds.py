@@ -28,7 +28,7 @@ from .validators.rds import (
 
 class CustomDBEngineVersion(AWSObject):
     """
-    `CustomDBEngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html>`__
+    `CustomDBEngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-customdbengineversion.html>`__
     """
 
     resource_type = "AWS::RDS::CustomDBEngineVersion"
@@ -51,7 +51,7 @@ class CustomDBEngineVersion(AWSObject):
 
 class DBClusterRole(AWSProperty):
     """
-    `DBClusterRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html>`__
+    `DBClusterRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbcluster-dbclusterrole.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class DBClusterRole(AWSProperty):
 
 class MasterUserSecret(AWSProperty):
     """
-    `MasterUserSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html>`__
+    `MasterUserSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbinstance-masterusersecret.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class MasterUserSecret(AWSProperty):
 
 class ScalingConfiguration(AWSProperty):
     """
-    `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html>`__
+    `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbcluster-scalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class ScalingConfiguration(AWSProperty):
 
 class ServerlessV2ScalingConfiguration(AWSProperty):
     """
-    `ServerlessV2ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html>`__
+    `ServerlessV2ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class ServerlessV2ScalingConfiguration(AWSProperty):
 
 class DBCluster(AWSObject):
     """
-    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html>`__
+    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbcluster.html>`__
     """
 
     resource_type = "AWS::RDS::DBCluster"
@@ -169,7 +169,7 @@ class DBCluster(AWSObject):
 
 class DBClusterParameterGroup(AWSObject):
     """
-    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html>`__
+    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbclusterparametergroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBClusterParameterGroup"
@@ -185,7 +185,7 @@ class DBClusterParameterGroup(AWSObject):
 
 class CertificateDetails(AWSProperty):
     """
-    `CertificateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html>`__
+    `CertificateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbinstance-certificatedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class CertificateDetails(AWSProperty):
 
 class DBInstanceRole(AWSProperty):
     """
-    `DBInstanceRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html>`__
+    `DBInstanceRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbinstance-dbinstancerole.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class DBInstanceRole(AWSProperty):
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbinstance-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class Endpoint(AWSProperty):
 
 class ProcessorFeature(AWSProperty):
     """
-    `ProcessorFeature <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html>`__
+    `ProcessorFeature <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbinstance-processorfeature.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class ProcessorFeature(AWSProperty):
 
 class DBInstance(AWSObject):
     """
-    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html>`__
+    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbinstance.html>`__
     """
 
     resource_type = "AWS::RDS::DBInstance"
@@ -324,7 +324,7 @@ class DBInstance(AWSObject):
 
 class DBParameterGroup(AWSObject):
     """
-    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html>`__
+    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbparametergroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBParameterGroup"
@@ -340,7 +340,7 @@ class DBParameterGroup(AWSObject):
 
 class AuthFormat(AWSProperty):
     """
-    `AuthFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html>`__
+    `AuthFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbproxy-authformat.html>`__
     """
 
     props: PropsDictType = {
@@ -354,7 +354,7 @@ class AuthFormat(AWSProperty):
 
 class DBProxy(AWSObject):
     """
-    `DBProxy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html>`__
+    `DBProxy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbproxy.html>`__
     """
 
     resource_type = "AWS::RDS::DBProxy"
@@ -375,7 +375,7 @@ class DBProxy(AWSObject):
 
 class DBProxyEndpoint(AWSObject):
     """
-    `DBProxyEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html>`__
+    `DBProxyEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbproxyendpoint.html>`__
     """
 
     resource_type = "AWS::RDS::DBProxyEndpoint"
@@ -392,7 +392,7 @@ class DBProxyEndpoint(AWSObject):
 
 class ConnectionPoolConfigurationInfoFormat(AWSProperty):
     """
-    `ConnectionPoolConfigurationInfoFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html>`__
+    `ConnectionPoolConfigurationInfoFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html>`__
     """
 
     props: PropsDictType = {
@@ -406,7 +406,7 @@ class ConnectionPoolConfigurationInfoFormat(AWSProperty):
 
 class DBProxyTargetGroup(AWSObject):
     """
-    `DBProxyTargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html>`__
+    `DBProxyTargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbproxytargetgroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBProxyTargetGroup"
@@ -425,7 +425,7 @@ class DBProxyTargetGroup(AWSObject):
 
 class Ingress(AWSProperty):
     """
-    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html>`__
+    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-security-group-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class Ingress(AWSProperty):
 
 class DBSecurityGroup(AWSObject):
     """
-    `DBSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html>`__
+    `DBSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-security-group.html>`__
     """
 
     resource_type = "AWS::RDS::DBSecurityGroup"
@@ -453,7 +453,7 @@ class DBSecurityGroup(AWSObject):
 
 class DBSecurityGroupIngress(AWSObject):
     """
-    `DBSecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html>`__
+    `DBSecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-security-group-ingress.html>`__
     """
 
     resource_type = "AWS::RDS::DBSecurityGroupIngress"
@@ -469,7 +469,7 @@ class DBSecurityGroupIngress(AWSObject):
 
 class DBShardGroup(AWSObject):
     """
-    `DBShardGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html>`__
+    `DBShardGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbshardgroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBShardGroup"
@@ -487,7 +487,7 @@ class DBShardGroup(AWSObject):
 
 class DBSubnetGroup(AWSObject):
     """
-    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html>`__
+    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbsubnetgroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBSubnetGroup"
@@ -502,7 +502,7 @@ class DBSubnetGroup(AWSObject):
 
 class EventSubscription(AWSObject):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-eventsubscription.html>`__
     """
 
     resource_type = "AWS::RDS::EventSubscription"
@@ -520,7 +520,7 @@ class EventSubscription(AWSObject):
 
 class GlobalEndpoint(AWSProperty):
     """
-    `GlobalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html>`__
+    `GlobalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-globalcluster-globalendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -530,7 +530,7 @@ class GlobalEndpoint(AWSProperty):
 
 class GlobalCluster(AWSObject):
     """
-    `GlobalCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html>`__
+    `GlobalCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-globalcluster.html>`__
     """
 
     resource_type = "AWS::RDS::GlobalCluster"
@@ -550,7 +550,7 @@ class GlobalCluster(AWSObject):
 
 class Integration(AWSObject):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-integration.html>`__
     """
 
     resource_type = "AWS::RDS::Integration"
@@ -569,7 +569,7 @@ class Integration(AWSObject):
 
 class OptionSetting(AWSProperty):
     """
-    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html>`__
+    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-optiongroup-optionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -580,7 +580,7 @@ class OptionSetting(AWSProperty):
 
 class OptionConfiguration(AWSProperty):
     """
-    `OptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html>`__
+    `OptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-optiongroup-optionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -595,7 +595,7 @@ class OptionConfiguration(AWSProperty):
 
 class OptionGroup(AWSObject):
     """
-    `OptionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html>`__
+    `OptionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-optiongroup.html>`__
     """
 
     resource_type = "AWS::RDS::OptionGroup"
@@ -612,7 +612,7 @@ class OptionGroup(AWSObject):
 
 class ReadEndpoint(AWSProperty):
     """
-    `ReadEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html>`__
+    `ReadEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rds-dbcluster-readendpoint.html>`__
     """
 
     props: PropsDictType = {

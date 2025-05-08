@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class Parameter(AWSProperty):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledbaseline-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-controltower-enabledbaseline-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class Parameter(AWSProperty):
 
 class EnabledBaseline(AWSObject):
     """
-    `EnabledBaseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledbaseline.html>`__
+    `EnabledBaseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-controltower-enabledbaseline.html>`__
     """
 
     resource_type = "AWS::ControlTower::EnabledBaseline"
@@ -38,7 +38,7 @@ class EnabledBaseline(AWSObject):
 
 class EnabledControlParameter(AWSProperty):
     """
-    `EnabledControlParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledcontrol-enabledcontrolparameter.html>`__
+    `EnabledControlParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-controltower-enabledcontrol-enabledcontrolparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class EnabledControlParameter(AWSProperty):
 
 class EnabledControl(AWSObject):
     """
-    `EnabledControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html>`__
+    `EnabledControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-controltower-enabledcontrol.html>`__
     """
 
     resource_type = "AWS::ControlTower::EnabledControl"
@@ -64,7 +64,7 @@ class EnabledControl(AWSObject):
 
 class LandingZone(AWSObject):
     """
-    `LandingZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html>`__
+    `LandingZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-controltower-landingzone.html>`__
     """
 
     resource_type = "AWS::ControlTower::LandingZone"

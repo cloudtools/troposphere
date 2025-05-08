@@ -13,7 +13,7 @@ from .validators.appsync import resolver_kind_validator
 
 class AuthMode(AWSProperty):
     """
-    `AuthMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-authmode.html>`__
+    `AuthMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-channelnamespace-authmode.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AuthMode(AWSProperty):
 
 class CognitoConfig(AWSProperty):
     """
-    `CognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-cognitoconfig.html>`__
+    `CognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-api-cognitoconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class CognitoConfig(AWSProperty):
 
 class LambdaAuthorizerConfig(AWSProperty):
     """
-    `LambdaAuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html>`__
+    `LambdaAuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class LambdaAuthorizerConfig(AWSProperty):
 
 class OpenIDConnectConfig(AWSProperty):
     """
-    `OpenIDConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html>`__
+    `OpenIDConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-openidconnectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class OpenIDConnectConfig(AWSProperty):
 
 class AuthProvider(AWSProperty):
     """
-    `AuthProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html>`__
+    `AuthProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-api-authprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class AuthProvider(AWSProperty):
 
 class EventLogConfig(AWSProperty):
     """
-    `EventLogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html>`__
+    `EventLogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-api-eventlogconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class EventLogConfig(AWSProperty):
 
 class EventConfig(AWSProperty):
     """
-    `EventConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html>`__
+    `EventConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-api-eventconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class EventConfig(AWSProperty):
 
 class Api(AWSObject):
     """
-    `Api <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html>`__
+    `Api <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-api.html>`__
     """
 
     resource_type = "AWS::AppSync::Api"
@@ -113,7 +113,7 @@ class Api(AWSObject):
 
 class ApiCache(AWSObject):
     """
-    `ApiCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html>`__
+    `ApiCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-apicache.html>`__
     """
 
     resource_type = "AWS::AppSync::ApiCache"
@@ -131,7 +131,7 @@ class ApiCache(AWSObject):
 
 class ApiKey(AWSObject):
     """
-    `ApiKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html>`__
+    `ApiKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-apikey.html>`__
     """
 
     resource_type = "AWS::AppSync::ApiKey"
@@ -146,7 +146,7 @@ class ApiKey(AWSObject):
 
 class LambdaConfig(AWSProperty):
     """
-    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html>`__
+    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-lambdaconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class LambdaConfig(AWSProperty):
 
 class Integration(AWSProperty):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-channelnamespace-integration.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class Integration(AWSProperty):
 
 class HandlerConfig(AWSProperty):
     """
-    `HandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfig.html>`__
+    `HandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-channelnamespace-handlerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -178,7 +178,7 @@ class HandlerConfig(AWSProperty):
 
 class HandlerConfigs(AWSProperty):
     """
-    `HandlerConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfigs.html>`__
+    `HandlerConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-channelnamespace-handlerconfigs.html>`__
     """
 
     props: PropsDictType = {
@@ -189,7 +189,7 @@ class HandlerConfigs(AWSProperty):
 
 class ChannelNamespace(AWSObject):
     """
-    `ChannelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html>`__
+    `ChannelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-channelnamespace.html>`__
     """
 
     resource_type = "AWS::AppSync::ChannelNamespace"
@@ -208,7 +208,7 @@ class ChannelNamespace(AWSObject):
 
 class DeltaSyncConfig(AWSProperty):
     """
-    `DeltaSyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html>`__
+    `DeltaSyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-deltasyncconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class DeltaSyncConfig(AWSProperty):
 
 class DynamoDBConfig(AWSProperty):
     """
-    `DynamoDBConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html>`__
+    `DynamoDBConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-dynamodbconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class DynamoDBConfig(AWSProperty):
 
 class ElasticsearchConfig(AWSProperty):
     """
-    `ElasticsearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html>`__
+    `ElasticsearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-elasticsearchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class ElasticsearchConfig(AWSProperty):
 
 class EventBridgeConfig(AWSProperty):
     """
-    `EventBridgeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-eventbridgeconfig.html>`__
+    `EventBridgeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-eventbridgeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class EventBridgeConfig(AWSProperty):
 
 class AwsIamConfig(AWSProperty):
     """
-    `AwsIamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html>`__
+    `AwsIamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-awsiamconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class AwsIamConfig(AWSProperty):
 
 class AuthorizationConfig(AWSProperty):
     """
-    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html>`__
+    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-authorizationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class AuthorizationConfig(AWSProperty):
 
 class HttpConfig(AWSProperty):
     """
-    `HttpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html>`__
+    `HttpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-httpconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -288,7 +288,7 @@ class HttpConfig(AWSProperty):
 
 class OpenSearchServiceConfig(AWSProperty):
     """
-    `OpenSearchServiceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html>`__
+    `OpenSearchServiceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-opensearchserviceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -299,7 +299,7 @@ class OpenSearchServiceConfig(AWSProperty):
 
 class RdsHttpEndpointConfig(AWSProperty):
     """
-    `RdsHttpEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html>`__
+    `RdsHttpEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-rdshttpendpointconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -313,7 +313,7 @@ class RdsHttpEndpointConfig(AWSProperty):
 
 class RelationalDatabaseConfig(AWSProperty):
     """
-    `RelationalDatabaseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html>`__
+    `RelationalDatabaseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-datasource-relationaldatabaseconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class RelationalDatabaseConfig(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-datasource.html>`__
     """
 
     resource_type = "AWS::AppSync::DataSource"
@@ -348,7 +348,7 @@ class DataSource(AWSObject):
 
 class DomainName(AWSObject):
     """
-    `DomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html>`__
+    `DomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-domainname.html>`__
     """
 
     resource_type = "AWS::AppSync::DomainName"
@@ -363,7 +363,7 @@ class DomainName(AWSObject):
 
 class DomainNameApiAssociation(AWSObject):
     """
-    `DomainNameApiAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html>`__
+    `DomainNameApiAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-domainnameapiassociation.html>`__
     """
 
     resource_type = "AWS::AppSync::DomainNameApiAssociation"
@@ -376,7 +376,7 @@ class DomainNameApiAssociation(AWSObject):
 
 class AppSyncRuntime(AWSProperty):
     """
-    `AppSyncRuntime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-appsyncruntime.html>`__
+    `AppSyncRuntime <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-resolver-appsyncruntime.html>`__
     """
 
     props: PropsDictType = {
@@ -387,7 +387,7 @@ class AppSyncRuntime(AWSProperty):
 
 class LambdaConflictHandlerConfig(AWSProperty):
     """
-    `LambdaConflictHandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html>`__
+    `LambdaConflictHandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class LambdaConflictHandlerConfig(AWSProperty):
 
 class SyncConfig(AWSProperty):
     """
-    `SyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html>`__
+    `SyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-resolver-syncconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class SyncConfig(AWSProperty):
 
 class FunctionConfiguration(AWSObject):
     """
-    `FunctionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html>`__
+    `FunctionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-functionconfiguration.html>`__
     """
 
     resource_type = "AWS::AppSync::FunctionConfiguration"
@@ -434,7 +434,7 @@ class FunctionConfiguration(AWSObject):
 
 class CognitoUserPoolConfig(AWSProperty):
     """
-    `CognitoUserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html>`__
+    `CognitoUserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -446,7 +446,7 @@ class CognitoUserPoolConfig(AWSProperty):
 
 class AdditionalAuthenticationProvider(AWSProperty):
     """
-    `AdditionalAuthenticationProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html>`__
+    `AdditionalAuthenticationProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -459,7 +459,7 @@ class AdditionalAuthenticationProvider(AWSProperty):
 
 class EnhancedMetricsConfig(AWSProperty):
     """
-    `EnhancedMetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html>`__
+    `EnhancedMetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -471,7 +471,7 @@ class EnhancedMetricsConfig(AWSProperty):
 
 class LogConfig(AWSProperty):
     """
-    `LogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html>`__
+    `LogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-logconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -483,7 +483,7 @@ class LogConfig(AWSProperty):
 
 class UserPoolConfig(AWSProperty):
     """
-    `UserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-userpoolconfig.html>`__
+    `UserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-graphqlapi-userpoolconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -496,7 +496,7 @@ class UserPoolConfig(AWSProperty):
 
 class GraphQLApi(AWSObject):
     """
-    `GraphQLApi <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html>`__
+    `GraphQLApi <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-graphqlapi.html>`__
     """
 
     resource_type = "AWS::AppSync::GraphQLApi"
@@ -528,7 +528,7 @@ class GraphQLApi(AWSObject):
 
 class GraphQLSchema(AWSObject):
     """
-    `GraphQLSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html>`__
+    `GraphQLSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-graphqlschema.html>`__
     """
 
     resource_type = "AWS::AppSync::GraphQLSchema"
@@ -542,7 +542,7 @@ class GraphQLSchema(AWSObject):
 
 class CachingConfig(AWSProperty):
     """
-    `CachingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html>`__
+    `CachingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-resolver-cachingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -553,7 +553,7 @@ class CachingConfig(AWSProperty):
 
 class PipelineConfig(AWSProperty):
     """
-    `PipelineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html>`__
+    `PipelineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-resolver-pipelineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -563,7 +563,7 @@ class PipelineConfig(AWSProperty):
 
 class Resolver(AWSObject):
     """
-    `Resolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html>`__
+    `Resolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-resolver.html>`__
     """
 
     resource_type = "AWS::AppSync::Resolver"
@@ -591,7 +591,7 @@ class Resolver(AWSObject):
 
 class SourceApiAssociationConfig(AWSProperty):
     """
-    `SourceApiAssociationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html>`__
+    `SourceApiAssociationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -601,7 +601,7 @@ class SourceApiAssociationConfig(AWSProperty):
 
 class SourceApiAssociation(AWSObject):
     """
-    `SourceApiAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html>`__
+    `SourceApiAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appsync-sourceapiassociation.html>`__
     """
 
     resource_type = "AWS::AppSync::SourceApiAssociation"
@@ -616,7 +616,7 @@ class SourceApiAssociation(AWSObject):
 
 class DnsMap(AWSProperty):
     """
-    `DnsMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html>`__
+    `DnsMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appsync-api-dnsmap.html>`__
     """
 
     props: PropsDictType = {

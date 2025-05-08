@@ -12,7 +12,7 @@ from .validators import double
 
 class DefinitionDocument(AWSProperty):
     """
-    `DefinitionDocument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html>`__
+    `DefinitionDocument <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotthingsgraph-flowtemplate-definitiondocument.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class DefinitionDocument(AWSProperty):
 
 class FlowTemplate(AWSObject):
     """
-    `FlowTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html>`__
+    `FlowTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotthingsgraph-flowtemplate.html>`__
     """
 
     resource_type = "AWS::IoTThingsGraph::FlowTemplate"

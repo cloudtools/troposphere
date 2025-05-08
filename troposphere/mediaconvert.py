@@ -12,7 +12,7 @@ from .validators import integer
 
 class AccelerationSettings(AWSProperty):
     """
-    `AccelerationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html>`__
+    `AccelerationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AccelerationSettings(AWSProperty):
 
 class HopDestination(AWSProperty):
     """
-    `HopDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-hopdestination.html>`__
+    `HopDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconvert-jobtemplate-hopdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class HopDestination(AWSProperty):
 
 class JobTemplate(AWSObject):
     """
-    `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html>`__
+    `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconvert-jobtemplate.html>`__
     """
 
     resource_type = "AWS::MediaConvert::JobTemplate"
@@ -55,7 +55,7 @@ class JobTemplate(AWSObject):
 
 class Preset(AWSObject):
     """
-    `Preset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html>`__
+    `Preset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconvert-preset.html>`__
     """
 
     resource_type = "AWS::MediaConvert::Preset"
@@ -71,7 +71,7 @@ class Preset(AWSObject):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconvert-queue.html>`__
     """
 
     resource_type = "AWS::MediaConvert::Queue"

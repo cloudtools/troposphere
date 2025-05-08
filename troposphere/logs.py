@@ -17,7 +17,7 @@ from .validators.logs import (
 
 class AccountPolicy(AWSObject):
     """
-    `AccountPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html>`__
+    `AccountPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-accountpolicy.html>`__
     """
 
     resource_type = "AWS::Logs::AccountPolicy"
@@ -33,7 +33,7 @@ class AccountPolicy(AWSObject):
 
 class Delivery(AWSObject):
     """
-    `Delivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html>`__
+    `Delivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-delivery.html>`__
     """
 
     resource_type = "AWS::Logs::Delivery"
@@ -51,7 +51,7 @@ class Delivery(AWSObject):
 
 class DeliveryDestination(AWSObject):
     """
-    `DeliveryDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html>`__
+    `DeliveryDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-deliverydestination.html>`__
     """
 
     resource_type = "AWS::Logs::DeliveryDestination"
@@ -67,7 +67,7 @@ class DeliveryDestination(AWSObject):
 
 class DeliverySource(AWSObject):
     """
-    `DeliverySource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html>`__
+    `DeliverySource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-deliverysource.html>`__
     """
 
     resource_type = "AWS::Logs::DeliverySource"
@@ -82,7 +82,7 @@ class DeliverySource(AWSObject):
 
 class Destination(AWSObject):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html>`__
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-destination.html>`__
     """
 
     resource_type = "AWS::Logs::Destination"
@@ -97,7 +97,7 @@ class Destination(AWSObject):
 
 class OpenSearchResourceConfig(AWSProperty):
     """
-    `OpenSearchResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html>`__
+    `OpenSearchResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-integration-opensearchresourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class OpenSearchResourceConfig(AWSProperty):
 
 class ResourceConfig(AWSProperty):
     """
-    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html>`__
+    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-integration-resourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -121,7 +121,7 @@ class ResourceConfig(AWSProperty):
 
 class Integration(AWSObject):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-integration.html>`__
     """
 
     resource_type = "AWS::Logs::Integration"
@@ -135,7 +135,7 @@ class Integration(AWSObject):
 
 class LogAnomalyDetector(AWSObject):
     """
-    `LogAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loganomalydetector.html>`__
+    `LogAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-loganomalydetector.html>`__
     """
 
     resource_type = "AWS::Logs::LogAnomalyDetector"
@@ -153,7 +153,7 @@ class LogAnomalyDetector(AWSObject):
 
 class LogGroup(AWSObject):
     """
-    `LogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html>`__
+    `LogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-loggroup.html>`__
     """
 
     resource_type = "AWS::Logs::LogGroup"
@@ -171,7 +171,7 @@ class LogGroup(AWSObject):
 
 class LogStream(AWSObject):
     """
-    `LogStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html>`__
+    `LogStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-logstream.html>`__
     """
 
     resource_type = "AWS::Logs::LogStream"
@@ -184,7 +184,7 @@ class LogStream(AWSObject):
 
 class Dimension(AWSProperty):
     """
-    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-dimension.html>`__
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-metricfilter-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class Dimension(AWSProperty):
 
 class MetricTransformation(AWSProperty):
     """
-    `MetricTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html>`__
+    `MetricTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-metricfilter-metrictransformation.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class MetricTransformation(AWSProperty):
 
 class MetricFilter(AWSObject):
     """
-    `MetricFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html>`__
+    `MetricFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-metricfilter.html>`__
     """
 
     resource_type = "AWS::Logs::MetricFilter"
@@ -226,7 +226,7 @@ class MetricFilter(AWSObject):
 
 class QueryDefinition(AWSObject):
     """
-    `QueryDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html>`__
+    `QueryDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-querydefinition.html>`__
     """
 
     resource_type = "AWS::Logs::QueryDefinition"
@@ -241,7 +241,7 @@ class QueryDefinition(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::Logs::ResourcePolicy"
@@ -254,7 +254,7 @@ class ResourcePolicy(AWSObject):
 
 class SubscriptionFilter(AWSObject):
     """
-    `SubscriptionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html>`__
+    `SubscriptionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-subscriptionfilter.html>`__
     """
 
     resource_type = "AWS::Logs::SubscriptionFilter"
@@ -272,7 +272,7 @@ class SubscriptionFilter(AWSObject):
 
 class AddKeyEntry(AWSProperty):
     """
-    `AddKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-addkeyentry.html>`__
+    `AddKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-addkeyentry.html>`__
     """
 
     props: PropsDictType = {
@@ -284,7 +284,7 @@ class AddKeyEntry(AWSProperty):
 
 class AddKeys(AWSProperty):
     """
-    `AddKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-addkeys.html>`__
+    `AddKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-addkeys.html>`__
     """
 
     props: PropsDictType = {
@@ -294,7 +294,7 @@ class AddKeys(AWSProperty):
 
 class CopyValueEntry(AWSProperty):
     """
-    `CopyValueEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-copyvalueentry.html>`__
+    `CopyValueEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-copyvalueentry.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class CopyValueEntry(AWSProperty):
 
 class CopyValue(AWSProperty):
     """
-    `CopyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-copyvalue.html>`__
+    `CopyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-copyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class CopyValue(AWSProperty):
 
 class Csv(AWSProperty):
     """
-    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-csv.html>`__
+    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-csv.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class Csv(AWSProperty):
 
 class DateTimeConverter(AWSProperty):
     """
-    `DateTimeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-datetimeconverter.html>`__
+    `DateTimeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-datetimeconverter.html>`__
     """
 
     props: PropsDictType = {
@@ -345,7 +345,7 @@ class DateTimeConverter(AWSProperty):
 
 class DeleteKeys(AWSProperty):
     """
-    `DeleteKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-deletekeys.html>`__
+    `DeleteKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-deletekeys.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +355,7 @@ class DeleteKeys(AWSProperty):
 
 class Grok(AWSProperty):
     """
-    `Grok <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-grok.html>`__
+    `Grok <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-grok.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class Grok(AWSProperty):
 
 class ListToMap(AWSProperty):
     """
-    `ListToMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-listtomap.html>`__
+    `ListToMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-listtomap.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class ListToMap(AWSProperty):
 
 class LowerCaseString(AWSProperty):
     """
-    `LowerCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-lowercasestring.html>`__
+    `LowerCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-lowercasestring.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class LowerCaseString(AWSProperty):
 
 class MoveKeyEntry(AWSProperty):
     """
-    `MoveKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-movekeyentry.html>`__
+    `MoveKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-movekeyentry.html>`__
     """
 
     props: PropsDictType = {
@@ -403,7 +403,7 @@ class MoveKeyEntry(AWSProperty):
 
 class MoveKeys(AWSProperty):
     """
-    `MoveKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-movekeys.html>`__
+    `MoveKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-movekeys.html>`__
     """
 
     props: PropsDictType = {
@@ -413,7 +413,7 @@ class MoveKeys(AWSProperty):
 
 class ParseCloudfront(AWSProperty):
     """
-    `ParseCloudfront <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsecloudfront.html>`__
+    `ParseCloudfront <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsecloudfront.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class ParseCloudfront(AWSProperty):
 
 class ParseJSON(AWSProperty):
     """
-    `ParseJSON <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsejson.html>`__
+    `ParseJSON <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsejson.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class ParseJSON(AWSProperty):
 
 class ParseKeyValue(AWSProperty):
     """
-    `ParseKeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsekeyvalue.html>`__
+    `ParseKeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsekeyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -450,7 +450,7 @@ class ParseKeyValue(AWSProperty):
 
 class ParsePostgres(AWSProperty):
     """
-    `ParsePostgres <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsepostgres.html>`__
+    `ParsePostgres <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsepostgres.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class ParsePostgres(AWSProperty):
 
 class ParseRoute53(AWSProperty):
     """
-    `ParseRoute53 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parseroute53.html>`__
+    `ParseRoute53 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parseroute53.html>`__
     """
 
     props: PropsDictType = {
@@ -470,7 +470,7 @@ class ParseRoute53(AWSProperty):
 
 class ParseVPC(AWSProperty):
     """
-    `ParseVPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsevpc.html>`__
+    `ParseVPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsevpc.html>`__
     """
 
     props: PropsDictType = {
@@ -480,7 +480,7 @@ class ParseVPC(AWSProperty):
 
 class ParseWAF(AWSProperty):
     """
-    `ParseWAF <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsewaf.html>`__
+    `ParseWAF <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-parsewaf.html>`__
     """
 
     props: PropsDictType = {
@@ -490,7 +490,7 @@ class ParseWAF(AWSProperty):
 
 class RenameKeyEntry(AWSProperty):
     """
-    `RenameKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-renamekeyentry.html>`__
+    `RenameKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-renamekeyentry.html>`__
     """
 
     props: PropsDictType = {
@@ -502,7 +502,7 @@ class RenameKeyEntry(AWSProperty):
 
 class RenameKeys(AWSProperty):
     """
-    `RenameKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-renamekeys.html>`__
+    `RenameKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-renamekeys.html>`__
     """
 
     props: PropsDictType = {
@@ -512,7 +512,7 @@ class RenameKeys(AWSProperty):
 
 class SplitStringEntry(AWSProperty):
     """
-    `SplitStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-splitstringentry.html>`__
+    `SplitStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-splitstringentry.html>`__
     """
 
     props: PropsDictType = {
@@ -523,7 +523,7 @@ class SplitStringEntry(AWSProperty):
 
 class SplitString(AWSProperty):
     """
-    `SplitString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-splitstring.html>`__
+    `SplitString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-splitstring.html>`__
     """
 
     props: PropsDictType = {
@@ -533,7 +533,7 @@ class SplitString(AWSProperty):
 
 class SubstituteStringEntry(AWSProperty):
     """
-    `SubstituteStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-substitutestringentry.html>`__
+    `SubstituteStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-substitutestringentry.html>`__
     """
 
     props: PropsDictType = {
@@ -545,7 +545,7 @@ class SubstituteStringEntry(AWSProperty):
 
 class SubstituteString(AWSProperty):
     """
-    `SubstituteString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-substitutestring.html>`__
+    `SubstituteString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-substitutestring.html>`__
     """
 
     props: PropsDictType = {
@@ -555,7 +555,7 @@ class SubstituteString(AWSProperty):
 
 class TrimString(AWSProperty):
     """
-    `TrimString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-trimstring.html>`__
+    `TrimString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-trimstring.html>`__
     """
 
     props: PropsDictType = {
@@ -565,7 +565,7 @@ class TrimString(AWSProperty):
 
 class TypeConverterEntry(AWSProperty):
     """
-    `TypeConverterEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-typeconverterentry.html>`__
+    `TypeConverterEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-typeconverterentry.html>`__
     """
 
     props: PropsDictType = {
@@ -576,7 +576,7 @@ class TypeConverterEntry(AWSProperty):
 
 class TypeConverter(AWSProperty):
     """
-    `TypeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-typeconverter.html>`__
+    `TypeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-typeconverter.html>`__
     """
 
     props: PropsDictType = {
@@ -586,7 +586,7 @@ class TypeConverter(AWSProperty):
 
 class UpperCaseString(AWSProperty):
     """
-    `UpperCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-uppercasestring.html>`__
+    `UpperCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-uppercasestring.html>`__
     """
 
     props: PropsDictType = {
@@ -596,7 +596,7 @@ class UpperCaseString(AWSProperty):
 
 class Processor(AWSProperty):
     """
-    `Processor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-processor.html>`__
+    `Processor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-logs-transformer-processor.html>`__
     """
 
     props: PropsDictType = {
@@ -627,7 +627,7 @@ class Processor(AWSProperty):
 
 class Transformer(AWSObject):
     """
-    `Transformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-transformer.html>`__
+    `Transformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-transformer.html>`__
     """
 
     resource_type = "AWS::Logs::Transformer"

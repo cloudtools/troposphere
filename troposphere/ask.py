@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class AuthenticationConfiguration(AWSProperty):
     """
-    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html>`__
+    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ask-skill-authenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AuthenticationConfiguration(AWSProperty):
 
 class Overrides(AWSProperty):
     """
-    `Overrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html>`__
+    `Overrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ask-skill-overrides.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class Overrides(AWSProperty):
 
 class SkillPackage(AWSProperty):
     """
-    `SkillPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html>`__
+    `SkillPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ask-skill-skillpackage.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class SkillPackage(AWSProperty):
 
 class Skill(AWSObject):
     """
-    `Skill <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html>`__
+    `Skill <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ask-skill.html>`__
     """
 
     resource_type = "Alexa::ASK::Skill"

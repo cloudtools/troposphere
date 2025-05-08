@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class AugmentedManifestsListItem(AWSProperty):
     """
-    `AugmentedManifestsListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html>`__
+    `AugmentedManifestsListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AugmentedManifestsListItem(AWSProperty):
 
 class DocumentClassifierDocuments(AWSProperty):
     """
-    `DocumentClassifierDocuments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierdocuments.html>`__
+    `DocumentClassifierDocuments <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-documentclassifier-documentclassifierdocuments.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class DocumentClassifierDocuments(AWSProperty):
 
 class DocumentReaderConfig(AWSProperty):
     """
-    `DocumentReaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentreaderconfig.html>`__
+    `DocumentReaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-documentclassifier-documentreaderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class DocumentReaderConfig(AWSProperty):
 
 class DocumentClassifierInputDataConfig(AWSProperty):
     """
-    `DocumentClassifierInputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html>`__
+    `DocumentClassifierInputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-documentclassifier-documentclassifierinputdataconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class DocumentClassifierInputDataConfig(AWSProperty):
 
 class DocumentClassifierOutputDataConfig(AWSProperty):
     """
-    `DocumentClassifierOutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-documentclassifieroutputdataconfig.html>`__
+    `DocumentClassifierOutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-documentclassifier-documentclassifieroutputdataconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class DocumentClassifierOutputDataConfig(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class VpcConfig(AWSProperty):
 
 class DocumentClassifier(AWSObject):
     """
-    `DocumentClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html>`__
+    `DocumentClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-comprehend-documentclassifier.html>`__
     """
 
     resource_type = "AWS::Comprehend::DocumentClassifier"
@@ -108,7 +108,7 @@ class DocumentClassifier(AWSObject):
 
 class DataSecurityConfig(AWSProperty):
     """
-    `DataSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>`__
+    `DataSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-datasecurityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -121,7 +121,7 @@ class DataSecurityConfig(AWSProperty):
 
 class DocumentClassificationConfig(AWSProperty):
     """
-    `DocumentClassificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-documentclassificationconfig.html>`__
+    `DocumentClassificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-documentclassificationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class DocumentClassificationConfig(AWSProperty):
 
 class EntityTypesListItem(AWSProperty):
     """
-    `EntityTypesListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entitytypeslistitem.html>`__
+    `EntityTypesListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-entitytypeslistitem.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class EntityTypesListItem(AWSProperty):
 
 class EntityRecognitionConfig(AWSProperty):
     """
-    `EntityRecognitionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entityrecognitionconfig.html>`__
+    `EntityRecognitionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-entityrecognitionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class EntityRecognitionConfig(AWSProperty):
 
 class TaskConfig(AWSProperty):
     """
-    `TaskConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-taskconfig.html>`__
+    `TaskConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-comprehend-flywheel-taskconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class TaskConfig(AWSProperty):
 
 class Flywheel(AWSObject):
     """
-    `Flywheel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheel.html>`__
+    `Flywheel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-comprehend-flywheel.html>`__
     """
 
     resource_type = "AWS::Comprehend::Flywheel"

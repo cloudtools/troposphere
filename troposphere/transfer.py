@@ -13,7 +13,7 @@ from .validators.transfer import validate_homedirectory_type
 
 class CustomDirectories(AWSProperty):
     """
-    `CustomDirectories <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-agreement-customdirectories.html>`__
+    `CustomDirectories <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-agreement-customdirectories.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class CustomDirectories(AWSProperty):
 
 class Agreement(AWSObject):
     """
-    `Agreement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html>`__
+    `Agreement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-agreement.html>`__
     """
 
     resource_type = "AWS::Transfer::Agreement"
@@ -49,7 +49,7 @@ class Agreement(AWSObject):
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-certificate.html>`__
     """
 
     resource_type = "AWS::Transfer::Certificate"
@@ -68,7 +68,7 @@ class Certificate(AWSObject):
 
 class As2Config(AWSProperty):
     """
-    `As2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html>`__
+    `As2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-connector-as2config.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class As2Config(AWSProperty):
 
 class SftpConfig(AWSProperty):
     """
-    `SftpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html>`__
+    `SftpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-connector-sftpconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class SftpConfig(AWSProperty):
 
 class Connector(AWSObject):
     """
-    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html>`__
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-connector.html>`__
     """
 
     resource_type = "AWS::Transfer::Connector"
@@ -116,7 +116,7 @@ class Connector(AWSObject):
 
 class Profile(AWSObject):
     """
-    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-profile.html>`__
+    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-profile.html>`__
     """
 
     resource_type = "AWS::Transfer::Profile"
@@ -131,7 +131,7 @@ class Profile(AWSObject):
 
 class EndpointDetails(AWSProperty):
     """
-    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html>`__
+    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-endpointdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class EndpointDetails(AWSProperty):
 
 class IdentityProviderDetails(AWSProperty):
     """
-    `IdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html>`__
+    `IdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-identityproviderdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class IdentityProviderDetails(AWSProperty):
 
 class ProtocolDetails(AWSProperty):
     """
-    `ProtocolDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html>`__
+    `ProtocolDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-protocoldetails.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class ProtocolDetails(AWSProperty):
 
 class S3StorageOptions(AWSProperty):
     """
-    `S3StorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-s3storageoptions.html>`__
+    `S3StorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-s3storageoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class S3StorageOptions(AWSProperty):
 
 class WorkflowDetail(AWSProperty):
     """
-    `WorkflowDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html>`__
+    `WorkflowDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-workflowdetail.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class WorkflowDetail(AWSProperty):
 
 class WorkflowDetails(AWSProperty):
     """
-    `WorkflowDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html>`__
+    `WorkflowDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-server-workflowdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -204,7 +204,7 @@ class WorkflowDetails(AWSProperty):
 
 class Server(AWSObject):
     """
-    `Server <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html>`__
+    `Server <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-server.html>`__
     """
 
     resource_type = "AWS::Transfer::Server"
@@ -231,7 +231,7 @@ class Server(AWSObject):
 
 class HomeDirectoryMapEntry(AWSProperty):
     """
-    `HomeDirectoryMapEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-homedirectorymapentry.html>`__
+    `HomeDirectoryMapEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-user-homedirectorymapentry.html>`__
     """
 
     props: PropsDictType = {
@@ -243,7 +243,7 @@ class HomeDirectoryMapEntry(AWSProperty):
 
 class PosixProfile(AWSProperty):
     """
-    `PosixProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html>`__
+    `PosixProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-user-posixprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class PosixProfile(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-user.html>`__
     """
 
     resource_type = "AWS::Transfer::User"
@@ -276,7 +276,7 @@ class User(AWSObject):
 
 class WebAppCustomization(AWSProperty):
     """
-    `WebAppCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-webappcustomization.html>`__
+    `WebAppCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-webapp-webappcustomization.html>`__
     """
 
     props: PropsDictType = {
@@ -288,7 +288,7 @@ class WebAppCustomization(AWSProperty):
 
 class WebAppIdentityProviderDetails(AWSProperty):
     """
-    `WebAppIdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-identityproviderdetails.html>`__
+    `WebAppIdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-webapp-identityproviderdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class WebAppIdentityProviderDetails(AWSProperty):
 
 class WebAppUnits(AWSProperty):
     """
-    `WebAppUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-webappunits.html>`__
+    `WebAppUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-webapp-webappunits.html>`__
     """
 
     props: PropsDictType = {
@@ -310,7 +310,7 @@ class WebAppUnits(AWSProperty):
 
 class WebApp(AWSObject):
     """
-    `WebApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-webapp.html>`__
+    `WebApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-webapp.html>`__
     """
 
     resource_type = "AWS::Transfer::WebApp"
@@ -327,7 +327,7 @@ class WebApp(AWSObject):
 
 class S3InputFileLocation(AWSProperty):
     """
-    `S3InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html>`__
+    `S3InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-s3inputfilelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class S3InputFileLocation(AWSProperty):
 
 class S3FileLocation(AWSProperty):
     """
-    `S3FileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html>`__
+    `S3FileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-s3filelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class S3FileLocation(AWSProperty):
 
 class CopyStepDetails(AWSProperty):
     """
-    `CopyStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html>`__
+    `CopyStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-copystepdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -361,7 +361,7 @@ class CopyStepDetails(AWSProperty):
 
 class CustomStepDetails(AWSProperty):
     """
-    `CustomStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-customstepdetails.html>`__
+    `CustomStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-customstepdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -374,7 +374,7 @@ class CustomStepDetails(AWSProperty):
 
 class EfsInputFileLocation(AWSProperty):
     """
-    `EfsInputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-efsinputfilelocation.html>`__
+    `EfsInputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-efsinputfilelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -385,7 +385,7 @@ class EfsInputFileLocation(AWSProperty):
 
 class InputFileLocation(AWSProperty):
     """
-    `InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html>`__
+    `InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-inputfilelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -396,7 +396,7 @@ class InputFileLocation(AWSProperty):
 
 class DecryptStepDetails(AWSProperty):
     """
-    `DecryptStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html>`__
+    `DecryptStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-decryptstepdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class DecryptStepDetails(AWSProperty):
 
 class DeleteStepDetails(AWSProperty):
     """
-    `DeleteStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-deletestepdetails.html>`__
+    `DeleteStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-deletestepdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class DeleteStepDetails(AWSProperty):
 
 class S3Tag(AWSProperty):
     """
-    `S3Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3tag.html>`__
+    `S3Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-s3tag.html>`__
     """
 
     props: PropsDictType = {
@@ -432,7 +432,7 @@ class S3Tag(AWSProperty):
 
 class TagStepDetails(AWSProperty):
     """
-    `TagStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html>`__
+    `TagStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-tagstepdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -444,7 +444,7 @@ class TagStepDetails(AWSProperty):
 
 class WorkflowStep(AWSProperty):
     """
-    `WorkflowStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html>`__
+    `WorkflowStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-transfer-workflow-workflowstep.html>`__
     """
 
     props: PropsDictType = {
@@ -459,7 +459,7 @@ class WorkflowStep(AWSProperty):
 
 class Workflow(AWSObject):
     """
-    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html>`__
+    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-transfer-workflow.html>`__
     """
 
     resource_type = "AWS::Transfer::Workflow"

@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class AccountGrouping(AWSProperty):
     """
-    `AccountGrouping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html>`__
+    `AccountGrouping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-billinggroup-accountgrouping.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AccountGrouping(AWSProperty):
 
 class ComputationPreference(AWSProperty):
     """
-    `ComputationPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-computationpreference.html>`__
+    `ComputationPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-billinggroup-computationpreference.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class ComputationPreference(AWSProperty):
 
 class BillingGroup(AWSObject):
     """
-    `BillingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html>`__
+    `BillingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-billingconductor-billinggroup.html>`__
     """
 
     resource_type = "AWS::BillingConductor::BillingGroup"
@@ -50,7 +50,7 @@ class BillingGroup(AWSObject):
 
 class BillingPeriodRange(AWSProperty):
     """
-    `BillingPeriodRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-billingperiodrange.html>`__
+    `BillingPeriodRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-customlineitem-billingperiodrange.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class BillingPeriodRange(AWSProperty):
 
 class CustomLineItemFlatChargeDetails(AWSProperty):
     """
-    `CustomLineItemFlatChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html>`__
+    `CustomLineItemFlatChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-customlineitem-customlineitemflatchargedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class CustomLineItemFlatChargeDetails(AWSProperty):
 
 class CustomLineItemPercentageChargeDetails(AWSProperty):
     """
-    `CustomLineItemPercentageChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html>`__
+    `CustomLineItemPercentageChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-customlineitem-customlineitempercentagechargedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class CustomLineItemPercentageChargeDetails(AWSProperty):
 
 class LineItemFilter(AWSProperty):
     """
-    `LineItemFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html>`__
+    `LineItemFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-customlineitem-lineitemfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class LineItemFilter(AWSProperty):
 
 class CustomLineItemChargeDetails(AWSProperty):
     """
-    `CustomLineItemChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html>`__
+    `CustomLineItemChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class CustomLineItemChargeDetails(AWSProperty):
 
 class CustomLineItem(AWSObject):
     """
-    `CustomLineItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html>`__
+    `CustomLineItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-billingconductor-customlineitem.html>`__
     """
 
     resource_type = "AWS::BillingConductor::CustomLineItem"
@@ -125,7 +125,7 @@ class CustomLineItem(AWSObject):
 
 class PricingPlan(AWSObject):
     """
-    `PricingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingplan.html>`__
+    `PricingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-billingconductor-pricingplan.html>`__
     """
 
     resource_type = "AWS::BillingConductor::PricingPlan"
@@ -140,7 +140,7 @@ class PricingPlan(AWSObject):
 
 class FreeTier(AWSProperty):
     """
-    `FreeTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-freetier.html>`__
+    `FreeTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-pricingrule-freetier.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class FreeTier(AWSProperty):
 
 class Tiering(AWSProperty):
     """
-    `Tiering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html>`__
+    `Tiering <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-billingconductor-pricingrule-tiering.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class Tiering(AWSProperty):
 
 class PricingRule(AWSObject):
     """
-    `PricingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html>`__
+    `PricingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-billingconductor-pricingrule.html>`__
     """
 
     resource_type = "AWS::BillingConductor::PricingRule"

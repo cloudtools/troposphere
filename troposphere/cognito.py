@@ -13,7 +13,7 @@ from .validators.cognito import validate_recoveryoption_name
 
 class CognitoIdentityProvider(AWSProperty):
     """
-    `CognitoIdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html>`__
+    `CognitoIdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypool-cognitoidentityprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class CognitoIdentityProvider(AWSProperty):
 
 class CognitoStreams(AWSProperty):
     """
-    `CognitoStreams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html>`__
+    `CognitoStreams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypool-cognitostreams.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class CognitoStreams(AWSProperty):
 
 class PushSync(AWSProperty):
     """
-    `PushSync <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html>`__
+    `PushSync <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypool-pushsync.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class PushSync(AWSProperty):
 
 class IdentityPool(AWSObject):
     """
-    `IdentityPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html>`__
+    `IdentityPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-identitypool.html>`__
     """
 
     resource_type = "AWS::Cognito::IdentityPool"
@@ -71,7 +71,7 @@ class IdentityPool(AWSObject):
 
 class IdentityPoolPrincipalTag(AWSObject):
     """
-    `IdentityPoolPrincipalTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html>`__
+    `IdentityPoolPrincipalTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-identitypoolprincipaltag.html>`__
     """
 
     resource_type = "AWS::Cognito::IdentityPoolPrincipalTag"
@@ -86,7 +86,7 @@ class IdentityPoolPrincipalTag(AWSObject):
 
 class MappingRule(AWSProperty):
     """
-    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html>`__
+    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypoolroleattachment-mappingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class MappingRule(AWSProperty):
 
 class RulesConfiguration(AWSProperty):
     """
-    `RulesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>`__
+    `RulesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class RulesConfiguration(AWSProperty):
 
 class RoleMapping(AWSProperty):
     """
-    `RoleMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html>`__
+    `RoleMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-identitypoolroleattachment-rolemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class RoleMapping(AWSProperty):
 
 class IdentityPoolRoleAttachment(AWSObject):
     """
-    `IdentityPoolRoleAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html>`__
+    `IdentityPoolRoleAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-identitypoolroleattachment.html>`__
     """
 
     resource_type = "AWS::Cognito::IdentityPoolRoleAttachment"
@@ -136,7 +136,7 @@ class IdentityPoolRoleAttachment(AWSObject):
 
 class CloudWatchLogsConfiguration(AWSProperty):
     """
-    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-cloudwatchlogsconfiguration.html>`__
+    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-logdeliveryconfiguration-cloudwatchlogsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class CloudWatchLogsConfiguration(AWSProperty):
 
 class FirehoseConfiguration(AWSProperty):
     """
-    `FirehoseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-firehoseconfiguration.html>`__
+    `FirehoseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-logdeliveryconfiguration-firehoseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class FirehoseConfiguration(AWSProperty):
 
 class S3Configuration(AWSProperty):
     """
-    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-s3configuration.html>`__
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-logdeliveryconfiguration-s3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -166,7 +166,7 @@ class S3Configuration(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -180,7 +180,7 @@ class LogConfiguration(AWSProperty):
 
 class LogDeliveryConfiguration(AWSObject):
     """
-    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html>`__
+    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-logdeliveryconfiguration.html>`__
     """
 
     resource_type = "AWS::Cognito::LogDeliveryConfiguration"
@@ -193,7 +193,7 @@ class LogDeliveryConfiguration(AWSObject):
 
 class AssetType(AWSProperty):
     """
-    `AssetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-managedloginbranding-assettype.html>`__
+    `AssetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-managedloginbranding-assettype.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class AssetType(AWSProperty):
 
 class ManagedLoginBranding(AWSObject):
     """
-    `ManagedLoginBranding <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html>`__
+    `ManagedLoginBranding <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-managedloginbranding.html>`__
     """
 
     resource_type = "AWS::Cognito::ManagedLoginBranding"
@@ -224,7 +224,7 @@ class ManagedLoginBranding(AWSObject):
 
 class RecoveryOption(AWSProperty):
     """
-    `RecoveryOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-recoveryoption.html>`__
+    `RecoveryOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-recoveryoption.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class RecoveryOption(AWSProperty):
 
 class AccountRecoverySetting(AWSProperty):
     """
-    `AccountRecoverySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-accountrecoverysetting.html>`__
+    `AccountRecoverySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-accountrecoverysetting.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class AccountRecoverySetting(AWSProperty):
 
 class InviteMessageTemplate(AWSProperty):
     """
-    `InviteMessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html>`__
+    `InviteMessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-invitemessagetemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class InviteMessageTemplate(AWSProperty):
 
 class AdminCreateUserConfig(AWSProperty):
     """
-    `AdminCreateUserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html>`__
+    `AdminCreateUserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-admincreateuserconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class AdminCreateUserConfig(AWSProperty):
 
 class DeviceConfiguration(AWSProperty):
     """
-    `DeviceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-deviceconfiguration.html>`__
+    `DeviceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-deviceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class DeviceConfiguration(AWSProperty):
 
 class EmailConfiguration(AWSProperty):
     """
-    `EmailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html>`__
+    `EmailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-emailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -294,7 +294,7 @@ class EmailConfiguration(AWSProperty):
 
 class CustomEmailSender(AWSProperty):
     """
-    `CustomEmailSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html>`__
+    `CustomEmailSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-customemailsender.html>`__
     """
 
     props: PropsDictType = {
@@ -305,7 +305,7 @@ class CustomEmailSender(AWSProperty):
 
 class CustomSMSSender(AWSProperty):
     """
-    `CustomSMSSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html>`__
+    `CustomSMSSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-customsmssender.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class CustomSMSSender(AWSProperty):
 
 class PreTokenGenerationConfig(AWSProperty):
     """
-    `PreTokenGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html>`__
+    `PreTokenGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-pretokengenerationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -327,7 +327,7 @@ class PreTokenGenerationConfig(AWSProperty):
 
 class LambdaConfig(AWSProperty):
     """
-    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html>`__
+    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-lambdaconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -350,7 +350,7 @@ class LambdaConfig(AWSProperty):
 
 class PasswordPolicy(AWSProperty):
     """
-    `PasswordPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html>`__
+    `PasswordPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-passwordpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class PasswordPolicy(AWSProperty):
 
 class SignInPolicy(AWSProperty):
     """
-    `SignInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-signinpolicy.html>`__
+    `SignInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-signinpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class SignInPolicy(AWSProperty):
 
 class Policies(AWSProperty):
     """
-    `Policies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html>`__
+    `Policies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-policies.html>`__
     """
 
     props: PropsDictType = {
@@ -387,7 +387,7 @@ class Policies(AWSProperty):
 
 class NumberAttributeConstraints(AWSProperty):
     """
-    `NumberAttributeConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html>`__
+    `NumberAttributeConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-numberattributeconstraints.html>`__
     """
 
     props: PropsDictType = {
@@ -398,7 +398,7 @@ class NumberAttributeConstraints(AWSProperty):
 
 class StringAttributeConstraints(AWSProperty):
     """
-    `StringAttributeConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html>`__
+    `StringAttributeConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-stringattributeconstraints.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class StringAttributeConstraints(AWSProperty):
 
 class SchemaAttribute(AWSProperty):
     """
-    `SchemaAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html>`__
+    `SchemaAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-schemaattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -425,7 +425,7 @@ class SchemaAttribute(AWSProperty):
 
 class SmsConfiguration(AWSProperty):
     """
-    `SmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html>`__
+    `SmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-smsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -437,7 +437,7 @@ class SmsConfiguration(AWSProperty):
 
 class UserAttributeUpdateSettings(AWSProperty):
     """
-    `UserAttributeUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userattributeupdatesettings.html>`__
+    `UserAttributeUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-userattributeupdatesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -447,7 +447,7 @@ class UserAttributeUpdateSettings(AWSProperty):
 
 class AdvancedSecurityAdditionalFlows(AWSProperty):
     """
-    `AdvancedSecurityAdditionalFlows <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-advancedsecurityadditionalflows.html>`__
+    `AdvancedSecurityAdditionalFlows <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-advancedsecurityadditionalflows.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class AdvancedSecurityAdditionalFlows(AWSProperty):
 
 class UserPoolAddOns(AWSProperty):
     """
-    `UserPoolAddOns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html>`__
+    `UserPoolAddOns <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-userpooladdons.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class UserPoolAddOns(AWSProperty):
 
 class UsernameConfiguration(AWSProperty):
     """
-    `UsernameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html>`__
+    `UsernameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-usernameconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -478,7 +478,7 @@ class UsernameConfiguration(AWSProperty):
 
 class VerificationMessageTemplate(AWSProperty):
     """
-    `VerificationMessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html>`__
+    `VerificationMessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpool-verificationmessagetemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class VerificationMessageTemplate(AWSProperty):
 
 class UserPool(AWSObject):
     """
-    `UserPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html>`__
+    `UserPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpool.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPool"
@@ -533,7 +533,7 @@ class UserPool(AWSObject):
 
 class AnalyticsConfiguration(AWSProperty):
     """
-    `AnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-analyticsconfiguration.html>`__
+    `AnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolclient-analyticsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -547,7 +547,7 @@ class AnalyticsConfiguration(AWSProperty):
 
 class RefreshTokenRotation(AWSProperty):
     """
-    `RefreshTokenRotation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-refreshtokenrotation.html>`__
+    `RefreshTokenRotation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolclient-refreshtokenrotation.html>`__
     """
 
     props: PropsDictType = {
@@ -558,7 +558,7 @@ class RefreshTokenRotation(AWSProperty):
 
 class TokenValidityUnits(AWSProperty):
     """
-    `TokenValidityUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html>`__
+    `TokenValidityUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolclient-tokenvalidityunits.html>`__
     """
 
     props: PropsDictType = {
@@ -570,7 +570,7 @@ class TokenValidityUnits(AWSProperty):
 
 class UserPoolClient(AWSObject):
     """
-    `UserPoolClient <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html>`__
+    `UserPoolClient <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolclient.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolClient"
@@ -604,7 +604,7 @@ class UserPoolClient(AWSObject):
 
 class CustomDomainConfigType(AWSProperty):
     """
-    `CustomDomainConfigType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html>`__
+    `CustomDomainConfigType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpooldomain-customdomainconfigtype.html>`__
     """
 
     props: PropsDictType = {
@@ -614,7 +614,7 @@ class CustomDomainConfigType(AWSProperty):
 
 class UserPoolDomain(AWSObject):
     """
-    `UserPoolDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html>`__
+    `UserPoolDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpooldomain.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolDomain"
@@ -629,7 +629,7 @@ class UserPoolDomain(AWSObject):
 
 class UserPoolGroup(AWSObject):
     """
-    `UserPoolGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html>`__
+    `UserPoolGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolgroup.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolGroup"
@@ -645,7 +645,7 @@ class UserPoolGroup(AWSObject):
 
 class UserPoolIdentityProvider(AWSObject):
     """
-    `UserPoolIdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html>`__
+    `UserPoolIdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolidentityprovider.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolIdentityProvider"
@@ -662,7 +662,7 @@ class UserPoolIdentityProvider(AWSObject):
 
 class ResourceServerScopeType(AWSProperty):
     """
-    `ResourceServerScopeType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html>`__
+    `ResourceServerScopeType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html>`__
     """
 
     props: PropsDictType = {
@@ -673,7 +673,7 @@ class ResourceServerScopeType(AWSProperty):
 
 class UserPoolResourceServer(AWSObject):
     """
-    `UserPoolResourceServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html>`__
+    `UserPoolResourceServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolresourceserver.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolResourceServer"
@@ -688,7 +688,7 @@ class UserPoolResourceServer(AWSObject):
 
 class AccountTakeoverActionType(AWSProperty):
     """
-    `AccountTakeoverActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html>`__
+    `AccountTakeoverActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html>`__
     """
 
     props: PropsDictType = {
@@ -699,7 +699,7 @@ class AccountTakeoverActionType(AWSProperty):
 
 class AccountTakeoverActionsType(AWSProperty):
     """
-    `AccountTakeoverActionsType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html>`__
+    `AccountTakeoverActionsType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html>`__
     """
 
     props: PropsDictType = {
@@ -711,7 +711,7 @@ class AccountTakeoverActionsType(AWSProperty):
 
 class NotifyEmailType(AWSProperty):
     """
-    `NotifyEmailType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html>`__
+    `NotifyEmailType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html>`__
     """
 
     props: PropsDictType = {
@@ -723,7 +723,7 @@ class NotifyEmailType(AWSProperty):
 
 class NotifyConfigurationType(AWSProperty):
     """
-    `NotifyConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html>`__
+    `NotifyConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-notifyconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -738,7 +738,7 @@ class NotifyConfigurationType(AWSProperty):
 
 class AccountTakeoverRiskConfigurationType(AWSProperty):
     """
-    `AccountTakeoverRiskConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html>`__
+    `AccountTakeoverRiskConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoverriskconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -749,7 +749,7 @@ class AccountTakeoverRiskConfigurationType(AWSProperty):
 
 class CompromisedCredentialsActionsType(AWSProperty):
     """
-    `CompromisedCredentialsActionsType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html>`__
+    `CompromisedCredentialsActionsType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsactionstype.html>`__
     """
 
     props: PropsDictType = {
@@ -759,7 +759,7 @@ class CompromisedCredentialsActionsType(AWSProperty):
 
 class CompromisedCredentialsRiskConfigurationType(AWSProperty):
     """
-    `CompromisedCredentialsRiskConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html>`__
+    `CompromisedCredentialsRiskConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-compromisedcredentialsriskconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -770,7 +770,7 @@ class CompromisedCredentialsRiskConfigurationType(AWSProperty):
 
 class RiskExceptionConfigurationType(AWSProperty):
     """
-    `RiskExceptionConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html>`__
+    `RiskExceptionConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpoolriskconfigurationattachment-riskexceptionconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -781,7 +781,7 @@ class RiskExceptionConfigurationType(AWSProperty):
 
 class UserPoolRiskConfigurationAttachment(AWSObject):
     """
-    `UserPoolRiskConfigurationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html>`__
+    `UserPoolRiskConfigurationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolriskconfigurationattachment.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolRiskConfigurationAttachment"
@@ -803,7 +803,7 @@ class UserPoolRiskConfigurationAttachment(AWSObject):
 
 class UserPoolUICustomizationAttachment(AWSObject):
     """
-    `UserPoolUICustomizationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html>`__
+    `UserPoolUICustomizationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpooluicustomizationattachment.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolUICustomizationAttachment"
@@ -817,7 +817,7 @@ class UserPoolUICustomizationAttachment(AWSObject):
 
 class AttributeType(AWSProperty):
     """
-    `AttributeType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html>`__
+    `AttributeType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cognito-userpooluser-attributetype.html>`__
     """
 
     props: PropsDictType = {
@@ -828,7 +828,7 @@ class AttributeType(AWSProperty):
 
 class UserPoolUser(AWSObject):
     """
-    `UserPoolUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html>`__
+    `UserPoolUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpooluser.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolUser"
@@ -847,7 +847,7 @@ class UserPoolUser(AWSObject):
 
 class UserPoolUserToGroupAttachment(AWSObject):
     """
-    `UserPoolUserToGroupAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html>`__
+    `UserPoolUserToGroupAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cognito-userpoolusertogroupattachment.html>`__
     """
 
     resource_type = "AWS::Cognito::UserPoolUserToGroupAttachment"

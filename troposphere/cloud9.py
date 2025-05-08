@@ -12,7 +12,7 @@ from .validators import integer
 
 class Repository(AWSProperty):
     """
-    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html>`__
+    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloud9-environmentec2-repository.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Repository(AWSProperty):
 
 class EnvironmentEC2(AWSObject):
     """
-    `EnvironmentEC2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html>`__
+    `EnvironmentEC2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloud9-environmentec2.html>`__
     """
 
     resource_type = "AWS::Cloud9::EnvironmentEC2"

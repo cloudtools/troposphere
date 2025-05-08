@@ -18,7 +18,7 @@ from .validators.globalaccelerator import (
 
 class Accelerator(AWSObject):
     """
-    `Accelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html>`__
+    `Accelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-globalaccelerator-accelerator.html>`__
     """
 
     resource_type = "AWS::GlobalAccelerator::Accelerator"
@@ -34,7 +34,7 @@ class Accelerator(AWSObject):
 
 class Resource(AWSProperty):
     """
-    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html>`__
+    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-globalaccelerator-crossaccountattachment-resource.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class Resource(AWSProperty):
 
 class CrossAccountAttachment(AWSObject):
     """
-    `CrossAccountAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html>`__
+    `CrossAccountAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-globalaccelerator-crossaccountattachment.html>`__
     """
 
     resource_type = "AWS::GlobalAccelerator::CrossAccountAttachment"
@@ -61,7 +61,7 @@ class CrossAccountAttachment(AWSObject):
 
 class EndpointConfiguration(AWSProperty):
     """
-    `EndpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html>`__
+    `EndpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class EndpointConfiguration(AWSProperty):
 
 class PortOverride(AWSProperty):
     """
-    `PortOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html>`__
+    `PortOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-globalaccelerator-endpointgroup-portoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class PortOverride(AWSProperty):
 
 class EndpointGroup(AWSObject):
     """
-    `EndpointGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html>`__
+    `EndpointGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-globalaccelerator-endpointgroup.html>`__
     """
 
     resource_type = "AWS::GlobalAccelerator::EndpointGroup"
@@ -106,7 +106,7 @@ class EndpointGroup(AWSObject):
 
 class PortRange(AWSProperty):
     """
-    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html>`__
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-globalaccelerator-listener-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class PortRange(AWSProperty):
 
 class Listener(AWSObject):
     """
-    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html>`__
+    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-globalaccelerator-listener.html>`__
     """
 
     resource_type = "AWS::GlobalAccelerator::Listener"

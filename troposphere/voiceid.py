@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class ServerSideEncryptionConfiguration(AWSProperty):
     """
-    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-voiceid-domain-serversideencryptionconfiguration.html>`__
+    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-voiceid-domain-serversideencryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class ServerSideEncryptionConfiguration(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-voiceid-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-voiceid-domain.html>`__
     """
 
     resource_type = "AWS::VoiceID::Domain"

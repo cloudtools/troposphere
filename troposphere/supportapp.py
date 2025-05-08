@@ -12,7 +12,7 @@ from .validators import boolean
 
 class AccountAlias(AWSObject):
     """
-    `AccountAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-accountalias.html>`__
+    `AccountAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-supportapp-accountalias.html>`__
     """
 
     resource_type = "AWS::SupportApp::AccountAlias"
@@ -24,7 +24,7 @@ class AccountAlias(AWSObject):
 
 class SlackChannelConfiguration(AWSObject):
     """
-    `SlackChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html>`__
+    `SlackChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-supportapp-slackchannelconfiguration.html>`__
     """
 
     resource_type = "AWS::SupportApp::SlackChannelConfiguration"
@@ -43,7 +43,7 @@ class SlackChannelConfiguration(AWSObject):
 
 class SlackWorkspaceConfiguration(AWSObject):
     """
-    `SlackWorkspaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html>`__
+    `SlackWorkspaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-supportapp-slackworkspaceconfiguration.html>`__
     """
 
     resource_type = "AWS::SupportApp::SlackWorkspaceConfiguration"

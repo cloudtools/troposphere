@@ -21,7 +21,7 @@ from .validators.opsworks import (
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-app-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class DataSource(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-app-environment.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class Environment(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-stack-source.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class Source(AWSProperty):
 
 class SslConfiguration(AWSProperty):
     """
-    `SslConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-sslconfiguration.html>`__
+    `SslConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-app-sslconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class SslConfiguration(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html>`__
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-app.html>`__
     """
 
     resource_type = "AWS::OpsWorks::App"
@@ -95,7 +95,7 @@ class App(AWSObject):
 
 class ElasticLoadBalancerAttachment(AWSObject):
     """
-    `ElasticLoadBalancerAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html>`__
+    `ElasticLoadBalancerAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-elbattachment.html>`__
     """
 
     resource_type = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
@@ -108,7 +108,7 @@ class ElasticLoadBalancerAttachment(AWSObject):
 
 class EbsBlockDevice(AWSProperty):
     """
-    `EbsBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html>`__
+    `EbsBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-instance-ebsblockdevice.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class EbsBlockDevice(AWSProperty):
 
 class BlockDeviceMapping(AWSProperty):
     """
-    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html>`__
+    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-instance-blockdevicemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class BlockDeviceMapping(AWSProperty):
 
 class TimeBasedAutoScaling(AWSProperty):
     """
-    `TimeBasedAutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html>`__
+    `TimeBasedAutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-instance-timebasedautoscaling.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class TimeBasedAutoScaling(AWSProperty):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-instance.html>`__
     """
 
     resource_type = "AWS::OpsWorks::Instance"
@@ -186,7 +186,7 @@ class Instance(AWSObject):
 
 class ShutdownEventConfiguration(AWSProperty):
     """
-    `ShutdownEventConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html>`__
+    `ShutdownEventConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class ShutdownEventConfiguration(AWSProperty):
 
 class LifeCycleConfiguration(AWSProperty):
     """
-    `LifeCycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html>`__
+    `LifeCycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-lifecycleeventconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class LifeCycleConfiguration(AWSProperty):
 
 class AutoScalingThresholds(AWSProperty):
     """
-    `AutoScalingThresholds <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html>`__
+    `AutoScalingThresholds <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class AutoScalingThresholds(AWSProperty):
 
 class LoadBasedAutoScaling(AWSProperty):
     """
-    `LoadBasedAutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling.html>`__
+    `LoadBasedAutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-loadbasedautoscaling.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class LoadBasedAutoScaling(AWSProperty):
 
 class Recipes(AWSProperty):
     """
-    `Recipes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html>`__
+    `Recipes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-recipes.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class Recipes(AWSProperty):
 
 class VolumeConfiguration(AWSProperty):
     """
-    `VolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html>`__
+    `VolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-layer-volumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class VolumeConfiguration(AWSProperty):
 
 class Layer(AWSObject):
     """
-    `Layer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html>`__
+    `Layer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-layer.html>`__
     """
 
     resource_type = "AWS::OpsWorks::Layer"
@@ -297,7 +297,7 @@ class Layer(AWSObject):
 
 class ChefConfiguration(AWSProperty):
     """
-    `ChefConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-chefconfiguration.html>`__
+    `ChefConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-stack-chefconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class ChefConfiguration(AWSProperty):
 
 class ElasticIp(AWSProperty):
     """
-    `ElasticIp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html>`__
+    `ElasticIp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-stack-elasticip.html>`__
     """
 
     props: PropsDictType = {
@@ -319,7 +319,7 @@ class ElasticIp(AWSProperty):
 
 class RdsDbInstance(AWSProperty):
     """
-    `RdsDbInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html>`__
+    `RdsDbInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-stack-rdsdbinstance.html>`__
     """
 
     props: PropsDictType = {
@@ -331,7 +331,7 @@ class RdsDbInstance(AWSProperty):
 
 class StackConfigurationManager(AWSProperty):
     """
-    `StackConfigurationManager <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-stackconfigmanager.html>`__
+    `StackConfigurationManager <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworks-stack-stackconfigmanager.html>`__
     """
 
     props: PropsDictType = {
@@ -342,7 +342,7 @@ class StackConfigurationManager(AWSProperty):
 
 class Stack(AWSObject):
     """
-    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html>`__
+    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-stack.html>`__
     """
 
     resource_type = "AWS::OpsWorks::Stack"
@@ -381,7 +381,7 @@ class Stack(AWSObject):
 
 class UserProfile(AWSObject):
     """
-    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html>`__
+    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-userprofile.html>`__
     """
 
     resource_type = "AWS::OpsWorks::UserProfile"
@@ -396,7 +396,7 @@ class UserProfile(AWSObject):
 
 class Volume(AWSObject):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworks-volume.html>`__
     """
 
     resource_type = "AWS::OpsWorks::Volume"

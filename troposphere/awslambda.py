@@ -21,7 +21,7 @@ from .validators.awslambda import (
 
 class VersionWeight(AWSProperty):
     """
-    `VersionWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html>`__
+    `VersionWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-alias-versionweight.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class VersionWeight(AWSProperty):
 
 class AliasRoutingConfiguration(AWSProperty):
     """
-    `AliasRoutingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html>`__
+    `AliasRoutingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-alias-aliasroutingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class AliasRoutingConfiguration(AWSProperty):
 
 class ProvisionedConcurrencyConfiguration(AWSProperty):
     """
-    `ProvisionedConcurrencyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-provisionedconcurrencyconfiguration.html>`__
+    `ProvisionedConcurrencyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-version-provisionedconcurrencyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class ProvisionedConcurrencyConfiguration(AWSProperty):
 
 class Alias(AWSObject):
     """
-    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html>`__
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-alias.html>`__
     """
 
     resource_type = "AWS::Lambda::Alias"
@@ -69,7 +69,7 @@ class Alias(AWSObject):
 
 class AllowedPublishers(AWSProperty):
     """
-    `AllowedPublishers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html>`__
+    `AllowedPublishers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-codesigningconfig-allowedpublishers.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class AllowedPublishers(AWSProperty):
 
 class CodeSigningPolicies(AWSProperty):
     """
-    `CodeSigningPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html>`__
+    `CodeSigningPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-codesigningconfig-codesigningpolicies.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class CodeSigningPolicies(AWSProperty):
 
 class CodeSigningConfig(AWSObject):
     """
-    `CodeSigningConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html>`__
+    `CodeSigningConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-codesigningconfig.html>`__
     """
 
     resource_type = "AWS::Lambda::CodeSigningConfig"
@@ -104,7 +104,7 @@ class CodeSigningConfig(AWSObject):
 
 class OnFailure(AWSProperty):
     """
-    `OnFailure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onfailure.html>`__
+    `OnFailure <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventinvokeconfig-onfailure.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class OnFailure(AWSProperty):
 
 class OnSuccess(AWSProperty):
     """
-    `OnSuccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html>`__
+    `OnSuccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventinvokeconfig-onsuccess.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class OnSuccess(AWSProperty):
 
 class DestinationConfig(AWSProperty):
     """
-    `DestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html>`__
+    `DestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventinvokeconfig-destinationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class DestinationConfig(AWSProperty):
 
 class EventInvokeConfig(AWSObject):
     """
-    `EventInvokeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html>`__
+    `EventInvokeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-eventinvokeconfig.html>`__
     """
 
     resource_type = "AWS::Lambda::EventInvokeConfig"
@@ -151,7 +151,7 @@ class EventInvokeConfig(AWSObject):
 
 class AmazonManagedKafkaEventSourceConfig(AWSProperty):
     """
-    `AmazonManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html>`__
+    `AmazonManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class AmazonManagedKafkaEventSourceConfig(AWSProperty):
 
 class DocumentDBEventSourceConfig(AWSProperty):
     """
-    `DocumentDBEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html>`__
+    `DocumentDBEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class DocumentDBEventSourceConfig(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class Filter(AWSProperty):
 
 class FilterCriteria(AWSProperty):
     """
-    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html>`__
+    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-filtercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class FilterCriteria(AWSProperty):
 
 class MetricsConfig(AWSProperty):
     """
-    `MetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html>`__
+    `MetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-metricsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -203,7 +203,7 @@ class MetricsConfig(AWSProperty):
 
 class ProvisionedPollerConfig(AWSProperty):
     """
-    `ProvisionedPollerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html>`__
+    `ProvisionedPollerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -214,7 +214,7 @@ class ProvisionedPollerConfig(AWSProperty):
 
 class ScalingConfig(AWSProperty):
     """
-    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
+    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class ScalingConfig(AWSProperty):
 
 class Endpoints(AWSProperty):
     """
-    `Endpoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html>`__
+    `Endpoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-endpoints.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class Endpoints(AWSProperty):
 
 class SelfManagedEventSource(AWSProperty):
     """
-    `SelfManagedEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html>`__
+    `SelfManagedEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class SelfManagedEventSource(AWSProperty):
 
 class SelfManagedKafkaEventSourceConfig(AWSProperty):
     """
-    `SelfManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html>`__
+    `SelfManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -254,7 +254,7 @@ class SelfManagedKafkaEventSourceConfig(AWSProperty):
 
 class SourceAccessConfiguration(AWSProperty):
     """
-    `SourceAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html>`__
+    `SourceAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class SourceAccessConfiguration(AWSProperty):
 
 class EventSourceMapping(AWSObject):
     """
-    `EventSourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html>`__
+    `EventSourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-eventsourcemapping.html>`__
     """
 
     resource_type = "AWS::Lambda::EventSourceMapping"
@@ -306,7 +306,7 @@ class EventSourceMapping(AWSObject):
 
 class Code(AWSProperty):
     """
-    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html>`__
+    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-code.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class Code(AWSProperty):
 
 class DeadLetterConfig(AWSProperty):
     """
-    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html>`__
+    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-deadletterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class DeadLetterConfig(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-environment.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +344,7 @@ class Environment(AWSProperty):
 
 class EphemeralStorage(AWSProperty):
     """
-    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html>`__
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-ephemeralstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -354,7 +354,7 @@ class EphemeralStorage(AWSProperty):
 
 class FileSystemConfig(AWSProperty):
     """
-    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html>`__
+    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-filesystemconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -365,7 +365,7 @@ class FileSystemConfig(AWSProperty):
 
 class ImageConfig(AWSProperty):
     """
-    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html>`__
+    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-imageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class ImageConfig(AWSProperty):
 
 class LoggingConfig(AWSProperty):
     """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html>`__
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-loggingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -393,7 +393,7 @@ class LoggingConfig(AWSProperty):
 
 class RuntimeManagementConfig(AWSProperty):
     """
-    `RuntimeManagementConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html>`__
+    `RuntimeManagementConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-runtimemanagementconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -404,7 +404,7 @@ class RuntimeManagementConfig(AWSProperty):
 
 class SnapStart(AWSProperty):
     """
-    `SnapStart <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html>`__
+    `SnapStart <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-snapstart.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class SnapStart(AWSProperty):
 
 class TracingConfig(AWSProperty):
     """
-    `TracingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html>`__
+    `TracingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-tracingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -424,7 +424,7 @@ class TracingConfig(AWSProperty):
 
 class VPCConfig(AWSProperty):
     """
-    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html>`__
+    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -436,7 +436,7 @@ class VPCConfig(AWSProperty):
 
 class Function(AWSObject):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-function.html>`__
     """
 
     resource_type = "AWS::Lambda::Function"
@@ -473,7 +473,7 @@ class Function(AWSObject):
 
 class Content(AWSProperty):
     """
-    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html>`__
+    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-layerversion-content.html>`__
     """
 
     props: PropsDictType = {
@@ -485,7 +485,7 @@ class Content(AWSProperty):
 
 class LayerVersion(AWSObject):
     """
-    `LayerVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html>`__
+    `LayerVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-layerversion.html>`__
     """
 
     resource_type = "AWS::Lambda::LayerVersion"
@@ -502,7 +502,7 @@ class LayerVersion(AWSObject):
 
 class LayerVersionPermission(AWSObject):
     """
-    `LayerVersionPermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html>`__
+    `LayerVersionPermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-layerversionpermission.html>`__
     """
 
     resource_type = "AWS::Lambda::LayerVersionPermission"
@@ -517,7 +517,7 @@ class LayerVersionPermission(AWSObject):
 
 class Permission(AWSObject):
     """
-    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html>`__
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-permission.html>`__
     """
 
     resource_type = "AWS::Lambda::Permission"
@@ -536,7 +536,7 @@ class Permission(AWSObject):
 
 class Cors(AWSProperty):
     """
-    `Cors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-url-cors.html>`__
+    `Cors <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-url-cors.html>`__
     """
 
     props: PropsDictType = {
@@ -551,7 +551,7 @@ class Cors(AWSProperty):
 
 class Url(AWSObject):
     """
-    `Url <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html>`__
+    `Url <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-url.html>`__
     """
 
     resource_type = "AWS::Lambda::Url"
@@ -567,7 +567,7 @@ class Url(AWSObject):
 
 class RuntimePolicy(AWSProperty):
     """
-    `RuntimePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-runtimepolicy.html>`__
+    `RuntimePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-version-runtimepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -578,7 +578,7 @@ class RuntimePolicy(AWSProperty):
 
 class Version(AWSObject):
     """
-    `Version <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html>`__
+    `Version <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-version.html>`__
     """
 
     resource_type = "AWS::Lambda::Version"
@@ -594,7 +594,7 @@ class Version(AWSObject):
 
 class SnapStartResponse(AWSProperty):
     """
-    `SnapStartResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstartresponse.html>`__
+    `SnapStartResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-snapstartresponse.html>`__
     """
 
     props: PropsDictType = {

@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ReportDefinition(AWSObject):
     """
-    `ReportDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html>`__
+    `ReportDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cur-reportdefinition.html>`__
     """
 
     resource_type = "AWS::CUR::ReportDefinition"

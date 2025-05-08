@@ -1,5 +1,5 @@
 # Converted from CloudTrail example.
-# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html.
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-trail.html.
 
 from troposphere import GetAtt, Join, Parameter, Ref, Template
 from troposphere.cloudtrail import Trail

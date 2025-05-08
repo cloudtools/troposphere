@@ -12,7 +12,7 @@ from .validators.codestarconnections import validate_connection_providertype
 
 class Connection(AWSObject):
     """
-    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html>`__
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codestarconnections-connection.html>`__
     """
 
     resource_type = "AWS::CodeStarConnections::Connection"
@@ -27,7 +27,7 @@ class Connection(AWSObject):
 
 class RepositoryLink(AWSObject):
     """
-    `RepositoryLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html>`__
+    `RepositoryLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codestarconnections-repositorylink.html>`__
     """
 
     resource_type = "AWS::CodeStarConnections::RepositoryLink"
@@ -43,7 +43,7 @@ class RepositoryLink(AWSObject):
 
 class SyncConfiguration(AWSObject):
     """
-    `SyncConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html>`__
+    `SyncConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codestarconnections-syncconfiguration.html>`__
     """
 
     resource_type = "AWS::CodeStarConnections::SyncConfiguration"

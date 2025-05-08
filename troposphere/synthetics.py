@@ -13,7 +13,7 @@ from .validators.synthetics import canary_runtime_version
 
 class S3Encryption(AWSProperty):
     """
-    `S3Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-s3encryption.html>`__
+    `S3Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-s3encryption.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class S3Encryption(AWSProperty):
 
 class ArtifactConfig(AWSProperty):
     """
-    `ArtifactConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-artifactconfig.html>`__
+    `ArtifactConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-artifactconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ArtifactConfig(AWSProperty):
 
 class Code(AWSProperty):
     """
-    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html>`__
+    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-code.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class Code(AWSProperty):
 
 class RunConfig(AWSProperty):
     """
-    `RunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html>`__
+    `RunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-runconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class RunConfig(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class Schedule(AWSProperty):
 
 class VPCConfig(AWSProperty):
     """
-    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html>`__
+    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class VPCConfig(AWSProperty):
 
 class BaseScreenshot(AWSProperty):
     """
-    `BaseScreenshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html>`__
+    `BaseScreenshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-basescreenshot.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class BaseScreenshot(AWSProperty):
 
 class VisualReference(AWSProperty):
     """
-    `VisualReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html>`__
+    `VisualReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-synthetics-canary-visualreference.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class VisualReference(AWSProperty):
 
 class Canary(AWSObject):
     """
-    `Canary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html>`__
+    `Canary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-synthetics-canary.html>`__
     """
 
     resource_type = "AWS::Synthetics::Canary"
@@ -135,7 +135,7 @@ class Canary(AWSObject):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-synthetics-group.html>`__
     """
 
     resource_type = "AWS::Synthetics::Group"

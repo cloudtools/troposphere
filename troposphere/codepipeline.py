@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ArtifactDetails(AWSProperty):
     """
-    `ArtifactDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html>`__
+    `ArtifactDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-customactiontype-artifactdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ArtifactDetails(AWSProperty):
 
 class ConfigurationProperties(AWSProperty):
     """
-    `ConfigurationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html>`__
+    `ConfigurationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-customactiontype-configurationproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class ConfigurationProperties(AWSProperty):
 
 class Settings(AWSProperty):
     """
-    `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html>`__
+    `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-customactiontype-settings.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class Settings(AWSProperty):
 
 class CustomActionType(AWSObject):
     """
-    `CustomActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html>`__
+    `CustomActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codepipeline-customactiontype.html>`__
     """
 
     resource_type = "AWS::CodePipeline::CustomActionType"
@@ -71,7 +71,7 @@ class CustomActionType(AWSObject):
 
 class EncryptionKey(AWSProperty):
     """
-    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html>`__
+    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-encryptionkey.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class EncryptionKey(AWSProperty):
 
 class ArtifactStore(AWSProperty):
     """
-    `ArtifactStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html>`__
+    `ArtifactStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-artifactstore.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class ArtifactStore(AWSProperty):
 
 class ArtifactStoreMap(AWSProperty):
     """
-    `ArtifactStoreMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html>`__
+    `ArtifactStoreMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-artifactstoremap.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class ArtifactStoreMap(AWSProperty):
 
 class DisableInboundStageTransitions(AWSProperty):
     """
-    `DisableInboundStageTransitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html>`__
+    `DisableInboundStageTransitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-stagetransition.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class DisableInboundStageTransitions(AWSProperty):
 
 class GitBranchFilterCriteria(AWSProperty):
     """
-    `GitBranchFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html>`__
+    `GitBranchFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class GitBranchFilterCriteria(AWSProperty):
 
 class GitFilePathFilterCriteria(AWSProperty):
     """
-    `GitFilePathFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html>`__
+    `GitFilePathFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class GitFilePathFilterCriteria(AWSProperty):
 
 class GitPullRequestFilter(AWSProperty):
     """
-    `GitPullRequestFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html>`__
+    `GitPullRequestFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class GitPullRequestFilter(AWSProperty):
 
 class GitTagFilterCriteria(AWSProperty):
     """
-    `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html>`__
+    `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class GitTagFilterCriteria(AWSProperty):
 
 class GitPushFilter(AWSProperty):
     """
-    `GitPushFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html>`__
+    `GitPushFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gitpushfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class GitPushFilter(AWSProperty):
 
 class GitConfiguration(AWSProperty):
     """
-    `GitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html>`__
+    `GitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-gitconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class GitConfiguration(AWSProperty):
 
 class PipelineTriggerDeclaration(AWSProperty):
     """
-    `PipelineTriggerDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html>`__
+    `PipelineTriggerDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class PipelineTriggerDeclaration(AWSProperty):
 
 class ActionTypeId(AWSProperty):
     """
-    `ActionTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html>`__
+    `ActionTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-actiontypeid.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class ActionTypeId(AWSProperty):
 
 class EnvironmentVariable(AWSProperty):
     """
-    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html>`__
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-environmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class EnvironmentVariable(AWSProperty):
 
 class InputArtifacts(AWSProperty):
     """
-    `InputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html>`__
+    `InputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-inputartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class InputArtifacts(AWSProperty):
 
 class OutputArtifacts(AWSProperty):
     """
-    `OutputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html>`__
+    `OutputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-outputartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -241,7 +241,7 @@ class OutputArtifacts(AWSProperty):
 
 class Actions(AWSProperty):
     """
-    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html>`__
+    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-actiondeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -263,7 +263,7 @@ class Actions(AWSProperty):
 
 class RuleTypeId(AWSProperty):
     """
-    `RuleTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruletypeid.html>`__
+    `RuleTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-ruletypeid.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class RuleTypeId(AWSProperty):
 
 class RuleDeclaration(AWSProperty):
     """
-    `RuleDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html>`__
+    `RuleDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-ruledeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class RuleDeclaration(AWSProperty):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-condition.html>`__
     """
 
     props: PropsDictType = {
@@ -303,7 +303,7 @@ class Condition(AWSProperty):
 
 class BeforeEntryConditions(AWSProperty):
     """
-    `BeforeEntryConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html>`__
+    `BeforeEntryConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-beforeentryconditions.html>`__
     """
 
     props: PropsDictType = {
@@ -313,7 +313,7 @@ class BeforeEntryConditions(AWSProperty):
 
 class Blockers(AWSProperty):
     """
-    `Blockers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html>`__
+    `Blockers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-blockerdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class Blockers(AWSProperty):
 
 class RetryConfiguration(AWSProperty):
     """
-    `RetryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-retryconfiguration.html>`__
+    `RetryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-retryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class RetryConfiguration(AWSProperty):
 
 class FailureConditions(AWSProperty):
     """
-    `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html>`__
+    `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-failureconditions.html>`__
     """
 
     props: PropsDictType = {
@@ -346,7 +346,7 @@ class FailureConditions(AWSProperty):
 
 class SuccessConditions(AWSProperty):
     """
-    `SuccessConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-successconditions.html>`__
+    `SuccessConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-successconditions.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class SuccessConditions(AWSProperty):
 
 class Stages(AWSProperty):
     """
-    `Stages <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html>`__
+    `Stages <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-stagedeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -371,7 +371,7 @@ class Stages(AWSProperty):
 
 class VariableDeclaration(AWSProperty):
     """
-    `VariableDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-variabledeclaration.html>`__
+    `VariableDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-pipeline-variabledeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -383,7 +383,7 @@ class VariableDeclaration(AWSProperty):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html>`__
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codepipeline-pipeline.html>`__
     """
 
     resource_type = "AWS::CodePipeline::Pipeline"
@@ -406,7 +406,7 @@ class Pipeline(AWSObject):
 
 class WebhookAuthConfiguration(AWSProperty):
     """
-    `WebhookAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html>`__
+    `WebhookAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-webhook-webhookauthconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class WebhookAuthConfiguration(AWSProperty):
 
 class WebhookFilterRule(AWSProperty):
     """
-    `WebhookFilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookfilterrule.html>`__
+    `WebhookFilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codepipeline-webhook-webhookfilterrule.html>`__
     """
 
     props: PropsDictType = {
@@ -428,7 +428,7 @@ class WebhookFilterRule(AWSProperty):
 
 class Webhook(AWSObject):
     """
-    `Webhook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html>`__
+    `Webhook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codepipeline-webhook.html>`__
     """
 
     resource_type = "AWS::CodePipeline::Webhook"

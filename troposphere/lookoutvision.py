@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lookoutvision-project.html>`__
     """
 
     resource_type = "AWS::LookoutVision::Project"

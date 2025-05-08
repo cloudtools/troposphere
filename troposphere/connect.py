@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class AgentStatus(AWSObject):
     """
-    `AgentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-agentstatus.html>`__
+    `AgentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-agentstatus.html>`__
     """
 
     resource_type = "AWS::Connect::AgentStatus"
@@ -31,7 +31,7 @@ class AgentStatus(AWSObject):
 
 class ApprovedOrigin(AWSObject):
     """
-    `ApprovedOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html>`__
+    `ApprovedOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-approvedorigin.html>`__
     """
 
     resource_type = "AWS::Connect::ApprovedOrigin"
@@ -44,7 +44,7 @@ class ApprovedOrigin(AWSObject):
 
 class ContactFlow(AWSObject):
     """
-    `ContactFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html>`__
+    `ContactFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-contactflow.html>`__
     """
 
     resource_type = "AWS::Connect::ContactFlow"
@@ -62,7 +62,7 @@ class ContactFlow(AWSObject):
 
 class ContactFlowModule(AWSObject):
     """
-    `ContactFlowModule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html>`__
+    `ContactFlowModule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-contactflowmodule.html>`__
     """
 
     resource_type = "AWS::Connect::ContactFlowModule"
@@ -79,7 +79,7 @@ class ContactFlowModule(AWSObject):
 
 class ContactFlowVersion(AWSObject):
     """
-    `ContactFlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowversion.html>`__
+    `ContactFlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-contactflowversion.html>`__
     """
 
     resource_type = "AWS::Connect::ContactFlowVersion"
@@ -92,7 +92,7 @@ class ContactFlowVersion(AWSObject):
 
 class EmailAddress(AWSObject):
     """
-    `EmailAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html>`__
+    `EmailAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-emailaddress.html>`__
     """
 
     resource_type = "AWS::Connect::EmailAddress"
@@ -108,7 +108,7 @@ class EmailAddress(AWSObject):
 
 class HoursOfOperationTimeSlice(AWSProperty):
     """
-    `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
+    `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class HoursOfOperationTimeSlice(AWSProperty):
 
 class HoursOfOperationConfig(AWSProperty):
     """
-    `HoursOfOperationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>`__
+    `HoursOfOperationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class HoursOfOperationConfig(AWSProperty):
 
 class OverrideTimeSlice(AWSProperty):
     """
-    `OverrideTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetimeslice.html>`__
+    `OverrideTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-hoursofoperation-overridetimeslice.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class OverrideTimeSlice(AWSProperty):
 
 class HoursOfOperationOverrideConfig(AWSProperty):
     """
-    `HoursOfOperationOverrideConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html>`__
+    `HoursOfOperationOverrideConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class HoursOfOperationOverrideConfig(AWSProperty):
 
 class HoursOfOperationOverride(AWSProperty):
     """
-    `HoursOfOperationOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html>`__
+    `HoursOfOperationOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class HoursOfOperationOverride(AWSProperty):
 
 class HoursOfOperation(AWSObject):
     """
-    `HoursOfOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html>`__
+    `HoursOfOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-hoursofoperation.html>`__
     """
 
     resource_type = "AWS::Connect::HoursOfOperation"
@@ -187,7 +187,7 @@ class HoursOfOperation(AWSObject):
 
 class Attributes(AWSProperty):
     """
-    `Attributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html>`__
+    `Attributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instance-attributes.html>`__
     """
 
     props: PropsDictType = {
@@ -203,7 +203,7 @@ class Attributes(AWSProperty):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-instance.html>`__
     """
 
     resource_type = "AWS::Connect::Instance"
@@ -219,7 +219,7 @@ class Instance(AWSObject):
 
 class KinesisFirehoseConfig(AWSProperty):
     """
-    `KinesisFirehoseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html>`__
+    `KinesisFirehoseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class KinesisFirehoseConfig(AWSProperty):
 
 class KinesisStreamConfig(AWSProperty):
     """
-    `KinesisStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisstreamconfig.html>`__
+    `KinesisStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instancestorageconfig-kinesisstreamconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class KinesisStreamConfig(AWSProperty):
 
 class EncryptionConfig(AWSProperty):
     """
-    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-encryptionconfig.html>`__
+    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instancestorageconfig-encryptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class EncryptionConfig(AWSProperty):
 
 class KinesisVideoStreamConfig(AWSProperty):
     """
-    `KinesisVideoStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html>`__
+    `KinesisVideoStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -262,7 +262,7 @@ class KinesisVideoStreamConfig(AWSProperty):
 
 class S3Config(AWSProperty):
     """
-    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html>`__
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-instancestorageconfig-s3config.html>`__
     """
 
     props: PropsDictType = {
@@ -274,7 +274,7 @@ class S3Config(AWSProperty):
 
 class InstanceStorageConfig(AWSObject):
     """
-    `InstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html>`__
+    `InstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-instancestorageconfig.html>`__
     """
 
     resource_type = "AWS::Connect::InstanceStorageConfig"
@@ -292,7 +292,7 @@ class InstanceStorageConfig(AWSObject):
 
 class IntegrationAssociation(AWSObject):
     """
-    `IntegrationAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html>`__
+    `IntegrationAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-integrationassociation.html>`__
     """
 
     resource_type = "AWS::Connect::IntegrationAssociation"
@@ -306,7 +306,7 @@ class IntegrationAssociation(AWSObject):
 
 class PhoneNumber(AWSObject):
     """
-    `PhoneNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html>`__
+    `PhoneNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-phonenumber.html>`__
     """
 
     resource_type = "AWS::Connect::PhoneNumber"
@@ -324,7 +324,7 @@ class PhoneNumber(AWSObject):
 
 class Values(AWSProperty):
     """
-    `Values <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-values.html>`__
+    `Values <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-predefinedattribute-values.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class Values(AWSProperty):
 
 class PredefinedAttribute(AWSObject):
     """
-    `PredefinedAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html>`__
+    `PredefinedAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-predefinedattribute.html>`__
     """
 
     resource_type = "AWS::Connect::PredefinedAttribute"
@@ -348,7 +348,7 @@ class PredefinedAttribute(AWSObject):
 
 class Prompt(AWSObject):
     """
-    `Prompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html>`__
+    `Prompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-prompt.html>`__
     """
 
     resource_type = "AWS::Connect::Prompt"
@@ -364,7 +364,7 @@ class Prompt(AWSObject):
 
 class OutboundCallerConfig(AWSProperty):
     """
-    `OutboundCallerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html>`__
+    `OutboundCallerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-queue-outboundcallerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class OutboundCallerConfig(AWSProperty):
 
 class OutboundEmailConfig(AWSProperty):
     """
-    `OutboundEmailConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundemailconfig.html>`__
+    `OutboundEmailConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-queue-outboundemailconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class OutboundEmailConfig(AWSProperty):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-queue.html>`__
     """
 
     resource_type = "AWS::Connect::Queue"
@@ -407,7 +407,7 @@ class Queue(AWSObject):
 
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
-    `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
+    `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class PhoneNumberQuickConnectConfig(AWSProperty):
 
 class QueueQuickConnectConfig(AWSProperty):
     """
-    `QueueQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html>`__
+    `QueueQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-quickconnect-queuequickconnectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -428,7 +428,7 @@ class QueueQuickConnectConfig(AWSProperty):
 
 class UserQuickConnectConfig(AWSProperty):
     """
-    `UserQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html>`__
+    `UserQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-quickconnect-userquickconnectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -439,7 +439,7 @@ class UserQuickConnectConfig(AWSProperty):
 
 class QuickConnectConfig(AWSProperty):
     """
-    `QuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html>`__
+    `QuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-quickconnect-quickconnectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -452,7 +452,7 @@ class QuickConnectConfig(AWSProperty):
 
 class QuickConnect(AWSObject):
     """
-    `QuickConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html>`__
+    `QuickConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-quickconnect.html>`__
     """
 
     resource_type = "AWS::Connect::QuickConnect"
@@ -468,7 +468,7 @@ class QuickConnect(AWSObject):
 
 class CrossChannelBehavior(AWSProperty):
     """
-    `CrossChannelBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-crosschannelbehavior.html>`__
+    `CrossChannelBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-routingprofile-crosschannelbehavior.html>`__
     """
 
     props: PropsDictType = {
@@ -478,7 +478,7 @@ class CrossChannelBehavior(AWSProperty):
 
 class MediaConcurrency(AWSProperty):
     """
-    `MediaConcurrency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html>`__
+    `MediaConcurrency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-routingprofile-mediaconcurrency.html>`__
     """
 
     props: PropsDictType = {
@@ -490,7 +490,7 @@ class MediaConcurrency(AWSProperty):
 
 class RoutingProfileQueueReference(AWSProperty):
     """
-    `RoutingProfileQueueReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html>`__
+    `RoutingProfileQueueReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-routingprofile-routingprofilequeuereference.html>`__
     """
 
     props: PropsDictType = {
@@ -501,7 +501,7 @@ class RoutingProfileQueueReference(AWSProperty):
 
 class RoutingProfileQueueConfig(AWSProperty):
     """
-    `RoutingProfileQueueConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>`__
+    `RoutingProfileQueueConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -513,7 +513,7 @@ class RoutingProfileQueueConfig(AWSProperty):
 
 class RoutingProfile(AWSObject):
     """
-    `RoutingProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html>`__
+    `RoutingProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-routingprofile.html>`__
     """
 
     resource_type = "AWS::Connect::RoutingProfile"
@@ -532,7 +532,7 @@ class RoutingProfile(AWSObject):
 
 class FieldIdentifier(AWSProperty):
     """
-    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
+    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -542,7 +542,7 @@ class FieldIdentifier(AWSProperty):
 
 class Field(AWSProperty):
     """
-    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html>`__
+    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-field.html>`__
     """
 
     props: PropsDictType = {
@@ -555,7 +555,7 @@ class Field(AWSProperty):
 
 class CreateCaseAction(AWSProperty):
     """
-    `CreateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html>`__
+    `CreateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-createcaseaction.html>`__
     """
 
     props: PropsDictType = {
@@ -566,7 +566,7 @@ class CreateCaseAction(AWSProperty):
 
 class EventBridgeAction(AWSProperty):
     """
-    `EventBridgeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html>`__
+    `EventBridgeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-eventbridgeaction.html>`__
     """
 
     props: PropsDictType = {
@@ -576,7 +576,7 @@ class EventBridgeAction(AWSProperty):
 
 class NotificationRecipientType(AWSProperty):
     """
-    `NotificationRecipientType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html>`__
+    `NotificationRecipientType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-notificationrecipienttype.html>`__
     """
 
     props: PropsDictType = {
@@ -587,7 +587,7 @@ class NotificationRecipientType(AWSProperty):
 
 class SendNotificationAction(AWSProperty):
     """
-    `SendNotificationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html>`__
+    `SendNotificationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-sendnotificationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -601,7 +601,7 @@ class SendNotificationAction(AWSProperty):
 
 class SubmitAutoEvaluationAction(AWSProperty):
     """
-    `SubmitAutoEvaluationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html>`__
+    `SubmitAutoEvaluationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-submitautoevaluationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -611,7 +611,7 @@ class SubmitAutoEvaluationAction(AWSProperty):
 
 class Reference(AWSProperty):
     """
-    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-reference.html>`__
+    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-reference.html>`__
     """
 
     props: PropsDictType = {
@@ -622,7 +622,7 @@ class Reference(AWSProperty):
 
 class TaskAction(AWSProperty):
     """
-    `TaskAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html>`__
+    `TaskAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-taskaction.html>`__
     """
 
     props: PropsDictType = {
@@ -635,7 +635,7 @@ class TaskAction(AWSProperty):
 
 class UpdateCaseAction(AWSProperty):
     """
-    `UpdateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html>`__
+    `UpdateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-updatecaseaction.html>`__
     """
 
     props: PropsDictType = {
@@ -645,7 +645,7 @@ class UpdateCaseAction(AWSProperty):
 
 class Actions(AWSProperty):
     """
-    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html>`__
+    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-actions.html>`__
     """
 
     props: PropsDictType = {
@@ -662,7 +662,7 @@ class Actions(AWSProperty):
 
 class RuleTriggerEventSource(AWSProperty):
     """
-    `RuleTriggerEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-ruletriggereventsource.html>`__
+    `RuleTriggerEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-ruletriggereventsource.html>`__
     """
 
     props: PropsDictType = {
@@ -673,7 +673,7 @@ class RuleTriggerEventSource(AWSProperty):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-rule.html>`__
     """
 
     resource_type = "AWS::Connect::Rule"
@@ -691,7 +691,7 @@ class Rule(AWSObject):
 
 class SecurityKey(AWSObject):
     """
-    `SecurityKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html>`__
+    `SecurityKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-securitykey.html>`__
     """
 
     resource_type = "AWS::Connect::SecurityKey"
@@ -704,7 +704,7 @@ class SecurityKey(AWSObject):
 
 class Application(AWSProperty):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-securityprofile-application.html>`__
     """
 
     props: PropsDictType = {
@@ -715,7 +715,7 @@ class Application(AWSProperty):
 
 class SecurityProfile(AWSObject):
     """
-    `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html>`__
+    `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-securityprofile.html>`__
     """
 
     resource_type = "AWS::Connect::SecurityProfile"
@@ -736,7 +736,7 @@ class SecurityProfile(AWSObject):
 
 class InvisibleFieldInfo(AWSProperty):
     """
-    `InvisibleFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>`__
+    `InvisibleFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -746,7 +746,7 @@ class InvisibleFieldInfo(AWSProperty):
 
 class ReadOnlyFieldInfo(AWSProperty):
     """
-    `ReadOnlyFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html>`__
+    `ReadOnlyFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-readonlyfieldinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -756,7 +756,7 @@ class ReadOnlyFieldInfo(AWSProperty):
 
 class RequiredFieldInfo(AWSProperty):
     """
-    `RequiredFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html>`__
+    `RequiredFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-requiredfieldinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -766,7 +766,7 @@ class RequiredFieldInfo(AWSProperty):
 
 class Constraints(AWSProperty):
     """
-    `Constraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html>`__
+    `Constraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-constraints.html>`__
     """
 
     props: PropsDictType = {
@@ -778,7 +778,7 @@ class Constraints(AWSProperty):
 
 class DefaultFieldValue(AWSProperty):
     """
-    `DefaultFieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html>`__
+    `DefaultFieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-tasktemplate-defaultfieldvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -789,7 +789,7 @@ class DefaultFieldValue(AWSProperty):
 
 class TaskTemplate(AWSObject):
     """
-    `TaskTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html>`__
+    `TaskTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-tasktemplate.html>`__
     """
 
     resource_type = "AWS::Connect::TaskTemplate"
@@ -811,7 +811,7 @@ class TaskTemplate(AWSObject):
 
 class TrafficDistributionGroup(AWSObject):
     """
-    `TrafficDistributionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html>`__
+    `TrafficDistributionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-trafficdistributiongroup.html>`__
     """
 
     resource_type = "AWS::Connect::TrafficDistributionGroup"
@@ -826,7 +826,7 @@ class TrafficDistributionGroup(AWSObject):
 
 class UserIdentityInfo(AWSProperty):
     """
-    `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`__
+    `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-user-useridentityinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -840,7 +840,7 @@ class UserIdentityInfo(AWSProperty):
 
 class UserPhoneConfig(AWSProperty):
     """
-    `UserPhoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html>`__
+    `UserPhoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-user-userphoneconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -853,7 +853,7 @@ class UserPhoneConfig(AWSProperty):
 
 class UserProficiency(AWSProperty):
     """
-    `UserProficiency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html>`__
+    `UserProficiency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-user-userproficiency.html>`__
     """
 
     props: PropsDictType = {
@@ -865,7 +865,7 @@ class UserProficiency(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-user.html>`__
     """
 
     resource_type = "AWS::Connect::User"
@@ -887,7 +887,7 @@ class User(AWSObject):
 
 class UserHierarchyGroup(AWSObject):
     """
-    `UserHierarchyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html>`__
+    `UserHierarchyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-userhierarchygroup.html>`__
     """
 
     resource_type = "AWS::Connect::UserHierarchyGroup"
@@ -902,7 +902,7 @@ class UserHierarchyGroup(AWSObject):
 
 class LevelFive(AWSProperty):
     """
-    `LevelFive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelfive.html>`__
+    `LevelFive <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-levelfive.html>`__
     """
 
     props: PropsDictType = {
@@ -914,7 +914,7 @@ class LevelFive(AWSProperty):
 
 class LevelFour(AWSProperty):
     """
-    `LevelFour <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelfour.html>`__
+    `LevelFour <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-levelfour.html>`__
     """
 
     props: PropsDictType = {
@@ -926,7 +926,7 @@ class LevelFour(AWSProperty):
 
 class LevelOne(AWSProperty):
     """
-    `LevelOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelone.html>`__
+    `LevelOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-levelone.html>`__
     """
 
     props: PropsDictType = {
@@ -938,7 +938,7 @@ class LevelOne(AWSProperty):
 
 class LevelThree(AWSProperty):
     """
-    `LevelThree <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelthree.html>`__
+    `LevelThree <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-levelthree.html>`__
     """
 
     props: PropsDictType = {
@@ -950,7 +950,7 @@ class LevelThree(AWSProperty):
 
 class LevelTwo(AWSProperty):
     """
-    `LevelTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html>`__
+    `LevelTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-leveltwo.html>`__
     """
 
     props: PropsDictType = {
@@ -962,7 +962,7 @@ class LevelTwo(AWSProperty):
 
 class UserHierarchyStructureProperty(AWSProperty):
     """
-    `UserHierarchyStructureProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html>`__
+    `UserHierarchyStructureProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-userhierarchystructure-userhierarchystructure.html>`__
     """
 
     props: PropsDictType = {
@@ -976,7 +976,7 @@ class UserHierarchyStructureProperty(AWSProperty):
 
 class UserHierarchyStructure(AWSObject):
     """
-    `UserHierarchyStructure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html>`__
+    `UserHierarchyStructure <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-userhierarchystructure.html>`__
     """
 
     resource_type = "AWS::Connect::UserHierarchyStructure"
@@ -989,7 +989,7 @@ class UserHierarchyStructure(AWSObject):
 
 class View(AWSObject):
     """
-    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html>`__
+    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-view.html>`__
     """
 
     resource_type = "AWS::Connect::View"
@@ -1006,7 +1006,7 @@ class View(AWSObject):
 
 class ViewVersion(AWSObject):
     """
-    `ViewVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html>`__
+    `ViewVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connect-viewversion.html>`__
     """
 
     resource_type = "AWS::Connect::ViewVersion"
@@ -1020,7 +1020,7 @@ class ViewVersion(AWSObject):
 
 class FieldValue(AWSProperty):
     """
-    `FieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html>`__
+    `FieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connect-rule-fieldvalue.html>`__
     """
 
     props: PropsDictType = {

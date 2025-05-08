@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ACL(AWSObject):
     """
-    `ACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html>`__
+    `ACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-acl.html>`__
     """
 
     resource_type = "AWS::MemoryDB::ACL"
@@ -26,7 +26,7 @@ class ACL(AWSObject):
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-memorydb-cluster-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class Endpoint(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-cluster.html>`__
     """
 
     resource_type = "AWS::MemoryDB::Cluster"
@@ -77,7 +77,7 @@ class Cluster(AWSObject):
 
 class MultiRegionCluster(AWSObject):
     """
-    `MultiRegionCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html>`__
+    `MultiRegionCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-multiregioncluster.html>`__
     """
 
     resource_type = "AWS::MemoryDB::MultiRegionCluster"
@@ -98,7 +98,7 @@ class MultiRegionCluster(AWSObject):
 
 class ParameterGroup(AWSObject):
     """
-    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html>`__
+    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-parametergroup.html>`__
     """
 
     resource_type = "AWS::MemoryDB::ParameterGroup"
@@ -114,7 +114,7 @@ class ParameterGroup(AWSObject):
 
 class SubnetGroup(AWSObject):
     """
-    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html>`__
+    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-subnetgroup.html>`__
     """
 
     resource_type = "AWS::MemoryDB::SubnetGroup"
@@ -129,7 +129,7 @@ class SubnetGroup(AWSObject):
 
 class AuthenticationMode(AWSProperty):
     """
-    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-user-authenticationmode.html>`__
+    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-memorydb-user-authenticationmode.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class AuthenticationMode(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-memorydb-user.html>`__
     """
 
     resource_type = "AWS::MemoryDB::User"

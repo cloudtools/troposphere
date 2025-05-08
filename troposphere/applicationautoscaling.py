@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ScalableTargetAction(AWSProperty):
     """
-    `ScalableTargetAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html>`__
+    `ScalableTargetAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ScalableTargetAction(AWSProperty):
 
 class ScheduledAction(AWSProperty):
     """
-    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html>`__
+    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class ScheduledAction(AWSProperty):
 
 class SuspendedState(AWSProperty):
     """
-    `SuspendedState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html>`__
+    `SuspendedState <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalabletarget-suspendedstate.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class SuspendedState(AWSProperty):
 
 class ScalableTarget(AWSObject):
     """
-    `ScalableTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html>`__
+    `ScalableTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html>`__
     """
 
     resource_type = "AWS::ApplicationAutoScaling::ScalableTarget"
@@ -69,7 +69,7 @@ class ScalableTarget(AWSObject):
 
 class PredictiveScalingMetricDimension(AWSProperty):
     """
-    `PredictiveScalingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdimension.html>`__
+    `PredictiveScalingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class PredictiveScalingMetricDimension(AWSProperty):
 
 class PredictiveScalingMetric(AWSProperty):
     """
-    `PredictiveScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html>`__
+    `PredictiveScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class PredictiveScalingMetric(AWSProperty):
 
 class PredictiveScalingMetricStat(AWSProperty):
     """
-    `PredictiveScalingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricstat.html>`__
+    `PredictiveScalingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricstat.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class PredictiveScalingMetricStat(AWSProperty):
 
 class PredictiveScalingMetricDataQuery(AWSProperty):
     """
-    `PredictiveScalingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdataquery.html>`__
+    `PredictiveScalingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdataquery.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class PredictiveScalingMetricDataQuery(AWSProperty):
 
 class PredictiveScalingCustomizedCapacityMetric(AWSProperty):
     """
-    `PredictiveScalingCustomizedCapacityMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html>`__
+    `PredictiveScalingCustomizedCapacityMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class PredictiveScalingCustomizedCapacityMetric(AWSProperty):
 
 class PredictiveScalingCustomizedLoadMetric(AWSProperty):
     """
-    `PredictiveScalingCustomizedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html>`__
+    `PredictiveScalingCustomizedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class PredictiveScalingCustomizedLoadMetric(AWSProperty):
 
 class PredictiveScalingCustomizedScalingMetric(AWSProperty):
     """
-    `PredictiveScalingCustomizedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html>`__
+    `PredictiveScalingCustomizedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class PredictiveScalingCustomizedScalingMetric(AWSProperty):
 
 class PredictiveScalingPredefinedLoadMetric(AWSProperty):
     """
-    `PredictiveScalingPredefinedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html>`__
+    `PredictiveScalingPredefinedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class PredictiveScalingPredefinedLoadMetric(AWSProperty):
 
 class PredictiveScalingPredefinedMetricPair(AWSProperty):
     """
-    `PredictiveScalingPredefinedMetricPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedmetricpair.html>`__
+    `PredictiveScalingPredefinedMetricPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedmetricpair.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class PredictiveScalingPredefinedMetricPair(AWSProperty):
 
 class PredictiveScalingPredefinedScalingMetric(AWSProperty):
     """
-    `PredictiveScalingPredefinedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html>`__
+    `PredictiveScalingPredefinedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class PredictiveScalingPredefinedScalingMetric(AWSProperty):
 
 class PredictiveScalingMetricSpecification(AWSProperty):
     """
-    `PredictiveScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricspecification.html>`__
+    `PredictiveScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -215,7 +215,7 @@ class PredictiveScalingMetricSpecification(AWSProperty):
 
 class PredictiveScalingPolicyConfiguration(AWSProperty):
     """
-    `PredictiveScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration.html>`__
+    `PredictiveScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class PredictiveScalingPolicyConfiguration(AWSProperty):
 
 class StepAdjustment(AWSProperty):
     """
-    `StepAdjustment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepadjustment.html>`__
+    `StepAdjustment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-stepadjustment.html>`__
     """
 
     props: PropsDictType = {
@@ -241,7 +241,7 @@ class StepAdjustment(AWSProperty):
 
 class StepScalingPolicyConfiguration(AWSProperty):
     """
-    `StepScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html>`__
+    `StepScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class StepScalingPolicyConfiguration(AWSProperty):
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class MetricDimension(AWSProperty):
 
 class TargetTrackingMetricDimension(AWSProperty):
     """
-    `TargetTrackingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html>`__
+    `TargetTrackingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class TargetTrackingMetricDimension(AWSProperty):
 
 class TargetTrackingMetric(AWSProperty):
     """
-    `TargetTrackingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html>`__
+    `TargetTrackingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +289,7 @@ class TargetTrackingMetric(AWSProperty):
 
 class TargetTrackingMetricStat(AWSProperty):
     """
-    `TargetTrackingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html>`__
+    `TargetTrackingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html>`__
     """
 
     props: PropsDictType = {
@@ -301,7 +301,7 @@ class TargetTrackingMetricStat(AWSProperty):
 
 class TargetTrackingMetricDataQuery(AWSProperty):
     """
-    `TargetTrackingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html>`__
+    `TargetTrackingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html>`__
     """
 
     props: PropsDictType = {
@@ -315,7 +315,7 @@ class TargetTrackingMetricDataQuery(AWSProperty):
 
 class CustomizedMetricSpecification(AWSProperty):
     """
-    `CustomizedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html>`__
+    `CustomizedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -330,7 +330,7 @@ class CustomizedMetricSpecification(AWSProperty):
 
 class PredefinedMetricSpecification(AWSProperty):
     """
-    `PredefinedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html>`__
+    `PredefinedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -341,7 +341,7 @@ class PredefinedMetricSpecification(AWSProperty):
 
 class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     """
-    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html>`__
+    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
 
 class ScalingPolicy(AWSObject):
     """
-    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html>`__
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.html>`__
     """
 
     resource_type = "AWS::ApplicationAutoScaling::ScalingPolicy"

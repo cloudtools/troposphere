@@ -13,7 +13,7 @@ from .validators.route53resolver import validate_ruletype
 
 class FirewallDomainList(AWSObject):
     """
-    `FirewallDomainList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html>`__
+    `FirewallDomainList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-firewalldomainlist.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::FirewallDomainList"
@@ -28,7 +28,7 @@ class FirewallDomainList(AWSObject):
 
 class FirewallRule(AWSProperty):
     """
-    `FirewallRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html>`__
+    `FirewallRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53resolver-firewallrulegroup-firewallrule.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class FirewallRule(AWSProperty):
 
 class FirewallRuleGroup(AWSObject):
     """
-    `FirewallRuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html>`__
+    `FirewallRuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-firewallrulegroup.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::FirewallRuleGroup"
@@ -63,7 +63,7 @@ class FirewallRuleGroup(AWSObject):
 
 class FirewallRuleGroupAssociation(AWSObject):
     """
-    `FirewallRuleGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html>`__
+    `FirewallRuleGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-firewallrulegroupassociation.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::FirewallRuleGroupAssociation"
@@ -80,7 +80,7 @@ class FirewallRuleGroupAssociation(AWSObject):
 
 class OutpostResolver(AWSObject):
     """
-    `OutpostResolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html>`__
+    `OutpostResolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-outpostresolver.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::OutpostResolver"
@@ -96,7 +96,7 @@ class OutpostResolver(AWSObject):
 
 class ResolverConfig(AWSObject):
     """
-    `ResolverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html>`__
+    `ResolverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverconfig.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverConfig"
@@ -109,7 +109,7 @@ class ResolverConfig(AWSObject):
 
 class ResolverDNSSECConfig(AWSObject):
     """
-    `ResolverDNSSECConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html>`__
+    `ResolverDNSSECConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverdnssecconfig.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverDNSSECConfig"
@@ -121,7 +121,7 @@ class ResolverDNSSECConfig(AWSObject):
 
 class IpAddressRequest(AWSProperty):
     """
-    `IpAddressRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html>`__
+    `IpAddressRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -133,7 +133,7 @@ class IpAddressRequest(AWSProperty):
 
 class ResolverEndpoint(AWSObject):
     """
-    `ResolverEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html>`__
+    `ResolverEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverendpoint.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverEndpoint"
@@ -153,7 +153,7 @@ class ResolverEndpoint(AWSObject):
 
 class ResolverQueryLoggingConfig(AWSObject):
     """
-    `ResolverQueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html>`__
+    `ResolverQueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverqueryloggingconfig.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverQueryLoggingConfig"
@@ -167,7 +167,7 @@ class ResolverQueryLoggingConfig(AWSObject):
 
 class ResolverQueryLoggingConfigAssociation(AWSObject):
     """
-    `ResolverQueryLoggingConfigAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html>`__
+    `ResolverQueryLoggingConfigAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
@@ -180,7 +180,7 @@ class ResolverQueryLoggingConfigAssociation(AWSObject):
 
 class TargetAddress(AWSProperty):
     """
-    `TargetAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html>`__
+    `TargetAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53resolver-resolverrule-targetaddress.html>`__
     """
 
     props: PropsDictType = {
@@ -194,7 +194,7 @@ class TargetAddress(AWSProperty):
 
 class ResolverRule(AWSObject):
     """
-    `ResolverRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html>`__
+    `ResolverRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverrule.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverRule"
@@ -211,7 +211,7 @@ class ResolverRule(AWSObject):
 
 class ResolverRuleAssociation(AWSObject):
     """
-    `ResolverRuleAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html>`__
+    `ResolverRuleAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53resolver-resolverruleassociation.html>`__
     """
 
     resource_type = "AWS::Route53Resolver::ResolverRuleAssociation"

@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class Deployment(AWSObject):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-launchwizard-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-launchwizard-deployment.html>`__
     """
 
     resource_type = "AWS::LaunchWizard::Deployment"

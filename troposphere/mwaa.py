@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ModuleLoggingConfiguration(AWSProperty):
     """
-    `ModuleLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html>`__
+    `ModuleLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mwaa-environment-moduleloggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class ModuleLoggingConfiguration(AWSProperty):
 
 class LoggingConfiguration(AWSProperty):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mwaa-environment-loggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class LoggingConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mwaa-environment-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class NetworkConfiguration(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mwaa-environment.html>`__
     """
 
     resource_type = "AWS::MWAA::Environment"

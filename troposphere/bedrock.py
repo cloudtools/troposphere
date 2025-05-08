@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class S3Identifier(AWSProperty):
     """
-    `S3Identifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-s3identifier.html>`__
+    `S3Identifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-s3identifier.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class S3Identifier(AWSProperty):
 
 class APISchema(AWSProperty):
     """
-    `APISchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-apischema.html>`__
+    `APISchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-apischema.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class APISchema(AWSProperty):
 
 class ActionGroupExecutor(AWSProperty):
     """
-    `ActionGroupExecutor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html>`__
+    `ActionGroupExecutor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-actiongroupexecutor.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class ActionGroupExecutor(AWSProperty):
 
 class ParameterDetail(AWSProperty):
     """
-    `ParameterDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html>`__
+    `ParameterDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-parameterdetail.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ParameterDetail(AWSProperty):
 
 class Function(AWSProperty):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-function.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class Function(AWSProperty):
 
 class FunctionSchema(AWSProperty):
     """
-    `FunctionSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html>`__
+    `FunctionSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-functionschema.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class FunctionSchema(AWSProperty):
 
 class AgentActionGroup(AWSProperty):
     """
-    `AgentActionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html>`__
+    `AgentActionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-agentactiongroup.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class AgentActionGroup(AWSProperty):
 
 class AgentDescriptor(AWSProperty):
     """
-    `AgentDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentdescriptor.html>`__
+    `AgentDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-agentdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class AgentDescriptor(AWSProperty):
 
 class AgentCollaborator(AWSProperty):
     """
-    `AgentCollaborator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentcollaborator.html>`__
+    `AgentCollaborator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-agentcollaborator.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,7 @@ class AgentCollaborator(AWSProperty):
 
 class AgentKnowledgeBase(AWSProperty):
     """
-    `AgentKnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentknowledgebase.html>`__
+    `AgentKnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-agentknowledgebase.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class AgentKnowledgeBase(AWSProperty):
 
 class OrchestrationExecutor(AWSProperty):
     """
-    `OrchestrationExecutor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-orchestrationexecutor.html>`__
+    `OrchestrationExecutor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-orchestrationexecutor.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class OrchestrationExecutor(AWSProperty):
 
 class CustomOrchestration(AWSProperty):
     """
-    `CustomOrchestration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-customorchestration.html>`__
+    `CustomOrchestration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-customorchestration.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class CustomOrchestration(AWSProperty):
 
 class GuardrailConfiguration(AWSProperty):
     """
-    `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html>`__
+    `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-guardrailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class GuardrailConfiguration(AWSProperty):
 
 class SessionSummaryConfiguration(AWSProperty):
     """
-    `SessionSummaryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-sessionsummaryconfiguration.html>`__
+    `SessionSummaryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-sessionsummaryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class SessionSummaryConfiguration(AWSProperty):
 
 class MemoryConfiguration(AWSProperty):
     """
-    `MemoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-memoryconfiguration.html>`__
+    `MemoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-memoryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class MemoryConfiguration(AWSProperty):
 
 class InferenceConfiguration(AWSProperty):
     """
-    `InferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html>`__
+    `InferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-inferenceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class InferenceConfiguration(AWSProperty):
 
 class PromptConfiguration(AWSProperty):
     """
-    `PromptConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html>`__
+    `PromptConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-promptconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -216,7 +216,7 @@ class PromptConfiguration(AWSProperty):
 
 class PromptOverrideConfiguration(AWSProperty):
     """
-    `PromptOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptoverrideconfiguration.html>`__
+    `PromptOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agent-promptoverrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -227,7 +227,7 @@ class PromptOverrideConfiguration(AWSProperty):
 
 class Agent(AWSObject):
     """
-    `Agent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html>`__
+    `Agent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-agent.html>`__
     """
 
     resource_type = "AWS::Bedrock::Agent"
@@ -258,7 +258,7 @@ class Agent(AWSObject):
 
 class AgentAliasRoutingConfigurationListItem(AWSProperty):
     """
-    `AgentAliasRoutingConfigurationListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html>`__
+    `AgentAliasRoutingConfigurationListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agentalias-agentaliasroutingconfigurationlistitem.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class AgentAliasRoutingConfigurationListItem(AWSProperty):
 
 class AgentAlias(AWSObject):
     """
-    `AgentAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agentalias.html>`__
+    `AgentAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-agentalias.html>`__
     """
 
     resource_type = "AWS::Bedrock::AgentAlias"
@@ -284,7 +284,7 @@ class AgentAlias(AWSObject):
 
 class InferenceProfileModelSource(AWSProperty):
     """
-    `InferenceProfileModelSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html>`__
+    `InferenceProfileModelSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html>`__
     """
 
     props: PropsDictType = {
@@ -294,7 +294,7 @@ class InferenceProfileModelSource(AWSProperty):
 
 class ApplicationInferenceProfile(AWSObject):
     """
-    `ApplicationInferenceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html>`__
+    `ApplicationInferenceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-applicationinferenceprofile.html>`__
     """
 
     resource_type = "AWS::Bedrock::ApplicationInferenceProfile"
@@ -309,7 +309,7 @@ class ApplicationInferenceProfile(AWSObject):
 
 class Blueprint(AWSObject):
     """
-    `Blueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-blueprint.html>`__
+    `Blueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-blueprint.html>`__
     """
 
     resource_type = "AWS::Bedrock::Blueprint"
@@ -326,7 +326,7 @@ class Blueprint(AWSObject):
 
 class BlueprintItem(AWSProperty):
     """
-    `BlueprintItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-blueprintitem.html>`__
+    `BlueprintItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-blueprintitem.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class BlueprintItem(AWSProperty):
 
 class CustomOutputConfiguration(AWSProperty):
     """
-    `CustomOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-customoutputconfiguration.html>`__
+    `CustomOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-customoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class CustomOutputConfiguration(AWSProperty):
 
 class ModalityProcessingConfiguration(AWSProperty):
     """
-    `ModalityProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html>`__
+    `ModalityProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +358,7 @@ class ModalityProcessingConfiguration(AWSProperty):
 
 class AudioOverrideConfiguration(AWSProperty):
     """
-    `AudioOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html>`__
+    `AudioOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -368,7 +368,7 @@ class AudioOverrideConfiguration(AWSProperty):
 
 class SplitterConfiguration(AWSProperty):
     """
-    `SplitterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-splitterconfiguration.html>`__
+    `SplitterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-splitterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class SplitterConfiguration(AWSProperty):
 
 class DocumentOverrideConfiguration(AWSProperty):
     """
-    `DocumentOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoverrideconfiguration.html>`__
+    `DocumentOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentoverrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -389,7 +389,7 @@ class DocumentOverrideConfiguration(AWSProperty):
 
 class ImageOverrideConfiguration(AWSProperty):
     """
-    `ImageOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageoverrideconfiguration.html>`__
+    `ImageOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imageoverrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -399,7 +399,7 @@ class ImageOverrideConfiguration(AWSProperty):
 
 class ModalityRoutingConfiguration(AWSProperty):
     """
-    `ModalityRoutingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityroutingconfiguration.html>`__
+    `ModalityRoutingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-modalityroutingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -412,7 +412,7 @@ class ModalityRoutingConfiguration(AWSProperty):
 
 class VideoOverrideConfiguration(AWSProperty):
     """
-    `VideoOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videooverrideconfiguration.html>`__
+    `VideoOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videooverrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -422,7 +422,7 @@ class VideoOverrideConfiguration(AWSProperty):
 
 class OverrideConfiguration(AWSProperty):
     """
-    `OverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-overrideconfiguration.html>`__
+    `OverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-overrideconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -436,7 +436,7 @@ class OverrideConfiguration(AWSProperty):
 
 class AudioExtractionCategory(AWSProperty):
     """
-    `AudioExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html>`__
+    `AudioExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html>`__
     """
 
     props: PropsDictType = {
@@ -447,7 +447,7 @@ class AudioExtractionCategory(AWSProperty):
 
 class AudioStandardExtraction(AWSProperty):
     """
-    `AudioStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardextraction.html>`__
+    `AudioStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-audiostandardextraction.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class AudioStandardExtraction(AWSProperty):
 
 class AudioStandardGenerativeField(AWSProperty):
     """
-    `AudioStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardgenerativefield.html>`__
+    `AudioStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-audiostandardgenerativefield.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class AudioStandardGenerativeField(AWSProperty):
 
 class AudioStandardOutputConfiguration(AWSProperty):
     """
-    `AudioStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardoutputconfiguration.html>`__
+    `AudioStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-audiostandardoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -479,7 +479,7 @@ class AudioStandardOutputConfiguration(AWSProperty):
 
 class DocumentOutputAdditionalFileFormat(AWSProperty):
     """
-    `DocumentOutputAdditionalFileFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputadditionalfileformat.html>`__
+    `DocumentOutputAdditionalFileFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentoutputadditionalfileformat.html>`__
     """
 
     props: PropsDictType = {
@@ -489,7 +489,7 @@ class DocumentOutputAdditionalFileFormat(AWSProperty):
 
 class DocumentOutputTextFormat(AWSProperty):
     """
-    `DocumentOutputTextFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputtextformat.html>`__
+    `DocumentOutputTextFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentoutputtextformat.html>`__
     """
 
     props: PropsDictType = {
@@ -499,7 +499,7 @@ class DocumentOutputTextFormat(AWSProperty):
 
 class DocumentOutputFormat(AWSProperty):
     """
-    `DocumentOutputFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputformat.html>`__
+    `DocumentOutputFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentoutputformat.html>`__
     """
 
     props: PropsDictType = {
@@ -510,7 +510,7 @@ class DocumentOutputFormat(AWSProperty):
 
 class DocumentBoundingBox(AWSProperty):
     """
-    `DocumentBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentboundingbox.html>`__
+    `DocumentBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentboundingbox.html>`__
     """
 
     props: PropsDictType = {
@@ -520,7 +520,7 @@ class DocumentBoundingBox(AWSProperty):
 
 class DocumentExtractionGranularity(AWSProperty):
     """
-    `DocumentExtractionGranularity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentextractiongranularity.html>`__
+    `DocumentExtractionGranularity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentextractiongranularity.html>`__
     """
 
     props: PropsDictType = {
@@ -530,7 +530,7 @@ class DocumentExtractionGranularity(AWSProperty):
 
 class DocumentStandardExtraction(AWSProperty):
     """
-    `DocumentStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardextraction.html>`__
+    `DocumentStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentstandardextraction.html>`__
     """
 
     props: PropsDictType = {
@@ -541,7 +541,7 @@ class DocumentStandardExtraction(AWSProperty):
 
 class DocumentStandardGenerativeField(AWSProperty):
     """
-    `DocumentStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardgenerativefield.html>`__
+    `DocumentStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentstandardgenerativefield.html>`__
     """
 
     props: PropsDictType = {
@@ -551,7 +551,7 @@ class DocumentStandardGenerativeField(AWSProperty):
 
 class DocumentStandardOutputConfiguration(AWSProperty):
     """
-    `DocumentStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardoutputconfiguration.html>`__
+    `DocumentStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-documentstandardoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -563,7 +563,7 @@ class DocumentStandardOutputConfiguration(AWSProperty):
 
 class ImageBoundingBox(AWSProperty):
     """
-    `ImageBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageboundingbox.html>`__
+    `ImageBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imageboundingbox.html>`__
     """
 
     props: PropsDictType = {
@@ -573,7 +573,7 @@ class ImageBoundingBox(AWSProperty):
 
 class ImageExtractionCategory(AWSProperty):
     """
-    `ImageExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageextractioncategory.html>`__
+    `ImageExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imageextractioncategory.html>`__
     """
 
     props: PropsDictType = {
@@ -584,7 +584,7 @@ class ImageExtractionCategory(AWSProperty):
 
 class ImageStandardExtraction(AWSProperty):
     """
-    `ImageStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardextraction.html>`__
+    `ImageStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imagestandardextraction.html>`__
     """
 
     props: PropsDictType = {
@@ -595,7 +595,7 @@ class ImageStandardExtraction(AWSProperty):
 
 class ImageStandardGenerativeField(AWSProperty):
     """
-    `ImageStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardgenerativefield.html>`__
+    `ImageStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imagestandardgenerativefield.html>`__
     """
 
     props: PropsDictType = {
@@ -606,7 +606,7 @@ class ImageStandardGenerativeField(AWSProperty):
 
 class ImageStandardOutputConfiguration(AWSProperty):
     """
-    `ImageStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardoutputconfiguration.html>`__
+    `ImageStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-imagestandardoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -617,7 +617,7 @@ class ImageStandardOutputConfiguration(AWSProperty):
 
 class VideoBoundingBox(AWSProperty):
     """
-    `VideoBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videoboundingbox.html>`__
+    `VideoBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videoboundingbox.html>`__
     """
 
     props: PropsDictType = {
@@ -627,7 +627,7 @@ class VideoBoundingBox(AWSProperty):
 
 class VideoExtractionCategory(AWSProperty):
     """
-    `VideoExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videoextractioncategory.html>`__
+    `VideoExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videoextractioncategory.html>`__
     """
 
     props: PropsDictType = {
@@ -638,7 +638,7 @@ class VideoExtractionCategory(AWSProperty):
 
 class VideoStandardExtraction(AWSProperty):
     """
-    `VideoStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardextraction.html>`__
+    `VideoStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videostandardextraction.html>`__
     """
 
     props: PropsDictType = {
@@ -649,7 +649,7 @@ class VideoStandardExtraction(AWSProperty):
 
 class VideoStandardGenerativeField(AWSProperty):
     """
-    `VideoStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardgenerativefield.html>`__
+    `VideoStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videostandardgenerativefield.html>`__
     """
 
     props: PropsDictType = {
@@ -660,7 +660,7 @@ class VideoStandardGenerativeField(AWSProperty):
 
 class VideoStandardOutputConfiguration(AWSProperty):
     """
-    `VideoStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardoutputconfiguration.html>`__
+    `VideoStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-videostandardoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -671,7 +671,7 @@ class VideoStandardOutputConfiguration(AWSProperty):
 
 class StandardOutputConfiguration(AWSProperty):
     """
-    `StandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-standardoutputconfiguration.html>`__
+    `StandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-dataautomationproject-standardoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -684,7 +684,7 @@ class StandardOutputConfiguration(AWSProperty):
 
 class DataAutomationProject(AWSObject):
     """
-    `DataAutomationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html>`__
+    `DataAutomationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-dataautomationproject.html>`__
     """
 
     resource_type = "AWS::Bedrock::DataAutomationProject"
@@ -703,7 +703,7 @@ class DataAutomationProject(AWSObject):
 
 class PatternObjectFilter(AWSProperty):
     """
-    `PatternObjectFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilter.html>`__
+    `PatternObjectFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-patternobjectfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -715,7 +715,7 @@ class PatternObjectFilter(AWSProperty):
 
 class PatternObjectFilterConfiguration(AWSProperty):
     """
-    `PatternObjectFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html>`__
+    `PatternObjectFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -725,7 +725,7 @@ class PatternObjectFilterConfiguration(AWSProperty):
 
 class CrawlFilterConfiguration(AWSProperty):
     """
-    `CrawlFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html>`__
+    `CrawlFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-crawlfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -736,7 +736,7 @@ class CrawlFilterConfiguration(AWSProperty):
 
 class ConfluenceCrawlerConfiguration(AWSProperty):
     """
-    `ConfluenceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencecrawlerconfiguration.html>`__
+    `ConfluenceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-confluencecrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -746,7 +746,7 @@ class ConfluenceCrawlerConfiguration(AWSProperty):
 
 class ConfluenceSourceConfiguration(AWSProperty):
     """
-    `ConfluenceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html>`__
+    `ConfluenceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-confluencesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -759,7 +759,7 @@ class ConfluenceSourceConfiguration(AWSProperty):
 
 class ConfluenceDataSourceConfiguration(AWSProperty):
     """
-    `ConfluenceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html>`__
+    `ConfluenceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -770,7 +770,7 @@ class ConfluenceDataSourceConfiguration(AWSProperty):
 
 class S3DataSourceConfiguration(AWSProperty):
     """
-    `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3datasourceconfiguration.html>`__
+    `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-s3datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -782,7 +782,7 @@ class S3DataSourceConfiguration(AWSProperty):
 
 class SalesforceCrawlerConfiguration(AWSProperty):
     """
-    `SalesforceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcecrawlerconfiguration.html>`__
+    `SalesforceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-salesforcecrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -792,7 +792,7 @@ class SalesforceCrawlerConfiguration(AWSProperty):
 
 class SalesforceSourceConfiguration(AWSProperty):
     """
-    `SalesforceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html>`__
+    `SalesforceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -804,7 +804,7 @@ class SalesforceSourceConfiguration(AWSProperty):
 
 class SalesforceDataSourceConfiguration(AWSProperty):
     """
-    `SalesforceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcedatasourceconfiguration.html>`__
+    `SalesforceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-salesforcedatasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -815,7 +815,7 @@ class SalesforceDataSourceConfiguration(AWSProperty):
 
 class SharePointCrawlerConfiguration(AWSProperty):
     """
-    `SharePointCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html>`__
+    `SharePointCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -825,7 +825,7 @@ class SharePointCrawlerConfiguration(AWSProperty):
 
 class SharePointSourceConfiguration(AWSProperty):
     """
-    `SharePointSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointsourceconfiguration.html>`__
+    `SharePointSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-sharepointsourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -840,7 +840,7 @@ class SharePointSourceConfiguration(AWSProperty):
 
 class SharePointDataSourceConfiguration(AWSProperty):
     """
-    `SharePointDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html>`__
+    `SharePointDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -851,7 +851,7 @@ class SharePointDataSourceConfiguration(AWSProperty):
 
 class WebCrawlerLimits(AWSProperty):
     """
-    `WebCrawlerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html>`__
+    `WebCrawlerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-webcrawlerlimits.html>`__
     """
 
     props: PropsDictType = {
@@ -862,7 +862,7 @@ class WebCrawlerLimits(AWSProperty):
 
 class WebCrawlerConfiguration(AWSProperty):
     """
-    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html>`__
+    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-webcrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -877,7 +877,7 @@ class WebCrawlerConfiguration(AWSProperty):
 
 class SeedUrl(AWSProperty):
     """
-    `SeedUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html>`__
+    `SeedUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-seedurl.html>`__
     """
 
     props: PropsDictType = {
@@ -887,7 +887,7 @@ class SeedUrl(AWSProperty):
 
 class UrlConfiguration(AWSProperty):
     """
-    `UrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html>`__
+    `UrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-urlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -897,7 +897,7 @@ class UrlConfiguration(AWSProperty):
 
 class WebSourceConfiguration(AWSProperty):
     """
-    `WebSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html>`__
+    `WebSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-websourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -907,7 +907,7 @@ class WebSourceConfiguration(AWSProperty):
 
 class WebDataSourceConfiguration(AWSProperty):
     """
-    `WebDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webdatasourceconfiguration.html>`__
+    `WebDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-webdatasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -918,7 +918,7 @@ class WebDataSourceConfiguration(AWSProperty):
 
 class DataSourceConfiguration(AWSProperty):
     """
-    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html>`__
+    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -933,7 +933,7 @@ class DataSourceConfiguration(AWSProperty):
 
 class ServerSideEncryptionConfiguration(AWSProperty):
     """
-    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-serversideencryptionconfiguration.html>`__
+    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-serversideencryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -943,7 +943,7 @@ class ServerSideEncryptionConfiguration(AWSProperty):
 
 class FixedSizeChunkingConfiguration(AWSProperty):
     """
-    `FixedSizeChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-fixedsizechunkingconfiguration.html>`__
+    `FixedSizeChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-fixedsizechunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -954,7 +954,7 @@ class FixedSizeChunkingConfiguration(AWSProperty):
 
 class HierarchicalChunkingLevelConfiguration(AWSProperty):
     """
-    `HierarchicalChunkingLevelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html>`__
+    `HierarchicalChunkingLevelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -964,7 +964,7 @@ class HierarchicalChunkingLevelConfiguration(AWSProperty):
 
 class HierarchicalChunkingConfiguration(AWSProperty):
     """
-    `HierarchicalChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkingconfiguration.html>`__
+    `HierarchicalChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-hierarchicalchunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -975,7 +975,7 @@ class HierarchicalChunkingConfiguration(AWSProperty):
 
 class SemanticChunkingConfiguration(AWSProperty):
     """
-    `SemanticChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-semanticchunkingconfiguration.html>`__
+    `SemanticChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-semanticchunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -987,7 +987,7 @@ class SemanticChunkingConfiguration(AWSProperty):
 
 class ChunkingConfiguration(AWSProperty):
     """
-    `ChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html>`__
+    `ChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-chunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1000,7 +1000,7 @@ class ChunkingConfiguration(AWSProperty):
 
 class EnrichmentStrategyConfiguration(AWSProperty):
     """
-    `EnrichmentStrategyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html>`__
+    `EnrichmentStrategyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1010,7 +1010,7 @@ class EnrichmentStrategyConfiguration(AWSProperty):
 
 class BedrockFoundationModelContextEnrichmentConfiguration(AWSProperty):
     """
-    `BedrockFoundationModelContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html>`__
+    `BedrockFoundationModelContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1021,7 +1021,7 @@ class BedrockFoundationModelContextEnrichmentConfiguration(AWSProperty):
 
 class ContextEnrichmentConfiguration(AWSProperty):
     """
-    `ContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html>`__
+    `ContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1035,7 +1035,7 @@ class ContextEnrichmentConfiguration(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -1045,7 +1045,7 @@ class S3Location(AWSProperty):
 
 class IntermediateStorage(AWSProperty):
     """
-    `IntermediateStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-intermediatestorage.html>`__
+    `IntermediateStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-intermediatestorage.html>`__
     """
 
     props: PropsDictType = {
@@ -1055,7 +1055,7 @@ class IntermediateStorage(AWSProperty):
 
 class TransformationLambdaConfiguration(AWSProperty):
     """
-    `TransformationLambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationlambdaconfiguration.html>`__
+    `TransformationLambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-transformationlambdaconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1065,7 +1065,7 @@ class TransformationLambdaConfiguration(AWSProperty):
 
 class TransformationFunction(AWSProperty):
     """
-    `TransformationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationfunction.html>`__
+    `TransformationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-transformationfunction.html>`__
     """
 
     props: PropsDictType = {
@@ -1075,7 +1075,7 @@ class TransformationFunction(AWSProperty):
 
 class Transformation(AWSProperty):
     """
-    `Transformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformation.html>`__
+    `Transformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-transformation.html>`__
     """
 
     props: PropsDictType = {
@@ -1086,7 +1086,7 @@ class Transformation(AWSProperty):
 
 class CustomTransformationConfiguration(AWSProperty):
     """
-    `CustomTransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-customtransformationconfiguration.html>`__
+    `CustomTransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-customtransformationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1097,7 +1097,7 @@ class CustomTransformationConfiguration(AWSProperty):
 
 class BedrockDataAutomationConfiguration(AWSProperty):
     """
-    `BedrockDataAutomationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockdataautomationconfiguration.html>`__
+    `BedrockDataAutomationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-bedrockdataautomationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1107,7 +1107,7 @@ class BedrockDataAutomationConfiguration(AWSProperty):
 
 class ParsingPrompt(AWSProperty):
     """
-    `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingprompt.html>`__
+    `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-parsingprompt.html>`__
     """
 
     props: PropsDictType = {
@@ -1117,7 +1117,7 @@ class ParsingPrompt(AWSProperty):
 
 class BedrockFoundationModelConfiguration(AWSProperty):
     """
-    `BedrockFoundationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html>`__
+    `BedrockFoundationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1129,7 +1129,7 @@ class BedrockFoundationModelConfiguration(AWSProperty):
 
 class ParsingConfiguration(AWSProperty):
     """
-    `ParsingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html>`__
+    `ParsingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-parsingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1147,7 +1147,7 @@ class ParsingConfiguration(AWSProperty):
 
 class VectorIngestionConfiguration(AWSProperty):
     """
-    `VectorIngestionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html>`__
+    `VectorIngestionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-datasource-vectoringestionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1160,7 +1160,7 @@ class VectorIngestionConfiguration(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-datasource.html>`__
     """
 
     resource_type = "AWS::Bedrock::DataSource"
@@ -1178,7 +1178,7 @@ class DataSource(AWSObject):
 
 class FlowConditionalConnectionConfiguration(AWSProperty):
     """
-    `FlowConditionalConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconditionalconnectionconfiguration.html>`__
+    `FlowConditionalConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowconditionalconnectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1188,7 +1188,7 @@ class FlowConditionalConnectionConfiguration(AWSProperty):
 
 class FlowDataConnectionConfiguration(AWSProperty):
     """
-    `FlowDataConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdataconnectionconfiguration.html>`__
+    `FlowDataConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowdataconnectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1199,7 +1199,7 @@ class FlowDataConnectionConfiguration(AWSProperty):
 
 class FlowConnectionConfiguration(AWSProperty):
     """
-    `FlowConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnectionconfiguration.html>`__
+    `FlowConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowconnectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1210,7 @@ class FlowConnectionConfiguration(AWSProperty):
 
 class FlowConnection(AWSProperty):
     """
-    `FlowConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconnection.html>`__
+    `FlowConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowconnection.html>`__
     """
 
     props: PropsDictType = {
@@ -1224,7 +1224,7 @@ class FlowConnection(AWSProperty):
 
 class AgentFlowNodeConfiguration(AWSProperty):
     """
-    `AgentFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html>`__
+    `AgentFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1234,7 +1234,7 @@ class AgentFlowNodeConfiguration(AWSProperty):
 
 class FlowCondition(AWSProperty):
     """
-    `FlowCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowcondition.html>`__
+    `FlowCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -1245,7 +1245,7 @@ class FlowCondition(AWSProperty):
 
 class ConditionFlowNodeConfiguration(AWSProperty):
     """
-    `ConditionFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-conditionflownodeconfiguration.html>`__
+    `ConditionFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-conditionflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1255,7 +1255,7 @@ class ConditionFlowNodeConfiguration(AWSProperty):
 
 class KnowledgeBaseFlowNodeConfiguration(AWSProperty):
     """
-    `KnowledgeBaseFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html>`__
+    `KnowledgeBaseFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1267,7 +1267,7 @@ class KnowledgeBaseFlowNodeConfiguration(AWSProperty):
 
 class LambdaFunctionFlowNodeConfiguration(AWSProperty):
     """
-    `LambdaFunctionFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lambdafunctionflownodeconfiguration.html>`__
+    `LambdaFunctionFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-lambdafunctionflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1277,7 +1277,7 @@ class LambdaFunctionFlowNodeConfiguration(AWSProperty):
 
 class LexFlowNodeConfiguration(AWSProperty):
     """
-    `LexFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-lexflownodeconfiguration.html>`__
+    `LexFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-lexflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1288,7 +1288,7 @@ class LexFlowNodeConfiguration(AWSProperty):
 
 class PromptModelInferenceConfiguration(AWSProperty):
     """
-    `PromptModelInferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html>`__
+    `PromptModelInferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptmodelinferenceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1301,7 +1301,7 @@ class PromptModelInferenceConfiguration(AWSProperty):
 
 class PromptInferenceConfiguration(AWSProperty):
     """
-    `PromptInferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptinferenceconfiguration.html>`__
+    `PromptInferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptinferenceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1311,7 +1311,7 @@ class PromptInferenceConfiguration(AWSProperty):
 
 class CachePointBlock(AWSProperty):
     """
-    `CachePointBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-cachepointblock.html>`__
+    `CachePointBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-cachepointblock.html>`__
     """
 
     props: PropsDictType = {
@@ -1321,7 +1321,7 @@ class CachePointBlock(AWSProperty):
 
 class ContentBlock(AWSProperty):
     """
-    `ContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-contentblock.html>`__
+    `ContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-contentblock.html>`__
     """
 
     props: PropsDictType = {
@@ -1332,7 +1332,7 @@ class ContentBlock(AWSProperty):
 
 class Message(AWSProperty):
     """
-    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-message.html>`__
+    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-message.html>`__
     """
 
     props: PropsDictType = {
@@ -1343,7 +1343,7 @@ class Message(AWSProperty):
 
 class PromptInputVariable(AWSProperty):
     """
-    `PromptInputVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptinputvariable.html>`__
+    `PromptInputVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptinputvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -1353,7 +1353,7 @@ class PromptInputVariable(AWSProperty):
 
 class SystemContentBlock(AWSProperty):
     """
-    `SystemContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html>`__
+    `SystemContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-systemcontentblock.html>`__
     """
 
     props: PropsDictType = {
@@ -1364,7 +1364,7 @@ class SystemContentBlock(AWSProperty):
 
 class ToolInputSchema(AWSProperty):
     """
-    `ToolInputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolinputschema.html>`__
+    `ToolInputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-toolinputschema.html>`__
     """
 
     props: PropsDictType = {
@@ -1374,7 +1374,7 @@ class ToolInputSchema(AWSProperty):
 
 class ToolSpecification(AWSProperty):
     """
-    `ToolSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html>`__
+    `ToolSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-toolspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1386,7 +1386,7 @@ class ToolSpecification(AWSProperty):
 
 class Tool(AWSProperty):
     """
-    `Tool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html>`__
+    `Tool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-tool.html>`__
     """
 
     props: PropsDictType = {
@@ -1397,7 +1397,7 @@ class Tool(AWSProperty):
 
 class SpecificToolChoice(AWSProperty):
     """
-    `SpecificToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-specifictoolchoice.html>`__
+    `SpecificToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-specifictoolchoice.html>`__
     """
 
     props: PropsDictType = {
@@ -1407,7 +1407,7 @@ class SpecificToolChoice(AWSProperty):
 
 class ToolChoice(AWSProperty):
     """
-    `ToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html>`__
+    `ToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-toolchoice.html>`__
     """
 
     props: PropsDictType = {
@@ -1419,7 +1419,7 @@ class ToolChoice(AWSProperty):
 
 class ToolConfiguration(AWSProperty):
     """
-    `ToolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolconfiguration.html>`__
+    `ToolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-toolconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1430,7 +1430,7 @@ class ToolConfiguration(AWSProperty):
 
 class ChatPromptTemplateConfiguration(AWSProperty):
     """
-    `ChatPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html>`__
+    `ChatPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1443,7 +1443,7 @@ class ChatPromptTemplateConfiguration(AWSProperty):
 
 class TextPromptTemplateConfiguration(AWSProperty):
     """
-    `TextPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html>`__
+    `TextPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1455,7 +1455,7 @@ class TextPromptTemplateConfiguration(AWSProperty):
 
 class PromptTemplateConfiguration(AWSProperty):
     """
-    `PromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-prompttemplateconfiguration.html>`__
+    `PromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-prompt-prompttemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1466,7 +1466,7 @@ class PromptTemplateConfiguration(AWSProperty):
 
 class PromptFlowNodeInlineConfiguration(AWSProperty):
     """
-    `PromptFlowNodeInlineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html>`__
+    `PromptFlowNodeInlineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-promptflownodeinlineconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1479,7 +1479,7 @@ class PromptFlowNodeInlineConfiguration(AWSProperty):
 
 class PromptFlowNodeResourceConfiguration(AWSProperty):
     """
-    `PromptFlowNodeResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownoderesourceconfiguration.html>`__
+    `PromptFlowNodeResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-promptflownoderesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1489,7 +1489,7 @@ class PromptFlowNodeResourceConfiguration(AWSProperty):
 
 class PromptFlowNodeSourceConfiguration(AWSProperty):
     """
-    `PromptFlowNodeSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodesourceconfiguration.html>`__
+    `PromptFlowNodeSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-promptflownodesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1500,7 +1500,7 @@ class PromptFlowNodeSourceConfiguration(AWSProperty):
 
 class PromptFlowNodeConfiguration(AWSProperty):
     """
-    `PromptFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html>`__
+    `PromptFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-promptflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1511,7 +1511,7 @@ class PromptFlowNodeConfiguration(AWSProperty):
 
 class RetrievalFlowNodeS3Configuration(AWSProperty):
     """
-    `RetrievalFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodes3configuration.html>`__
+    `RetrievalFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-retrievalflownodes3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -1521,7 +1521,7 @@ class RetrievalFlowNodeS3Configuration(AWSProperty):
 
 class RetrievalFlowNodeServiceConfiguration(AWSProperty):
     """
-    `RetrievalFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeserviceconfiguration.html>`__
+    `RetrievalFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-retrievalflownodeserviceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1531,7 +1531,7 @@ class RetrievalFlowNodeServiceConfiguration(AWSProperty):
 
 class RetrievalFlowNodeConfiguration(AWSProperty):
     """
-    `RetrievalFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeconfiguration.html>`__
+    `RetrievalFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-retrievalflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1541,7 +1541,7 @@ class RetrievalFlowNodeConfiguration(AWSProperty):
 
 class StorageFlowNodeS3Configuration(AWSProperty):
     """
-    `StorageFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodes3configuration.html>`__
+    `StorageFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-storageflownodes3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -1551,7 +1551,7 @@ class StorageFlowNodeS3Configuration(AWSProperty):
 
 class StorageFlowNodeServiceConfiguration(AWSProperty):
     """
-    `StorageFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html>`__
+    `StorageFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1561,7 +1561,7 @@ class StorageFlowNodeServiceConfiguration(AWSProperty):
 
 class StorageFlowNodeConfiguration(AWSProperty):
     """
-    `StorageFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeconfiguration.html>`__
+    `StorageFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-storageflownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1571,7 +1571,7 @@ class StorageFlowNodeConfiguration(AWSProperty):
 
 class FlowNodeConfiguration(AWSProperty):
     """
-    `FlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html>`__
+    `FlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1592,7 +1592,7 @@ class FlowNodeConfiguration(AWSProperty):
 
 class FlowNodeInput(AWSProperty):
     """
-    `FlowNodeInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeinput.html>`__
+    `FlowNodeInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flownodeinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1604,7 +1604,7 @@ class FlowNodeInput(AWSProperty):
 
 class FlowNodeOutput(AWSProperty):
     """
-    `FlowNodeOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeoutput.html>`__
+    `FlowNodeOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flownodeoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -1615,7 +1615,7 @@ class FlowNodeOutput(AWSProperty):
 
 class FlowNode(AWSProperty):
     """
-    `FlowNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownode.html>`__
+    `FlowNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flownode.html>`__
     """
 
     props: PropsDictType = {
@@ -1629,7 +1629,7 @@ class FlowNode(AWSProperty):
 
 class FlowDefinition(AWSProperty):
     """
-    `FlowDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowdefinition.html>`__
+    `FlowDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowversion-flowdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -1640,7 +1640,7 @@ class FlowDefinition(AWSProperty):
 
 class Flow(AWSObject):
     """
-    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flow.html>`__
+    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-flow.html>`__
     """
 
     resource_type = "AWS::Bedrock::Flow"
@@ -1661,7 +1661,7 @@ class Flow(AWSObject):
 
 class FlowAliasRoutingConfigurationListItem(AWSProperty):
     """
-    `FlowAliasRoutingConfigurationListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasroutingconfigurationlistitem.html>`__
+    `FlowAliasRoutingConfigurationListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flowalias-flowaliasroutingconfigurationlistitem.html>`__
     """
 
     props: PropsDictType = {
@@ -1671,7 +1671,7 @@ class FlowAliasRoutingConfigurationListItem(AWSProperty):
 
 class FlowAlias(AWSObject):
     """
-    `FlowAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html>`__
+    `FlowAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-flowalias.html>`__
     """
 
     resource_type = "AWS::Bedrock::FlowAlias"
@@ -1687,7 +1687,7 @@ class FlowAlias(AWSObject):
 
 class FlowVersion(AWSObject):
     """
-    `FlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowversion.html>`__
+    `FlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-flowversion.html>`__
     """
 
     resource_type = "AWS::Bedrock::FlowVersion"
@@ -1700,7 +1700,7 @@ class FlowVersion(AWSObject):
 
 class ContentFilterConfig(AWSProperty):
     """
-    `ContentFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html>`__
+    `ContentFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-contentfilterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1718,7 +1718,7 @@ class ContentFilterConfig(AWSProperty):
 
 class ContentPolicyConfig(AWSProperty):
     """
-    `ContentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html>`__
+    `ContentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-contentpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1728,7 +1728,7 @@ class ContentPolicyConfig(AWSProperty):
 
 class ContextualGroundingFilterConfig(AWSProperty):
     """
-    `ContextualGroundingFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html>`__
+    `ContextualGroundingFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1741,7 +1741,7 @@ class ContextualGroundingFilterConfig(AWSProperty):
 
 class ContextualGroundingPolicyConfig(AWSProperty):
     """
-    `ContextualGroundingPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html>`__
+    `ContextualGroundingPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1751,7 +1751,7 @@ class ContextualGroundingPolicyConfig(AWSProperty):
 
 class PiiEntityConfig(AWSProperty):
     """
-    `PiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html>`__
+    `PiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-piientityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1766,7 +1766,7 @@ class PiiEntityConfig(AWSProperty):
 
 class RegexConfig(AWSProperty):
     """
-    `RegexConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-regexconfig.html>`__
+    `RegexConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-regexconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1783,7 +1783,7 @@ class RegexConfig(AWSProperty):
 
 class SensitiveInformationPolicyConfig(AWSProperty):
     """
-    `SensitiveInformationPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html>`__
+    `SensitiveInformationPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-sensitiveinformationpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1794,7 +1794,7 @@ class SensitiveInformationPolicyConfig(AWSProperty):
 
 class TopicConfig(AWSProperty):
     """
-    `TopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html>`__
+    `TopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-topicconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1811,7 +1811,7 @@ class TopicConfig(AWSProperty):
 
 class TopicPolicyConfig(AWSProperty):
     """
-    `TopicPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html>`__
+    `TopicPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-topicpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1821,7 +1821,7 @@ class TopicPolicyConfig(AWSProperty):
 
 class ManagedWordsConfig(AWSProperty):
     """
-    `ManagedWordsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html>`__
+    `ManagedWordsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-managedwordsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1835,7 +1835,7 @@ class ManagedWordsConfig(AWSProperty):
 
 class WordConfig(AWSProperty):
     """
-    `WordConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html>`__
+    `WordConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-wordconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1849,7 +1849,7 @@ class WordConfig(AWSProperty):
 
 class WordPolicyConfig(AWSProperty):
     """
-    `WordPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordpolicyconfig.html>`__
+    `WordPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-guardrail-wordpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1860,7 +1860,7 @@ class WordPolicyConfig(AWSProperty):
 
 class Guardrail(AWSObject):
     """
-    `Guardrail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html>`__
+    `Guardrail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-guardrail.html>`__
     """
 
     resource_type = "AWS::Bedrock::Guardrail"
@@ -1882,7 +1882,7 @@ class Guardrail(AWSObject):
 
 class GuardrailVersion(AWSObject):
     """
-    `GuardrailVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.html>`__
+    `GuardrailVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-guardrailversion.html>`__
     """
 
     resource_type = "AWS::Bedrock::GuardrailVersion"
@@ -1895,7 +1895,7 @@ class GuardrailVersion(AWSObject):
 
 class KendraKnowledgeBaseConfiguration(AWSProperty):
     """
-    `KendraKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-kendraknowledgebaseconfiguration.html>`__
+    `KendraKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-kendraknowledgebaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1905,7 +1905,7 @@ class KendraKnowledgeBaseConfiguration(AWSProperty):
 
 class CuratedQuery(AWSProperty):
     """
-    `CuratedQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-curatedquery.html>`__
+    `CuratedQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-curatedquery.html>`__
     """
 
     props: PropsDictType = {
@@ -1916,7 +1916,7 @@ class CuratedQuery(AWSProperty):
 
 class QueryGenerationColumn(AWSProperty):
     """
-    `QueryGenerationColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcolumn.html>`__
+    `QueryGenerationColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-querygenerationcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -1928,7 +1928,7 @@ class QueryGenerationColumn(AWSProperty):
 
 class QueryGenerationTable(AWSProperty):
     """
-    `QueryGenerationTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationtable.html>`__
+    `QueryGenerationTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-querygenerationtable.html>`__
     """
 
     props: PropsDictType = {
@@ -1941,7 +1941,7 @@ class QueryGenerationTable(AWSProperty):
 
 class QueryGenerationContext(AWSProperty):
     """
-    `QueryGenerationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcontext.html>`__
+    `QueryGenerationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-querygenerationcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -1952,7 +1952,7 @@ class QueryGenerationContext(AWSProperty):
 
 class QueryGenerationConfiguration(AWSProperty):
     """
-    `QueryGenerationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html>`__
+    `QueryGenerationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1963,7 +1963,7 @@ class QueryGenerationConfiguration(AWSProperty):
 
 class RedshiftProvisionedAuthConfiguration(AWSProperty):
     """
-    `RedshiftProvisionedAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedauthconfiguration.html>`__
+    `RedshiftProvisionedAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftprovisionedauthconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1975,7 +1975,7 @@ class RedshiftProvisionedAuthConfiguration(AWSProperty):
 
 class RedshiftProvisionedConfiguration(AWSProperty):
     """
-    `RedshiftProvisionedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html>`__
+    `RedshiftProvisionedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1986,7 +1986,7 @@ class RedshiftProvisionedConfiguration(AWSProperty):
 
 class RedshiftServerlessAuthConfiguration(AWSProperty):
     """
-    `RedshiftServerlessAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessauthconfiguration.html>`__
+    `RedshiftServerlessAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftserverlessauthconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1997,7 +1997,7 @@ class RedshiftServerlessAuthConfiguration(AWSProperty):
 
 class RedshiftServerlessConfiguration(AWSProperty):
     """
-    `RedshiftServerlessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html>`__
+    `RedshiftServerlessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2008,7 +2008,7 @@ class RedshiftServerlessConfiguration(AWSProperty):
 
 class RedshiftQueryEngineConfiguration(AWSProperty):
     """
-    `RedshiftQueryEngineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineconfiguration.html>`__
+    `RedshiftQueryEngineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftqueryengineconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2020,7 +2020,7 @@ class RedshiftQueryEngineConfiguration(AWSProperty):
 
 class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(AWSProperty):
     """
-    `RedshiftQueryEngineAwsDataCatalogStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineawsdatacatalogstorageconfiguration.html>`__
+    `RedshiftQueryEngineAwsDataCatalogStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftqueryengineawsdatacatalogstorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2030,7 +2030,7 @@ class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(AWSProperty):
 
 class RedshiftQueryEngineRedshiftStorageConfiguration(AWSProperty):
     """
-    `RedshiftQueryEngineRedshiftStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration.html>`__
+    `RedshiftQueryEngineRedshiftStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2040,7 +2040,7 @@ class RedshiftQueryEngineRedshiftStorageConfiguration(AWSProperty):
 
 class RedshiftQueryEngineStorageConfiguration(AWSProperty):
     """
-    `RedshiftQueryEngineStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryenginestorageconfiguration.html>`__
+    `RedshiftQueryEngineStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftqueryenginestorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2058,7 +2058,7 @@ class RedshiftQueryEngineStorageConfiguration(AWSProperty):
 
 class RedshiftConfiguration(AWSProperty):
     """
-    `RedshiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftconfiguration.html>`__
+    `RedshiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-redshiftconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2070,7 +2070,7 @@ class RedshiftConfiguration(AWSProperty):
 
 class SqlKnowledgeBaseConfiguration(AWSProperty):
     """
-    `SqlKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html>`__
+    `SqlKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2081,7 +2081,7 @@ class SqlKnowledgeBaseConfiguration(AWSProperty):
 
 class BedrockEmbeddingModelConfiguration(AWSProperty):
     """
-    `BedrockEmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>`__
+    `BedrockEmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2092,7 +2092,7 @@ class BedrockEmbeddingModelConfiguration(AWSProperty):
 
 class EmbeddingModelConfiguration(AWSProperty):
     """
-    `EmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>`__
+    `EmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2105,7 +2105,7 @@ class EmbeddingModelConfiguration(AWSProperty):
 
 class SupplementalDataStorageLocation(AWSProperty):
     """
-    `SupplementalDataStorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html>`__
+    `SupplementalDataStorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -2116,7 +2116,7 @@ class SupplementalDataStorageLocation(AWSProperty):
 
 class SupplementalDataStorageConfiguration(AWSProperty):
     """
-    `SupplementalDataStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html>`__
+    `SupplementalDataStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2126,7 +2126,7 @@ class SupplementalDataStorageConfiguration(AWSProperty):
 
 class VectorKnowledgeBaseConfiguration(AWSProperty):
     """
-    `VectorKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html>`__
+    `VectorKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2141,7 +2141,7 @@ class VectorKnowledgeBaseConfiguration(AWSProperty):
 
 class KnowledgeBaseConfiguration(AWSProperty):
     """
-    `KnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html>`__
+    `KnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2154,7 +2154,7 @@ class KnowledgeBaseConfiguration(AWSProperty):
 
 class MongoDbAtlasFieldMapping(AWSProperty):
     """
-    `MongoDbAtlasFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasfieldmapping.html>`__
+    `MongoDbAtlasFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-mongodbatlasfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2166,7 +2166,7 @@ class MongoDbAtlasFieldMapping(AWSProperty):
 
 class MongoDbAtlasConfiguration(AWSProperty):
     """
-    `MongoDbAtlasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html>`__
+    `MongoDbAtlasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2183,7 +2183,7 @@ class MongoDbAtlasConfiguration(AWSProperty):
 
 class NeptuneAnalyticsFieldMapping(AWSProperty):
     """
-    `NeptuneAnalyticsFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsfieldmapping.html>`__
+    `NeptuneAnalyticsFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-neptuneanalyticsfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2194,7 +2194,7 @@ class NeptuneAnalyticsFieldMapping(AWSProperty):
 
 class NeptuneAnalyticsConfiguration(AWSProperty):
     """
-    `NeptuneAnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsconfiguration.html>`__
+    `NeptuneAnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-neptuneanalyticsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2205,7 +2205,7 @@ class NeptuneAnalyticsConfiguration(AWSProperty):
 
 class OpenSearchManagedClusterFieldMapping(AWSProperty):
     """
-    `OpenSearchManagedClusterFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterfieldmapping.html>`__
+    `OpenSearchManagedClusterFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2217,7 +2217,7 @@ class OpenSearchManagedClusterFieldMapping(AWSProperty):
 
 class OpenSearchManagedClusterConfiguration(AWSProperty):
     """
-    `OpenSearchManagedClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterconfiguration.html>`__
+    `OpenSearchManagedClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2230,7 +2230,7 @@ class OpenSearchManagedClusterConfiguration(AWSProperty):
 
 class OpenSearchServerlessFieldMapping(AWSProperty):
     """
-    `OpenSearchServerlessFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessfieldmapping.html>`__
+    `OpenSearchServerlessFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-opensearchserverlessfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2242,7 +2242,7 @@ class OpenSearchServerlessFieldMapping(AWSProperty):
 
 class OpenSearchServerlessConfiguration(AWSProperty):
     """
-    `OpenSearchServerlessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html>`__
+    `OpenSearchServerlessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-opensearchserverlessconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2254,7 +2254,7 @@ class OpenSearchServerlessConfiguration(AWSProperty):
 
 class PineconeFieldMapping(AWSProperty):
     """
-    `PineconeFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconefieldmapping.html>`__
+    `PineconeFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-pineconefieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2265,7 +2265,7 @@ class PineconeFieldMapping(AWSProperty):
 
 class PineconeConfiguration(AWSProperty):
     """
-    `PineconeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html>`__
+    `PineconeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-pineconeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2278,7 +2278,7 @@ class PineconeConfiguration(AWSProperty):
 
 class RdsFieldMapping(AWSProperty):
     """
-    `RdsFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html>`__
+    `RdsFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2292,7 +2292,7 @@ class RdsFieldMapping(AWSProperty):
 
 class RdsConfiguration(AWSProperty):
     """
-    `RdsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html>`__
+    `RdsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-rdsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2306,7 +2306,7 @@ class RdsConfiguration(AWSProperty):
 
 class StorageConfiguration(AWSProperty):
     """
-    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html>`__
+    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-knowledgebase-storageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2325,7 +2325,7 @@ class StorageConfiguration(AWSProperty):
 
 class KnowledgeBase(AWSObject):
     """
-    `KnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html>`__
+    `KnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-knowledgebase.html>`__
     """
 
     resource_type = "AWS::Bedrock::KnowledgeBase"
@@ -2342,7 +2342,7 @@ class KnowledgeBase(AWSObject):
 
 class PromptAgentResource(AWSProperty):
     """
-    `PromptAgentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptagentresource.html>`__
+    `PromptAgentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptagentresource.html>`__
     """
 
     props: PropsDictType = {
@@ -2352,7 +2352,7 @@ class PromptAgentResource(AWSProperty):
 
 class PromptGenAiResource(AWSProperty):
     """
-    `PromptGenAiResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptgenairesource.html>`__
+    `PromptGenAiResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptgenairesource.html>`__
     """
 
     props: PropsDictType = {
@@ -2362,7 +2362,7 @@ class PromptGenAiResource(AWSProperty):
 
 class PromptMetadataEntry(AWSProperty):
     """
-    `PromptMetadataEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmetadataentry.html>`__
+    `PromptMetadataEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptmetadataentry.html>`__
     """
 
     props: PropsDictType = {
@@ -2373,7 +2373,7 @@ class PromptMetadataEntry(AWSProperty):
 
 class PromptVariant(AWSProperty):
     """
-    `PromptVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html>`__
+    `PromptVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-promptversion-promptvariant.html>`__
     """
 
     props: PropsDictType = {
@@ -2390,7 +2390,7 @@ class PromptVariant(AWSProperty):
 
 class Prompt(AWSObject):
     """
-    `Prompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html>`__
+    `Prompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-prompt.html>`__
     """
 
     resource_type = "AWS::Bedrock::Prompt"
@@ -2407,7 +2407,7 @@ class Prompt(AWSObject):
 
 class PromptVersion(AWSObject):
     """
-    `PromptVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-promptversion.html>`__
+    `PromptVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrock-promptversion.html>`__
     """
 
     resource_type = "AWS::Bedrock::PromptVersion"
@@ -2421,7 +2421,7 @@ class PromptVersion(AWSObject):
 
 class AgentAliasHistoryEvent(AWSProperty):
     """
-    `AgentAliasHistoryEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agentalias-agentaliashistoryevent.html>`__
+    `AgentAliasHistoryEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-agentalias-agentaliashistoryevent.html>`__
     """
 
     props: PropsDictType = {
@@ -2433,7 +2433,7 @@ class AgentAliasHistoryEvent(AWSProperty):
 
 class FlowValidation(AWSProperty):
     """
-    `FlowValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowvalidation.html>`__
+    `FlowValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-flow-flowvalidation.html>`__
     """
 
     props: PropsDictType = {
@@ -2443,7 +2443,7 @@ class FlowValidation(AWSProperty):
 
 class InferenceProfileModel(AWSProperty):
     """
-    `InferenceProfileModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html>`__
+    `InferenceProfileModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html>`__
     """
 
     props: PropsDictType = {
@@ -2453,7 +2453,7 @@ class InferenceProfileModel(AWSProperty):
 
 class TextS3Location(AWSProperty):
     """
-    `TextS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-texts3location.html>`__
+    `TextS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bedrock-prompt-texts3location.html>`__
     """
 
     props: PropsDictType = {

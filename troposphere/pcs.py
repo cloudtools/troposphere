@@ -12,7 +12,7 @@ from .validators import integer
 
 class Networking(AWSProperty):
     """
-    `Networking <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-networking.html>`__
+    `Networking <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-cluster-networking.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Networking(AWSProperty):
 
 class Scheduler(AWSProperty):
     """
-    `Scheduler <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-scheduler.html>`__
+    `Scheduler <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-cluster-scheduler.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class Scheduler(AWSProperty):
 
 class SlurmCustomSetting(AWSProperty):
     """
-    `SlurmCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmcustomsetting.html>`__
+    `SlurmCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-slurmcustomsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class SlurmCustomSetting(AWSProperty):
 
 class SlurmConfiguration(AWSProperty):
     """
-    `SlurmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmconfiguration.html>`__
+    `SlurmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-slurmconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class SlurmConfiguration(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcs-cluster.html>`__
     """
 
     resource_type = "AWS::PCS::Cluster"
@@ -72,7 +72,7 @@ class Cluster(AWSObject):
 
 class CustomLaunchTemplate(AWSProperty):
     """
-    `CustomLaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-customlaunchtemplate.html>`__
+    `CustomLaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-customlaunchtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class CustomLaunchTemplate(AWSProperty):
 
 class InstanceConfig(AWSProperty):
     """
-    `InstanceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-instanceconfig.html>`__
+    `InstanceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-instanceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class InstanceConfig(AWSProperty):
 
 class ScalingConfiguration(AWSProperty):
     """
-    `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-scalingconfiguration.html>`__
+    `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-scalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class ScalingConfiguration(AWSProperty):
 
 class SpotOptions(AWSProperty):
     """
-    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-spotoptions.html>`__
+    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-computenodegroup-spotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class SpotOptions(AWSProperty):
 
 class ComputeNodeGroup(AWSObject):
     """
-    `ComputeNodeGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html>`__
+    `ComputeNodeGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcs-computenodegroup.html>`__
     """
 
     resource_type = "AWS::PCS::ComputeNodeGroup"
@@ -137,7 +137,7 @@ class ComputeNodeGroup(AWSObject):
 
 class ComputeNodeGroupConfiguration(AWSProperty):
     """
-    `ComputeNodeGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-queue-computenodegroupconfiguration.html>`__
+    `ComputeNodeGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-queue-computenodegroupconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class ComputeNodeGroupConfiguration(AWSProperty):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-queue.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcs-queue.html>`__
     """
 
     resource_type = "AWS::PCS::Queue"
@@ -162,7 +162,7 @@ class Queue(AWSObject):
 
 class AuthKey(AWSProperty):
     """
-    `AuthKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-authkey.html>`__
+    `AuthKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-cluster-authkey.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class AuthKey(AWSProperty):
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-cluster-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class Endpoint(AWSProperty):
 
 class ErrorInfo(AWSProperty):
     """
-    `ErrorInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-queue-errorinfo.html>`__
+    `ErrorInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcs-queue-errorinfo.html>`__
     """
 
     props: PropsDictType = {

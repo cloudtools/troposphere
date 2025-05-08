@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class ColumnSchema(AWSProperty):
     """
-    `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-columnschema.html>`__
+    `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanroomsml-trainingdataset-columnschema.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ColumnSchema(AWSProperty):
 
 class GlueDataSource(AWSProperty):
     """
-    `GlueDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html>`__
+    `GlueDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanroomsml-trainingdataset-gluedatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class GlueDataSource(AWSProperty):
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanroomsml-trainingdataset-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class DataSource(AWSProperty):
 
 class DatasetInputConfig(AWSProperty):
     """
-    `DatasetInputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-datasetinputconfig.html>`__
+    `DatasetInputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanroomsml-trainingdataset-datasetinputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class DatasetInputConfig(AWSProperty):
 
 class Dataset(AWSProperty):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanroomsml-trainingdataset-dataset.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class Dataset(AWSProperty):
 
 class TrainingDataset(AWSObject):
     """
-    `TrainingDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html>`__
+    `TrainingDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanroomsml-trainingdataset.html>`__
     """
 
     resource_type = "AWS::CleanRoomsML::TrainingDataset"

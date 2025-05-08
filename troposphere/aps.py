@@ -12,7 +12,7 @@ from .validators import integer
 
 class RuleGroupsNamespace(AWSObject):
     """
-    `RuleGroupsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html>`__
+    `RuleGroupsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-aps-rulegroupsnamespace.html>`__
     """
 
     resource_type = "AWS::APS::RuleGroupsNamespace"
@@ -27,7 +27,7 @@ class RuleGroupsNamespace(AWSObject):
 
 class AmpConfiguration(AWSProperty):
     """
-    `AmpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html>`__
+    `AmpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-ampconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class AmpConfiguration(AWSProperty):
 
 class Destination(AWSProperty):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html>`__
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-destination.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class Destination(AWSProperty):
 
 class RoleConfiguration(AWSProperty):
     """
-    `RoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-roleconfiguration.html>`__
+    `RoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-roleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class RoleConfiguration(AWSProperty):
 
 class ScrapeConfiguration(AWSProperty):
     """
-    `ScrapeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html>`__
+    `ScrapeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-scrapeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ScrapeConfiguration(AWSProperty):
 
 class EksConfiguration(AWSProperty):
     """
-    `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html>`__
+    `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-eksconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class EksConfiguration(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-scraper-source.html>`__
     """
 
     props: PropsDictType = {
@@ -90,7 +90,7 @@ class Source(AWSProperty):
 
 class Scraper(AWSObject):
     """
-    `Scraper <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html>`__
+    `Scraper <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-aps-scraper.html>`__
     """
 
     resource_type = "AWS::APS::Scraper"
@@ -107,7 +107,7 @@ class Scraper(AWSObject):
 
 class LoggingConfiguration(AWSProperty):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-workspace-loggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class LoggingConfiguration(AWSProperty):
 
 class Label(AWSProperty):
     """
-    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-label.html>`__
+    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-workspace-label.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class Label(AWSProperty):
 
 class LimitsPerLabelSetEntry(AWSProperty):
     """
-    `LimitsPerLabelSetEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-limitsperlabelsetentry.html>`__
+    `LimitsPerLabelSetEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-workspace-limitsperlabelsetentry.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class LimitsPerLabelSetEntry(AWSProperty):
 
 class LimitsPerLabelSet(AWSProperty):
     """
-    `LimitsPerLabelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-limitsperlabelset.html>`__
+    `LimitsPerLabelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-workspace-limitsperlabelset.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class LimitsPerLabelSet(AWSProperty):
 
 class WorkspaceConfiguration(AWSProperty):
     """
-    `WorkspaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html>`__
+    `WorkspaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-aps-workspace-workspaceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class WorkspaceConfiguration(AWSProperty):
 
 class Workspace(AWSObject):
     """
-    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html>`__
+    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-aps-workspace.html>`__
     """
 
     resource_type = "AWS::APS::Workspace"

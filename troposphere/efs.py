@@ -20,7 +20,7 @@ from .validators.efs import (
 
 class PosixUser(AWSProperty):
     """
-    `PosixUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html>`__
+    `PosixUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-accesspoint-posixuser.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class PosixUser(AWSProperty):
 
 class CreationInfo(AWSProperty):
     """
-    `CreationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html>`__
+    `CreationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-accesspoint-creationinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class CreationInfo(AWSProperty):
 
 class RootDirectory(AWSProperty):
     """
-    `RootDirectory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html>`__
+    `RootDirectory <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-accesspoint-rootdirectory.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class RootDirectory(AWSProperty):
 
 class AccessPoint(AWSObject):
     """
-    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html>`__
+    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-efs-accesspoint.html>`__
     """
 
     resource_type = "AWS::EFS::AccessPoint"
@@ -71,7 +71,7 @@ class AccessPoint(AWSObject):
 
 class BackupPolicy(AWSProperty):
     """
-    `BackupPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html>`__
+    `BackupPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-filesystem-backuppolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class BackupPolicy(AWSProperty):
 
 class FileSystemProtection(AWSProperty):
     """
-    `FileSystemProtection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemprotection.html>`__
+    `FileSystemProtection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-filesystem-filesystemprotection.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class FileSystemProtection(AWSProperty):
 
 class LifecyclePolicy(AWSProperty):
     """
-    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html>`__
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-filesystem-lifecyclepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class LifecyclePolicy(AWSProperty):
 
 class ReplicationDestination(AWSProperty):
     """
-    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html>`__
+    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-filesystem-replicationdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class ReplicationDestination(AWSProperty):
 
 class ReplicationConfiguration(AWSProperty):
     """
-    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html>`__
+    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-efs-filesystem-replicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class ReplicationConfiguration(AWSProperty):
 
 class FileSystem(AWSObject):
     """
-    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html>`__
+    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-efs-filesystem.html>`__
     """
 
     resource_type = "AWS::EFS::FileSystem"
@@ -156,7 +156,7 @@ class FileSystem(AWSObject):
 
 class MountTarget(AWSObject):
     """
-    `MountTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html>`__
+    `MountTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-efs-mounttarget.html>`__
     """
 
     resource_type = "AWS::EFS::MountTarget"

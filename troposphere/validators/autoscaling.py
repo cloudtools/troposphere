@@ -184,6 +184,6 @@ def validate_auto_scaling_group(self):
         raise ValueError(
             "Must specify AvailabilityZones and/or "
             "VPCZoneIdentifier: http://docs.aws.amazon.com/A"
-            "WSCloudFormation/latest/UserGuide/aws-propertie"
+            "WSCloudFormation/latest/TemplateReference/aws-propertie"
             "s-as-group.html#cfn-as-group-vpczoneidentifier"
         )

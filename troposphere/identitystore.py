@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-identitystore-group.html>`__
     """
 
     resource_type = "AWS::IdentityStore::Group"
@@ -25,7 +25,7 @@ class Group(AWSObject):
 
 class MemberId(AWSProperty):
     """
-    `MemberId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html>`__
+    `MemberId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-identitystore-groupmembership-memberid.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class MemberId(AWSProperty):
 
 class GroupMembership(AWSObject):
     """
-    `GroupMembership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-groupmembership.html>`__
+    `GroupMembership <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-identitystore-groupmembership.html>`__
     """
 
     resource_type = "AWS::IdentityStore::GroupMembership"

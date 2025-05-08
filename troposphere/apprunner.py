@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AutoScalingConfiguration(AWSObject):
     """
-    `AutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-autoscalingconfiguration.html>`__
+    `AutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apprunner-autoscalingconfiguration.html>`__
     """
 
     resource_type = "AWS::AppRunner::AutoScalingConfiguration"
@@ -28,7 +28,7 @@ class AutoScalingConfiguration(AWSObject):
 
 class TraceConfiguration(AWSProperty):
     """
-    `TraceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html>`__
+    `TraceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class TraceConfiguration(AWSProperty):
 
 class ObservabilityConfiguration(AWSObject):
     """
-    `ObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html>`__
+    `ObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apprunner-observabilityconfiguration.html>`__
     """
 
     resource_type = "AWS::AppRunner::ObservabilityConfiguration"
@@ -52,7 +52,7 @@ class ObservabilityConfiguration(AWSObject):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class HealthCheckConfiguration(AWSProperty):
     """
-    `HealthCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html>`__
+    `HealthCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-healthcheckconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class HealthCheckConfiguration(AWSProperty):
 
 class InstanceConfiguration(AWSProperty):
     """
-    `InstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html>`__
+    `InstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-instanceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class InstanceConfiguration(AWSProperty):
 
 class EgressConfiguration(AWSProperty):
     """
-    `EgressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html>`__
+    `EgressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-egressconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class EgressConfiguration(AWSProperty):
 
 class IngressConfiguration(AWSProperty):
     """
-    `IngressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-ingressconfiguration.html>`__
+    `IngressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-ingressconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class IngressConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class NetworkConfiguration(AWSProperty):
 
 class ServiceObservabilityConfiguration(AWSProperty):
     """
-    `ServiceObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-serviceobservabilityconfiguration.html>`__
+    `ServiceObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-serviceobservabilityconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -133,7 +133,7 @@ class ServiceObservabilityConfiguration(AWSProperty):
 
 class AuthenticationConfiguration(AWSProperty):
     """
-    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html>`__
+    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-authenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class AuthenticationConfiguration(AWSProperty):
 
 class KeyValuePair(AWSProperty):
     """
-    `KeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html>`__
+    `KeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-keyvaluepair.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class KeyValuePair(AWSProperty):
 
 class CodeConfigurationValues(AWSProperty):
     """
-    `CodeConfigurationValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html>`__
+    `CodeConfigurationValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-codeconfigurationvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class CodeConfigurationValues(AWSProperty):
 
 class CodeConfiguration(AWSProperty):
     """
-    `CodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html>`__
+    `CodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-codeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class CodeConfiguration(AWSProperty):
 
 class SourceCodeVersion(AWSProperty):
     """
-    `SourceCodeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html>`__
+    `SourceCodeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-sourcecodeversion.html>`__
     """
 
     props: PropsDictType = {
@@ -192,7 +192,7 @@ class SourceCodeVersion(AWSProperty):
 
 class CodeRepository(AWSProperty):
     """
-    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html>`__
+    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-coderepository.html>`__
     """
 
     props: PropsDictType = {
@@ -205,7 +205,7 @@ class CodeRepository(AWSProperty):
 
 class ImageConfiguration(AWSProperty):
     """
-    `ImageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html>`__
+    `ImageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-imageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class ImageConfiguration(AWSProperty):
 
 class ImageRepository(AWSProperty):
     """
-    `ImageRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html>`__
+    `ImageRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-imagerepository.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class ImageRepository(AWSProperty):
 
 class SourceConfiguration(AWSProperty):
     """
-    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html>`__
+    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-service-sourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -243,7 +243,7 @@ class SourceConfiguration(AWSProperty):
 
 class Service(AWSObject):
     """
-    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html>`__
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apprunner-service.html>`__
     """
 
     resource_type = "AWS::AppRunner::Service"
@@ -263,7 +263,7 @@ class Service(AWSObject):
 
 class VpcConnector(AWSObject):
     """
-    `VpcConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html>`__
+    `VpcConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apprunner-vpcconnector.html>`__
     """
 
     resource_type = "AWS::AppRunner::VpcConnector"
@@ -278,7 +278,7 @@ class VpcConnector(AWSObject):
 
 class IngressVpcConfiguration(AWSProperty):
     """
-    `IngressVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html>`__
+    `IngressVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +289,7 @@ class IngressVpcConfiguration(AWSProperty):
 
 class VpcIngressConnection(AWSObject):
     """
-    `VpcIngressConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcingressconnection.html>`__
+    `VpcIngressConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apprunner-vpcingressconnection.html>`__
     """
 
     resource_type = "AWS::AppRunner::VpcIngressConnection"

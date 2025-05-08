@@ -18,7 +18,7 @@ from .validators.imagebuilder import (
 
 class Component(AWSObject):
     """
-    `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html>`__
+    `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-component.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::Component"
@@ -39,7 +39,7 @@ class Component(AWSObject):
 
 class ComponentParameter(AWSProperty):
     """
-    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
+    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class ComponentParameter(AWSProperty):
 
 class ContainerComponentConfiguration(AWSProperty):
     """
-    `ContainerComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html>`__
+    `ContainerComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class ContainerComponentConfiguration(AWSProperty):
 
 class EbsInstanceBlockDeviceSpecification(AWSProperty):
     """
-    `EbsInstanceBlockDeviceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html>`__
+    `EbsInstanceBlockDeviceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class EbsInstanceBlockDeviceSpecification(AWSProperty):
 
 class InstanceBlockDeviceMapping(AWSProperty):
     """
-    `InstanceBlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html>`__
+    `InstanceBlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class InstanceBlockDeviceMapping(AWSProperty):
 
 class InstanceConfiguration(AWSProperty):
     """
-    `InstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html>`__
+    `InstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class InstanceConfiguration(AWSProperty):
 
 class TargetContainerRepository(AWSProperty):
     """
-    `TargetContainerRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html>`__
+    `TargetContainerRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class TargetContainerRepository(AWSProperty):
 
 class ContainerRecipe(AWSObject):
     """
-    `ContainerRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html>`__
+    `ContainerRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-containerrecipe.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::ContainerRecipe"
@@ -139,7 +139,7 @@ class ContainerRecipe(AWSObject):
 
 class LaunchPermissionConfiguration(AWSProperty):
     """
-    `LaunchPermissionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html>`__
+    `LaunchPermissionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class LaunchPermissionConfiguration(AWSProperty):
 
 class AmiDistributionConfiguration(AWSProperty):
     """
-    `AmiDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-amidistributionconfiguration.html>`__
+    `AmiDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-amidistributionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class AmiDistributionConfiguration(AWSProperty):
 
 class ContainerDistributionConfiguration(AWSProperty):
     """
-    `ContainerDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html>`__
+    `ContainerDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class ContainerDistributionConfiguration(AWSProperty):
 
 class FastLaunchLaunchTemplateSpecification(AWSProperty):
     """
-    `FastLaunchLaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchlaunchtemplatespecification.html>`__
+    `FastLaunchLaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-fastlaunchlaunchtemplatespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -191,7 +191,7 @@ class FastLaunchLaunchTemplateSpecification(AWSProperty):
 
 class FastLaunchSnapshotConfiguration(AWSProperty):
     """
-    `FastLaunchSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html>`__
+    `FastLaunchSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class FastLaunchSnapshotConfiguration(AWSProperty):
 
 class FastLaunchConfiguration(AWSProperty):
     """
-    `FastLaunchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html>`__
+    `FastLaunchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -215,7 +215,7 @@ class FastLaunchConfiguration(AWSProperty):
 
 class LaunchTemplateConfiguration(AWSProperty):
     """
-    `LaunchTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html>`__
+    `LaunchTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -227,7 +227,7 @@ class LaunchTemplateConfiguration(AWSProperty):
 
 class SsmParameterConfiguration(AWSProperty):
     """
-    `SsmParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-ssmparameterconfiguration.html>`__
+    `SsmParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-ssmparameterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class SsmParameterConfiguration(AWSProperty):
 
 class Distribution(AWSProperty):
     """
-    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html>`__
+    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-distributionconfiguration-distribution.html>`__
     """
 
     props: PropsDictType = {
@@ -258,7 +258,7 @@ class Distribution(AWSProperty):
 
 class DistributionConfiguration(AWSObject):
     """
-    `DistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html>`__
+    `DistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-distributionconfiguration.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::DistributionConfiguration"
@@ -273,7 +273,7 @@ class DistributionConfiguration(AWSObject):
 
 class EcrConfiguration(AWSProperty):
     """
-    `EcrConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-ecrconfiguration.html>`__
+    `EcrConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-ecrconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -284,7 +284,7 @@ class EcrConfiguration(AWSProperty):
 
 class ImageScanningConfiguration(AWSProperty):
     """
-    `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html>`__
+    `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -295,7 +295,7 @@ class ImageScanningConfiguration(AWSProperty):
 
 class ImageTestsConfiguration(AWSProperty):
     """
-    `ImageTestsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html>`__
+    `ImageTestsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class ImageTestsConfiguration(AWSProperty):
 
 class WorkflowParameter(AWSProperty):
     """
-    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowparameter.html>`__
+    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-workflowparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -317,7 +317,7 @@ class WorkflowParameter(AWSProperty):
 
 class WorkflowConfiguration(AWSProperty):
     """
-    `WorkflowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html>`__
+    `WorkflowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -330,7 +330,7 @@ class WorkflowConfiguration(AWSProperty):
 
 class Image(AWSObject):
     """
-    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html>`__
+    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-image.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::Image"
@@ -351,7 +351,7 @@ class Image(AWSObject):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagepipeline-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -365,7 +365,7 @@ class Schedule(AWSProperty):
 
 class ImagePipeline(AWSObject):
     """
-    `ImagePipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html>`__
+    `ImagePipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-imagepipeline.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::ImagePipeline"
@@ -390,7 +390,7 @@ class ImagePipeline(AWSObject):
 
 class SystemsManagerAgent(AWSProperty):
     """
-    `SystemsManagerAgent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html>`__
+    `SystemsManagerAgent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class SystemsManagerAgent(AWSProperty):
 
 class AdditionalInstanceConfiguration(AWSProperty):
     """
-    `AdditionalInstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html>`__
+    `AdditionalInstanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -411,7 +411,7 @@ class AdditionalInstanceConfiguration(AWSProperty):
 
 class ComponentConfiguration(AWSProperty):
     """
-    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html>`__
+    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -422,7 +422,7 @@ class ComponentConfiguration(AWSProperty):
 
 class ImageRecipe(AWSObject):
     """
-    `ImageRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html>`__
+    `ImageRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-imagerecipe.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::ImageRecipe"
@@ -442,7 +442,7 @@ class ImageRecipe(AWSObject):
 
 class InstanceMetadataOptions(AWSProperty):
     """
-    `InstanceMetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html>`__
+    `InstanceMetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-infrastructureconfiguration-instancemetadataoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -453,7 +453,7 @@ class InstanceMetadataOptions(AWSProperty):
 
 class S3Logs(AWSProperty):
     """
-    `S3Logs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html>`__
+    `S3Logs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html>`__
     """
 
     props: PropsDictType = {
@@ -464,7 +464,7 @@ class S3Logs(AWSProperty):
 
 class Logging(AWSProperty):
     """
-    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html>`__
+    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-infrastructureconfiguration-logging.html>`__
     """
 
     props: PropsDictType = {
@@ -474,7 +474,7 @@ class Logging(AWSProperty):
 
 class Placement(AWSProperty):
     """
-    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-placement.html>`__
+    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-infrastructureconfiguration-placement.html>`__
     """
 
     props: PropsDictType = {
@@ -487,7 +487,7 @@ class Placement(AWSProperty):
 
 class InfrastructureConfiguration(AWSObject):
     """
-    `InfrastructureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html>`__
+    `InfrastructureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-infrastructureconfiguration.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::InfrastructureConfiguration"
@@ -512,7 +512,7 @@ class InfrastructureConfiguration(AWSObject):
 
 class IncludeResources(AWSProperty):
     """
-    `IncludeResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html>`__
+    `IncludeResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html>`__
     """
 
     props: PropsDictType = {
@@ -524,7 +524,7 @@ class IncludeResources(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-action.html>`__
     """
 
     props: PropsDictType = {
@@ -535,7 +535,7 @@ class Action(AWSProperty):
 
 class LastLaunched(AWSProperty):
     """
-    `LastLaunched <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-lastlaunched.html>`__
+    `LastLaunched <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-lastlaunched.html>`__
     """
 
     props: PropsDictType = {
@@ -546,7 +546,7 @@ class LastLaunched(AWSProperty):
 
 class AmiExclusionRules(AWSProperty):
     """
-    `AmiExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html>`__
+    `AmiExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html>`__
     """
 
     props: PropsDictType = {
@@ -560,7 +560,7 @@ class AmiExclusionRules(AWSProperty):
 
 class ExclusionRules(AWSProperty):
     """
-    `ExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html>`__
+    `ExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html>`__
     """
 
     props: PropsDictType = {
@@ -571,7 +571,7 @@ class ExclusionRules(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -584,7 +584,7 @@ class Filter(AWSProperty):
 
 class PolicyDetail(AWSProperty):
     """
-    `PolicyDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html>`__
+    `PolicyDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html>`__
     """
 
     props: PropsDictType = {
@@ -596,7 +596,7 @@ class PolicyDetail(AWSProperty):
 
 class RecipeSelection(AWSProperty):
     """
-    `RecipeSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-recipeselection.html>`__
+    `RecipeSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-recipeselection.html>`__
     """
 
     props: PropsDictType = {
@@ -607,7 +607,7 @@ class RecipeSelection(AWSProperty):
 
 class ResourceSelection(AWSProperty):
     """
-    `ResourceSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html>`__
+    `ResourceSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html>`__
     """
 
     props: PropsDictType = {
@@ -618,7 +618,7 @@ class ResourceSelection(AWSProperty):
 
 class LifecyclePolicy(AWSObject):
     """
-    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html>`__
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-lifecyclepolicy.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::LifecyclePolicy"
@@ -637,7 +637,7 @@ class LifecyclePolicy(AWSObject):
 
 class Workflow(AWSObject):
     """
-    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html>`__
+    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-imagebuilder-workflow.html>`__
     """
 
     resource_type = "AWS::ImageBuilder::Workflow"

@@ -13,7 +13,7 @@ from .validators.iot import policytypes, validate_json_checker
 
 class AuditCheckConfiguration(AWSProperty):
     """
-    `AuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html>`__
+    `AuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AuditCheckConfiguration(AWSProperty):
 
 class CertAgeCheckCustomConfiguration(AWSProperty):
     """
-    `CertAgeCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certagecheckcustomconfiguration.html>`__
+    `CertAgeCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-certagecheckcustomconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class CertAgeCheckCustomConfiguration(AWSProperty):
 
 class DeviceCertAgeAuditCheckConfiguration(AWSProperty):
     """
-    `DeviceCertAgeAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertageauditcheckconfiguration.html>`__
+    `DeviceCertAgeAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-devicecertageauditcheckconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class DeviceCertAgeAuditCheckConfiguration(AWSProperty):
 
 class CertExpirationCheckCustomConfiguration(AWSProperty):
     """
-    `CertExpirationCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certexpirationcheckcustomconfiguration.html>`__
+    `CertExpirationCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-certexpirationcheckcustomconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class CertExpirationCheckCustomConfiguration(AWSProperty):
 
 class DeviceCertExpirationAuditCheckConfiguration(AWSProperty):
     """
-    `DeviceCertExpirationAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertexpirationauditcheckconfiguration.html>`__
+    `DeviceCertExpirationAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-devicecertexpirationauditcheckconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class DeviceCertExpirationAuditCheckConfiguration(AWSProperty):
 
 class AuditCheckConfigurations(AWSProperty):
     """
-    `AuditCheckConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html>`__
+    `AuditCheckConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class AuditCheckConfigurations(AWSProperty):
 
 class AuditNotificationTarget(AWSProperty):
     """
-    `AuditNotificationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html>`__
+    `AuditNotificationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class AuditNotificationTarget(AWSProperty):
 
 class AuditNotificationTargetConfigurations(AWSProperty):
     """
-    `AuditNotificationTargetConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html>`__
+    `AuditNotificationTargetConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class AuditNotificationTargetConfigurations(AWSProperty):
 
 class AccountAuditConfiguration(AWSObject):
     """
-    `AccountAuditConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html>`__
+    `AccountAuditConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-accountauditconfiguration.html>`__
     """
 
     resource_type = "AWS::IoT::AccountAuditConfiguration"
@@ -146,7 +146,7 @@ class AccountAuditConfiguration(AWSObject):
 
 class Authorizer(AWSObject):
     """
-    `Authorizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html>`__
+    `Authorizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-authorizer.html>`__
     """
 
     resource_type = "AWS::IoT::Authorizer"
@@ -165,7 +165,7 @@ class Authorizer(AWSObject):
 
 class BillingGroupProperties(AWSProperty):
     """
-    `BillingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-billinggroup-billinggroupproperties.html>`__
+    `BillingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-billinggroup-billinggroupproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class BillingGroupProperties(AWSProperty):
 
 class BillingGroup(AWSObject):
     """
-    `BillingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html>`__
+    `BillingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-billinggroup.html>`__
     """
 
     resource_type = "AWS::IoT::BillingGroup"
@@ -189,7 +189,7 @@ class BillingGroup(AWSObject):
 
 class RegistrationConfig(AWSProperty):
     """
-    `RegistrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html>`__
+    `RegistrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-cacertificate-registrationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class RegistrationConfig(AWSProperty):
 
 class CACertificate(AWSObject):
     """
-    `CACertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html>`__
+    `CACertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-cacertificate.html>`__
     """
 
     resource_type = "AWS::IoT::CACertificate"
@@ -220,7 +220,7 @@ class CACertificate(AWSObject):
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-certificate.html>`__
     """
 
     resource_type = "AWS::IoT::Certificate"
@@ -236,7 +236,7 @@ class Certificate(AWSObject):
 
 class CertificateProvider(AWSObject):
     """
-    `CertificateProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificateprovider.html>`__
+    `CertificateProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-certificateprovider.html>`__
     """
 
     resource_type = "AWS::IoT::CertificateProvider"
@@ -251,7 +251,7 @@ class CertificateProvider(AWSObject):
 
 class CommandParameterValue(AWSProperty):
     """
-    `CommandParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervalue.html>`__
+    `CommandParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-command-commandparametervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class CommandParameterValue(AWSProperty):
 
 class CommandParameter(AWSProperty):
     """
-    `CommandParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparameter.html>`__
+    `CommandParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-command-commandparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class CommandParameter(AWSProperty):
 
 class CommandPayload(AWSProperty):
     """
-    `CommandPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandpayload.html>`__
+    `CommandPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-command-commandpayload.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class CommandPayload(AWSProperty):
 
 class Command(AWSObject):
     """
-    `Command <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html>`__
+    `Command <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-command.html>`__
     """
 
     resource_type = "AWS::IoT::Command"
@@ -314,7 +314,7 @@ class Command(AWSObject):
 
 class CustomMetric(AWSObject):
     """
-    `CustomMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html>`__
+    `CustomMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-custommetric.html>`__
     """
 
     resource_type = "AWS::IoT::CustomMetric"
@@ -329,7 +329,7 @@ class CustomMetric(AWSObject):
 
 class Dimension(AWSObject):
     """
-    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html>`__
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-dimension.html>`__
     """
 
     resource_type = "AWS::IoT::Dimension"
@@ -344,7 +344,7 @@ class Dimension(AWSObject):
 
 class AuthorizerConfig(AWSProperty):
     """
-    `AuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html>`__
+    `AuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-domainconfiguration-authorizerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +355,7 @@ class AuthorizerConfig(AWSProperty):
 
 class ClientCertificateConfig(AWSProperty):
     """
-    `ClientCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html>`__
+    `ClientCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-domainconfiguration-clientcertificateconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -365,7 +365,7 @@ class ClientCertificateConfig(AWSProperty):
 
 class ServerCertificateConfig(AWSProperty):
     """
-    `ServerCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html>`__
+    `ServerCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-domainconfiguration-servercertificateconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -377,7 +377,7 @@ class ServerCertificateConfig(AWSProperty):
 
 class TlsConfig(AWSProperty):
     """
-    `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-tlsconfig.html>`__
+    `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-domainconfiguration-tlsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -387,7 +387,7 @@ class TlsConfig(AWSProperty):
 
 class DomainConfiguration(AWSObject):
     """
-    `DomainConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html>`__
+    `DomainConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-domainconfiguration.html>`__
     """
 
     resource_type = "AWS::IoT::DomainConfiguration"
@@ -411,7 +411,7 @@ class DomainConfiguration(AWSObject):
 
 class AggregationType(AWSProperty):
     """
-    `AggregationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html>`__
+    `AggregationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-fleetmetric-aggregationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -422,7 +422,7 @@ class AggregationType(AWSProperty):
 
 class FleetMetric(AWSObject):
     """
-    `FleetMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html>`__
+    `FleetMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-fleetmetric.html>`__
     """
 
     resource_type = "AWS::IoT::FleetMetric"
@@ -443,7 +443,7 @@ class FleetMetric(AWSObject):
 
 class AbortCriteria(AWSProperty):
     """
-    `AbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html>`__
+    `AbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-abortcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -456,7 +456,7 @@ class AbortCriteria(AWSProperty):
 
 class AbortConfig(AWSProperty):
     """
-    `AbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html>`__
+    `AbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-abortconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -466,7 +466,7 @@ class AbortConfig(AWSProperty):
 
 class RetryCriteria(AWSProperty):
     """
-    `RetryCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-retrycriteria.html>`__
+    `RetryCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-retrycriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -477,7 +477,7 @@ class RetryCriteria(AWSProperty):
 
 class JobExecutionsRetryConfig(AWSProperty):
     """
-    `JobExecutionsRetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html>`__
+    `JobExecutionsRetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -487,7 +487,7 @@ class JobExecutionsRetryConfig(AWSProperty):
 
 class RateIncreaseCriteria(AWSProperty):
     """
-    `RateIncreaseCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html>`__
+    `RateIncreaseCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-rateincreasecriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -498,7 +498,7 @@ class RateIncreaseCriteria(AWSProperty):
 
 class ExponentialRolloutRate(AWSProperty):
     """
-    `ExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html>`__
+    `ExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-exponentialrolloutrate.html>`__
     """
 
     props: PropsDictType = {
@@ -510,7 +510,7 @@ class ExponentialRolloutRate(AWSProperty):
 
 class JobExecutionsRolloutConfig(AWSProperty):
     """
-    `JobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html>`__
+    `JobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -521,7 +521,7 @@ class JobExecutionsRolloutConfig(AWSProperty):
 
 class MaintenanceWindow(AWSProperty):
     """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html>`__
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-maintenancewindow.html>`__
     """
 
     props: PropsDictType = {
@@ -532,7 +532,7 @@ class MaintenanceWindow(AWSProperty):
 
 class PresignedUrlConfig(AWSProperty):
     """
-    `PresignedUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html>`__
+    `PresignedUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-presignedurlconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -543,7 +543,7 @@ class PresignedUrlConfig(AWSProperty):
 
 class TimeoutConfig(AWSProperty):
     """
-    `TimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html>`__
+    `TimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-jobtemplate-timeoutconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -553,7 +553,7 @@ class TimeoutConfig(AWSProperty):
 
 class JobTemplate(AWSObject):
     """
-    `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html>`__
+    `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-jobtemplate.html>`__
     """
 
     resource_type = "AWS::IoT::JobTemplate"
@@ -577,7 +577,7 @@ class JobTemplate(AWSObject):
 
 class Logging(AWSObject):
     """
-    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html>`__
+    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-logging.html>`__
     """
 
     resource_type = "AWS::IoT::Logging"
@@ -591,7 +591,7 @@ class Logging(AWSObject):
 
 class AddThingsToThingGroupParams(AWSProperty):
     """
-    `AddThingsToThingGroupParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html>`__
+    `AddThingsToThingGroupParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html>`__
     """
 
     props: PropsDictType = {
@@ -602,7 +602,7 @@ class AddThingsToThingGroupParams(AWSProperty):
 
 class EnableIoTLoggingParams(AWSProperty):
     """
-    `EnableIoTLoggingParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html>`__
+    `EnableIoTLoggingParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-enableiotloggingparams.html>`__
     """
 
     props: PropsDictType = {
@@ -613,7 +613,7 @@ class EnableIoTLoggingParams(AWSProperty):
 
 class PublishFindingToSnsParams(AWSProperty):
     """
-    `PublishFindingToSnsParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html>`__
+    `PublishFindingToSnsParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html>`__
     """
 
     props: PropsDictType = {
@@ -623,7 +623,7 @@ class PublishFindingToSnsParams(AWSProperty):
 
 class ReplaceDefaultPolicyVersionParams(AWSProperty):
     """
-    `ReplaceDefaultPolicyVersionParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html>`__
+    `ReplaceDefaultPolicyVersionParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html>`__
     """
 
     props: PropsDictType = {
@@ -633,7 +633,7 @@ class ReplaceDefaultPolicyVersionParams(AWSProperty):
 
 class UpdateCACertificateParams(AWSProperty):
     """
-    `UpdateCACertificateParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html>`__
+    `UpdateCACertificateParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-updatecacertificateparams.html>`__
     """
 
     props: PropsDictType = {
@@ -643,7 +643,7 @@ class UpdateCACertificateParams(AWSProperty):
 
 class UpdateDeviceCertificateParams(AWSProperty):
     """
-    `UpdateDeviceCertificateParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html>`__
+    `UpdateDeviceCertificateParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html>`__
     """
 
     props: PropsDictType = {
@@ -653,7 +653,7 @@ class UpdateDeviceCertificateParams(AWSProperty):
 
 class ActionParams(AWSProperty):
     """
-    `ActionParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html>`__
+    `ActionParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-mitigationaction-actionparams.html>`__
     """
 
     props: PropsDictType = {
@@ -668,7 +668,7 @@ class ActionParams(AWSProperty):
 
 class MitigationAction(AWSObject):
     """
-    `MitigationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html>`__
+    `MitigationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-mitigationaction.html>`__
     """
 
     resource_type = "AWS::IoT::MitigationAction"
@@ -683,7 +683,7 @@ class MitigationAction(AWSObject):
 
 class Policy(AWSObject):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-policy.html>`__
     """
 
     resource_type = "AWS::IoT::Policy"
@@ -697,7 +697,7 @@ class Policy(AWSObject):
 
 class PolicyPrincipalAttachment(AWSObject):
     """
-    `PolicyPrincipalAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html>`__
+    `PolicyPrincipalAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-policyprincipalattachment.html>`__
     """
 
     resource_type = "AWS::IoT::PolicyPrincipalAttachment"
@@ -710,7 +710,7 @@ class PolicyPrincipalAttachment(AWSObject):
 
 class ProvisioningHook(AWSProperty):
     """
-    `ProvisioningHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html>`__
+    `ProvisioningHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-provisioningtemplate-provisioninghook.html>`__
     """
 
     props: PropsDictType = {
@@ -721,7 +721,7 @@ class ProvisioningHook(AWSProperty):
 
 class ProvisioningTemplate(AWSObject):
     """
-    `ProvisioningTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html>`__
+    `ProvisioningTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-provisioningtemplate.html>`__
     """
 
     resource_type = "AWS::IoT::ProvisioningTemplate"
@@ -740,7 +740,7 @@ class ProvisioningTemplate(AWSObject):
 
 class ResourceSpecificLogging(AWSObject):
     """
-    `ResourceSpecificLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html>`__
+    `ResourceSpecificLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-resourcespecificlogging.html>`__
     """
 
     resource_type = "AWS::IoT::ResourceSpecificLogging"
@@ -754,7 +754,7 @@ class ResourceSpecificLogging(AWSObject):
 
 class RoleAlias(AWSObject):
     """
-    `RoleAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-rolealias.html>`__
+    `RoleAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-rolealias.html>`__
     """
 
     resource_type = "AWS::IoT::RoleAlias"
@@ -769,7 +769,7 @@ class RoleAlias(AWSObject):
 
 class ScheduledAudit(AWSObject):
     """
-    `ScheduledAudit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html>`__
+    `ScheduledAudit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-scheduledaudit.html>`__
     """
 
     resource_type = "AWS::IoT::ScheduledAudit"
@@ -786,7 +786,7 @@ class ScheduledAudit(AWSObject):
 
 class AlertTarget(AWSProperty):
     """
-    `AlertTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html>`__
+    `AlertTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-alerttarget.html>`__
     """
 
     props: PropsDictType = {
@@ -797,7 +797,7 @@ class AlertTarget(AWSProperty):
 
 class MachineLearningDetectionConfig(AWSProperty):
     """
-    `MachineLearningDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html>`__
+    `MachineLearningDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -807,7 +807,7 @@ class MachineLearningDetectionConfig(AWSProperty):
 
 class MetricValue(AWSProperty):
     """
-    `MetricValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html>`__
+    `MetricValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-metricvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -822,7 +822,7 @@ class MetricValue(AWSProperty):
 
 class StatisticalThreshold(AWSProperty):
     """
-    `StatisticalThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html>`__
+    `StatisticalThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-statisticalthreshold.html>`__
     """
 
     props: PropsDictType = {
@@ -832,7 +832,7 @@ class StatisticalThreshold(AWSProperty):
 
 class BehaviorCriteria(AWSProperty):
     """
-    `BehaviorCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html>`__
+    `BehaviorCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-behaviorcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -848,7 +848,7 @@ class BehaviorCriteria(AWSProperty):
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-metricdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -859,7 +859,7 @@ class MetricDimension(AWSProperty):
 
 class Behavior(AWSProperty):
     """
-    `Behavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html>`__
+    `Behavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-behavior.html>`__
     """
 
     props: PropsDictType = {
@@ -874,7 +874,7 @@ class Behavior(AWSProperty):
 
 class MetricToRetain(AWSProperty):
     """
-    `MetricToRetain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html>`__
+    `MetricToRetain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-metrictoretain.html>`__
     """
 
     props: PropsDictType = {
@@ -886,7 +886,7 @@ class MetricToRetain(AWSProperty):
 
 class MetricsExportConfig(AWSProperty):
     """
-    `MetricsExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricsexportconfig.html>`__
+    `MetricsExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-securityprofile-metricsexportconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -897,7 +897,7 @@ class MetricsExportConfig(AWSProperty):
 
 class SecurityProfile(AWSObject):
     """
-    `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html>`__
+    `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-securityprofile.html>`__
     """
 
     resource_type = "AWS::IoT::SecurityProfile"
@@ -916,7 +916,7 @@ class SecurityProfile(AWSObject):
 
 class SoftwarePackage(AWSObject):
     """
-    `SoftwarePackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html>`__
+    `SoftwarePackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-softwarepackage.html>`__
     """
 
     resource_type = "AWS::IoT::SoftwarePackage"
@@ -930,7 +930,7 @@ class SoftwarePackage(AWSObject):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-softwarepackageversion-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -942,7 +942,7 @@ class S3Location(AWSProperty):
 
 class PackageVersionArtifact(AWSProperty):
     """
-    `PackageVersionArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-packageversionartifact.html>`__
+    `PackageVersionArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-softwarepackageversion-packageversionartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -952,7 +952,7 @@ class PackageVersionArtifact(AWSProperty):
 
 class Sbom(AWSProperty):
     """
-    `Sbom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-sbom.html>`__
+    `Sbom <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-softwarepackageversion-sbom.html>`__
     """
 
     props: PropsDictType = {
@@ -962,7 +962,7 @@ class Sbom(AWSProperty):
 
 class SoftwarePackageVersion(AWSObject):
     """
-    `SoftwarePackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html>`__
+    `SoftwarePackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-softwarepackageversion.html>`__
     """
 
     resource_type = "AWS::IoT::SoftwarePackageVersion"
@@ -981,7 +981,7 @@ class SoftwarePackageVersion(AWSObject):
 
 class AttributePayload(AWSProperty):
     """
-    `AttributePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-attributepayload.html>`__
+    `AttributePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-thinggroup-attributepayload.html>`__
     """
 
     props: PropsDictType = {
@@ -991,7 +991,7 @@ class AttributePayload(AWSProperty):
 
 class Thing(AWSObject):
     """
-    `Thing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html>`__
+    `Thing <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-thing.html>`__
     """
 
     resource_type = "AWS::IoT::Thing"
@@ -1004,7 +1004,7 @@ class Thing(AWSObject):
 
 class ThingGroupProperties(AWSProperty):
     """
-    `ThingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html>`__
+    `ThingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-thinggroup-thinggroupproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -1015,7 +1015,7 @@ class ThingGroupProperties(AWSProperty):
 
 class ThingGroup(AWSObject):
     """
-    `ThingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html>`__
+    `ThingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-thinggroup.html>`__
     """
 
     resource_type = "AWS::IoT::ThingGroup"
@@ -1031,7 +1031,7 @@ class ThingGroup(AWSObject):
 
 class ThingPrincipalAttachment(AWSObject):
     """
-    `ThingPrincipalAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html>`__
+    `ThingPrincipalAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-thingprincipalattachment.html>`__
     """
 
     resource_type = "AWS::IoT::ThingPrincipalAttachment"
@@ -1044,7 +1044,7 @@ class ThingPrincipalAttachment(AWSObject):
 
 class PropagatingAttribute(AWSProperty):
     """
-    `PropagatingAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html>`__
+    `PropagatingAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-thingtype-propagatingattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -1056,7 +1056,7 @@ class PropagatingAttribute(AWSProperty):
 
 class Mqtt5Configuration(AWSProperty):
     """
-    `Mqtt5Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-mqtt5configuration.html>`__
+    `Mqtt5Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-thingtype-mqtt5configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -1066,7 +1066,7 @@ class Mqtt5Configuration(AWSProperty):
 
 class ThingTypeProperties(AWSProperty):
     """
-    `ThingTypeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html>`__
+    `ThingTypeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-thingtype-thingtypeproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -1078,7 +1078,7 @@ class ThingTypeProperties(AWSProperty):
 
 class ThingType(AWSObject):
     """
-    `ThingType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html>`__
+    `ThingType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-thingtype.html>`__
     """
 
     resource_type = "AWS::IoT::ThingType"
@@ -1093,7 +1093,7 @@ class ThingType(AWSObject):
 
 class CloudwatchAlarmAction(AWSProperty):
     """
-    `CloudwatchAlarmAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html>`__
+    `CloudwatchAlarmAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-cloudwatchalarmaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1106,7 +1106,7 @@ class CloudwatchAlarmAction(AWSProperty):
 
 class CloudwatchLogsAction(AWSProperty):
     """
-    `CloudwatchLogsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html>`__
+    `CloudwatchLogsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-cloudwatchlogsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1118,7 +1118,7 @@ class CloudwatchLogsAction(AWSProperty):
 
 class CloudwatchMetricAction(AWSProperty):
     """
-    `CloudwatchMetricAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html>`__
+    `CloudwatchMetricAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-cloudwatchmetricaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1133,7 +1133,7 @@ class CloudwatchMetricAction(AWSProperty):
 
 class DynamoDBAction(AWSProperty):
     """
-    `DynamoDBAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html>`__
+    `DynamoDBAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-dynamodbaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1151,7 +1151,7 @@ class DynamoDBAction(AWSProperty):
 
 class PutItemInput(AWSProperty):
     """
-    `PutItemInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html>`__
+    `PutItemInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-putiteminput.html>`__
     """
 
     props: PropsDictType = {
@@ -1161,7 +1161,7 @@ class PutItemInput(AWSProperty):
 
 class DynamoDBv2Action(AWSProperty):
     """
-    `DynamoDBv2Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html>`__
+    `DynamoDBv2Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-dynamodbv2action.html>`__
     """
 
     props: PropsDictType = {
@@ -1172,7 +1172,7 @@ class DynamoDBv2Action(AWSProperty):
 
 class ElasticsearchAction(AWSProperty):
     """
-    `ElasticsearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html>`__
+    `ElasticsearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-elasticsearchaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1186,7 +1186,7 @@ class ElasticsearchAction(AWSProperty):
 
 class FirehoseAction(AWSProperty):
     """
-    `FirehoseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html>`__
+    `FirehoseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-firehoseaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1199,7 +1199,7 @@ class FirehoseAction(AWSProperty):
 
 class HttpActionHeader(AWSProperty):
     """
-    `HttpActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html>`__
+    `HttpActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-httpactionheader.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1210,7 @@ class HttpActionHeader(AWSProperty):
 
 class SigV4Authorization(AWSProperty):
     """
-    `SigV4Authorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html>`__
+    `SigV4Authorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-sigv4authorization.html>`__
     """
 
     props: PropsDictType = {
@@ -1222,7 +1222,7 @@ class SigV4Authorization(AWSProperty):
 
 class HttpAuthorization(AWSProperty):
     """
-    `HttpAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html>`__
+    `HttpAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-httpauthorization.html>`__
     """
 
     props: PropsDictType = {
@@ -1232,7 +1232,7 @@ class HttpAuthorization(AWSProperty):
 
 class HttpAction(AWSProperty):
     """
-    `HttpAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html>`__
+    `HttpAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-httpaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1245,7 +1245,7 @@ class HttpAction(AWSProperty):
 
 class IotAnalyticsAction(AWSProperty):
     """
-    `IotAnalyticsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html>`__
+    `IotAnalyticsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-iotanalyticsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1257,7 +1257,7 @@ class IotAnalyticsAction(AWSProperty):
 
 class IotEventsAction(AWSProperty):
     """
-    `IotEventsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html>`__
+    `IotEventsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-ioteventsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1270,7 +1270,7 @@ class IotEventsAction(AWSProperty):
 
 class AssetPropertyTimestamp(AWSProperty):
     """
-    `AssetPropertyTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html>`__
+    `AssetPropertyTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-assetpropertytimestamp.html>`__
     """
 
     props: PropsDictType = {
@@ -1281,7 +1281,7 @@ class AssetPropertyTimestamp(AWSProperty):
 
 class AssetPropertyVariant(AWSProperty):
     """
-    `AssetPropertyVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html>`__
+    `AssetPropertyVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-assetpropertyvariant.html>`__
     """
 
     props: PropsDictType = {
@@ -1294,7 +1294,7 @@ class AssetPropertyVariant(AWSProperty):
 
 class AssetPropertyValue(AWSProperty):
     """
-    `AssetPropertyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html>`__
+    `AssetPropertyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-assetpropertyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -1306,7 +1306,7 @@ class AssetPropertyValue(AWSProperty):
 
 class PutAssetPropertyValueEntry(AWSProperty):
     """
-    `PutAssetPropertyValueEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html>`__
+    `PutAssetPropertyValueEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-putassetpropertyvalueentry.html>`__
     """
 
     props: PropsDictType = {
@@ -1320,7 +1320,7 @@ class PutAssetPropertyValueEntry(AWSProperty):
 
 class IotSiteWiseAction(AWSProperty):
     """
-    `IotSiteWiseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html>`__
+    `IotSiteWiseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-iotsitewiseaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1331,7 +1331,7 @@ class IotSiteWiseAction(AWSProperty):
 
 class KafkaActionHeader(AWSProperty):
     """
-    `KafkaActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaactionheader.html>`__
+    `KafkaActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-kafkaactionheader.html>`__
     """
 
     props: PropsDictType = {
@@ -1342,7 +1342,7 @@ class KafkaActionHeader(AWSProperty):
 
 class KafkaAction(AWSProperty):
     """
-    `KafkaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html>`__
+    `KafkaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-kafkaaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1357,7 +1357,7 @@ class KafkaAction(AWSProperty):
 
 class KinesisAction(AWSProperty):
     """
-    `KinesisAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html>`__
+    `KinesisAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-kinesisaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1369,7 +1369,7 @@ class KinesisAction(AWSProperty):
 
 class LambdaAction(AWSProperty):
     """
-    `LambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html>`__
+    `LambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-lambdaaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1379,7 +1379,7 @@ class LambdaAction(AWSProperty):
 
 class Timestamp(AWSProperty):
     """
-    `Timestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html>`__
+    `Timestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-timestamp.html>`__
     """
 
     props: PropsDictType = {
@@ -1390,7 +1390,7 @@ class Timestamp(AWSProperty):
 
 class LocationAction(AWSProperty):
     """
-    `LocationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html>`__
+    `LocationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-locationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1405,7 +1405,7 @@ class LocationAction(AWSProperty):
 
 class OpenSearchAction(AWSProperty):
     """
-    `OpenSearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html>`__
+    `OpenSearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-opensearchaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1419,7 +1419,7 @@ class OpenSearchAction(AWSProperty):
 
 class UserProperty(AWSProperty):
     """
-    `UserProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-userproperty.html>`__
+    `UserProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-userproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -1430,7 +1430,7 @@ class UserProperty(AWSProperty):
 
 class RepublishActionHeaders(AWSProperty):
     """
-    `RepublishActionHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html>`__
+    `RepublishActionHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-republishactionheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -1445,7 +1445,7 @@ class RepublishActionHeaders(AWSProperty):
 
 class RepublishAction(AWSProperty):
     """
-    `RepublishAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html>`__
+    `RepublishAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-republishaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1458,7 +1458,7 @@ class RepublishAction(AWSProperty):
 
 class S3Action(AWSProperty):
     """
-    `S3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html>`__
+    `S3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-s3action.html>`__
     """
 
     props: PropsDictType = {
@@ -1471,7 +1471,7 @@ class S3Action(AWSProperty):
 
 class SnsAction(AWSProperty):
     """
-    `SnsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html>`__
+    `SnsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-snsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1483,7 +1483,7 @@ class SnsAction(AWSProperty):
 
 class SqsAction(AWSProperty):
     """
-    `SqsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html>`__
+    `SqsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-sqsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1495,7 +1495,7 @@ class SqsAction(AWSProperty):
 
 class StepFunctionsAction(AWSProperty):
     """
-    `StepFunctionsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html>`__
+    `StepFunctionsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-stepfunctionsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1507,7 +1507,7 @@ class StepFunctionsAction(AWSProperty):
 
 class TimestreamDimension(AWSProperty):
     """
-    `TimestreamDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html>`__
+    `TimestreamDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-timestreamdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -1518,7 +1518,7 @@ class TimestreamDimension(AWSProperty):
 
 class TimestreamTimestamp(AWSProperty):
     """
-    `TimestreamTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html>`__
+    `TimestreamTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-timestreamtimestamp.html>`__
     """
 
     props: PropsDictType = {
@@ -1529,7 +1529,7 @@ class TimestreamTimestamp(AWSProperty):
 
 class TimestreamAction(AWSProperty):
     """
-    `TimestreamAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html>`__
+    `TimestreamAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-timestreamaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1543,7 +1543,7 @@ class TimestreamAction(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-action.html>`__
     """
 
     props: PropsDictType = {
@@ -1574,7 +1574,7 @@ class Action(AWSProperty):
 
 class TopicRulePayload(AWSProperty):
     """
-    `TopicRulePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html>`__
+    `TopicRulePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicrule-topicrulepayload.html>`__
     """
 
     props: PropsDictType = {
@@ -1589,7 +1589,7 @@ class TopicRulePayload(AWSProperty):
 
 class TopicRule(AWSObject):
     """
-    `TopicRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html>`__
+    `TopicRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-topicrule.html>`__
     """
 
     resource_type = "AWS::IoT::TopicRule"
@@ -1603,7 +1603,7 @@ class TopicRule(AWSObject):
 
 class HttpUrlDestinationSummary(AWSProperty):
     """
-    `HttpUrlDestinationSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html>`__
+    `HttpUrlDestinationSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicruledestination-httpurldestinationsummary.html>`__
     """
 
     props: PropsDictType = {
@@ -1613,7 +1613,7 @@ class HttpUrlDestinationSummary(AWSProperty):
 
 class VpcDestinationProperties(AWSProperty):
     """
-    `VpcDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html>`__
+    `VpcDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-topicruledestination-vpcdestinationproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -1626,7 +1626,7 @@ class VpcDestinationProperties(AWSProperty):
 
 class TopicRuleDestination(AWSObject):
     """
-    `TopicRuleDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html>`__
+    `TopicRuleDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iot-topicruledestination.html>`__
     """
 
     resource_type = "AWS::IoT::TopicRuleDestination"
@@ -1640,7 +1640,7 @@ class TopicRuleDestination(AWSObject):
 
 class ServerCertificateSummary(AWSProperty):
     """
-    `ServerCertificateSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html>`__
+    `ServerCertificateSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iot-domainconfiguration-servercertificatesummary.html>`__
     """
 
     props: PropsDictType = {

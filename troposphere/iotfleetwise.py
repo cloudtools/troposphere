@@ -12,7 +12,7 @@ from .validators import double, integer
 
 class ConditionBasedCollectionScheme(AWSProperty):
     """
-    `ConditionBasedCollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html>`__
+    `ConditionBasedCollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class ConditionBasedCollectionScheme(AWSProperty):
 
 class TimeBasedCollectionScheme(AWSProperty):
     """
-    `TimeBasedCollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedcollectionscheme.html>`__
+    `TimeBasedCollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-timebasedcollectionscheme.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class TimeBasedCollectionScheme(AWSProperty):
 
 class CollectionScheme(AWSProperty):
     """
-    `CollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html>`__
+    `CollectionScheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-collectionscheme.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class CollectionScheme(AWSProperty):
 
 class MqttTopicConfig(AWSProperty):
     """
-    `MqttTopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html>`__
+    `MqttTopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class MqttTopicConfig(AWSProperty):
 
 class S3Config(AWSProperty):
     """
-    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html>`__
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-s3config.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class S3Config(AWSProperty):
 
 class TimestreamConfig(AWSProperty):
     """
-    `TimestreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html>`__
+    `TimestreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-timestreamconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class TimestreamConfig(AWSProperty):
 
 class DataDestinationConfig(AWSProperty):
     """
-    `DataDestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html>`__
+    `DataDestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-datadestinationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class DataDestinationConfig(AWSProperty):
 
 class StorageMaximumSize(AWSProperty):
     """
-    `StorageMaximumSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html>`__
+    `StorageMaximumSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-storagemaximumsize.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class StorageMaximumSize(AWSProperty):
 
 class StorageMinimumTimeToLive(AWSProperty):
     """
-    `StorageMinimumTimeToLive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storageminimumtimetolive.html>`__
+    `StorageMinimumTimeToLive <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-storageminimumtimetolive.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class StorageMinimumTimeToLive(AWSProperty):
 
 class DataPartitionStorageOptions(AWSProperty):
     """
-    `DataPartitionStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html>`__
+    `DataPartitionStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class DataPartitionStorageOptions(AWSProperty):
 
 class DataPartitionUploadOptions(AWSProperty):
     """
-    `DataPartitionUploadOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html>`__
+    `DataPartitionUploadOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class DataPartitionUploadOptions(AWSProperty):
 
 class DataPartition(AWSProperty):
     """
-    `DataPartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html>`__
+    `DataPartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-datapartition.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class DataPartition(AWSProperty):
 
 class ConditionBasedSignalFetchConfig(AWSProperty):
     """
-    `ConditionBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html>`__
+    `ConditionBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class ConditionBasedSignalFetchConfig(AWSProperty):
 
 class TimeBasedSignalFetchConfig(AWSProperty):
     """
-    `TimeBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html>`__
+    `TimeBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class TimeBasedSignalFetchConfig(AWSProperty):
 
 class SignalFetchConfig(AWSProperty):
     """
-    `SignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchconfig.html>`__
+    `SignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-signalfetchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class SignalFetchConfig(AWSProperty):
 
 class SignalFetchInformation(AWSProperty):
     """
-    `SignalFetchInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html>`__
+    `SignalFetchInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-signalfetchinformation.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class SignalFetchInformation(AWSProperty):
 
 class SignalInformation(AWSProperty):
     """
-    `SignalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html>`__
+    `SignalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-campaign-signalinformation.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class SignalInformation(AWSProperty):
 
 class Campaign(AWSObject):
     """
-    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html>`__
+    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-campaign.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::Campaign"
@@ -238,7 +238,7 @@ class Campaign(AWSObject):
 
 class CanInterface(AWSProperty):
     """
-    `CanInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html>`__
+    `CanInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-caninterface.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class CanInterface(AWSProperty):
 
 class CustomDecodingInterface(AWSProperty):
     """
-    `CustomDecodingInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html>`__
+    `CustomDecodingInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class CustomDecodingInterface(AWSProperty):
 
 class ObdInterface(AWSProperty):
     """
-    `ObdInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html>`__
+    `ObdInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-obdinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class ObdInterface(AWSProperty):
 
 class NetworkInterfacesItems(AWSProperty):
     """
-    `NetworkInterfacesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html>`__
+    `NetworkInterfacesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html>`__
     """
 
     props: PropsDictType = {
@@ -290,7 +290,7 @@ class NetworkInterfacesItems(AWSProperty):
 
 class CanSignal(AWSProperty):
     """
-    `CanSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html>`__
+    `CanSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-cansignal.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class CanSignal(AWSProperty):
 
 class CustomDecodingSignal(AWSProperty):
     """
-    `CustomDecodingSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html>`__
+    `CustomDecodingSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +318,7 @@ class CustomDecodingSignal(AWSProperty):
 
 class ObdSignal(AWSProperty):
     """
-    `ObdSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html>`__
+    `ObdSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-obdsignal.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class ObdSignal(AWSProperty):
 
 class SignalDecodersItems(AWSProperty):
     """
-    `SignalDecodersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html>`__
+    `SignalDecodersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html>`__
     """
 
     props: PropsDictType = {
@@ -353,7 +353,7 @@ class SignalDecodersItems(AWSProperty):
 
 class DecoderManifest(AWSObject):
     """
-    `DecoderManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html>`__
+    `DecoderManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-decodermanifest.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::DecoderManifest"
@@ -372,7 +372,7 @@ class DecoderManifest(AWSObject):
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-fleet.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::Fleet"
@@ -387,7 +387,7 @@ class Fleet(AWSObject):
 
 class ModelManifest(AWSObject):
     """
-    `ModelManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-modelmanifest.html>`__
+    `ModelManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-modelmanifest.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::ModelManifest"
@@ -404,7 +404,7 @@ class ModelManifest(AWSObject):
 
 class Actuator(AWSProperty):
     """
-    `Actuator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-actuator.html>`__
+    `Actuator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-actuator.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class Actuator(AWSProperty):
 
 class Attribute(AWSProperty):
     """
-    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-attribute.html>`__
+    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-attribute.html>`__
     """
 
     props: PropsDictType = {
@@ -439,7 +439,7 @@ class Attribute(AWSProperty):
 
 class Branch(AWSProperty):
     """
-    `Branch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-branch.html>`__
+    `Branch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-branch.html>`__
     """
 
     props: PropsDictType = {
@@ -450,7 +450,7 @@ class Branch(AWSProperty):
 
 class Sensor(AWSProperty):
     """
-    `Sensor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-sensor.html>`__
+    `Sensor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-sensor.html>`__
     """
 
     props: PropsDictType = {
@@ -466,7 +466,7 @@ class Sensor(AWSProperty):
 
 class Node(AWSProperty):
     """
-    `Node <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html>`__
+    `Node <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-node.html>`__
     """
 
     props: PropsDictType = {
@@ -479,7 +479,7 @@ class Node(AWSProperty):
 
 class NodeCounts(AWSProperty):
     """
-    `NodeCounts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html>`__
+    `NodeCounts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-signalcatalog-nodecounts.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class NodeCounts(AWSProperty):
 
 class SignalCatalog(AWSObject):
     """
-    `SignalCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html>`__
+    `SignalCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-signalcatalog.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::SignalCatalog"
@@ -509,7 +509,7 @@ class SignalCatalog(AWSObject):
 
 class StateTemplate(AWSObject):
     """
-    `StateTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-statetemplate.html>`__
+    `StateTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-statetemplate.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::StateTemplate"
@@ -527,7 +527,7 @@ class StateTemplate(AWSObject):
 
 class TimePeriod(AWSProperty):
     """
-    `TimePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-timeperiod.html>`__
+    `TimePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-vehicle-timeperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -538,7 +538,7 @@ class TimePeriod(AWSProperty):
 
 class PeriodicStateTemplateUpdateStrategy(AWSProperty):
     """
-    `PeriodicStateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-periodicstatetemplateupdatestrategy.html>`__
+    `PeriodicStateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-vehicle-periodicstatetemplateupdatestrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -548,7 +548,7 @@ class PeriodicStateTemplateUpdateStrategy(AWSProperty):
 
 class StateTemplateUpdateStrategy(AWSProperty):
     """
-    `StateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateupdatestrategy.html>`__
+    `StateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-vehicle-statetemplateupdatestrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -559,7 +559,7 @@ class StateTemplateUpdateStrategy(AWSProperty):
 
 class StateTemplateAssociation(AWSProperty):
     """
-    `StateTemplateAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateassociation.html>`__
+    `StateTemplateAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotfleetwise-vehicle-statetemplateassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -570,7 +570,7 @@ class StateTemplateAssociation(AWSProperty):
 
 class Vehicle(AWSObject):
     """
-    `Vehicle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html>`__
+    `Vehicle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleetwise-vehicle.html>`__
     """
 
     resource_type = "AWS::IoTFleetWise::Vehicle"

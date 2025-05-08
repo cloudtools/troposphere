@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class LinkFilter(AWSProperty):
     """
-    `LinkFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkfilter.html>`__
+    `LinkFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-oam-link-linkfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class LinkFilter(AWSProperty):
 
 class LinkConfiguration(AWSProperty):
     """
-    `LinkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html>`__
+    `LinkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-oam-link-linkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class LinkConfiguration(AWSProperty):
 
 class Link(AWSObject):
     """
-    `Link <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html>`__
+    `Link <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-oam-link.html>`__
     """
 
     resource_type = "AWS::Oam::Link"
@@ -48,7 +48,7 @@ class Link(AWSObject):
 
 class Sink(AWSObject):
     """
-    `Sink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html>`__
+    `Sink <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-oam-sink.html>`__
     """
 
     resource_type = "AWS::Oam::Sink"

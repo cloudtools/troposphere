@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class MultitrackInputConfiguration(AWSProperty):
     """
-    `MultitrackInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-channel-multitrackinputconfiguration.html>`__
+    `MultitrackInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-channel-multitrackinputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class MultitrackInputConfiguration(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-channel.html>`__
     """
 
     resource_type = "AWS::IVS::Channel"
@@ -45,7 +45,7 @@ class Channel(AWSObject):
 
 class Video(AWSProperty):
     """
-    `Video <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html>`__
+    `Video <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-encoderconfiguration-video.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class Video(AWSProperty):
 
 class EncoderConfiguration(AWSObject):
     """
-    `EncoderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-encoderconfiguration.html>`__
+    `EncoderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-encoderconfiguration.html>`__
     """
 
     resource_type = "AWS::IVS::EncoderConfiguration"
@@ -72,7 +72,7 @@ class EncoderConfiguration(AWSObject):
 
 class IngestConfiguration(AWSObject):
     """
-    `IngestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-ingestconfiguration.html>`__
+    `IngestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-ingestconfiguration.html>`__
     """
 
     resource_type = "AWS::IVS::IngestConfiguration"
@@ -89,7 +89,7 @@ class IngestConfiguration(AWSObject):
 
 class PlaybackKeyPair(AWSObject):
     """
-    `PlaybackKeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html>`__
+    `PlaybackKeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-playbackkeypair.html>`__
     """
 
     resource_type = "AWS::IVS::PlaybackKeyPair"
@@ -103,7 +103,7 @@ class PlaybackKeyPair(AWSObject):
 
 class PlaybackRestrictionPolicy(AWSObject):
     """
-    `PlaybackRestrictionPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html>`__
+    `PlaybackRestrictionPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-playbackrestrictionpolicy.html>`__
     """
 
     resource_type = "AWS::IVS::PlaybackRestrictionPolicy"
@@ -119,7 +119,7 @@ class PlaybackRestrictionPolicy(AWSObject):
 
 class PublicKey(AWSObject):
     """
-    `PublicKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-publickey.html>`__
+    `PublicKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-publickey.html>`__
     """
 
     resource_type = "AWS::IVS::PublicKey"
@@ -133,7 +133,7 @@ class PublicKey(AWSObject):
 
 class S3DestinationConfiguration(AWSProperty):
     """
-    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html>`__
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -143,7 +143,7 @@ class S3DestinationConfiguration(AWSProperty):
 
 class DestinationConfiguration(AWSProperty):
     """
-    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html>`__
+    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -153,7 +153,7 @@ class DestinationConfiguration(AWSProperty):
 
 class RenditionConfiguration(AWSProperty):
     """
-    `RenditionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html>`__
+    `RenditionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class RenditionConfiguration(AWSProperty):
 
 class ThumbnailConfiguration(AWSProperty):
     """
-    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html>`__
+    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class ThumbnailConfiguration(AWSProperty):
 
 class RecordingConfiguration(AWSObject):
     """
-    `RecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html>`__
+    `RecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-recordingconfiguration.html>`__
     """
 
     resource_type = "AWS::IVS::RecordingConfiguration"
@@ -194,7 +194,7 @@ class RecordingConfiguration(AWSObject):
 
 class AutoParticipantRecordingConfiguration(AWSProperty):
     """
-    `AutoParticipantRecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html>`__
+    `AutoParticipantRecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -205,7 +205,7 @@ class AutoParticipantRecordingConfiguration(AWSProperty):
 
 class Stage(AWSObject):
     """
-    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html>`__
+    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-stage.html>`__
     """
 
     resource_type = "AWS::IVS::Stage"
@@ -222,7 +222,7 @@ class Stage(AWSObject):
 
 class S3StorageConfiguration(AWSProperty):
     """
-    `S3StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html>`__
+    `S3StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -232,7 +232,7 @@ class S3StorageConfiguration(AWSProperty):
 
 class StorageConfiguration(AWSObject):
     """
-    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-storageconfiguration.html>`__
+    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-storageconfiguration.html>`__
     """
 
     resource_type = "AWS::IVS::StorageConfiguration"
@@ -246,7 +246,7 @@ class StorageConfiguration(AWSObject):
 
 class StreamKey(AWSObject):
     """
-    `StreamKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html>`__
+    `StreamKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivs-streamkey.html>`__
     """
 
     resource_type = "AWS::IVS::StreamKey"

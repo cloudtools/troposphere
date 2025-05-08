@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class ExternalUrlConfig(AWSProperty):
     """
-    `ExternalUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html>`__
+    `ExternalUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appintegrations-application-externalurlconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ExternalUrlConfig(AWSProperty):
 
 class ApplicationSourceConfig(AWSProperty):
     """
-    `ApplicationSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html>`__
+    `ApplicationSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appintegrations-application-applicationsourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class ApplicationSourceConfig(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appintegrations-application.html>`__
     """
 
     resource_type = "AWS::AppIntegrations::Application"
@@ -49,7 +49,7 @@ class Application(AWSObject):
 
 class FileConfiguration(AWSProperty):
     """
-    `FileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-fileconfiguration.html>`__
+    `FileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appintegrations-dataintegration-fileconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class FileConfiguration(AWSProperty):
 
 class ScheduleConfig(AWSProperty):
     """
-    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class ScheduleConfig(AWSProperty):
 
 class DataIntegration(AWSObject):
     """
-    `DataIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html>`__
+    `DataIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appintegrations-dataintegration.html>`__
     """
 
     resource_type = "AWS::AppIntegrations::DataIntegration"
@@ -91,7 +91,7 @@ class DataIntegration(AWSObject):
 
 class EventFilter(AWSProperty):
     """
-    `EventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html>`__
+    `EventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appintegrations-eventintegration-eventfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class EventFilter(AWSProperty):
 
 class EventIntegration(AWSObject):
     """
-    `EventIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html>`__
+    `EventIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appintegrations-eventintegration.html>`__
     """
 
     resource_type = "AWS::AppIntegrations::EventIntegration"

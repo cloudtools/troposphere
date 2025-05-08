@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-simpledb.html>`__
     """
 
     resource_type = "AWS::SDB::Domain"

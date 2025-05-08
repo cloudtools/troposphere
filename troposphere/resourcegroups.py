@@ -12,7 +12,7 @@ from .validators.resourcegroups import resourcequery_type
 
 class ConfigurationParameter(AWSProperty):
     """
-    `ConfigurationParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html>`__
+    `ConfigurationParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourcegroups-group-configurationparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ConfigurationParameter(AWSProperty):
 
 class ConfigurationItem(AWSProperty):
     """
-    `ConfigurationItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html>`__
+    `ConfigurationItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourcegroups-group-configurationitem.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ConfigurationItem(AWSProperty):
 
 class TagFilter(AWSProperty):
     """
-    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html>`__
+    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourcegroups-group-tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class TagFilter(AWSProperty):
 
 class Query(AWSProperty):
     """
-    `Query <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html>`__
+    `Query <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourcegroups-group-query.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class Query(AWSProperty):
 
 class ResourceQuery(AWSProperty):
     """
-    `ResourceQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html>`__
+    `ResourceQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourcegroups-group-resourcequery.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ResourceQuery(AWSProperty):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resourcegroups-group.html>`__
     """
 
     resource_type = "AWS::ResourceGroups::Group"
@@ -85,7 +85,7 @@ class Group(AWSObject):
 
 class TagSyncTask(AWSObject):
     """
-    `TagSyncTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html>`__
+    `TagSyncTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resourcegroups-tagsynctask.html>`__
     """
 
     resource_type = "AWS::ResourceGroups::TagSyncTask"

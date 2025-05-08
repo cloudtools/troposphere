@@ -12,7 +12,7 @@ from .validators import integer
 
 class CapacityUnitsConfiguration(AWSProperty):
     """
-    `CapacityUnitsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendraranking-executionplan-capacityunitsconfiguration.html>`__
+    `CapacityUnitsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendraranking-executionplan-capacityunitsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class CapacityUnitsConfiguration(AWSProperty):
 
 class ExecutionPlan(AWSObject):
     """
-    `ExecutionPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendraranking-executionplan.html>`__
+    `ExecutionPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kendraranking-executionplan.html>`__
     """
 
     resource_type = "AWS::KendraRanking::ExecutionPlan"

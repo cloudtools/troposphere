@@ -12,7 +12,7 @@ from .validators import integer
 
 class InputParallelism(AWSProperty):
     """
-    `InputParallelism <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputparallelism.html>`__
+    `InputParallelism <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-inputparallelism.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class InputParallelism(AWSProperty):
 
 class InputLambdaProcessor(AWSProperty):
     """
-    `InputLambdaProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputlambdaprocessor.html>`__
+    `InputLambdaProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-inputlambdaprocessor.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class InputLambdaProcessor(AWSProperty):
 
 class InputProcessingConfiguration(AWSProperty):
     """
-    `InputProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputprocessingconfiguration.html>`__
+    `InputProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-inputprocessingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class InputProcessingConfiguration(AWSProperty):
 
 class RecordColumn(AWSProperty):
     """
-    `RecordColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html>`__
+    `RecordColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-recordcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class RecordColumn(AWSProperty):
 
 class CSVMappingParameters(AWSProperty):
     """
-    `CSVMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html>`__
+    `CSVMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-csvmappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class CSVMappingParameters(AWSProperty):
 
 class JSONMappingParameters(AWSProperty):
     """
-    `JSONMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html>`__
+    `JSONMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-jsonmappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class JSONMappingParameters(AWSProperty):
 
 class MappingParameters(AWSProperty):
     """
-    `MappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html>`__
+    `MappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-mappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class MappingParameters(AWSProperty):
 
 class RecordFormat(AWSProperty):
     """
-    `RecordFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html>`__
+    `RecordFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-recordformat.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class RecordFormat(AWSProperty):
 
 class InputSchema(AWSProperty):
     """
-    `InputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputschema.html>`__
+    `InputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-inputschema.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class InputSchema(AWSProperty):
 
 class KinesisFirehoseInput(AWSProperty):
     """
-    `KinesisFirehoseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-kinesisfirehoseinput.html>`__
+    `KinesisFirehoseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-kinesisfirehoseinput.html>`__
     """
 
     props: PropsDictType = {
@@ -121,7 +121,7 @@ class KinesisFirehoseInput(AWSProperty):
 
 class KinesisStreamsInput(AWSProperty):
     """
-    `KinesisStreamsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-kinesisstreamsinput.html>`__
+    `KinesisStreamsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-kinesisstreamsinput.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class KinesisStreamsInput(AWSProperty):
 
 class Input(AWSProperty):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-application-input.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class Input(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalytics-application.html>`__
     """
 
     resource_type = "AWS::KinesisAnalytics::Application"
@@ -162,7 +162,7 @@ class Application(AWSObject):
 
 class DestinationSchema(AWSProperty):
     """
-    `DestinationSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html>`__
+    `DestinationSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class DestinationSchema(AWSProperty):
 
 class KinesisFirehoseOutput(AWSProperty):
     """
-    `KinesisFirehoseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html>`__
+    `KinesisFirehoseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationoutput-kinesisfirehoseoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class KinesisFirehoseOutput(AWSProperty):
 
 class KinesisStreamsOutput(AWSProperty):
     """
-    `KinesisStreamsOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html>`__
+    `KinesisStreamsOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationoutput-kinesisstreamsoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -194,7 +194,7 @@ class KinesisStreamsOutput(AWSProperty):
 
 class LambdaOutput(AWSProperty):
     """
-    `LambdaOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html>`__
+    `LambdaOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -205,7 +205,7 @@ class LambdaOutput(AWSProperty):
 
 class Output(AWSProperty):
     """
-    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-output.html>`__
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationoutput-output.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class Output(AWSProperty):
 
 class ApplicationOutput(AWSObject):
     """
-    `ApplicationOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html>`__
+    `ApplicationOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalytics-applicationoutput.html>`__
     """
 
     resource_type = "AWS::KinesisAnalytics::ApplicationOutput"
@@ -232,7 +232,7 @@ class ApplicationOutput(AWSObject):
 
 class ReferenceSchema(AWSProperty):
     """
-    `ReferenceSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html>`__
+    `ReferenceSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class ReferenceSchema(AWSProperty):
 
 class S3ReferenceDataSource(AWSProperty):
     """
-    `S3ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html>`__
+    `S3ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class S3ReferenceDataSource(AWSProperty):
 
 class ReferenceDataSource(AWSProperty):
     """
-    `ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html>`__
+    `ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class ReferenceDataSource(AWSProperty):
 
 class ApplicationReferenceDataSource(AWSObject):
     """
-    `ApplicationReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html>`__
+    `ApplicationReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalytics-applicationreferencedatasource.html>`__
     """
 
     resource_type = "AWS::KinesisAnalytics::ApplicationReferenceDataSource"

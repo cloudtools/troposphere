@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AccessLogSubscription(AWSObject):
     """
-    `AccessLogSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-accesslogsubscription.html>`__
+    `AccessLogSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-accesslogsubscription.html>`__
     """
 
     resource_type = "AWS::VpcLattice::AccessLogSubscription"
@@ -27,7 +27,7 @@ class AccessLogSubscription(AWSObject):
 
 class AuthPolicy(AWSObject):
     """
-    `AuthPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html>`__
+    `AuthPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-authpolicy.html>`__
     """
 
     resource_type = "AWS::VpcLattice::AuthPolicy"
@@ -40,7 +40,7 @@ class AuthPolicy(AWSObject):
 
 class FixedResponse(AWSProperty):
     """
-    `FixedResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-fixedresponse.html>`__
+    `FixedResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-fixedresponse.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class FixedResponse(AWSProperty):
 
 class WeightedTargetGroup(AWSProperty):
     """
-    `WeightedTargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-weightedtargetgroup.html>`__
+    `WeightedTargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-weightedtargetgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class WeightedTargetGroup(AWSProperty):
 
 class Forward(AWSProperty):
     """
-    `Forward <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-forward.html>`__
+    `Forward <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-forward.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class Forward(AWSProperty):
 
 class DefaultAction(AWSProperty):
     """
-    `DefaultAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-listener-defaultaction.html>`__
+    `DefaultAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-listener-defaultaction.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class DefaultAction(AWSProperty):
 
 class Listener(AWSObject):
     """
-    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-listener.html>`__
+    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-listener.html>`__
     """
 
     resource_type = "AWS::VpcLattice::Listener"
@@ -99,7 +99,7 @@ class Listener(AWSObject):
 
 class DnsResource(AWSProperty):
     """
-    `DnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-dnsresource.html>`__
+    `DnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-resourceconfiguration-dnsresource.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class DnsResource(AWSProperty):
 
 class ResourceConfigurationDefinition(AWSProperty):
     """
-    `ResourceConfigurationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html>`__
+    `ResourceConfigurationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class ResourceConfigurationDefinition(AWSProperty):
 
 class ResourceConfiguration(AWSObject):
     """
-    `ResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html>`__
+    `ResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-resourceconfiguration.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ResourceConfiguration"
@@ -143,7 +143,7 @@ class ResourceConfiguration(AWSObject):
 
 class ResourceGateway(AWSObject):
     """
-    `ResourceGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html>`__
+    `ResourceGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-resourcegateway.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ResourceGateway"
@@ -160,7 +160,7 @@ class ResourceGateway(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ResourcePolicy"
@@ -173,7 +173,7 @@ class ResourcePolicy(AWSObject):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-action.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class Action(AWSProperty):
 
 class HeaderMatchType(AWSProperty):
     """
-    `HeaderMatchType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatchtype.html>`__
+    `HeaderMatchType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-headermatchtype.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class HeaderMatchType(AWSProperty):
 
 class HeaderMatch(AWSProperty):
     """
-    `HeaderMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-headermatch.html>`__
+    `HeaderMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-headermatch.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class HeaderMatch(AWSProperty):
 
 class PathMatchType(AWSProperty):
     """
-    `PathMatchType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatchtype.html>`__
+    `PathMatchType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-pathmatchtype.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class PathMatchType(AWSProperty):
 
 class PathMatch(AWSProperty):
     """
-    `PathMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-pathmatch.html>`__
+    `PathMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-pathmatch.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class PathMatch(AWSProperty):
 
 class HttpMatch(AWSProperty):
     """
-    `HttpMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-httpmatch.html>`__
+    `HttpMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-httpmatch.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class HttpMatch(AWSProperty):
 
 class Match(AWSProperty):
     """
-    `Match <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-match.html>`__
+    `Match <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-rule-match.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class Match(AWSProperty):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-rule.html>`__
     """
 
     resource_type = "AWS::VpcLattice::Rule"
@@ -270,7 +270,7 @@ class Rule(AWSObject):
 
 class DnsEntry(AWSProperty):
     """
-    `DnsEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetworkserviceassociation-dnsentry.html>`__
+    `DnsEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-servicenetworkserviceassociation-dnsentry.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class DnsEntry(AWSProperty):
 
 class Service(AWSObject):
     """
-    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html>`__
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-service.html>`__
     """
 
     resource_type = "AWS::VpcLattice::Service"
@@ -298,7 +298,7 @@ class Service(AWSObject):
 
 class SharingConfig(AWSProperty):
     """
-    `SharingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetwork-sharingconfig.html>`__
+    `SharingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-servicenetwork-sharingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class SharingConfig(AWSProperty):
 
 class ServiceNetwork(AWSObject):
     """
-    `ServiceNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html>`__
+    `ServiceNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-servicenetwork.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ServiceNetwork"
@@ -323,7 +323,7 @@ class ServiceNetwork(AWSObject):
 
 class ServiceNetworkResourceAssociation(AWSObject):
     """
-    `ServiceNetworkResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html>`__
+    `ServiceNetworkResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-servicenetworkresourceassociation.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ServiceNetworkResourceAssociation"
@@ -337,7 +337,7 @@ class ServiceNetworkResourceAssociation(AWSObject):
 
 class ServiceNetworkServiceAssociation(AWSObject):
     """
-    `ServiceNetworkServiceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html>`__
+    `ServiceNetworkServiceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-servicenetworkserviceassociation.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ServiceNetworkServiceAssociation"
@@ -352,7 +352,7 @@ class ServiceNetworkServiceAssociation(AWSObject):
 
 class ServiceNetworkVpcAssociation(AWSObject):
     """
-    `ServiceNetworkVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html>`__
+    `ServiceNetworkVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-servicenetworkvpcassociation.html>`__
     """
 
     resource_type = "AWS::VpcLattice::ServiceNetworkVpcAssociation"
@@ -367,7 +367,7 @@ class ServiceNetworkVpcAssociation(AWSObject):
 
 class Target(AWSProperty):
     """
-    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-target.html>`__
+    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-targetgroup-target.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class Target(AWSProperty):
 
 class Matcher(AWSProperty):
     """
-    `Matcher <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-matcher.html>`__
+    `Matcher <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-targetgroup-matcher.html>`__
     """
 
     props: PropsDictType = {
@@ -388,7 +388,7 @@ class Matcher(AWSProperty):
 
 class HealthCheckConfig(AWSProperty):
     """
-    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-healthcheckconfig.html>`__
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-targetgroup-healthcheckconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -407,7 +407,7 @@ class HealthCheckConfig(AWSProperty):
 
 class TargetGroupConfig(AWSProperty):
     """
-    `TargetGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-targetgroup-targetgroupconfig.html>`__
+    `TargetGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-vpclattice-targetgroup-targetgroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class TargetGroupConfig(AWSProperty):
 
 class TargetGroup(AWSObject):
     """
-    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html>`__
+    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-vpclattice-targetgroup.html>`__
     """
 
     resource_type = "AWS::VpcLattice::TargetGroup"

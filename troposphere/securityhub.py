@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class NoteUpdate(AWSProperty):
     """
-    `NoteUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html>`__
+    `NoteUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-noteupdate.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class NoteUpdate(AWSProperty):
 
 class RelatedFinding(AWSProperty):
     """
-    `RelatedFinding <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-relatedfinding.html>`__
+    `RelatedFinding <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-relatedfinding.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class RelatedFinding(AWSProperty):
 
 class SeverityUpdate(AWSProperty):
     """
-    `SeverityUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html>`__
+    `SeverityUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-severityupdate.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class SeverityUpdate(AWSProperty):
 
 class WorkflowUpdate(AWSProperty):
     """
-    `WorkflowUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html>`__
+    `WorkflowUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-workflowupdate.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class WorkflowUpdate(AWSProperty):
 
 class AutomationRulesFindingFieldsUpdate(AWSProperty):
     """
-    `AutomationRulesFindingFieldsUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html>`__
+    `AutomationRulesFindingFieldsUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class AutomationRulesFindingFieldsUpdate(AWSProperty):
 
 class AutomationRulesAction(AWSProperty):
     """
-    `AutomationRulesAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html>`__
+    `AutomationRulesAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-automationrulesaction.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class AutomationRulesAction(AWSProperty):
 
 class DateRange(AWSProperty):
     """
-    `DateRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-daterange.html>`__
+    `DateRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-daterange.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class DateRange(AWSProperty):
 
 class DateFilter(AWSProperty):
     """
-    `DateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-datefilter.html>`__
+    `DateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-datefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class DateFilter(AWSProperty):
 
 class MapFilter(AWSProperty):
     """
-    `MapFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-mapfilter.html>`__
+    `MapFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-mapfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,7 @@ class MapFilter(AWSProperty):
 
 class NumberFilter(AWSProperty):
     """
-    `NumberFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-numberfilter.html>`__
+    `NumberFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-numberfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class NumberFilter(AWSProperty):
 
 class StringFilter(AWSProperty):
     """
-    `StringFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-stringfilter.html>`__
+    `StringFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-stringfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -143,7 +143,7 @@ class StringFilter(AWSProperty):
 
 class AutomationRulesFindingFilters(AWSProperty):
     """
-    `AutomationRulesFindingFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html>`__
+    `AutomationRulesFindingFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html>`__
     """
 
     props: PropsDictType = {
@@ -187,7 +187,7 @@ class AutomationRulesFindingFilters(AWSProperty):
 
 class AutomationRule(AWSObject):
     """
-    `AutomationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html>`__
+    `AutomationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-automationrule.html>`__
     """
 
     resource_type = "AWS::SecurityHub::AutomationRule"
@@ -206,7 +206,7 @@ class AutomationRule(AWSObject):
 
 class ParameterValue(AWSProperty):
     """
-    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
+    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -223,7 +223,7 @@ class ParameterValue(AWSProperty):
 
 class ParameterConfiguration(AWSProperty):
     """
-    `ParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html>`__
+    `ParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-securitycontrol-parameterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class ParameterConfiguration(AWSProperty):
 
 class SecurityControlCustomParameter(AWSProperty):
     """
-    `SecurityControlCustomParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html>`__
+    `SecurityControlCustomParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class SecurityControlCustomParameter(AWSProperty):
 
 class SecurityControlsConfiguration(AWSProperty):
     """
-    `SecurityControlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html>`__
+    `SecurityControlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class SecurityControlsConfiguration(AWSProperty):
 
 class SecurityHubPolicy(AWSProperty):
     """
-    `SecurityHubPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html>`__
+    `SecurityHubPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class SecurityHubPolicy(AWSProperty):
 
 class Policy(AWSProperty):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-configurationpolicy-policy.html>`__
     """
 
     props: PropsDictType = {
@@ -279,7 +279,7 @@ class Policy(AWSProperty):
 
 class ConfigurationPolicy(AWSObject):
     """
-    `ConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-configurationpolicy.html>`__
+    `ConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-configurationpolicy.html>`__
     """
 
     resource_type = "AWS::SecurityHub::ConfigurationPolicy"
@@ -294,7 +294,7 @@ class ConfigurationPolicy(AWSObject):
 
 class DelegatedAdmin(AWSObject):
     """
-    `DelegatedAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-delegatedadmin.html>`__
+    `DelegatedAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-delegatedadmin.html>`__
     """
 
     resource_type = "AWS::SecurityHub::DelegatedAdmin"
@@ -306,7 +306,7 @@ class DelegatedAdmin(AWSObject):
 
 class FindingAggregator(AWSObject):
     """
-    `FindingAggregator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html>`__
+    `FindingAggregator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-findingaggregator.html>`__
     """
 
     resource_type = "AWS::SecurityHub::FindingAggregator"
@@ -319,7 +319,7 @@ class FindingAggregator(AWSObject):
 
 class Hub(AWSObject):
     """
-    `Hub <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hub.html>`__
+    `Hub <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-hub.html>`__
     """
 
     resource_type = "AWS::SecurityHub::Hub"
@@ -334,7 +334,7 @@ class Hub(AWSObject):
 
 class BooleanFilter(AWSProperty):
     """
-    `BooleanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html>`__
+    `BooleanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-booleanfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +344,7 @@ class BooleanFilter(AWSProperty):
 
 class IpFilter(AWSProperty):
     """
-    `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-ipfilter.html>`__
+    `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-ipfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -354,7 +354,7 @@ class IpFilter(AWSProperty):
 
 class AwsSecurityFindingFilters(AWSProperty):
     """
-    `AwsSecurityFindingFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-awssecurityfindingfilters.html>`__
+    `AwsSecurityFindingFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-insight-awssecurityfindingfilters.html>`__
     """
 
     props: PropsDictType = {
@@ -463,7 +463,7 @@ class AwsSecurityFindingFilters(AWSProperty):
 
 class Insight(AWSObject):
     """
-    `Insight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-insight.html>`__
+    `Insight <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-insight.html>`__
     """
 
     resource_type = "AWS::SecurityHub::Insight"
@@ -477,7 +477,7 @@ class Insight(AWSObject):
 
 class OrganizationConfiguration(AWSObject):
     """
-    `OrganizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html>`__
+    `OrganizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-organizationconfiguration.html>`__
     """
 
     resource_type = "AWS::SecurityHub::OrganizationConfiguration"
@@ -491,7 +491,7 @@ class OrganizationConfiguration(AWSObject):
 
 class PolicyAssociation(AWSObject):
     """
-    `PolicyAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html>`__
+    `PolicyAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-policyassociation.html>`__
     """
 
     resource_type = "AWS::SecurityHub::PolicyAssociation"
@@ -505,7 +505,7 @@ class PolicyAssociation(AWSObject):
 
 class ProductSubscription(AWSObject):
     """
-    `ProductSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html>`__
+    `ProductSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-productsubscription.html>`__
     """
 
     resource_type = "AWS::SecurityHub::ProductSubscription"
@@ -517,7 +517,7 @@ class ProductSubscription(AWSObject):
 
 class SecurityControl(AWSObject):
     """
-    `SecurityControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html>`__
+    `SecurityControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-securitycontrol.html>`__
     """
 
     resource_type = "AWS::SecurityHub::SecurityControl"
@@ -532,7 +532,7 @@ class SecurityControl(AWSObject):
 
 class StandardsControl(AWSProperty):
     """
-    `StandardsControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-standard-standardscontrol.html>`__
+    `StandardsControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securityhub-standard-standardscontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -543,7 +543,7 @@ class StandardsControl(AWSProperty):
 
 class Standard(AWSObject):
     """
-    `Standard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html>`__
+    `Standard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securityhub-standard.html>`__
     """
 
     resource_type = "AWS::SecurityHub::Standard"

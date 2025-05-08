@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class EgressEndpoint(AWSProperty):
     """
-    `EgressEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html>`__
+    `EgressEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-asset-egressendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class EgressEndpoint(AWSProperty):
 
 class Asset(AWSObject):
     """
-    `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html>`__
+    `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackage-asset.html>`__
     """
 
     resource_type = "AWS::MediaPackage::Asset"
@@ -41,7 +41,7 @@ class Asset(AWSObject):
 
 class IngestEndpoint(AWSProperty):
     """
-    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html>`__
+    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-channel-ingestendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class IngestEndpoint(AWSProperty):
 
 class HlsIngest(AWSProperty):
     """
-    `HlsIngest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>`__
+    `HlsIngest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-channel-hlsingest.html>`__
     """
 
     props: PropsDictType = {
@@ -64,7 +64,7 @@ class HlsIngest(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packaginggroup-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class LogConfiguration(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackage-channel.html>`__
     """
 
     resource_type = "AWS::MediaPackage::Channel"
@@ -91,7 +91,7 @@ class Channel(AWSObject):
 
 class Authorization(AWSProperty):
     """
-    `Authorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html>`__
+    `Authorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packaginggroup-authorization.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class Authorization(AWSProperty):
 
 class EncryptionContractConfiguration(AWSProperty):
     """
-    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html>`__
+    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class EncryptionContractConfiguration(AWSProperty):
 
 class OriginEndpointSpekeKeyProvider(AWSProperty):
     """
-    `OriginEndpointSpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html>`__
+    `OriginEndpointSpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-spekekeyprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class OriginEndpointSpekeKeyProvider(AWSProperty):
 
 class OriginEndpointCmafEncryption(AWSProperty):
     """
-    `OriginEndpointCmafEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html>`__
+    `OriginEndpointCmafEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-cmafencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -141,7 +141,7 @@ class OriginEndpointCmafEncryption(AWSProperty):
 
 class OriginEndpointHlsManifest(AWSProperty):
     """
-    `OriginEndpointHlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html>`__
+    `OriginEndpointHlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-hlsmanifest.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class OriginEndpointHlsManifest(AWSProperty):
 
 class StreamSelection(AWSProperty):
     """
-    `StreamSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html>`__
+    `StreamSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-streamselection.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class StreamSelection(AWSProperty):
 
 class OriginEndpointCmafPackage(AWSProperty):
     """
-    `OriginEndpointCmafPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html>`__
+    `OriginEndpointCmafPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-cmafpackage.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class OriginEndpointCmafPackage(AWSProperty):
 
 class SpekeKeyProvider(AWSProperty):
     """
-    `SpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html>`__
+    `SpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class SpekeKeyProvider(AWSProperty):
 
 class OriginEndpointDashEncryption(AWSProperty):
     """
-    `OriginEndpointDashEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html>`__
+    `OriginEndpointDashEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-dashencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class OriginEndpointDashEncryption(AWSProperty):
 
 class OriginEndpointDashPackage(AWSProperty):
     """
-    `OriginEndpointDashPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html>`__
+    `OriginEndpointDashPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-dashpackage.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class OriginEndpointDashPackage(AWSProperty):
 
 class OriginEndpointHlsEncryption(AWSProperty):
     """
-    `OriginEndpointHlsEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html>`__
+    `OriginEndpointHlsEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-hlsencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -249,7 +249,7 @@ class OriginEndpointHlsEncryption(AWSProperty):
 
 class OriginEndpointHlsPackage(AWSProperty):
     """
-    `OriginEndpointHlsPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html>`__
+    `OriginEndpointHlsPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-hlspackage.html>`__
     """
 
     props: PropsDictType = {
@@ -270,7 +270,7 @@ class OriginEndpointHlsPackage(AWSProperty):
 
 class MssEncryption(AWSProperty):
     """
-    `MssEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html>`__
+    `MssEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-mssencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class MssEncryption(AWSProperty):
 
 class OriginEndpointMssPackage(AWSProperty):
     """
-    `OriginEndpointMssPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html>`__
+    `OriginEndpointMssPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-originendpoint-msspackage.html>`__
     """
 
     props: PropsDictType = {
@@ -293,7 +293,7 @@ class OriginEndpointMssPackage(AWSProperty):
 
 class OriginEndpoint(AWSObject):
     """
-    `OriginEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html>`__
+    `OriginEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackage-originendpoint.html>`__
     """
 
     resource_type = "AWS::MediaPackage::OriginEndpoint"
@@ -318,7 +318,7 @@ class OriginEndpoint(AWSObject):
 
 class CmafEncryption(AWSProperty):
     """
-    `CmafEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html>`__
+    `CmafEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -328,7 +328,7 @@ class CmafEncryption(AWSProperty):
 
 class HlsManifest(AWSProperty):
     """
-    `HlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html>`__
+    `HlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class HlsManifest(AWSProperty):
 
 class CmafPackage(AWSProperty):
     """
-    `CmafPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html>`__
+    `CmafPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class CmafPackage(AWSProperty):
 
 class DashEncryption(AWSProperty):
     """
-    `DashEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html>`__
+    `DashEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-dashencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class DashEncryption(AWSProperty):
 
 class DashManifest(AWSProperty):
     """
-    `DashManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html>`__
+    `DashManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class DashManifest(AWSProperty):
 
 class DashPackage(AWSProperty):
     """
-    `DashPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html>`__
+    `DashPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-dashpackage.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class DashPackage(AWSProperty):
 
 class HlsEncryption(AWSProperty):
     """
-    `HlsEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html>`__
+    `HlsEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class HlsEncryption(AWSProperty):
 
 class HlsPackage(AWSProperty):
     """
-    `HlsPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html>`__
+    `HlsPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-hlspackage.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class HlsPackage(AWSProperty):
 
 class MssManifest(AWSProperty):
     """
-    `MssManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html>`__
+    `MssManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class MssManifest(AWSProperty):
 
 class MssPackage(AWSProperty):
     """
-    `MssPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html>`__
+    `MssPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackage-packagingconfiguration-msspackage.html>`__
     """
 
     props: PropsDictType = {
@@ -446,7 +446,7 @@ class MssPackage(AWSProperty):
 
 class PackagingConfiguration(AWSObject):
     """
-    `PackagingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html>`__
+    `PackagingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackage-packagingconfiguration.html>`__
     """
 
     resource_type = "AWS::MediaPackage::PackagingConfiguration"
@@ -464,7 +464,7 @@ class PackagingConfiguration(AWSObject):
 
 class PackagingGroup(AWSObject):
     """
-    `PackagingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html>`__
+    `PackagingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackage-packaginggroup.html>`__
     """
 
     resource_type = "AWS::MediaPackage::PackagingGroup"

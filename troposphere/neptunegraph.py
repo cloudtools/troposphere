@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class VectorSearchConfiguration(AWSProperty):
     """
-    `VectorSearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html>`__
+    `VectorSearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class VectorSearchConfiguration(AWSProperty):
 
 class Graph(AWSObject):
     """
-    `Graph <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html>`__
+    `Graph <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptunegraph-graph.html>`__
     """
 
     resource_type = "AWS::NeptuneGraph::Graph"
@@ -40,7 +40,7 @@ class Graph(AWSObject):
 
 class PrivateGraphEndpoint(AWSObject):
     """
-    `PrivateGraphEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html>`__
+    `PrivateGraphEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptunegraph-privategraphendpoint.html>`__
     """
 
     resource_type = "AWS::NeptuneGraph::PrivateGraphEndpoint"

@@ -18,7 +18,7 @@ from .validators.elasticache import (
 
 class CloudWatchLogsDestinationDetails(AWSProperty):
     """
-    `CloudWatchLogsDestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html>`__
+    `CloudWatchLogsDestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class CloudWatchLogsDestinationDetails(AWSProperty):
 
 class KinesisFirehoseDestinationDetails(AWSProperty):
     """
-    `KinesisFirehoseDestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html>`__
+    `KinesisFirehoseDestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class KinesisFirehoseDestinationDetails(AWSProperty):
 
 class DestinationDetails(AWSProperty):
     """
-    `DestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html>`__
+    `DestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-replicationgroup-destinationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class DestinationDetails(AWSProperty):
 
 class LogDeliveryConfigurationRequest(AWSProperty):
     """
-    `LogDeliveryConfigurationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html>`__
+    `LogDeliveryConfigurationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class LogDeliveryConfigurationRequest(AWSProperty):
 
 class CacheCluster(AWSObject):
     """
-    `CacheCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html>`__
+    `CacheCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-cache-cluster.html>`__
     """
 
     resource_type = "AWS::ElastiCache::CacheCluster"
@@ -101,7 +101,7 @@ class CacheCluster(AWSObject):
 
 class GlobalReplicationGroupMember(AWSProperty):
     """
-    `GlobalReplicationGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html>`__
+    `GlobalReplicationGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class GlobalReplicationGroupMember(AWSProperty):
 
 class ReshardingConfiguration(AWSProperty):
     """
-    `ReshardingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html>`__
+    `ReshardingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class ReshardingConfiguration(AWSProperty):
 
 class RegionalConfiguration(AWSProperty):
     """
-    `RegionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html>`__
+    `RegionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class RegionalConfiguration(AWSProperty):
 
 class GlobalReplicationGroup(AWSObject):
     """
-    `GlobalReplicationGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html>`__
+    `GlobalReplicationGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-globalreplicationgroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::GlobalReplicationGroup"
@@ -157,7 +157,7 @@ class GlobalReplicationGroup(AWSObject):
 
 class ParameterGroup(AWSObject):
     """
-    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html>`__
+    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-parametergroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::ParameterGroup"
@@ -172,7 +172,7 @@ class ParameterGroup(AWSObject):
 
 class NodeGroupConfiguration(AWSProperty):
     """
-    `NodeGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html>`__
+    `NodeGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class NodeGroupConfiguration(AWSProperty):
 
 class ReplicationGroup(AWSObject):
     """
-    `ReplicationGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html>`__
+    `ReplicationGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-replicationgroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::ReplicationGroup"
@@ -239,7 +239,7 @@ class ReplicationGroup(AWSObject):
 
 class SecurityGroup(AWSObject):
     """
-    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html>`__
+    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-security-group.html>`__
     """
 
     resource_type = "AWS::ElastiCache::SecurityGroup"
@@ -252,7 +252,7 @@ class SecurityGroup(AWSObject):
 
 class SecurityGroupIngress(AWSObject):
     """
-    `SecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html>`__
+    `SecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-security-group-ingress.html>`__
     """
 
     resource_type = "AWS::ElastiCache::SecurityGroupIngress"
@@ -266,7 +266,7 @@ class SecurityGroupIngress(AWSObject):
 
 class DataStorage(AWSProperty):
     """
-    `DataStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html>`__
+    `DataStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-serverlesscache-datastorage.html>`__
     """
 
     props: PropsDictType = {
@@ -278,7 +278,7 @@ class DataStorage(AWSProperty):
 
 class ECPUPerSecond(AWSProperty):
     """
-    `ECPUPerSecond <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-ecpupersecond.html>`__
+    `ECPUPerSecond <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-serverlesscache-ecpupersecond.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +289,7 @@ class ECPUPerSecond(AWSProperty):
 
 class CacheUsageLimits(AWSProperty):
     """
-    `CacheUsageLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html>`__
+    `CacheUsageLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-serverlesscache-cacheusagelimits.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class CacheUsageLimits(AWSProperty):
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-serverlesscache-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -311,7 +311,7 @@ class Endpoint(AWSProperty):
 
 class ServerlessCache(AWSObject):
     """
-    `ServerlessCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html>`__
+    `ServerlessCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-serverlesscache.html>`__
     """
 
     resource_type = "AWS::ElastiCache::ServerlessCache"
@@ -338,7 +338,7 @@ class ServerlessCache(AWSObject):
 
 class SubnetGroup(AWSObject):
     """
-    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html>`__
+    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-subnetgroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::SubnetGroup"
@@ -353,7 +353,7 @@ class SubnetGroup(AWSObject):
 
 class AuthenticationMode(AWSProperty):
     """
-    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html>`__
+    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticache-user-authenticationmode.html>`__
     """
 
     props: PropsDictType = {
@@ -364,7 +364,7 @@ class AuthenticationMode(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-user.html>`__
     """
 
     resource_type = "AWS::ElastiCache::User"
@@ -383,7 +383,7 @@ class User(AWSObject):
 
 class UserGroup(AWSObject):
     """
-    `UserGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html>`__
+    `UserGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticache-usergroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::UserGroup"

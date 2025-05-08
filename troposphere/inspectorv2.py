@@ -12,7 +12,7 @@ from .validators import double, integer
 
 class CisTargets(AWSProperty):
     """
-    `CisTargets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html>`__
+    `CisTargets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-cistargets.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class CisTargets(AWSProperty):
 
 class Time(AWSProperty):
     """
-    `Time <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-time.html>`__
+    `Time <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-time.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class Time(AWSProperty):
 
 class DailySchedule(AWSProperty):
     """
-    `DailySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html>`__
+    `DailySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-dailyschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class DailySchedule(AWSProperty):
 
 class MonthlySchedule(AWSProperty):
     """
-    `MonthlySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-monthlyschedule.html>`__
+    `MonthlySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-monthlyschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class MonthlySchedule(AWSProperty):
 
 class WeeklySchedule(AWSProperty):
     """
-    `WeeklySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-weeklyschedule.html>`__
+    `WeeklySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-weeklyschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class WeeklySchedule(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-cisscanconfiguration-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-cisscanconfiguration-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class Schedule(AWSProperty):
 
 class CisScanConfiguration(AWSObject):
     """
-    `CisScanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html>`__
+    `CisScanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-inspectorv2-cisscanconfiguration.html>`__
     """
 
     resource_type = "AWS::InspectorV2::CisScanConfiguration"
@@ -95,7 +95,7 @@ class CisScanConfiguration(AWSObject):
 
 class DateFilter(AWSProperty):
     """
-    `DateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html>`__
+    `DateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-datefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class DateFilter(AWSProperty):
 
 class MapFilter(AWSProperty):
     """
-    `MapFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapfilter.html>`__
+    `MapFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-mapfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class MapFilter(AWSProperty):
 
 class NumberFilter(AWSProperty):
     """
-    `NumberFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-numberfilter.html>`__
+    `NumberFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-numberfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class NumberFilter(AWSProperty):
 
 class StringFilter(AWSProperty):
     """
-    `StringFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-stringfilter.html>`__
+    `StringFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-stringfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class StringFilter(AWSProperty):
 
 class PackageFilter(AWSProperty):
     """
-    `PackageFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html>`__
+    `PackageFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-packagefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class PackageFilter(AWSProperty):
 
 class PortRangeFilter(AWSProperty):
     """
-    `PortRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-portrangefilter.html>`__
+    `PortRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-portrangefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -166,7 +166,7 @@ class PortRangeFilter(AWSProperty):
 
 class FilterCriteria(AWSProperty):
     """
-    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html>`__
+    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-inspectorv2-filter-filtercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -206,7 +206,7 @@ class FilterCriteria(AWSProperty):
 
 class Filter(AWSObject):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-inspectorv2-filter.html>`__
     """
 
     resource_type = "AWS::InspectorV2::Filter"

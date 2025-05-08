@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class SSESpecification(AWSProperty):
     """
-    `SSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dax-cluster-ssespecification.html>`__
+    `SSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dax-cluster-ssespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class SSESpecification(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dax-cluster.html>`__
     """
 
     resource_type = "AWS::DAX::Cluster"
@@ -47,7 +47,7 @@ class Cluster(AWSObject):
 
 class ParameterGroup(AWSObject):
     """
-    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html>`__
+    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dax-parametergroup.html>`__
     """
 
     resource_type = "AWS::DAX::ParameterGroup"
@@ -61,7 +61,7 @@ class ParameterGroup(AWSObject):
 
 class SubnetGroup(AWSObject):
     """
-    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html>`__
+    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dax-subnetgroup.html>`__
     """
 
     resource_type = "AWS::DAX::SubnetGroup"

@@ -19,7 +19,7 @@ from .validators.firehose import (
 
 class AmazonOpenSearchServerlessBufferingHints(AWSProperty):
     """
-    `AmazonOpenSearchServerlessBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html>`__
+    `AmazonOpenSearchServerlessBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -30,7 +30,7 @@ class AmazonOpenSearchServerlessBufferingHints(AWSProperty):
 
 class AmazonOpenSearchServerlessRetryOptions(AWSProperty):
     """
-    `AmazonOpenSearchServerlessRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html>`__
+    `AmazonOpenSearchServerlessRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class AmazonOpenSearchServerlessRetryOptions(AWSProperty):
 
 class CloudWatchLoggingOptions(AWSProperty):
     """
-    `CloudWatchLoggingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html>`__
+    `CloudWatchLoggingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class CloudWatchLoggingOptions(AWSProperty):
 
 class ProcessorParameter(AWSProperty):
     """
-    `ProcessorParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html>`__
+    `ProcessorParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-processorparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ProcessorParameter(AWSProperty):
 
 class Processor(AWSProperty):
     """
-    `Processor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html>`__
+    `Processor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-processor.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class Processor(AWSProperty):
 
 class ProcessingConfiguration(AWSProperty):
     """
-    `ProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html>`__
+    `ProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class ProcessingConfiguration(AWSProperty):
 
 class BufferingHints(AWSProperty):
     """
-    `BufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html>`__
+    `BufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class BufferingHints(AWSProperty):
 
 class KMSEncryptionConfig(AWSProperty):
     """
-    `KMSEncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html>`__
+    `KMSEncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class KMSEncryptionConfig(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class S3DestinationConfiguration(AWSProperty):
     """
-    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html>`__
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class S3DestinationConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class VpcConfiguration(AWSProperty):
 
 class AmazonOpenSearchServerlessDestinationConfiguration(AWSProperty):
     """
-    `AmazonOpenSearchServerlessDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html>`__
+    `AmazonOpenSearchServerlessDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class AmazonOpenSearchServerlessDestinationConfiguration(AWSProperty):
 
 class AmazonopensearchserviceBufferingHints(AWSProperty):
     """
-    `AmazonopensearchserviceBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html>`__
+    `AmazonopensearchserviceBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -176,7 +176,7 @@ class AmazonopensearchserviceBufferingHints(AWSProperty):
 
 class AmazonopensearchserviceRetryOptions(AWSProperty):
     """
-    `AmazonopensearchserviceRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html>`__
+    `AmazonopensearchserviceRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class AmazonopensearchserviceRetryOptions(AWSProperty):
 
 class DocumentIdOptions(AWSProperty):
     """
-    `DocumentIdOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html>`__
+    `DocumentIdOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class DocumentIdOptions(AWSProperty):
 
 class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
     """
-    `AmazonopensearchserviceDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html>`__
+    `AmazonopensearchserviceDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
 
 class DatabaseColumns(AWSProperty):
     """
-    `DatabaseColumns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html>`__
+    `DatabaseColumns <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class DatabaseColumns(AWSProperty):
 
 class SecretsManagerConfiguration(AWSProperty):
     """
-    `SecretsManagerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>`__
+    `SecretsManagerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class SecretsManagerConfiguration(AWSProperty):
 
 class DatabaseSourceAuthenticationConfiguration(AWSProperty):
     """
-    `DatabaseSourceAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html>`__
+    `DatabaseSourceAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class DatabaseSourceAuthenticationConfiguration(AWSProperty):
 
 class DatabaseSourceVPCConfiguration(AWSProperty):
     """
-    `DatabaseSourceVPCConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html>`__
+    `DatabaseSourceVPCConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -262,7 +262,7 @@ class DatabaseSourceVPCConfiguration(AWSProperty):
 
 class DatabaseTables(AWSProperty):
     """
-    `DatabaseTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasetables.html>`__
+    `DatabaseTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databasetables.html>`__
     """
 
     props: PropsDictType = {
@@ -273,7 +273,7 @@ class DatabaseTables(AWSProperty):
 
 class Databases(AWSProperty):
     """
-    `Databases <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html>`__
+    `Databases <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databases.html>`__
     """
 
     props: PropsDictType = {
@@ -284,7 +284,7 @@ class Databases(AWSProperty):
 
 class DatabaseSourceConfiguration(AWSProperty):
     """
-    `DatabaseSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceconfiguration.html>`__
+    `DatabaseSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-databasesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -309,7 +309,7 @@ class DatabaseSourceConfiguration(AWSProperty):
 
 class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
     """
-    `DeliveryStreamEncryptionConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html>`__
+    `DeliveryStreamEncryptionConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -320,7 +320,7 @@ class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
 
 class DirectPutSourceConfiguration(AWSProperty):
     """
-    `DirectPutSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-directputsourceconfiguration.html>`__
+    `DirectPutSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-directputsourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -330,7 +330,7 @@ class DirectPutSourceConfiguration(AWSProperty):
 
 class RetryOptions(AWSProperty):
     """
-    `RetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html>`__
+    `RetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-retryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -340,7 +340,7 @@ class RetryOptions(AWSProperty):
 
 class S3Configuration(AWSProperty):
     """
-    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html>`__
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class S3Configuration(AWSProperty):
 
 class ElasticsearchDestinationConfiguration(AWSProperty):
     """
-    `ElasticsearchDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html>`__
+    `ElasticsearchDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
 
 class HiveJsonSerDe(AWSProperty):
     """
-    `HiveJsonSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html>`__
+    `HiveJsonSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html>`__
     """
 
     props: PropsDictType = {
@@ -390,7 +390,7 @@ class HiveJsonSerDe(AWSProperty):
 
 class OpenXJsonSerDe(AWSProperty):
     """
-    `OpenXJsonSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html>`__
+    `OpenXJsonSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html>`__
     """
 
     props: PropsDictType = {
@@ -402,7 +402,7 @@ class OpenXJsonSerDe(AWSProperty):
 
 class Deserializer(AWSProperty):
     """
-    `Deserializer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html>`__
+    `Deserializer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-deserializer.html>`__
     """
 
     props: PropsDictType = {
@@ -413,7 +413,7 @@ class Deserializer(AWSProperty):
 
 class InputFormatConfiguration(AWSProperty):
     """
-    `InputFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html>`__
+    `InputFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class InputFormatConfiguration(AWSProperty):
 
 class OrcSerDe(AWSProperty):
     """
-    `OrcSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-orcserde.html>`__
+    `OrcSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-orcserde.html>`__
     """
 
     props: PropsDictType = {
@@ -442,7 +442,7 @@ class OrcSerDe(AWSProperty):
 
 class ParquetSerDe(AWSProperty):
     """
-    `ParquetSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-parquetserde.html>`__
+    `ParquetSerDe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-parquetserde.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class ParquetSerDe(AWSProperty):
 
 class Serializer(AWSProperty):
     """
-    `Serializer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html>`__
+    `Serializer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-serializer.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class Serializer(AWSProperty):
 
 class OutputFormatConfiguration(AWSProperty):
     """
-    `OutputFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html>`__
+    `OutputFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -478,7 +478,7 @@ class OutputFormatConfiguration(AWSProperty):
 
 class SchemaConfiguration(AWSProperty):
     """
-    `SchemaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html>`__
+    `SchemaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class SchemaConfiguration(AWSProperty):
 
 class DataFormatConversionConfiguration(AWSProperty):
     """
-    `DataFormatConversionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html>`__
+    `DataFormatConversionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -506,7 +506,7 @@ class DataFormatConversionConfiguration(AWSProperty):
 
 class DynamicPartitioningConfiguration(AWSProperty):
     """
-    `DynamicPartitioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html>`__
+    `DynamicPartitioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -517,7 +517,7 @@ class DynamicPartitioningConfiguration(AWSProperty):
 
 class ExtendedS3DestinationConfiguration(AWSProperty):
     """
-    `ExtendedS3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html>`__
+    `ExtendedS3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -541,7 +541,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
 
 class HttpEndpointConfiguration(AWSProperty):
     """
-    `HttpEndpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html>`__
+    `HttpEndpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-httpendpointconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -553,7 +553,7 @@ class HttpEndpointConfiguration(AWSProperty):
 
 class HttpEndpointCommonAttribute(AWSProperty):
     """
-    `HttpEndpointCommonAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html>`__
+    `HttpEndpointCommonAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -564,7 +564,7 @@ class HttpEndpointCommonAttribute(AWSProperty):
 
 class HttpEndpointRequestConfiguration(AWSProperty):
     """
-    `HttpEndpointRequestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html>`__
+    `HttpEndpointRequestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -575,7 +575,7 @@ class HttpEndpointRequestConfiguration(AWSProperty):
 
 class HttpEndpointDestinationConfiguration(AWSProperty):
     """
-    `HttpEndpointDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html>`__
+    `HttpEndpointDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -594,7 +594,7 @@ class HttpEndpointDestinationConfiguration(AWSProperty):
 
 class CatalogConfiguration(AWSProperty):
     """
-    `CatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html>`__
+    `CatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -604,7 +604,7 @@ class CatalogConfiguration(AWSProperty):
 
 class DestinationTableConfiguration(AWSProperty):
     """
-    `DestinationTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html>`__
+    `DestinationTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -617,7 +617,7 @@ class DestinationTableConfiguration(AWSProperty):
 
 class IcebergDestinationConfiguration(AWSProperty):
     """
-    `IcebergDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html>`__
+    `IcebergDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -636,7 +636,7 @@ class IcebergDestinationConfiguration(AWSProperty):
 
 class KinesisStreamSourceConfiguration(AWSProperty):
     """
-    `KinesisStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html>`__
+    `KinesisStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -647,7 +647,7 @@ class KinesisStreamSourceConfiguration(AWSProperty):
 
 class AuthenticationConfiguration(AWSProperty):
     """
-    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-authenticationconfiguration.html>`__
+    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-authenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -658,7 +658,7 @@ class AuthenticationConfiguration(AWSProperty):
 
 class MSKSourceConfiguration(AWSProperty):
     """
-    `MSKSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html>`__
+    `MSKSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -671,7 +671,7 @@ class MSKSourceConfiguration(AWSProperty):
 
 class CopyCommand(AWSProperty):
     """
-    `CopyCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html>`__
+    `CopyCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-copycommand.html>`__
     """
 
     props: PropsDictType = {
@@ -683,7 +683,7 @@ class CopyCommand(AWSProperty):
 
 class RedshiftRetryOptions(AWSProperty):
     """
-    `RedshiftRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html>`__
+    `RedshiftRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-redshiftretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class RedshiftRetryOptions(AWSProperty):
 
 class RedshiftDestinationConfiguration(AWSProperty):
     """
-    `RedshiftDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html>`__
+    `RedshiftDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -714,7 +714,7 @@ class RedshiftDestinationConfiguration(AWSProperty):
 
 class SnowflakeBufferingHints(AWSProperty):
     """
-    `SnowflakeBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html>`__
+    `SnowflakeBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -725,7 +725,7 @@ class SnowflakeBufferingHints(AWSProperty):
 
 class SnowflakeRetryOptions(AWSProperty):
     """
-    `SnowflakeRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeretryoptions.html>`__
+    `SnowflakeRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-snowflakeretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -735,7 +735,7 @@ class SnowflakeRetryOptions(AWSProperty):
 
 class SnowflakeRoleConfiguration(AWSProperty):
     """
-    `SnowflakeRoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeroleconfiguration.html>`__
+    `SnowflakeRoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-snowflakeroleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -746,7 +746,7 @@ class SnowflakeRoleConfiguration(AWSProperty):
 
 class SnowflakeVpcConfiguration(AWSProperty):
     """
-    `SnowflakeVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html>`__
+    `SnowflakeVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -756,7 +756,7 @@ class SnowflakeVpcConfiguration(AWSProperty):
 
 class SnowflakeDestinationConfiguration(AWSProperty):
     """
-    `SnowflakeDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html>`__
+    `SnowflakeDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -785,7 +785,7 @@ class SnowflakeDestinationConfiguration(AWSProperty):
 
 class SplunkBufferingHints(AWSProperty):
     """
-    `SplunkBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html>`__
+    `SplunkBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -796,7 +796,7 @@ class SplunkBufferingHints(AWSProperty):
 
 class SplunkRetryOptions(AWSProperty):
     """
-    `SplunkRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html>`__
+    `SplunkRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -806,7 +806,7 @@ class SplunkRetryOptions(AWSProperty):
 
 class SplunkDestinationConfiguration(AWSProperty):
     """
-    `SplunkDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html>`__
+    `SplunkDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -826,7 +826,7 @@ class SplunkDestinationConfiguration(AWSProperty):
 
 class DeliveryStream(AWSObject):
     """
-    `DeliveryStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html>`__
+    `DeliveryStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisfirehose-deliverystream.html>`__
     """
 
     resource_type = "AWS::KinesisFirehose::DeliveryStream"

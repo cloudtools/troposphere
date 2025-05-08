@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class SnapshotCopyConfiguration(AWSProperty):
     """
-    `SnapshotCopyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-snapshotcopyconfiguration.html>`__
+    `SnapshotCopyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-namespace-snapshotcopyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class SnapshotCopyConfiguration(AWSProperty):
 
 class Namespace(AWSObject):
     """
-    `Namespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html>`__
+    `Namespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshiftserverless-namespace.html>`__
     """
 
     resource_type = "AWS::RedshiftServerless::Namespace"
@@ -51,7 +51,7 @@ class Namespace(AWSObject):
 
 class ConfigParameter(AWSProperty):
     """
-    `ConfigParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html>`__
+    `ConfigParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-configparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class ConfigParameter(AWSProperty):
 
 class PerformanceTarget(AWSProperty):
     """
-    `PerformanceTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-performancetarget.html>`__
+    `PerformanceTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-performancetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class PerformanceTarget(AWSProperty):
 
 class NetworkInterface(AWSProperty):
     """
-    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-networkinterface.html>`__
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-networkinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class NetworkInterface(AWSProperty):
 
 class VpcEndpoint(AWSProperty):
     """
-    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html>`__
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-vpcendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class VpcEndpoint(AWSProperty):
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class Endpoint(AWSProperty):
 
 class WorkgroupProperty(AWSProperty):
     """
-    `WorkgroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html>`__
+    `WorkgroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-workgroup-workgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class WorkgroupProperty(AWSProperty):
 
 class Workgroup(AWSObject):
     """
-    `Workgroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html>`__
+    `Workgroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshiftserverless-workgroup.html>`__
     """
 
     resource_type = "AWS::RedshiftServerless::Workgroup"
@@ -164,7 +164,7 @@ class Workgroup(AWSObject):
 
 class NamespaceProperty(AWSProperty):
     """
-    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
+    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshiftserverless-namespace-namespace.html>`__
     """
 
     props: PropsDictType = {

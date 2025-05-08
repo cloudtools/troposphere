@@ -13,7 +13,7 @@ from .validators.kinesisanalyticsv2 import validate_runtime_environment
 
 class S3ContentLocation(AWSProperty):
     """
-    `S3ContentLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html>`__
+    `S3ContentLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-s3contentlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class S3ContentLocation(AWSProperty):
 
 class CodeContent(AWSProperty):
     """
-    `CodeContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-codecontent.html>`__
+    `CodeContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-codecontent.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class CodeContent(AWSProperty):
 
 class ApplicationCodeConfiguration(AWSProperty):
     """
-    `ApplicationCodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html>`__
+    `ApplicationCodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationcodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class ApplicationCodeConfiguration(AWSProperty):
 
 class ApplicationSnapshotConfiguration(AWSProperty):
     """
-    `ApplicationSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html>`__
+    `ApplicationSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class ApplicationSnapshotConfiguration(AWSProperty):
 
 class ApplicationSystemRollbackConfiguration(AWSProperty):
     """
-    `ApplicationSystemRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html>`__
+    `ApplicationSystemRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ApplicationSystemRollbackConfiguration(AWSProperty):
 
 class PropertyGroup(AWSProperty):
     """
-    `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html>`__
+    `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-propertygroup.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class PropertyGroup(AWSProperty):
 
 class EnvironmentProperties(AWSProperty):
     """
-    `EnvironmentProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-environmentproperties.html>`__
+    `EnvironmentProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-environmentproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class EnvironmentProperties(AWSProperty):
 
 class CheckpointConfiguration(AWSProperty):
     """
-    `CheckpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html>`__
+    `CheckpointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-checkpointconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class CheckpointConfiguration(AWSProperty):
 
 class MonitoringConfiguration(AWSProperty):
     """
-    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html>`__
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class MonitoringConfiguration(AWSProperty):
 
 class ParallelismConfiguration(AWSProperty):
     """
-    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html>`__
+    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class ParallelismConfiguration(AWSProperty):
 
 class FlinkApplicationConfiguration(AWSProperty):
     """
-    `FlinkApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html>`__
+    `FlinkApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-flinkapplicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class FlinkApplicationConfiguration(AWSProperty):
 
 class InputParallelism(AWSProperty):
     """
-    `InputParallelism <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputparallelism.html>`__
+    `InputParallelism <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-inputparallelism.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class InputParallelism(AWSProperty):
 
 class InputLambdaProcessor(AWSProperty):
     """
-    `InputLambdaProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html>`__
+    `InputLambdaProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-inputlambdaprocessor.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class InputLambdaProcessor(AWSProperty):
 
 class InputProcessingConfiguration(AWSProperty):
     """
-    `InputProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputprocessingconfiguration.html>`__
+    `InputProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-inputprocessingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class InputProcessingConfiguration(AWSProperty):
 
 class RecordColumn(AWSProperty):
     """
-    `RecordColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html>`__
+    `RecordColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class RecordColumn(AWSProperty):
 
 class CSVMappingParameters(AWSProperty):
     """
-    `CSVMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters.html>`__
+    `CSVMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-csvmappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -192,7 +192,7 @@ class CSVMappingParameters(AWSProperty):
 
 class JSONMappingParameters(AWSProperty):
     """
-    `JSONMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html>`__
+    `JSONMappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-jsonmappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -202,7 +202,7 @@ class JSONMappingParameters(AWSProperty):
 
 class MappingParameters(AWSProperty):
     """
-    `MappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html>`__
+    `MappingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -213,7 +213,7 @@ class MappingParameters(AWSProperty):
 
 class RecordFormat(AWSProperty):
     """
-    `RecordFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html>`__
+    `RecordFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-recordformat.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class RecordFormat(AWSProperty):
 
 class InputSchema(AWSProperty):
     """
-    `InputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-inputschema.html>`__
+    `InputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-inputschema.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class InputSchema(AWSProperty):
 
 class KinesisFirehoseInput(AWSProperty):
     """
-    `KinesisFirehoseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html>`__
+    `KinesisFirehoseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-kinesisfirehoseinput.html>`__
     """
 
     props: PropsDictType = {
@@ -246,7 +246,7 @@ class KinesisFirehoseInput(AWSProperty):
 
 class KinesisStreamsInput(AWSProperty):
     """
-    `KinesisStreamsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-kinesisstreamsinput.html>`__
+    `KinesisStreamsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-kinesisstreamsinput.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class KinesisStreamsInput(AWSProperty):
 
 class Input(AWSProperty):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-input.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class Input(AWSProperty):
 
 class SqlApplicationConfiguration(AWSProperty):
     """
-    `SqlApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html>`__
+    `SqlApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-sqlapplicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class SqlApplicationConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class VpcConfiguration(AWSProperty):
 
 class GlueDataCatalogConfiguration(AWSProperty):
     """
-    `GlueDataCatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html>`__
+    `GlueDataCatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class GlueDataCatalogConfiguration(AWSProperty):
 
 class CatalogConfiguration(AWSProperty):
     """
-    `CatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html>`__
+    `CatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class CatalogConfiguration(AWSProperty):
 
 class MavenReference(AWSProperty):
     """
-    `MavenReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-mavenreference.html>`__
+    `MavenReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-mavenreference.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class MavenReference(AWSProperty):
 
 class CustomArtifactConfiguration(AWSProperty):
     """
-    `CustomArtifactConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-customartifactconfiguration.html>`__
+    `CustomArtifactConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-customartifactconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class CustomArtifactConfiguration(AWSProperty):
 
 class S3ContentBaseLocation(AWSProperty):
     """
-    `S3ContentBaseLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html>`__
+    `S3ContentBaseLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-s3contentbaselocation.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class S3ContentBaseLocation(AWSProperty):
 
 class DeployAsApplicationConfiguration(AWSProperty):
     """
-    `DeployAsApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html>`__
+    `DeployAsApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-deployasapplicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class DeployAsApplicationConfiguration(AWSProperty):
 
 class ZeppelinMonitoringConfiguration(AWSProperty):
     """
-    `ZeppelinMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html>`__
+    `ZeppelinMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-zeppelinmonitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -367,7 +367,7 @@ class ZeppelinMonitoringConfiguration(AWSProperty):
 
 class ZeppelinApplicationConfiguration(AWSProperty):
     """
-    `ZeppelinApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html>`__
+    `ZeppelinApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-zeppelinapplicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class ZeppelinApplicationConfiguration(AWSProperty):
 
 class ApplicationConfiguration(AWSProperty):
     """
-    `ApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html>`__
+    `ApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class ApplicationConfiguration(AWSProperty):
 
 class ApplicationMaintenanceConfiguration(AWSProperty):
     """
-    `ApplicationMaintenanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html>`__
+    `ApplicationMaintenanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class ApplicationMaintenanceConfiguration(AWSProperty):
 
 class ApplicationRestoreConfiguration(AWSProperty):
     """
-    `ApplicationRestoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration.html>`__
+    `ApplicationRestoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class ApplicationRestoreConfiguration(AWSProperty):
 
 class FlinkRunConfiguration(AWSProperty):
     """
-    `FlinkRunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkrunconfiguration.html>`__
+    `FlinkRunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-flinkrunconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -431,7 +431,7 @@ class FlinkRunConfiguration(AWSProperty):
 
 class RunConfiguration(AWSProperty):
     """
-    `RunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html>`__
+    `RunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-application-runconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -442,7 +442,7 @@ class RunConfiguration(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalyticsv2-application.html>`__
     """
 
     resource_type = "AWS::KinesisAnalyticsV2::Application"
@@ -465,7 +465,7 @@ class Application(AWSObject):
 
 class CloudWatchLoggingOption(AWSProperty):
     """
-    `CloudWatchLoggingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html>`__
+    `CloudWatchLoggingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationcloudwatchloggingoption-cloudwatchloggingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -475,7 +475,7 @@ class CloudWatchLoggingOption(AWSProperty):
 
 class ApplicationCloudWatchLoggingOption(AWSObject):
     """
-    `ApplicationCloudWatchLoggingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html>`__
+    `ApplicationCloudWatchLoggingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html>`__
     """
 
     resource_type = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
@@ -488,7 +488,7 @@ class ApplicationCloudWatchLoggingOption(AWSObject):
 
 class DestinationSchema(AWSProperty):
     """
-    `DestinationSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-destinationschema.html>`__
+    `DestinationSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationoutput-destinationschema.html>`__
     """
 
     props: PropsDictType = {
@@ -498,7 +498,7 @@ class DestinationSchema(AWSProperty):
 
 class KinesisFirehoseOutput(AWSProperty):
     """
-    `KinesisFirehoseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html>`__
+    `KinesisFirehoseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -508,7 +508,7 @@ class KinesisFirehoseOutput(AWSProperty):
 
 class KinesisStreamsOutput(AWSProperty):
     """
-    `KinesisStreamsOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html>`__
+    `KinesisStreamsOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -518,7 +518,7 @@ class KinesisStreamsOutput(AWSProperty):
 
 class LambdaOutput(AWSProperty):
     """
-    `LambdaOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html>`__
+    `LambdaOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -528,7 +528,7 @@ class LambdaOutput(AWSProperty):
 
 class Output(AWSProperty):
     """
-    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationoutput-output.html>`__
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationoutput-output.html>`__
     """
 
     props: PropsDictType = {
@@ -542,7 +542,7 @@ class Output(AWSProperty):
 
 class ApplicationOutput(AWSObject):
     """
-    `ApplicationOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html>`__
+    `ApplicationOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalyticsv2-applicationoutput.html>`__
     """
 
     resource_type = "AWS::KinesisAnalyticsV2::ApplicationOutput"
@@ -555,7 +555,7 @@ class ApplicationOutput(AWSObject):
 
 class ReferenceSchema(AWSProperty):
     """
-    `ReferenceSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html>`__
+    `ReferenceSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referenceschema.html>`__
     """
 
     props: PropsDictType = {
@@ -567,7 +567,7 @@ class ReferenceSchema(AWSProperty):
 
 class S3ReferenceDataSource(AWSProperty):
     """
-    `S3ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html>`__
+    `S3ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-s3referencedatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -578,7 +578,7 @@ class S3ReferenceDataSource(AWSProperty):
 
 class ReferenceDataSource(AWSProperty):
     """
-    `ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html>`__
+    `ReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-referencedatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -590,7 +590,7 @@ class ReferenceDataSource(AWSProperty):
 
 class ApplicationReferenceDataSource(AWSObject):
     """
-    `ApplicationReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html>`__
+    `ApplicationReferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html>`__
     """
 
     resource_type = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource"

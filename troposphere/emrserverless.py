@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AutoStartConfiguration(AWSProperty):
     """
-    `AutoStartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostartconfiguration.html>`__
+    `AutoStartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-autostartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AutoStartConfiguration(AWSProperty):
 
 class AutoStopConfiguration(AWSProperty):
     """
-    `AutoStopConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-autostopconfiguration.html>`__
+    `AutoStopConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-autostopconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AutoStopConfiguration(AWSProperty):
 
 class ConfigurationObject(AWSProperty):
     """
-    `ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html>`__
+    `ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-configurationobject.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class ConfigurationObject(AWSProperty):
 
 class ImageConfigurationInput(AWSProperty):
     """
-    `ImageConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-imageconfigurationinput.html>`__
+    `ImageConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-imageconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class ImageConfigurationInput(AWSProperty):
 
 class WorkerConfiguration(AWSProperty):
     """
-    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html>`__
+    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-workerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class WorkerConfiguration(AWSProperty):
 
 class InitialCapacityConfig(AWSProperty):
     """
-    `InitialCapacityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html>`__
+    `InitialCapacityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-initialcapacityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class InitialCapacityConfig(AWSProperty):
 
 class InitialCapacityConfigKeyValuePair(AWSProperty):
     """
-    `InitialCapacityConfigKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html>`__
+    `InitialCapacityConfigKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-initialcapacityconfigkeyvaluepair.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class InitialCapacityConfigKeyValuePair(AWSProperty):
 
 class InteractiveConfiguration(AWSProperty):
     """
-    `InteractiveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html>`__
+    `InteractiveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-interactiveconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class InteractiveConfiguration(AWSProperty):
 
 class MaximumAllowedResources(AWSProperty):
     """
-    `MaximumAllowedResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html>`__
+    `MaximumAllowedResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-maximumallowedresources.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class MaximumAllowedResources(AWSProperty):
 
 class LogTypeMapKeyValuePair(AWSProperty):
     """
-    `LogTypeMapKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>`__
+    `LogTypeMapKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class LogTypeMapKeyValuePair(AWSProperty):
 
 class CloudWatchLoggingConfiguration(AWSProperty):
     """
-    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>`__
+    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class CloudWatchLoggingConfiguration(AWSProperty):
 
 class ManagedPersistenceMonitoringConfiguration(AWSProperty):
     """
-    `ManagedPersistenceMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html>`__
+    `ManagedPersistenceMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class ManagedPersistenceMonitoringConfiguration(AWSProperty):
 
 class PrometheusMonitoringConfiguration(AWSProperty):
     """
-    `PrometheusMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html>`__
+    `PrometheusMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class PrometheusMonitoringConfiguration(AWSProperty):
 
 class S3MonitoringConfiguration(AWSProperty):
     """
-    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-s3monitoringconfiguration.html>`__
+    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-s3monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class S3MonitoringConfiguration(AWSProperty):
 
 class MonitoringConfiguration(AWSProperty):
     """
-    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html>`__
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class MonitoringConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class NetworkConfiguration(AWSProperty):
 
 class SchedulerConfiguration(AWSProperty):
     """
-    `SchedulerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-schedulerconfiguration.html>`__
+    `SchedulerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-schedulerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class SchedulerConfiguration(AWSProperty):
 
 class WorkerTypeSpecificationInput(AWSProperty):
     """
-    `WorkerTypeSpecificationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html>`__
+    `WorkerTypeSpecificationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrserverless-application-workertypespecificationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -217,7 +217,7 @@ class WorkerTypeSpecificationInput(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emrserverless-application.html>`__
     """
 
     resource_type = "AWS::EMRServerless::Application"

@@ -12,7 +12,7 @@ from .validators import boolean
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codestar-githubrepository-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class S3(AWSProperty):
 
 class Code(AWSProperty):
     """
-    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestar-githubrepository-code.html>`__
+    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codestar-githubrepository-code.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class Code(AWSProperty):
 
 class GitHubRepository(AWSObject):
     """
-    `GitHubRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestar-githubrepository.html>`__
+    `GitHubRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codestar-githubrepository.html>`__
     """
 
     resource_type = "AWS::CodeStar::GitHubRepository"

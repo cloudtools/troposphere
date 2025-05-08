@@ -16,7 +16,7 @@ from .validators.cassandra import (
 
 class ReplicationSpecification(AWSProperty):
     """
-    `ReplicationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html>`__
+    `ReplicationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-keyspace-replicationspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class ReplicationSpecification(AWSProperty):
 
 class Keyspace(AWSObject):
     """
-    `Keyspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html>`__
+    `Keyspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cassandra-keyspace.html>`__
     """
 
     resource_type = "AWS::Cassandra::Keyspace"
@@ -42,7 +42,7 @@ class Keyspace(AWSObject):
 
 class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     """
-    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html>`__
+    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
 
 class ScalingPolicy(AWSProperty):
     """
-    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html>`__
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-scalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ScalingPolicy(AWSProperty):
 
 class AutoScalingSetting(AWSProperty):
     """
-    `AutoScalingSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html>`__
+    `AutoScalingSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-autoscalingsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class AutoScalingSetting(AWSProperty):
 
 class AutoScalingSpecification(AWSProperty):
     """
-    `AutoScalingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html>`__
+    `AutoScalingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-autoscalingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class AutoScalingSpecification(AWSProperty):
 
 class ProvisionedThroughput(AWSProperty):
     """
-    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html>`__
+    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-provisionedthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class ProvisionedThroughput(AWSProperty):
 
 class BillingMode(AWSProperty):
     """
-    `BillingMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-billingmode.html>`__
+    `BillingMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-billingmode.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class BillingMode(AWSProperty):
 
 class Column(AWSProperty):
     """
-    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html>`__
+    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-column.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class Column(AWSProperty):
 
 class ClusteringKeyColumn(AWSProperty):
     """
-    `ClusteringKeyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html>`__
+    `ClusteringKeyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-clusteringkeycolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class ClusteringKeyColumn(AWSProperty):
 
 class EncryptionSpecification(AWSProperty):
     """
-    `EncryptionSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html>`__
+    `EncryptionSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-encryptionspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class EncryptionSpecification(AWSProperty):
 
 class ReplicaSpecification(AWSProperty):
     """
-    `ReplicaSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html>`__
+    `ReplicaSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-table-replicaspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class ReplicaSpecification(AWSProperty):
 
 class Table(AWSObject):
     """
-    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html>`__
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cassandra-table.html>`__
     """
 
     resource_type = "AWS::Cassandra::Table"
@@ -183,7 +183,7 @@ class Table(AWSObject):
 
 class Field(AWSProperty):
     """
-    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-type-field.html>`__
+    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cassandra-type-field.html>`__
     """
 
     props: PropsDictType = {
@@ -194,7 +194,7 @@ class Field(AWSProperty):
 
 class Type(AWSObject):
     """
-    `Type <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-type.html>`__
+    `Type <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cassandra-type.html>`__
     """
 
     resource_type = "AWS::Cassandra::Type"

@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class DBClusterRole(AWSProperty):
     """
-    `DBClusterRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-dbclusterrole.html>`__
+    `DBClusterRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-neptune-dbcluster-dbclusterrole.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class DBClusterRole(AWSProperty):
 
 class ServerlessScalingConfiguration(AWSProperty):
     """
-    `ServerlessScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html>`__
+    `ServerlessScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ServerlessScalingConfiguration(AWSProperty):
 
 class DBCluster(AWSObject):
     """
-    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html>`__
+    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-dbcluster.html>`__
     """
 
     resource_type = "AWS::Neptune::DBCluster"
@@ -70,7 +70,7 @@ class DBCluster(AWSObject):
 
 class DBClusterParameterGroup(AWSObject):
     """
-    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html>`__
+    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-dbclusterparametergroup.html>`__
     """
 
     resource_type = "AWS::Neptune::DBClusterParameterGroup"
@@ -86,7 +86,7 @@ class DBClusterParameterGroup(AWSObject):
 
 class DBInstance(AWSObject):
     """
-    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html>`__
+    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-dbinstance.html>`__
     """
 
     resource_type = "AWS::Neptune::DBInstance"
@@ -108,7 +108,7 @@ class DBInstance(AWSObject):
 
 class DBParameterGroup(AWSObject):
     """
-    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html>`__
+    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-dbparametergroup.html>`__
     """
 
     resource_type = "AWS::Neptune::DBParameterGroup"
@@ -124,7 +124,7 @@ class DBParameterGroup(AWSObject):
 
 class DBSubnetGroup(AWSObject):
     """
-    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html>`__
+    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-dbsubnetgroup.html>`__
     """
 
     resource_type = "AWS::Neptune::DBSubnetGroup"
@@ -139,7 +139,7 @@ class DBSubnetGroup(AWSObject):
 
 class EventSubscription(AWSObject):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-neptune-eventsubscription.html>`__
     """
 
     resource_type = "AWS::Neptune::EventSubscription"

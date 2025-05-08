@@ -17,7 +17,7 @@ from .validators.backup import (
 
 class AdvancedBackupSettingResourceType(AWSProperty):
     """
-    `AdvancedBackupSettingResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html>`__
+    `AdvancedBackupSettingResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class AdvancedBackupSettingResourceType(AWSProperty):
 
 class LifecycleResourceType(AWSProperty):
     """
-    `LifecycleResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html>`__
+    `LifecycleResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-lifecycleresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class LifecycleResourceType(AWSProperty):
 
 class CopyActionResourceType(AWSProperty):
     """
-    `CopyActionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html>`__
+    `CopyActionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-copyactionresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class CopyActionResourceType(AWSProperty):
 
 class IndexActionsResourceType(AWSProperty):
     """
-    `IndexActionsResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-indexactionsresourcetype.html>`__
+    `IndexActionsResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-indexactionsresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class IndexActionsResourceType(AWSProperty):
 
 class BackupRuleResourceType(AWSProperty):
     """
-    `BackupRuleResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html>`__
+    `BackupRuleResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-backupruleresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class BackupRuleResourceType(AWSProperty):
 
 class BackupPlanResourceType(AWSProperty):
     """
-    `BackupPlanResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html>`__
+    `BackupPlanResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupplan-backupplanresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class BackupPlanResourceType(AWSProperty):
 
 class BackupPlan(AWSObject):
     """
-    `BackupPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html>`__
+    `BackupPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-backupplan.html>`__
     """
 
     resource_type = "AWS::Backup::BackupPlan"
@@ -106,7 +106,7 @@ class BackupPlan(AWSObject):
 
 class ConditionResourceType(AWSProperty):
     """
-    `ConditionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html>`__
+    `ConditionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupselection-conditionresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class ConditionResourceType(AWSProperty):
 
 class ConditionParameter(AWSProperty):
     """
-    `ConditionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionparameter.html>`__
+    `ConditionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupselection-conditionparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class ConditionParameter(AWSProperty):
 
 class Conditions(AWSProperty):
     """
-    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html>`__
+    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupselection-conditions.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class Conditions(AWSProperty):
 
 class BackupSelectionResourceType(AWSProperty):
     """
-    `BackupSelectionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html>`__
+    `BackupSelectionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupselection-backupselectionresourcetype.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class BackupSelectionResourceType(AWSProperty):
 
 class BackupSelection(AWSObject):
     """
-    `BackupSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html>`__
+    `BackupSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-backupselection.html>`__
     """
 
     resource_type = "AWS::Backup::BackupSelection"
@@ -173,7 +173,7 @@ class BackupSelection(AWSObject):
 
 class LockConfigurationType(AWSProperty):
     """
-    `LockConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-lockconfigurationtype.html>`__
+    `LockConfigurationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-backupvault-lockconfigurationtype.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class LockConfigurationType(AWSProperty):
 
 class NotificationObjectType(AWSProperty):
     """
-    `NotificationObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-logicallyairgappedbackupvault-notificationobjecttype.html>`__
+    `NotificationObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-logicallyairgappedbackupvault-notificationobjecttype.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class NotificationObjectType(AWSProperty):
 
 class BackupVault(AWSObject):
     """
-    `BackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html>`__
+    `BackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-backupvault.html>`__
     """
 
     resource_type = "AWS::Backup::BackupVault"
@@ -213,7 +213,7 @@ class BackupVault(AWSObject):
 
 class ControlInputParameter(AWSProperty):
     """
-    `ControlInputParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlinputparameter.html>`__
+    `ControlInputParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-framework-controlinputparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class ControlInputParameter(AWSProperty):
 
 class ControlScope(AWSProperty):
     """
-    `ControlScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlscope.html>`__
+    `ControlScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-framework-controlscope.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class ControlScope(AWSProperty):
 
 class FrameworkControl(AWSProperty):
     """
-    `FrameworkControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html>`__
+    `FrameworkControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-framework-frameworkcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class FrameworkControl(AWSProperty):
 
 class Framework(AWSObject):
     """
-    `Framework <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-framework.html>`__
+    `Framework <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-framework.html>`__
     """
 
     resource_type = "AWS::Backup::Framework"
@@ -263,7 +263,7 @@ class Framework(AWSObject):
 
 class LogicallyAirGappedBackupVault(AWSObject):
     """
-    `LogicallyAirGappedBackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html>`__
+    `LogicallyAirGappedBackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-logicallyairgappedbackupvault.html>`__
     """
 
     resource_type = "AWS::Backup::LogicallyAirGappedBackupVault"
@@ -280,7 +280,7 @@ class LogicallyAirGappedBackupVault(AWSObject):
 
 class ReportDeliveryChannel(AWSProperty):
     """
-    `ReportDeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportdeliverychannel.html>`__
+    `ReportDeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-reportplan-reportdeliverychannel.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class ReportDeliveryChannel(AWSProperty):
 
 class ReportSetting(AWSProperty):
     """
-    `ReportSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html>`__
+    `ReportSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-reportplan-reportsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class ReportSetting(AWSProperty):
 
 class ReportPlan(AWSObject):
     """
-    `ReportPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html>`__
+    `ReportPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-reportplan.html>`__
     """
 
     resource_type = "AWS::Backup::ReportPlan"
@@ -322,7 +322,7 @@ class ReportPlan(AWSObject):
 
 class RestoreTestingRecoveryPointSelection(AWSProperty):
     """
-    `RestoreTestingRecoveryPointSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingplan-restoretestingrecoverypointselection.html>`__
+    `RestoreTestingRecoveryPointSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-restoretestingplan-restoretestingrecoverypointselection.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class RestoreTestingRecoveryPointSelection(AWSProperty):
 
 class RestoreTestingPlan(AWSObject):
     """
-    `RestoreTestingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html>`__
+    `RestoreTestingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-restoretestingplan.html>`__
     """
 
     resource_type = "AWS::Backup::RestoreTestingPlan"
@@ -353,7 +353,7 @@ class RestoreTestingPlan(AWSObject):
 
 class KeyValue(AWSProperty):
     """
-    `KeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-keyvalue.html>`__
+    `KeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-restoretestingselection-keyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -364,7 +364,7 @@ class KeyValue(AWSProperty):
 
 class ProtectedResourceConditions(AWSProperty):
     """
-    `ProtectedResourceConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-protectedresourceconditions.html>`__
+    `ProtectedResourceConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-backup-restoretestingselection-protectedresourceconditions.html>`__
     """
 
     props: PropsDictType = {
@@ -375,7 +375,7 @@ class ProtectedResourceConditions(AWSProperty):
 
 class RestoreTestingSelection(AWSObject):
     """
-    `RestoreTestingSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html>`__
+    `RestoreTestingSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backup-restoretestingselection.html>`__
     """
 
     resource_type = "AWS::Backup::RestoreTestingSelection"

@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class Activity(AWSObject):
     """
-    `Activity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html>`__
+    `Activity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-stepfunctions-activity.html>`__
     """
 
     resource_type = "AWS::StepFunctions::Activity"
@@ -38,7 +38,7 @@ class Activity(AWSObject):
 
 class CloudWatchLogsLogGroup(AWSProperty):
     """
-    `CloudWatchLogsLogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html>`__
+    `CloudWatchLogsLogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class CloudWatchLogsLogGroup(AWSProperty):
 
 class LogDestination(AWSProperty):
     """
-    `LogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html>`__
+    `LogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-logdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class LogDestination(AWSProperty):
 
 class LoggingConfiguration(AWSProperty):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-loggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class LoggingConfiguration(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class S3Location(AWSProperty):
 
 class TracingConfiguration(AWSProperty):
     """
-    `TracingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html>`__
+    `TracingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachine-tracingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class TracingConfiguration(AWSProperty):
 
 class StateMachine(AWSObject):
     """
-    `StateMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html>`__
+    `StateMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-stepfunctions-statemachine.html>`__
     """
 
     resource_type = "AWS::StepFunctions::StateMachine"
@@ -114,7 +114,7 @@ class StateMachine(AWSObject):
 
 class DeploymentPreference(AWSProperty):
     """
-    `DeploymentPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html>`__
+    `DeploymentPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class DeploymentPreference(AWSProperty):
 
 class RoutingConfigurationVersion(AWSProperty):
     """
-    `RoutingConfigurationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html>`__
+    `RoutingConfigurationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class RoutingConfigurationVersion(AWSProperty):
 
 class StateMachineAlias(AWSObject):
     """
-    `StateMachineAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html>`__
+    `StateMachineAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-stepfunctions-statemachinealias.html>`__
     """
 
     resource_type = "AWS::StepFunctions::StateMachineAlias"
@@ -154,7 +154,7 @@ class StateMachineAlias(AWSObject):
 
 class StateMachineVersion(AWSObject):
     """
-    `StateMachineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html>`__
+    `StateMachineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-stepfunctions-statemachineversion.html>`__
     """
 
     resource_type = "AWS::StepFunctions::StateMachineVersion"

@@ -12,7 +12,7 @@ from .validators import integer
 
 class InputNameConfiguration(AWSProperty):
     """
-    `InputNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-inputnameconfiguration.html>`__
+    `InputNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutequipment-inferencescheduler-inputnameconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class InputNameConfiguration(AWSProperty):
 
 class S3InputConfiguration(AWSProperty):
     """
-    `S3InputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3inputconfiguration.html>`__
+    `S3InputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutequipment-inferencescheduler-s3inputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class S3InputConfiguration(AWSProperty):
 
 class DataInputConfiguration(AWSProperty):
     """
-    `DataInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html>`__
+    `DataInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutequipment-inferencescheduler-datainputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class DataInputConfiguration(AWSProperty):
 
 class S3OutputConfiguration(AWSProperty):
     """
-    `S3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html>`__
+    `S3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutequipment-inferencescheduler-s3outputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class S3OutputConfiguration(AWSProperty):
 
 class DataOutputConfiguration(AWSProperty):
     """
-    `DataOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutequipment-inferencescheduler-dataoutputconfiguration.html>`__
+    `DataOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutequipment-inferencescheduler-dataoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class DataOutputConfiguration(AWSProperty):
 
 class InferenceScheduler(AWSObject):
     """
-    `InferenceScheduler <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html>`__
+    `InferenceScheduler <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lookoutequipment-inferencescheduler.html>`__
     """
 
     resource_type = "AWS::LookoutEquipment::InferenceScheduler"

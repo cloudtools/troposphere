@@ -44,7 +44,7 @@ def validate_cache_cluster(self):
                 'AZMode must be "cross-az" if more than one a'
                 "vailability zone is specified in PreferredAv"
                 "ailabilityZones: http://docs.aws.amazon.com/"
-                "AWSCloudFormation/latest/UserGuide/aws-prope"
+                "AWSCloudFormation/latest/TemplateReference/aws-prope"
                 "rties-elasticache-cache-cluster.html#cfn-ela"
                 "sticache-cachecluster-azmode"
             )

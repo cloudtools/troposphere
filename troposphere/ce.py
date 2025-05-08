@@ -12,7 +12,7 @@ from .validators import double
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-costcategory-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ce-costcategory-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ResourceTag(AWSProperty):
 
 class AnomalyMonitor(AWSObject):
     """
-    `AnomalyMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html>`__
+    `AnomalyMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ce-anomalymonitor.html>`__
     """
 
     resource_type = "AWS::CE::AnomalyMonitor"
@@ -39,7 +39,7 @@ class AnomalyMonitor(AWSObject):
 
 class Subscriber(AWSProperty):
     """
-    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html>`__
+    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ce-anomalysubscription-subscriber.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class Subscriber(AWSProperty):
 
 class AnomalySubscription(AWSObject):
     """
-    `AnomalySubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html>`__
+    `AnomalySubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ce-anomalysubscription.html>`__
     """
 
     resource_type = "AWS::CE::AnomalySubscription"
@@ -69,7 +69,7 @@ class AnomalySubscription(AWSObject):
 
 class CostCategory(AWSObject):
     """
-    `CostCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html>`__
+    `CostCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ce-costcategory.html>`__
     """
 
     resource_type = "AWS::CE::CostCategory"

@@ -12,7 +12,7 @@ from .validators import integer
 
 class Accessor(AWSObject):
     """
-    `Accessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html>`__
+    `Accessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-managedblockchain-accessor.html>`__
     """
 
     resource_type = "AWS::ManagedBlockchain::Accessor"
@@ -26,7 +26,7 @@ class Accessor(AWSObject):
 
 class MemberFabricConfiguration(AWSProperty):
     """
-    `MemberFabricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberfabricconfiguration.html>`__
+    `MemberFabricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-memberfabricconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class MemberFabricConfiguration(AWSProperty):
 
 class MemberFrameworkConfiguration(AWSProperty):
     """
-    `MemberFrameworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberframeworkconfiguration.html>`__
+    `MemberFrameworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-memberframeworkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class MemberFrameworkConfiguration(AWSProperty):
 
 class MemberConfiguration(AWSProperty):
     """
-    `MemberConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-memberconfiguration.html>`__
+    `MemberConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-memberconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class MemberConfiguration(AWSProperty):
 
 class NetworkFabricConfiguration(AWSProperty):
     """
-    `NetworkFabricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html>`__
+    `NetworkFabricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-networkfabricconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class NetworkFabricConfiguration(AWSProperty):
 
 class NetworkFrameworkConfiguration(AWSProperty):
     """
-    `NetworkFrameworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkframeworkconfiguration.html>`__
+    `NetworkFrameworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-networkframeworkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class NetworkFrameworkConfiguration(AWSProperty):
 
 class ApprovalThresholdPolicy(AWSProperty):
     """
-    `ApprovalThresholdPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html>`__
+    `ApprovalThresholdPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-approvalthresholdpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class ApprovalThresholdPolicy(AWSProperty):
 
 class VotingPolicy(AWSProperty):
     """
-    `VotingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-votingpolicy.html>`__
+    `VotingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-votingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class VotingPolicy(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-member-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class NetworkConfiguration(AWSProperty):
 
 class Member(AWSObject):
     """
-    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html>`__
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-managedblockchain-member.html>`__
     """
 
     resource_type = "AWS::ManagedBlockchain::Member"
@@ -131,7 +131,7 @@ class Member(AWSObject):
 
 class NodeConfiguration(AWSProperty):
     """
-    `NodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-node-nodeconfiguration.html>`__
+    `NodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-managedblockchain-node-nodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class NodeConfiguration(AWSProperty):
 
 class Node(AWSObject):
     """
-    `Node <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-node.html>`__
+    `Node <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-managedblockchain-node.html>`__
     """
 
     resource_type = "AWS::ManagedBlockchain::Node"

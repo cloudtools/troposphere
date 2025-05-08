@@ -13,7 +13,7 @@ from .validators.amazonmq import validate_tags_or_list
 
 class ConfigurationId(AWSProperty):
     """
-    `ConfigurationId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html>`__
+    `ConfigurationId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-configurationassociation-configurationid.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class ConfigurationId(AWSProperty):
 
 class EncryptionOptions(AWSProperty):
     """
-    `EncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html>`__
+    `EncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-broker-encryptionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class EncryptionOptions(AWSProperty):
 
 class LdapServerMetadata(AWSProperty):
     """
-    `LdapServerMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html>`__
+    `LdapServerMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-broker-ldapservermetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class LdapServerMetadata(AWSProperty):
 
 class LogsConfiguration(AWSProperty):
     """
-    `LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-loglist.html>`__
+    `LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-broker-loglist.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class LogsConfiguration(AWSProperty):
 
 class MaintenanceWindow(AWSProperty):
     """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-maintenancewindow.html>`__
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-broker-maintenancewindow.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class MaintenanceWindow(AWSProperty):
 
 class User(AWSProperty):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amazonmq-broker-user.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class User(AWSProperty):
 
 class Broker(AWSObject):
     """
-    `Broker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html>`__
+    `Broker <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amazonmq-broker.html>`__
     """
 
     resource_type = "AWS::AmazonMQ::Broker"
@@ -124,7 +124,7 @@ class Broker(AWSObject):
 
 class Configuration(AWSObject):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amazonmq-configuration.html>`__
     """
 
     resource_type = "AWS::AmazonMQ::Configuration"
@@ -142,7 +142,7 @@ class Configuration(AWSObject):
 
 class ConfigurationAssociation(AWSObject):
     """
-    `ConfigurationAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html>`__
+    `ConfigurationAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amazonmq-configurationassociation.html>`__
     """
 
     resource_type = "AWS::AmazonMQ::ConfigurationAssociation"

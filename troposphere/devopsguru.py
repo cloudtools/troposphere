@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class LogAnomalyDetectionIntegration(AWSObject):
     """
-    `LogAnomalyDetectionIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html>`__
+    `LogAnomalyDetectionIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-devopsguru-loganomalydetectionintegration.html>`__
     """
 
     resource_type = "AWS::DevOpsGuru::LogAnomalyDetectionIntegration"
@@ -21,7 +21,7 @@ class LogAnomalyDetectionIntegration(AWSObject):
 
 class NotificationFilterConfig(AWSProperty):
     """
-    `NotificationFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html>`__
+    `NotificationFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class NotificationFilterConfig(AWSProperty):
 
 class SnsChannelConfig(AWSProperty):
     """
-    `SnsChannelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html>`__
+    `SnsChannelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-notificationchannel-snschannelconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class SnsChannelConfig(AWSProperty):
 
 class NotificationChannelConfig(AWSProperty):
     """
-    `NotificationChannelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html>`__
+    `NotificationChannelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class NotificationChannelConfig(AWSProperty):
 
 class NotificationChannel(AWSObject):
     """
-    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html>`__
+    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-devopsguru-notificationchannel.html>`__
     """
 
     resource_type = "AWS::DevOpsGuru::NotificationChannel"
@@ -65,7 +65,7 @@ class NotificationChannel(AWSObject):
 
 class CloudFormationCollectionFilter(AWSProperty):
     """
-    `CloudFormationCollectionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html>`__
+    `CloudFormationCollectionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class CloudFormationCollectionFilter(AWSProperty):
 
 class TagCollection(AWSProperty):
     """
-    `TagCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html>`__
+    `TagCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-resourcecollection-tagcollection.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class TagCollection(AWSProperty):
 
 class ResourceCollectionFilter(AWSProperty):
     """
-    `ResourceCollectionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html>`__
+    `ResourceCollectionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class ResourceCollectionFilter(AWSProperty):
 
 class ResourceCollection(AWSObject):
     """
-    `ResourceCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html>`__
+    `ResourceCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-devopsguru-resourcecollection.html>`__
     """
 
     resource_type = "AWS::DevOpsGuru::ResourceCollection"

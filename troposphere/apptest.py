@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class DataSet(AWSProperty):
     """
-    `DataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-dataset.html>`__
+    `DataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-dataset.html>`__
     """
 
     props: PropsDictType = {
@@ -26,7 +26,7 @@ class DataSet(AWSProperty):
 
 class SourceDatabaseMetadata(AWSProperty):
     """
-    `SourceDatabaseMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-sourcedatabasemetadata.html>`__
+    `SourceDatabaseMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-sourcedatabasemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class SourceDatabaseMetadata(AWSProperty):
 
 class TargetDatabaseMetadata(AWSProperty):
     """
-    `TargetDatabaseMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-targetdatabasemetadata.html>`__
+    `TargetDatabaseMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-targetdatabasemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class TargetDatabaseMetadata(AWSProperty):
 
 class DatabaseCDC(AWSProperty):
     """
-    `DatabaseCDC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-databasecdc.html>`__
+    `DatabaseCDC <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-databasecdc.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class DatabaseCDC(AWSProperty):
 
 class FileMetadata(AWSProperty):
     """
-    `FileMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-filemetadata.html>`__
+    `FileMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-filemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class FileMetadata(AWSProperty):
 
 class InputFile(AWSProperty):
     """
-    `InputFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-inputfile.html>`__
+    `InputFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-inputfile.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class InputFile(AWSProperty):
 
 class Input(AWSProperty):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-input.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class Input(AWSProperty):
 
 class OutputFile(AWSProperty):
     """
-    `OutputFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-outputfile.html>`__
+    `OutputFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-outputfile.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class OutputFile(AWSProperty):
 
 class Output(AWSProperty):
     """
-    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-output.html>`__
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-output.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class Output(AWSProperty):
 
 class CompareAction(AWSProperty):
     """
-    `CompareAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-compareaction.html>`__
+    `CompareAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-compareaction.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class CompareAction(AWSProperty):
 
 class MainframeActionProperties(AWSProperty):
     """
-    `MainframeActionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactionproperties.html>`__
+    `MainframeActionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-mainframeactionproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -133,7 +133,7 @@ class MainframeActionProperties(AWSProperty):
 
 class Batch(AWSProperty):
     """
-    `Batch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-batch.html>`__
+    `Batch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-batch.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class Batch(AWSProperty):
 
 class Script(AWSProperty):
     """
-    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-script.html>`__
+    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-script.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class Script(AWSProperty):
 
 class TN3270(AWSProperty):
     """
-    `TN3270 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-tn3270.html>`__
+    `TN3270 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-tn3270.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class TN3270(AWSProperty):
 
 class MainframeActionType(AWSProperty):
     """
-    `MainframeActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeactiontype.html>`__
+    `MainframeActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-mainframeactiontype.html>`__
     """
 
     props: PropsDictType = {
@@ -178,7 +178,7 @@ class MainframeActionType(AWSProperty):
 
 class MainframeAction(AWSProperty):
     """
-    `MainframeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-mainframeaction.html>`__
+    `MainframeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-mainframeaction.html>`__
     """
 
     props: PropsDictType = {
@@ -190,7 +190,7 @@ class MainframeAction(AWSProperty):
 
 class CloudFormationAction(AWSProperty):
     """
-    `CloudFormationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-cloudformationaction.html>`__
+    `CloudFormationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-cloudformationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class CloudFormationAction(AWSProperty):
 
 class M2ManagedActionProperties(AWSProperty):
     """
-    `M2ManagedActionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedactionproperties.html>`__
+    `M2ManagedActionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-m2managedactionproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class M2ManagedActionProperties(AWSProperty):
 
 class M2ManagedApplicationAction(AWSProperty):
     """
-    `M2ManagedApplicationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2managedapplicationaction.html>`__
+    `M2ManagedApplicationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-m2managedapplicationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class M2ManagedApplicationAction(AWSProperty):
 
 class M2NonManagedApplicationAction(AWSProperty):
     """
-    `M2NonManagedApplicationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-m2nonmanagedapplicationaction.html>`__
+    `M2NonManagedApplicationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-m2nonmanagedapplicationaction.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class M2NonManagedApplicationAction(AWSProperty):
 
 class ResourceAction(AWSProperty):
     """
-    `ResourceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-resourceaction.html>`__
+    `ResourceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-resourceaction.html>`__
     """
 
     props: PropsDictType = {
@@ -247,7 +247,7 @@ class ResourceAction(AWSProperty):
 
 class StepAction(AWSProperty):
     """
-    `StepAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-stepaction.html>`__
+    `StepAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-stepaction.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class StepAction(AWSProperty):
 
 class Step(AWSProperty):
     """
-    `Step <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-step.html>`__
+    `Step <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-step.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class Step(AWSProperty):
 
 class TestCase(AWSObject):
     """
-    `TestCase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apptest-testcase.html>`__
+    `TestCase <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apptest-testcase.html>`__
     """
 
     resource_type = "AWS::AppTest::TestCase"
@@ -286,7 +286,7 @@ class TestCase(AWSObject):
 
 class TestCaseLatestVersion(AWSProperty):
     """
-    `TestCaseLatestVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apptest-testcase-testcaselatestversion.html>`__
+    `TestCaseLatestVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apptest-testcase-testcaselatestversion.html>`__
     """
 
     props: PropsDictType = {

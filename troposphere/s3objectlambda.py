@@ -12,7 +12,7 @@ from .validators import boolean
 
 class AwsLambda(AWSProperty):
     """
-    `AwsLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html>`__
+    `AwsLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-awslambda.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AwsLambda(AWSProperty):
 
 class ContentTransformation(AWSProperty):
     """
-    `ContentTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html>`__
+    `ContentTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-contenttransformation.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class ContentTransformation(AWSProperty):
 
 class TransformationConfiguration(AWSProperty):
     """
-    `TransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html>`__
+    `TransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class TransformationConfiguration(AWSProperty):
 
 class ObjectLambdaConfiguration(AWSProperty):
     """
-    `ObjectLambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html>`__
+    `ObjectLambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ObjectLambdaConfiguration(AWSProperty):
 
 class AccessPoint(AWSObject):
     """
-    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html>`__
+    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3objectlambda-accesspoint.html>`__
     """
 
     resource_type = "AWS::S3ObjectLambda::AccessPoint"
@@ -70,7 +70,7 @@ class AccessPoint(AWSObject):
 
 class AccessPointPolicy(AWSObject):
     """
-    `AccessPointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html>`__
+    `AccessPointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3objectlambda-accesspointpolicy.html>`__
     """
 
     resource_type = "AWS::S3ObjectLambda::AccessPointPolicy"
@@ -83,7 +83,7 @@ class AccessPointPolicy(AWSObject):
 
 class Alias(AWSProperty):
     """
-    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html>`__
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-alias.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class Alias(AWSProperty):
 
 class PublicAccessBlockConfiguration(AWSProperty):
     """
-    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html>`__
+    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html>`__
     """
 
     props: PropsDictType = {

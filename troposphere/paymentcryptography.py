@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Alias(AWSObject):
     """
-    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-alias.html>`__
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-paymentcryptography-alias.html>`__
     """
 
     resource_type = "AWS::PaymentCryptography::Alias"
@@ -25,7 +25,7 @@ class Alias(AWSObject):
 
 class KeyModesOfUse(AWSProperty):
     """
-    `KeyModesOfUse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keymodesofuse.html>`__
+    `KeyModesOfUse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-paymentcryptography-key-keymodesofuse.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class KeyModesOfUse(AWSProperty):
 
 class KeyAttributes(AWSProperty):
     """
-    `KeyAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html>`__
+    `KeyAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-paymentcryptography-key-keyattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class KeyAttributes(AWSProperty):
 
 class Key(AWSObject):
     """
-    `Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html>`__
+    `Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-paymentcryptography-key.html>`__
     """
 
     resource_type = "AWS::PaymentCryptography::Key"

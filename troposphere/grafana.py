@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class NetworkAccessControl(AWSProperty):
     """
-    `NetworkAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-networkaccesscontrol.html>`__
+    `NetworkAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-networkaccesscontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class NetworkAccessControl(AWSProperty):
 
 class AssertionAttributes(AWSProperty):
     """
-    `AssertionAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html>`__
+    `AssertionAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-assertionattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class AssertionAttributes(AWSProperty):
 
 class IdpMetadata(AWSProperty):
     """
-    `IdpMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-idpmetadata.html>`__
+    `IdpMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-idpmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class IdpMetadata(AWSProperty):
 
 class RoleValues(AWSProperty):
     """
-    `RoleValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-rolevalues.html>`__
+    `RoleValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-rolevalues.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class RoleValues(AWSProperty):
 
 class SamlConfiguration(AWSProperty):
     """
-    `SamlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-samlconfiguration.html>`__
+    `SamlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-samlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class SamlConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-grafana-workspace-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class VpcConfiguration(AWSProperty):
 
 class Workspace(AWSObject):
     """
-    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html>`__
+    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-grafana-workspace.html>`__
     """
 
     resource_type = "AWS::Grafana::Workspace"

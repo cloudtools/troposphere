@@ -12,7 +12,7 @@ from .validators import integer
 
 class AwsLogSource(AWSObject):
     """
-    `AwsLogSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html>`__
+    `AwsLogSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securitylake-awslogsource.html>`__
     """
 
     resource_type = "AWS::SecurityLake::AwsLogSource"
@@ -27,7 +27,7 @@ class AwsLogSource(AWSObject):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-datalake-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class Expiration(AWSProperty):
     """
-    `Expiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-expiration.html>`__
+    `Expiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-datalake-expiration.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class Expiration(AWSProperty):
 
 class Transitions(AWSProperty):
     """
-    `Transitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-transitions.html>`__
+    `Transitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-datalake-transitions.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class Transitions(AWSProperty):
 
 class LifecycleConfiguration(AWSProperty):
     """
-    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-lifecycleconfiguration.html>`__
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-datalake-lifecycleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class ReplicationConfiguration(AWSProperty):
     """
-    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-datalake-replicationconfiguration.html>`__
+    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-datalake-replicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class ReplicationConfiguration(AWSProperty):
 
 class DataLake(AWSObject):
     """
-    `DataLake <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-datalake.html>`__
+    `DataLake <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securitylake-datalake.html>`__
     """
 
     resource_type = "AWS::SecurityLake::DataLake"
@@ -96,7 +96,7 @@ class DataLake(AWSObject):
 
 class AwsLogSourceProperty(AWSProperty):
     """
-    `AwsLogSourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-awslogsource.html>`__
+    `AwsLogSourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscriber-awslogsource.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class AwsLogSourceProperty(AWSProperty):
 
 class CustomLogSource(AWSProperty):
     """
-    `CustomLogSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-customlogsource.html>`__
+    `CustomLogSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscriber-customlogsource.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class CustomLogSource(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscriber-source.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class Source(AWSProperty):
 
 class SubscriberIdentity(AWSProperty):
     """
-    `SubscriberIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-subscriberidentity.html>`__
+    `SubscriberIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscriber-subscriberidentity.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class SubscriberIdentity(AWSProperty):
 
 class Subscriber(AWSObject):
     """
-    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html>`__
+    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securitylake-subscriber.html>`__
     """
 
     resource_type = "AWS::SecurityLake::Subscriber"
@@ -158,7 +158,7 @@ class Subscriber(AWSObject):
 
 class HttpsNotificationConfiguration(AWSProperty):
     """
-    `HttpsNotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-httpsnotificationconfiguration.html>`__
+    `HttpsNotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscribernotification-httpsnotificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class HttpsNotificationConfiguration(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-notificationconfiguration.html>`__
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-securitylake-subscribernotification-notificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class NotificationConfiguration(AWSProperty):
 
 class SubscriberNotification(AWSObject):
     """
-    `SubscriberNotification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html>`__
+    `SubscriberNotification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-securitylake-subscribernotification.html>`__
     """
 
     resource_type = "AWS::SecurityLake::SubscriberNotification"

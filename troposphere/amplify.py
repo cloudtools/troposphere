@@ -12,7 +12,7 @@ from .validators import boolean
 
 class BasicAuthConfig(AWSProperty):
     """
-    `BasicAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html>`__
+    `BasicAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-branch-basicauthconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class BasicAuthConfig(AWSProperty):
 
 class EnvironmentVariable(AWSProperty):
     """
-    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html>`__
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-branch-environmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class EnvironmentVariable(AWSProperty):
 
 class AutoBranchCreationConfig(AWSProperty):
     """
-    `AutoBranchCreationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html>`__
+    `AutoBranchCreationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-app-autobranchcreationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class AutoBranchCreationConfig(AWSProperty):
 
 class CacheConfig(AWSProperty):
     """
-    `CacheConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-cacheconfig.html>`__
+    `CacheConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-app-cacheconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class CacheConfig(AWSProperty):
 
 class CustomRule(AWSProperty):
     """
-    `CustomRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html>`__
+    `CustomRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-app-customrule.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class CustomRule(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html>`__
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amplify-app.html>`__
     """
 
     resource_type = "AWS::Amplify::App"
@@ -106,7 +106,7 @@ class App(AWSObject):
 
 class Backend(AWSProperty):
     """
-    `Backend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html>`__
+    `Backend <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-branch-backend.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class Backend(AWSProperty):
 
 class Branch(AWSObject):
     """
-    `Branch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html>`__
+    `Branch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amplify-branch.html>`__
     """
 
     resource_type = "AWS::Amplify::Branch"
@@ -143,7 +143,7 @@ class Branch(AWSObject):
 
 class CertificateSettings(AWSProperty):
     """
-    `CertificateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificatesettings.html>`__
+    `CertificateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-domain-certificatesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class CertificateSettings(AWSProperty):
 
 class SubDomainSetting(AWSProperty):
     """
-    `SubDomainSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html>`__
+    `SubDomainSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-domain-subdomainsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class SubDomainSetting(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-amplify-domain.html>`__
     """
 
     resource_type = "AWS::Amplify::Domain"
@@ -183,7 +183,7 @@ class Domain(AWSObject):
 
 class Certificate(AWSProperty):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-amplify-domain-certificate.html>`__
     """
 
     props: PropsDictType = {

@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Graph(AWSObject):
     """
-    `Graph <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html>`__
+    `Graph <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-detective-graph.html>`__
     """
 
     resource_type = "AWS::Detective::Graph"
@@ -25,7 +25,7 @@ class Graph(AWSObject):
 
 class MemberInvitation(AWSObject):
     """
-    `MemberInvitation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html>`__
+    `MemberInvitation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-detective-memberinvitation.html>`__
     """
 
     resource_type = "AWS::Detective::MemberInvitation"
@@ -41,7 +41,7 @@ class MemberInvitation(AWSObject):
 
 class OrganizationAdmin(AWSObject):
     """
-    `OrganizationAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html>`__
+    `OrganizationAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-detective-organizationadmin.html>`__
     """
 
     resource_type = "AWS::Detective::OrganizationAdmin"

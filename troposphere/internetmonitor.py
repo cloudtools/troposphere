@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class LocalHealthEventsConfig(AWSProperty):
     """
-    `LocalHealthEventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-localhealtheventsconfig.html>`__
+    `LocalHealthEventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-internetmonitor-monitor-localhealtheventsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class LocalHealthEventsConfig(AWSProperty):
 
 class HealthEventsConfig(AWSProperty):
     """
-    `HealthEventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-healtheventsconfig.html>`__
+    `HealthEventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-internetmonitor-monitor-healtheventsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class HealthEventsConfig(AWSProperty):
 
 class S3Config(AWSProperty):
     """
-    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-s3config.html>`__
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-internetmonitor-monitor-s3config.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class S3Config(AWSProperty):
 
 class InternetMeasurementsLogDelivery(AWSProperty):
     """
-    `InternetMeasurementsLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html>`__
+    `InternetMeasurementsLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-internetmonitor-monitor-internetmeasurementslogdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class InternetMeasurementsLogDelivery(AWSProperty):
 
 class Monitor(AWSObject):
     """
-    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html>`__
+    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-internetmonitor-monitor.html>`__
     """
 
     resource_type = "AWS::InternetMonitor::Monitor"

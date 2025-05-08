@@ -13,7 +13,7 @@ from .validators.opsworkscm import validate_tags_or_list
 
 class EngineAttribute(AWSProperty):
     """
-    `EngineAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html>`__
+    `EngineAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opsworkscm-server-engineattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class EngineAttribute(AWSProperty):
 
 class Server(AWSObject):
     """
-    `Server <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html>`__
+    `Server <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opsworkscm-server.html>`__
     """
 
     resource_type = "AWS::OpsWorksCM::Server"

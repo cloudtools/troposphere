@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class Target(AWSProperty):
     """
-    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html>`__
+    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codestarnotifications-notificationrule-target.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class Target(AWSProperty):
 
 class NotificationRule(AWSObject):
     """
-    `NotificationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html>`__
+    `NotificationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codestarnotifications-notificationrule.html>`__
     """
 
     resource_type = "AWS::CodeStarNotifications::NotificationRule"

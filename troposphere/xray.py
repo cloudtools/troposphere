@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class InsightsConfiguration(AWSProperty):
     """
-    `InsightsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html>`__
+    `InsightsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-xray-group-insightsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class InsightsConfiguration(AWSProperty):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-xray-group.html>`__
     """
 
     resource_type = "AWS::XRay::Group"
@@ -38,7 +38,7 @@ class Group(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-xray-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::XRay::ResourcePolicy"
@@ -52,7 +52,7 @@ class ResourcePolicy(AWSObject):
 
 class SamplingRuleProperty(AWSProperty):
     """
-    `SamplingRuleProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html>`__
+    `SamplingRuleProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-xray-samplingrule-samplingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class SamplingRuleProperty(AWSProperty):
 
 class SamplingRule(AWSObject):
     """
-    `SamplingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html>`__
+    `SamplingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-xray-samplingrule.html>`__
     """
 
     resource_type = "AWS::XRay::SamplingRule"
@@ -87,7 +87,7 @@ class SamplingRule(AWSObject):
 
 class TransactionSearchConfig(AWSObject):
     """
-    `TransactionSearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-transactionsearchconfig.html>`__
+    `TransactionSearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-xray-transactionsearchconfig.html>`__
     """
 
     resource_type = "AWS::XRay::TransactionSearchConfig"

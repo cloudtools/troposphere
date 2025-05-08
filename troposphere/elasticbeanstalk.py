@@ -17,7 +17,7 @@ from .validators.elasticbeanstalk import validate_tier_name, validate_tier_type
 
 class MaxAgeRule(AWSProperty):
     """
-    `MaxAgeRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxagerule.html>`__
+    `MaxAgeRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-application-maxagerule.html>`__
     """
 
     props: PropsDictType = {
@@ -29,7 +29,7 @@ class MaxAgeRule(AWSProperty):
 
 class MaxCountRule(AWSProperty):
     """
-    `MaxCountRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxcountrule.html>`__
+    `MaxCountRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-application-maxcountrule.html>`__
     """
 
     props: PropsDictType = {
@@ -41,7 +41,7 @@ class MaxCountRule(AWSProperty):
 
 class ApplicationVersionLifecycleConfig(AWSProperty):
     """
-    `ApplicationVersionLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html>`__
+    `ApplicationVersionLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-application-applicationversionlifecycleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class ApplicationVersionLifecycleConfig(AWSProperty):
 
 class ApplicationResourceLifecycleConfig(AWSProperty):
     """
-    `ApplicationResourceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html>`__
+    `ApplicationResourceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-application-applicationresourcelifecycleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ApplicationResourceLifecycleConfig(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticbeanstalk-application.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::Application"
@@ -77,7 +77,7 @@ class Application(AWSObject):
 
 class SourceBundle(AWSProperty):
     """
-    `SourceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html>`__
+    `SourceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class SourceBundle(AWSProperty):
 
 class ApplicationVersion(AWSObject):
     """
-    `ApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html>`__
+    `ApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticbeanstalk-applicationversion.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::ApplicationVersion"
@@ -102,7 +102,7 @@ class ApplicationVersion(AWSObject):
 
 class OptionSetting(AWSProperty):
     """
-    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html>`__
+    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-environment-optionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class OptionSetting(AWSProperty):
 
 class SourceConfiguration(AWSProperty):
     """
-    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html>`__
+    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class SourceConfiguration(AWSProperty):
 
 class ConfigurationTemplate(AWSObject):
     """
-    `ConfigurationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html>`__
+    `ConfigurationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticbeanstalk-configurationtemplate.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
@@ -144,7 +144,7 @@ class ConfigurationTemplate(AWSObject):
 
 class Tier(AWSProperty):
     """
-    `Tier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html>`__
+    `Tier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticbeanstalk-environment-tier.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class Tier(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticbeanstalk-environment.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::Environment"

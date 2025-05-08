@@ -12,7 +12,7 @@ from .validators import double
 
 class TagCondition(AWSProperty):
     """
-    `TagCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagcondition.html>`__
+    `TagCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-tagcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class TagCondition(AWSProperty):
 
 class OrCondition(AWSProperty):
     """
-    `OrCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html>`__
+    `OrCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-orcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class OrCondition(AWSProperty):
 
 class TagFilter(AWSProperty):
     """
-    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagfilter.html>`__
+    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class TagFilter(AWSProperty):
 
 class KnowledgeBaseAssociationConfigurationData(AWSProperty):
     """
-    `KnowledgeBaseAssociationConfigurationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html>`__
+    `KnowledgeBaseAssociationConfigurationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-knowledgebaseassociationconfigurationdata.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class KnowledgeBaseAssociationConfigurationData(AWSProperty):
 
 class AssociationConfigurationData(AWSProperty):
     """
-    `AssociationConfigurationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfigurationdata.html>`__
+    `AssociationConfigurationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-associationconfigurationdata.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class AssociationConfigurationData(AWSProperty):
 
 class AssociationConfiguration(AWSProperty):
     """
-    `AssociationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-associationconfiguration.html>`__
+    `AssociationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-associationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class AssociationConfiguration(AWSProperty):
 
 class AnswerRecommendationAIAgentConfiguration(AWSProperty):
     """
-    `AnswerRecommendationAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html>`__
+    `AnswerRecommendationAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class AnswerRecommendationAIAgentConfiguration(AWSProperty):
 
 class ManualSearchAIAgentConfiguration(AWSProperty):
     """
-    `ManualSearchAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html>`__
+    `ManualSearchAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class ManualSearchAIAgentConfiguration(AWSProperty):
 
 class SelfServiceAIAgentConfiguration(AWSProperty):
     """
-    `SelfServiceAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html>`__
+    `SelfServiceAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class SelfServiceAIAgentConfiguration(AWSProperty):
 
 class AIAgentConfiguration(AWSProperty):
     """
-    `AIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html>`__
+    `AIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiagent-aiagentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class AIAgentConfiguration(AWSProperty):
 
 class AIAgent(AWSObject):
     """
-    `AIAgent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html>`__
+    `AIAgent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aiagent.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIAgent"
@@ -156,7 +156,7 @@ class AIAgent(AWSObject):
 
 class AIAgentVersion(AWSObject):
     """
-    `AIAgentVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagentversion.html>`__
+    `AIAgentVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aiagentversion.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIAgentVersion"
@@ -170,7 +170,7 @@ class AIAgentVersion(AWSObject):
 
 class GuardrailContentFilterConfig(AWSProperty):
     """
-    `GuardrailContentFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html>`__
+    `GuardrailContentFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailcontentfilterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class GuardrailContentFilterConfig(AWSProperty):
 
 class AIGuardrailContentPolicyConfig(AWSProperty):
     """
-    `AIGuardrailContentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailcontentpolicyconfig.html>`__
+    `AIGuardrailContentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-aiguardrailcontentpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -192,7 +192,7 @@ class AIGuardrailContentPolicyConfig(AWSProperty):
 
 class GuardrailContextualGroundingFilterConfig(AWSProperty):
     """
-    `GuardrailContextualGroundingFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailcontextualgroundingfilterconfig.html>`__
+    `GuardrailContextualGroundingFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailcontextualgroundingfilterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -203,7 +203,7 @@ class GuardrailContextualGroundingFilterConfig(AWSProperty):
 
 class AIGuardrailContextualGroundingPolicyConfig(AWSProperty):
     """
-    `AIGuardrailContextualGroundingPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailcontextualgroundingpolicyconfig.html>`__
+    `AIGuardrailContextualGroundingPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-aiguardrailcontextualgroundingpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -213,7 +213,7 @@ class AIGuardrailContextualGroundingPolicyConfig(AWSProperty):
 
 class GuardrailPiiEntityConfig(AWSProperty):
     """
-    `GuardrailPiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailpiientityconfig.html>`__
+    `GuardrailPiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailpiientityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class GuardrailPiiEntityConfig(AWSProperty):
 
 class GuardrailRegexConfig(AWSProperty):
     """
-    `GuardrailRegexConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailregexconfig.html>`__
+    `GuardrailRegexConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailregexconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -237,7 +237,7 @@ class GuardrailRegexConfig(AWSProperty):
 
 class AIGuardrailSensitiveInformationPolicyConfig(AWSProperty):
     """
-    `AIGuardrailSensitiveInformationPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailsensitiveinformationpolicyconfig.html>`__
+    `AIGuardrailSensitiveInformationPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-aiguardrailsensitiveinformationpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class AIGuardrailSensitiveInformationPolicyConfig(AWSProperty):
 
 class GuardrailTopicConfig(AWSProperty):
     """
-    `GuardrailTopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailtopicconfig.html>`__
+    `GuardrailTopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailtopicconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -261,7 +261,7 @@ class GuardrailTopicConfig(AWSProperty):
 
 class AIGuardrailTopicPolicyConfig(AWSProperty):
     """
-    `AIGuardrailTopicPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailtopicpolicyconfig.html>`__
+    `AIGuardrailTopicPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-aiguardrailtopicpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class AIGuardrailTopicPolicyConfig(AWSProperty):
 
 class GuardrailManagedWordsConfig(AWSProperty):
     """
-    `GuardrailManagedWordsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailmanagedwordsconfig.html>`__
+    `GuardrailManagedWordsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailmanagedwordsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class GuardrailManagedWordsConfig(AWSProperty):
 
 class GuardrailWordConfig(AWSProperty):
     """
-    `GuardrailWordConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-guardrailwordconfig.html>`__
+    `GuardrailWordConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-guardrailwordconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class GuardrailWordConfig(AWSProperty):
 
 class AIGuardrailWordPolicyConfig(AWSProperty):
     """
-    `AIGuardrailWordPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiguardrail-aiguardrailwordpolicyconfig.html>`__
+    `AIGuardrailWordPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiguardrail-aiguardrailwordpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class AIGuardrailWordPolicyConfig(AWSProperty):
 
 class AIGuardrail(AWSObject):
     """
-    `AIGuardrail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html>`__
+    `AIGuardrail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aiguardrail.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIGuardrail"
@@ -330,7 +330,7 @@ class AIGuardrail(AWSObject):
 
 class AIGuardrailVersion(AWSObject):
     """
-    `AIGuardrailVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrailversion.html>`__
+    `AIGuardrailVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aiguardrailversion.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIGuardrailVersion"
@@ -344,7 +344,7 @@ class AIGuardrailVersion(AWSObject):
 
 class TextFullAIPromptEditTemplateConfiguration(AWSProperty):
     """
-    `TextFullAIPromptEditTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-textfullaipromptedittemplateconfiguration.html>`__
+    `TextFullAIPromptEditTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiprompt-textfullaipromptedittemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -354,7 +354,7 @@ class TextFullAIPromptEditTemplateConfiguration(AWSProperty):
 
 class AIPromptTemplateConfiguration(AWSProperty):
     """
-    `AIPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html>`__
+    `AIPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -367,7 +367,7 @@ class AIPromptTemplateConfiguration(AWSProperty):
 
 class AIPrompt(AWSObject):
     """
-    `AIPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html>`__
+    `AIPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aiprompt.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIPrompt"
@@ -387,7 +387,7 @@ class AIPrompt(AWSObject):
 
 class AIPromptVersion(AWSObject):
     """
-    `AIPromptVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aipromptversion.html>`__
+    `AIPromptVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-aipromptversion.html>`__
     """
 
     resource_type = "AWS::Wisdom::AIPromptVersion"
@@ -401,7 +401,7 @@ class AIPromptVersion(AWSObject):
 
 class ServerSideEncryptionConfiguration(AWSProperty):
     """
-    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html>`__
+    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-serversideencryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -411,7 +411,7 @@ class ServerSideEncryptionConfiguration(AWSProperty):
 
 class Assistant(AWSObject):
     """
-    `Assistant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html>`__
+    `Assistant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-assistant.html>`__
     """
 
     resource_type = "AWS::Wisdom::Assistant"
@@ -427,7 +427,7 @@ class Assistant(AWSObject):
 
 class AssociationData(AWSProperty):
     """
-    `AssociationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html>`__
+    `AssociationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-assistantassociation-associationdata.html>`__
     """
 
     props: PropsDictType = {
@@ -437,7 +437,7 @@ class AssociationData(AWSProperty):
 
 class AssistantAssociation(AWSObject):
     """
-    `AssistantAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html>`__
+    `AssistantAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-assistantassociation.html>`__
     """
 
     resource_type = "AWS::Wisdom::AssistantAssociation"
@@ -452,7 +452,7 @@ class AssistantAssociation(AWSObject):
 
 class RenderingConfiguration(AWSProperty):
     """
-    `RenderingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html>`__
+    `RenderingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-renderingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -462,7 +462,7 @@ class RenderingConfiguration(AWSProperty):
 
 class AppIntegrationsConfiguration(AWSProperty):
     """
-    `AppIntegrationsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html>`__
+    `AppIntegrationsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-appintegrationsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -473,7 +473,7 @@ class AppIntegrationsConfiguration(AWSProperty):
 
 class CrawlerLimits(AWSProperty):
     """
-    `CrawlerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-crawlerlimits.html>`__
+    `CrawlerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-crawlerlimits.html>`__
     """
 
     props: PropsDictType = {
@@ -483,7 +483,7 @@ class CrawlerLimits(AWSProperty):
 
 class SeedUrl(AWSProperty):
     """
-    `SeedUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-seedurl.html>`__
+    `SeedUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-seedurl.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class SeedUrl(AWSProperty):
 
 class UrlConfiguration(AWSProperty):
     """
-    `UrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-urlconfiguration.html>`__
+    `UrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-urlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -503,7 +503,7 @@ class UrlConfiguration(AWSProperty):
 
 class WebCrawlerConfiguration(AWSProperty):
     """
-    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html>`__
+    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -517,7 +517,7 @@ class WebCrawlerConfiguration(AWSProperty):
 
 class ManagedSourceConfiguration(AWSProperty):
     """
-    `ManagedSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html>`__
+    `ManagedSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -527,7 +527,7 @@ class ManagedSourceConfiguration(AWSProperty):
 
 class SourceConfiguration(AWSProperty):
     """
-    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html>`__
+    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-sourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -538,7 +538,7 @@ class SourceConfiguration(AWSProperty):
 
 class FixedSizeChunkingConfiguration(AWSProperty):
     """
-    `FixedSizeChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html>`__
+    `FixedSizeChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -549,7 +549,7 @@ class FixedSizeChunkingConfiguration(AWSProperty):
 
 class HierarchicalChunkingLevelConfiguration(AWSProperty):
     """
-    `HierarchicalChunkingLevelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkinglevelconfiguration.html>`__
+    `HierarchicalChunkingLevelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-hierarchicalchunkinglevelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -559,7 +559,7 @@ class HierarchicalChunkingLevelConfiguration(AWSProperty):
 
 class HierarchicalChunkingConfiguration(AWSProperty):
     """
-    `HierarchicalChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html>`__
+    `HierarchicalChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -570,7 +570,7 @@ class HierarchicalChunkingConfiguration(AWSProperty):
 
 class SemanticChunkingConfiguration(AWSProperty):
     """
-    `SemanticChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html>`__
+    `SemanticChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -582,7 +582,7 @@ class SemanticChunkingConfiguration(AWSProperty):
 
 class ChunkingConfiguration(AWSProperty):
     """
-    `ChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-chunkingconfiguration.html>`__
+    `ChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-chunkingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -595,7 +595,7 @@ class ChunkingConfiguration(AWSProperty):
 
 class ParsingPrompt(AWSProperty):
     """
-    `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingprompt.html>`__
+    `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-parsingprompt.html>`__
     """
 
     props: PropsDictType = {
@@ -605,7 +605,7 @@ class ParsingPrompt(AWSProperty):
 
 class BedrockFoundationModelConfiguration(AWSProperty):
     """
-    `BedrockFoundationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-bedrockfoundationmodelconfiguration.html>`__
+    `BedrockFoundationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-bedrockfoundationmodelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -616,7 +616,7 @@ class BedrockFoundationModelConfiguration(AWSProperty):
 
 class ParsingConfiguration(AWSProperty):
     """
-    `ParsingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-parsingconfiguration.html>`__
+    `ParsingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-parsingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -630,7 +630,7 @@ class ParsingConfiguration(AWSProperty):
 
 class VectorIngestionConfiguration(AWSProperty):
     """
-    `VectorIngestionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html>`__
+    `VectorIngestionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -641,7 +641,7 @@ class VectorIngestionConfiguration(AWSProperty):
 
 class KnowledgeBase(AWSObject):
     """
-    `KnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html>`__
+    `KnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-knowledgebase.html>`__
     """
 
     resource_type = "AWS::Wisdom::KnowledgeBase"
@@ -660,7 +660,7 @@ class KnowledgeBase(AWSObject):
 
 class MessageTemplateBodyContentProvider(AWSProperty):
     """
-    `MessageTemplateBodyContentProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html>`__
+    `MessageTemplateBodyContentProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-messagetemplatebodycontentprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -670,7 +670,7 @@ class MessageTemplateBodyContentProvider(AWSProperty):
 
 class EmailMessageTemplateContentBody(AWSProperty):
     """
-    `EmailMessageTemplateContentBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html>`__
+    `EmailMessageTemplateContentBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontentbody.html>`__
     """
 
     props: PropsDictType = {
@@ -681,7 +681,7 @@ class EmailMessageTemplateContentBody(AWSProperty):
 
 class EmailMessageTemplateHeader(AWSProperty):
     """
-    `EmailMessageTemplateHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplateheader.html>`__
+    `EmailMessageTemplateHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-emailmessagetemplateheader.html>`__
     """
 
     props: PropsDictType = {
@@ -692,7 +692,7 @@ class EmailMessageTemplateHeader(AWSProperty):
 
 class EmailMessageTemplateContent(AWSProperty):
     """
-    `EmailMessageTemplateContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html>`__
+    `EmailMessageTemplateContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-emailmessagetemplatecontent.html>`__
     """
 
     props: PropsDictType = {
@@ -704,7 +704,7 @@ class EmailMessageTemplateContent(AWSProperty):
 
 class SmsMessageTemplateContentBody(AWSProperty):
     """
-    `SmsMessageTemplateContentBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontentbody.html>`__
+    `SmsMessageTemplateContentBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontentbody.html>`__
     """
 
     props: PropsDictType = {
@@ -714,7 +714,7 @@ class SmsMessageTemplateContentBody(AWSProperty):
 
 class SmsMessageTemplateContent(AWSProperty):
     """
-    `SmsMessageTemplateContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontent.html>`__
+    `SmsMessageTemplateContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-smsmessagetemplatecontent.html>`__
     """
 
     props: PropsDictType = {
@@ -724,7 +724,7 @@ class SmsMessageTemplateContent(AWSProperty):
 
 class Content(AWSProperty):
     """
-    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html>`__
+    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-content.html>`__
     """
 
     props: PropsDictType = {
@@ -735,7 +735,7 @@ class Content(AWSProperty):
 
 class GroupingConfiguration(AWSProperty):
     """
-    `GroupingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-groupingconfiguration.html>`__
+    `GroupingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-groupingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -746,7 +746,7 @@ class GroupingConfiguration(AWSProperty):
 
 class AgentAttributes(AWSProperty):
     """
-    `AgentAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-agentattributes.html>`__
+    `AgentAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-agentattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -757,7 +757,7 @@ class AgentAttributes(AWSProperty):
 
 class CustomerProfileAttributes(AWSProperty):
     """
-    `CustomerProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-customerprofileattributes.html>`__
+    `CustomerProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-customerprofileattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -824,7 +824,7 @@ class CustomerProfileAttributes(AWSProperty):
 
 class SystemEndpointAttributes(AWSProperty):
     """
-    `SystemEndpointAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemendpointattributes.html>`__
+    `SystemEndpointAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-systemendpointattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -834,7 +834,7 @@ class SystemEndpointAttributes(AWSProperty):
 
 class SystemAttributes(AWSProperty):
     """
-    `SystemAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-systemattributes.html>`__
+    `SystemAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-systemattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -846,7 +846,7 @@ class SystemAttributes(AWSProperty):
 
 class MessageTemplateAttributes(AWSProperty):
     """
-    `MessageTemplateAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html>`__
+    `MessageTemplateAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wisdom-messagetemplate-messagetemplateattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -859,7 +859,7 @@ class MessageTemplateAttributes(AWSProperty):
 
 class MessageTemplate(AWSObject):
     """
-    `MessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplate.html>`__
+    `MessageTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-messagetemplate.html>`__
     """
 
     resource_type = "AWS::Wisdom::MessageTemplate"
@@ -879,7 +879,7 @@ class MessageTemplate(AWSObject):
 
 class MessageTemplateVersion(AWSObject):
     """
-    `MessageTemplateVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-messagetemplateversion.html>`__
+    `MessageTemplateVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wisdom-messagetemplateversion.html>`__
     """
 
     resource_type = "AWS::Wisdom::MessageTemplateVersion"

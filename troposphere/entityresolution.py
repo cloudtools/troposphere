@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Rule(AWSProperty):
 
 class IdMappingRuleBasedProperties(AWSProperty):
     """
-    `IdMappingRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html>`__
+    `IdMappingRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class IdMappingRuleBasedProperties(AWSProperty):
 
 class IntermediateSourceConfiguration(AWSProperty):
     """
-    `IntermediateSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-intermediatesourceconfiguration.html>`__
+    `IntermediateSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-intermediatesourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class IntermediateSourceConfiguration(AWSProperty):
 
 class ProviderProperties(AWSProperty):
     """
-    `ProviderProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-providerproperties.html>`__
+    `ProviderProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-providerproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class ProviderProperties(AWSProperty):
 
 class IdMappingTechniques(AWSProperty):
     """
-    `IdMappingTechniques <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html>`__
+    `IdMappingTechniques <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class IdMappingTechniques(AWSProperty):
 
 class IdMappingWorkflowInputSource(AWSProperty):
     """
-    `IdMappingWorkflowInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html>`__
+    `IdMappingWorkflowInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowinputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class IdMappingWorkflowInputSource(AWSProperty):
 
 class IdMappingWorkflowOutputSource(AWSProperty):
     """
-    `IdMappingWorkflowOutputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html>`__
+    `IdMappingWorkflowOutputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idmappingworkflow-idmappingworkflowoutputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class IdMappingWorkflowOutputSource(AWSProperty):
 
 class IdMappingWorkflow(AWSObject):
     """
-    `IdMappingWorkflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html>`__
+    `IdMappingWorkflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-entityresolution-idmappingworkflow.html>`__
     """
 
     resource_type = "AWS::EntityResolution::IdMappingWorkflow"
@@ -111,7 +111,7 @@ class IdMappingWorkflow(AWSObject):
 
 class NamespaceProviderProperties(AWSProperty):
     """
-    `NamespaceProviderProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespaceproviderproperties.html>`__
+    `NamespaceProviderProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idnamespace-namespaceproviderproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class NamespaceProviderProperties(AWSProperty):
 
 class NamespaceRuleBasedProperties(AWSProperty):
     """
-    `NamespaceRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html>`__
+    `NamespaceRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class NamespaceRuleBasedProperties(AWSProperty):
 
 class IdNamespaceIdMappingWorkflowProperties(AWSProperty):
     """
-    `IdNamespaceIdMappingWorkflowProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceidmappingworkflowproperties.html>`__
+    `IdNamespaceIdMappingWorkflowProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idnamespace-idnamespaceidmappingworkflowproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class IdNamespaceIdMappingWorkflowProperties(AWSProperty):
 
 class IdNamespaceInputSource(AWSProperty):
     """
-    `IdNamespaceInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceinputsource.html>`__
+    `IdNamespaceInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-idnamespace-idnamespaceinputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class IdNamespaceInputSource(AWSProperty):
 
 class IdNamespace(AWSObject):
     """
-    `IdNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idnamespace.html>`__
+    `IdNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-entityresolution-idnamespace.html>`__
     """
 
     resource_type = "AWS::EntityResolution::IdNamespace"
@@ -179,7 +179,7 @@ class IdNamespace(AWSObject):
 
 class IncrementalRunConfig(AWSProperty):
     """
-    `IncrementalRunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html>`__
+    `IncrementalRunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -189,7 +189,7 @@ class IncrementalRunConfig(AWSProperty):
 
 class InputSource(AWSProperty):
     """
-    `InputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html>`__
+    `InputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-inputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class InputSource(AWSProperty):
 
 class OutputAttribute(AWSProperty):
     """
-    `OutputAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputattribute.html>`__
+    `OutputAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-outputattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class OutputAttribute(AWSProperty):
 
 class OutputSource(AWSProperty):
     """
-    `OutputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html>`__
+    `OutputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-outputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -225,7 +225,7 @@ class OutputSource(AWSProperty):
 
 class RuleBasedProperties(AWSProperty):
     """
-    `RuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html>`__
+    `RuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -237,7 +237,7 @@ class RuleBasedProperties(AWSProperty):
 
 class ResolutionTechniques(AWSProperty):
     """
-    `ResolutionTechniques <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html>`__
+    `ResolutionTechniques <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html>`__
     """
 
     props: PropsDictType = {
@@ -249,7 +249,7 @@ class ResolutionTechniques(AWSProperty):
 
 class MatchingWorkflow(AWSObject):
     """
-    `MatchingWorkflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html>`__
+    `MatchingWorkflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-entityresolution-matchingworkflow.html>`__
     """
 
     resource_type = "AWS::EntityResolution::MatchingWorkflow"
@@ -268,7 +268,7 @@ class MatchingWorkflow(AWSObject):
 
 class PolicyStatement(AWSObject):
     """
-    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html>`__
+    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-entityresolution-policystatement.html>`__
     """
 
     resource_type = "AWS::EntityResolution::PolicyStatement"
@@ -285,7 +285,7 @@ class PolicyStatement(AWSObject):
 
 class SchemaInputAttribute(AWSProperty):
     """
-    `SchemaInputAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-schemamapping-schemainputattribute.html>`__
+    `SchemaInputAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-entityresolution-schemamapping-schemainputattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class SchemaInputAttribute(AWSProperty):
 
 class SchemaMapping(AWSObject):
     """
-    `SchemaMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html>`__
+    `SchemaMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-entityresolution-schemamapping.html>`__
     """
 
     resource_type = "AWS::EntityResolution::SchemaMapping"

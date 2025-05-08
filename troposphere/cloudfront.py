@@ -31,7 +31,7 @@ from .validators.cloudfront import (
 
 class AnycastIpList(AWSObject):
     """
-    `AnycastIpList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html>`__
+    `AnycastIpList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-anycastiplist.html>`__
     """
 
     resource_type = "AWS::CloudFront::AnycastIpList"
@@ -45,7 +45,7 @@ class AnycastIpList(AWSObject):
 
 class CacheCookiesConfig(AWSProperty):
     """
-    `CacheCookiesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html>`__
+    `CacheCookiesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cachepolicy-cookiesconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class CacheCookiesConfig(AWSProperty):
 
 class CacheHeadersConfig(AWSProperty):
     """
-    `CacheHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html>`__
+    `CacheHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cachepolicy-headersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class CacheHeadersConfig(AWSProperty):
 
 class CacheQueryStringsConfig(AWSProperty):
     """
-    `CacheQueryStringsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html>`__
+    `CacheQueryStringsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cachepolicy-querystringsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class CacheQueryStringsConfig(AWSProperty):
 
 class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
     """
-    `ParametersInCacheKeyAndForwardedToOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html>`__
+    `ParametersInCacheKeyAndForwardedToOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
 
 class CachePolicyConfig(AWSProperty):
     """
-    `CachePolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html>`__
+    `CachePolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class CachePolicyConfig(AWSProperty):
 
 class CachePolicy(AWSObject):
     """
-    `CachePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html>`__
+    `CachePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-cachepolicy.html>`__
     """
 
     resource_type = "AWS::CloudFront::CachePolicy"
@@ -122,7 +122,7 @@ class CachePolicy(AWSObject):
 
 class CloudFrontOriginAccessIdentityConfig(AWSProperty):
     """
-    `CloudFrontOriginAccessIdentityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html>`__
+    `CloudFrontOriginAccessIdentityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class CloudFrontOriginAccessIdentityConfig(AWSProperty):
 
 class CloudFrontOriginAccessIdentity(AWSObject):
     """
-    `CloudFrontOriginAccessIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html>`__
+    `CloudFrontOriginAccessIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html>`__
     """
 
     resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
@@ -147,7 +147,7 @@ class CloudFrontOriginAccessIdentity(AWSObject):
 
 class ConnectionGroup(AWSObject):
     """
-    `ConnectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html>`__
+    `ConnectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html>`__
     """
 
     resource_type = "AWS::CloudFront::ConnectionGroup"
@@ -163,7 +163,7 @@ class ConnectionGroup(AWSObject):
 
 class SingleHeaderPolicyConfig(AWSProperty):
     """
-    `SingleHeaderPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderpolicyconfig.html>`__
+    `SingleHeaderPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -174,7 +174,7 @@ class SingleHeaderPolicyConfig(AWSProperty):
 
 class SessionStickinessConfig(AWSProperty):
     """
-    `SessionStickinessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html>`__
+    `SessionStickinessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class SessionStickinessConfig(AWSProperty):
 
 class SingleWeightPolicyConfig(AWSProperty):
     """
-    `SingleWeightPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html>`__
+    `SingleWeightPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class SingleWeightPolicyConfig(AWSProperty):
 
 class SingleHeaderConfig(AWSProperty):
     """
-    `SingleHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>`__
+    `SingleHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class SingleHeaderConfig(AWSProperty):
 
 class SingleWeightConfig(AWSProperty):
     """
-    `SingleWeightConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html>`__
+    `SingleWeightConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class SingleWeightConfig(AWSProperty):
 
 class TrafficConfig(AWSProperty):
     """
-    `TrafficConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html>`__
+    `TrafficConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class TrafficConfig(AWSProperty):
 
 class ContinuousDeploymentPolicyConfig(AWSProperty):
     """
-    `ContinuousDeploymentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html>`__
+    `ContinuousDeploymentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class ContinuousDeploymentPolicyConfig(AWSProperty):
 
 class ContinuousDeploymentPolicy(AWSObject):
     """
-    `ContinuousDeploymentPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html>`__
+    `ContinuousDeploymentPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-continuousdeploymentpolicy.html>`__
     """
 
     resource_type = "AWS::CloudFront::ContinuousDeploymentPolicy"
@@ -257,7 +257,7 @@ class ContinuousDeploymentPolicy(AWSObject):
 
 class Cookies(AWSProperty):
     """
-    `Cookies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html>`__
+    `Cookies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-cookies.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class Cookies(AWSProperty):
 
 class ForwardedValues(AWSProperty):
     """
-    `ForwardedValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html>`__
+    `ForwardedValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-forwardedvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class ForwardedValues(AWSProperty):
 
 class FunctionAssociation(AWSProperty):
     """
-    `FunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html>`__
+    `FunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-functionassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class FunctionAssociation(AWSProperty):
 
 class GrpcConfig(AWSProperty):
     """
-    `GrpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-grpcconfig.html>`__
+    `GrpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-grpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class GrpcConfig(AWSProperty):
 
 class LambdaFunctionAssociation(AWSProperty):
     """
-    `LambdaFunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html>`__
+    `LambdaFunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-lambdafunctionassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -314,7 +314,7 @@ class LambdaFunctionAssociation(AWSProperty):
 
 class CacheBehavior(AWSProperty):
     """
-    `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html>`__
+    `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-cachebehavior.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +344,7 @@ class CacheBehavior(AWSProperty):
 
 class CustomErrorResponse(AWSProperty):
     """
-    `CustomErrorResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html>`__
+    `CustomErrorResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-customerrorresponse.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class CustomErrorResponse(AWSProperty):
 
 class DefaultCacheBehavior(AWSProperty):
     """
-    `DefaultCacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html>`__
+    `DefaultCacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-defaultcachebehavior.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class DefaultCacheBehavior(AWSProperty):
 
 class LegacyCustomOrigin(AWSProperty):
     """
-    `LegacyCustomOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html>`__
+    `LegacyCustomOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-legacycustomorigin.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class LegacyCustomOrigin(AWSProperty):
 
 class LegacyS3Origin(AWSProperty):
     """
-    `LegacyS3Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html>`__
+    `LegacyS3Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-legacys3origin.html>`__
     """
 
     props: PropsDictType = {
@@ -411,7 +411,7 @@ class LegacyS3Origin(AWSProperty):
 
 class Logging(AWSProperty):
     """
-    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html>`__
+    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-logging.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class Logging(AWSProperty):
 
 class CustomOriginConfig(AWSProperty):
     """
-    `CustomOriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html>`__
+    `CustomOriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-customoriginconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class CustomOriginConfig(AWSProperty):
 
 class OriginCustomHeader(AWSProperty):
     """
-    `OriginCustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html>`__
+    `OriginCustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origincustomheader.html>`__
     """
 
     props: PropsDictType = {
@@ -449,7 +449,7 @@ class OriginCustomHeader(AWSProperty):
 
 class OriginShield(AWSProperty):
     """
-    `OriginShield <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html>`__
+    `OriginShield <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-originshield.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class OriginShield(AWSProperty):
 
 class S3OriginConfig(AWSProperty):
     """
-    `S3OriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html>`__
+    `S3OriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-s3originconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -470,7 +470,7 @@ class S3OriginConfig(AWSProperty):
 
 class VpcOriginConfig(AWSProperty):
     """
-    `VpcOriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html>`__
+    `VpcOriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-vpcoriginconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -482,7 +482,7 @@ class VpcOriginConfig(AWSProperty):
 
 class Origin(AWSProperty):
     """
-    `Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html>`__
+    `Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origin.html>`__
     """
 
     props: PropsDictType = {
@@ -502,7 +502,7 @@ class Origin(AWSProperty):
 
 class StatusCodes(AWSProperty):
     """
-    `StatusCodes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html>`__
+    `StatusCodes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-statuscodes.html>`__
     """
 
     props: PropsDictType = {
@@ -513,7 +513,7 @@ class StatusCodes(AWSProperty):
 
 class OriginGroupFailoverCriteria(AWSProperty):
     """
-    `OriginGroupFailoverCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html>`__
+    `OriginGroupFailoverCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -523,7 +523,7 @@ class OriginGroupFailoverCriteria(AWSProperty):
 
 class OriginGroupMember(AWSProperty):
     """
-    `OriginGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html>`__
+    `OriginGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origingroupmember.html>`__
     """
 
     props: PropsDictType = {
@@ -533,7 +533,7 @@ class OriginGroupMember(AWSProperty):
 
 class OriginGroupMembers(AWSProperty):
     """
-    `OriginGroupMembers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html>`__
+    `OriginGroupMembers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origingroupmembers.html>`__
     """
 
     props: PropsDictType = {
@@ -544,7 +544,7 @@ class OriginGroupMembers(AWSProperty):
 
 class OriginGroup(AWSProperty):
     """
-    `OriginGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html>`__
+    `OriginGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origingroup.html>`__
     """
 
     props: PropsDictType = {
@@ -557,7 +557,7 @@ class OriginGroup(AWSProperty):
 
 class OriginGroups(AWSProperty):
     """
-    `OriginGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html>`__
+    `OriginGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-origingroups.html>`__
     """
 
     props: PropsDictType = {
@@ -568,7 +568,7 @@ class OriginGroups(AWSProperty):
 
 class GeoRestriction(AWSProperty):
     """
-    `GeoRestriction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html>`__
+    `GeoRestriction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-georestriction.html>`__
     """
 
     props: PropsDictType = {
@@ -579,7 +579,7 @@ class GeoRestriction(AWSProperty):
 
 class Restrictions(AWSProperty):
     """
-    `Restrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html>`__
+    `Restrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-restrictions.html>`__
     """
 
     props: PropsDictType = {
@@ -589,7 +589,7 @@ class Restrictions(AWSProperty):
 
 class StringSchema(AWSProperty):
     """
-    `StringSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-stringschema.html>`__
+    `StringSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-stringschema.html>`__
     """
 
     props: PropsDictType = {
@@ -601,7 +601,7 @@ class StringSchema(AWSProperty):
 
 class Definition(AWSProperty):
     """
-    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-definition.html>`__
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-definition.html>`__
     """
 
     props: PropsDictType = {
@@ -611,7 +611,7 @@ class Definition(AWSProperty):
 
 class ParameterDefinition(AWSProperty):
     """
-    `ParameterDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-parameterdefinition.html>`__
+    `ParameterDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-parameterdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -622,7 +622,7 @@ class ParameterDefinition(AWSProperty):
 
 class TenantConfig(AWSProperty):
     """
-    `TenantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-tenantconfig.html>`__
+    `TenantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-tenantconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -632,7 +632,7 @@ class TenantConfig(AWSProperty):
 
 class ViewerCertificate(AWSProperty):
     """
-    `ViewerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html>`__
+    `ViewerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-viewercertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -646,7 +646,7 @@ class ViewerCertificate(AWSProperty):
 
 class DistributionConfig(AWSProperty):
     """
-    `DistributionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html>`__
+    `DistributionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distribution-distributionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -679,7 +679,7 @@ class DistributionConfig(AWSProperty):
 
 class Distribution(AWSObject):
     """
-    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html>`__
+    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-distribution.html>`__
     """
 
     resource_type = "AWS::CloudFront::Distribution"
@@ -692,7 +692,7 @@ class Distribution(AWSObject):
 
 class Certificate(AWSProperty):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-certificate.html>`__
     """
 
     props: PropsDictType = {
@@ -702,7 +702,7 @@ class Certificate(AWSProperty):
 
 class GeoRestrictionCustomization(AWSProperty):
     """
-    `GeoRestrictionCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-georestrictioncustomization.html>`__
+    `GeoRestrictionCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-georestrictioncustomization.html>`__
     """
 
     props: PropsDictType = {
@@ -713,7 +713,7 @@ class GeoRestrictionCustomization(AWSProperty):
 
 class WebAclCustomization(AWSProperty):
     """
-    `WebAclCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-webaclcustomization.html>`__
+    `WebAclCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-webaclcustomization.html>`__
     """
 
     props: PropsDictType = {
@@ -724,7 +724,7 @@ class WebAclCustomization(AWSProperty):
 
 class Customizations(AWSProperty):
     """
-    `Customizations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-customizations.html>`__
+    `Customizations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-customizations.html>`__
     """
 
     props: PropsDictType = {
@@ -736,7 +736,7 @@ class Customizations(AWSProperty):
 
 class ManagedCertificateRequest(AWSProperty):
     """
-    `ManagedCertificateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-managedcertificaterequest.html>`__
+    `ManagedCertificateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-managedcertificaterequest.html>`__
     """
 
     props: PropsDictType = {
@@ -748,7 +748,7 @@ class ManagedCertificateRequest(AWSProperty):
 
 class Parameter(AWSProperty):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -759,7 +759,7 @@ class Parameter(AWSProperty):
 
 class DistributionTenant(AWSObject):
     """
-    `DistributionTenant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html>`__
+    `DistributionTenant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-distributiontenant.html>`__
     """
 
     resource_type = "AWS::CloudFront::DistributionTenant"
@@ -779,7 +779,7 @@ class DistributionTenant(AWSObject):
 
 class KeyValueStoreAssociation(AWSProperty):
     """
-    `KeyValueStoreAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html>`__
+    `KeyValueStoreAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-function-keyvaluestoreassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -789,7 +789,7 @@ class KeyValueStoreAssociation(AWSProperty):
 
 class FunctionConfig(AWSProperty):
     """
-    `FunctionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html>`__
+    `FunctionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-function-functionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -801,7 +801,7 @@ class FunctionConfig(AWSProperty):
 
 class FunctionMetadata(AWSProperty):
     """
-    `FunctionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html>`__
+    `FunctionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-function-functionmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -811,7 +811,7 @@ class FunctionMetadata(AWSProperty):
 
 class Function(AWSObject):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-function.html>`__
     """
 
     resource_type = "AWS::CloudFront::Function"
@@ -827,7 +827,7 @@ class Function(AWSObject):
 
 class KeyGroupConfig(AWSProperty):
     """
-    `KeyGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html>`__
+    `KeyGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-keygroup-keygroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -839,7 +839,7 @@ class KeyGroupConfig(AWSProperty):
 
 class KeyGroup(AWSObject):
     """
-    `KeyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html>`__
+    `KeyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-keygroup.html>`__
     """
 
     resource_type = "AWS::CloudFront::KeyGroup"
@@ -851,7 +851,7 @@ class KeyGroup(AWSObject):
 
 class ImportSource(AWSProperty):
     """
-    `ImportSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keyvaluestore-importsource.html>`__
+    `ImportSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-keyvaluestore-importsource.html>`__
     """
 
     props: PropsDictType = {
@@ -862,7 +862,7 @@ class ImportSource(AWSProperty):
 
 class KeyValueStore(AWSObject):
     """
-    `KeyValueStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html>`__
+    `KeyValueStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-keyvaluestore.html>`__
     """
 
     resource_type = "AWS::CloudFront::KeyValueStore"
@@ -876,7 +876,7 @@ class KeyValueStore(AWSObject):
 
 class RealtimeMetricsSubscriptionConfig(AWSProperty):
     """
-    `RealtimeMetricsSubscriptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>`__
+    `RealtimeMetricsSubscriptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -886,7 +886,7 @@ class RealtimeMetricsSubscriptionConfig(AWSProperty):
 
 class MonitoringSubscriptionProperty(AWSProperty):
     """
-    `MonitoringSubscriptionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html>`__
+    `MonitoringSubscriptionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html>`__
     """
 
     props: PropsDictType = {
@@ -896,7 +896,7 @@ class MonitoringSubscriptionProperty(AWSProperty):
 
 class MonitoringSubscription(AWSObject):
     """
-    `MonitoringSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html>`__
+    `MonitoringSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-monitoringsubscription.html>`__
     """
 
     resource_type = "AWS::CloudFront::MonitoringSubscription"
@@ -909,7 +909,7 @@ class MonitoringSubscription(AWSObject):
 
 class OriginAccessControlConfig(AWSProperty):
     """
-    `OriginAccessControlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html>`__
+    `OriginAccessControlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -923,7 +923,7 @@ class OriginAccessControlConfig(AWSProperty):
 
 class OriginAccessControl(AWSObject):
     """
-    `OriginAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html>`__
+    `OriginAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html>`__
     """
 
     resource_type = "AWS::CloudFront::OriginAccessControl"
@@ -935,7 +935,7 @@ class OriginAccessControl(AWSObject):
 
 class OriginRequestCookiesConfig(AWSProperty):
     """
-    `OriginRequestCookiesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html>`__
+    `OriginRequestCookiesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -946,7 +946,7 @@ class OriginRequestCookiesConfig(AWSProperty):
 
 class OriginRequestHeadersConfig(AWSProperty):
     """
-    `OriginRequestHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html>`__
+    `OriginRequestHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-originrequestpolicy-headersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -957,7 +957,7 @@ class OriginRequestHeadersConfig(AWSProperty):
 
 class OriginRequestQueryStringsConfig(AWSProperty):
     """
-    `OriginRequestQueryStringsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html>`__
+    `OriginRequestQueryStringsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -968,7 +968,7 @@ class OriginRequestQueryStringsConfig(AWSProperty):
 
 class OriginRequestPolicyConfig(AWSProperty):
     """
-    `OriginRequestPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html>`__
+    `OriginRequestPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -982,7 +982,7 @@ class OriginRequestPolicyConfig(AWSProperty):
 
 class OriginRequestPolicy(AWSObject):
     """
-    `OriginRequestPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html>`__
+    `OriginRequestPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originrequestpolicy.html>`__
     """
 
     resource_type = "AWS::CloudFront::OriginRequestPolicy"
@@ -994,7 +994,7 @@ class OriginRequestPolicy(AWSObject):
 
 class PublicKeyConfig(AWSProperty):
     """
-    `PublicKeyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html>`__
+    `PublicKeyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-publickey-publickeyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1007,7 +1007,7 @@ class PublicKeyConfig(AWSProperty):
 
 class PublicKey(AWSObject):
     """
-    `PublicKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html>`__
+    `PublicKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-publickey.html>`__
     """
 
     resource_type = "AWS::CloudFront::PublicKey"
@@ -1019,7 +1019,7 @@ class PublicKey(AWSObject):
 
 class KinesisStreamConfig(AWSProperty):
     """
-    `KinesisStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html>`__
+    `KinesisStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1030,7 +1030,7 @@ class KinesisStreamConfig(AWSProperty):
 
 class EndPoint(AWSProperty):
     """
-    `EndPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html>`__
+    `EndPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-realtimelogconfig-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -1041,7 +1041,7 @@ class EndPoint(AWSProperty):
 
 class RealtimeLogConfig(AWSObject):
     """
-    `RealtimeLogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html>`__
+    `RealtimeLogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-realtimelogconfig.html>`__
     """
 
     resource_type = "AWS::CloudFront::RealtimeLogConfig"
@@ -1056,7 +1056,7 @@ class RealtimeLogConfig(AWSObject):
 
 class AccessControlAllowHeaders(AWSProperty):
     """
-    `AccessControlAllowHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowheaders.html>`__
+    `AccessControlAllowHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -1066,7 +1066,7 @@ class AccessControlAllowHeaders(AWSProperty):
 
 class AccessControlAllowMethods(AWSProperty):
     """
-    `AccessControlAllowMethods <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html>`__
+    `AccessControlAllowMethods <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-accesscontrolallowmethods.html>`__
     """
 
     props: PropsDictType = {
@@ -1076,7 +1076,7 @@ class AccessControlAllowMethods(AWSProperty):
 
 class AccessControlAllowOrigins(AWSProperty):
     """
-    `AccessControlAllowOrigins <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolalloworigins.html>`__
+    `AccessControlAllowOrigins <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-accesscontrolalloworigins.html>`__
     """
 
     props: PropsDictType = {
@@ -1086,7 +1086,7 @@ class AccessControlAllowOrigins(AWSProperty):
 
 class AccessControlExposeHeaders(AWSProperty):
     """
-    `AccessControlExposeHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html>`__
+    `AccessControlExposeHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-accesscontrolexposeheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -1096,7 +1096,7 @@ class AccessControlExposeHeaders(AWSProperty):
 
 class CorsConfig(AWSProperty):
     """
-    `CorsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html>`__
+    `CorsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-corsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1112,7 +1112,7 @@ class CorsConfig(AWSProperty):
 
 class CustomHeader(AWSProperty):
     """
-    `CustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheader.html>`__
+    `CustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-customheader.html>`__
     """
 
     props: PropsDictType = {
@@ -1124,7 +1124,7 @@ class CustomHeader(AWSProperty):
 
 class CustomHeadersConfig(AWSProperty):
     """
-    `CustomHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html>`__
+    `CustomHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-customheadersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1134,7 +1134,7 @@ class CustomHeadersConfig(AWSProperty):
 
 class RemoveHeader(AWSProperty):
     """
-    `RemoveHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html>`__
+    `RemoveHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-removeheader.html>`__
     """
 
     props: PropsDictType = {
@@ -1144,7 +1144,7 @@ class RemoveHeader(AWSProperty):
 
 class RemoveHeadersConfig(AWSProperty):
     """
-    `RemoveHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html>`__
+    `RemoveHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1154,7 +1154,7 @@ class RemoveHeadersConfig(AWSProperty):
 
 class ContentSecurityPolicy(AWSProperty):
     """
-    `ContentSecurityPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html>`__
+    `ContentSecurityPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -1165,7 +1165,7 @@ class ContentSecurityPolicy(AWSProperty):
 
 class ContentTypeOptions(AWSProperty):
     """
-    `ContentTypeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html>`__
+    `ContentTypeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-contenttypeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1175,7 +1175,7 @@ class ContentTypeOptions(AWSProperty):
 
 class FrameOptions(AWSProperty):
     """
-    `FrameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html>`__
+    `FrameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-frameoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1186,7 +1186,7 @@ class FrameOptions(AWSProperty):
 
 class ReferrerPolicy(AWSProperty):
     """
-    `ReferrerPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html>`__
+    `ReferrerPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-referrerpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -1197,7 +1197,7 @@ class ReferrerPolicy(AWSProperty):
 
 class StrictTransportSecurity(AWSProperty):
     """
-    `StrictTransportSecurity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html>`__
+    `StrictTransportSecurity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-stricttransportsecurity.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1210,7 @@ class StrictTransportSecurity(AWSProperty):
 
 class XSSProtection(AWSProperty):
     """
-    `XSSProtection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html>`__
+    `XSSProtection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-xssprotection.html>`__
     """
 
     props: PropsDictType = {
@@ -1223,7 +1223,7 @@ class XSSProtection(AWSProperty):
 
 class SecurityHeadersConfig(AWSProperty):
     """
-    `SecurityHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html>`__
+    `SecurityHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-securityheadersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1238,7 +1238,7 @@ class SecurityHeadersConfig(AWSProperty):
 
 class ServerTimingHeadersConfig(AWSProperty):
     """
-    `ServerTimingHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-servertimingheadersconfig.html>`__
+    `ServerTimingHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-servertimingheadersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1249,7 +1249,7 @@ class ServerTimingHeadersConfig(AWSProperty):
 
 class ResponseHeadersPolicyConfig(AWSProperty):
     """
-    `ResponseHeadersPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html>`__
+    `ResponseHeadersPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1265,7 +1265,7 @@ class ResponseHeadersPolicyConfig(AWSProperty):
 
 class ResponseHeadersPolicy(AWSObject):
     """
-    `ResponseHeadersPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-responseheaderspolicy.html>`__
+    `ResponseHeadersPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-responseheaderspolicy.html>`__
     """
 
     resource_type = "AWS::CloudFront::ResponseHeadersPolicy"
@@ -1277,7 +1277,7 @@ class ResponseHeadersPolicy(AWSObject):
 
 class S3Origin(AWSProperty):
     """
-    `S3Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html>`__
+    `S3Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-streamingdistribution-s3origin.html>`__
     """
 
     props: PropsDictType = {
@@ -1288,7 +1288,7 @@ class S3Origin(AWSProperty):
 
 class StreamingDistributioniLogging(AWSProperty):
     """
-    `StreamingDistributioniLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html>`__
+    `StreamingDistributioniLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-streamingdistribution-logging.html>`__
     """
 
     props: PropsDictType = {
@@ -1300,7 +1300,7 @@ class StreamingDistributioniLogging(AWSProperty):
 
 class TrustedSigners(AWSProperty):
     """
-    `TrustedSigners <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html>`__
+    `TrustedSigners <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-streamingdistribution-trustedsigners.html>`__
     """
 
     props: PropsDictType = {
@@ -1311,7 +1311,7 @@ class TrustedSigners(AWSProperty):
 
 class StreamingDistributionConfig(AWSProperty):
     """
-    `StreamingDistributionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html>`__
+    `StreamingDistributionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1327,7 +1327,7 @@ class StreamingDistributionConfig(AWSProperty):
 
 class StreamingDistribution(AWSObject):
     """
-    `StreamingDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html>`__
+    `StreamingDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-streamingdistribution.html>`__
     """
 
     resource_type = "AWS::CloudFront::StreamingDistribution"
@@ -1340,7 +1340,7 @@ class StreamingDistribution(AWSObject):
 
 class VpcOriginEndpointConfig(AWSProperty):
     """
-    `VpcOriginEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-vpcorigin-vpcoriginendpointconfig.html>`__
+    `VpcOriginEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-vpcorigin-vpcoriginendpointconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1355,7 +1355,7 @@ class VpcOriginEndpointConfig(AWSProperty):
 
 class VpcOrigin(AWSObject):
     """
-    `VpcOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-vpcorigin.html>`__
+    `VpcOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-vpcorigin.html>`__
     """
 
     resource_type = "AWS::CloudFront::VpcOrigin"
@@ -1368,7 +1368,7 @@ class VpcOrigin(AWSObject):
 
 class AnycastIpListProperty(AWSProperty):
     """
-    `AnycastIpListProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html>`__
+    `AnycastIpListProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-anycastiplist-anycastiplist.html>`__
     """
 
     props: PropsDictType = {
@@ -1384,7 +1384,7 @@ class AnycastIpListProperty(AWSProperty):
 
 class DomainResult(AWSProperty):
     """
-    `DomainResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-domainresult.html>`__
+    `DomainResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudfront-distributiontenant-domainresult.html>`__
     """
 
     props: PropsDictType = {

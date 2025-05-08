@@ -19,7 +19,7 @@ from .validators.cloudwatch import (
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-alarm-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -30,7 +30,7 @@ class MetricDimension(AWSProperty):
 
 class Metric(AWSProperty):
     """
-    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metric.html>`__
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-metric.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class Metric(AWSProperty):
 
 class MetricStat(AWSProperty):
     """
-    `MetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricstat.html>`__
+    `MetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-metricstat.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class MetricStat(AWSProperty):
 
 class MetricDataQuery(AWSProperty):
     """
-    `MetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricdataquery.html>`__
+    `MetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-metricdataquery.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class MetricDataQuery(AWSProperty):
 
 class Alarm(AWSObject):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-alarm.html>`__
     """
 
     resource_type = "AWS::CloudWatch::Alarm"
@@ -107,7 +107,7 @@ class Alarm(AWSObject):
 
 class Range(AWSProperty):
     """
-    `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html>`__
+    `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-range.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class Range(AWSProperty):
 
 class Configuration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class Configuration(AWSProperty):
 
 class MetricCharacteristics(AWSProperty):
     """
-    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
+    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class MetricCharacteristics(AWSProperty):
 
 class MetricMathAnomalyDetector(AWSProperty):
     """
-    `MetricMathAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html>`__
+    `MetricMathAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-metricmathanomalydetector.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class MetricMathAnomalyDetector(AWSProperty):
 
 class SingleMetricAnomalyDetector(AWSProperty):
     """
-    `SingleMetricAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html>`__
+    `SingleMetricAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class SingleMetricAnomalyDetector(AWSProperty):
 
 class AnomalyDetector(AWSObject):
     """
-    `AnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-anomalydetector.html>`__
+    `AnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-anomalydetector.html>`__
     """
 
     resource_type = "AWS::CloudWatch::AnomalyDetector"
@@ -182,7 +182,7 @@ class AnomalyDetector(AWSObject):
 
 class CompositeAlarm(AWSObject):
     """
-    `CompositeAlarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html>`__
+    `CompositeAlarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-compositealarm.html>`__
     """
 
     resource_type = "AWS::CloudWatch::CompositeAlarm"
@@ -204,7 +204,7 @@ class CompositeAlarm(AWSObject):
 
 class Dashboard(AWSObject):
     """
-    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html>`__
+    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-dashboard.html>`__
     """
 
     resource_type = "AWS::CloudWatch::Dashboard"
@@ -220,7 +220,7 @@ class Dashboard(AWSObject):
 
 class InsightRule(AWSObject):
     """
-    `InsightRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html>`__
+    `InsightRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-insightrule.html>`__
     """
 
     resource_type = "AWS::CloudWatch::InsightRule"
@@ -235,7 +235,7 @@ class InsightRule(AWSObject):
 
 class MetricStreamFilter(AWSProperty):
     """
-    `MetricStreamFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html>`__
+    `MetricStreamFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-metricstream-metricstreamfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -246,7 +246,7 @@ class MetricStreamFilter(AWSProperty):
 
 class MetricStreamStatisticsMetric(AWSProperty):
     """
-    `MetricStreamStatisticsMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsmetric.html>`__
+    `MetricStreamStatisticsMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-metricstream-metricstreamstatisticsmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class MetricStreamStatisticsMetric(AWSProperty):
 
 class MetricStreamStatisticsConfiguration(AWSProperty):
     """
-    `MetricStreamStatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html>`__
+    `MetricStreamStatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudwatch-metricstream-metricstreamstatisticsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class MetricStreamStatisticsConfiguration(AWSProperty):
 
 class MetricStream(AWSObject):
     """
-    `MetricStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html>`__
+    `MetricStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-metricstream.html>`__
     """
 
     resource_type = "AWS::CloudWatch::MetricStream"

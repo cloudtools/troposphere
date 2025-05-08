@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class CsvOptions(AWSProperty):
     """
-    `CsvOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html>`__
+    `CsvOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-csvoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class CsvOptions(AWSProperty):
 
 class ExcelOptions(AWSProperty):
     """
-    `ExcelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html>`__
+    `ExcelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-exceloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class ExcelOptions(AWSProperty):
 
 class JsonOptions(AWSProperty):
     """
-    `JsonOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html>`__
+    `JsonOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-jsonoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class JsonOptions(AWSProperty):
 
 class FormatOptions(AWSProperty):
     """
-    `FormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html>`__
+    `FormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-formatoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class FormatOptions(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class S3Location(AWSProperty):
 
 class DataCatalogInputDefinition(AWSProperty):
     """
-    `DataCatalogInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html>`__
+    `DataCatalogInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-datacataloginputdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class DataCatalogInputDefinition(AWSProperty):
 
 class Input(AWSProperty):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-input.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class Input(AWSProperty):
 
 class FilesLimit(AWSProperty):
     """
-    `FilesLimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html>`__
+    `FilesLimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-fileslimit.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class FilesLimit(AWSProperty):
 
 class FilterValue(AWSProperty):
     """
-    `FilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html>`__
+    `FilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-filtervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class FilterValue(AWSProperty):
 
 class FilterExpression(AWSProperty):
     """
-    `FilterExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html>`__
+    `FilterExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-filterexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class FilterExpression(AWSProperty):
 
 class DatetimeOptions(AWSProperty):
     """
-    `DatetimeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html>`__
+    `DatetimeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-datetimeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class DatetimeOptions(AWSProperty):
 
 class DatasetParameter(AWSProperty):
     """
-    `DatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html>`__
+    `DatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-datasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class DatasetParameter(AWSProperty):
 
 class PathParameter(AWSProperty):
     """
-    `PathParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html>`__
+    `PathParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-pathparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class PathParameter(AWSProperty):
 
 class PathOptions(AWSProperty):
     """
-    `PathOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html>`__
+    `PathOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-pathoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class PathOptions(AWSProperty):
 
 class Dataset(AWSObject):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-dataset.html>`__
     """
 
     resource_type = "AWS::DataBrew::Dataset"
@@ -193,7 +193,7 @@ class Dataset(AWSObject):
 
 class DatabaseTableOutputOptions(AWSProperty):
     """
-    `DatabaseTableOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html>`__
+    `DatabaseTableOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-databasetableoutputoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -204,7 +204,7 @@ class DatabaseTableOutputOptions(AWSProperty):
 
 class JobS3Location(AWSProperty):
     """
-    `JobS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html>`__
+    `JobS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -216,7 +216,7 @@ class JobS3Location(AWSProperty):
 
 class S3TableOutputOptions(AWSProperty):
     """
-    `S3TableOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html>`__
+    `S3TableOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-s3tableoutputoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -226,7 +226,7 @@ class S3TableOutputOptions(AWSProperty):
 
 class DataCatalogOutput(AWSProperty):
     """
-    `DataCatalogOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html>`__
+    `DataCatalogOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-datacatalogoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -241,7 +241,7 @@ class DataCatalogOutput(AWSProperty):
 
 class DatabaseOutput(AWSProperty):
     """
-    `DatabaseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html>`__
+    `DatabaseOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-databaseoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -253,7 +253,7 @@ class DatabaseOutput(AWSProperty):
 
 class JobRecipe(AWSProperty):
     """
-    `JobRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html>`__
+    `JobRecipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-recipe.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class JobRecipe(AWSProperty):
 
 class JobSample(AWSProperty):
     """
-    `JobSample <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html>`__
+    `JobSample <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-jobsample.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class JobSample(AWSProperty):
 
 class CsvOutputOptions(AWSProperty):
     """
-    `CsvOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html>`__
+    `CsvOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-csvoutputoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class CsvOutputOptions(AWSProperty):
 
 class OutputFormatOptions(AWSProperty):
     """
-    `OutputFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html>`__
+    `OutputFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-outputformatoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -295,7 +295,7 @@ class OutputFormatOptions(AWSProperty):
 
 class Output(AWSProperty):
     """
-    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html>`__
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-output.html>`__
     """
 
     props: PropsDictType = {
@@ -311,7 +311,7 @@ class Output(AWSProperty):
 
 class OutputLocation(AWSProperty):
     """
-    `OutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html>`__
+    `OutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-outputlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -323,7 +323,7 @@ class OutputLocation(AWSProperty):
 
 class ColumnSelector(AWSProperty):
     """
-    `ColumnSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-columnselector.html>`__
+    `ColumnSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-ruleset-columnselector.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class ColumnSelector(AWSProperty):
 
 class StatisticOverride(AWSProperty):
     """
-    `StatisticOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html>`__
+    `StatisticOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-statisticoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -345,7 +345,7 @@ class StatisticOverride(AWSProperty):
 
 class StatisticsConfiguration(AWSProperty):
     """
-    `StatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html>`__
+    `StatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-statisticsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class StatisticsConfiguration(AWSProperty):
 
 class ColumnStatisticsConfiguration(AWSProperty):
     """
-    `ColumnStatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html>`__
+    `ColumnStatisticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-columnstatisticsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -367,7 +367,7 @@ class ColumnStatisticsConfiguration(AWSProperty):
 
 class AllowedStatistics(AWSProperty):
     """
-    `AllowedStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-allowedstatistics.html>`__
+    `AllowedStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-allowedstatistics.html>`__
     """
 
     props: PropsDictType = {
@@ -377,7 +377,7 @@ class AllowedStatistics(AWSProperty):
 
 class EntityDetectorConfiguration(AWSProperty):
     """
-    `EntityDetectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-entitydetectorconfiguration.html>`__
+    `EntityDetectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-entitydetectorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -388,7 +388,7 @@ class EntityDetectorConfiguration(AWSProperty):
 
 class ProfileConfiguration(AWSProperty):
     """
-    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html>`__
+    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-profileconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class ProfileConfiguration(AWSProperty):
 
 class ValidationConfiguration(AWSProperty):
     """
-    `ValidationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-validationconfiguration.html>`__
+    `ValidationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-job-validationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -412,7 +412,7 @@ class ValidationConfiguration(AWSProperty):
 
 class Job(AWSObject):
     """
-    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html>`__
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-job.html>`__
     """
 
     resource_type = "AWS::DataBrew::Job"
@@ -443,7 +443,7 @@ class Job(AWSObject):
 
 class Sample(AWSProperty):
     """
-    `Sample <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html>`__
+    `Sample <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-project-sample.html>`__
     """
 
     props: PropsDictType = {
@@ -454,7 +454,7 @@ class Sample(AWSProperty):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-project.html>`__
     """
 
     resource_type = "AWS::DataBrew::Project"
@@ -471,7 +471,7 @@ class Project(AWSObject):
 
 class SecondaryInput(AWSProperty):
     """
-    `SecondaryInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html>`__
+    `SecondaryInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-secondaryinput.html>`__
     """
 
     props: PropsDictType = {
@@ -482,7 +482,7 @@ class SecondaryInput(AWSProperty):
 
 class RecipeParameters(AWSProperty):
     """
-    `RecipeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html>`__
+    `RecipeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-recipeparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -592,7 +592,7 @@ class RecipeParameters(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-action.html>`__
     """
 
     props: PropsDictType = {
@@ -603,7 +603,7 @@ class Action(AWSProperty):
 
 class ConditionExpression(AWSProperty):
     """
-    `ConditionExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html>`__
+    `ConditionExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-conditionexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -615,7 +615,7 @@ class ConditionExpression(AWSProperty):
 
 class RecipeStep(AWSProperty):
     """
-    `RecipeStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html>`__
+    `RecipeStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-recipe-recipestep.html>`__
     """
 
     props: PropsDictType = {
@@ -626,7 +626,7 @@ class RecipeStep(AWSProperty):
 
 class Recipe(AWSObject):
     """
-    `Recipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html>`__
+    `Recipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-recipe.html>`__
     """
 
     resource_type = "AWS::DataBrew::Recipe"
@@ -641,7 +641,7 @@ class Recipe(AWSObject):
 
 class SubstitutionValue(AWSProperty):
     """
-    `SubstitutionValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-substitutionvalue.html>`__
+    `SubstitutionValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-ruleset-substitutionvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -652,7 +652,7 @@ class SubstitutionValue(AWSProperty):
 
 class Threshold(AWSProperty):
     """
-    `Threshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-threshold.html>`__
+    `Threshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-ruleset-threshold.html>`__
     """
 
     props: PropsDictType = {
@@ -664,7 +664,7 @@ class Threshold(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-ruleset-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-ruleset-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -679,7 +679,7 @@ class Rule(AWSProperty):
 
 class Ruleset(AWSObject):
     """
-    `Ruleset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html>`__
+    `Ruleset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-ruleset.html>`__
     """
 
     resource_type = "AWS::DataBrew::Ruleset"
@@ -695,7 +695,7 @@ class Ruleset(AWSObject):
 
 class Schedule(AWSObject):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-databrew-schedule.html>`__
     """
 
     resource_type = "AWS::DataBrew::Schedule"
@@ -710,7 +710,7 @@ class Schedule(AWSObject):
 
 class DatabaseInputDefinition(AWSProperty):
     """
-    `DatabaseInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html>`__
+    `DatabaseInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-databaseinputdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -723,7 +723,7 @@ class DatabaseInputDefinition(AWSProperty):
 
 class Metadata(AWSProperty):
     """
-    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html>`__
+    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-databrew-dataset-metadata.html>`__
     """
 
     props: PropsDictType = {

@@ -32,7 +32,7 @@ from .validators.ecs import (
 
 class ManagedScaling(AWSProperty):
     """
-    `ManagedScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html>`__
+    `ManagedScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-capacityprovider-managedscaling.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class ManagedScaling(AWSProperty):
 
 class AutoScalingGroupProvider(AWSProperty):
     """
-    `AutoScalingGroupProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html>`__
+    `AutoScalingGroupProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class AutoScalingGroupProvider(AWSProperty):
 
 class CapacityProvider(AWSObject):
     """
-    `CapacityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html>`__
+    `CapacityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-capacityprovider.html>`__
     """
 
     resource_type = "AWS::ECS::CapacityProvider"
@@ -73,7 +73,7 @@ class CapacityProvider(AWSObject):
 
 class CapacityProviderStrategyItem(AWSProperty):
     """
-    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html>`__
+    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskset-capacityproviderstrategyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class CapacityProviderStrategyItem(AWSProperty):
 
 class ExecuteCommandLogConfiguration(AWSProperty):
     """
-    `ExecuteCommandLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html>`__
+    `ExecuteCommandLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-executecommandlogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class ExecuteCommandLogConfiguration(AWSProperty):
 
 class ExecuteCommandConfiguration(AWSProperty):
     """
-    `ExecuteCommandConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html>`__
+    `ExecuteCommandConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-executecommandconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class ExecuteCommandConfiguration(AWSProperty):
 
 class ManagedStorageConfiguration(AWSProperty):
     """
-    `ManagedStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-managedstorageconfiguration.html>`__
+    `ManagedStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-managedstorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class ManagedStorageConfiguration(AWSProperty):
 
 class ClusterConfiguration(AWSProperty):
     """
-    `ClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html>`__
+    `ClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-clusterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -133,7 +133,7 @@ class ClusterConfiguration(AWSProperty):
 
 class ClusterSetting(AWSProperty):
     """
-    `ClusterSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html>`__
+    `ClusterSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-clustersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class ClusterSetting(AWSProperty):
 
 class ServiceConnectDefaults(AWSProperty):
     """
-    `ServiceConnectDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html>`__
+    `ServiceConnectDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-cluster-serviceconnectdefaults.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class ServiceConnectDefaults(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-cluster.html>`__
     """
 
     resource_type = "AWS::ECS::Cluster"
@@ -172,7 +172,7 @@ class Cluster(AWSObject):
 
 class CapacityProviderStrategy(AWSProperty):
     """
-    `CapacityProviderStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html>`__
+    `CapacityProviderStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class CapacityProviderStrategy(AWSProperty):
 
 class ClusterCapacityProviderAssociations(AWSObject):
     """
-    `ClusterCapacityProviderAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html>`__
+    `ClusterCapacityProviderAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-clustercapacityproviderassociations.html>`__
     """
 
     resource_type = "AWS::ECS::ClusterCapacityProviderAssociations"
@@ -198,7 +198,7 @@ class ClusterCapacityProviderAssociations(AWSObject):
 
 class PrimaryTaskSet(AWSObject):
     """
-    `PrimaryTaskSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html>`__
+    `PrimaryTaskSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-primarytaskset.html>`__
     """
 
     resource_type = "AWS::ECS::PrimaryTaskSet"
@@ -212,7 +212,7 @@ class PrimaryTaskSet(AWSObject):
 
 class DeploymentAlarms(AWSProperty):
     """
-    `DeploymentAlarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html>`__
+    `DeploymentAlarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-deploymentalarms.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class DeploymentAlarms(AWSProperty):
 
 class DeploymentCircuitBreaker(AWSProperty):
     """
-    `DeploymentCircuitBreaker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html>`__
+    `DeploymentCircuitBreaker <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-deploymentcircuitbreaker.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class DeploymentCircuitBreaker(AWSProperty):
 
 class DeploymentConfiguration(AWSProperty):
     """
-    `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html>`__
+    `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-deploymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class DeploymentConfiguration(AWSProperty):
 
 class DeploymentController(AWSProperty):
     """
-    `DeploymentController <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html>`__
+    `DeploymentController <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-deploymentcontroller.html>`__
     """
 
     props: PropsDictType = {
@@ -258,7 +258,7 @@ class DeploymentController(AWSProperty):
 
 class LoadBalancer(AWSProperty):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-loadbalancer.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class LoadBalancer(AWSProperty):
 
 class AwsvpcConfiguration(AWSProperty):
     """
-    `AwsvpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html>`__
+    `AwsvpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-awsvpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class AwsvpcConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -293,7 +293,7 @@ class NetworkConfiguration(AWSProperty):
 
 class PlacementConstraint(AWSProperty):
     """
-    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html>`__
+    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -304,7 +304,7 @@ class PlacementConstraint(AWSProperty):
 
 class PlacementStrategy(AWSProperty):
     """
-    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html>`__
+    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-placementstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -315,7 +315,7 @@ class PlacementStrategy(AWSProperty):
 
 class Secret(AWSProperty):
     """
-    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html>`__
+    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-secret.html>`__
     """
 
     props: PropsDictType = {
@@ -326,7 +326,7 @@ class Secret(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class LogConfiguration(AWSProperty):
 
 class ServiceConnectClientAlias(AWSProperty):
     """
-    `ServiceConnectClientAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html>`__
+    `ServiceConnectClientAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-serviceconnectclientalias.html>`__
     """
 
     props: PropsDictType = {
@@ -349,7 +349,7 @@ class ServiceConnectClientAlias(AWSProperty):
 
 class ServiceConnectTlsCertificateAuthority(AWSProperty):
     """
-    `ServiceConnectTlsCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html>`__
+    `ServiceConnectTlsCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class ServiceConnectTlsCertificateAuthority(AWSProperty):
 
 class ServiceConnectTlsConfiguration(AWSProperty):
     """
-    `ServiceConnectTlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html>`__
+    `ServiceConnectTlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-serviceconnecttlsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -371,7 +371,7 @@ class ServiceConnectTlsConfiguration(AWSProperty):
 
 class TimeoutConfiguration(AWSProperty):
     """
-    `TimeoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-timeoutconfiguration.html>`__
+    `TimeoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-timeoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -382,7 +382,7 @@ class TimeoutConfiguration(AWSProperty):
 
 class ServiceConnectService(AWSProperty):
     """
-    `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html>`__
+    `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-serviceconnectservice.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class ServiceConnectService(AWSProperty):
 
 class ServiceConnectConfiguration(AWSProperty):
     """
-    `ServiceConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html>`__
+    `ServiceConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-serviceconnectconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class ServiceConnectConfiguration(AWSProperty):
 
 class ServiceRegistry(AWSProperty):
     """
-    `ServiceRegistry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html>`__
+    `ServiceRegistry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskset-serviceregistry.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class ServiceRegistry(AWSProperty):
 
 class EBSTagSpecification(AWSProperty):
     """
-    `EBSTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-ebstagspecification.html>`__
+    `EBSTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-ebstagspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -435,7 +435,7 @@ class EBSTagSpecification(AWSProperty):
 
 class ServiceManagedEBSVolumeConfiguration(AWSProperty):
     """
-    `ServiceManagedEBSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html>`__
+    `ServiceManagedEBSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -454,7 +454,7 @@ class ServiceManagedEBSVolumeConfiguration(AWSProperty):
 
 class ServiceVolumeConfiguration(AWSProperty):
     """
-    `ServiceVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html>`__
+    `ServiceVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-servicevolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -465,7 +465,7 @@ class ServiceVolumeConfiguration(AWSProperty):
 
 class VpcLatticeConfiguration(AWSProperty):
     """
-    `VpcLatticeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html>`__
+    `VpcLatticeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-service-vpclatticeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -477,7 +477,7 @@ class VpcLatticeConfiguration(AWSProperty):
 
 class Service(AWSObject):
     """
-    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html>`__
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-service.html>`__
     """
 
     resource_type = "AWS::ECS::Service"
@@ -513,7 +513,7 @@ class Service(AWSObject):
 
 class ContainerDependency(AWSProperty):
     """
-    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html>`__
+    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-containerdependency.html>`__
     """
 
     props: PropsDictType = {
@@ -524,7 +524,7 @@ class ContainerDependency(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-keyvaluepair.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-keyvaluepair.html>`__
     """
 
     props: PropsDictType = {
@@ -535,7 +535,7 @@ class Environment(AWSProperty):
 
 class EnvironmentFile(AWSProperty):
     """
-    `EnvironmentFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html>`__
+    `EnvironmentFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-environmentfile.html>`__
     """
 
     props: PropsDictType = {
@@ -546,7 +546,7 @@ class EnvironmentFile(AWSProperty):
 
 class FirelensConfiguration(AWSProperty):
     """
-    `FirelensConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html>`__
+    `FirelensConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-firelensconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -557,7 +557,7 @@ class FirelensConfiguration(AWSProperty):
 
 class HealthCheck(AWSProperty):
     """
-    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html>`__
+    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-healthcheck.html>`__
     """
 
     props: PropsDictType = {
@@ -571,7 +571,7 @@ class HealthCheck(AWSProperty):
 
 class HostEntry(AWSProperty):
     """
-    `HostEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html>`__
+    `HostEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-hostentry.html>`__
     """
 
     props: PropsDictType = {
@@ -582,7 +582,7 @@ class HostEntry(AWSProperty):
 
 class Device(AWSProperty):
     """
-    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html>`__
+    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-device.html>`__
     """
 
     props: PropsDictType = {
@@ -594,7 +594,7 @@ class Device(AWSProperty):
 
 class KernelCapabilities(AWSProperty):
     """
-    `KernelCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html>`__
+    `KernelCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-kernelcapabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -605,7 +605,7 @@ class KernelCapabilities(AWSProperty):
 
 class Tmpfs(AWSProperty):
     """
-    `Tmpfs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html>`__
+    `Tmpfs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-tmpfs.html>`__
     """
 
     props: PropsDictType = {
@@ -617,7 +617,7 @@ class Tmpfs(AWSProperty):
 
 class LinuxParameters(AWSProperty):
     """
-    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html>`__
+    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-linuxparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -633,7 +633,7 @@ class LinuxParameters(AWSProperty):
 
 class MountPoint(AWSProperty):
     """
-    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html>`__
+    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-mountpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -645,7 +645,7 @@ class MountPoint(AWSProperty):
 
 class PortMapping(AWSProperty):
     """
-    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-portmapping.html>`__
+    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-portmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -660,7 +660,7 @@ class PortMapping(AWSProperty):
 
 class RepositoryCredentials(AWSProperty):
     """
-    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html>`__
+    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-repositorycredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -670,7 +670,7 @@ class RepositoryCredentials(AWSProperty):
 
 class ResourceRequirement(AWSProperty):
     """
-    `ResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html>`__
+    `ResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-resourcerequirement.html>`__
     """
 
     props: PropsDictType = {
@@ -681,7 +681,7 @@ class ResourceRequirement(AWSProperty):
 
 class RestartPolicy(AWSProperty):
     """
-    `RestartPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html>`__
+    `RestartPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-restartpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class RestartPolicy(AWSProperty):
 
 class SystemControl(AWSProperty):
     """
-    `SystemControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html>`__
+    `SystemControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-systemcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -704,7 +704,7 @@ class SystemControl(AWSProperty):
 
 class Ulimit(AWSProperty):
     """
-    `Ulimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html>`__
+    `Ulimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-ulimit.html>`__
     """
 
     props: PropsDictType = {
@@ -716,7 +716,7 @@ class Ulimit(AWSProperty):
 
 class VolumesFrom(AWSProperty):
     """
-    `VolumesFrom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html>`__
+    `VolumesFrom <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-volumefrom.html>`__
     """
 
     props: PropsDictType = {
@@ -727,7 +727,7 @@ class VolumesFrom(AWSProperty):
 
 class ContainerDefinition(AWSProperty):
     """
-    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html>`__
+    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-containerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -778,7 +778,7 @@ class ContainerDefinition(AWSProperty):
 
 class EphemeralStorage(AWSProperty):
     """
-    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html>`__
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-ephemeralstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -788,7 +788,7 @@ class EphemeralStorage(AWSProperty):
 
 class InferenceAccelerator(AWSProperty):
     """
-    `InferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html>`__
+    `InferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-inferenceaccelerator.html>`__
     """
 
     props: PropsDictType = {
@@ -799,7 +799,7 @@ class InferenceAccelerator(AWSProperty):
 
 class ProxyConfiguration(AWSProperty):
     """
-    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html>`__
+    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-proxyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -811,7 +811,7 @@ class ProxyConfiguration(AWSProperty):
 
 class RuntimePlatform(AWSProperty):
     """
-    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html>`__
+    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-runtimeplatform.html>`__
     """
 
     props: PropsDictType = {
@@ -825,7 +825,7 @@ class RuntimePlatform(AWSProperty):
 
 class DockerVolumeConfiguration(AWSProperty):
     """
-    `DockerVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html>`__
+    `DockerVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -839,7 +839,7 @@ class DockerVolumeConfiguration(AWSProperty):
 
 class AuthorizationConfig(AWSProperty):
     """
-    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html>`__
+    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-authorizationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -850,7 +850,7 @@ class AuthorizationConfig(AWSProperty):
 
 class EFSVolumeConfiguration(AWSProperty):
     """
-    `EFSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html>`__
+    `EFSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -864,7 +864,7 @@ class EFSVolumeConfiguration(AWSProperty):
 
 class FSxAuthorizationConfig(AWSProperty):
     """
-    `FSxAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html>`__
+    `FSxAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -875,7 +875,7 @@ class FSxAuthorizationConfig(AWSProperty):
 
 class FSxWindowsFileServerVolumeConfiguration(AWSProperty):
     """
-    `FSxWindowsFileServerVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html>`__
+    `FSxWindowsFileServerVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -887,7 +887,7 @@ class FSxWindowsFileServerVolumeConfiguration(AWSProperty):
 
 class Host(AWSProperty):
     """
-    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostvolumeproperties.html>`__
+    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-hostvolumeproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -897,7 +897,7 @@ class Host(AWSProperty):
 
 class Volume(AWSProperty):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskdefinition-volume.html>`__
     """
 
     props: PropsDictType = {
@@ -915,7 +915,7 @@ class Volume(AWSProperty):
 
 class TaskDefinition(AWSObject):
     """
-    `TaskDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html>`__
+    `TaskDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-taskdefinition.html>`__
     """
 
     resource_type = "AWS::ECS::TaskDefinition"
@@ -944,7 +944,7 @@ class TaskDefinition(AWSObject):
 
 class Scale(AWSProperty):
     """
-    `Scale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html>`__
+    `Scale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecs-taskset-scale.html>`__
     """
 
     props: PropsDictType = {
@@ -955,7 +955,7 @@ class Scale(AWSProperty):
 
 class TaskSet(AWSObject):
     """
-    `TaskSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html>`__
+    `TaskSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-taskset.html>`__
     """
 
     resource_type = "AWS::ECS::TaskSet"

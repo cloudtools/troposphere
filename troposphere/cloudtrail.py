@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Destination(AWSProperty):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html>`__
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-channel-destination.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Destination(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-channel.html>`__
     """
 
     resource_type = "AWS::CloudTrail::Channel"
@@ -38,7 +38,7 @@ class Channel(AWSObject):
 
 class Frequency(AWSProperty):
     """
-    `Frequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-frequency.html>`__
+    `Frequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-dashboard-frequency.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class Frequency(AWSProperty):
 
 class RefreshSchedule(AWSProperty):
     """
-    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html>`__
+    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-dashboard-refreshschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class RefreshSchedule(AWSProperty):
 
 class Widget(AWSProperty):
     """
-    `Widget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-widget.html>`__
+    `Widget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-dashboard-widget.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class Widget(AWSProperty):
 
 class Dashboard(AWSObject):
     """
-    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html>`__
+    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-dashboard.html>`__
     """
 
     resource_type = "AWS::CloudTrail::Dashboard"
@@ -89,7 +89,7 @@ class Dashboard(AWSObject):
 
 class AdvancedFieldSelector(AWSProperty):
     """
-    `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html>`__
+    `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-trail-advancedfieldselector.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class AdvancedFieldSelector(AWSProperty):
 
 class AdvancedEventSelector(AWSProperty):
     """
-    `AdvancedEventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html>`__
+    `AdvancedEventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-trail-advancedeventselector.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class AdvancedEventSelector(AWSProperty):
 
 class InsightSelector(AWSProperty):
     """
-    `InsightSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html>`__
+    `InsightSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-trail-insightselector.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class InsightSelector(AWSProperty):
 
 class EventDataStore(AWSObject):
     """
-    `EventDataStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html>`__
+    `EventDataStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-eventdatastore.html>`__
     """
 
     resource_type = "AWS::CloudTrail::EventDataStore"
@@ -151,7 +151,7 @@ class EventDataStore(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::CloudTrail::ResourcePolicy"
@@ -164,7 +164,7 @@ class ResourcePolicy(AWSObject):
 
 class DataResource(AWSProperty):
     """
-    `DataResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html>`__
+    `DataResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-trail-dataresource.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class DataResource(AWSProperty):
 
 class EventSelector(AWSProperty):
     """
-    `EventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html>`__
+    `EventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudtrail-trail-eventselector.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class EventSelector(AWSProperty):
 
 class Trail(AWSObject):
     """
-    `Trail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html>`__
+    `Trail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudtrail-trail.html>`__
     """
 
     resource_type = "AWS::CloudTrail::Trail"

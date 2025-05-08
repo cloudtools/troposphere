@@ -12,7 +12,7 @@ from .validators import integer
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3tables-tablebucket-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class UnreferencedFileRemoval(AWSProperty):
     """
-    `UnreferencedFileRemoval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-unreferencedfileremoval.html>`__
+    `UnreferencedFileRemoval <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3tables-tablebucket-unreferencedfileremoval.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class UnreferencedFileRemoval(AWSProperty):
 
 class TableBucket(AWSObject):
     """
-    `TableBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html>`__
+    `TableBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3tables-tablebucket.html>`__
     """
 
     resource_type = "AWS::S3Tables::TableBucket"
@@ -49,7 +49,7 @@ class TableBucket(AWSObject):
 
 class TableBucketPolicy(AWSObject):
     """
-    `TableBucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucketpolicy.html>`__
+    `TableBucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3tables-tablebucketpolicy.html>`__
     """
 
     resource_type = "AWS::S3Tables::TableBucketPolicy"

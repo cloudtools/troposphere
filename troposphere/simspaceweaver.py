@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simspaceweaver-simulation-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-simspaceweaver-simulation-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class S3Location(AWSProperty):
 
 class Simulation(AWSObject):
     """
-    `Simulation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html>`__
+    `Simulation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-simspaceweaver-simulation.html>`__
     """
 
     resource_type = "AWS::SimSpaceWeaver::Simulation"

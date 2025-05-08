@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class HistoricalOptions(AWSProperty):
     """
-    `HistoricalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html>`__
+    `HistoricalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-historicaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class HistoricalOptions(AWSProperty):
 
 class AutoAdjustData(AWSProperty):
     """
-    `AutoAdjustData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html>`__
+    `AutoAdjustData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-autoadjustdata.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AutoAdjustData(AWSProperty):
 
 class CostTypes(AWSProperty):
     """
-    `CostTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html>`__
+    `CostTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-costtypes.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class CostTypes(AWSProperty):
 
 class CostCategoryValues(AWSProperty):
     """
-    `CostCategoryValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costcategoryvalues.html>`__
+    `CostCategoryValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-costcategoryvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class CostCategoryValues(AWSProperty):
 
 class ExpressionDimensionValues(AWSProperty):
     """
-    `ExpressionDimensionValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expressiondimensionvalues.html>`__
+    `ExpressionDimensionValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-expressiondimensionvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class ExpressionDimensionValues(AWSProperty):
 
 class TagValues(AWSProperty):
     """
-    `TagValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-tagvalues.html>`__
+    `TagValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-tagvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class TagValues(AWSProperty):
 
 class Expression(AWSProperty):
     """
-    `Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expression.html>`__
+    `Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-expression.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class Expression(AWSProperty):
 
 class Spend(AWSProperty):
     """
-    `Spend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html>`__
+    `Spend <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-spend.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class Spend(AWSProperty):
 
 class TimePeriod(AWSProperty):
     """
-    `TimePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html>`__
+    `TimePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-timeperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class TimePeriod(AWSProperty):
 
 class BudgetData(AWSProperty):
     """
-    `BudgetData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html>`__
+    `BudgetData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-budgetdata.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class BudgetData(AWSProperty):
 
 class Notification(AWSProperty):
     """
-    `Notification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html>`__
+    `Notification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-notification.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class Notification(AWSProperty):
 
 class Subscriber(AWSProperty):
     """
-    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html>`__
+    `Subscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-subscriber.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class Subscriber(AWSProperty):
 
 class NotificationWithSubscribers(AWSProperty):
     """
-    `NotificationWithSubscribers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html>`__
+    `NotificationWithSubscribers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budget-notificationwithsubscribers.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class NotificationWithSubscribers(AWSProperty):
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -192,7 +192,7 @@ class ResourceTag(AWSProperty):
 
 class Budget(AWSObject):
     """
-    `Budget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html>`__
+    `Budget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-budgets-budget.html>`__
     """
 
     resource_type = "AWS::Budgets::Budget"
@@ -206,7 +206,7 @@ class Budget(AWSObject):
 
 class ActionSubscriber(AWSProperty):
     """
-    `ActionSubscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html>`__
+    `ActionSubscriber <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-subscriber.html>`__
     """
 
     props: PropsDictType = {
@@ -217,7 +217,7 @@ class ActionSubscriber(AWSProperty):
 
 class ActionThreshold(AWSProperty):
     """
-    `ActionThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html>`__
+    `ActionThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-actionthreshold.html>`__
     """
 
     props: PropsDictType = {
@@ -228,7 +228,7 @@ class ActionThreshold(AWSProperty):
 
 class IamActionDefinition(AWSProperty):
     """
-    `IamActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html>`__
+    `IamActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-iamactiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -241,7 +241,7 @@ class IamActionDefinition(AWSProperty):
 
 class ScpActionDefinition(AWSProperty):
     """
-    `ScpActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html>`__
+    `ScpActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-scpactiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class ScpActionDefinition(AWSProperty):
 
 class SsmActionDefinition(AWSProperty):
     """
-    `SsmActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html>`__
+    `SsmActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-ssmactiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class SsmActionDefinition(AWSProperty):
 
 class Definition(AWSProperty):
     """
-    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html>`__
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-budgets-budgetsaction-definition.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class Definition(AWSProperty):
 
 class BudgetsAction(AWSObject):
     """
-    `BudgetsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html>`__
+    `BudgetsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-budgets-budgetsaction.html>`__
     """
 
     resource_type = "AWS::Budgets::BudgetsAction"

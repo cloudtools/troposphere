@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class AnalysisParameter(AWSProperty):
     """
-    `AnalysisParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html>`__
+    `AnalysisParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysisparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class AnalysisParameter(AWSProperty):
 
 class AnalysisSchema(AWSProperty):
     """
-    `AnalysisSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html>`__
+    `AnalysisSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysisschema.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class AnalysisSchema(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class S3Location(AWSProperty):
 
 class AnalysisTemplateArtifact(AWSProperty):
     """
-    `AnalysisTemplateArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifact.html>`__
+    `AnalysisTemplateArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysistemplateartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class AnalysisTemplateArtifact(AWSProperty):
 
 class AnalysisTemplateArtifacts(AWSProperty):
     """
-    `AnalysisTemplateArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifacts.html>`__
+    `AnalysisTemplateArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysistemplateartifacts.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class AnalysisTemplateArtifacts(AWSProperty):
 
 class AnalysisSource(AWSProperty):
     """
-    `AnalysisSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissource.html>`__
+    `AnalysisSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysissource.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class AnalysisSource(AWSProperty):
 
 class Hash(AWSProperty):
     """
-    `Hash <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-hash.html>`__
+    `Hash <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-hash.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class Hash(AWSProperty):
 
 class AnalysisTemplateArtifactMetadata(AWSProperty):
     """
-    `AnalysisTemplateArtifactMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifactmetadata.html>`__
+    `AnalysisTemplateArtifactMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysistemplateartifactmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class AnalysisTemplateArtifactMetadata(AWSProperty):
 
 class AnalysisSourceMetadata(AWSProperty):
     """
-    `AnalysisSourceMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissourcemetadata.html>`__
+    `AnalysisSourceMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-analysistemplate-analysissourcemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class AnalysisSourceMetadata(AWSProperty):
 
 class AnalysisTemplate(AWSObject):
     """
-    `AnalysisTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html>`__
+    `AnalysisTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-analysistemplate.html>`__
     """
 
     resource_type = "AWS::CleanRooms::AnalysisTemplate"
@@ -129,7 +129,7 @@ class AnalysisTemplate(AWSObject):
 
 class DataEncryptionMetadata(AWSProperty):
     """
-    `DataEncryptionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html>`__
+    `DataEncryptionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class DataEncryptionMetadata(AWSProperty):
 
 class MLMemberAbilities(AWSProperty):
     """
-    `MLMemberAbilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlmemberabilities.html>`__
+    `MLMemberAbilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-mlmemberabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class MLMemberAbilities(AWSProperty):
 
 class JobComputePaymentConfig(AWSProperty):
     """
-    `JobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-jobcomputepaymentconfig.html>`__
+    `JobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-jobcomputepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class JobComputePaymentConfig(AWSProperty):
 
 class ModelInferencePaymentConfig(AWSProperty):
     """
-    `ModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modelinferencepaymentconfig.html>`__
+    `ModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-modelinferencepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class ModelInferencePaymentConfig(AWSProperty):
 
 class ModelTrainingPaymentConfig(AWSProperty):
     """
-    `ModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modeltrainingpaymentconfig.html>`__
+    `ModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-modeltrainingpaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class ModelTrainingPaymentConfig(AWSProperty):
 
 class MLPaymentConfig(AWSProperty):
     """
-    `MLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html>`__
+    `MLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class MLPaymentConfig(AWSProperty):
 
 class QueryComputePaymentConfig(AWSProperty):
     """
-    `QueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>`__
+    `QueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -203,7 +203,7 @@ class QueryComputePaymentConfig(AWSProperty):
 
 class PaymentConfiguration(AWSProperty):
     """
-    `PaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html>`__
+    `PaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-paymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -215,7 +215,7 @@ class PaymentConfiguration(AWSProperty):
 
 class MemberSpecification(AWSProperty):
     """
-    `MemberSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html>`__
+    `MemberSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-collaboration-memberspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class MemberSpecification(AWSProperty):
 
 class Collaboration(AWSObject):
     """
-    `Collaboration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html>`__
+    `Collaboration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-collaboration.html>`__
     """
 
     resource_type = "AWS::CleanRooms::Collaboration"
@@ -252,7 +252,7 @@ class Collaboration(AWSObject):
 
 class AggregateColumn(AWSProperty):
     """
-    `AggregateColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html>`__
+    `AggregateColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -263,7 +263,7 @@ class AggregateColumn(AWSProperty):
 
 class AggregationConstraint(AWSProperty):
     """
-    `AggregationConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregationconstraint.html>`__
+    `AggregationConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-aggregationconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class AggregationConstraint(AWSProperty):
 
 class AnalysisRuleAggregation(AWSProperty):
     """
-    `AnalysisRuleAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html>`__
+    `AnalysisRuleAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class AnalysisRuleAggregation(AWSProperty):
 
 class DifferentialPrivacyColumn(AWSProperty):
     """
-    `DifferentialPrivacyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacycolumn.html>`__
+    `DifferentialPrivacyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-differentialprivacycolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class DifferentialPrivacyColumn(AWSProperty):
 
 class DifferentialPrivacy(AWSProperty):
     """
-    `DifferentialPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacy.html>`__
+    `DifferentialPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-differentialprivacy.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class DifferentialPrivacy(AWSProperty):
 
 class AnalysisRuleCustom(AWSProperty):
     """
-    `AnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html>`__
+    `AnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html>`__
     """
 
     props: PropsDictType = {
@@ -326,7 +326,7 @@ class AnalysisRuleCustom(AWSProperty):
 
 class AnalysisRuleList(AWSProperty):
     """
-    `AnalysisRuleList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html>`__
+    `AnalysisRuleList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-analysisrulelist.html>`__
     """
 
     props: PropsDictType = {
@@ -339,7 +339,7 @@ class AnalysisRuleList(AWSProperty):
 
 class ConfiguredTableAnalysisRulePolicyV1(AWSProperty):
     """
-    `ConfiguredTableAnalysisRulePolicyV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html>`__
+    `ConfiguredTableAnalysisRulePolicyV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html>`__
     """
 
     props: PropsDictType = {
@@ -351,7 +351,7 @@ class ConfiguredTableAnalysisRulePolicyV1(AWSProperty):
 
 class ConfiguredTableAnalysisRulePolicy(AWSProperty):
     """
-    `ConfiguredTableAnalysisRulePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html>`__
+    `ConfiguredTableAnalysisRulePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -361,7 +361,7 @@ class ConfiguredTableAnalysisRulePolicy(AWSProperty):
 
 class AnalysisRule(AWSProperty):
     """
-    `AnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrule.html>`__
+    `AnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-analysisrule.html>`__
     """
 
     props: PropsDictType = {
@@ -372,7 +372,7 @@ class AnalysisRule(AWSProperty):
 
 class AthenaTableReference(AWSProperty):
     """
-    `AthenaTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html>`__
+    `AthenaTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-athenatablereference.html>`__
     """
 
     props: PropsDictType = {
@@ -385,7 +385,7 @@ class AthenaTableReference(AWSProperty):
 
 class GlueTableReference(AWSProperty):
     """
-    `GlueTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html>`__
+    `GlueTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-gluetablereference.html>`__
     """
 
     props: PropsDictType = {
@@ -396,7 +396,7 @@ class GlueTableReference(AWSProperty):
 
 class SnowflakeTableSchemaV1(AWSProperty):
     """
-    `SnowflakeTableSchemaV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html>`__
+    `SnowflakeTableSchemaV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html>`__
     """
 
     props: PropsDictType = {
@@ -407,7 +407,7 @@ class SnowflakeTableSchemaV1(AWSProperty):
 
 class SnowflakeTableSchema(AWSProperty):
     """
-    `SnowflakeTableSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschema.html>`__
+    `SnowflakeTableSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-snowflaketableschema.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class SnowflakeTableSchema(AWSProperty):
 
 class SnowflakeTableReference(AWSProperty):
     """
-    `SnowflakeTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketablereference.html>`__
+    `SnowflakeTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-snowflaketablereference.html>`__
     """
 
     props: PropsDictType = {
@@ -432,7 +432,7 @@ class SnowflakeTableReference(AWSProperty):
 
 class TableReference(AWSProperty):
     """
-    `TableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html>`__
+    `TableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtable-tablereference.html>`__
     """
 
     props: PropsDictType = {
@@ -444,7 +444,7 @@ class TableReference(AWSProperty):
 
 class ConfiguredTable(AWSObject):
     """
-    `ConfiguredTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html>`__
+    `ConfiguredTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-configuredtable.html>`__
     """
 
     resource_type = "AWS::CleanRooms::ConfiguredTable"
@@ -463,7 +463,7 @@ class ConfiguredTable(AWSObject):
 
 class ConfiguredTableAssociationAnalysisRuleAggregation(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRuleAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html>`__
+    `ConfiguredTableAssociationAnalysisRuleAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html>`__
     """
 
     props: PropsDictType = {
@@ -474,7 +474,7 @@ class ConfiguredTableAssociationAnalysisRuleAggregation(AWSProperty):
 
 class ConfiguredTableAssociationAnalysisRuleCustom(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html>`__
+    `ConfiguredTableAssociationAnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html>`__
     """
 
     props: PropsDictType = {
@@ -485,7 +485,7 @@ class ConfiguredTableAssociationAnalysisRuleCustom(AWSProperty):
 
 class ConfiguredTableAssociationAnalysisRuleList(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRuleList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulelist.html>`__
+    `ConfiguredTableAssociationAnalysisRuleList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulelist.html>`__
     """
 
     props: PropsDictType = {
@@ -496,7 +496,7 @@ class ConfiguredTableAssociationAnalysisRuleList(AWSProperty):
 
 class ConfiguredTableAssociationAnalysisRulePolicyV1(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRulePolicyV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html>`__
+    `ConfiguredTableAssociationAnalysisRulePolicyV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html>`__
     """
 
     props: PropsDictType = {
@@ -508,7 +508,7 @@ class ConfiguredTableAssociationAnalysisRulePolicyV1(AWSProperty):
 
 class ConfiguredTableAssociationAnalysisRulePolicy(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRulePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy.html>`__
+    `ConfiguredTableAssociationAnalysisRulePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -518,7 +518,7 @@ class ConfiguredTableAssociationAnalysisRulePolicy(AWSProperty):
 
 class ConfiguredTableAssociationAnalysisRule(AWSProperty):
     """
-    `ConfiguredTableAssociationAnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html>`__
+    `ConfiguredTableAssociationAnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html>`__
     """
 
     props: PropsDictType = {
@@ -529,7 +529,7 @@ class ConfiguredTableAssociationAnalysisRule(AWSProperty):
 
 class ConfiguredTableAssociation(AWSObject):
     """
-    `ConfiguredTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html>`__
+    `ConfiguredTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-configuredtableassociation.html>`__
     """
 
     resource_type = "AWS::CleanRooms::ConfiguredTableAssociation"
@@ -550,7 +550,7 @@ class ConfiguredTableAssociation(AWSObject):
 
 class IdMappingTableInputReferenceConfig(AWSProperty):
     """
-    `IdMappingTableInputReferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceconfig.html>`__
+    `IdMappingTableInputReferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -561,7 +561,7 @@ class IdMappingTableInputReferenceConfig(AWSProperty):
 
 class IdMappingTable(AWSObject):
     """
-    `IdMappingTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-idmappingtable.html>`__
+    `IdMappingTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-idmappingtable.html>`__
     """
 
     resource_type = "AWS::CleanRooms::IdMappingTable"
@@ -578,7 +578,7 @@ class IdMappingTable(AWSObject):
 
 class IdMappingConfig(AWSProperty):
     """
-    `IdMappingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html>`__
+    `IdMappingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idnamespaceassociation-idmappingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -588,7 +588,7 @@ class IdMappingConfig(AWSProperty):
 
 class IdNamespaceAssociationInputReferenceConfig(AWSProperty):
     """
-    `IdNamespaceAssociationInputReferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig.html>`__
+    `IdNamespaceAssociationInputReferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -599,7 +599,7 @@ class IdNamespaceAssociationInputReferenceConfig(AWSProperty):
 
 class IdNamespaceAssociation(AWSObject):
     """
-    `IdNamespaceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-idnamespaceassociation.html>`__
+    `IdNamespaceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-idnamespaceassociation.html>`__
     """
 
     resource_type = "AWS::CleanRooms::IdNamespaceAssociation"
@@ -616,7 +616,7 @@ class IdNamespaceAssociation(AWSObject):
 
 class MembershipJobComputePaymentConfig(AWSProperty):
     """
-    `MembershipJobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipjobcomputepaymentconfig.html>`__
+    `MembershipJobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipjobcomputepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -626,7 +626,7 @@ class MembershipJobComputePaymentConfig(AWSProperty):
 
 class MembershipModelInferencePaymentConfig(AWSProperty):
     """
-    `MembershipModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodelinferencepaymentconfig.html>`__
+    `MembershipModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipmodelinferencepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -636,7 +636,7 @@ class MembershipModelInferencePaymentConfig(AWSProperty):
 
 class MembershipModelTrainingPaymentConfig(AWSProperty):
     """
-    `MembershipModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodeltrainingpaymentconfig.html>`__
+    `MembershipModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipmodeltrainingpaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -646,7 +646,7 @@ class MembershipModelTrainingPaymentConfig(AWSProperty):
 
 class MembershipMLPaymentConfig(AWSProperty):
     """
-    `MembershipMLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html>`__
+    `MembershipMLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -657,7 +657,7 @@ class MembershipMLPaymentConfig(AWSProperty):
 
 class MembershipQueryComputePaymentConfig(AWSProperty):
     """
-    `MembershipQueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>`__
+    `MembershipQueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -667,7 +667,7 @@ class MembershipQueryComputePaymentConfig(AWSProperty):
 
 class MembershipPaymentConfiguration(AWSProperty):
     """
-    `MembershipPaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html>`__
+    `MembershipPaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -679,7 +679,7 @@ class MembershipPaymentConfiguration(AWSProperty):
 
 class ProtectedJobS3OutputConfigurationInput(AWSProperty):
     """
-    `ProtectedJobS3OutputConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html>`__
+    `ProtectedJobS3OutputConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -690,7 +690,7 @@ class ProtectedJobS3OutputConfigurationInput(AWSProperty):
 
 class MembershipProtectedJobOutputConfiguration(AWSProperty):
     """
-    `MembershipProtectedJobOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjoboutputconfiguration.html>`__
+    `MembershipProtectedJobOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipprotectedjoboutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -700,7 +700,7 @@ class MembershipProtectedJobOutputConfiguration(AWSProperty):
 
 class MembershipProtectedJobResultConfiguration(AWSProperty):
     """
-    `MembershipProtectedJobResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjobresultconfiguration.html>`__
+    `MembershipProtectedJobResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipprotectedjobresultconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -711,7 +711,7 @@ class MembershipProtectedJobResultConfiguration(AWSProperty):
 
 class ProtectedQueryS3OutputConfiguration(AWSProperty):
     """
-    `ProtectedQueryS3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html>`__
+    `ProtectedQueryS3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -724,7 +724,7 @@ class ProtectedQueryS3OutputConfiguration(AWSProperty):
 
 class MembershipProtectedQueryOutputConfiguration(AWSProperty):
     """
-    `MembershipProtectedQueryOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html>`__
+    `MembershipProtectedQueryOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -734,7 +734,7 @@ class MembershipProtectedQueryOutputConfiguration(AWSProperty):
 
 class MembershipProtectedQueryResultConfiguration(AWSProperty):
     """
-    `MembershipProtectedQueryResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html>`__
+    `MembershipProtectedQueryResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -745,7 +745,7 @@ class MembershipProtectedQueryResultConfiguration(AWSProperty):
 
 class Membership(AWSObject):
     """
-    `Membership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html>`__
+    `Membership <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-membership.html>`__
     """
 
     resource_type = "AWS::CleanRooms::Membership"
@@ -769,7 +769,7 @@ class Membership(AWSObject):
 
 class Parameters(AWSProperty):
     """
-    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-parameters.html>`__
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-privacybudgettemplate-parameters.html>`__
     """
 
     props: PropsDictType = {
@@ -780,7 +780,7 @@ class Parameters(AWSProperty):
 
 class PrivacyBudgetTemplate(AWSObject):
     """
-    `PrivacyBudgetTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html>`__
+    `PrivacyBudgetTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cleanrooms-privacybudgettemplate.html>`__
     """
 
     resource_type = "AWS::CleanRooms::PrivacyBudgetTemplate"
@@ -796,7 +796,7 @@ class PrivacyBudgetTemplate(AWSObject):
 
 class IdMappingTableInputSource(AWSProperty):
     """
-    `IdMappingTableInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputsource.html>`__
+    `IdMappingTableInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idmappingtable-idmappingtableinputsource.html>`__
     """
 
     props: PropsDictType = {
@@ -807,7 +807,7 @@ class IdMappingTableInputSource(AWSProperty):
 
 class IdMappingTableInputReferenceProperties(AWSProperty):
     """
-    `IdMappingTableInputReferenceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html>`__
+    `IdMappingTableInputReferenceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idmappingtable-idmappingtableinputreferenceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -817,7 +817,7 @@ class IdMappingTableInputReferenceProperties(AWSProperty):
 
 class IdNamespaceAssociationInputReferenceProperties(AWSProperty):
     """
-    `IdNamespaceAssociationInputReferenceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties.html>`__
+    `IdNamespaceAssociationInputReferenceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cleanrooms-idnamespaceassociation-idnamespaceassociationinputreferenceproperties.html>`__
     """
 
     props: PropsDictType = {

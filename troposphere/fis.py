@@ -12,7 +12,7 @@ from .validators import integer
 
 class ExperimentTemplateAction(AWSProperty):
     """
-    `ExperimentTemplateAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html>`__
+    `ExperimentTemplateAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplateaction.html>`__
     """
 
     props: PropsDictType = {
@@ -26,7 +26,7 @@ class ExperimentTemplateAction(AWSProperty):
 
 class ExperimentTemplateExperimentOptions(AWSProperty):
     """
-    `ExperimentTemplateExperimentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentoptions.html>`__
+    `ExperimentTemplateExperimentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplateexperimentoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class ExperimentTemplateExperimentOptions(AWSProperty):
 
 class CloudWatchDashboard(AWSProperty):
     """
-    `CloudWatchDashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchdashboard.html>`__
+    `CloudWatchDashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-cloudwatchdashboard.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class CloudWatchDashboard(AWSProperty):
 
 class DataSources(AWSProperty):
     """
-    `DataSources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html>`__
+    `DataSources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-datasources.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class DataSources(AWSProperty):
 
 class ExperimentReportS3Configuration(AWSProperty):
     """
-    `ExperimentReportS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimentreports3configuration.html>`__
+    `ExperimentReportS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimentreports3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ExperimentReportS3Configuration(AWSProperty):
 
 class Outputs(AWSProperty):
     """
-    `Outputs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html>`__
+    `Outputs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-outputs.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class Outputs(AWSProperty):
 
 class ExperimentTemplateExperimentReportConfiguration(AWSProperty):
     """
-    `ExperimentTemplateExperimentReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html>`__
+    `ExperimentTemplateExperimentReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class ExperimentTemplateExperimentReportConfiguration(AWSProperty):
 
 class CloudWatchLogsConfiguration(AWSProperty):
     """
-    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>`__
+    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class CloudWatchLogsConfiguration(AWSProperty):
 
 class S3Configuration(AWSProperty):
     """
-    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-s3configuration.html>`__
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-s3configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class S3Configuration(AWSProperty):
 
 class ExperimentTemplateLogConfiguration(AWSProperty):
     """
-    `ExperimentTemplateLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html>`__
+    `ExperimentTemplateLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class ExperimentTemplateLogConfiguration(AWSProperty):
 
 class ExperimentTemplateStopCondition(AWSProperty):
     """
-    `ExperimentTemplateStopCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html>`__
+    `ExperimentTemplateStopCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class ExperimentTemplateStopCondition(AWSProperty):
 
 class ExperimentTemplateTargetFilter(AWSProperty):
     """
-    `ExperimentTemplateTargetFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html>`__
+    `ExperimentTemplateTargetFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class ExperimentTemplateTargetFilter(AWSProperty):
 
 class ExperimentTemplateTarget(AWSProperty):
     """
-    `ExperimentTemplateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html>`__
+    `ExperimentTemplateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class ExperimentTemplateTarget(AWSProperty):
 
 class ExperimentTemplate(AWSObject):
     """
-    `ExperimentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html>`__
+    `ExperimentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fis-experimenttemplate.html>`__
     """
 
     resource_type = "AWS::FIS::ExperimentTemplate"
@@ -184,7 +184,7 @@ class ExperimentTemplate(AWSObject):
 
 class TargetAccountConfiguration(AWSObject):
     """
-    `TargetAccountConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-targetaccountconfiguration.html>`__
+    `TargetAccountConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fis-targetaccountconfiguration.html>`__
     """
 
     resource_type = "AWS::FIS::TargetAccountConfiguration"

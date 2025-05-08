@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ADMChannel(AWSObject):
     """
-    `ADMChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-admchannel.html>`__
+    `ADMChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-admchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::ADMChannel"
@@ -27,7 +27,7 @@ class ADMChannel(AWSObject):
 
 class APNSChannel(AWSObject):
     """
-    `APNSChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnschannel.html>`__
+    `APNSChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-apnschannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::APNSChannel"
@@ -47,7 +47,7 @@ class APNSChannel(AWSObject):
 
 class APNSSandboxChannel(AWSObject):
     """
-    `APNSSandboxChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnssandboxchannel.html>`__
+    `APNSSandboxChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-apnssandboxchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::APNSSandboxChannel"
@@ -67,7 +67,7 @@ class APNSSandboxChannel(AWSObject):
 
 class APNSVoipChannel(AWSObject):
     """
-    `APNSVoipChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipchannel.html>`__
+    `APNSVoipChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-apnsvoipchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::APNSVoipChannel"
@@ -87,7 +87,7 @@ class APNSVoipChannel(AWSObject):
 
 class APNSVoipSandboxChannel(AWSObject):
     """
-    `APNSVoipSandboxChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipsandboxchannel.html>`__
+    `APNSVoipSandboxChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-apnsvoipsandboxchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::APNSVoipSandboxChannel"
@@ -107,7 +107,7 @@ class APNSVoipSandboxChannel(AWSObject):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html>`__
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-app.html>`__
     """
 
     resource_type = "AWS::Pinpoint::App"
@@ -120,7 +120,7 @@ class App(AWSObject):
 
 class CampaignHook(AWSProperty):
     """
-    `CampaignHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignhook.html>`__
+    `CampaignHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaignhook.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class CampaignHook(AWSProperty):
 
 class Limits(AWSProperty):
     """
-    `Limits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-limits.html>`__
+    `Limits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-limits.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class Limits(AWSProperty):
 
 class QuietTime(AWSProperty):
     """
-    `QuietTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-schedule-quiettime.html>`__
+    `QuietTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-schedule-quiettime.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class QuietTime(AWSProperty):
 
 class ApplicationSettings(AWSObject):
     """
-    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-applicationsettings.html>`__
+    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-applicationsettings.html>`__
     """
 
     resource_type = "AWS::Pinpoint::ApplicationSettings"
@@ -173,7 +173,7 @@ class ApplicationSettings(AWSObject):
 
 class BaiduChannel(AWSObject):
     """
-    `BaiduChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-baiduchannel.html>`__
+    `BaiduChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-baiduchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::BaiduChannel"
@@ -188,7 +188,7 @@ class BaiduChannel(AWSObject):
 
 class CustomDeliveryConfiguration(AWSProperty):
     """
-    `CustomDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-customdeliveryconfiguration.html>`__
+    `CustomDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-customdeliveryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class CustomDeliveryConfiguration(AWSProperty):
 
 class CampaignCustomMessage(AWSProperty):
     """
-    `CampaignCustomMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigncustommessage.html>`__
+    `CampaignCustomMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaigncustommessage.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class CampaignCustomMessage(AWSProperty):
 
 class CampaignEmailMessage(AWSProperty):
     """
-    `CampaignEmailMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignemailmessage.html>`__
+    `CampaignEmailMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaignemailmessage.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class CampaignEmailMessage(AWSProperty):
 
 class BodyConfig(AWSProperty):
     """
-    `BodyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-bodyconfig.html>`__
+    `BodyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-bodyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class BodyConfig(AWSProperty):
 
 class DefaultButtonConfiguration(AWSProperty):
     """
-    `DefaultButtonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html>`__
+    `DefaultButtonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-defaultbuttonconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -249,7 +249,7 @@ class DefaultButtonConfiguration(AWSProperty):
 
 class OverrideButtonConfiguration(AWSProperty):
     """
-    `OverrideButtonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html>`__
+    `OverrideButtonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-overridebuttonconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class OverrideButtonConfiguration(AWSProperty):
 
 class ButtonConfig(AWSProperty):
     """
-    `ButtonConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-buttonconfig.html>`__
+    `ButtonConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-buttonconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -273,7 +273,7 @@ class ButtonConfig(AWSProperty):
 
 class HeaderConfig(AWSProperty):
     """
-    `HeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-headerconfig.html>`__
+    `HeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-headerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class HeaderConfig(AWSProperty):
 
 class InAppMessageContent(AWSProperty):
     """
-    `InAppMessageContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html>`__
+    `InAppMessageContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-inapptemplate-inappmessagecontent.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class InAppMessageContent(AWSProperty):
 
 class CampaignInAppMessage(AWSProperty):
     """
-    `CampaignInAppMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigninappmessage.html>`__
+    `CampaignInAppMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaigninappmessage.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class CampaignInAppMessage(AWSProperty):
 
 class CampaignSmsMessage(AWSProperty):
     """
-    `CampaignSmsMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignsmsmessage.html>`__
+    `CampaignSmsMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaignsmsmessage.html>`__
     """
 
     props: PropsDictType = {
@@ -327,7 +327,7 @@ class CampaignSmsMessage(AWSProperty):
 
 class Message(AWSProperty):
     """
-    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-message.html>`__
+    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-message.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class Message(AWSProperty):
 
 class MessageConfiguration(AWSProperty):
     """
-    `MessageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-messageconfiguration.html>`__
+    `MessageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-messageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class MessageConfiguration(AWSProperty):
 
 class SetDimension(AWSProperty):
     """
-    `SetDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-setdimension.html>`__
+    `SetDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-setdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -377,7 +377,7 @@ class SetDimension(AWSProperty):
 
 class EventDimensions(AWSProperty):
     """
-    `EventDimensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-eventdimensions.html>`__
+    `EventDimensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-eventdimensions.html>`__
     """
 
     props: PropsDictType = {
@@ -389,7 +389,7 @@ class EventDimensions(AWSProperty):
 
 class CampaignEventFilter(AWSProperty):
     """
-    `CampaignEventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigneventfilter.html>`__
+    `CampaignEventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-campaigneventfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class CampaignEventFilter(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -416,7 +416,7 @@ class Schedule(AWSProperty):
 
 class Template(AWSProperty):
     """
-    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-template.html>`__
+    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-template.html>`__
     """
 
     props: PropsDictType = {
@@ -427,7 +427,7 @@ class Template(AWSProperty):
 
 class TemplateConfiguration(AWSProperty):
     """
-    `TemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html>`__
+    `TemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-templateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -440,7 +440,7 @@ class TemplateConfiguration(AWSProperty):
 
 class WriteTreatmentResource(AWSProperty):
     """
-    `WriteTreatmentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html>`__
+    `WriteTreatmentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-writetreatmentresource.html>`__
     """
 
     props: PropsDictType = {
@@ -456,7 +456,7 @@ class WriteTreatmentResource(AWSProperty):
 
 class Campaign(AWSObject):
     """
-    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html>`__
+    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-campaign.html>`__
     """
 
     resource_type = "AWS::Pinpoint::Campaign"
@@ -485,7 +485,7 @@ class Campaign(AWSObject):
 
 class EmailChannel(AWSObject):
     """
-    `EmailChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailchannel.html>`__
+    `EmailChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-emailchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::EmailChannel"
@@ -503,7 +503,7 @@ class EmailChannel(AWSObject):
 
 class EmailTemplate(AWSObject):
     """
-    `EmailTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html>`__
+    `EmailTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-emailtemplate.html>`__
     """
 
     resource_type = "AWS::Pinpoint::EmailTemplate"
@@ -521,7 +521,7 @@ class EmailTemplate(AWSObject):
 
 class EventStream(AWSObject):
     """
-    `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-eventstream.html>`__
+    `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-eventstream.html>`__
     """
 
     resource_type = "AWS::Pinpoint::EventStream"
@@ -535,7 +535,7 @@ class EventStream(AWSObject):
 
 class GCMChannel(AWSObject):
     """
-    `GCMChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html>`__
+    `GCMChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-gcmchannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::GCMChannel"
@@ -551,7 +551,7 @@ class GCMChannel(AWSObject):
 
 class InAppTemplate(AWSObject):
     """
-    `InAppTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html>`__
+    `InAppTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-inapptemplate.html>`__
     """
 
     resource_type = "AWS::Pinpoint::InAppTemplate"
@@ -568,7 +568,7 @@ class InAppTemplate(AWSObject):
 
 class APNSPushNotificationTemplate(AWSProperty):
     """
-    `APNSPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html>`__
+    `APNSPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -583,7 +583,7 @@ class APNSPushNotificationTemplate(AWSProperty):
 
 class AndroidPushNotificationTemplate(AWSProperty):
     """
-    `AndroidPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html>`__
+    `AndroidPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -600,7 +600,7 @@ class AndroidPushNotificationTemplate(AWSProperty):
 
 class DefaultPushNotificationTemplate(AWSProperty):
     """
-    `DefaultPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-defaultpushnotificationtemplate.html>`__
+    `DefaultPushNotificationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-pushtemplate-defaultpushnotificationtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -614,7 +614,7 @@ class DefaultPushNotificationTemplate(AWSProperty):
 
 class PushTemplate(AWSObject):
     """
-    `PushTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html>`__
+    `PushTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-pushtemplate.html>`__
     """
 
     resource_type = "AWS::Pinpoint::PushTemplate"
@@ -634,7 +634,7 @@ class PushTemplate(AWSObject):
 
 class SMSChannel(AWSObject):
     """
-    `SMSChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smschannel.html>`__
+    `SMSChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-smschannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::SMSChannel"
@@ -649,7 +649,7 @@ class SMSChannel(AWSObject):
 
 class Recency(AWSProperty):
     """
-    `Recency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior-recency.html>`__
+    `Recency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-behavior-recency.html>`__
     """
 
     props: PropsDictType = {
@@ -660,7 +660,7 @@ class Recency(AWSProperty):
 
 class Behavior(AWSProperty):
     """
-    `Behavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-behavior.html>`__
+    `Behavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-behavior.html>`__
     """
 
     props: PropsDictType = {
@@ -670,7 +670,7 @@ class Behavior(AWSProperty):
 
 class Demographic(AWSProperty):
     """
-    `Demographic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-demographic.html>`__
+    `Demographic <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-demographic.html>`__
     """
 
     props: PropsDictType = {
@@ -685,7 +685,7 @@ class Demographic(AWSProperty):
 
 class Coordinates(AWSProperty):
     """
-    `Coordinates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates.html>`__
+    `Coordinates <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint-coordinates.html>`__
     """
 
     props: PropsDictType = {
@@ -696,7 +696,7 @@ class Coordinates(AWSProperty):
 
 class GPSPoint(AWSProperty):
     """
-    `GPSPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html>`__
+    `GPSPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-location-gpspoint.html>`__
     """
 
     props: PropsDictType = {
@@ -707,7 +707,7 @@ class GPSPoint(AWSProperty):
 
 class Location(AWSProperty):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions-location.html>`__
     """
 
     props: PropsDictType = {
@@ -718,7 +718,7 @@ class Location(AWSProperty):
 
 class SegmentDimensions(AWSProperty):
     """
-    `SegmentDimensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentdimensions.html>`__
+    `SegmentDimensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentdimensions.html>`__
     """
 
     props: PropsDictType = {
@@ -733,7 +733,7 @@ class SegmentDimensions(AWSProperty):
 
 class SourceSegments(AWSProperty):
     """
-    `SourceSegments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups-sourcesegments.html>`__
+    `SourceSegments <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentgroups-groups-sourcesegments.html>`__
     """
 
     props: PropsDictType = {
@@ -744,7 +744,7 @@ class SourceSegments(AWSProperty):
 
 class Groups(AWSProperty):
     """
-    `Groups <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups-groups.html>`__
+    `Groups <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentgroups-groups.html>`__
     """
 
     props: PropsDictType = {
@@ -757,7 +757,7 @@ class Groups(AWSProperty):
 
 class SegmentGroups(AWSProperty):
     """
-    `SegmentGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-segmentgroups.html>`__
+    `SegmentGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-segmentgroups.html>`__
     """
 
     props: PropsDictType = {
@@ -768,7 +768,7 @@ class SegmentGroups(AWSProperty):
 
 class Segment(AWSObject):
     """
-    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html>`__
+    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-segment.html>`__
     """
 
     resource_type = "AWS::Pinpoint::Segment"
@@ -784,7 +784,7 @@ class Segment(AWSObject):
 
 class SmsTemplate(AWSObject):
     """
-    `SmsTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-smstemplate.html>`__
+    `SmsTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-smstemplate.html>`__
     """
 
     resource_type = "AWS::Pinpoint::SmsTemplate"
@@ -800,7 +800,7 @@ class SmsTemplate(AWSObject):
 
 class VoiceChannel(AWSObject):
     """
-    `VoiceChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-voicechannel.html>`__
+    `VoiceChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpoint-voicechannel.html>`__
     """
 
     resource_type = "AWS::Pinpoint::VoiceChannel"
@@ -813,7 +813,7 @@ class VoiceChannel(AWSObject):
 
 class AttributeDimension(AWSProperty):
     """
-    `AttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-segment-attributedimension.html>`__
+    `AttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-segment-attributedimension.html>`__
     """
 
     props: PropsDictType = {
@@ -824,7 +824,7 @@ class AttributeDimension(AWSProperty):
 
 class InAppMessageBodyConfig(AWSProperty):
     """
-    `InAppMessageBodyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html>`__
+    `InAppMessageBodyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-inappmessagebodyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -836,7 +836,7 @@ class InAppMessageBodyConfig(AWSProperty):
 
 class InAppMessageButton(AWSProperty):
     """
-    `InAppMessageButton <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessagebutton.html>`__
+    `InAppMessageButton <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-inappmessagebutton.html>`__
     """
 
     props: PropsDictType = {
@@ -849,7 +849,7 @@ class InAppMessageButton(AWSProperty):
 
 class InAppMessageHeaderConfig(AWSProperty):
     """
-    `InAppMessageHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html>`__
+    `InAppMessageHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-inappmessageheaderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -861,7 +861,7 @@ class InAppMessageHeaderConfig(AWSProperty):
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-metricdimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpoint-campaign-metricdimension.html>`__
     """
 
     props: PropsDictType = {

@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AnalysisRuleCriteria(AWSProperty):
     """
-    `AnalysisRuleCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html>`__
+    `AnalysisRuleCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AnalysisRuleCriteria(AWSProperty):
 
 class AnalysisRule(AWSProperty):
     """
-    `AnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrule.html>`__
+    `AnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-analysisrule.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AnalysisRule(AWSProperty):
 
 class UnusedAccessConfiguration(AWSProperty):
     """
-    `UnusedAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html>`__
+    `UnusedAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class UnusedAccessConfiguration(AWSProperty):
 
 class AnalyzerConfiguration(AWSProperty):
     """
-    `AnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html>`__
+    `AnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class AnalyzerConfiguration(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class Filter(AWSProperty):
 
 class ArchiveRule(AWSProperty):
     """
-    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
+    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class ArchiveRule(AWSProperty):
 
 class Analyzer(AWSObject):
     """
-    `Analyzer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html>`__
+    `Analyzer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-accessanalyzer-analyzer.html>`__
     """
 
     resource_type = "AWS::AccessAnalyzer::Analyzer"

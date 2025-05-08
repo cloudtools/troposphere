@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class ReferenceItem(AWSProperty):
     """
-    `ReferenceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-referenceitem.html>`__
+    `ReferenceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-omics-variantstore-referenceitem.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ReferenceItem(AWSProperty):
 
 class SseConfig(AWSProperty):
     """
-    `SseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-variantstore-sseconfig.html>`__
+    `SseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-omics-variantstore-sseconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class SseConfig(AWSProperty):
 
 class TsvStoreOptions(AWSProperty):
     """
-    `TsvStoreOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-tsvstoreoptions.html>`__
+    `TsvStoreOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-omics-annotationstore-tsvstoreoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class TsvStoreOptions(AWSProperty):
 
 class StoreOptions(AWSProperty):
     """
-    `StoreOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-storeoptions.html>`__
+    `StoreOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-omics-annotationstore-storeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class StoreOptions(AWSProperty):
 
 class AnnotationStore(AWSObject):
     """
-    `AnnotationStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-annotationstore.html>`__
+    `AnnotationStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-annotationstore.html>`__
     """
 
     resource_type = "AWS::Omics::AnnotationStore"
@@ -73,7 +73,7 @@ class AnnotationStore(AWSObject):
 
 class ReferenceStore(AWSObject):
     """
-    `ReferenceStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html>`__
+    `ReferenceStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-referencestore.html>`__
     """
 
     resource_type = "AWS::Omics::ReferenceStore"
@@ -88,7 +88,7 @@ class ReferenceStore(AWSObject):
 
 class RunGroup(AWSObject):
     """
-    `RunGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html>`__
+    `RunGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-rungroup.html>`__
     """
 
     resource_type = "AWS::Omics::RunGroup"
@@ -105,7 +105,7 @@ class RunGroup(AWSObject):
 
 class SequenceStore(AWSObject):
     """
-    `SequenceStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html>`__
+    `SequenceStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-sequencestore.html>`__
     """
 
     resource_type = "AWS::Omics::SequenceStore"
@@ -125,7 +125,7 @@ class SequenceStore(AWSObject):
 
 class VariantStore(AWSObject):
     """
-    `VariantStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html>`__
+    `VariantStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-variantstore.html>`__
     """
 
     resource_type = "AWS::Omics::VariantStore"
@@ -141,7 +141,7 @@ class VariantStore(AWSObject):
 
 class WorkflowParameter(AWSProperty):
     """
-    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-workflowparameter.html>`__
+    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-omics-workflow-workflowparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class WorkflowParameter(AWSProperty):
 
 class Workflow(AWSObject):
     """
-    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html>`__
+    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-omics-workflow.html>`__
     """
 
     resource_type = "AWS::Omics::Workflow"

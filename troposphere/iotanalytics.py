@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class CustomerManagedS3(AWSProperty):
     """
-    `CustomerManagedS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-customermanageds3.html>`__
+    `CustomerManagedS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-customermanageds3.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class CustomerManagedS3(AWSProperty):
 
 class ChannelStorage(AWSProperty):
     """
-    `ChannelStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html>`__
+    `ChannelStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-channel-channelstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class ChannelStorage(AWSProperty):
 
 class RetentionPeriod(AWSProperty):
     """
-    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-retentionperiod.html>`__
+    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-retentionperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class RetentionPeriod(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotanalytics-channel.html>`__
     """
 
     resource_type = "AWS::IoTAnalytics::Channel"
@@ -61,7 +61,7 @@ class Channel(AWSObject):
 
 class ResourceConfiguration(AWSProperty):
     """
-    `ResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-resourceconfiguration.html>`__
+    `ResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-resourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class ResourceConfiguration(AWSProperty):
 
 class DatasetContentVersionValue(AWSProperty):
     """
-    `DatasetContentVersionValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html>`__
+    `DatasetContentVersionValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-datasetcontentversionvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class DatasetContentVersionValue(AWSProperty):
 
 class OutputFileUriValue(AWSProperty):
     """
-    `OutputFileUriValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-outputfileurivalue.html>`__
+    `OutputFileUriValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-outputfileurivalue.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class OutputFileUriValue(AWSProperty):
 
 class Variable(AWSProperty):
     """
-    `Variable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-variable.html>`__
+    `Variable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-variable.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class Variable(AWSProperty):
 
 class ContainerAction(AWSProperty):
     """
-    `ContainerAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-containeraction.html>`__
+    `ContainerAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-containeraction.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class ContainerAction(AWSProperty):
 
 class DeltaTime(AWSProperty):
     """
-    `DeltaTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatime.html>`__
+    `DeltaTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-deltatime.html>`__
     """
 
     props: PropsDictType = {
@@ -130,7 +130,7 @@ class DeltaTime(AWSProperty):
 
 class QueryActionFilter(AWSProperty):
     """
-    `QueryActionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-filter.html>`__
+    `QueryActionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class QueryActionFilter(AWSProperty):
 
 class QueryAction(AWSProperty):
     """
-    `QueryAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-queryaction.html>`__
+    `QueryAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-queryaction.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class QueryAction(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-action.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class Action(AWSProperty):
 
 class IotEventsDestinationConfiguration(AWSProperty):
     """
-    `IotEventsDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html>`__
+    `IotEventsDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -174,7 +174,7 @@ class IotEventsDestinationConfiguration(AWSProperty):
 
 class GlueConfiguration(AWSProperty):
     """
-    `GlueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-glueconfiguration.html>`__
+    `GlueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-glueconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class GlueConfiguration(AWSProperty):
 
 class S3DestinationConfiguration(AWSProperty):
     """
-    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html>`__
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class S3DestinationConfiguration(AWSProperty):
 
 class DatasetContentDeliveryRuleDestination(AWSProperty):
     """
-    `DatasetContentDeliveryRuleDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html>`__
+    `DatasetContentDeliveryRuleDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-datasetcontentdeliveryruledestination.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class DatasetContentDeliveryRuleDestination(AWSProperty):
 
 class DatasetContentDeliveryRule(AWSProperty):
     """
-    `DatasetContentDeliveryRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html>`__
+    `DatasetContentDeliveryRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class DatasetContentDeliveryRule(AWSProperty):
 
 class DeltaTimeSessionWindowConfiguration(AWSProperty):
     """
-    `DeltaTimeSessionWindowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html>`__
+    `DeltaTimeSessionWindowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-deltatimesessionwindowconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class DeltaTimeSessionWindowConfiguration(AWSProperty):
 
 class LateDataRuleConfiguration(AWSProperty):
     """
-    `LateDataRuleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html>`__
+    `LateDataRuleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-latedataruleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -243,7 +243,7 @@ class LateDataRuleConfiguration(AWSProperty):
 
 class LateDataRule(AWSProperty):
     """
-    `LateDataRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-latedatarule.html>`__
+    `LateDataRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-latedatarule.html>`__
     """
 
     props: PropsDictType = {
@@ -254,7 +254,7 @@ class LateDataRule(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class Schedule(AWSProperty):
 
 class TriggeringDataset(AWSProperty):
     """
-    `TriggeringDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-triggeringdataset.html>`__
+    `TriggeringDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-triggeringdataset.html>`__
     """
 
     props: PropsDictType = {
@@ -274,7 +274,7 @@ class TriggeringDataset(AWSProperty):
 
 class Trigger(AWSProperty):
     """
-    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-trigger.html>`__
+    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-trigger.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class Trigger(AWSProperty):
 
 class VersioningConfiguration(AWSProperty):
     """
-    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-versioningconfiguration.html>`__
+    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-dataset-versioningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class VersioningConfiguration(AWSProperty):
 
 class Dataset(AWSObject):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotanalytics-dataset.html>`__
     """
 
     resource_type = "AWS::IoTAnalytics::Dataset"
@@ -315,7 +315,7 @@ class Dataset(AWSObject):
 
 class Partition(AWSProperty):
     """
-    `Partition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-partition.html>`__
+    `Partition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-partition.html>`__
     """
 
     props: PropsDictType = {
@@ -325,7 +325,7 @@ class Partition(AWSProperty):
 
 class TimestampPartition(AWSProperty):
     """
-    `TimestampPartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-timestamppartition.html>`__
+    `TimestampPartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-timestamppartition.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class TimestampPartition(AWSProperty):
 
 class DatastorePartition(AWSProperty):
     """
-    `DatastorePartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartition.html>`__
+    `DatastorePartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-datastorepartition.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class DatastorePartition(AWSProperty):
 
 class DatastorePartitions(AWSProperty):
     """
-    `DatastorePartitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorepartitions.html>`__
+    `DatastorePartitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-datastorepartitions.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class DatastorePartitions(AWSProperty):
 
 class CustomerManagedS3Storage(AWSProperty):
     """
-    `CustomerManagedS3Storage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-customermanageds3storage.html>`__
+    `CustomerManagedS3Storage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-customermanageds3storage.html>`__
     """
 
     props: PropsDictType = {
@@ -368,7 +368,7 @@ class CustomerManagedS3Storage(AWSProperty):
 
 class IotSiteWiseMultiLayerStorage(AWSProperty):
     """
-    `IotSiteWiseMultiLayerStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html>`__
+    `IotSiteWiseMultiLayerStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-iotsitewisemultilayerstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class IotSiteWiseMultiLayerStorage(AWSProperty):
 
 class DatastoreStorage(AWSProperty):
     """
-    `DatastoreStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html>`__
+    `DatastoreStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-datastorestorage.html>`__
     """
 
     props: PropsDictType = {
@@ -390,7 +390,7 @@ class DatastoreStorage(AWSProperty):
 
 class Column(AWSProperty):
     """
-    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-column.html>`__
+    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-column.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class Column(AWSProperty):
 
 class SchemaDefinition(AWSProperty):
     """
-    `SchemaDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-schemadefinition.html>`__
+    `SchemaDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-schemadefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -411,7 +411,7 @@ class SchemaDefinition(AWSProperty):
 
 class ParquetConfiguration(AWSProperty):
     """
-    `ParquetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-parquetconfiguration.html>`__
+    `ParquetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-parquetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class ParquetConfiguration(AWSProperty):
 
 class FileFormatConfiguration(AWSProperty):
     """
-    `FileFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-fileformatconfiguration.html>`__
+    `FileFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-datastore-fileformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -432,7 +432,7 @@ class FileFormatConfiguration(AWSProperty):
 
 class Datastore(AWSObject):
     """
-    `Datastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html>`__
+    `Datastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotanalytics-datastore.html>`__
     """
 
     resource_type = "AWS::IoTAnalytics::Datastore"
@@ -449,7 +449,7 @@ class Datastore(AWSObject):
 
 class ActivityChannel(AWSProperty):
     """
-    `ActivityChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-channel.html>`__
+    `ActivityChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-channel.html>`__
     """
 
     props: PropsDictType = {
@@ -461,7 +461,7 @@ class ActivityChannel(AWSProperty):
 
 class ActivityDatastore(AWSProperty):
     """
-    `ActivityDatastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-datastore.html>`__
+    `ActivityDatastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-datastore.html>`__
     """
 
     props: PropsDictType = {
@@ -472,7 +472,7 @@ class ActivityDatastore(AWSProperty):
 
 class AddAttributes(AWSProperty):
     """
-    `AddAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-addattributes.html>`__
+    `AddAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-addattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -484,7 +484,7 @@ class AddAttributes(AWSProperty):
 
 class DeviceRegistryEnrich(AWSProperty):
     """
-    `DeviceRegistryEnrich <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html>`__
+    `DeviceRegistryEnrich <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-deviceregistryenrich.html>`__
     """
 
     props: PropsDictType = {
@@ -498,7 +498,7 @@ class DeviceRegistryEnrich(AWSProperty):
 
 class DeviceShadowEnrich(AWSProperty):
     """
-    `DeviceShadowEnrich <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html>`__
+    `DeviceShadowEnrich <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-deviceshadowenrich.html>`__
     """
 
     props: PropsDictType = {
@@ -512,7 +512,7 @@ class DeviceShadowEnrich(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -524,7 +524,7 @@ class Filter(AWSProperty):
 
 class Lambda(AWSProperty):
     """
-    `Lambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html>`__
+    `Lambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-lambda.html>`__
     """
 
     props: PropsDictType = {
@@ -537,7 +537,7 @@ class Lambda(AWSProperty):
 
 class Math(AWSProperty):
     """
-    `Math <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-math.html>`__
+    `Math <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-math.html>`__
     """
 
     props: PropsDictType = {
@@ -550,7 +550,7 @@ class Math(AWSProperty):
 
 class RemoveAttributes(AWSProperty):
     """
-    `RemoveAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-removeattributes.html>`__
+    `RemoveAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-removeattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -562,7 +562,7 @@ class RemoveAttributes(AWSProperty):
 
 class SelectAttributes(AWSProperty):
     """
-    `SelectAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-selectattributes.html>`__
+    `SelectAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-selectattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -574,7 +574,7 @@ class SelectAttributes(AWSProperty):
 
 class Activity(AWSProperty):
     """
-    `Activity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-activity.html>`__
+    `Activity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotanalytics-pipeline-activity.html>`__
     """
 
     props: PropsDictType = {
@@ -593,7 +593,7 @@ class Activity(AWSProperty):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html>`__
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotanalytics-pipeline.html>`__
     """
 
     resource_type = "AWS::IoTAnalytics::Pipeline"

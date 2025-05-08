@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class MetricDefinition(AWSProperty):
     """
-    `MetricDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdefinition.html>`__
+    `MetricDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-metricdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class MetricDefinition(AWSProperty):
 
 class MetricDestination(AWSProperty):
     """
-    `MetricDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-metricdestination.html>`__
+    `MetricDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-metricdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class MetricDestination(AWSProperty):
 
 class AppMonitorConfiguration(AWSProperty):
     """
-    `AppMonitorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html>`__
+    `AppMonitorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-appmonitorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class AppMonitorConfiguration(AWSProperty):
 
 class CustomEvents(AWSProperty):
     """
-    `CustomEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-customevents.html>`__
+    `CustomEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-customevents.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class CustomEvents(AWSProperty):
 
 class JavaScriptSourceMaps(AWSProperty):
     """
-    `JavaScriptSourceMaps <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-javascriptsourcemaps.html>`__
+    `JavaScriptSourceMaps <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-javascriptsourcemaps.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class JavaScriptSourceMaps(AWSProperty):
 
 class DeobfuscationConfiguration(AWSProperty):
     """
-    `DeobfuscationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-deobfuscationconfiguration.html>`__
+    `DeobfuscationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-deobfuscationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -90,7 +90,7 @@ class DeobfuscationConfiguration(AWSProperty):
 
 class ResourcePolicy(AWSProperty):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rum-appmonitor-resourcepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class ResourcePolicy(AWSProperty):
 
 class AppMonitor(AWSObject):
     """
-    `AppMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html>`__
+    `AppMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rum-appmonitor.html>`__
     """
 
     resource_type = "AWS::RUM::AppMonitor"

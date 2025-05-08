@@ -29,7 +29,7 @@ from .validators.emr import (
 
 class Application(AWSProperty):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-application.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class Application(AWSProperty):
 
 class AutoTerminationPolicy(AWSProperty):
     """
-    `AutoTerminationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html>`__
+    `AutoTerminationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class AutoTerminationPolicy(AWSProperty):
 
 class ScriptBootstrapActionConfig(AWSProperty):
     """
-    `ScriptBootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html>`__
+    `ScriptBootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ScriptBootstrapActionConfig(AWSProperty):
 
 class BootstrapActionConfig(AWSProperty):
     """
-    `BootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html>`__
+    `BootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class BootstrapActionConfig(AWSProperty):
 
 class Configuration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emr-cluster-configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class Configuration(AWSProperty):
 
 class OnDemandCapacityReservationOptions(AWSProperty):
     """
-    `OnDemandCapacityReservationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html>`__
+    `OnDemandCapacityReservationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class OnDemandCapacityReservationOptions(AWSProperty):
 
 class OnDemandProvisioningSpecification(AWSProperty):
     """
-    `OnDemandProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html>`__
+    `OnDemandProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class OnDemandProvisioningSpecification(AWSProperty):
 
 class SpotProvisioningSpecification(AWSProperty):
     """
-    `SpotProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html>`__
+    `SpotProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class SpotProvisioningSpecification(AWSProperty):
 
 class InstanceFleetProvisioningSpecifications(AWSProperty):
     """
-    `InstanceFleetProvisioningSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html>`__
+    `InstanceFleetProvisioningSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class InstanceFleetProvisioningSpecifications(AWSProperty):
 
 class OnDemandResizingSpecification(AWSProperty):
     """
-    `OnDemandResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html>`__
+    `OnDemandResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class OnDemandResizingSpecification(AWSProperty):
 
 class SpotResizingSpecification(AWSProperty):
     """
-    `SpotResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotresizingspecification.html>`__
+    `SpotResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-spotresizingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class SpotResizingSpecification(AWSProperty):
 
 class InstanceFleetResizingSpecifications(AWSProperty):
     """
-    `InstanceFleetResizingSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html>`__
+    `InstanceFleetResizingSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class InstanceFleetResizingSpecifications(AWSProperty):
 
 class VolumeSpecification(AWSProperty):
     """
-    `VolumeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html>`__
+    `VolumeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class VolumeSpecification(AWSProperty):
 
 class EbsBlockDeviceConfigs(AWSProperty):
     """
-    `EbsBlockDeviceConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html>`__
+    `EbsBlockDeviceConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class EbsBlockDeviceConfigs(AWSProperty):
 
 class EbsConfiguration(AWSProperty):
     """
-    `EbsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html>`__
+    `EbsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emr-ebsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class EbsConfiguration(AWSProperty):
 
 class InstanceTypeConfig(AWSProperty):
     """
-    `InstanceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html>`__
+    `InstanceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -225,7 +225,7 @@ class InstanceTypeConfig(AWSProperty):
 
 class InstanceFleetConfigProperty(AWSProperty):
     """
-    `InstanceFleetConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html>`__
+    `InstanceFleetConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class InstanceFleetConfigProperty(AWSProperty):
 
 class ScalingConstraints(AWSProperty):
     """
-    `ScalingConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingconstraints.html>`__
+    `ScalingConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-scalingconstraints.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class ScalingConstraints(AWSProperty):
 
 class SimpleScalingPolicyConfiguration(AWSProperty):
     """
-    `SimpleScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html>`__
+    `SimpleScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
 
 class ScalingAction(AWSProperty):
     """
-    `ScalingAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingaction.html>`__
+    `ScalingAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-scalingaction.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class ScalingAction(AWSProperty):
 
 class CloudWatchAlarmDefinition(AWSProperty):
     """
-    `CloudWatchAlarmDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html>`__
+    `CloudWatchAlarmDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -295,7 +295,7 @@ class CloudWatchAlarmDefinition(AWSProperty):
 
 class ScalingTrigger(AWSProperty):
     """
-    `ScalingTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingtrigger.html>`__
+    `ScalingTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-scalingtrigger.html>`__
     """
 
     props: PropsDictType = {
@@ -305,7 +305,7 @@ class ScalingTrigger(AWSProperty):
 
 class ScalingRule(AWSProperty):
     """
-    `ScalingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html>`__
+    `ScalingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +318,7 @@ class ScalingRule(AWSProperty):
 
 class AutoScalingPolicy(AWSProperty):
     """
-    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html>`__
+    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class AutoScalingPolicy(AWSProperty):
 
 class InstanceGroupConfigProperty(AWSProperty):
     """
-    `InstanceGroupConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html>`__
+    `InstanceGroupConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class InstanceGroupConfigProperty(AWSProperty):
 
 class PlacementType(AWSProperty):
     """
-    `PlacementType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html>`__
+    `PlacementType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-placementtype.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class PlacementType(AWSProperty):
 
 class JobFlowInstancesConfig(AWSProperty):
     """
-    `JobFlowInstancesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html>`__
+    `JobFlowInstancesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class JobFlowInstancesConfig(AWSProperty):
 
 class KerberosAttributes(AWSProperty):
     """
-    `KerberosAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html>`__
+    `KerberosAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-kerberosattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class KerberosAttributes(AWSProperty):
 
 class ComputeLimits(AWSProperty):
     """
-    `ComputeLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html>`__
+    `ComputeLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-computelimits.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class ComputeLimits(AWSProperty):
 
 class ManagedScalingPolicy(AWSProperty):
     """
-    `ManagedScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html>`__
+    `ManagedScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -424,7 +424,7 @@ class ManagedScalingPolicy(AWSProperty):
 
 class PlacementGroupConfig(AWSProperty):
     """
-    `PlacementGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementgroupconfig.html>`__
+    `PlacementGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-placementgroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -435,7 +435,7 @@ class PlacementGroupConfig(AWSProperty):
 
 class HadoopJarStepConfig(AWSProperty):
     """
-    `HadoopJarStepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html>`__
+    `HadoopJarStepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emr-step-hadoopjarstepconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -448,7 +448,7 @@ class HadoopJarStepConfig(AWSProperty):
 
 class StepConfig(AWSProperty):
     """
-    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html>`__
+    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticmapreduce-cluster-stepconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class StepConfig(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticmapreduce-cluster.html>`__
     """
 
     resource_type = "AWS::EMR::Cluster"
@@ -498,7 +498,7 @@ class Cluster(AWSObject):
 
 class InstanceFleetConfig(AWSObject):
     """
-    `InstanceFleetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html>`__
+    `InstanceFleetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticmapreduce-instancefleetconfig.html>`__
     """
 
     resource_type = "AWS::EMR::InstanceFleetConfig"
@@ -517,7 +517,7 @@ class InstanceFleetConfig(AWSObject):
 
 class InstanceGroupConfig(AWSObject):
     """
-    `InstanceGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html>`__
+    `InstanceGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-instancegroupconfig.html>`__
     """
 
     resource_type = "AWS::EMR::InstanceGroupConfig"
@@ -539,7 +539,7 @@ class InstanceGroupConfig(AWSObject):
 
 class SecurityConfiguration(AWSObject):
     """
-    `SecurityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html>`__
+    `SecurityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-securityconfiguration.html>`__
     """
 
     resource_type = "AWS::EMR::SecurityConfiguration"
@@ -552,7 +552,7 @@ class SecurityConfiguration(AWSObject):
 
 class Step(AWSObject):
     """
-    `Step <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html>`__
+    `Step <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-step.html>`__
     """
 
     resource_type = "AWS::EMR::Step"
@@ -567,7 +567,7 @@ class Step(AWSObject):
 
 class Studio(AWSObject):
     """
-    `Studio <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html>`__
+    `Studio <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-studio.html>`__
     """
 
     resource_type = "AWS::EMR::Studio"
@@ -595,7 +595,7 @@ class Studio(AWSObject):
 
 class StudioSessionMapping(AWSObject):
     """
-    `StudioSessionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html>`__
+    `StudioSessionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-studiosessionmapping.html>`__
     """
 
     resource_type = "AWS::EMR::StudioSessionMapping"
@@ -610,7 +610,7 @@ class StudioSessionMapping(AWSObject):
 
 class WALWorkspace(AWSObject):
     """
-    `WALWorkspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html>`__
+    `WALWorkspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emr-walworkspace.html>`__
     """
 
     resource_type = "AWS::EMR::WALWorkspace"

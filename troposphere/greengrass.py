@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Connector(AWSProperty):
     """
-    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinitionversion-connector.html>`__
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-connectordefinitionversion-connector.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class Connector(AWSProperty):
 
 class ConnectorDefinitionVersionProperty(AWSProperty):
     """
-    `ConnectorDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html>`__
+    `ConnectorDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ConnectorDefinitionVersionProperty(AWSProperty):
 
 class ConnectorDefinition(AWSObject):
     """
-    `ConnectorDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html>`__
+    `ConnectorDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-connectordefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::ConnectorDefinition"
@@ -48,7 +48,7 @@ class ConnectorDefinition(AWSObject):
 
 class ConnectorDefinitionVersion(AWSObject):
     """
-    `ConnectorDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html>`__
+    `ConnectorDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-connectordefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::ConnectorDefinitionVersion"
@@ -61,7 +61,7 @@ class ConnectorDefinitionVersion(AWSObject):
 
 class Core(AWSProperty):
     """
-    `Core <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinitionversion-core.html>`__
+    `Core <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-coredefinitionversion-core.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class Core(AWSProperty):
 
 class CoreDefinitionVersionProperty(AWSProperty):
     """
-    `CoreDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html>`__
+    `CoreDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-coredefinition-coredefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class CoreDefinitionVersionProperty(AWSProperty):
 
 class CoreDefinition(AWSObject):
     """
-    `CoreDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html>`__
+    `CoreDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-coredefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::CoreDefinition"
@@ -98,7 +98,7 @@ class CoreDefinition(AWSObject):
 
 class CoreDefinitionVersion(AWSObject):
     """
-    `CoreDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html>`__
+    `CoreDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-coredefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::CoreDefinitionVersion"
@@ -111,7 +111,7 @@ class CoreDefinitionVersion(AWSObject):
 
 class Device(AWSProperty):
     """
-    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinitionversion-device.html>`__
+    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-devicedefinitionversion-device.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class Device(AWSProperty):
 
 class DeviceDefinitionVersionProperty(AWSProperty):
     """
-    `DeviceDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html>`__
+    `DeviceDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class DeviceDefinitionVersionProperty(AWSProperty):
 
 class DeviceDefinition(AWSObject):
     """
-    `DeviceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html>`__
+    `DeviceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-devicedefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::DeviceDefinition"
@@ -148,7 +148,7 @@ class DeviceDefinition(AWSObject):
 
 class DeviceDefinitionVersion(AWSObject):
     """
-    `DeviceDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html>`__
+    `DeviceDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-devicedefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::DeviceDefinitionVersion"
@@ -161,7 +161,7 @@ class DeviceDefinitionVersion(AWSObject):
 
 class RunAs(AWSProperty):
     """
-    `RunAs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-runas.html>`__
+    `RunAs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-runas.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class RunAs(AWSProperty):
 
 class Execution(AWSProperty):
     """
-    `Execution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html>`__
+    `Execution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-execution.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class Execution(AWSProperty):
 
 class DefaultConfig(AWSProperty):
     """
-    `DefaultConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html>`__
+    `DefaultConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class DefaultConfig(AWSProperty):
 
 class ResourceAccessPolicy(AWSProperty):
     """
-    `ResourceAccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html>`__
+    `ResourceAccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-resourceaccesspolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -204,7 +204,7 @@ class ResourceAccessPolicy(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-environment.html>`__
     """
 
     props: PropsDictType = {
@@ -217,7 +217,7 @@ class Environment(AWSProperty):
 
 class FunctionConfiguration(AWSProperty):
     """
-    `FunctionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html>`__
+    `FunctionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -233,7 +233,7 @@ class FunctionConfiguration(AWSProperty):
 
 class Function(AWSProperty):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinitionversion-function.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class Function(AWSProperty):
 
 class FunctionDefinitionVersionProperty(AWSProperty):
     """
-    `FunctionDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html>`__
+    `FunctionDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class FunctionDefinitionVersionProperty(AWSProperty):
 
 class FunctionDefinition(AWSObject):
     """
-    `FunctionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html>`__
+    `FunctionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-functiondefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::FunctionDefinition"
@@ -270,7 +270,7 @@ class FunctionDefinition(AWSObject):
 
 class FunctionDefinitionVersion(AWSObject):
     """
-    `FunctionDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html>`__
+    `FunctionDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-functiondefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::FunctionDefinitionVersion"
@@ -284,7 +284,7 @@ class FunctionDefinitionVersion(AWSObject):
 
 class GroupVersionProperty(AWSProperty):
     """
-    `GroupVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-group-groupversion.html>`__
+    `GroupVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-group-groupversion.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class GroupVersionProperty(AWSProperty):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-group.html>`__
     """
 
     resource_type = "AWS::Greengrass::Group"
@@ -315,7 +315,7 @@ class Group(AWSObject):
 
 class GroupVersion(AWSObject):
     """
-    `GroupVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html>`__
+    `GroupVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-groupversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::GroupVersion"
@@ -334,7 +334,7 @@ class GroupVersion(AWSObject):
 
 class Logger(AWSProperty):
     """
-    `Logger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinitionversion-logger.html>`__
+    `Logger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-loggerdefinitionversion-logger.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class Logger(AWSProperty):
 
 class LoggerDefinitionVersionProperty(AWSProperty):
     """
-    `LoggerDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html>`__
+    `LoggerDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +358,7 @@ class LoggerDefinitionVersionProperty(AWSProperty):
 
 class LoggerDefinition(AWSObject):
     """
-    `LoggerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html>`__
+    `LoggerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-loggerdefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::LoggerDefinition"
@@ -372,7 +372,7 @@ class LoggerDefinition(AWSObject):
 
 class LoggerDefinitionVersion(AWSObject):
     """
-    `LoggerDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html>`__
+    `LoggerDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-loggerdefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::LoggerDefinitionVersion"
@@ -385,7 +385,7 @@ class LoggerDefinitionVersion(AWSObject):
 
 class GroupOwnerSetting(AWSProperty):
     """
-    `GroupOwnerSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html>`__
+    `GroupOwnerSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-groupownersetting.html>`__
     """
 
     props: PropsDictType = {
@@ -396,7 +396,7 @@ class GroupOwnerSetting(AWSProperty):
 
 class LocalDeviceResourceData(AWSProperty):
     """
-    `LocalDeviceResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html>`__
+    `LocalDeviceResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -407,7 +407,7 @@ class LocalDeviceResourceData(AWSProperty):
 
 class LocalVolumeResourceData(AWSProperty):
     """
-    `LocalVolumeResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html>`__
+    `LocalVolumeResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -419,7 +419,7 @@ class LocalVolumeResourceData(AWSProperty):
 
 class ResourceDownloadOwnerSetting(AWSProperty):
     """
-    `ResourceDownloadOwnerSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html>`__
+    `ResourceDownloadOwnerSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-resourcedownloadownersetting.html>`__
     """
 
     props: PropsDictType = {
@@ -430,7 +430,7 @@ class ResourceDownloadOwnerSetting(AWSProperty):
 
 class S3MachineLearningModelResourceData(AWSProperty):
     """
-    `S3MachineLearningModelResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html>`__
+    `S3MachineLearningModelResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -442,7 +442,7 @@ class S3MachineLearningModelResourceData(AWSProperty):
 
 class SageMakerMachineLearningModelResourceData(AWSProperty):
     """
-    `SageMakerMachineLearningModelResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html>`__
+    `SageMakerMachineLearningModelResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -454,7 +454,7 @@ class SageMakerMachineLearningModelResourceData(AWSProperty):
 
 class SecretsManagerSecretResourceData(AWSProperty):
     """
-    `SecretsManagerSecretResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html>`__
+    `SecretsManagerSecretResourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-secretsmanagersecretresourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -465,7 +465,7 @@ class SecretsManagerSecretResourceData(AWSProperty):
 
 class ResourceDataContainer(AWSProperty):
     """
-    `ResourceDataContainer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html>`__
+    `ResourceDataContainer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html>`__
     """
 
     props: PropsDictType = {
@@ -485,7 +485,7 @@ class ResourceDataContainer(AWSProperty):
 
 class ResourceInstance(AWSProperty):
     """
-    `ResourceInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html>`__
+    `ResourceInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html>`__
     """
 
     props: PropsDictType = {
@@ -497,7 +497,7 @@ class ResourceInstance(AWSProperty):
 
 class ResourceDefinitionVersionProperty(AWSProperty):
     """
-    `ResourceDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html>`__
+    `ResourceDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -507,7 +507,7 @@ class ResourceDefinitionVersionProperty(AWSProperty):
 
 class ResourceDefinition(AWSObject):
     """
-    `ResourceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html>`__
+    `ResourceDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-resourcedefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::ResourceDefinition"
@@ -521,7 +521,7 @@ class ResourceDefinition(AWSObject):
 
 class ResourceDefinitionVersion(AWSObject):
     """
-    `ResourceDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html>`__
+    `ResourceDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-resourcedefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::ResourceDefinitionVersion"
@@ -534,7 +534,7 @@ class ResourceDefinitionVersion(AWSObject):
 
 class Subscription(AWSProperty):
     """
-    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html>`__
+    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-subscriptiondefinitionversion-subscription.html>`__
     """
 
     props: PropsDictType = {
@@ -547,7 +547,7 @@ class Subscription(AWSProperty):
 
 class SubscriptionDefinitionVersionProperty(AWSProperty):
     """
-    `SubscriptionDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html>`__
+    `SubscriptionDefinitionVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html>`__
     """
 
     props: PropsDictType = {
@@ -557,7 +557,7 @@ class SubscriptionDefinitionVersionProperty(AWSProperty):
 
 class SubscriptionDefinition(AWSObject):
     """
-    `SubscriptionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html>`__
+    `SubscriptionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-subscriptiondefinition.html>`__
     """
 
     resource_type = "AWS::Greengrass::SubscriptionDefinition"
@@ -571,7 +571,7 @@ class SubscriptionDefinition(AWSObject):
 
 class SubscriptionDefinitionVersion(AWSObject):
     """
-    `SubscriptionDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html>`__
+    `SubscriptionDefinitionVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrass-subscriptiondefinitionversion.html>`__
     """
 
     resource_type = "AWS::Greengrass::SubscriptionDefinitionVersion"

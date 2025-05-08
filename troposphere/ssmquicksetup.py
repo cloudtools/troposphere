@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class ConfigurationDefinition(AWSProperty):
     """
-    `ConfigurationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmquicksetup-configurationmanager-configurationdefinition.html>`__
+    `ConfigurationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmquicksetup-configurationmanager-configurationdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -26,7 +26,7 @@ class ConfigurationDefinition(AWSProperty):
 
 class ConfigurationManager(AWSObject):
     """
-    `ConfigurationManager <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-configurationmanager.html>`__
+    `ConfigurationManager <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmquicksetup-configurationmanager.html>`__
     """
 
     resource_type = "AWS::SSMQuickSetup::ConfigurationManager"
@@ -41,7 +41,7 @@ class ConfigurationManager(AWSObject):
 
 class StatusSummary(AWSProperty):
     """
-    `StatusSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmquicksetup-configurationmanager-statussummary.html>`__
+    `StatusSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmquicksetup-configurationmanager-statussummary.html>`__
     """
 
     props: PropsDictType = {

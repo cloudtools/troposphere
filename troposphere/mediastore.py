@@ -13,7 +13,7 @@ from .validators.mediastore import containerlevelmetrics_status
 
 class CorsRule(AWSProperty):
     """
-    `CorsRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-corsrule.html>`__
+    `CorsRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediastore-container-corsrule.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class CorsRule(AWSProperty):
 
 class MetricPolicyRule(AWSProperty):
     """
-    `MetricPolicyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicyrule.html>`__
+    `MetricPolicyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediastore-container-metricpolicyrule.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class MetricPolicyRule(AWSProperty):
 
 class MetricPolicy(AWSProperty):
     """
-    `MetricPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediastore-container-metricpolicy.html>`__
+    `MetricPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediastore-container-metricpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class MetricPolicy(AWSProperty):
 
 class Container(AWSObject):
     """
-    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html>`__
+    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediastore-container.html>`__
     """
 
     resource_type = "AWS::MediaStore::Container"

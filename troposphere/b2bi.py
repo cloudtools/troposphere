@@ -12,7 +12,7 @@ from .validators import boolean
 
 class X12Details(AWSProperty):
     """
-    `X12Details <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12details.html>`__
+    `X12Details <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-x12details.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class X12Details(AWSProperty):
 
 class EdiType(AWSProperty):
     """
-    `EdiType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-editype.html>`__
+    `EdiType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-capability-editype.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class EdiType(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-capability-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class S3Location(AWSProperty):
 
 class EdiConfiguration(AWSProperty):
     """
-    `EdiConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html>`__
+    `EdiConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-capability-ediconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class EdiConfiguration(AWSProperty):
 
 class CapabilityConfiguration(AWSProperty):
     """
-    `CapabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilityconfiguration.html>`__
+    `CapabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-capability-capabilityconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class CapabilityConfiguration(AWSProperty):
 
 class Capability(AWSObject):
     """
-    `Capability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html>`__
+    `Capability <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-b2bi-capability.html>`__
     """
 
     resource_type = "AWS::B2BI::Capability"
@@ -84,7 +84,7 @@ class Capability(AWSObject):
 
 class X12Delimiters(AWSProperty):
     """
-    `X12Delimiters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12delimiters.html>`__
+    `X12Delimiters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-x12delimiters.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class X12Delimiters(AWSProperty):
 
 class X12FunctionalGroupHeaders(AWSProperty):
     """
-    `X12FunctionalGroupHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12functionalgroupheaders.html>`__
+    `X12FunctionalGroupHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-x12functionalgroupheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class X12FunctionalGroupHeaders(AWSProperty):
 
 class X12InterchangeControlHeaders(AWSProperty):
     """
-    `X12InterchangeControlHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12interchangecontrolheaders.html>`__
+    `X12InterchangeControlHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-x12interchangecontrolheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class X12InterchangeControlHeaders(AWSProperty):
 
 class X12OutboundEdiHeaders(AWSProperty):
     """
-    `X12OutboundEdiHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html>`__
+    `X12OutboundEdiHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-x12outboundediheaders.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class X12OutboundEdiHeaders(AWSProperty):
 
 class X12Envelope(AWSProperty):
     """
-    `X12Envelope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html>`__
+    `X12Envelope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-x12envelope.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class X12Envelope(AWSProperty):
 
 class OutboundEdiOptions(AWSProperty):
     """
-    `OutboundEdiOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html>`__
+    `OutboundEdiOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-outboundedioptions.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class OutboundEdiOptions(AWSProperty):
 
 class CapabilityOptions(AWSProperty):
     """
-    `CapabilityOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html>`__
+    `CapabilityOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-partnership-capabilityoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class CapabilityOptions(AWSProperty):
 
 class Partnership(AWSObject):
     """
-    `Partnership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html>`__
+    `Partnership <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-b2bi-partnership.html>`__
     """
 
     resource_type = "AWS::B2BI::Partnership"
@@ -185,7 +185,7 @@ class Partnership(AWSObject):
 
 class Profile(AWSObject):
     """
-    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html>`__
+    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-b2bi-profile.html>`__
     """
 
     resource_type = "AWS::B2BI::Profile"
@@ -202,7 +202,7 @@ class Profile(AWSObject):
 
 class FormatOptions(AWSProperty):
     """
-    `FormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-formatoptions.html>`__
+    `FormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-formatoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class FormatOptions(AWSProperty):
 
 class InputConversion(AWSProperty):
     """
-    `InputConversion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-inputconversion.html>`__
+    `InputConversion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-inputconversion.html>`__
     """
 
     props: PropsDictType = {
@@ -223,7 +223,7 @@ class InputConversion(AWSProperty):
 
 class Mapping(AWSProperty):
     """
-    `Mapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mapping.html>`__
+    `Mapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-mapping.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class Mapping(AWSProperty):
 
 class OutputConversion(AWSProperty):
     """
-    `OutputConversion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html>`__
+    `OutputConversion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-outputconversion.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class OutputConversion(AWSProperty):
 
 class SampleDocumentKeys(AWSProperty):
     """
-    `SampleDocumentKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocumentkeys.html>`__
+    `SampleDocumentKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-sampledocumentkeys.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class SampleDocumentKeys(AWSProperty):
 
 class SampleDocuments(AWSProperty):
     """
-    `SampleDocuments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocuments.html>`__
+    `SampleDocuments <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-b2bi-transformer-sampledocuments.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class SampleDocuments(AWSProperty):
 
 class Transformer(AWSObject):
     """
-    `Transformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html>`__
+    `Transformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-b2bi-transformer.html>`__
     """
 
     resource_type = "AWS::B2BI::Transformer"

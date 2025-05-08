@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotfleethub-application.html>`__
     """
 
     resource_type = "AWS::IoTFleetHub::Application"

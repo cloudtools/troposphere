@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class IamRole(AWSProperty):
     """
-    `IamRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html>`__
+    `IamRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-iamrole.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class IamRole(AWSProperty):
 
 class IamUser(AWSProperty):
     """
-    `IamUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html>`__
+    `IamUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-iamuser.html>`__
     """
 
     props: PropsDictType = {
@@ -31,7 +31,7 @@ class IamUser(AWSProperty):
 
 class User(AWSProperty):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-user.html>`__
     """
 
     props: PropsDictType = {
@@ -41,7 +41,7 @@ class User(AWSProperty):
 
 class AccessPolicyIdentity(AWSProperty):
     """
-    `AccessPolicyIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html>`__
+    `AccessPolicyIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class AccessPolicyIdentity(AWSProperty):
 
 class PortalProperty(AWSProperty):
     """
-    `PortalProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html>`__
+    `PortalProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-portal.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class PortalProperty(AWSProperty):
 
 class ProjectProperty(AWSProperty):
     """
-    `ProjectProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html>`__
+    `ProjectProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-project.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class ProjectProperty(AWSProperty):
 
 class AccessPolicyResource(AWSProperty):
     """
-    `AccessPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html>`__
+    `AccessPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class AccessPolicyResource(AWSProperty):
 
 class AccessPolicy(AWSObject):
     """
-    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html>`__
+    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-accesspolicy.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::AccessPolicy"
@@ -98,7 +98,7 @@ class AccessPolicy(AWSObject):
 
 class AssetHierarchy(AWSProperty):
     """
-    `AssetHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html>`__
+    `AssetHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-asset-assethierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class AssetHierarchy(AWSProperty):
 
 class AssetProperty(AWSProperty):
     """
-    `AssetProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html>`__
+    `AssetProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-asset-assetproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class AssetProperty(AWSProperty):
 
 class Asset(AWSObject):
     """
-    `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html>`__
+    `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-asset.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Asset"
@@ -144,7 +144,7 @@ class Asset(AWSObject):
 
 class Attribute(AWSProperty):
     """
-    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html>`__
+    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-attribute.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class Attribute(AWSProperty):
 
 class PropertyPathDefinition(AWSProperty):
     """
-    `PropertyPathDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html>`__
+    `PropertyPathDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class PropertyPathDefinition(AWSProperty):
 
 class VariableValue(AWSProperty):
     """
-    `VariableValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html>`__
+    `VariableValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-variablevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -180,7 +180,7 @@ class VariableValue(AWSProperty):
 
 class ExpressionVariable(AWSProperty):
     """
-    `ExpressionVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html>`__
+    `ExpressionVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-expressionvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -191,7 +191,7 @@ class ExpressionVariable(AWSProperty):
 
 class TumblingWindow(AWSProperty):
     """
-    `TumblingWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html>`__
+    `TumblingWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-tumblingwindow.html>`__
     """
 
     props: PropsDictType = {
@@ -202,7 +202,7 @@ class TumblingWindow(AWSProperty):
 
 class MetricWindow(AWSProperty):
     """
-    `MetricWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html>`__
+    `MetricWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-metricwindow.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class MetricWindow(AWSProperty):
 
 class Metric(AWSProperty):
     """
-    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html>`__
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-metric.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class Metric(AWSProperty):
 
 class Transform(AWSProperty):
     """
-    `Transform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html>`__
+    `Transform <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-transform.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class Transform(AWSProperty):
 
 class PropertyType(AWSProperty):
     """
-    `PropertyType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html>`__
+    `PropertyType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-propertytype.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class PropertyType(AWSProperty):
 
 class AssetModelProperty(AWSProperty):
     """
-    `AssetModelProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html>`__
+    `AssetModelProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class AssetModelProperty(AWSProperty):
 
 class AssetModelCompositeModel(AWSProperty):
     """
-    `AssetModelCompositeModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html>`__
+    `AssetModelCompositeModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class AssetModelCompositeModel(AWSProperty):
 
 class AssetModelHierarchy(AWSProperty):
     """
-    `AssetModelHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html>`__
+    `AssetModelHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class AssetModelHierarchy(AWSProperty):
 
 class AssetModel(AWSObject):
     """
-    `AssetModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html>`__
+    `AssetModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-assetmodel.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::AssetModel"
@@ -316,7 +316,7 @@ class AssetModel(AWSObject):
 
 class Dashboard(AWSObject):
     """
-    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html>`__
+    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-dashboard.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Dashboard"
@@ -332,7 +332,7 @@ class Dashboard(AWSObject):
 
 class KendraSourceDetail(AWSProperty):
     """
-    `KendraSourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html>`__
+    `KendraSourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-dataset-kendrasourcedetail.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class KendraSourceDetail(AWSProperty):
 
 class SourceDetail(AWSProperty):
     """
-    `SourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-sourcedetail.html>`__
+    `SourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-dataset-sourcedetail.html>`__
     """
 
     props: PropsDictType = {
@@ -353,7 +353,7 @@ class SourceDetail(AWSProperty):
 
 class DatasetSource(AWSProperty):
     """
-    `DatasetSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-datasetsource.html>`__
+    `DatasetSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-dataset-datasetsource.html>`__
     """
 
     props: PropsDictType = {
@@ -365,7 +365,7 @@ class DatasetSource(AWSProperty):
 
 class Dataset(AWSObject):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-dataset.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Dataset"
@@ -380,7 +380,7 @@ class Dataset(AWSObject):
 
 class GatewayCapabilitySummary(AWSProperty):
     """
-    `GatewayCapabilitySummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html>`__
+    `GatewayCapabilitySummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class GatewayCapabilitySummary(AWSProperty):
 
 class GreengrassV2(AWSProperty):
     """
-    `GreengrassV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html>`__
+    `GreengrassV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-gateway-greengrassv2.html>`__
     """
 
     props: PropsDictType = {
@@ -402,7 +402,7 @@ class GreengrassV2(AWSProperty):
 
 class SiemensIE(AWSProperty):
     """
-    `SiemensIE <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-siemensie.html>`__
+    `SiemensIE <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-gateway-siemensie.html>`__
     """
 
     props: PropsDictType = {
@@ -412,7 +412,7 @@ class SiemensIE(AWSProperty):
 
 class GatewayPlatform(AWSProperty):
     """
-    `GatewayPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>`__
+    `GatewayPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-gateway-gatewayplatform.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class GatewayPlatform(AWSProperty):
 
 class Gateway(AWSObject):
     """
-    `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html>`__
+    `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-gateway.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Gateway"
@@ -439,7 +439,7 @@ class Gateway(AWSObject):
 
 class Alarms(AWSProperty):
     """
-    `Alarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html>`__
+    `Alarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-portal-alarms.html>`__
     """
 
     props: PropsDictType = {
@@ -450,7 +450,7 @@ class Alarms(AWSProperty):
 
 class PortalTypeEntry(AWSProperty):
     """
-    `PortalTypeEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeentry.html>`__
+    `PortalTypeEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotsitewise-portal-portaltypeentry.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class PortalTypeEntry(AWSProperty):
 
 class Portal(AWSObject):
     """
-    `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html>`__
+    `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-portal.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Portal"
@@ -481,7 +481,7 @@ class Portal(AWSObject):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotsitewise-project.html>`__
     """
 
     resource_type = "AWS::IoTSiteWise::Project"

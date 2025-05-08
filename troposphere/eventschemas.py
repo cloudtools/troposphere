@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Discoverer(AWSObject):
     """
-    `Discoverer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html>`__
+    `Discoverer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eventschemas-discoverer.html>`__
     """
 
     resource_type = "AWS::EventSchemas::Discoverer"
@@ -27,7 +27,7 @@ class Discoverer(AWSObject):
 
 class Registry(AWSObject):
     """
-    `Registry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html>`__
+    `Registry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eventschemas-registry.html>`__
     """
 
     resource_type = "AWS::EventSchemas::Registry"
@@ -41,7 +41,7 @@ class Registry(AWSObject):
 
 class RegistryPolicy(AWSObject):
     """
-    `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html>`__
+    `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eventschemas-registrypolicy.html>`__
     """
 
     resource_type = "AWS::EventSchemas::RegistryPolicy"
@@ -55,7 +55,7 @@ class RegistryPolicy(AWSObject):
 
 class Schema(AWSObject):
     """
-    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html>`__
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eventschemas-schema.html>`__
     """
 
     resource_type = "AWS::EventSchemas::Schema"

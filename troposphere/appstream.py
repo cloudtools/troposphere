@@ -13,7 +13,7 @@ from .validators.appstream import validate_tags_or_list
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-fleet-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class S3Location(AWSProperty):
 
 class ScriptDetails(AWSProperty):
     """
-    `ScriptDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-scriptdetails.html>`__
+    `ScriptDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-appblock-scriptdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class ScriptDetails(AWSProperty):
 
 class AppBlock(AWSObject):
     """
-    `AppBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html>`__
+    `AppBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-appblock.html>`__
     """
 
     resource_type = "AWS::AppStream::AppBlock"
@@ -56,7 +56,7 @@ class AppBlock(AWSObject):
 
 class AccessEndpoint(AWSProperty):
     """
-    `AccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-accessendpoint.html>`__
+    `AccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-stack-accessendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class AccessEndpoint(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-imagebuilder-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class VpcConfig(AWSProperty):
 
 class AppBlockBuilder(AWSObject):
     """
-    `AppBlockBuilder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html>`__
+    `AppBlockBuilder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-appblockbuilder.html>`__
     """
 
     resource_type = "AWS::AppStream::AppBlockBuilder"
@@ -100,7 +100,7 @@ class AppBlockBuilder(AWSObject):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-application.html>`__
     """
 
     resource_type = "AWS::AppStream::Application"
@@ -123,7 +123,7 @@ class Application(AWSObject):
 
 class ApplicationEntitlementAssociation(AWSObject):
     """
-    `ApplicationEntitlementAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationentitlementassociation.html>`__
+    `ApplicationEntitlementAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-applicationentitlementassociation.html>`__
     """
 
     resource_type = "AWS::AppStream::ApplicationEntitlementAssociation"
@@ -137,7 +137,7 @@ class ApplicationEntitlementAssociation(AWSObject):
 
 class ApplicationFleetAssociation(AWSObject):
     """
-    `ApplicationFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html>`__
+    `ApplicationFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-applicationfleetassociation.html>`__
     """
 
     resource_type = "AWS::AppStream::ApplicationFleetAssociation"
@@ -150,7 +150,7 @@ class ApplicationFleetAssociation(AWSObject):
 
 class CertificateBasedAuthProperties(AWSProperty):
     """
-    `CertificateBasedAuthProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html>`__
+    `CertificateBasedAuthProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class CertificateBasedAuthProperties(AWSProperty):
 
 class ServiceAccountCredentials(AWSProperty):
     """
-    `ServiceAccountCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html>`__
+    `ServiceAccountCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class ServiceAccountCredentials(AWSProperty):
 
 class DirectoryConfig(AWSObject):
     """
-    `DirectoryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html>`__
+    `DirectoryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-directoryconfig.html>`__
     """
 
     resource_type = "AWS::AppStream::DirectoryConfig"
@@ -187,7 +187,7 @@ class DirectoryConfig(AWSObject):
 
 class Attribute(AWSProperty):
     """
-    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-entitlement-attribute.html>`__
+    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-entitlement-attribute.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class Attribute(AWSProperty):
 
 class Entitlement(AWSObject):
     """
-    `Entitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html>`__
+    `Entitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-entitlement.html>`__
     """
 
     resource_type = "AWS::AppStream::Entitlement"
@@ -214,7 +214,7 @@ class Entitlement(AWSObject):
 
 class ComputeCapacity(AWSProperty):
     """
-    `ComputeCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html>`__
+    `ComputeCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-fleet-computecapacity.html>`__
     """
 
     props: PropsDictType = {
@@ -225,7 +225,7 @@ class ComputeCapacity(AWSProperty):
 
 class DomainJoinInfo(AWSProperty):
     """
-    `DomainJoinInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html>`__
+    `DomainJoinInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-imagebuilder-domainjoininfo.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class DomainJoinInfo(AWSProperty):
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-fleet.html>`__
     """
 
     resource_type = "AWS::AppStream::Fleet"
@@ -269,7 +269,7 @@ class Fleet(AWSObject):
 
 class ImageBuilder(AWSObject):
     """
-    `ImageBuilder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html>`__
+    `ImageBuilder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-imagebuilder.html>`__
     """
 
     resource_type = "AWS::AppStream::ImageBuilder"
@@ -293,7 +293,7 @@ class ImageBuilder(AWSObject):
 
 class ApplicationSettings(AWSProperty):
     """
-    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html>`__
+    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-stack-applicationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -304,7 +304,7 @@ class ApplicationSettings(AWSProperty):
 
 class StorageConnector(AWSProperty):
     """
-    `StorageConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html>`__
+    `StorageConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-stack-storageconnector.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class StorageConnector(AWSProperty):
 
 class StreamingExperienceSettings(AWSProperty):
     """
-    `StreamingExperienceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html>`__
+    `StreamingExperienceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-stack-streamingexperiencesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -326,7 +326,7 @@ class StreamingExperienceSettings(AWSProperty):
 
 class UserSetting(AWSProperty):
     """
-    `UserSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html>`__
+    `UserSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appstream-stack-usersetting.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class UserSetting(AWSProperty):
 
 class Stack(AWSObject):
     """
-    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html>`__
+    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-stack.html>`__
     """
 
     resource_type = "AWS::AppStream::Stack"
@@ -363,7 +363,7 @@ class Stack(AWSObject):
 
 class StackFleetAssociation(AWSObject):
     """
-    `StackFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html>`__
+    `StackFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-stackfleetassociation.html>`__
     """
 
     resource_type = "AWS::AppStream::StackFleetAssociation"
@@ -376,7 +376,7 @@ class StackFleetAssociation(AWSObject):
 
 class StackUserAssociation(AWSObject):
     """
-    `StackUserAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html>`__
+    `StackUserAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-stackuserassociation.html>`__
     """
 
     resource_type = "AWS::AppStream::StackUserAssociation"
@@ -391,7 +391,7 @@ class StackUserAssociation(AWSObject):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-user.html>`__
     """
 
     resource_type = "AWS::AppStream::User"

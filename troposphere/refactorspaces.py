@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ApiGatewayProxyInput(AWSProperty):
     """
-    `ApiGatewayProxyInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-application-apigatewayproxyinput.html>`__
+    `ApiGatewayProxyInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-refactorspaces-application-apigatewayproxyinput.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ApiGatewayProxyInput(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-refactorspaces-application.html>`__
     """
 
     resource_type = "AWS::RefactorSpaces::Application"
@@ -40,7 +40,7 @@ class Application(AWSObject):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-refactorspaces-environment.html>`__
     """
 
     resource_type = "AWS::RefactorSpaces::Environment"
@@ -55,7 +55,7 @@ class Environment(AWSObject):
 
 class DefaultRouteInput(AWSProperty):
     """
-    `DefaultRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-defaultrouteinput.html>`__
+    `DefaultRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-refactorspaces-route-defaultrouteinput.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class DefaultRouteInput(AWSProperty):
 
 class UriPathRouteInput(AWSProperty):
     """
-    `UriPathRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html>`__
+    `UriPathRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-refactorspaces-route-uripathrouteinput.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class UriPathRouteInput(AWSProperty):
 
 class Route(AWSObject):
     """
-    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html>`__
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-refactorspaces-route.html>`__
     """
 
     resource_type = "AWS::RefactorSpaces::Route"
@@ -97,7 +97,7 @@ class Route(AWSObject):
 
 class LambdaEndpointInput(AWSProperty):
     """
-    `LambdaEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html>`__
+    `LambdaEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-refactorspaces-service-lambdaendpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class LambdaEndpointInput(AWSProperty):
 
 class UrlEndpointInput(AWSProperty):
     """
-    `UrlEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-urlendpointinput.html>`__
+    `UrlEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-refactorspaces-service-urlendpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class UrlEndpointInput(AWSProperty):
 
 class Service(AWSObject):
     """
-    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html>`__
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-refactorspaces-service.html>`__
     """
 
     resource_type = "AWS::RefactorSpaces::Service"

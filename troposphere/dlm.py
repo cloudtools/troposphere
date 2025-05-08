@@ -18,7 +18,7 @@ from .validators.dlm import (
 
 class Exclusions(AWSProperty):
     """
-    `Exclusions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html>`__
+    `Exclusions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-exclusions.html>`__
     """
 
     props: PropsDictType = {
@@ -30,7 +30,7 @@ class Exclusions(AWSProperty):
 
 class CrossRegionCopyRetainRule(AWSProperty):
     """
-    `CrossRegionCopyRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html>`__
+    `CrossRegionCopyRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html>`__
     """
 
     props: PropsDictType = {
@@ -41,7 +41,7 @@ class CrossRegionCopyRetainRule(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class CrossRegionCopyAction(AWSProperty):
     """
-    `CrossRegionCopyAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html>`__
+    `CrossRegionCopyAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-crossregioncopyaction.html>`__
     """
 
     props: PropsDictType = {
@@ -64,7 +64,7 @@ class CrossRegionCopyAction(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-action.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class Action(AWSProperty):
 
 class EventParameters(AWSProperty):
     """
-    `EventParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventparameters.html>`__
+    `EventParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-eventparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class EventParameters(AWSProperty):
 
 class EventSource(AWSProperty):
     """
-    `EventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-eventsource.html>`__
+    `EventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-eventsource.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class EventSource(AWSProperty):
 
 class Parameters(AWSProperty):
     """
-    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-parameters.html>`__
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-parameters.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class Parameters(AWSProperty):
 
 class RetentionArchiveTier(AWSProperty):
     """
-    `RetentionArchiveTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html>`__
+    `RetentionArchiveTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class RetentionArchiveTier(AWSProperty):
 
 class ArchiveRetainRule(AWSProperty):
     """
-    `ArchiveRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html>`__
+    `ArchiveRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class ArchiveRetainRule(AWSProperty):
 
 class ArchiveRule(AWSProperty):
     """
-    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiverule.html>`__
+    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-archiverule.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class ArchiveRule(AWSProperty):
 
 class Script(AWSProperty):
     """
-    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-script.html>`__
+    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-script.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class Script(AWSProperty):
 
 class CreateRule(AWSProperty):
     """
-    `CreateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html>`__
+    `CreateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-createrule.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class CreateRule(AWSProperty):
 
 class CrossRegionCopyDeprecateRule(AWSProperty):
     """
-    `CrossRegionCopyDeprecateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html>`__
+    `CrossRegionCopyDeprecateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-crossregioncopydeprecaterule.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class CrossRegionCopyDeprecateRule(AWSProperty):
 
 class CrossRegionCopyRule(AWSProperty):
     """
-    `CrossRegionCopyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html>`__
+    `CrossRegionCopyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class CrossRegionCopyRule(AWSProperty):
 
 class DeprecateRule(AWSProperty):
     """
-    `DeprecateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html>`__
+    `DeprecateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-deprecaterule.html>`__
     """
 
     props: PropsDictType = {
@@ -211,7 +211,7 @@ class DeprecateRule(AWSProperty):
 
 class FastRestoreRule(AWSProperty):
     """
-    `FastRestoreRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html>`__
+    `FastRestoreRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class FastRestoreRule(AWSProperty):
 
 class RetainRule(AWSProperty):
     """
-    `RetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html>`__
+    `RetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-retainrule.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class RetainRule(AWSProperty):
 
 class ShareRule(AWSProperty):
     """
-    `ShareRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-sharerule.html>`__
+    `ShareRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-sharerule.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class ShareRule(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class Schedule(AWSProperty):
 
 class PolicyDetails(AWSProperty):
     """
-    `PolicyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html>`__
+    `PolicyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-policydetails.html>`__
     """
 
     props: PropsDictType = {
@@ -293,7 +293,7 @@ class PolicyDetails(AWSProperty):
 
 class LifecyclePolicy(AWSObject):
     """
-    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html>`__
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dlm-lifecyclepolicy.html>`__
     """
 
     resource_type = "AWS::DLM::LifecyclePolicy"
@@ -316,7 +316,7 @@ class LifecyclePolicy(AWSObject):
 
 class CrossRegionCopyTarget(AWSProperty):
     """
-    `CrossRegionCopyTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>`__
+    `CrossRegionCopyTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>`__
     """
 
     props: PropsDictType = {

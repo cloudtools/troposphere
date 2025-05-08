@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class IdentityProviderConfiguration(AWSProperty):
     """
-    `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>`__
+    `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class IdentityProviderConfiguration(AWSProperty):
 
 class PreloadDataConfig(AWSProperty):
     """
-    `PreloadDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-preloaddataconfig.html>`__
+    `PreloadDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-healthlake-fhirdatastore-preloaddataconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class PreloadDataConfig(AWSProperty):
 
 class KmsEncryptionConfig(AWSProperty):
     """
-    `KmsEncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html>`__
+    `KmsEncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-healthlake-fhirdatastore-kmsencryptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class KmsEncryptionConfig(AWSProperty):
 
 class SseConfiguration(AWSProperty):
     """
-    `SseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-sseconfiguration.html>`__
+    `SseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-healthlake-fhirdatastore-sseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class SseConfiguration(AWSProperty):
 
 class FHIRDatastore(AWSObject):
     """
-    `FHIRDatastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html>`__
+    `FHIRDatastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-healthlake-fhirdatastore.html>`__
     """
 
     resource_type = "AWS::HealthLake::FHIRDatastore"
@@ -73,7 +73,7 @@ class FHIRDatastore(AWSObject):
 
 class CreatedAt(AWSProperty):
     """
-    `CreatedAt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html>`__
+    `CreatedAt <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-healthlake-fhirdatastore-createdat.html>`__
     """
 
     props: PropsDictType = {

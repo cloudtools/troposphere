@@ -12,7 +12,7 @@ from .validators import boolean
 
 class EntityTypeProperty(AWSProperty):
     """
-    `EntityTypeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html>`__
+    `EntityTypeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-eventtype-entitytype.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class EntityTypeProperty(AWSProperty):
 
 class EventVariable(AWSProperty):
     """
-    `EventVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html>`__
+    `EventVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-eventtype-eventvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class EventVariable(AWSProperty):
 
 class LabelProperty(AWSProperty):
     """
-    `LabelProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html>`__
+    `LabelProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-eventtype-label.html>`__
     """
 
     props: PropsDictType = {
@@ -64,7 +64,7 @@ class LabelProperty(AWSProperty):
 
 class EventTypeProperty(AWSProperty):
     """
-    `EventTypeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html>`__
+    `EventTypeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-detector-eventtype.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class EventTypeProperty(AWSProperty):
 
 class Model(AWSProperty):
     """
-    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html>`__
+    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-detector-model.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class Model(AWSProperty):
 
 class OutcomeProperty(AWSProperty):
     """
-    `OutcomeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html>`__
+    `OutcomeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-detector-outcome.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class OutcomeProperty(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-frauddetector-detector-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class Rule(AWSProperty):
 
 class Detector(AWSObject):
     """
-    `Detector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html>`__
+    `Detector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-detector.html>`__
     """
 
     resource_type = "AWS::FraudDetector::Detector"
@@ -148,7 +148,7 @@ class Detector(AWSObject):
 
 class EntityType(AWSObject):
     """
-    `EntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html>`__
+    `EntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-entitytype.html>`__
     """
 
     resource_type = "AWS::FraudDetector::EntityType"
@@ -162,7 +162,7 @@ class EntityType(AWSObject):
 
 class EventType(AWSObject):
     """
-    `EventType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html>`__
+    `EventType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-eventtype.html>`__
     """
 
     resource_type = "AWS::FraudDetector::EventType"
@@ -179,7 +179,7 @@ class EventType(AWSObject):
 
 class Label(AWSObject):
     """
-    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html>`__
+    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-label.html>`__
     """
 
     resource_type = "AWS::FraudDetector::Label"
@@ -193,7 +193,7 @@ class Label(AWSObject):
 
 class List(AWSObject):
     """
-    `List <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-list.html>`__
+    `List <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-list.html>`__
     """
 
     resource_type = "AWS::FraudDetector::List"
@@ -209,7 +209,7 @@ class List(AWSObject):
 
 class Outcome(AWSObject):
     """
-    `Outcome <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html>`__
+    `Outcome <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-outcome.html>`__
     """
 
     resource_type = "AWS::FraudDetector::Outcome"
@@ -223,7 +223,7 @@ class Outcome(AWSObject):
 
 class Variable(AWSObject):
     """
-    `Variable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html>`__
+    `Variable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-frauddetector-variable.html>`__
     """
 
     resource_type = "AWS::FraudDetector::Variable"

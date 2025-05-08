@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class CRL(AWSObject):
     """
-    `CRL <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html>`__
+    `CRL <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rolesanywhere-crl.html>`__
     """
 
     resource_type = "AWS::RolesAnywhere::CRL"
@@ -28,7 +28,7 @@ class CRL(AWSObject):
 
 class MappingRule(AWSProperty):
     """
-    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html>`__
+    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rolesanywhere-profile-mappingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class MappingRule(AWSProperty):
 
 class AttributeMapping(AWSProperty):
     """
-    `AttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html>`__
+    `AttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rolesanywhere-profile-attributemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class AttributeMapping(AWSProperty):
 
 class Profile(AWSObject):
     """
-    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html>`__
+    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rolesanywhere-profile.html>`__
     """
 
     resource_type = "AWS::RolesAnywhere::Profile"
@@ -70,7 +70,7 @@ class Profile(AWSObject):
 
 class NotificationSetting(AWSProperty):
     """
-    `NotificationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-notificationsetting.html>`__
+    `NotificationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rolesanywhere-trustanchor-notificationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class NotificationSetting(AWSProperty):
 
 class SourceData(AWSProperty):
     """
-    `SourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html>`__
+    `SourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rolesanywhere-trustanchor-sourcedata.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class SourceData(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rolesanywhere-trustanchor-source.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class Source(AWSProperty):
 
 class TrustAnchor(AWSObject):
     """
-    `TrustAnchor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html>`__
+    `TrustAnchor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rolesanywhere-trustanchor.html>`__
     """
 
     resource_type = "AWS::RolesAnywhere::TrustAnchor"

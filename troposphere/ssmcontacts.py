@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ChannelTargetInfo(AWSProperty):
     """
-    `ChannelTargetInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-channeltargetinfo.html>`__
+    `ChannelTargetInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-plan-channeltargetinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ChannelTargetInfo(AWSProperty):
 
 class ContactTargetInfo(AWSProperty):
     """
-    `ContactTargetInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-contacttargetinfo.html>`__
+    `ContactTargetInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-plan-contacttargetinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ContactTargetInfo(AWSProperty):
 
 class Targets(AWSProperty):
     """
-    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-targets.html>`__
+    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-plan-targets.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class Targets(AWSProperty):
 
 class Stage(AWSProperty):
     """
-    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-plan-stage.html>`__
+    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-plan-stage.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class Stage(AWSProperty):
 
 class Contact(AWSObject):
     """
-    `Contact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html>`__
+    `Contact <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmcontacts-contact.html>`__
     """
 
     resource_type = "AWS::SSMContacts::Contact"
@@ -71,7 +71,7 @@ class Contact(AWSObject):
 
 class ContactChannel(AWSObject):
     """
-    `ContactChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html>`__
+    `ContactChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmcontacts-contactchannel.html>`__
     """
 
     resource_type = "AWS::SSMContacts::ContactChannel"
@@ -87,7 +87,7 @@ class ContactChannel(AWSObject):
 
 class Plan(AWSObject):
     """
-    `Plan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-plan.html>`__
+    `Plan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmcontacts-plan.html>`__
     """
 
     resource_type = "AWS::SSMContacts::Plan"
@@ -101,7 +101,7 @@ class Plan(AWSObject):
 
 class MonthlySetting(AWSProperty):
     """
-    `MonthlySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-monthlysetting.html>`__
+    `MonthlySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-rotation-monthlysetting.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class MonthlySetting(AWSProperty):
 
 class CoverageTime(AWSProperty):
     """
-    `CoverageTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-coveragetime.html>`__
+    `CoverageTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-rotation-coveragetime.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class CoverageTime(AWSProperty):
 
 class ShiftCoverage(AWSProperty):
     """
-    `ShiftCoverage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-shiftcoverage.html>`__
+    `ShiftCoverage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-rotation-shiftcoverage.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class ShiftCoverage(AWSProperty):
 
 class WeeklySetting(AWSProperty):
     """
-    `WeeklySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-weeklysetting.html>`__
+    `WeeklySetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-rotation-weeklysetting.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class WeeklySetting(AWSProperty):
 
 class RecurrenceSettings(AWSProperty):
     """
-    `RecurrenceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-recurrencesettings.html>`__
+    `RecurrenceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmcontacts-rotation-recurrencesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class RecurrenceSettings(AWSProperty):
 
 class Rotation(AWSObject):
     """
-    `Rotation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html>`__
+    `Rotation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmcontacts-rotation.html>`__
     """
 
     resource_type = "AWS::SSMContacts::Rotation"

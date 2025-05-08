@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class RegionConfiguration(AWSProperty):
     """
-    `RegionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html>`__
+    `RegionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-replicationset-regionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class RegionConfiguration(AWSProperty):
 
 class ReplicationRegion(AWSProperty):
     """
-    `ReplicationRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html>`__
+    `ReplicationRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-replicationset-replicationregion.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class ReplicationRegion(AWSProperty):
 
 class ReplicationSet(AWSObject):
     """
-    `ReplicationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html>`__
+    `ReplicationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmincidents-replicationset.html>`__
     """
 
     resource_type = "AWS::SSMIncidents::ReplicationSet"
@@ -47,7 +47,7 @@ class ReplicationSet(AWSObject):
 
 class DynamicSsmParameterValue(AWSProperty):
     """
-    `DynamicSsmParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html>`__
+    `DynamicSsmParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class DynamicSsmParameterValue(AWSProperty):
 
 class DynamicSsmParameter(AWSProperty):
     """
-    `DynamicSsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html>`__
+    `DynamicSsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class DynamicSsmParameter(AWSProperty):
 
 class SsmParameter(AWSProperty):
     """
-    `SsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html>`__
+    `SsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-ssmparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class SsmParameter(AWSProperty):
 
 class SsmAutomation(AWSProperty):
     """
-    `SsmAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html>`__
+    `SsmAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-ssmautomation.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class SsmAutomation(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-action.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class Action(AWSProperty):
 
 class ChatChannel(AWSProperty):
     """
-    `ChatChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html>`__
+    `ChatChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-chatchannel.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class ChatChannel(AWSProperty):
 
 class NotificationTargetItem(AWSProperty):
     """
-    `NotificationTargetItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html>`__
+    `NotificationTargetItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-notificationtargetitem.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class NotificationTargetItem(AWSProperty):
 
 class IncidentTemplate(AWSProperty):
     """
-    `IncidentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html>`__
+    `IncidentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-incidenttemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class IncidentTemplate(AWSProperty):
 
 class PagerDutyIncidentConfiguration(AWSProperty):
     """
-    `PagerDutyIncidentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html>`__
+    `PagerDutyIncidentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class PagerDutyIncidentConfiguration(AWSProperty):
 
 class PagerDutyConfiguration(AWSProperty):
     """
-    `PagerDutyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyconfiguration.html>`__
+    `PagerDutyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-pagerdutyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class PagerDutyConfiguration(AWSProperty):
 
 class Integration(AWSProperty):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssmincidents-responseplan-integration.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class Integration(AWSProperty):
 
 class ResponsePlan(AWSObject):
     """
-    `ResponsePlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html>`__
+    `ResponsePlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssmincidents-responseplan.html>`__
     """
 
     resource_type = "AWS::SSMIncidents::ResponsePlan"

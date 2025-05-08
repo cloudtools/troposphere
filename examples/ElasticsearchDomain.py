@@ -1,5 +1,5 @@
 # Converted from Elasticsearch Domain example located at:
-# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#d0e51519
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticsearch-domain.html#d0e51519
 
 from troposphere import Template, constants
 from troposphere.elasticsearch import (

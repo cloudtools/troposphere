@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class MetricGoalObject(AWSProperty):
     """
-    `MetricGoalObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-metricgoalobject.html>`__
+    `MetricGoalObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-experiment-metricgoalobject.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class MetricGoalObject(AWSProperty):
 
 class TreatmentToWeight(AWSProperty):
     """
-    `TreatmentToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html>`__
+    `TreatmentToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-experiment-treatmenttoweight.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class TreatmentToWeight(AWSProperty):
 
 class OnlineAbConfigObject(AWSProperty):
     """
-    `OnlineAbConfigObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html>`__
+    `OnlineAbConfigObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-experiment-onlineabconfigobject.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class OnlineAbConfigObject(AWSProperty):
 
 class RunningStatusObject(AWSProperty):
     """
-    `RunningStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html>`__
+    `RunningStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-experiment-runningstatusobject.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class RunningStatusObject(AWSProperty):
 
 class TreatmentObject(AWSProperty):
     """
-    `TreatmentObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html>`__
+    `TreatmentObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-experiment-treatmentobject.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class TreatmentObject(AWSProperty):
 
 class Experiment(AWSObject):
     """
-    `Experiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html>`__
+    `Experiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-evidently-experiment.html>`__
     """
 
     resource_type = "AWS::Evidently::Experiment"
@@ -98,7 +98,7 @@ class Experiment(AWSObject):
 
 class EntityOverride(AWSProperty):
     """
-    `EntityOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html>`__
+    `EntityOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-feature-entityoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class EntityOverride(AWSProperty):
 
 class VariationObject(AWSProperty):
     """
-    `VariationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html>`__
+    `VariationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-feature-variationobject.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class VariationObject(AWSProperty):
 
 class Feature(AWSObject):
     """
-    `Feature <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html>`__
+    `Feature <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-evidently-feature.html>`__
     """
 
     resource_type = "AWS::Evidently::Feature"
@@ -142,7 +142,7 @@ class Feature(AWSObject):
 
 class ExecutionStatusObject(AWSProperty):
     """
-    `ExecutionStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-executionstatusobject.html>`__
+    `ExecutionStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-executionstatusobject.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class ExecutionStatusObject(AWSProperty):
 
 class LaunchGroupObject(AWSProperty):
     """
-    `LaunchGroupObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html>`__
+    `LaunchGroupObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-launchgroupobject.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class LaunchGroupObject(AWSProperty):
 
 class MetricDefinitionObject(AWSProperty):
     """
-    `MetricDefinitionObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html>`__
+    `MetricDefinitionObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-metricdefinitionobject.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class MetricDefinitionObject(AWSProperty):
 
 class GroupToWeight(AWSProperty):
     """
-    `GroupToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html>`__
+    `GroupToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-grouptoweight.html>`__
     """
 
     props: PropsDictType = {
@@ -192,7 +192,7 @@ class GroupToWeight(AWSProperty):
 
 class SegmentOverride(AWSProperty):
     """
-    `SegmentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html>`__
+    `SegmentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-segmentoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -204,7 +204,7 @@ class SegmentOverride(AWSProperty):
 
 class StepConfig(AWSProperty):
     """
-    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html>`__
+    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-launch-stepconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -216,7 +216,7 @@ class StepConfig(AWSProperty):
 
 class Launch(AWSObject):
     """
-    `Launch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html>`__
+    `Launch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-evidently-launch.html>`__
     """
 
     resource_type = "AWS::Evidently::Launch"
@@ -236,7 +236,7 @@ class Launch(AWSObject):
 
 class AppConfigResourceObject(AWSProperty):
     """
-    `AppConfigResourceObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-appconfigresourceobject.html>`__
+    `AppConfigResourceObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-project-appconfigresourceobject.html>`__
     """
 
     props: PropsDictType = {
@@ -247,7 +247,7 @@ class AppConfigResourceObject(AWSProperty):
 
 class S3Destination(AWSProperty):
     """
-    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html>`__
+    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-project-s3destination.html>`__
     """
 
     props: PropsDictType = {
@@ -258,7 +258,7 @@ class S3Destination(AWSProperty):
 
 class DataDeliveryObject(AWSProperty):
     """
-    `DataDeliveryObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html>`__
+    `DataDeliveryObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-evidently-project-datadeliveryobject.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class DataDeliveryObject(AWSProperty):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-evidently-project.html>`__
     """
 
     resource_type = "AWS::Evidently::Project"
@@ -285,7 +285,7 @@ class Project(AWSObject):
 
 class Segment(AWSObject):
     """
-    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html>`__
+    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-evidently-segment.html>`__
     """
 
     resource_type = "AWS::Evidently::Segment"

@@ -20,7 +20,7 @@ from .validators.elasticsearch import (
 
 class MasterUserOptions(AWSProperty):
     """
-    `MasterUserOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-masteruseroptions.html>`__
+    `MasterUserOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-masteruseroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class MasterUserOptions(AWSProperty):
 
 class AdvancedSecurityOptionsInput(AWSProperty):
     """
-    `AdvancedSecurityOptionsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html>`__
+    `AdvancedSecurityOptionsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-advancedsecurityoptionsinput.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
 
 class CognitoOptions(AWSProperty):
     """
-    `CognitoOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-cognitooptions.html>`__
+    `CognitoOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-cognitooptions.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class CognitoOptions(AWSProperty):
 
 class DomainEndpointOptions(AWSProperty):
     """
-    `DomainEndpointOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-domainendpointoptions.html>`__
+    `DomainEndpointOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-domainendpointoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class DomainEndpointOptions(AWSProperty):
 
 class EBSOptions(AWSProperty):
     """
-    `EBSOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html>`__
+    `EBSOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-ebsoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class EBSOptions(AWSProperty):
 
 class ColdStorageOptions(AWSProperty):
     """
-    `ColdStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-coldstorageoptions.html>`__
+    `ColdStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-coldstorageoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class ColdStorageOptions(AWSProperty):
 
 class ZoneAwarenessConfig(AWSProperty):
     """
-    `ZoneAwarenessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-zoneawarenessconfig.html>`__
+    `ZoneAwarenessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-zoneawarenessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class ZoneAwarenessConfig(AWSProperty):
 
 class ElasticsearchClusterConfig(AWSProperty):
     """
-    `ElasticsearchClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html>`__
+    `ElasticsearchClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class ElasticsearchClusterConfig(AWSProperty):
 
 class EncryptionAtRestOptions(AWSProperty):
     """
-    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html>`__
+    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-encryptionatrestoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class EncryptionAtRestOptions(AWSProperty):
 
 class LogPublishingOption(AWSProperty):
     """
-    `LogPublishingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.html>`__
+    `LogPublishingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-logpublishingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class LogPublishingOption(AWSProperty):
 
 class NodeToNodeEncryptionOptions(AWSProperty):
     """
-    `NodeToNodeEncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html>`__
+    `NodeToNodeEncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-nodetonodeencryptionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class NodeToNodeEncryptionOptions(AWSProperty):
 
 class SnapshotOptions(AWSProperty):
     """
-    `SnapshotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html>`__
+    `SnapshotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-snapshotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class SnapshotOptions(AWSProperty):
 
 class VPCOptions(AWSProperty):
     """
-    `VPCOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-vpcoptions.html>`__
+    `VPCOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticsearch-domain-vpcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class VPCOptions(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticsearch-domain.html>`__
     """
 
     resource_type = "AWS::Elasticsearch::Domain"

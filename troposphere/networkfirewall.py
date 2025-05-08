@@ -13,7 +13,7 @@ from .validators.networkfirewall import validate_rule_group_type
 
 class SubnetMapping(AWSProperty):
     """
-    `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html>`__
+    `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewall-subnetmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class SubnetMapping(AWSProperty):
 
 class Firewall(AWSObject):
     """
-    `Firewall <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html>`__
+    `Firewall <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-firewall.html>`__
     """
 
     resource_type = "AWS::NetworkFirewall::Firewall"
@@ -45,7 +45,7 @@ class Firewall(AWSObject):
 
 class Dimension(AWSProperty):
     """
-    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html>`__
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class Dimension(AWSProperty):
 
 class PublishMetricAction(AWSProperty):
     """
-    `PublishMetricAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html>`__
+    `PublishMetricAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-publishmetricaction.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class PublishMetricAction(AWSProperty):
 
 class ActionDefinition(AWSProperty):
     """
-    `ActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html>`__
+    `ActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-actiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class ActionDefinition(AWSProperty):
 
 class CustomAction(AWSProperty):
     """
-    `CustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html>`__
+    `CustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-customaction.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class CustomAction(AWSProperty):
 
 class IPSet(AWSProperty):
     """
-    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html>`__
+    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-ipset.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class IPSet(AWSProperty):
 
 class PolicyVariables(AWSProperty):
     """
-    `PolicyVariables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-policyvariables.html>`__
+    `PolicyVariables <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-policyvariables.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class PolicyVariables(AWSProperty):
 
 class FlowTimeouts(AWSProperty):
     """
-    `FlowTimeouts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-flowtimeouts.html>`__
+    `FlowTimeouts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-flowtimeouts.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class FlowTimeouts(AWSProperty):
 
 class StatefulEngineOptions(AWSProperty):
     """
-    `StatefulEngineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html>`__
+    `StatefulEngineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class StatefulEngineOptions(AWSProperty):
 
 class StatefulRuleGroupOverride(AWSProperty):
     """
-    `StatefulRuleGroupOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html>`__
+    `StatefulRuleGroupOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class StatefulRuleGroupOverride(AWSProperty):
 
 class StatefulRuleGroupReference(AWSProperty):
     """
-    `StatefulRuleGroupReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html>`__
+    `StatefulRuleGroupReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class StatefulRuleGroupReference(AWSProperty):
 
 class StatelessRuleGroupReference(AWSProperty):
     """
-    `StatelessRuleGroupReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html>`__
+    `StatelessRuleGroupReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class StatelessRuleGroupReference(AWSProperty):
 
 class FirewallPolicyProperty(AWSProperty):
     """
-    `FirewallPolicyProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html>`__
+    `FirewallPolicyProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class FirewallPolicyProperty(AWSProperty):
 
 class FirewallPolicy(AWSObject):
     """
-    `FirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html>`__
+    `FirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-firewallpolicy.html>`__
     """
 
     resource_type = "AWS::NetworkFirewall::FirewallPolicy"
@@ -194,7 +194,7 @@ class FirewallPolicy(AWSObject):
 
 class LogDestinationConfig(AWSProperty):
     """
-    `LogDestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html>`__
+    `LogDestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -206,7 +206,7 @@ class LogDestinationConfig(AWSProperty):
 
 class LoggingConfigurationProperty(AWSProperty):
     """
-    `LoggingConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html>`__
+    `LoggingConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -216,7 +216,7 @@ class LoggingConfigurationProperty(AWSProperty):
 
 class LoggingConfiguration(AWSObject):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-loggingconfiguration.html>`__
     """
 
     resource_type = "AWS::NetworkFirewall::LoggingConfiguration"
@@ -230,7 +230,7 @@ class LoggingConfiguration(AWSObject):
 
 class IPSetReference(AWSProperty):
     """
-    `IPSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html>`__
+    `IPSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-ipsetreference.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class IPSetReference(AWSProperty):
 
 class ReferenceSets(AWSProperty):
     """
-    `ReferenceSets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html>`__
+    `ReferenceSets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-referencesets.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class ReferenceSets(AWSProperty):
 
 class PortSet(AWSProperty):
     """
-    `PortSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html>`__
+    `PortSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-portset.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class PortSet(AWSProperty):
 
 class RuleVariables(AWSProperty):
     """
-    `RuleVariables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html>`__
+    `RuleVariables <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-rulevariables.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class RuleVariables(AWSProperty):
 
 class RulesSourceList(AWSProperty):
     """
-    `RulesSourceList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html>`__
+    `RulesSourceList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-rulessourcelist.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class RulesSourceList(AWSProperty):
 
 class Header(AWSProperty):
     """
-    `Header <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html>`__
+    `Header <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-header.html>`__
     """
 
     props: PropsDictType = {
@@ -298,7 +298,7 @@ class Header(AWSProperty):
 
 class RuleOption(AWSProperty):
     """
-    `RuleOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoption.html>`__
+    `RuleOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-ruleoption.html>`__
     """
 
     props: PropsDictType = {
@@ -309,7 +309,7 @@ class RuleOption(AWSProperty):
 
 class StatefulRule(AWSProperty):
     """
-    `StatefulRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html>`__
+    `StatefulRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-statefulrule.html>`__
     """
 
     props: PropsDictType = {
@@ -321,7 +321,7 @@ class StatefulRule(AWSProperty):
 
 class Address(AWSProperty):
     """
-    `Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-address.html>`__
+    `Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-address.html>`__
     """
 
     props: PropsDictType = {
@@ -331,7 +331,7 @@ class Address(AWSProperty):
 
 class PortRange(AWSProperty):
     """
-    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html>`__
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -342,7 +342,7 @@ class PortRange(AWSProperty):
 
 class TCPFlagField(AWSProperty):
     """
-    `TCPFlagField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html>`__
+    `TCPFlagField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-tcpflagfield.html>`__
     """
 
     props: PropsDictType = {
@@ -353,7 +353,7 @@ class TCPFlagField(AWSProperty):
 
 class MatchAttributes(AWSProperty):
     """
-    `MatchAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html>`__
+    `MatchAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-matchattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -368,7 +368,7 @@ class MatchAttributes(AWSProperty):
 
 class RuleDefinition(AWSProperty):
     """
-    `RuleDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html>`__
+    `RuleDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-ruledefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -379,7 +379,7 @@ class RuleDefinition(AWSProperty):
 
 class StatelessRule(AWSProperty):
     """
-    `StatelessRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html>`__
+    `StatelessRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-statelessrule.html>`__
     """
 
     props: PropsDictType = {
@@ -390,7 +390,7 @@ class StatelessRule(AWSProperty):
 
 class StatelessRulesAndCustomActions(AWSProperty):
     """
-    `StatelessRulesAndCustomActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html>`__
+    `StatelessRulesAndCustomActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class StatelessRulesAndCustomActions(AWSProperty):
 
 class RulesSource(AWSProperty):
     """
-    `RulesSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html>`__
+    `RulesSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-rulessource.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class RulesSource(AWSProperty):
 
 class StatefulRuleOptions(AWSProperty):
     """
-    `StatefulRuleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html>`__
+    `StatefulRuleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-statefulruleoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -424,7 +424,7 @@ class StatefulRuleOptions(AWSProperty):
 
 class RuleGroupProperty(AWSProperty):
     """
-    `RuleGroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulegroup.html>`__
+    `RuleGroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-rulegroup-rulegroup.html>`__
     """
 
     props: PropsDictType = {
@@ -437,7 +437,7 @@ class RuleGroupProperty(AWSProperty):
 
 class RuleGroup(AWSObject):
     """
-    `RuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html>`__
+    `RuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-rulegroup.html>`__
     """
 
     resource_type = "AWS::NetworkFirewall::RuleGroup"
@@ -454,7 +454,7 @@ class RuleGroup(AWSObject):
 
 class CheckCertificateRevocationStatus(AWSProperty):
     """
-    `CheckCertificateRevocationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html>`__
+    `CheckCertificateRevocationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html>`__
     """
 
     props: PropsDictType = {
@@ -465,7 +465,7 @@ class CheckCertificateRevocationStatus(AWSProperty):
 
 class ServerCertificate(AWSProperty):
     """
-    `ServerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificate.html>`__
+    `ServerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -475,7 +475,7 @@ class ServerCertificate(AWSProperty):
 
 class ServerCertificateScope(AWSProperty):
     """
-    `ServerCertificateScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html>`__
+    `ServerCertificateScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html>`__
     """
 
     props: PropsDictType = {
@@ -489,7 +489,7 @@ class ServerCertificateScope(AWSProperty):
 
 class ServerCertificateConfiguration(AWSProperty):
     """
-    `ServerCertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html>`__
+    `ServerCertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -502,7 +502,7 @@ class ServerCertificateConfiguration(AWSProperty):
 
 class TLSInspectionConfigurationProperty(AWSProperty):
     """
-    `TLSInspectionConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration.html>`__
+    `TLSInspectionConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -512,7 +512,7 @@ class TLSInspectionConfigurationProperty(AWSProperty):
 
 class TLSInspectionConfiguration(AWSObject):
     """
-    `TLSInspectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html>`__
+    `TLSInspectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-tlsinspectionconfiguration.html>`__
     """
 
     resource_type = "AWS::NetworkFirewall::TLSInspectionConfiguration"

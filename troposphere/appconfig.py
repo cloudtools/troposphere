@@ -17,7 +17,7 @@ from .validators.appconfig import (
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-application.html>`__
     """
 
     resource_type = "AWS::AppConfig::Application"
@@ -31,7 +31,7 @@ class Application(AWSObject):
 
 class Validators(AWSProperty):
     """
-    `Validators <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html>`__
+    `Validators <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appconfig-configurationprofile-validators.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class Validators(AWSProperty):
 
 class ConfigurationProfile(AWSObject):
     """
-    `ConfigurationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html>`__
+    `ConfigurationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-configurationprofile.html>`__
     """
 
     resource_type = "AWS::AppConfig::ConfigurationProfile"
@@ -63,7 +63,7 @@ class ConfigurationProfile(AWSObject):
 
 class DynamicExtensionParameters(AWSProperty):
     """
-    `DynamicExtensionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-dynamicextensionparameters.html>`__
+    `DynamicExtensionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appconfig-deployment-dynamicextensionparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class DynamicExtensionParameters(AWSProperty):
 
 class Deployment(AWSObject):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-deployment.html>`__
     """
 
     resource_type = "AWS::AppConfig::Deployment"
@@ -95,7 +95,7 @@ class Deployment(AWSObject):
 
 class DeploymentStrategy(AWSObject):
     """
-    `DeploymentStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deploymentstrategy.html>`__
+    `DeploymentStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-deploymentstrategy.html>`__
     """
 
     resource_type = "AWS::AppConfig::DeploymentStrategy"
@@ -114,7 +114,7 @@ class DeploymentStrategy(AWSObject):
 
 class Monitor(AWSProperty):
     """
-    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html>`__
+    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appconfig-environment-monitor.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class Monitor(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-environment.html>`__
     """
 
     resource_type = "AWS::AppConfig::Environment"
@@ -142,7 +142,7 @@ class Environment(AWSObject):
 
 class Parameter(AWSProperty):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appconfig-extension-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class Parameter(AWSProperty):
 
 class Extension(AWSObject):
     """
-    `Extension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extension.html>`__
+    `Extension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-extension.html>`__
     """
 
     resource_type = "AWS::AppConfig::Extension"
@@ -171,7 +171,7 @@ class Extension(AWSObject):
 
 class ExtensionAssociation(AWSObject):
     """
-    `ExtensionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extensionassociation.html>`__
+    `ExtensionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-extensionassociation.html>`__
     """
 
     resource_type = "AWS::AppConfig::ExtensionAssociation"
@@ -187,7 +187,7 @@ class ExtensionAssociation(AWSObject):
 
 class HostedConfigurationVersion(AWSObject):
     """
-    `HostedConfigurationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html>`__
+    `HostedConfigurationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appconfig-hostedconfigurationversion.html>`__
     """
 
     resource_type = "AWS::AppConfig::HostedConfigurationVersion"

@@ -13,7 +13,7 @@ from .validators.iottwinmaker import validate_listvalue, validate_nestedtypel
 
 class CompositeComponentType(AWSProperty):
     """
-    `CompositeComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-compositecomponenttype.html>`__
+    `CompositeComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-componenttype-compositecomponenttype.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class CompositeComponentType(AWSProperty):
 
 class LambdaFunction(AWSProperty):
     """
-    `LambdaFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html>`__
+    `LambdaFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-componenttype-lambdafunction.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class LambdaFunction(AWSProperty):
 
 class DataConnector(AWSProperty):
     """
-    `DataConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-dataconnector.html>`__
+    `DataConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-componenttype-dataconnector.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class DataConnector(AWSProperty):
 
 class Function(AWSProperty):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-componenttype-function.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class Function(AWSProperty):
 
 class RelationshipValue(AWSProperty):
     """
-    `RelationshipValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationshipvalue.html>`__
+    `RelationshipValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-relationshipvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class RelationshipValue(AWSProperty):
 
 class DataValue(AWSProperty):
     """
-    `DataValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datavalue.html>`__
+    `DataValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-datavalue.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class DataValue(AWSProperty):
 
 class Relationship(AWSProperty):
     """
-    `Relationship <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationship.html>`__
+    `Relationship <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-relationship.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class Relationship(AWSProperty):
 
 class DataType(AWSProperty):
     """
-    `DataType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datatype.html>`__
+    `DataType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-datatype.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class DataType(AWSProperty):
 
 class PropertyDefinition(AWSProperty):
     """
-    `PropertyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-propertydefinition.html>`__
+    `PropertyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-componenttype-propertydefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class PropertyDefinition(AWSProperty):
 
 class PropertyGroup(AWSProperty):
     """
-    `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertygroup.html>`__
+    `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-propertygroup.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class PropertyGroup(AWSProperty):
 
 class ComponentType(AWSObject):
     """
-    `ComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html>`__
+    `ComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iottwinmaker-componenttype.html>`__
     """
 
     resource_type = "AWS::IoTTwinMaker::ComponentType"
@@ -158,7 +158,7 @@ class ComponentType(AWSObject):
 
 class Definition(AWSProperty):
     """
-    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html>`__
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-definition.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class Definition(AWSProperty):
 
 class Property(AWSProperty):
     """
-    `Property <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html>`__
+    `Property <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-property.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class Property(AWSProperty):
 
 class Error(AWSProperty):
     """
-    `Error <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-error.html>`__
+    `Error <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-error.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class Error(AWSProperty):
 
 class Status(AWSProperty):
     """
-    `Status <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-status.html>`__
+    `Status <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-status.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class Status(AWSProperty):
 
 class Component(AWSProperty):
     """
-    `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-component.html>`__
+    `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-component.html>`__
     """
 
     props: PropsDictType = {
@@ -226,7 +226,7 @@ class Component(AWSProperty):
 
 class CompositeComponent(AWSProperty):
     """
-    `CompositeComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html>`__
+    `CompositeComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iottwinmaker-entity-compositecomponent.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class CompositeComponent(AWSProperty):
 
 class Entity(AWSObject):
     """
-    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html>`__
+    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iottwinmaker-entity.html>`__
     """
 
     resource_type = "AWS::IoTTwinMaker::Entity"
@@ -261,7 +261,7 @@ class Entity(AWSObject):
 
 class Scene(AWSObject):
     """
-    `Scene <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html>`__
+    `Scene <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iottwinmaker-scene.html>`__
     """
 
     resource_type = "AWS::IoTTwinMaker::Scene"
@@ -279,7 +279,7 @@ class Scene(AWSObject):
 
 class SyncJob(AWSObject):
     """
-    `SyncJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html>`__
+    `SyncJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iottwinmaker-syncjob.html>`__
     """
 
     resource_type = "AWS::IoTTwinMaker::SyncJob"
@@ -294,7 +294,7 @@ class SyncJob(AWSObject):
 
 class Workspace(AWSObject):
     """
-    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html>`__
+    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iottwinmaker-workspace.html>`__
     """
 
     resource_type = "AWS::IoTTwinMaker::Workspace"

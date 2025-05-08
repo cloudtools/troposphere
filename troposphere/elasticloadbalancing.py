@@ -19,7 +19,7 @@ from .validators.elasticloadbalancing import (
 
 class AccessLoggingPolicy(AWSProperty):
     """
-    `AccessLoggingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html>`__
+    `AccessLoggingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-accessloggingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class AccessLoggingPolicy(AWSProperty):
 
 class ConnectionDrainingPolicy(AWSProperty):
     """
-    `ConnectionDrainingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html>`__
+    `ConnectionDrainingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-connectiondrainingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class ConnectionDrainingPolicy(AWSProperty):
 
 class ConnectionSettings(AWSProperty):
     """
-    `ConnectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html>`__
+    `ConnectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-connectionsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class ConnectionSettings(AWSProperty):
 
 class HealthCheck(AWSProperty):
     """
-    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-health-check.html>`__
+    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-health-check.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class HealthCheck(AWSProperty):
 
 class LoadBalancer(AWSObject):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancing::LoadBalancer"
@@ -94,7 +94,7 @@ class LoadBalancer(AWSObject):
 
 class AppCookieStickinessPolicy(AWSProperty):
     """
-    `AppCookieStickinessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html>`__
+    `AppCookieStickinessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-AppCookieStickinessPolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class AppCookieStickinessPolicy(AWSProperty):
 
 class LBCookieStickinessPolicy(AWSProperty):
     """
-    `LBCookieStickinessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-LBCookieStickinessPolicy.html>`__
+    `LBCookieStickinessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-LBCookieStickinessPolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class LBCookieStickinessPolicy(AWSProperty):
 
 class Listener(AWSProperty):
     """
-    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html>`__
+    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-listener.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class Listener(AWSProperty):
 
 class Policy(AWSProperty):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-elb-policy.html>`__
     """
 
     props: PropsDictType = {

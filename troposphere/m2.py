@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Definition(AWSProperty):
     """
-    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-definition.html>`__
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-m2-application-definition.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Definition(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-m2-application.html>`__
     """
 
     resource_type = "AWS::M2::Application"
@@ -41,7 +41,7 @@ class Application(AWSObject):
 
 class Deployment(AWSObject):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-m2-deployment.html>`__
     """
 
     resource_type = "AWS::M2::Deployment"
@@ -55,7 +55,7 @@ class Deployment(AWSObject):
 
 class HighAvailabilityConfig(AWSProperty):
     """
-    `HighAvailabilityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-highavailabilityconfig.html>`__
+    `HighAvailabilityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-m2-environment-highavailabilityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class HighAvailabilityConfig(AWSProperty):
 
 class EfsStorageConfiguration(AWSProperty):
     """
-    `EfsStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-efsstorageconfiguration.html>`__
+    `EfsStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-m2-environment-efsstorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class EfsStorageConfiguration(AWSProperty):
 
 class FsxStorageConfiguration(AWSProperty):
     """
-    `FsxStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-fsxstorageconfiguration.html>`__
+    `FsxStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-m2-environment-fsxstorageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class FsxStorageConfiguration(AWSProperty):
 
 class StorageConfiguration(AWSProperty):
     """
-    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html>`__
+    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-m2-environment-storageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class StorageConfiguration(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-m2-environment.html>`__
     """
 
     resource_type = "AWS::M2::Environment"

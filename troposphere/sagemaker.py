@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ResourceSpec(AWSProperty):
     """
-    `ResourceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html>`__
+    `ResourceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-resourcespec.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class ResourceSpec(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html>`__
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-app.html>`__
     """
 
     resource_type = "AWS::SageMaker::App"
@@ -42,7 +42,7 @@ class App(AWSObject):
 
 class CustomImageContainerEnvironmentVariable(AWSProperty):
     """
-    `CustomImageContainerEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html>`__
+    `CustomImageContainerEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class CustomImageContainerEnvironmentVariable(AWSProperty):
 
 class ContainerConfig(AWSProperty):
     """
-    `ContainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html>`__
+    `ContainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-containerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ContainerConfig(AWSProperty):
 
 class CodeEditorAppImageConfig(AWSProperty):
     """
-    `CodeEditorAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html>`__
+    `CodeEditorAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class CodeEditorAppImageConfig(AWSProperty):
 
 class JupyterLabAppImageConfig(AWSProperty):
     """
-    `JupyterLabAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html>`__
+    `JupyterLabAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class JupyterLabAppImageConfig(AWSProperty):
 
 class FileSystemConfig(AWSProperty):
     """
-    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html>`__
+    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-filesystemconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class FileSystemConfig(AWSProperty):
 
 class KernelSpec(AWSProperty):
     """
-    `KernelSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html>`__
+    `KernelSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-kernelspec.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class KernelSpec(AWSProperty):
 
 class KernelGatewayImageConfig(AWSProperty):
     """
-    `KernelGatewayImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html>`__
+    `KernelGatewayImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class KernelGatewayImageConfig(AWSProperty):
 
 class AppImageConfig(AWSObject):
     """
-    `AppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html>`__
+    `AppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-appimageconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::AppImageConfig"
@@ -138,7 +138,7 @@ class AppImageConfig(AWSObject):
 
 class ClusterEbsVolumeConfig(AWSProperty):
     """
-    `ClusterEbsVolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>`__
+    `ClusterEbsVolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class ClusterEbsVolumeConfig(AWSProperty):
 
 class ClusterInstanceStorageConfig(AWSProperty):
     """
-    `ClusterInstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html>`__
+    `ClusterInstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class ClusterInstanceStorageConfig(AWSProperty):
 
 class ClusterLifeCycleConfig(AWSProperty):
     """
-    `ClusterLifeCycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html>`__
+    `ClusterLifeCycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class ClusterLifeCycleConfig(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -180,7 +180,7 @@ class VpcConfig(AWSProperty):
 
 class ClusterInstanceGroup(AWSProperty):
     """
-    `ClusterInstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html>`__
+    `ClusterInstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-clusterinstancegroup.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class ClusterInstanceGroup(AWSProperty):
 
 class ClusterOrchestratorEksConfig(AWSProperty):
     """
-    `ClusterOrchestratorEksConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratoreksconfig.html>`__
+    `ClusterOrchestratorEksConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-clusterorchestratoreksconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class ClusterOrchestratorEksConfig(AWSProperty):
 
 class Orchestrator(AWSProperty):
     """
-    `Orchestrator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html>`__
+    `Orchestrator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-cluster-orchestrator.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class Orchestrator(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-cluster.html>`__
     """
 
     resource_type = "AWS::SageMaker::Cluster"
@@ -236,7 +236,7 @@ class Cluster(AWSObject):
 
 class GitConfig(AWSProperty):
     """
-    `GitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html>`__
+    `GitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-coderepository-gitconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class GitConfig(AWSProperty):
 
 class CodeRepository(AWSObject):
     """
-    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html>`__
+    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-coderepository.html>`__
     """
 
     resource_type = "AWS::SageMaker::CodeRepository"
@@ -262,7 +262,7 @@ class CodeRepository(AWSObject):
 
 class DataQualityAppSpecification(AWSProperty):
     """
-    `DataQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html>`__
+    `DataQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class DataQualityAppSpecification(AWSProperty):
 
 class ConstraintsResource(AWSProperty):
     """
-    `ConstraintsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html>`__
+    `ConstraintsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-constraintsresource.html>`__
     """
 
     props: PropsDictType = {
@@ -287,7 +287,7 @@ class ConstraintsResource(AWSProperty):
 
 class StatisticsResource(AWSProperty):
     """
-    `StatisticsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html>`__
+    `StatisticsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-statisticsresource.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class StatisticsResource(AWSProperty):
 
 class DataQualityBaselineConfig(AWSProperty):
     """
-    `DataQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html>`__
+    `DataQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -309,7 +309,7 @@ class DataQualityBaselineConfig(AWSProperty):
 
 class Csv(AWSProperty):
     """
-    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-csv.html>`__
+    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-csv.html>`__
     """
 
     props: PropsDictType = {
@@ -319,7 +319,7 @@ class Csv(AWSProperty):
 
 class Json(AWSProperty):
     """
-    `Json <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-json.html>`__
+    `Json <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-json.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class Json(AWSProperty):
 
 class DatasetFormat(AWSProperty):
     """
-    `DatasetFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html>`__
+    `DatasetFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-datasetformat.html>`__
     """
 
     props: PropsDictType = {
@@ -341,7 +341,7 @@ class DatasetFormat(AWSProperty):
 
 class BatchTransformInput(AWSProperty):
     """
-    `BatchTransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-batchtransforminput.html>`__
+    `BatchTransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-batchtransforminput.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class BatchTransformInput(AWSProperty):
 
 class EndpointInput(AWSProperty):
     """
-    `EndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html>`__
+    `EndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-endpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -370,7 +370,7 @@ class EndpointInput(AWSProperty):
 
 class DataQualityJobInput(AWSProperty):
     """
-    `DataQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html>`__
+    `DataQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class DataQualityJobInput(AWSProperty):
 
 class S3Output(AWSProperty):
     """
-    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html>`__
+    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-s3output.html>`__
     """
 
     props: PropsDictType = {
@@ -393,7 +393,7 @@ class S3Output(AWSProperty):
 
 class MonitoringOutput(AWSProperty):
     """
-    `MonitoringOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html>`__
+    `MonitoringOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -403,7 +403,7 @@ class MonitoringOutput(AWSProperty):
 
 class MonitoringOutputConfig(AWSProperty):
     """
-    `MonitoringOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html>`__
+    `MonitoringOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class MonitoringOutputConfig(AWSProperty):
 
 class ClusterConfig(AWSProperty):
     """
-    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html>`__
+    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-clusterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -427,7 +427,7 @@ class ClusterConfig(AWSProperty):
 
 class MonitoringResources(AWSProperty):
     """
-    `MonitoringResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html>`__
+    `MonitoringResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringresources.html>`__
     """
 
     props: PropsDictType = {
@@ -437,7 +437,7 @@ class MonitoringResources(AWSProperty):
 
 class NetworkConfig(AWSProperty):
     """
-    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`__
+    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -449,7 +449,7 @@ class NetworkConfig(AWSProperty):
 
 class StoppingCondition(AWSProperty):
     """
-    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html>`__
+    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -459,7 +459,7 @@ class StoppingCondition(AWSProperty):
 
 class DataQualityJobDefinition(AWSObject):
     """
-    `DataQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html>`__
+    `DataQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-dataqualityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::DataQualityJobDefinition"
@@ -481,7 +481,7 @@ class DataQualityJobDefinition(AWSObject):
 
 class DeviceProperty(AWSProperty):
     """
-    `DeviceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html>`__
+    `DeviceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-device-device.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class DeviceProperty(AWSProperty):
 
 class Device(AWSObject):
     """
-    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html>`__
+    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-device.html>`__
     """
 
     resource_type = "AWS::SageMaker::Device"
@@ -507,7 +507,7 @@ class Device(AWSObject):
 
 class EdgeOutputConfig(AWSProperty):
     """
-    `EdgeOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html>`__
+    `EdgeOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -518,7 +518,7 @@ class EdgeOutputConfig(AWSProperty):
 
 class DeviceFleet(AWSObject):
     """
-    `DeviceFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html>`__
+    `DeviceFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-devicefleet.html>`__
     """
 
     resource_type = "AWS::SageMaker::DeviceFleet"
@@ -534,7 +534,7 @@ class DeviceFleet(AWSObject):
 
 class EFSFileSystemConfig(AWSProperty):
     """
-    `EFSFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html>`__
+    `EFSFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -545,7 +545,7 @@ class EFSFileSystemConfig(AWSProperty):
 
 class FSxLustreFileSystemConfig(AWSProperty):
     """
-    `FSxLustreFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-fsxlustrefilesystemconfig.html>`__
+    `FSxLustreFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-fsxlustrefilesystemconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -556,7 +556,7 @@ class FSxLustreFileSystemConfig(AWSProperty):
 
 class CustomFileSystemConfig(AWSProperty):
     """
-    `CustomFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html>`__
+    `CustomFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-customfilesystemconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -567,7 +567,7 @@ class CustomFileSystemConfig(AWSProperty):
 
 class CustomPosixUserConfig(AWSProperty):
     """
-    `CustomPosixUserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customposixuserconfig.html>`__
+    `CustomPosixUserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-customposixuserconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -578,7 +578,7 @@ class CustomPosixUserConfig(AWSProperty):
 
 class DefaultEbsStorageSettings(AWSProperty):
     """
-    `DefaultEbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html>`__
+    `DefaultEbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -589,7 +589,7 @@ class DefaultEbsStorageSettings(AWSProperty):
 
 class DefaultSpaceStorageSettings(AWSProperty):
     """
-    `DefaultSpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html>`__
+    `DefaultSpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -599,7 +599,7 @@ class DefaultSpaceStorageSettings(AWSProperty):
 
 class IdleSettings(AWSProperty):
     """
-    `IdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-idlesettings.html>`__
+    `IdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-idlesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -612,7 +612,7 @@ class IdleSettings(AWSProperty):
 
 class AppLifecycleManagement(AWSProperty):
     """
-    `AppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-applifecyclemanagement.html>`__
+    `AppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-applifecyclemanagement.html>`__
     """
 
     props: PropsDictType = {
@@ -622,7 +622,7 @@ class AppLifecycleManagement(AWSProperty):
 
 class CodeRepositoryProperty(AWSProperty):
     """
-    `CodeRepositoryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html>`__
+    `CodeRepositoryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-coderepository.html>`__
     """
 
     props: PropsDictType = {
@@ -632,7 +632,7 @@ class CodeRepositoryProperty(AWSProperty):
 
 class CustomImage(AWSProperty):
     """
-    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html>`__
+    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-customimage.html>`__
     """
 
     props: PropsDictType = {
@@ -644,7 +644,7 @@ class CustomImage(AWSProperty):
 
 class JupyterLabAppSettings(AWSProperty):
     """
-    `JupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html>`__
+    `JupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -658,7 +658,7 @@ class JupyterLabAppSettings(AWSProperty):
 
 class JupyterServerAppSettings(AWSProperty):
     """
-    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
+    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -669,7 +669,7 @@ class JupyterServerAppSettings(AWSProperty):
 
 class KernelGatewayAppSettings(AWSProperty):
     """
-    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`__
+    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -681,7 +681,7 @@ class KernelGatewayAppSettings(AWSProperty):
 
 class DefaultSpaceSettings(AWSProperty):
     """
-    `DefaultSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html>`__
+    `DefaultSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-domain-defaultspacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -698,7 +698,7 @@ class DefaultSpaceSettings(AWSProperty):
 
 class DockerSettings(AWSProperty):
     """
-    `DockerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-dockersettings.html>`__
+    `DockerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-domain-dockersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -709,7 +709,7 @@ class DockerSettings(AWSProperty):
 
 class RStudioServerProDomainSettings(AWSProperty):
     """
-    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
+    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -722,7 +722,7 @@ class RStudioServerProDomainSettings(AWSProperty):
 
 class DomainSettings(AWSProperty):
     """
-    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
+    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-domain-domainsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -735,7 +735,7 @@ class DomainSettings(AWSProperty):
 
 class CodeEditorAppSettings(AWSProperty):
     """
-    `CodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>`__
+    `CodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -748,7 +748,7 @@ class CodeEditorAppSettings(AWSProperty):
 
 class RStudioServerProAppSettings(AWSProperty):
     """
-    `RStudioServerProAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html>`__
+    `RStudioServerProAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -759,7 +759,7 @@ class RStudioServerProAppSettings(AWSProperty):
 
 class SharingSettings(AWSProperty):
     """
-    `SharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html>`__
+    `SharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-sharingsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -771,7 +771,7 @@ class SharingSettings(AWSProperty):
 
 class StudioWebPortalSettings(AWSProperty):
     """
-    `StudioWebPortalSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html>`__
+    `StudioWebPortalSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-studiowebportalsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -782,7 +782,7 @@ class StudioWebPortalSettings(AWSProperty):
 
 class UserSettings(AWSProperty):
     """
-    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>`__
+    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-userprofile-usersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -805,7 +805,7 @@ class UserSettings(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-domain.html>`__
     """
 
     resource_type = "AWS::SageMaker::Domain"
@@ -828,7 +828,7 @@ class Domain(AWSObject):
 
 class Alarm(AWSProperty):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-alarm.html>`__
     """
 
     props: PropsDictType = {
@@ -838,7 +838,7 @@ class Alarm(AWSProperty):
 
 class AutoRollbackConfig(AWSProperty):
     """
-    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`__
+    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -848,7 +848,7 @@ class AutoRollbackConfig(AWSProperty):
 
 class CapacitySize(AWSProperty):
     """
-    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html>`__
+    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-capacitysize.html>`__
     """
 
     props: PropsDictType = {
@@ -859,7 +859,7 @@ class CapacitySize(AWSProperty):
 
 class TrafficRoutingConfig(AWSProperty):
     """
-    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`__
+    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -872,7 +872,7 @@ class TrafficRoutingConfig(AWSProperty):
 
 class BlueGreenUpdatePolicy(AWSProperty):
     """
-    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`__
+    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -884,7 +884,7 @@ class BlueGreenUpdatePolicy(AWSProperty):
 
 class RollingUpdatePolicy(AWSProperty):
     """
-    `RollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>`__
+    `RollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -897,7 +897,7 @@ class RollingUpdatePolicy(AWSProperty):
 
 class DeploymentConfig(AWSProperty):
     """
-    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
+    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -909,7 +909,7 @@ class DeploymentConfig(AWSProperty):
 
 class VariantProperty(AWSProperty):
     """
-    `VariantProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html>`__
+    `VariantProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpoint-variantproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -919,7 +919,7 @@ class VariantProperty(AWSProperty):
 
 class Endpoint(AWSObject):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-endpoint.html>`__
     """
 
     resource_type = "AWS::SageMaker::Endpoint"
@@ -937,7 +937,7 @@ class Endpoint(AWSObject):
 
 class AsyncInferenceClientConfig(AWSProperty):
     """
-    `AsyncInferenceClientConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html>`__
+    `AsyncInferenceClientConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -947,7 +947,7 @@ class AsyncInferenceClientConfig(AWSProperty):
 
 class AsyncInferenceNotificationConfig(AWSProperty):
     """
-    `AsyncInferenceNotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html>`__
+    `AsyncInferenceNotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -959,7 +959,7 @@ class AsyncInferenceNotificationConfig(AWSProperty):
 
 class AsyncInferenceOutputConfig(AWSProperty):
     """
-    `AsyncInferenceOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html>`__
+    `AsyncInferenceOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -972,7 +972,7 @@ class AsyncInferenceOutputConfig(AWSProperty):
 
 class AsyncInferenceConfig(AWSProperty):
     """
-    `AsyncInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html>`__
+    `AsyncInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -983,7 +983,7 @@ class AsyncInferenceConfig(AWSProperty):
 
 class CaptureContentTypeHeader(AWSProperty):
     """
-    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>`__
+    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>`__
     """
 
     props: PropsDictType = {
@@ -994,7 +994,7 @@ class CaptureContentTypeHeader(AWSProperty):
 
 class CaptureOption(AWSProperty):
     """
-    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>`__
+    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-captureoption.html>`__
     """
 
     props: PropsDictType = {
@@ -1004,7 +1004,7 @@ class CaptureOption(AWSProperty):
 
 class DataCaptureConfig(AWSProperty):
     """
-    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>`__
+    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1019,7 +1019,7 @@ class DataCaptureConfig(AWSProperty):
 
 class ClarifyInferenceConfig(AWSProperty):
     """
-    `ClarifyInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html>`__
+    `ClarifyInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1039,7 +1039,7 @@ class ClarifyInferenceConfig(AWSProperty):
 
 class ClarifyShapBaselineConfig(AWSProperty):
     """
-    `ClarifyShapBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html>`__
+    `ClarifyShapBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1051,7 +1051,7 @@ class ClarifyShapBaselineConfig(AWSProperty):
 
 class ClarifyTextConfig(AWSProperty):
     """
-    `ClarifyTextConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifytextconfig.html>`__
+    `ClarifyTextConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-clarifytextconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1062,7 +1062,7 @@ class ClarifyTextConfig(AWSProperty):
 
 class ClarifyShapConfig(AWSProperty):
     """
-    `ClarifyShapConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html>`__
+    `ClarifyShapConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1076,7 +1076,7 @@ class ClarifyShapConfig(AWSProperty):
 
 class ClarifyExplainerConfig(AWSProperty):
     """
-    `ClarifyExplainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html>`__
+    `ClarifyExplainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1088,7 +1088,7 @@ class ClarifyExplainerConfig(AWSProperty):
 
 class ExplainerConfig(AWSProperty):
     """
-    `ExplainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-explainerconfig.html>`__
+    `ExplainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-explainerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1098,7 +1098,7 @@ class ExplainerConfig(AWSProperty):
 
 class ManagedInstanceScaling(AWSProperty):
     """
-    `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
+    `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
     """
 
     props: PropsDictType = {
@@ -1110,7 +1110,7 @@ class ManagedInstanceScaling(AWSProperty):
 
 class RoutingConfig(AWSProperty):
     """
-    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html>`__
+    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1120,7 +1120,7 @@ class RoutingConfig(AWSProperty):
 
 class ServerlessConfig(AWSProperty):
     """
-    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`__
+    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1132,7 +1132,7 @@ class ServerlessConfig(AWSProperty):
 
 class ProductionVariant(AWSProperty):
     """
-    `ProductionVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html>`__
+    `ProductionVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-endpointconfig-productionvariant.html>`__
     """
 
     props: PropsDictType = {
@@ -1154,7 +1154,7 @@ class ProductionVariant(AWSProperty):
 
 class EndpointConfig(AWSObject):
     """
-    `EndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html>`__
+    `EndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-endpointconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::EndpointConfig"
@@ -1176,7 +1176,7 @@ class EndpointConfig(AWSObject):
 
 class FeatureDefinition(AWSProperty):
     """
-    `FeatureDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html>`__
+    `FeatureDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-featuredefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -1187,7 +1187,7 @@ class FeatureDefinition(AWSProperty):
 
 class DataCatalogConfig(AWSProperty):
     """
-    `DataCatalogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-datacatalogconfig.html>`__
+    `DataCatalogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-datacatalogconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1199,7 +1199,7 @@ class DataCatalogConfig(AWSProperty):
 
 class S3StorageConfig(AWSProperty):
     """
-    `S3StorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-s3storageconfig.html>`__
+    `S3StorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-s3storageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1210,7 @@ class S3StorageConfig(AWSProperty):
 
 class OfflineStoreConfig(AWSProperty):
     """
-    `OfflineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html>`__
+    `OfflineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1223,7 +1223,7 @@ class OfflineStoreConfig(AWSProperty):
 
 class OnlineStoreSecurityConfig(AWSProperty):
     """
-    `OnlineStoreSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoresecurityconfig.html>`__
+    `OnlineStoreSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-onlinestoresecurityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1233,7 +1233,7 @@ class OnlineStoreSecurityConfig(AWSProperty):
 
 class TtlDuration(AWSProperty):
     """
-    `TtlDuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html>`__
+    `TtlDuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-ttlduration.html>`__
     """
 
     props: PropsDictType = {
@@ -1244,7 +1244,7 @@ class TtlDuration(AWSProperty):
 
 class OnlineStoreConfig(AWSProperty):
     """
-    `OnlineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html>`__
+    `OnlineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1257,7 +1257,7 @@ class OnlineStoreConfig(AWSProperty):
 
 class ThroughputConfig(AWSProperty):
     """
-    `ThroughputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-throughputconfig.html>`__
+    `ThroughputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-featuregroup-throughputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1269,7 +1269,7 @@ class ThroughputConfig(AWSProperty):
 
 class FeatureGroup(AWSObject):
     """
-    `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html>`__
+    `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-featuregroup.html>`__
     """
 
     resource_type = "AWS::SageMaker::FeatureGroup"
@@ -1290,7 +1290,7 @@ class FeatureGroup(AWSObject):
 
 class Image(AWSObject):
     """
-    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html>`__
+    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-image.html>`__
     """
 
     resource_type = "AWS::SageMaker::Image"
@@ -1306,7 +1306,7 @@ class Image(AWSObject):
 
 class ImageVersion(AWSObject):
     """
-    `ImageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html>`__
+    `ImageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-imageversion.html>`__
     """
 
     resource_type = "AWS::SageMaker::ImageVersion"
@@ -1328,7 +1328,7 @@ class ImageVersion(AWSObject):
 
 class AutoRollbackConfiguration(AWSProperty):
     """
-    `AutoRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-autorollbackconfiguration.html>`__
+    `AutoRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-autorollbackconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1338,7 +1338,7 @@ class AutoRollbackConfiguration(AWSProperty):
 
 class InferenceComponentCapacitySize(AWSProperty):
     """
-    `InferenceComponentCapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcapacitysize.html>`__
+    `InferenceComponentCapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentcapacitysize.html>`__
     """
 
     props: PropsDictType = {
@@ -1349,7 +1349,7 @@ class InferenceComponentCapacitySize(AWSProperty):
 
 class InferenceComponentRollingUpdatePolicy(AWSProperty):
     """
-    `InferenceComponentRollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentrollingupdatepolicy.html>`__
+    `InferenceComponentRollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentrollingupdatepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -1362,7 +1362,7 @@ class InferenceComponentRollingUpdatePolicy(AWSProperty):
 
 class InferenceComponentDeploymentConfig(AWSProperty):
     """
-    `InferenceComponentDeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentdeploymentconfig.html>`__
+    `InferenceComponentDeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentdeploymentconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1373,7 +1373,7 @@ class InferenceComponentDeploymentConfig(AWSProperty):
 
 class InferenceComponentRuntimeConfig(AWSProperty):
     """
-    `InferenceComponentRuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html>`__
+    `InferenceComponentRuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1385,7 +1385,7 @@ class InferenceComponentRuntimeConfig(AWSProperty):
 
 class InferenceComponentComputeResourceRequirements(AWSProperty):
     """
-    `InferenceComponentComputeResourceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html>`__
+    `InferenceComponentComputeResourceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -1398,7 +1398,7 @@ class InferenceComponentComputeResourceRequirements(AWSProperty):
 
 class DeployedImage(AWSProperty):
     """
-    `DeployedImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-deployedimage.html>`__
+    `DeployedImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-deployedimage.html>`__
     """
 
     props: PropsDictType = {
@@ -1410,7 +1410,7 @@ class DeployedImage(AWSProperty):
 
 class InferenceComponentContainerSpecification(AWSProperty):
     """
-    `InferenceComponentContainerSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html>`__
+    `InferenceComponentContainerSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1423,7 +1423,7 @@ class InferenceComponentContainerSpecification(AWSProperty):
 
 class InferenceComponentStartupParameters(AWSProperty):
     """
-    `InferenceComponentStartupParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html>`__
+    `InferenceComponentStartupParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -1434,7 +1434,7 @@ class InferenceComponentStartupParameters(AWSProperty):
 
 class InferenceComponentSpecification(AWSProperty):
     """
-    `InferenceComponentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html>`__
+    `InferenceComponentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1451,7 +1451,7 @@ class InferenceComponentSpecification(AWSProperty):
 
 class InferenceComponent(AWSObject):
     """
-    `InferenceComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html>`__
+    `InferenceComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-inferencecomponent.html>`__
     """
 
     resource_type = "AWS::SageMaker::InferenceComponent"
@@ -1470,7 +1470,7 @@ class InferenceComponent(AWSObject):
 
 class DataStorageConfig(AWSProperty):
     """
-    `DataStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html>`__
+    `DataStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1482,7 +1482,7 @@ class DataStorageConfig(AWSProperty):
 
 class InferenceExperimentSchedule(AWSProperty):
     """
-    `InferenceExperimentSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html>`__
+    `InferenceExperimentSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -1493,7 +1493,7 @@ class InferenceExperimentSchedule(AWSProperty):
 
 class RealTimeInferenceConfig(AWSProperty):
     """
-    `RealTimeInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html>`__
+    `RealTimeInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1504,7 +1504,7 @@ class RealTimeInferenceConfig(AWSProperty):
 
 class ModelInfrastructureConfig(AWSProperty):
     """
-    `ModelInfrastructureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html>`__
+    `ModelInfrastructureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1515,7 +1515,7 @@ class ModelInfrastructureConfig(AWSProperty):
 
 class ModelVariantConfig(AWSProperty):
     """
-    `ModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html>`__
+    `ModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1527,7 +1527,7 @@ class ModelVariantConfig(AWSProperty):
 
 class ShadowModelVariantConfig(AWSProperty):
     """
-    `ShadowModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html>`__
+    `ShadowModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1538,7 +1538,7 @@ class ShadowModelVariantConfig(AWSProperty):
 
 class ShadowModeConfig(AWSProperty):
     """
-    `ShadowModeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html>`__
+    `ShadowModeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1549,7 +1549,7 @@ class ShadowModeConfig(AWSProperty):
 
 class InferenceExperiment(AWSObject):
     """
-    `InferenceExperiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html>`__
+    `InferenceExperiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-inferenceexperiment.html>`__
     """
 
     resource_type = "AWS::SageMaker::InferenceExperiment"
@@ -1573,7 +1573,7 @@ class InferenceExperiment(AWSObject):
 
 class MlflowTrackingServer(AWSObject):
     """
-    `MlflowTrackingServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html>`__
+    `MlflowTrackingServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-mlflowtrackingserver.html>`__
     """
 
     resource_type = "AWS::SageMaker::MlflowTrackingServer"
@@ -1592,7 +1592,7 @@ class MlflowTrackingServer(AWSObject):
 
 class RepositoryAuthConfig(AWSProperty):
     """
-    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>`__
+    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1602,7 +1602,7 @@ class RepositoryAuthConfig(AWSProperty):
 
 class ImageConfig(AWSProperty):
     """
-    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>`__
+    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1613,7 +1613,7 @@ class ImageConfig(AWSProperty):
 
 class ModelAccessConfig(AWSProperty):
     """
-    `ModelAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelaccessconfig.html>`__
+    `ModelAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelaccessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1623,7 +1623,7 @@ class ModelAccessConfig(AWSProperty):
 
 class S3ModelDataSource(AWSProperty):
     """
-    `S3ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html>`__
+    `S3ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-s3modeldatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -1636,7 +1636,7 @@ class S3ModelDataSource(AWSProperty):
 
 class ModelDataSource(AWSProperty):
     """
-    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldatasource.html>`__
+    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modeldatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -1646,7 +1646,7 @@ class ModelDataSource(AWSProperty):
 
 class MultiModelConfig(AWSProperty):
     """
-    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`__
+    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1656,7 +1656,7 @@ class MultiModelConfig(AWSProperty):
 
 class ContainerDefinition(AWSProperty):
     """
-    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html>`__
+    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-containerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -1675,7 +1675,7 @@ class ContainerDefinition(AWSProperty):
 
 class InferenceExecutionConfig(AWSProperty):
     """
-    `InferenceExecutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html>`__
+    `InferenceExecutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-inferenceexecutionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1685,7 +1685,7 @@ class InferenceExecutionConfig(AWSProperty):
 
 class Model(AWSObject):
     """
-    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html>`__
+    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-model.html>`__
     """
 
     resource_type = "AWS::SageMaker::Model"
@@ -1704,7 +1704,7 @@ class Model(AWSObject):
 
 class ModelBiasAppSpecification(AWSProperty):
     """
-    `ModelBiasAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html>`__
+    `ModelBiasAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1716,7 +1716,7 @@ class ModelBiasAppSpecification(AWSProperty):
 
 class ModelBiasBaselineConfig(AWSProperty):
     """
-    `ModelBiasBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html>`__
+    `ModelBiasBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1727,7 +1727,7 @@ class ModelBiasBaselineConfig(AWSProperty):
 
 class ModelBiasEndpointInput(AWSProperty):
     """
-    `ModelBiasEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html>`__
+    `ModelBiasEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1746,7 +1746,7 @@ class ModelBiasEndpointInput(AWSProperty):
 
 class MonitoringGroundTruthS3Input(AWSProperty):
     """
-    `MonitoringGroundTruthS3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html>`__
+    `MonitoringGroundTruthS3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html>`__
     """
 
     props: PropsDictType = {
@@ -1756,7 +1756,7 @@ class MonitoringGroundTruthS3Input(AWSProperty):
 
 class ModelBiasJobInput(AWSProperty):
     """
-    `ModelBiasJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html>`__
+    `ModelBiasJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1768,7 +1768,7 @@ class ModelBiasJobInput(AWSProperty):
 
 class ModelBiasJobDefinition(AWSObject):
     """
-    `ModelBiasJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html>`__
+    `ModelBiasJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelbiasjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelBiasJobDefinition"
@@ -1790,7 +1790,7 @@ class ModelBiasJobDefinition(AWSObject):
 
 class AdditionalInformation(AWSProperty):
     """
-    `AdditionalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-additionalinformation.html>`__
+    `AdditionalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-additionalinformation.html>`__
     """
 
     props: PropsDictType = {
@@ -1802,7 +1802,7 @@ class AdditionalInformation(AWSProperty):
 
 class BusinessDetails(AWSProperty):
     """
-    `BusinessDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-businessdetails.html>`__
+    `BusinessDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-businessdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -1814,7 +1814,7 @@ class BusinessDetails(AWSProperty):
 
 class MetricDataItems(AWSProperty):
     """
-    `MetricDataItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html>`__
+    `MetricDataItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-metricdataitems.html>`__
     """
 
     props: PropsDictType = {
@@ -1829,7 +1829,7 @@ class MetricDataItems(AWSProperty):
 
 class MetricGroup(AWSProperty):
     """
-    `MetricGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html>`__
+    `MetricGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-metricgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -1840,7 +1840,7 @@ class MetricGroup(AWSProperty):
 
 class EvaluationDetail(AWSProperty):
     """
-    `EvaluationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html>`__
+    `EvaluationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-evaluationdetail.html>`__
     """
 
     props: PropsDictType = {
@@ -1855,7 +1855,7 @@ class EvaluationDetail(AWSProperty):
 
 class IntendedUses(AWSProperty):
     """
-    `IntendedUses <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-intendeduses.html>`__
+    `IntendedUses <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-intendeduses.html>`__
     """
 
     props: PropsDictType = {
@@ -1869,7 +1869,7 @@ class IntendedUses(AWSProperty):
 
 class InferenceEnvironment(AWSProperty):
     """
-    `InferenceEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferenceenvironment.html>`__
+    `InferenceEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-inferenceenvironment.html>`__
     """
 
     props: PropsDictType = {
@@ -1879,7 +1879,7 @@ class InferenceEnvironment(AWSProperty):
 
 class ModelOverview(AWSProperty):
     """
-    `ModelOverview <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modeloverview.html>`__
+    `ModelOverview <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-modeloverview.html>`__
     """
 
     props: PropsDictType = {
@@ -1898,7 +1898,7 @@ class ModelOverview(AWSProperty):
 
 class ModelInput(AWSProperty):
     """
-    `ModelInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html>`__
+    `ModelInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1908,7 +1908,7 @@ class ModelInput(AWSProperty):
 
 class ModelPackageContainerDefinition(AWSProperty):
     """
-    `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
+    `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -1927,7 +1927,7 @@ class ModelPackageContainerDefinition(AWSProperty):
 
 class InferenceSpecification(AWSProperty):
     """
-    `InferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html>`__
+    `InferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-inferencespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1941,7 +1941,7 @@ class InferenceSpecification(AWSProperty):
 
 class ModelPackageCreator(AWSProperty):
     """
-    `ModelPackageCreator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html>`__
+    `ModelPackageCreator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-modelpackagecreator.html>`__
     """
 
     props: PropsDictType = {
@@ -1951,7 +1951,7 @@ class ModelPackageCreator(AWSProperty):
 
 class SourceAlgorithm(AWSProperty):
     """
-    `SourceAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithm.html>`__
+    `SourceAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-sourcealgorithm.html>`__
     """
 
     props: PropsDictType = {
@@ -1962,7 +1962,7 @@ class SourceAlgorithm(AWSProperty):
 
 class ModelPackageDetails(AWSProperty):
     """
-    `ModelPackageDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagedetails.html>`__
+    `ModelPackageDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-modelpackagedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -1984,7 +1984,7 @@ class ModelPackageDetails(AWSProperty):
 
 class Function(AWSProperty):
     """
-    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html>`__
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-function.html>`__
     """
 
     props: PropsDictType = {
@@ -1996,7 +1996,7 @@ class Function(AWSProperty):
 
 class ObjectiveFunction(AWSProperty):
     """
-    `ObjectiveFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html>`__
+    `ObjectiveFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-objectivefunction.html>`__
     """
 
     props: PropsDictType = {
@@ -2007,7 +2007,7 @@ class ObjectiveFunction(AWSProperty):
 
 class TrainingEnvironment(AWSProperty):
     """
-    `TrainingEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html>`__
+    `TrainingEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-trainingenvironment.html>`__
     """
 
     props: PropsDictType = {
@@ -2017,7 +2017,7 @@ class TrainingEnvironment(AWSProperty):
 
 class TrainingHyperParameter(AWSProperty):
     """
-    `TrainingHyperParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html>`__
+    `TrainingHyperParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-traininghyperparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -2028,7 +2028,7 @@ class TrainingHyperParameter(AWSProperty):
 
 class TrainingMetric(AWSProperty):
     """
-    `TrainingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html>`__
+    `TrainingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-trainingmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -2040,7 +2040,7 @@ class TrainingMetric(AWSProperty):
 
 class TrainingJobDetails(AWSProperty):
     """
-    `TrainingJobDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html>`__
+    `TrainingJobDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-trainingjobdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -2056,7 +2056,7 @@ class TrainingJobDetails(AWSProperty):
 
 class TrainingDetails(AWSProperty):
     """
-    `TrainingDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html>`__
+    `TrainingDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-trainingdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -2068,7 +2068,7 @@ class TrainingDetails(AWSProperty):
 
 class Content(AWSProperty):
     """
-    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html>`__
+    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-content.html>`__
     """
 
     props: PropsDictType = {
@@ -2084,7 +2084,7 @@ class Content(AWSProperty):
 
 class SecurityConfig(AWSProperty):
     """
-    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-securityconfig.html>`__
+    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-securityconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2094,7 +2094,7 @@ class SecurityConfig(AWSProperty):
 
 class UserContext(AWSProperty):
     """
-    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html>`__
+    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-usercontext.html>`__
     """
 
     props: PropsDictType = {
@@ -2106,7 +2106,7 @@ class UserContext(AWSProperty):
 
 class ModelCard(AWSObject):
     """
-    `ModelCard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html>`__
+    `ModelCard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelcard.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelCard"
@@ -2124,7 +2124,7 @@ class ModelCard(AWSObject):
 
 class ModelExplainabilityAppSpecification(AWSProperty):
     """
-    `ModelExplainabilityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html>`__
+    `ModelExplainabilityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2136,7 +2136,7 @@ class ModelExplainabilityAppSpecification(AWSProperty):
 
 class ModelExplainabilityBaselineConfig(AWSProperty):
     """
-    `ModelExplainabilityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html>`__
+    `ModelExplainabilityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2147,7 +2147,7 @@ class ModelExplainabilityBaselineConfig(AWSProperty):
 
 class ModelExplainabilityEndpointInput(AWSProperty):
     """
-    `ModelExplainabilityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html>`__
+    `ModelExplainabilityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -2163,7 +2163,7 @@ class ModelExplainabilityEndpointInput(AWSProperty):
 
 class ModelExplainabilityJobInput(AWSProperty):
     """
-    `ModelExplainabilityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>`__
+    `ModelExplainabilityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>`__
     """
 
     props: PropsDictType = {
@@ -2174,7 +2174,7 @@ class ModelExplainabilityJobInput(AWSProperty):
 
 class ModelExplainabilityJobDefinition(AWSObject):
     """
-    `ModelExplainabilityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html>`__
+    `ModelExplainabilityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelexplainabilityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelExplainabilityJobDefinition"
@@ -2199,7 +2199,7 @@ class ModelExplainabilityJobDefinition(AWSObject):
 
 class AdditionalInferenceSpecificationDefinition(AWSProperty):
     """
-    `AdditionalInferenceSpecificationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html>`__
+    `AdditionalInferenceSpecificationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -2215,7 +2215,7 @@ class AdditionalInferenceSpecificationDefinition(AWSProperty):
 
 class FileSource(AWSProperty):
     """
-    `FileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-filesource.html>`__
+    `FileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-filesource.html>`__
     """
 
     props: PropsDictType = {
@@ -2227,7 +2227,7 @@ class FileSource(AWSProperty):
 
 class MetricsSource(AWSProperty):
     """
-    `MetricsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metricssource.html>`__
+    `MetricsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-metricssource.html>`__
     """
 
     props: PropsDictType = {
@@ -2239,7 +2239,7 @@ class MetricsSource(AWSProperty):
 
 class DriftCheckBias(AWSProperty):
     """
-    `DriftCheckBias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html>`__
+    `DriftCheckBias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-driftcheckbias.html>`__
     """
 
     props: PropsDictType = {
@@ -2251,7 +2251,7 @@ class DriftCheckBias(AWSProperty):
 
 class DriftCheckExplainability(AWSProperty):
     """
-    `DriftCheckExplainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html>`__
+    `DriftCheckExplainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html>`__
     """
 
     props: PropsDictType = {
@@ -2262,7 +2262,7 @@ class DriftCheckExplainability(AWSProperty):
 
 class DriftCheckModelDataQuality(AWSProperty):
     """
-    `DriftCheckModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html>`__
+    `DriftCheckModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html>`__
     """
 
     props: PropsDictType = {
@@ -2273,7 +2273,7 @@ class DriftCheckModelDataQuality(AWSProperty):
 
 class DriftCheckModelQuality(AWSProperty):
     """
-    `DriftCheckModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodelquality.html>`__
+    `DriftCheckModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-driftcheckmodelquality.html>`__
     """
 
     props: PropsDictType = {
@@ -2284,7 +2284,7 @@ class DriftCheckModelQuality(AWSProperty):
 
 class DriftCheckBaselines(AWSProperty):
     """
-    `DriftCheckBaselines <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html>`__
+    `DriftCheckBaselines <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html>`__
     """
 
     props: PropsDictType = {
@@ -2297,7 +2297,7 @@ class DriftCheckBaselines(AWSProperty):
 
 class MetadataProperties(AWSProperty):
     """
-    `MetadataProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html>`__
+    `MetadataProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-metadataproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -2310,7 +2310,7 @@ class MetadataProperties(AWSProperty):
 
 class ModelCardProperty(AWSProperty):
     """
-    `ModelCardProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html>`__
+    `ModelCardProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelcard.html>`__
     """
 
     props: PropsDictType = {
@@ -2321,7 +2321,7 @@ class ModelCardProperty(AWSProperty):
 
 class Bias(AWSProperty):
     """
-    `Bias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html>`__
+    `Bias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-bias.html>`__
     """
 
     props: PropsDictType = {
@@ -2333,7 +2333,7 @@ class Bias(AWSProperty):
 
 class Explainability(AWSProperty):
     """
-    `Explainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html>`__
+    `Explainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-explainability.html>`__
     """
 
     props: PropsDictType = {
@@ -2343,7 +2343,7 @@ class Explainability(AWSProperty):
 
 class ModelDataQuality(AWSProperty):
     """
-    `ModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldataquality.html>`__
+    `ModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modeldataquality.html>`__
     """
 
     props: PropsDictType = {
@@ -2354,7 +2354,7 @@ class ModelDataQuality(AWSProperty):
 
 class ModelQuality(AWSProperty):
     """
-    `ModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html>`__
+    `ModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelquality.html>`__
     """
 
     props: PropsDictType = {
@@ -2365,7 +2365,7 @@ class ModelQuality(AWSProperty):
 
 class ModelMetrics(AWSProperty):
     """
-    `ModelMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html>`__
+    `ModelMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelmetrics.html>`__
     """
 
     props: PropsDictType = {
@@ -2378,7 +2378,7 @@ class ModelMetrics(AWSProperty):
 
 class ModelPackageStatusItem(AWSProperty):
     """
-    `ModelPackageStatusItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html>`__
+    `ModelPackageStatusItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html>`__
     """
 
     props: PropsDictType = {
@@ -2390,7 +2390,7 @@ class ModelPackageStatusItem(AWSProperty):
 
 class ModelPackageStatusDetails(AWSProperty):
     """
-    `ModelPackageStatusDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html>`__
+    `ModelPackageStatusDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -2400,7 +2400,7 @@ class ModelPackageStatusDetails(AWSProperty):
 
 class SourceAlgorithmSpecification(AWSProperty):
     """
-    `SourceAlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html>`__
+    `SourceAlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2410,7 +2410,7 @@ class SourceAlgorithmSpecification(AWSProperty):
 
 class S3DataSource(AWSProperty):
     """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -2421,7 +2421,7 @@ class S3DataSource(AWSProperty):
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -2431,7 +2431,7 @@ class DataSource(AWSProperty):
 
 class TransformInput(AWSProperty):
     """
-    `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html>`__
+    `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-transforminput.html>`__
     """
 
     props: PropsDictType = {
@@ -2444,7 +2444,7 @@ class TransformInput(AWSProperty):
 
 class TransformOutput(AWSProperty):
     """
-    `TransformOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html>`__
+    `TransformOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-transformoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -2457,7 +2457,7 @@ class TransformOutput(AWSProperty):
 
 class TransformResources(AWSProperty):
     """
-    `TransformResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformresources.html>`__
+    `TransformResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-transformresources.html>`__
     """
 
     props: PropsDictType = {
@@ -2469,7 +2469,7 @@ class TransformResources(AWSProperty):
 
 class TransformJobDefinition(AWSProperty):
     """
-    `TransformJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html>`__
+    `TransformJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-transformjobdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -2485,7 +2485,7 @@ class TransformJobDefinition(AWSProperty):
 
 class ValidationProfile(AWSProperty):
     """
-    `ValidationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html>`__
+    `ValidationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-validationprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -2496,7 +2496,7 @@ class ValidationProfile(AWSProperty):
 
 class ValidationSpecification(AWSProperty):
     """
-    `ValidationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html>`__
+    `ValidationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelpackage-validationspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2507,7 +2507,7 @@ class ValidationSpecification(AWSProperty):
 
 class ModelPackage(AWSObject):
     """
-    `ModelPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html>`__
+    `ModelPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelpackage.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelPackage"
@@ -2551,7 +2551,7 @@ class ModelPackage(AWSObject):
 
 class ModelPackageGroup(AWSObject):
     """
-    `ModelPackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html>`__
+    `ModelPackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelpackagegroup.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelPackageGroup"
@@ -2566,7 +2566,7 @@ class ModelPackageGroup(AWSObject):
 
 class ModelQualityAppSpecification(AWSProperty):
     """
-    `ModelQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html>`__
+    `ModelQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2582,7 +2582,7 @@ class ModelQualityAppSpecification(AWSProperty):
 
 class ModelQualityBaselineConfig(AWSProperty):
     """
-    `ModelQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html>`__
+    `ModelQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2593,7 +2593,7 @@ class ModelQualityBaselineConfig(AWSProperty):
 
 class ModelQualityEndpointInput(AWSProperty):
     """
-    `ModelQualityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html>`__
+    `ModelQualityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html>`__
     """
 
     props: PropsDictType = {
@@ -2611,7 +2611,7 @@ class ModelQualityEndpointInput(AWSProperty):
 
 class ModelQualityJobInput(AWSProperty):
     """
-    `ModelQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>`__
+    `ModelQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>`__
     """
 
     props: PropsDictType = {
@@ -2623,7 +2623,7 @@ class ModelQualityJobInput(AWSProperty):
 
 class ModelQualityJobDefinition(AWSObject):
     """
-    `ModelQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html>`__
+    `ModelQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelqualityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelQualityJobDefinition"
@@ -2645,7 +2645,7 @@ class ModelQualityJobDefinition(AWSObject):
 
 class MonitoringExecutionSummary(AWSProperty):
     """
-    `MonitoringExecutionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html>`__
+    `MonitoringExecutionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html>`__
     """
 
     props: PropsDictType = {
@@ -2662,7 +2662,7 @@ class MonitoringExecutionSummary(AWSProperty):
 
 class BaselineConfig(AWSProperty):
     """
-    `BaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html>`__
+    `BaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-baselineconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2673,7 +2673,7 @@ class BaselineConfig(AWSProperty):
 
 class MonitoringAppSpecification(AWSProperty):
     """
-    `MonitoringAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html>`__
+    `MonitoringAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2687,7 +2687,7 @@ class MonitoringAppSpecification(AWSProperty):
 
 class MonitoringInput(AWSProperty):
     """
-    `MonitoringInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html>`__
+    `MonitoringInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringinput.html>`__
     """
 
     props: PropsDictType = {
@@ -2698,7 +2698,7 @@ class MonitoringInput(AWSProperty):
 
 class MonitoringJobDefinition(AWSProperty):
     """
-    `MonitoringJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html>`__
+    `MonitoringJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -2716,7 +2716,7 @@ class MonitoringJobDefinition(AWSProperty):
 
 class ScheduleConfig(AWSProperty):
     """
-    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html>`__
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2728,7 +2728,7 @@ class ScheduleConfig(AWSProperty):
 
 class MonitoringScheduleConfig(AWSProperty):
     """
-    `MonitoringScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html>`__
+    `MonitoringScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2741,7 +2741,7 @@ class MonitoringScheduleConfig(AWSProperty):
 
 class MonitoringSchedule(AWSObject):
     """
-    `MonitoringSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html>`__
+    `MonitoringSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-monitoringschedule.html>`__
     """
 
     resource_type = "AWS::SageMaker::MonitoringSchedule"
@@ -2759,7 +2759,7 @@ class MonitoringSchedule(AWSObject):
 
 class InstanceMetadataServiceConfiguration(AWSProperty):
     """
-    `InstanceMetadataServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>`__
+    `InstanceMetadataServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2769,7 +2769,7 @@ class InstanceMetadataServiceConfiguration(AWSProperty):
 
 class NotebookInstance(AWSObject):
     """
-    `NotebookInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html>`__
+    `NotebookInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-notebookinstance.html>`__
     """
 
     resource_type = "AWS::SageMaker::NotebookInstance"
@@ -2799,7 +2799,7 @@ class NotebookInstance(AWSObject):
 
 class NotebookInstanceLifecycleHook(AWSProperty):
     """
-    `NotebookInstanceLifecycleHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html>`__
+    `NotebookInstanceLifecycleHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html>`__
     """
 
     props: PropsDictType = {
@@ -2809,7 +2809,7 @@ class NotebookInstanceLifecycleHook(AWSProperty):
 
 class NotebookInstanceLifecycleConfig(AWSObject):
     """
-    `NotebookInstanceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html>`__
+    `NotebookInstanceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-notebookinstancelifecycleconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
@@ -2823,7 +2823,7 @@ class NotebookInstanceLifecycleConfig(AWSObject):
 
 class PartnerAppConfig(AWSProperty):
     """
-    `PartnerAppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html>`__
+    `PartnerAppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-partnerapp-partnerappconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2834,7 +2834,7 @@ class PartnerAppConfig(AWSProperty):
 
 class PartnerAppMaintenanceConfig(AWSProperty):
     """
-    `PartnerAppMaintenanceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappmaintenanceconfig.html>`__
+    `PartnerAppMaintenanceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-partnerapp-partnerappmaintenanceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2844,7 +2844,7 @@ class PartnerAppMaintenanceConfig(AWSProperty):
 
 class PartnerApp(AWSObject):
     """
-    `PartnerApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html>`__
+    `PartnerApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-partnerapp.html>`__
     """
 
     resource_type = "AWS::SageMaker::PartnerApp"
@@ -2865,7 +2865,7 @@ class PartnerApp(AWSObject):
 
 class ParallelismConfiguration(AWSProperty):
     """
-    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>`__
+    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2875,7 +2875,7 @@ class ParallelismConfiguration(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-pipeline-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -2888,7 +2888,7 @@ class S3Location(AWSProperty):
 
 class PipelineDefinition(AWSProperty):
     """
-    `PipelineDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html>`__
+    `PipelineDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-pipeline-pipelinedefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -2899,7 +2899,7 @@ class PipelineDefinition(AWSProperty):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html>`__
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-pipeline.html>`__
     """
 
     resource_type = "AWS::SageMaker::Pipeline"
@@ -2917,7 +2917,7 @@ class Pipeline(AWSObject):
 
 class ServiceCatalogProvisionedProductDetails(AWSProperty):
     """
-    `ServiceCatalogProvisionedProductDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisionedproductdetails.html>`__
+    `ServiceCatalogProvisionedProductDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-project-servicecatalogprovisionedproductdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -2928,7 +2928,7 @@ class ServiceCatalogProvisionedProductDetails(AWSProperty):
 
 class ProvisioningParameter(AWSProperty):
     """
-    `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html>`__
+    `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-project-provisioningparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -2939,7 +2939,7 @@ class ProvisioningParameter(AWSProperty):
 
 class ServiceCatalogProvisioningDetails(AWSProperty):
     """
-    `ServiceCatalogProvisioningDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html>`__
+    `ServiceCatalogProvisioningDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -2952,7 +2952,7 @@ class ServiceCatalogProvisioningDetails(AWSProperty):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-project.html>`__
     """
 
     resource_type = "AWS::SageMaker::Project"
@@ -2971,7 +2971,7 @@ class Project(AWSObject):
 
 class OwnershipSettings(AWSProperty):
     """
-    `OwnershipSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html>`__
+    `OwnershipSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-ownershipsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2981,7 +2981,7 @@ class OwnershipSettings(AWSProperty):
 
 class EFSFileSystem(AWSProperty):
     """
-    `EFSFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-efsfilesystem.html>`__
+    `EFSFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-efsfilesystem.html>`__
     """
 
     props: PropsDictType = {
@@ -2991,7 +2991,7 @@ class EFSFileSystem(AWSProperty):
 
 class FSxLustreFileSystem(AWSProperty):
     """
-    `FSxLustreFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-fsxlustrefilesystem.html>`__
+    `FSxLustreFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-fsxlustrefilesystem.html>`__
     """
 
     props: PropsDictType = {
@@ -3001,7 +3001,7 @@ class FSxLustreFileSystem(AWSProperty):
 
 class CustomFileSystem(AWSProperty):
     """
-    `CustomFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html>`__
+    `CustomFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-customfilesystem.html>`__
     """
 
     props: PropsDictType = {
@@ -3012,7 +3012,7 @@ class CustomFileSystem(AWSProperty):
 
 class SpaceIdleSettings(AWSProperty):
     """
-    `SpaceIdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html>`__
+    `SpaceIdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spaceidlesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3022,7 +3022,7 @@ class SpaceIdleSettings(AWSProperty):
 
 class SpaceAppLifecycleManagement(AWSProperty):
     """
-    `SpaceAppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html>`__
+    `SpaceAppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html>`__
     """
 
     props: PropsDictType = {
@@ -3032,7 +3032,7 @@ class SpaceAppLifecycleManagement(AWSProperty):
 
 class SpaceCodeEditorAppSettings(AWSProperty):
     """
-    `SpaceCodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>`__
+    `SpaceCodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3043,7 +3043,7 @@ class SpaceCodeEditorAppSettings(AWSProperty):
 
 class SpaceJupyterLabAppSettings(AWSProperty):
     """
-    `SpaceJupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html>`__
+    `SpaceJupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spacejupyterlabappsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3055,7 +3055,7 @@ class SpaceJupyterLabAppSettings(AWSProperty):
 
 class EbsStorageSettings(AWSProperty):
     """
-    `EbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html>`__
+    `EbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-ebsstoragesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3065,7 +3065,7 @@ class EbsStorageSettings(AWSProperty):
 
 class SpaceStorageSettings(AWSProperty):
     """
-    `SpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacestoragesettings.html>`__
+    `SpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spacestoragesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3075,7 +3075,7 @@ class SpaceStorageSettings(AWSProperty):
 
 class SpaceSettings(AWSProperty):
     """
-    `SpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html>`__
+    `SpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3091,7 +3091,7 @@ class SpaceSettings(AWSProperty):
 
 class SpaceSharingSettings(AWSProperty):
     """
-    `SpaceSharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesharingsettings.html>`__
+    `SpaceSharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-space-spacesharingsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -3101,7 +3101,7 @@ class SpaceSharingSettings(AWSProperty):
 
 class Space(AWSObject):
     """
-    `Space <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html>`__
+    `Space <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-space.html>`__
     """
 
     resource_type = "AWS::SageMaker::Space"
@@ -3119,7 +3119,7 @@ class Space(AWSObject):
 
 class StudioLifecycleConfig(AWSObject):
     """
-    `StudioLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html>`__
+    `StudioLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-studiolifecycleconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::StudioLifecycleConfig"
@@ -3134,7 +3134,7 @@ class StudioLifecycleConfig(AWSObject):
 
 class UserProfile(AWSObject):
     """
-    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html>`__
+    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-userprofile.html>`__
     """
 
     resource_type = "AWS::SageMaker::UserProfile"
@@ -3151,7 +3151,7 @@ class UserProfile(AWSObject):
 
 class CognitoMemberDefinition(AWSProperty):
     """
-    `CognitoMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html>`__
+    `CognitoMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-workteam-cognitomemberdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -3163,7 +3163,7 @@ class CognitoMemberDefinition(AWSProperty):
 
 class OidcMemberDefinition(AWSProperty):
     """
-    `OidcMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html>`__
+    `OidcMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-workteam-oidcmemberdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -3173,7 +3173,7 @@ class OidcMemberDefinition(AWSProperty):
 
 class MemberDefinition(AWSProperty):
     """
-    `MemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>`__
+    `MemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-workteam-memberdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -3184,7 +3184,7 @@ class MemberDefinition(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html>`__
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-workteam-notificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3194,7 +3194,7 @@ class NotificationConfiguration(AWSProperty):
 
 class Workteam(AWSObject):
     """
-    `Workteam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html>`__
+    `Workteam <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-workteam.html>`__
     """
 
     resource_type = "AWS::SageMaker::Workteam"
@@ -3211,7 +3211,7 @@ class Workteam(AWSObject):
 
 class AdditionalModelDataSource(AWSProperty):
     """
-    `AdditionalModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html>`__
+    `AdditionalModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-additionalmodeldatasource.html>`__
     """
 
     props: PropsDictType = {
@@ -3222,7 +3222,7 @@ class AdditionalModelDataSource(AWSProperty):
 
 class Container(AWSProperty):
     """
-    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html>`__
+    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-modelcard-container.html>`__
     """
 
     props: PropsDictType = {
@@ -3234,7 +3234,7 @@ class Container(AWSProperty):
 
 class EndpointMetadata(AWSProperty):
     """
-    `EndpointMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html>`__
+    `EndpointMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -3246,7 +3246,7 @@ class EndpointMetadata(AWSProperty):
 
 class HubAccessConfig(AWSProperty):
     """
-    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html>`__
+    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -3256,7 +3256,7 @@ class HubAccessConfig(AWSProperty):
 
 class RSessionAppSettings(AWSProperty):
     """
-    `RSessionAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>`__
+    `RSessionAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sagemaker-domain-rsessionappsettings.html>`__
     """
 
     props: PropsDictType = {

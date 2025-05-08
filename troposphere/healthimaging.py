@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType
 
 class Datastore(AWSObject):
     """
-    `Datastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html>`__
+    `Datastore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-healthimaging-datastore.html>`__
     """
 
     resource_type = "AWS::HealthImaging::Datastore"

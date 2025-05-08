@@ -12,7 +12,7 @@ from .validators import integer
 
 class CloudWatchLogsDestinationConfiguration(AWSProperty):
     """
-    `CloudWatchLogsDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-cloudwatchlogsdestinationconfiguration.html>`__
+    `CloudWatchLogsDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivschat-loggingconfiguration-cloudwatchlogsdestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class CloudWatchLogsDestinationConfiguration(AWSProperty):
 
 class FirehoseDestinationConfiguration(AWSProperty):
     """
-    `FirehoseDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html>`__
+    `FirehoseDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class FirehoseDestinationConfiguration(AWSProperty):
 
 class S3DestinationConfiguration(AWSProperty):
     """
-    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html>`__
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivschat-loggingconfiguration-s3destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class S3DestinationConfiguration(AWSProperty):
 
 class DestinationConfiguration(AWSProperty):
     """
-    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html>`__
+    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivschat-loggingconfiguration-destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class DestinationConfiguration(AWSProperty):
 
 class LoggingConfiguration(AWSObject):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-loggingconfiguration.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivschat-loggingconfiguration.html>`__
     """
 
     resource_type = "AWS::IVSChat::LoggingConfiguration"
@@ -68,7 +68,7 @@ class LoggingConfiguration(AWSObject):
 
 class MessageReviewHandler(AWSProperty):
     """
-    `MessageReviewHandler <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-room-messagereviewhandler.html>`__
+    `MessageReviewHandler <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ivschat-room-messagereviewhandler.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class MessageReviewHandler(AWSProperty):
 
 class Room(AWSObject):
     """
-    `Room <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html>`__
+    `Room <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ivschat-room.html>`__
     """
 
     resource_type = "AWS::IVSChat::Room"

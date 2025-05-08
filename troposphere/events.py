@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ApiDestination(AWSObject):
     """
-    `ApiDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html>`__
+    `ApiDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-apidestination.html>`__
     """
 
     resource_type = "AWS::Events::ApiDestination"
@@ -29,7 +29,7 @@ class ApiDestination(AWSObject):
 
 class Archive(AWSObject):
     """
-    `Archive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html>`__
+    `Archive <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-archive.html>`__
     """
 
     resource_type = "AWS::Events::Archive"
@@ -46,7 +46,7 @@ class Archive(AWSObject):
 
 class ApiKeyAuthParameters(AWSProperty):
     """
-    `ApiKeyAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html>`__
+    `ApiKeyAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-apikeyauthparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ApiKeyAuthParameters(AWSProperty):
 
 class BasicAuthParameters(AWSProperty):
     """
-    `BasicAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-basicauthparameters.html>`__
+    `BasicAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-basicauthparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class BasicAuthParameters(AWSProperty):
 
 class Parameter(AWSProperty):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class Parameter(AWSProperty):
 
 class ConnectionHttpParameters(AWSProperty):
     """
-    `ConnectionHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html>`__
+    `ConnectionHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-connectionhttpparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class ConnectionHttpParameters(AWSProperty):
 
 class ResourceParameters(AWSProperty):
     """
-    `ResourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html>`__
+    `ResourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-resourceparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class ResourceParameters(AWSProperty):
 
 class ConnectivityParameters(AWSProperty):
     """
-    `ConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectivityparameters.html>`__
+    `ConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-connectivityparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class ConnectivityParameters(AWSProperty):
 
 class ClientParameters(AWSProperty):
     """
-    `ClientParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html>`__
+    `ClientParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-clientparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class ClientParameters(AWSProperty):
 
 class OAuthParameters(AWSProperty):
     """
-    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html>`__
+    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-oauthparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class OAuthParameters(AWSProperty):
 
 class AuthParameters(AWSProperty):
     """
-    `AuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html>`__
+    `AuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-authparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class AuthParameters(AWSProperty):
 
 class InvocationConnectivityParameters(AWSProperty):
     """
-    `InvocationConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html>`__
+    `InvocationConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-connection-invocationconnectivityparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class InvocationConnectivityParameters(AWSProperty):
 
 class Connection(AWSObject):
     """
-    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html>`__
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-connection.html>`__
     """
 
     resource_type = "AWS::Events::Connection"
@@ -178,7 +178,7 @@ class Connection(AWSObject):
 
 class EndpointEventBus(AWSProperty):
     """
-    `EndpointEventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-endpointeventbus.html>`__
+    `EndpointEventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-endpointeventbus.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class EndpointEventBus(AWSProperty):
 
 class ReplicationConfig(AWSProperty):
     """
-    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-replicationconfig.html>`__
+    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-replicationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class ReplicationConfig(AWSProperty):
 
 class Primary(AWSProperty):
     """
-    `Primary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html>`__
+    `Primary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-primary.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class Primary(AWSProperty):
 
 class Secondary(AWSProperty):
     """
-    `Secondary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html>`__
+    `Secondary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-secondary.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class Secondary(AWSProperty):
 
 class FailoverConfig(AWSProperty):
     """
-    `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html>`__
+    `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-failoverconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class FailoverConfig(AWSProperty):
 
 class RoutingConfig(AWSProperty):
     """
-    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html>`__
+    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-endpoint-routingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class RoutingConfig(AWSProperty):
 
 class Endpoint(AWSObject):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-endpoint.html>`__
     """
 
     resource_type = "AWS::Events::Endpoint"
@@ -256,7 +256,7 @@ class Endpoint(AWSObject):
 
 class DeadLetterConfig(AWSProperty):
     """
-    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html>`__
+    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-deadletterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class DeadLetterConfig(AWSProperty):
 
 class EventBus(AWSObject):
     """
-    `EventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html>`__
+    `EventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-eventbus.html>`__
     """
 
     resource_type = "AWS::Events::EventBus"
@@ -284,7 +284,7 @@ class EventBus(AWSObject):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-eventbuspolicy-condition.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class Condition(AWSProperty):
 
 class EventBusPolicy(AWSObject):
     """
-    `EventBusPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html>`__
+    `EventBusPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-eventbuspolicy.html>`__
     """
 
     resource_type = "AWS::Events::EventBusPolicy"
@@ -313,7 +313,7 @@ class EventBusPolicy(AWSObject):
 
 class AppSyncParameters(AWSProperty):
     """
-    `AppSyncParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html>`__
+    `AppSyncParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-appsyncparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -323,7 +323,7 @@ class AppSyncParameters(AWSProperty):
 
 class BatchArrayProperties(AWSProperty):
     """
-    `BatchArrayProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html>`__
+    `BatchArrayProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-batcharrayproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -333,7 +333,7 @@ class BatchArrayProperties(AWSProperty):
 
 class BatchRetryStrategy(AWSProperty):
     """
-    `BatchRetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchretrystrategy.html>`__
+    `BatchRetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-batchretrystrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class BatchRetryStrategy(AWSProperty):
 
 class BatchParameters(AWSProperty):
     """
-    `BatchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batchparameters.html>`__
+    `BatchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-batchparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class BatchParameters(AWSProperty):
 
 class CapacityProviderStrategyItem(AWSProperty):
     """
-    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-capacityproviderstrategyitem.html>`__
+    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-capacityproviderstrategyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -368,7 +368,7 @@ class CapacityProviderStrategyItem(AWSProperty):
 
 class AwsVpcConfiguration(AWSProperty):
     """
-    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html>`__
+    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-awsvpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class AwsVpcConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -390,7 +390,7 @@ class NetworkConfiguration(AWSProperty):
 
 class PlacementConstraint(AWSProperty):
     """
-    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-placementconstraint.html>`__
+    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-placementconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class PlacementConstraint(AWSProperty):
 
 class PlacementStrategy(AWSProperty):
     """
-    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-placementstrategy.html>`__
+    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-placementstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -412,7 +412,7 @@ class PlacementStrategy(AWSProperty):
 
 class EcsParameters(AWSProperty):
     """
-    `EcsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html>`__
+    `EcsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-ecsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -435,7 +435,7 @@ class EcsParameters(AWSProperty):
 
 class HttpParameters(AWSProperty):
     """
-    `HttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-httpparameters.html>`__
+    `HttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-httpparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -447,7 +447,7 @@ class HttpParameters(AWSProperty):
 
 class InputTransformer(AWSProperty):
     """
-    `InputTransformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html>`__
+    `InputTransformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-inputtransformer.html>`__
     """
 
     props: PropsDictType = {
@@ -458,7 +458,7 @@ class InputTransformer(AWSProperty):
 
 class KinesisParameters(AWSProperty):
     """
-    `KinesisParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-kinesisparameters.html>`__
+    `KinesisParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-kinesisparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class KinesisParameters(AWSProperty):
 
 class RedshiftDataParameters(AWSProperty):
     """
-    `RedshiftDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-redshiftdataparameters.html>`__
+    `RedshiftDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-redshiftdataparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -484,7 +484,7 @@ class RedshiftDataParameters(AWSProperty):
 
 class RetryPolicy(AWSProperty):
     """
-    `RetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-retrypolicy.html>`__
+    `RetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-retrypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -495,7 +495,7 @@ class RetryPolicy(AWSProperty):
 
 class RunCommandTarget(AWSProperty):
     """
-    `RunCommandTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html>`__
+    `RunCommandTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-runcommandtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -506,7 +506,7 @@ class RunCommandTarget(AWSProperty):
 
 class RunCommandParameters(AWSProperty):
     """
-    `RunCommandParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html>`__
+    `RunCommandParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-runcommandparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -516,7 +516,7 @@ class RunCommandParameters(AWSProperty):
 
 class SageMakerPipelineParameter(AWSProperty):
     """
-    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameter.html>`__
+    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-sagemakerpipelineparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -527,7 +527,7 @@ class SageMakerPipelineParameter(AWSProperty):
 
 class SageMakerPipelineParameters(AWSProperty):
     """
-    `SageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html>`__
+    `SageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-sagemakerpipelineparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -537,7 +537,7 @@ class SageMakerPipelineParameters(AWSProperty):
 
 class SqsParameters(AWSProperty):
     """
-    `SqsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html>`__
+    `SqsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-sqsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -547,7 +547,7 @@ class SqsParameters(AWSProperty):
 
 class Target(AWSProperty):
     """
-    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html>`__
+    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-events-rule-target.html>`__
     """
 
     props: PropsDictType = {
@@ -573,7 +573,7 @@ class Target(AWSProperty):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-events-rule.html>`__
     """
 
     resource_type = "AWS::Events::Rule"

@@ -28,7 +28,7 @@ from .validators.elasticloadbalancingv2 import (
 
 class AuthenticateCognitoConfig(AWSProperty):
     """
-    `AuthenticateCognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html>`__
+    `AuthenticateCognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class AuthenticateCognitoConfig(AWSProperty):
 
 class AuthenticateOidcConfig(AWSProperty):
     """
-    `AuthenticateOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html>`__
+    `AuthenticateOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class AuthenticateOidcConfig(AWSProperty):
 
 class FixedResponseConfig(AWSProperty):
     """
-    `FixedResponseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html>`__
+    `FixedResponseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class FixedResponseConfig(AWSProperty):
 
 class TargetGroupStickinessConfig(AWSProperty):
     """
-    `TargetGroupStickinessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html>`__
+    `TargetGroupStickinessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-targetgroupstickinessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class TargetGroupStickinessConfig(AWSProperty):
 
 class TargetGroupTuple(AWSProperty):
     """
-    `TargetGroupTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html>`__
+    `TargetGroupTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class TargetGroupTuple(AWSProperty):
 
 class ForwardConfig(AWSProperty):
     """
-    `ForwardConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html>`__
+    `ForwardConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class ForwardConfig(AWSProperty):
 
 class RedirectConfig(AWSProperty):
     """
-    `RedirectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html>`__
+    `RedirectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class RedirectConfig(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listener-action.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class Action(AWSProperty):
 
 class Certificate(AWSProperty):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listener-certificates.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class Certificate(AWSProperty):
 
 class ListenerAttribute(AWSProperty):
     """
-    `ListenerAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html>`__
+    `ListenerAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class ListenerAttribute(AWSProperty):
 
 class MutualAuthentication(AWSProperty):
     """
-    `MutualAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html>`__
+    `MutualAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class MutualAuthentication(AWSProperty):
 
 class Listener(AWSObject):
     """
-    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html>`__
+    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listener.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::Listener"
@@ -206,7 +206,7 @@ class Listener(AWSObject):
 
 class ListenerCertificate(AWSObject):
     """
-    `ListenerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html>`__
+    `ListenerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenercertificate.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::ListenerCertificate"
@@ -219,7 +219,7 @@ class ListenerCertificate(AWSObject):
 
 class HostHeaderConfig(AWSProperty):
     """
-    `HostHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html>`__
+    `HostHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class HostHeaderConfig(AWSProperty):
 
 class HttpHeaderConfig(AWSProperty):
     """
-    `HttpHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html>`__
+    `HttpHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class HttpHeaderConfig(AWSProperty):
 
 class HttpRequestMethodConfig(AWSProperty):
     """
-    `HttpRequestMethodConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html>`__
+    `HttpRequestMethodConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class HttpRequestMethodConfig(AWSProperty):
 
 class PathPatternConfig(AWSProperty):
     """
-    `PathPatternConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html>`__
+    `PathPatternConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class PathPatternConfig(AWSProperty):
 
 class QueryStringKeyValue(AWSProperty):
     """
-    `QueryStringKeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html>`__
+    `QueryStringKeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-querystringkeyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -271,7 +271,7 @@ class QueryStringKeyValue(AWSProperty):
 
 class QueryStringConfig(AWSProperty):
     """
-    `QueryStringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html>`__
+    `QueryStringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class QueryStringConfig(AWSProperty):
 
 class SourceIpConfig(AWSProperty):
     """
-    `SourceIpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html>`__
+    `SourceIpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class SourceIpConfig(AWSProperty):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class Condition(AWSProperty):
 
 class ListenerRuleAuthenticateOidcConfig(AWSProperty):
     """
-    `ListenerRuleAuthenticateOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html>`__
+    `ListenerRuleAuthenticateOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class ListenerRuleAuthenticateOidcConfig(AWSProperty):
 
 class ListenerRuleAction(AWSProperty):
     """
-    `ListenerRuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html>`__
+    `ListenerRuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-listenerrule-action.html>`__
     """
 
     props: PropsDictType = {
@@ -346,7 +346,7 @@ class ListenerRuleAction(AWSProperty):
 
 class ListenerRule(AWSObject):
     """
-    `ListenerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html>`__
+    `ListenerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-listenerrule.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::ListenerRule"
@@ -361,7 +361,7 @@ class ListenerRule(AWSObject):
 
 class LoadBalancerAttributes(AWSProperty):
     """
-    `LoadBalancerAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html>`__
+    `LoadBalancerAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -372,7 +372,7 @@ class LoadBalancerAttributes(AWSProperty):
 
 class MinimumLoadBalancerCapacity(AWSProperty):
     """
-    `MinimumLoadBalancerCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html>`__
+    `MinimumLoadBalancerCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html>`__
     """
 
     props: PropsDictType = {
@@ -382,7 +382,7 @@ class MinimumLoadBalancerCapacity(AWSProperty):
 
 class SubnetMapping(AWSProperty):
     """
-    `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html>`__
+    `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -396,7 +396,7 @@ class SubnetMapping(AWSProperty):
 
 class LoadBalancer(AWSObject):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
@@ -423,7 +423,7 @@ class LoadBalancer(AWSObject):
 
 class Matcher(AWSProperty):
     """
-    `Matcher <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html>`__
+    `Matcher <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class Matcher(AWSProperty):
 
 class TargetDescription(AWSProperty):
     """
-    `TargetDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html>`__
+    `TargetDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html>`__
     """
 
     props: PropsDictType = {
@@ -446,7 +446,7 @@ class TargetDescription(AWSProperty):
 
 class TargetGroupAttribute(AWSProperty):
     """
-    `TargetGroupAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html>`__
+    `TargetGroupAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class TargetGroupAttribute(AWSProperty):
 
 class TargetGroup(AWSObject):
     """
-    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html>`__
+    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::TargetGroup"
@@ -490,7 +490,7 @@ class TargetGroup(AWSObject):
 
 class TrustStore(AWSObject):
     """
-    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststore.html>`__
+    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-truststore.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::TrustStore"
@@ -506,7 +506,7 @@ class TrustStore(AWSObject):
 
 class RevocationContent(AWSProperty):
     """
-    `RevocationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-truststorerevocation-revocationcontent.html>`__
+    `RevocationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-truststorerevocation-revocationcontent.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class RevocationContent(AWSProperty):
 
 class TrustStoreRevocation(AWSObject):
     """
-    `TrustStoreRevocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-truststorerevocation.html>`__
+    `TrustStoreRevocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-truststorerevocation.html>`__
     """
 
     resource_type = "AWS::ElasticLoadBalancingV2::TrustStoreRevocation"
@@ -532,7 +532,7 @@ class TrustStoreRevocation(AWSObject):
 
 class TrustStoreRevocationProperty(AWSProperty):
     """
-    `TrustStoreRevocationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-truststorerevocation-truststorerevocation.html>`__
+    `TrustStoreRevocationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-elasticloadbalancingv2-truststorerevocation-truststorerevocation.html>`__
     """
 
     props: PropsDictType = {

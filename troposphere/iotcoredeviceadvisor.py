@@ -12,7 +12,7 @@ from .validators import boolean
 
 class DeviceUnderTest(AWSProperty):
     """
-    `DeviceUnderTest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html>`__
+    `DeviceUnderTest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotcoredeviceadvisor-suitedefinition-deviceundertest.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class DeviceUnderTest(AWSProperty):
 
 class SuiteDefinitionConfiguration(AWSProperty):
     """
-    `SuiteDefinitionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration.html>`__
+    `SuiteDefinitionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class SuiteDefinitionConfiguration(AWSProperty):
 
 class SuiteDefinition(AWSObject):
     """
-    `SuiteDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html>`__
+    `SuiteDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotcoredeviceadvisor-suitedefinition.html>`__
     """
 
     resource_type = "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"

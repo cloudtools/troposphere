@@ -20,7 +20,7 @@ class RedrivePolicy(AWSProperty):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sqs-queue.html>`__
     """
 
     resource_type = "AWS::SQS::Queue"
@@ -50,7 +50,7 @@ class Queue(AWSObject):
 
 class QueueInlinePolicy(AWSObject):
     """
-    `QueueInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queueinlinepolicy.html>`__
+    `QueueInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sqs-queueinlinepolicy.html>`__
     """
 
     resource_type = "AWS::SQS::QueueInlinePolicy"
@@ -63,7 +63,7 @@ class QueueInlinePolicy(AWSObject):
 
 class QueuePolicy(AWSObject):
     """
-    `QueuePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html>`__
+    `QueuePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sqs-queuepolicy.html>`__
     """
 
     resource_type = "AWS::SQS::QueuePolicy"

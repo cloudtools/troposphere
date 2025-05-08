@@ -17,7 +17,7 @@ from .validators.macie import (
 
 class S3WordsList(AWSProperty):
     """
-    `S3WordsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-s3wordslist.html>`__
+    `S3WordsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-macie-allowlist-s3wordslist.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class S3WordsList(AWSProperty):
 
 class Criteria(AWSProperty):
     """
-    `Criteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html>`__
+    `Criteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-macie-allowlist-criteria.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class Criteria(AWSProperty):
 
 class AllowList(AWSObject):
     """
-    `AllowList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html>`__
+    `AllowList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-macie-allowlist.html>`__
     """
 
     resource_type = "AWS::Macie::AllowList"
@@ -54,7 +54,7 @@ class AllowList(AWSObject):
 
 class CustomDataIdentifier(AWSObject):
     """
-    `CustomDataIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html>`__
+    `CustomDataIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-macie-customdataidentifier.html>`__
     """
 
     resource_type = "AWS::Macie::CustomDataIdentifier"
@@ -72,7 +72,7 @@ class CustomDataIdentifier(AWSObject):
 
 class CriterionAdditionalProperties(AWSProperty):
     """
-    `CriterionAdditionalProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html>`__
+    `CriterionAdditionalProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-macie-findingsfilter-criterionadditionalproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class CriterionAdditionalProperties(AWSProperty):
 
 class FindingCriteria(AWSProperty):
     """
-    `FindingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html>`__
+    `FindingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-macie-findingsfilter-findingcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class FindingCriteria(AWSProperty):
 
 class FindingsFilter(AWSObject):
     """
-    `FindingsFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html>`__
+    `FindingsFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-macie-findingsfilter.html>`__
     """
 
     resource_type = "AWS::Macie::FindingsFilter"
@@ -114,7 +114,7 @@ class FindingsFilter(AWSObject):
 
 class Session(AWSObject):
     """
-    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html>`__
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-macie-session.html>`__
     """
 
     resource_type = "AWS::Macie::Session"

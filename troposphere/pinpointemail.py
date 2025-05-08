@@ -12,7 +12,7 @@ from .validators import boolean
 
 class DeliveryOptions(AWSProperty):
     """
-    `DeliveryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html>`__
+    `DeliveryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationset-deliveryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class DeliveryOptions(AWSProperty):
 
 class ReputationOptions(AWSProperty):
     """
-    `ReputationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-reputationoptions.html>`__
+    `ReputationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationset-reputationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class ReputationOptions(AWSProperty):
 
 class SendingOptions(AWSProperty):
     """
-    `SendingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-sendingoptions.html>`__
+    `SendingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationset-sendingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class SendingOptions(AWSProperty):
 
 class TrackingOptions(AWSProperty):
     """
-    `TrackingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-trackingoptions.html>`__
+    `TrackingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationset-trackingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class TrackingOptions(AWSProperty):
 
 class ConfigurationSet(AWSObject):
     """
-    `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html>`__
+    `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpointemail-configurationset.html>`__
     """
 
     resource_type = "AWS::PinpointEmail::ConfigurationSet"
@@ -69,7 +69,7 @@ class ConfigurationSet(AWSObject):
 
 class DimensionConfiguration(AWSProperty):
     """
-    `DimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-dimensionconfiguration.html>`__
+    `DimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-dimensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class DimensionConfiguration(AWSProperty):
 
 class CloudWatchDestination(AWSProperty):
     """
-    `CloudWatchDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-cloudwatchdestination.html>`__
+    `CloudWatchDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-cloudwatchdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class CloudWatchDestination(AWSProperty):
 
 class KinesisFirehoseDestination(AWSProperty):
     """
-    `KinesisFirehoseDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-kinesisfirehosedestination.html>`__
+    `KinesisFirehoseDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-kinesisfirehosedestination.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class KinesisFirehoseDestination(AWSProperty):
 
 class PinpointDestination(AWSProperty):
     """
-    `PinpointDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-pinpointdestination.html>`__
+    `PinpointDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-pinpointdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class PinpointDestination(AWSProperty):
 
 class SnsDestination(AWSProperty):
     """
-    `SnsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-snsdestination.html>`__
+    `SnsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-snsdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class SnsDestination(AWSProperty):
 
 class EventDestination(AWSProperty):
     """
-    `EventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html>`__
+    `EventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class EventDestination(AWSProperty):
 
 class ConfigurationSetEventDestination(AWSObject):
     """
-    `ConfigurationSetEventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationseteventdestination.html>`__
+    `ConfigurationSetEventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpointemail-configurationseteventdestination.html>`__
     """
 
     resource_type = "AWS::PinpointEmail::ConfigurationSetEventDestination"
@@ -151,7 +151,7 @@ class ConfigurationSetEventDestination(AWSObject):
 
 class DedicatedIpPool(AWSObject):
     """
-    `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-dedicatedippool.html>`__
+    `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpointemail-dedicatedippool.html>`__
     """
 
     resource_type = "AWS::PinpointEmail::DedicatedIpPool"
@@ -164,7 +164,7 @@ class DedicatedIpPool(AWSObject):
 
 class MailFromAttributes(AWSProperty):
     """
-    `MailFromAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-identity-mailfromattributes.html>`__
+    `MailFromAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pinpointemail-identity-mailfromattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class MailFromAttributes(AWSProperty):
 
 class Identity(AWSObject):
     """
-    `Identity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html>`__
+    `Identity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pinpointemail-identity.html>`__
     """
 
     resource_type = "AWS::PinpointEmail::Identity"

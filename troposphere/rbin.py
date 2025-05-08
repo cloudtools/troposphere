@@ -12,7 +12,7 @@ from .validators import integer
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rbin-rule-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ResourceTag(AWSProperty):
 
 class RetentionPeriod(AWSProperty):
     """
-    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-retentionperiod.html>`__
+    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rbin-rule-retentionperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class RetentionPeriod(AWSProperty):
 
 class UnlockDelay(AWSProperty):
     """
-    `UnlockDelay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rbin-rule-unlockdelay.html>`__
+    `UnlockDelay <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rbin-rule-unlockdelay.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class UnlockDelay(AWSProperty):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rbin-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rbin-rule.html>`__
     """
 
     resource_type = "AWS::Rbin::Rule"

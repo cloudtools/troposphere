@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class AgentlessDialerConfig(AWSProperty):
     """
-    `AgentlessDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html>`__
+    `AgentlessDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AgentlessDialerConfig(AWSProperty):
 
 class PredictiveDialerConfig(AWSProperty):
     """
-    `PredictiveDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html>`__
+    `PredictiveDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class PredictiveDialerConfig(AWSProperty):
 
 class ProgressiveDialerConfig(AWSProperty):
     """
-    `ProgressiveDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-progressivedialerconfig.html>`__
+    `ProgressiveDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-progressivedialerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class ProgressiveDialerConfig(AWSProperty):
 
 class DialerConfig(AWSProperty):
     """
-    `DialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-dialerconfig.html>`__
+    `DialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-dialerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class DialerConfig(AWSProperty):
 
 class AnswerMachineDetectionConfig(AWSProperty):
     """
-    `AnswerMachineDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-answermachinedetectionconfig.html>`__
+    `AnswerMachineDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-answermachinedetectionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class AnswerMachineDetectionConfig(AWSProperty):
 
 class OutboundCallConfig(AWSProperty):
     """
-    `OutboundCallConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html>`__
+    `OutboundCallConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaigns-campaign-outboundcallconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class OutboundCallConfig(AWSProperty):
 
 class Campaign(AWSObject):
     """
-    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html>`__
+    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connectcampaigns-campaign.html>`__
     """
 
     resource_type = "AWS::ConnectCampaigns::Campaign"

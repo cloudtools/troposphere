@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class Cell(AWSObject):
     """
-    `Cell <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html>`__
+    `Cell <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoveryreadiness-cell.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryReadiness::Cell"
@@ -25,7 +25,7 @@ class Cell(AWSObject):
 
 class ReadinessCheck(AWSObject):
     """
-    `ReadinessCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html>`__
+    `ReadinessCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoveryreadiness-readinesscheck.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryReadiness::ReadinessCheck"
@@ -39,7 +39,7 @@ class ReadinessCheck(AWSObject):
 
 class RecoveryGroup(AWSObject):
     """
-    `RecoveryGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html>`__
+    `RecoveryGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoveryreadiness-recoverygroup.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryReadiness::RecoveryGroup"
@@ -53,7 +53,7 @@ class RecoveryGroup(AWSObject):
 
 class NLBResource(AWSProperty):
     """
-    `NLBResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html>`__
+    `NLBResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class NLBResource(AWSProperty):
 
 class R53ResourceRecord(AWSProperty):
     """
-    `R53ResourceRecord <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html>`__
+    `R53ResourceRecord <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class R53ResourceRecord(AWSProperty):
 
 class TargetResource(AWSProperty):
     """
-    `TargetResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html>`__
+    `TargetResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoveryreadiness-resourceset-targetresource.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class TargetResource(AWSProperty):
 
 class DNSTargetResource(AWSProperty):
     """
-    `DNSTargetResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html>`__
+    `DNSTargetResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class DNSTargetResource(AWSProperty):
 
 class Resource(AWSProperty):
     """
-    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html>`__
+    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoveryreadiness-resourceset-resource.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class Resource(AWSProperty):
 
 class ResourceSet(AWSObject):
     """
-    `ResourceSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html>`__
+    `ResourceSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoveryreadiness-resourceset.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryReadiness::ResourceSet"

@@ -13,7 +13,7 @@ from .validators.appmesh import validate_listenertls_mode
 
 class GatewayRouteVirtualService(AWSProperty):
     """
-    `GatewayRouteVirtualService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html>`__
+    `GatewayRouteVirtualService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutevirtualservice.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class GatewayRouteVirtualService(AWSProperty):
 
 class GatewayRouteTarget(AWSProperty):
     """
-    `GatewayRouteTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html>`__
+    `GatewayRouteTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class GatewayRouteTarget(AWSProperty):
 
 class GatewayRouteHostnameRewrite(AWSProperty):
     """
-    `GatewayRouteHostnameRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html>`__
+    `GatewayRouteHostnameRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutehostnamerewrite.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class GatewayRouteHostnameRewrite(AWSProperty):
 
 class GrpcGatewayRouteRewrite(AWSProperty):
     """
-    `GrpcGatewayRouteRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html>`__
+    `GrpcGatewayRouteRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-grpcgatewayrouterewrite.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class GrpcGatewayRouteRewrite(AWSProperty):
 
 class GrpcGatewayRouteAction(AWSProperty):
     """
-    `GrpcGatewayRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html>`__
+    `GrpcGatewayRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-grpcgatewayrouteaction.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class GrpcGatewayRouteAction(AWSProperty):
 
 class GatewayRouteHostnameMatch(AWSProperty):
     """
-    `GatewayRouteHostnameMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html>`__
+    `GatewayRouteHostnameMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutehostnamematch.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class GatewayRouteHostnameMatch(AWSProperty):
 
 class GatewayRouteRangeMatch(AWSProperty):
     """
-    `GatewayRouteRangeMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayrouterangematch.html>`__
+    `GatewayRouteRangeMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayrouterangematch.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class GatewayRouteRangeMatch(AWSProperty):
 
 class GatewayRouteMetadataMatch(AWSProperty):
     """
-    `GatewayRouteMetadataMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html>`__
+    `GatewayRouteMetadataMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutemetadatamatch.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class GatewayRouteMetadataMatch(AWSProperty):
 
 class GrpcGatewayRouteMetadata(AWSProperty):
     """
-    `GrpcGatewayRouteMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html>`__
+    `GrpcGatewayRouteMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-grpcgatewayroutemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class GrpcGatewayRouteMetadata(AWSProperty):
 
 class GrpcGatewayRouteMatch(AWSProperty):
     """
-    `GrpcGatewayRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html>`__
+    `GrpcGatewayRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-grpcgatewayroutematch.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class GrpcGatewayRouteMatch(AWSProperty):
 
 class GrpcGatewayRoute(AWSProperty):
     """
-    `GrpcGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html>`__
+    `GrpcGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-grpcgatewayroute.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class GrpcGatewayRoute(AWSProperty):
 
 class HttpGatewayRoutePathRewrite(AWSProperty):
     """
-    `HttpGatewayRoutePathRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html>`__
+    `HttpGatewayRoutePathRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayroutepathrewrite.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class HttpGatewayRoutePathRewrite(AWSProperty):
 
 class HttpGatewayRoutePrefixRewrite(AWSProperty):
     """
-    `HttpGatewayRoutePrefixRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html>`__
+    `HttpGatewayRoutePrefixRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayrouteprefixrewrite.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class HttpGatewayRoutePrefixRewrite(AWSProperty):
 
 class HttpGatewayRouteRewrite(AWSProperty):
     """
-    `HttpGatewayRouteRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html>`__
+    `HttpGatewayRouteRewrite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayrouterewrite.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class HttpGatewayRouteRewrite(AWSProperty):
 
 class HttpGatewayRouteAction(AWSProperty):
     """
-    `HttpGatewayRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html>`__
+    `HttpGatewayRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayrouteaction.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class HttpGatewayRouteAction(AWSProperty):
 
 class HttpGatewayRouteHeaderMatch(AWSProperty):
     """
-    `HttpGatewayRouteHeaderMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html>`__
+    `HttpGatewayRouteHeaderMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayrouteheadermatch.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class HttpGatewayRouteHeaderMatch(AWSProperty):
 
 class HttpGatewayRouteHeader(AWSProperty):
     """
-    `HttpGatewayRouteHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html>`__
+    `HttpGatewayRouteHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayrouteheader.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class HttpGatewayRouteHeader(AWSProperty):
 
 class HttpPathMatch(AWSProperty):
     """
-    `HttpPathMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httppathmatch.html>`__
+    `HttpPathMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httppathmatch.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class HttpPathMatch(AWSProperty):
 
 class HttpQueryParameterMatch(AWSProperty):
     """
-    `HttpQueryParameterMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpqueryparametermatch.html>`__
+    `HttpQueryParameterMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httpqueryparametermatch.html>`__
     """
 
     props: PropsDictType = {
@@ -228,7 +228,7 @@ class HttpQueryParameterMatch(AWSProperty):
 
 class QueryParameter(AWSProperty):
     """
-    `QueryParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-queryparameter.html>`__
+    `QueryParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-queryparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class QueryParameter(AWSProperty):
 
 class HttpGatewayRouteMatch(AWSProperty):
     """
-    `HttpGatewayRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html>`__
+    `HttpGatewayRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class HttpGatewayRouteMatch(AWSProperty):
 
 class HttpGatewayRoute(AWSProperty):
     """
-    `HttpGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroute.html>`__
+    `HttpGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-httpgatewayroute.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class HttpGatewayRoute(AWSProperty):
 
 class GatewayRouteSpec(AWSProperty):
     """
-    `GatewayRouteSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-gatewayroutespec.html>`__
+    `GatewayRouteSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-gatewayroute-gatewayroutespec.html>`__
     """
 
     props: PropsDictType = {
@@ -279,7 +279,7 @@ class GatewayRouteSpec(AWSProperty):
 
 class GatewayRoute(AWSObject):
     """
-    `GatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-gatewayroute.html>`__
+    `GatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-gatewayroute.html>`__
     """
 
     resource_type = "AWS::AppMesh::GatewayRoute"
@@ -296,7 +296,7 @@ class GatewayRoute(AWSObject):
 
 class EgressFilter(AWSProperty):
     """
-    `EgressFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-egressfilter.html>`__
+    `EgressFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-mesh-egressfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class EgressFilter(AWSProperty):
 
 class MeshServiceDiscovery(AWSProperty):
     """
-    `MeshServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html>`__
+    `MeshServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-mesh-meshservicediscovery.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class MeshServiceDiscovery(AWSProperty):
 
 class MeshSpec(AWSProperty):
     """
-    `MeshSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html>`__
+    `MeshSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-mesh-meshspec.html>`__
     """
 
     props: PropsDictType = {
@@ -327,7 +327,7 @@ class MeshSpec(AWSProperty):
 
 class Mesh(AWSObject):
     """
-    `Mesh <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html>`__
+    `Mesh <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-mesh.html>`__
     """
 
     resource_type = "AWS::AppMesh::Mesh"
@@ -341,7 +341,7 @@ class Mesh(AWSObject):
 
 class Duration(AWSProperty):
     """
-    `Duration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-duration.html>`__
+    `Duration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-duration.html>`__
     """
 
     props: PropsDictType = {
@@ -352,7 +352,7 @@ class Duration(AWSProperty):
 
 class GrpcRetryPolicy(AWSProperty):
     """
-    `GrpcRetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcretrypolicy.html>`__
+    `GrpcRetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcretrypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class GrpcRetryPolicy(AWSProperty):
 
 class WeightedTarget(AWSProperty):
     """
-    `WeightedTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-weightedtarget.html>`__
+    `WeightedTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-weightedtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class WeightedTarget(AWSProperty):
 
 class GrpcRouteAction(AWSProperty):
     """
-    `GrpcRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcrouteaction.html>`__
+    `GrpcRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcrouteaction.html>`__
     """
 
     props: PropsDictType = {
@@ -388,7 +388,7 @@ class GrpcRouteAction(AWSProperty):
 
 class MatchRange(AWSProperty):
     """
-    `MatchRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-matchrange.html>`__
+    `MatchRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-matchrange.html>`__
     """
 
     props: PropsDictType = {
@@ -399,7 +399,7 @@ class MatchRange(AWSProperty):
 
 class GrpcRouteMetadataMatchMethod(AWSProperty):
     """
-    `GrpcRouteMetadataMatchMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html>`__
+    `GrpcRouteMetadataMatchMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcroutemetadatamatchmethod.html>`__
     """
 
     props: PropsDictType = {
@@ -413,7 +413,7 @@ class GrpcRouteMetadataMatchMethod(AWSProperty):
 
 class GrpcRouteMetadata(AWSProperty):
     """
-    `GrpcRouteMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutemetadata.html>`__
+    `GrpcRouteMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcroutemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -425,7 +425,7 @@ class GrpcRouteMetadata(AWSProperty):
 
 class GrpcRouteMatch(AWSProperty):
     """
-    `GrpcRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroutematch.html>`__
+    `GrpcRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcroutematch.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class GrpcRouteMatch(AWSProperty):
 
 class GrpcTimeout(AWSProperty):
     """
-    `GrpcTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-grpctimeout.html>`__
+    `GrpcTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-grpctimeout.html>`__
     """
 
     props: PropsDictType = {
@@ -449,7 +449,7 @@ class GrpcTimeout(AWSProperty):
 
 class GrpcRoute(AWSProperty):
     """
-    `GrpcRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html>`__
+    `GrpcRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-grpcroute.html>`__
     """
 
     props: PropsDictType = {
@@ -462,7 +462,7 @@ class GrpcRoute(AWSProperty):
 
 class HttpRetryPolicy(AWSProperty):
     """
-    `HttpRetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httpretrypolicy.html>`__
+    `HttpRetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httpretrypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -475,7 +475,7 @@ class HttpRetryPolicy(AWSProperty):
 
 class HttpRouteAction(AWSProperty):
     """
-    `HttpRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteaction.html>`__
+    `HttpRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httprouteaction.html>`__
     """
 
     props: PropsDictType = {
@@ -485,7 +485,7 @@ class HttpRouteAction(AWSProperty):
 
 class HeaderMatchMethod(AWSProperty):
     """
-    `HeaderMatchMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-headermatchmethod.html>`__
+    `HeaderMatchMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-headermatchmethod.html>`__
     """
 
     props: PropsDictType = {
@@ -499,7 +499,7 @@ class HeaderMatchMethod(AWSProperty):
 
 class HttpRouteHeader(AWSProperty):
     """
-    `HttpRouteHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httprouteheader.html>`__
+    `HttpRouteHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httprouteheader.html>`__
     """
 
     props: PropsDictType = {
@@ -511,7 +511,7 @@ class HttpRouteHeader(AWSProperty):
 
 class HttpRouteMatch(AWSProperty):
     """
-    `HttpRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproutematch.html>`__
+    `HttpRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httproutematch.html>`__
     """
 
     props: PropsDictType = {
@@ -527,7 +527,7 @@ class HttpRouteMatch(AWSProperty):
 
 class HttpTimeout(AWSProperty):
     """
-    `HttpTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-httptimeout.html>`__
+    `HttpTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-httptimeout.html>`__
     """
 
     props: PropsDictType = {
@@ -538,7 +538,7 @@ class HttpTimeout(AWSProperty):
 
 class HttpRoute(AWSProperty):
     """
-    `HttpRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-httproute.html>`__
+    `HttpRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-httproute.html>`__
     """
 
     props: PropsDictType = {
@@ -551,7 +551,7 @@ class HttpRoute(AWSProperty):
 
 class TcpRouteAction(AWSProperty):
     """
-    `TcpRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcprouteaction.html>`__
+    `TcpRouteAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-tcprouteaction.html>`__
     """
 
     props: PropsDictType = {
@@ -561,7 +561,7 @@ class TcpRouteAction(AWSProperty):
 
 class TcpRouteMatch(AWSProperty):
     """
-    `TcpRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html>`__
+    `TcpRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-tcproutematch.html>`__
     """
 
     props: PropsDictType = {
@@ -571,7 +571,7 @@ class TcpRouteMatch(AWSProperty):
 
 class TcpTimeout(AWSProperty):
     """
-    `TcpTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html>`__
+    `TcpTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tcptimeout.html>`__
     """
 
     props: PropsDictType = {
@@ -581,7 +581,7 @@ class TcpTimeout(AWSProperty):
 
 class TcpRoute(AWSProperty):
     """
-    `TcpRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproute.html>`__
+    `TcpRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-tcproute.html>`__
     """
 
     props: PropsDictType = {
@@ -593,7 +593,7 @@ class TcpRoute(AWSProperty):
 
 class RouteSpec(AWSProperty):
     """
-    `RouteSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html>`__
+    `RouteSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-route-routespec.html>`__
     """
 
     props: PropsDictType = {
@@ -607,7 +607,7 @@ class RouteSpec(AWSProperty):
 
 class Route(AWSObject):
     """
-    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html>`__
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-route.html>`__
     """
 
     resource_type = "AWS::AppMesh::Route"
@@ -624,7 +624,7 @@ class Route(AWSObject):
 
 class VirtualGatewayListenerTlsFileCertificate(AWSProperty):
     """
-    `VirtualGatewayListenerTlsFileCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html>`__
+    `VirtualGatewayListenerTlsFileCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsfilecertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -635,7 +635,7 @@ class VirtualGatewayListenerTlsFileCertificate(AWSProperty):
 
 class VirtualGatewayListenerTlsSdsCertificate(AWSProperty):
     """
-    `VirtualGatewayListenerTlsSdsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlssdscertificate.html>`__
+    `VirtualGatewayListenerTlsSdsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlssdscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -645,7 +645,7 @@ class VirtualGatewayListenerTlsSdsCertificate(AWSProperty):
 
 class VirtualGatewayClientTlsCertificate(AWSProperty):
     """
-    `VirtualGatewayClientTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html>`__
+    `VirtualGatewayClientTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayclienttlscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -656,7 +656,7 @@ class VirtualGatewayClientTlsCertificate(AWSProperty):
 
 class SubjectAlternativeNameMatchers(AWSProperty):
     """
-    `SubjectAlternativeNameMatchers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenamematchers.html>`__
+    `SubjectAlternativeNameMatchers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-subjectalternativenamematchers.html>`__
     """
 
     props: PropsDictType = {
@@ -666,7 +666,7 @@ class SubjectAlternativeNameMatchers(AWSProperty):
 
 class SubjectAlternativeNames(AWSProperty):
     """
-    `SubjectAlternativeNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-subjectalternativenames.html>`__
+    `SubjectAlternativeNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-subjectalternativenames.html>`__
     """
 
     props: PropsDictType = {
@@ -676,7 +676,7 @@ class SubjectAlternativeNames(AWSProperty):
 
 class VirtualGatewayTlsValidationContextAcmTrust(AWSProperty):
     """
-    `VirtualGatewayTlsValidationContextAcmTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html>`__
+    `VirtualGatewayTlsValidationContextAcmTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextacmtrust.html>`__
     """
 
     props: PropsDictType = {
@@ -686,7 +686,7 @@ class VirtualGatewayTlsValidationContextAcmTrust(AWSProperty):
 
 class VirtualGatewayTlsValidationContextFileTrust(AWSProperty):
     """
-    `VirtualGatewayTlsValidationContextFileTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html>`__
+    `VirtualGatewayTlsValidationContextFileTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextfiletrust.html>`__
     """
 
     props: PropsDictType = {
@@ -696,7 +696,7 @@ class VirtualGatewayTlsValidationContextFileTrust(AWSProperty):
 
 class VirtualGatewayTlsValidationContextSdsTrust(AWSProperty):
     """
-    `VirtualGatewayTlsValidationContextSdsTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html>`__
+    `VirtualGatewayTlsValidationContextSdsTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontextsdstrust.html>`__
     """
 
     props: PropsDictType = {
@@ -706,7 +706,7 @@ class VirtualGatewayTlsValidationContextSdsTrust(AWSProperty):
 
 class VirtualGatewayTlsValidationContextTrust(AWSProperty):
     """
-    `VirtualGatewayTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html>`__
+    `VirtualGatewayTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontexttrust.html>`__
     """
 
     props: PropsDictType = {
@@ -718,7 +718,7 @@ class VirtualGatewayTlsValidationContextTrust(AWSProperty):
 
 class VirtualGatewayTlsValidationContext(AWSProperty):
     """
-    `VirtualGatewayTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html>`__
+    `VirtualGatewayTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaytlsvalidationcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -729,7 +729,7 @@ class VirtualGatewayTlsValidationContext(AWSProperty):
 
 class VirtualGatewayClientPolicyTls(AWSProperty):
     """
-    `VirtualGatewayClientPolicyTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html>`__
+    `VirtualGatewayClientPolicyTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicytls.html>`__
     """
 
     props: PropsDictType = {
@@ -742,7 +742,7 @@ class VirtualGatewayClientPolicyTls(AWSProperty):
 
 class VirtualGatewayClientPolicy(AWSProperty):
     """
-    `VirtualGatewayClientPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html>`__
+    `VirtualGatewayClientPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayclientpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -752,7 +752,7 @@ class VirtualGatewayClientPolicy(AWSProperty):
 
 class VirtualGatewayBackendDefaults(AWSProperty):
     """
-    `VirtualGatewayBackendDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html>`__
+    `VirtualGatewayBackendDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaybackenddefaults.html>`__
     """
 
     props: PropsDictType = {
@@ -762,7 +762,7 @@ class VirtualGatewayBackendDefaults(AWSProperty):
 
 class VirtualGatewayGrpcConnectionPool(AWSProperty):
     """
-    `VirtualGatewayGrpcConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html>`__
+    `VirtualGatewayGrpcConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaygrpcconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -772,7 +772,7 @@ class VirtualGatewayGrpcConnectionPool(AWSProperty):
 
 class VirtualGatewayHttp2ConnectionPool(AWSProperty):
     """
-    `VirtualGatewayHttp2ConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html>`__
+    `VirtualGatewayHttp2ConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayhttp2connectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -782,7 +782,7 @@ class VirtualGatewayHttp2ConnectionPool(AWSProperty):
 
 class VirtualGatewayHttpConnectionPool(AWSProperty):
     """
-    `VirtualGatewayHttpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html>`__
+    `VirtualGatewayHttpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayhttpconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -793,7 +793,7 @@ class VirtualGatewayHttpConnectionPool(AWSProperty):
 
 class VirtualGatewayConnectionPool(AWSProperty):
     """
-    `VirtualGatewayConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html>`__
+    `VirtualGatewayConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -805,7 +805,7 @@ class VirtualGatewayConnectionPool(AWSProperty):
 
 class VirtualGatewayHealthCheckPolicy(AWSProperty):
     """
-    `VirtualGatewayHealthCheckPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html>`__
+    `VirtualGatewayHealthCheckPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayhealthcheckpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -821,7 +821,7 @@ class VirtualGatewayHealthCheckPolicy(AWSProperty):
 
 class VirtualGatewayListenerTlsAcmCertificate(AWSProperty):
     """
-    `VirtualGatewayListenerTlsAcmCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html>`__
+    `VirtualGatewayListenerTlsAcmCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsacmcertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -831,7 +831,7 @@ class VirtualGatewayListenerTlsAcmCertificate(AWSProperty):
 
 class VirtualGatewayListenerTlsCertificate(AWSProperty):
     """
-    `VirtualGatewayListenerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html>`__
+    `VirtualGatewayListenerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -843,7 +843,7 @@ class VirtualGatewayListenerTlsCertificate(AWSProperty):
 
 class VirtualGatewayListenerTlsValidationContextTrust(AWSProperty):
     """
-    `VirtualGatewayListenerTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html>`__
+    `VirtualGatewayListenerTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontexttrust.html>`__
     """
 
     props: PropsDictType = {
@@ -854,7 +854,7 @@ class VirtualGatewayListenerTlsValidationContextTrust(AWSProperty):
 
 class VirtualGatewayListenerTlsValidationContext(AWSProperty):
     """
-    `VirtualGatewayListenerTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html>`__
+    `VirtualGatewayListenerTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertlsvalidationcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -865,7 +865,7 @@ class VirtualGatewayListenerTlsValidationContext(AWSProperty):
 
 class VirtualGatewayListenerTls(AWSProperty):
     """
-    `VirtualGatewayListenerTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html>`__
+    `VirtualGatewayListenerTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistenertls.html>`__
     """
 
     props: PropsDictType = {
@@ -877,7 +877,7 @@ class VirtualGatewayListenerTls(AWSProperty):
 
 class VirtualGatewayPortMapping(AWSProperty):
     """
-    `VirtualGatewayPortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html>`__
+    `VirtualGatewayPortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -888,7 +888,7 @@ class VirtualGatewayPortMapping(AWSProperty):
 
 class VirtualGatewayListener(AWSProperty):
     """
-    `VirtualGatewayListener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html>`__
+    `VirtualGatewayListener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylistener.html>`__
     """
 
     props: PropsDictType = {
@@ -901,7 +901,7 @@ class VirtualGatewayListener(AWSProperty):
 
 class JsonFormatRef(AWSProperty):
     """
-    `JsonFormatRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-jsonformatref.html>`__
+    `JsonFormatRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-jsonformatref.html>`__
     """
 
     props: PropsDictType = {
@@ -912,7 +912,7 @@ class JsonFormatRef(AWSProperty):
 
 class LoggingFormat(AWSProperty):
     """
-    `LoggingFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html>`__
+    `LoggingFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-loggingformat.html>`__
     """
 
     props: PropsDictType = {
@@ -923,7 +923,7 @@ class LoggingFormat(AWSProperty):
 
 class VirtualGatewayFileAccessLog(AWSProperty):
     """
-    `VirtualGatewayFileAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html>`__
+    `VirtualGatewayFileAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html>`__
     """
 
     props: PropsDictType = {
@@ -934,7 +934,7 @@ class VirtualGatewayFileAccessLog(AWSProperty):
 
 class VirtualGatewayAccessLog(AWSProperty):
     """
-    `VirtualGatewayAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html>`__
+    `VirtualGatewayAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayaccesslog.html>`__
     """
 
     props: PropsDictType = {
@@ -944,7 +944,7 @@ class VirtualGatewayAccessLog(AWSProperty):
 
 class VirtualGatewayLogging(AWSProperty):
     """
-    `VirtualGatewayLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html>`__
+    `VirtualGatewayLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewaylogging.html>`__
     """
 
     props: PropsDictType = {
@@ -954,7 +954,7 @@ class VirtualGatewayLogging(AWSProperty):
 
 class VirtualGatewaySpec(AWSProperty):
     """
-    `VirtualGatewaySpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html>`__
+    `VirtualGatewaySpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualgateway-virtualgatewayspec.html>`__
     """
 
     props: PropsDictType = {
@@ -966,7 +966,7 @@ class VirtualGatewaySpec(AWSProperty):
 
 class VirtualGateway(AWSObject):
     """
-    `VirtualGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualgateway.html>`__
+    `VirtualGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-virtualgateway.html>`__
     """
 
     resource_type = "AWS::AppMesh::VirtualGateway"
@@ -982,7 +982,7 @@ class VirtualGateway(AWSObject):
 
 class ListenerTlsFileCertificate(AWSProperty):
     """
-    `ListenerTlsFileCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html>`__
+    `ListenerTlsFileCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlsfilecertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -993,7 +993,7 @@ class ListenerTlsFileCertificate(AWSProperty):
 
 class ListenerTlsSdsCertificate(AWSProperty):
     """
-    `ListenerTlsSdsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlssdscertificate.html>`__
+    `ListenerTlsSdsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlssdscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -1003,7 +1003,7 @@ class ListenerTlsSdsCertificate(AWSProperty):
 
 class ClientTlsCertificate(AWSProperty):
     """
-    `ClientTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clienttlscertificate.html>`__
+    `ClientTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-clienttlscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -1014,7 +1014,7 @@ class ClientTlsCertificate(AWSProperty):
 
 class TlsValidationContextAcmTrust(AWSProperty):
     """
-    `TlsValidationContextAcmTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html>`__
+    `TlsValidationContextAcmTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tlsvalidationcontextacmtrust.html>`__
     """
 
     props: PropsDictType = {
@@ -1024,7 +1024,7 @@ class TlsValidationContextAcmTrust(AWSProperty):
 
 class TlsValidationContextFileTrust(AWSProperty):
     """
-    `TlsValidationContextFileTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html>`__
+    `TlsValidationContextFileTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tlsvalidationcontextfiletrust.html>`__
     """
 
     props: PropsDictType = {
@@ -1034,7 +1034,7 @@ class TlsValidationContextFileTrust(AWSProperty):
 
 class TlsValidationContextSdsTrust(AWSProperty):
     """
-    `TlsValidationContextSdsTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html>`__
+    `TlsValidationContextSdsTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tlsvalidationcontextsdstrust.html>`__
     """
 
     props: PropsDictType = {
@@ -1044,7 +1044,7 @@ class TlsValidationContextSdsTrust(AWSProperty):
 
 class TlsValidationContextTrust(AWSProperty):
     """
-    `TlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html>`__
+    `TlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html>`__
     """
 
     props: PropsDictType = {
@@ -1056,7 +1056,7 @@ class TlsValidationContextTrust(AWSProperty):
 
 class TlsValidationContext(AWSProperty):
     """
-    `TlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontext.html>`__
+    `TlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-tlsvalidationcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -1067,7 +1067,7 @@ class TlsValidationContext(AWSProperty):
 
 class ClientPolicyTls(AWSProperty):
     """
-    `ClientPolicyTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicytls.html>`__
+    `ClientPolicyTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-clientpolicytls.html>`__
     """
 
     props: PropsDictType = {
@@ -1080,7 +1080,7 @@ class ClientPolicyTls(AWSProperty):
 
 class ClientPolicy(AWSProperty):
     """
-    `ClientPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-clientpolicy.html>`__
+    `ClientPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-clientpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -1090,7 +1090,7 @@ class ClientPolicy(AWSProperty):
 
 class VirtualServiceBackend(AWSProperty):
     """
-    `VirtualServiceBackend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html>`__
+    `VirtualServiceBackend <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualservicebackend.html>`__
     """
 
     props: PropsDictType = {
@@ -1101,7 +1101,7 @@ class VirtualServiceBackend(AWSProperty):
 
 class Backend(AWSProperty):
     """
-    `Backend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backend.html>`__
+    `Backend <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-backend.html>`__
     """
 
     props: PropsDictType = {
@@ -1111,7 +1111,7 @@ class Backend(AWSProperty):
 
 class BackendDefaults(AWSProperty):
     """
-    `BackendDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-backenddefaults.html>`__
+    `BackendDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-backenddefaults.html>`__
     """
 
     props: PropsDictType = {
@@ -1121,7 +1121,7 @@ class BackendDefaults(AWSProperty):
 
 class HealthCheck(AWSProperty):
     """
-    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-healthcheck.html>`__
+    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-healthcheck.html>`__
     """
 
     props: PropsDictType = {
@@ -1137,7 +1137,7 @@ class HealthCheck(AWSProperty):
 
 class ListenerTimeout(AWSProperty):
     """
-    `ListenerTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertimeout.html>`__
+    `ListenerTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertimeout.html>`__
     """
 
     props: PropsDictType = {
@@ -1150,7 +1150,7 @@ class ListenerTimeout(AWSProperty):
 
 class ListenerTlsAcmCertificate(AWSProperty):
     """
-    `ListenerTlsAcmCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html>`__
+    `ListenerTlsAcmCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlsacmcertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -1160,7 +1160,7 @@ class ListenerTlsAcmCertificate(AWSProperty):
 
 class ListenerTlsCertificate(AWSProperty):
     """
-    `ListenerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlscertificate.html>`__
+    `ListenerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlscertificate.html>`__
     """
 
     props: PropsDictType = {
@@ -1172,7 +1172,7 @@ class ListenerTlsCertificate(AWSProperty):
 
 class ListenerTlsValidationContextTrust(AWSProperty):
     """
-    `ListenerTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html>`__
+    `ListenerTlsValidationContextTrust <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlsvalidationcontexttrust.html>`__
     """
 
     props: PropsDictType = {
@@ -1183,7 +1183,7 @@ class ListenerTlsValidationContextTrust(AWSProperty):
 
 class ListenerTlsValidationContext(AWSProperty):
     """
-    `ListenerTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html>`__
+    `ListenerTlsValidationContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertlsvalidationcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -1194,7 +1194,7 @@ class ListenerTlsValidationContext(AWSProperty):
 
 class ListenerTls(AWSProperty):
     """
-    `ListenerTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listenertls.html>`__
+    `ListenerTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listenertls.html>`__
     """
 
     props: PropsDictType = {
@@ -1206,7 +1206,7 @@ class ListenerTls(AWSProperty):
 
 class OutlierDetection(AWSProperty):
     """
-    `OutlierDetection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-outlierdetection.html>`__
+    `OutlierDetection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-outlierdetection.html>`__
     """
 
     props: PropsDictType = {
@@ -1219,7 +1219,7 @@ class OutlierDetection(AWSProperty):
 
 class PortMapping(AWSProperty):
     """
-    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-portmapping.html>`__
+    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualrouter-portmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -1230,7 +1230,7 @@ class PortMapping(AWSProperty):
 
 class VirtualNodeGrpcConnectionPool(AWSProperty):
     """
-    `VirtualNodeGrpcConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html>`__
+    `VirtualNodeGrpcConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodegrpcconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -1240,7 +1240,7 @@ class VirtualNodeGrpcConnectionPool(AWSProperty):
 
 class VirtualNodeHttp2ConnectionPool(AWSProperty):
     """
-    `VirtualNodeHttp2ConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html>`__
+    `VirtualNodeHttp2ConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodehttp2connectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -1250,7 +1250,7 @@ class VirtualNodeHttp2ConnectionPool(AWSProperty):
 
 class VirtualNodeHttpConnectionPool(AWSProperty):
     """
-    `VirtualNodeHttpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html>`__
+    `VirtualNodeHttpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodehttpconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -1261,7 +1261,7 @@ class VirtualNodeHttpConnectionPool(AWSProperty):
 
 class VirtualNodeTcpConnectionPool(AWSProperty):
     """
-    `VirtualNodeTcpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html>`__
+    `VirtualNodeTcpConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodetcpconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -1271,7 +1271,7 @@ class VirtualNodeTcpConnectionPool(AWSProperty):
 
 class VirtualNodeConnectionPool(AWSProperty):
     """
-    `VirtualNodeConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html>`__
+    `VirtualNodeConnectionPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodeconnectionpool.html>`__
     """
 
     props: PropsDictType = {
@@ -1284,7 +1284,7 @@ class VirtualNodeConnectionPool(AWSProperty):
 
 class Listener(AWSProperty):
     """
-    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html>`__
+    `Listener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-listener.html>`__
     """
 
     props: PropsDictType = {
@@ -1299,7 +1299,7 @@ class Listener(AWSProperty):
 
 class FileAccessLog(AWSProperty):
     """
-    `FileAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-fileaccesslog.html>`__
+    `FileAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-fileaccesslog.html>`__
     """
 
     props: PropsDictType = {
@@ -1310,7 +1310,7 @@ class FileAccessLog(AWSProperty):
 
 class AccessLog(AWSProperty):
     """
-    `AccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-accesslog.html>`__
+    `AccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-accesslog.html>`__
     """
 
     props: PropsDictType = {
@@ -1320,7 +1320,7 @@ class AccessLog(AWSProperty):
 
 class Logging(AWSProperty):
     """
-    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-logging.html>`__
+    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-logging.html>`__
     """
 
     props: PropsDictType = {
@@ -1330,7 +1330,7 @@ class Logging(AWSProperty):
 
 class AwsCloudMapInstanceAttribute(AWSProperty):
     """
-    `AwsCloudMapInstanceAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html>`__
+    `AwsCloudMapInstanceAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-awscloudmapinstanceattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -1341,7 +1341,7 @@ class AwsCloudMapInstanceAttribute(AWSProperty):
 
 class AwsCloudMapServiceDiscovery(AWSProperty):
     """
-    `AwsCloudMapServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html>`__
+    `AwsCloudMapServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-awscloudmapservicediscovery.html>`__
     """
 
     props: PropsDictType = {
@@ -1354,7 +1354,7 @@ class AwsCloudMapServiceDiscovery(AWSProperty):
 
 class DnsServiceDiscovery(AWSProperty):
     """
-    `DnsServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-dnsservicediscovery.html>`__
+    `DnsServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-dnsservicediscovery.html>`__
     """
 
     props: PropsDictType = {
@@ -1366,7 +1366,7 @@ class DnsServiceDiscovery(AWSProperty):
 
 class ServiceDiscovery(AWSProperty):
     """
-    `ServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html>`__
+    `ServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-servicediscovery.html>`__
     """
 
     props: PropsDictType = {
@@ -1377,7 +1377,7 @@ class ServiceDiscovery(AWSProperty):
 
 class VirtualNodeSpec(AWSProperty):
     """
-    `VirtualNodeSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html>`__
+    `VirtualNodeSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualnode-virtualnodespec.html>`__
     """
 
     props: PropsDictType = {
@@ -1391,7 +1391,7 @@ class VirtualNodeSpec(AWSProperty):
 
 class VirtualNode(AWSObject):
     """
-    `VirtualNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html>`__
+    `VirtualNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-virtualnode.html>`__
     """
 
     resource_type = "AWS::AppMesh::VirtualNode"
@@ -1407,7 +1407,7 @@ class VirtualNode(AWSObject):
 
 class VirtualRouterListener(AWSProperty):
     """
-    `VirtualRouterListener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html>`__
+    `VirtualRouterListener <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualrouter-virtualrouterlistener.html>`__
     """
 
     props: PropsDictType = {
@@ -1417,7 +1417,7 @@ class VirtualRouterListener(AWSProperty):
 
 class VirtualRouterSpec(AWSProperty):
     """
-    `VirtualRouterSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualrouter-virtualrouterspec.html>`__
+    `VirtualRouterSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualrouter-virtualrouterspec.html>`__
     """
 
     props: PropsDictType = {
@@ -1427,7 +1427,7 @@ class VirtualRouterSpec(AWSProperty):
 
 class VirtualRouter(AWSObject):
     """
-    `VirtualRouter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html>`__
+    `VirtualRouter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-virtualrouter.html>`__
     """
 
     resource_type = "AWS::AppMesh::VirtualRouter"
@@ -1443,7 +1443,7 @@ class VirtualRouter(AWSObject):
 
 class VirtualNodeServiceProvider(AWSProperty):
     """
-    `VirtualNodeServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html>`__
+    `VirtualNodeServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualservice-virtualnodeserviceprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -1453,7 +1453,7 @@ class VirtualNodeServiceProvider(AWSProperty):
 
 class VirtualRouterServiceProvider(AWSProperty):
     """
-    `VirtualRouterServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html>`__
+    `VirtualRouterServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualservice-virtualrouterserviceprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -1463,7 +1463,7 @@ class VirtualRouterServiceProvider(AWSProperty):
 
 class VirtualServiceProvider(AWSProperty):
     """
-    `VirtualServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualserviceprovider.html>`__
+    `VirtualServiceProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualservice-virtualserviceprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -1474,7 +1474,7 @@ class VirtualServiceProvider(AWSProperty):
 
 class VirtualServiceSpec(AWSProperty):
     """
-    `VirtualServiceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualservice-virtualservicespec.html>`__
+    `VirtualServiceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-appmesh-virtualservice-virtualservicespec.html>`__
     """
 
     props: PropsDictType = {
@@ -1484,7 +1484,7 @@ class VirtualServiceSpec(AWSProperty):
 
 class VirtualService(AWSObject):
     """
-    `VirtualService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html>`__
+    `VirtualService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appmesh-virtualservice.html>`__
     """
 
     resource_type = "AWS::AppMesh::VirtualService"

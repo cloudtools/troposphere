@@ -17,7 +17,7 @@ from .validators.secretsmanager import (
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-secretsmanager-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::SecretsManager::ResourcePolicy"
@@ -31,7 +31,7 @@ class ResourcePolicy(AWSObject):
 
 class HostedRotationLambda(AWSProperty):
     """
-    `HostedRotationLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html>`__
+    `HostedRotationLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class HostedRotationLambda(AWSProperty):
 
 class RotationRules(AWSProperty):
     """
-    `RotationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html>`__
+    `RotationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-rotationschedule-rotationrules.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class RotationRules(AWSProperty):
 
 class RotationSchedule(AWSObject):
     """
-    `RotationSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html>`__
+    `RotationSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-secretsmanager-rotationschedule.html>`__
     """
 
     resource_type = "AWS::SecretsManager::RotationSchedule"
@@ -79,7 +79,7 @@ class RotationSchedule(AWSObject):
 
 class GenerateSecretString(AWSProperty):
     """
-    `GenerateSecretString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html>`__
+    `GenerateSecretString <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-secret-generatesecretstring.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class GenerateSecretString(AWSProperty):
 
 class ReplicaRegion(AWSProperty):
     """
-    `ReplicaRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-replicaregion.html>`__
+    `ReplicaRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-secretsmanager-secret-replicaregion.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class ReplicaRegion(AWSProperty):
 
 class Secret(AWSObject):
     """
-    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html>`__
+    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-secretsmanager-secret.html>`__
     """
 
     resource_type = "AWS::SecretsManager::Secret"
@@ -127,7 +127,7 @@ class Secret(AWSObject):
 
 class SecretTargetAttachment(AWSObject):
     """
-    `SecretTargetAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html>`__
+    `SecretTargetAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-secretsmanager-secrettargetattachment.html>`__
     """
 
     resource_type = "AWS::SecretsManager::SecretTargetAttachment"

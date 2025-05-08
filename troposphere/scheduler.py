@@ -16,7 +16,7 @@ from .validators.scheduler import (
 
 class FlexibleTimeWindow(AWSProperty):
     """
-    `FlexibleTimeWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-flexibletimewindow.html>`__
+    `FlexibleTimeWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-flexibletimewindow.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class FlexibleTimeWindow(AWSProperty):
 
 class DeadLetterConfig(AWSProperty):
     """
-    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-deadletterconfig.html>`__
+    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-deadletterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class DeadLetterConfig(AWSProperty):
 
 class CapacityProviderStrategyItem(AWSProperty):
     """
-    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html>`__
+    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-capacityproviderstrategyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class CapacityProviderStrategyItem(AWSProperty):
 
 class AwsVpcConfiguration(AWSProperty):
     """
-    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-awsvpcconfiguration.html>`__
+    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-awsvpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class AwsVpcConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class NetworkConfiguration(AWSProperty):
 
 class PlacementConstraint(AWSProperty):
     """
-    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-placementconstraint.html>`__
+    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-placementconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class PlacementConstraint(AWSProperty):
 
 class PlacementStrategy(AWSProperty):
     """
-    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-placementstrategy.html>`__
+    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-placementstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class PlacementStrategy(AWSProperty):
 
 class EcsParameters(AWSProperty):
     """
-    `EcsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-ecsparameters.html>`__
+    `EcsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-ecsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class EcsParameters(AWSProperty):
 
 class EventBridgeParameters(AWSProperty):
     """
-    `EventBridgeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-eventbridgeparameters.html>`__
+    `EventBridgeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-eventbridgeparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class EventBridgeParameters(AWSProperty):
 
 class KinesisParameters(AWSProperty):
     """
-    `KinesisParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-kinesisparameters.html>`__
+    `KinesisParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-kinesisparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class KinesisParameters(AWSProperty):
 
 class RetryPolicy(AWSProperty):
     """
-    `RetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-retrypolicy.html>`__
+    `RetryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-retrypolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class RetryPolicy(AWSProperty):
 
 class SageMakerPipelineParameter(AWSProperty):
     """
-    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameter.html>`__
+    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-sagemakerpipelineparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class SageMakerPipelineParameter(AWSProperty):
 
 class SageMakerPipelineParameters(AWSProperty):
     """
-    `SageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sagemakerpipelineparameters.html>`__
+    `SageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-sagemakerpipelineparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -169,7 +169,7 @@ class SageMakerPipelineParameters(AWSProperty):
 
 class SqsParameters(AWSProperty):
     """
-    `SqsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-sqsparameters.html>`__
+    `SqsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-sqsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class SqsParameters(AWSProperty):
 
 class Target(AWSProperty):
     """
-    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html>`__
+    `Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-scheduler-schedule-target.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class Target(AWSProperty):
 
 class Schedule(AWSObject):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-scheduler-schedule.html>`__
     """
 
     resource_type = "AWS::Scheduler::Schedule"
@@ -220,7 +220,7 @@ class Schedule(AWSObject):
 
 class ScheduleGroup(AWSObject):
     """
-    `ScheduleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedulegroup.html>`__
+    `ScheduleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-scheduler-schedulegroup.html>`__
     """
 
     resource_type = "AWS::Scheduler::ScheduleGroup"

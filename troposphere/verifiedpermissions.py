@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class CognitoGroupConfiguration(AWSProperty):
     """
-    `CognitoGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html>`__
+    `CognitoGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class CognitoGroupConfiguration(AWSProperty):
 
 class CognitoUserPoolConfiguration(AWSProperty):
     """
-    `CognitoUserPoolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html>`__
+    `CognitoUserPoolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class CognitoUserPoolConfiguration(AWSProperty):
 
 class OpenIdConnectGroupConfiguration(AWSProperty):
     """
-    `OpenIdConnectGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectgroupconfiguration.html>`__
+    `OpenIdConnectGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-openidconnectgroupconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class OpenIdConnectGroupConfiguration(AWSProperty):
 
 class OpenIdConnectAccessTokenConfiguration(AWSProperty):
     """
-    `OpenIdConnectAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectaccesstokenconfiguration.html>`__
+    `OpenIdConnectAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-openidconnectaccesstokenconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class OpenIdConnectAccessTokenConfiguration(AWSProperty):
 
 class OpenIdConnectIdentityTokenConfiguration(AWSProperty):
     """
-    `OpenIdConnectIdentityTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html>`__
+    `OpenIdConnectIdentityTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class OpenIdConnectIdentityTokenConfiguration(AWSProperty):
 
 class OpenIdConnectTokenSelection(AWSProperty):
     """
-    `OpenIdConnectTokenSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html>`__
+    `OpenIdConnectTokenSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class OpenIdConnectTokenSelection(AWSProperty):
 
 class OpenIdConnectConfiguration(AWSProperty):
     """
-    `OpenIdConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html>`__
+    `OpenIdConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -90,7 +90,7 @@ class OpenIdConnectConfiguration(AWSProperty):
 
 class IdentitySourceConfiguration(AWSProperty):
     """
-    `IdentitySourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html>`__
+    `IdentitySourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class IdentitySourceConfiguration(AWSProperty):
 
 class IdentitySource(AWSObject):
     """
-    `IdentitySource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html>`__
+    `IdentitySource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-verifiedpermissions-identitysource.html>`__
     """
 
     resource_type = "AWS::VerifiedPermissions::IdentitySource"
@@ -115,7 +115,7 @@ class IdentitySource(AWSObject):
 
 class StaticPolicyDefinition(AWSProperty):
     """
-    `StaticPolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-staticpolicydefinition.html>`__
+    `StaticPolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policy-staticpolicydefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class StaticPolicyDefinition(AWSProperty):
 
 class EntityIdentifier(AWSProperty):
     """
-    `EntityIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-entityidentifier.html>`__
+    `EntityIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policy-entityidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class EntityIdentifier(AWSProperty):
 
 class TemplateLinkedPolicyDefinition(AWSProperty):
     """
-    `TemplateLinkedPolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html>`__
+    `TemplateLinkedPolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policy-templatelinkedpolicydefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class TemplateLinkedPolicyDefinition(AWSProperty):
 
 class PolicyDefinition(AWSProperty):
     """
-    `PolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policy-policydefinition.html>`__
+    `PolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policy-policydefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -160,7 +160,7 @@ class PolicyDefinition(AWSProperty):
 
 class Policy(AWSObject):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-verifiedpermissions-policy.html>`__
     """
 
     resource_type = "AWS::VerifiedPermissions::Policy"
@@ -173,7 +173,7 @@ class Policy(AWSObject):
 
 class SchemaDefinition(AWSProperty):
     """
-    `SchemaDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html>`__
+    `SchemaDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policystore-schemadefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class SchemaDefinition(AWSProperty):
 
 class ValidationSettings(AWSProperty):
     """
-    `ValidationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-validationsettings.html>`__
+    `ValidationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-verifiedpermissions-policystore-validationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class ValidationSettings(AWSProperty):
 
 class PolicyStore(AWSObject):
     """
-    `PolicyStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html>`__
+    `PolicyStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-verifiedpermissions-policystore.html>`__
     """
 
     resource_type = "AWS::VerifiedPermissions::PolicyStore"
@@ -207,7 +207,7 @@ class PolicyStore(AWSObject):
 
 class PolicyTemplate(AWSObject):
     """
-    `PolicyTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html>`__
+    `PolicyTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-verifiedpermissions-policytemplate.html>`__
     """
 
     resource_type = "AWS::VerifiedPermissions::PolicyTemplate"

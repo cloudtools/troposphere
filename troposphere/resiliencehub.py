@@ -16,7 +16,7 @@ from .validators.resiliencehub import (
 
 class EventSubscription(AWSProperty):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-app-eventsubscription.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class EventSubscription(AWSProperty):
 
 class PermissionModel(AWSProperty):
     """
-    `PermissionModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html>`__
+    `PermissionModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-app-permissionmodel.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class PermissionModel(AWSProperty):
 
 class PhysicalResourceId(AWSProperty):
     """
-    `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>`__
+    `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-app-physicalresourceid.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class PhysicalResourceId(AWSProperty):
 
 class ResourceMapping(AWSProperty):
     """
-    `ResourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html>`__
+    `ResourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-app-resourcemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class ResourceMapping(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html>`__
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resiliencehub-app.html>`__
     """
 
     resource_type = "AWS::ResilienceHub::App"
@@ -88,7 +88,7 @@ class App(AWSObject):
 
 class FailurePolicy(AWSProperty):
     """
-    `FailurePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html>`__
+    `FailurePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class FailurePolicy(AWSProperty):
 
 class PolicyMap(AWSProperty):
     """
-    `PolicyMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html>`__
+    `PolicyMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resiliencehub-resiliencypolicy-policymap.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class PolicyMap(AWSProperty):
 
 class ResiliencyPolicy(AWSObject):
     """
-    `ResiliencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html>`__
+    `ResiliencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resiliencehub-resiliencypolicy.html>`__
     """
 
     resource_type = "AWS::ResilienceHub::ResiliencyPolicy"

@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class CFNKubernetesAuditLogsConfiguration(AWSProperty):
     """
-    `CFNKubernetesAuditLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html>`__
+    `CFNKubernetesAuditLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class CFNKubernetesAuditLogsConfiguration(AWSProperty):
 
 class CFNKubernetesConfiguration(AWSProperty):
     """
-    `CFNKubernetesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html>`__
+    `CFNKubernetesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class CFNKubernetesConfiguration(AWSProperty):
 
 class CFNScanEc2InstanceWithFindingsConfiguration(AWSProperty):
     """
-    `CFNScanEc2InstanceWithFindingsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html>`__
+    `CFNScanEc2InstanceWithFindingsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class CFNScanEc2InstanceWithFindingsConfiguration(AWSProperty):
 
 class CFNMalwareProtectionConfiguration(AWSProperty):
     """
-    `CFNMalwareProtectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnmalwareprotectionconfiguration.html>`__
+    `CFNMalwareProtectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnmalwareprotectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class CFNMalwareProtectionConfiguration(AWSProperty):
 
 class CFNS3LogsConfiguration(AWSProperty):
     """
-    `CFNS3LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html>`__
+    `CFNS3LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfns3logsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class CFNS3LogsConfiguration(AWSProperty):
 
 class CFNDataSourceConfigurations(AWSProperty):
     """
-    `CFNDataSourceConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfndatasourceconfigurations.html>`__
+    `CFNDataSourceConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfndatasourceconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class CFNDataSourceConfigurations(AWSProperty):
 
 class CFNFeatureAdditionalConfiguration(AWSProperty):
     """
-    `CFNFeatureAdditionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureadditionalconfiguration.html>`__
+    `CFNFeatureAdditionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnfeatureadditionalconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class CFNFeatureAdditionalConfiguration(AWSProperty):
 
 class CFNFeatureConfiguration(AWSProperty):
     """
-    `CFNFeatureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html>`__
+    `CFNFeatureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-detector-cfnfeatureconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class CFNFeatureConfiguration(AWSProperty):
 
 class TagItem(AWSProperty):
     """
-    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-threatintelset-tagitem.html>`__
+    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-threatintelset-tagitem.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class TagItem(AWSProperty):
 
 class Detector(AWSObject):
     """
-    `Detector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html>`__
+    `Detector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-detector.html>`__
     """
 
     resource_type = "AWS::GuardDuty::Detector"
@@ -127,7 +127,7 @@ class Detector(AWSObject):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-filter-condition.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class Condition(AWSProperty):
 
 class FindingCriteria(AWSProperty):
     """
-    `FindingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html>`__
+    `FindingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-filter-findingcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class FindingCriteria(AWSProperty):
 
 class Filter(AWSObject):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-filter.html>`__
     """
 
     resource_type = "AWS::GuardDuty::Filter"
@@ -176,7 +176,7 @@ class Filter(AWSObject):
 
 class IPSet(AWSObject):
     """
-    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html>`__
+    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-ipset.html>`__
     """
 
     resource_type = "AWS::GuardDuty::IPSet"
@@ -193,7 +193,7 @@ class IPSet(AWSObject):
 
 class CFNTagging(AWSProperty):
     """
-    `CFNTagging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfntagging.html>`__
+    `CFNTagging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-malwareprotectionplan-cfntagging.html>`__
     """
 
     props: PropsDictType = {
@@ -203,7 +203,7 @@ class CFNTagging(AWSProperty):
 
 class CFNActions(AWSProperty):
     """
-    `CFNActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnactions.html>`__
+    `CFNActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-malwareprotectionplan-cfnactions.html>`__
     """
 
     props: PropsDictType = {
@@ -213,7 +213,7 @@ class CFNActions(AWSProperty):
 
 class S3Bucket(AWSProperty):
     """
-    `S3Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-s3bucket.html>`__
+    `S3Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-malwareprotectionplan-s3bucket.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class S3Bucket(AWSProperty):
 
 class CFNProtectedResource(AWSProperty):
     """
-    `CFNProtectedResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnprotectedresource.html>`__
+    `CFNProtectedResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-malwareprotectionplan-cfnprotectedresource.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class CFNProtectedResource(AWSProperty):
 
 class MalwareProtectionPlan(AWSObject):
     """
-    `MalwareProtectionPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-malwareprotectionplan.html>`__
+    `MalwareProtectionPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-malwareprotectionplan.html>`__
     """
 
     resource_type = "AWS::GuardDuty::MalwareProtectionPlan"
@@ -249,7 +249,7 @@ class MalwareProtectionPlan(AWSObject):
 
 class Master(AWSObject):
     """
-    `Master <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html>`__
+    `Master <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-master.html>`__
     """
 
     resource_type = "AWS::GuardDuty::Master"
@@ -263,7 +263,7 @@ class Master(AWSObject):
 
 class Member(AWSObject):
     """
-    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html>`__
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-member.html>`__
     """
 
     resource_type = "AWS::GuardDuty::Member"
@@ -280,7 +280,7 @@ class Member(AWSObject):
 
 class CFNDestinationProperties(AWSProperty):
     """
-    `CFNDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-publishingdestination-cfndestinationproperties.html>`__
+    `CFNDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-publishingdestination-cfndestinationproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class CFNDestinationProperties(AWSProperty):
 
 class PublishingDestination(AWSObject):
     """
-    `PublishingDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-publishingdestination.html>`__
+    `PublishingDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-publishingdestination.html>`__
     """
 
     resource_type = "AWS::GuardDuty::PublishingDestination"
@@ -306,7 +306,7 @@ class PublishingDestination(AWSObject):
 
 class ThreatIntelSet(AWSObject):
     """
-    `ThreatIntelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html>`__
+    `ThreatIntelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-guardduty-threatintelset.html>`__
     """
 
     resource_type = "AWS::GuardDuty::ThreatIntelSet"
@@ -323,7 +323,7 @@ class ThreatIntelSet(AWSObject):
 
 class CFNStatusReasons(AWSProperty):
     """
-    `CFNStatusReasons <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnstatusreasons.html>`__
+    `CFNStatusReasons <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-guardduty-malwareprotectionplan-cfnstatusreasons.html>`__
     """
 
     props: PropsDictType = {

@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class BufferOptions(AWSProperty):
     """
-    `BufferOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-bufferoptions.html>`__
+    `BufferOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-bufferoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class BufferOptions(AWSProperty):
 
 class EncryptionAtRestOptions(AWSProperty):
     """
-    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html>`__
+    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-encryptionatrestoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class EncryptionAtRestOptions(AWSProperty):
 
 class CloudWatchLogDestination(AWSProperty):
     """
-    `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html>`__
+    `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-cloudwatchlogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class CloudWatchLogDestination(AWSProperty):
 
 class LogPublishingOptions(AWSProperty):
     """
-    `LogPublishingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-logpublishingoptions.html>`__
+    `LogPublishingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-logpublishingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class LogPublishingOptions(AWSProperty):
 
 class VpcAttachmentOptions(AWSProperty):
     """
-    `VpcAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html>`__
+    `VpcAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-vpcattachmentoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -64,7 +64,7 @@ class VpcAttachmentOptions(AWSProperty):
 
 class VpcOptions(AWSProperty):
     """
-    `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html>`__
+    `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-vpcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class VpcOptions(AWSProperty):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html>`__
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-osis-pipeline.html>`__
     """
 
     resource_type = "AWS::OSIS::Pipeline"
@@ -97,7 +97,7 @@ class Pipeline(AWSObject):
 
 class VpcEndpoint(AWSProperty):
     """
-    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html>`__
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-osis-pipeline-vpcendpoint.html>`__
     """
 
     props: PropsDictType = {

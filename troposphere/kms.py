@@ -18,7 +18,7 @@ from .validators.kms import (
 
 class Alias(AWSObject):
     """
-    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html>`__
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kms-alias.html>`__
     """
 
     resource_type = "AWS::KMS::Alias"
@@ -31,7 +31,7 @@ class Alias(AWSObject):
 
 class Key(AWSObject):
     """
-    `Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html>`__
+    `Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kms-key.html>`__
     """
 
     resource_type = "AWS::KMS::Key"
@@ -54,7 +54,7 @@ class Key(AWSObject):
 
 class ReplicaKey(AWSObject):
     """
-    `ReplicaKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html>`__
+    `ReplicaKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kms-replicakey.html>`__
     """
 
     resource_type = "AWS::KMS::ReplicaKey"

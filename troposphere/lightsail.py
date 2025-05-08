@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class Alarm(AWSObject):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-alarm.html>`__
     """
 
     resource_type = "AWS::Lightsail::Alarm"
@@ -34,7 +34,7 @@ class Alarm(AWSObject):
 
 class AccessRules(AWSProperty):
     """
-    `AccessRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html>`__
+    `AccessRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-bucket-accessrules.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class AccessRules(AWSProperty):
 
 class Bucket(AWSObject):
     """
-    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html>`__
+    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-bucket.html>`__
     """
 
     resource_type = "AWS::Lightsail::Bucket"
@@ -63,7 +63,7 @@ class Bucket(AWSObject):
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-certificate.html>`__
     """
 
     resource_type = "AWS::Lightsail::Certificate"
@@ -78,7 +78,7 @@ class Certificate(AWSObject):
 
 class EnvironmentVariable(AWSProperty):
     """
-    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html>`__
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-environmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class EnvironmentVariable(AWSProperty):
 
 class PortInfo(AWSProperty):
     """
-    `PortInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-portinfo.html>`__
+    `PortInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-portinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class PortInfo(AWSProperty):
 
 class ContainerProperty(AWSProperty):
     """
-    `ContainerProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html>`__
+    `ContainerProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-container.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class ContainerProperty(AWSProperty):
 
 class HealthCheckConfig(AWSProperty):
     """
-    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html>`__
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-healthcheckconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class HealthCheckConfig(AWSProperty):
 
 class PublicEndpoint(AWSProperty):
     """
-    `PublicEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html>`__
+    `PublicEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-publicendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -141,7 +141,7 @@ class PublicEndpoint(AWSProperty):
 
 class ContainerServiceDeployment(AWSProperty):
     """
-    `ContainerServiceDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html>`__
+    `ContainerServiceDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-containerservicedeployment.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class ContainerServiceDeployment(AWSProperty):
 
 class EcrImagePullerRole(AWSProperty):
     """
-    `EcrImagePullerRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html>`__
+    `EcrImagePullerRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-ecrimagepullerrole.html>`__
     """
 
     props: PropsDictType = {
@@ -163,7 +163,7 @@ class EcrImagePullerRole(AWSProperty):
 
 class PrivateRegistryAccess(AWSProperty):
     """
-    `PrivateRegistryAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html>`__
+    `PrivateRegistryAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-privateregistryaccess.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class PrivateRegistryAccess(AWSProperty):
 
 class PublicDomainName(AWSProperty):
     """
-    `PublicDomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html>`__
+    `PublicDomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-container-publicdomainname.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class PublicDomainName(AWSProperty):
 
 class Container(AWSObject):
     """
-    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html>`__
+    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-container.html>`__
     """
 
     resource_type = "AWS::Lightsail::Container"
@@ -203,7 +203,7 @@ class Container(AWSObject):
 
 class RelationalDatabaseParameter(AWSProperty):
     """
-    `RelationalDatabaseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html>`__
+    `RelationalDatabaseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-database-relationaldatabaseparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class RelationalDatabaseParameter(AWSProperty):
 
 class Database(AWSObject):
     """
-    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html>`__
+    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-database.html>`__
     """
 
     resource_type = "AWS::Lightsail::Database"
@@ -246,7 +246,7 @@ class Database(AWSObject):
 
 class AutoSnapshotAddOn(AWSProperty):
     """
-    `AutoSnapshotAddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-autosnapshotaddon.html>`__
+    `AutoSnapshotAddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-autosnapshotaddon.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class AutoSnapshotAddOn(AWSProperty):
 
 class AddOn(AWSProperty):
     """
-    `AddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html>`__
+    `AddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-addon.html>`__
     """
 
     props: PropsDictType = {
@@ -268,7 +268,7 @@ class AddOn(AWSProperty):
 
 class Location(AWSProperty):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-location.html>`__
     """
 
     props: PropsDictType = {
@@ -279,7 +279,7 @@ class Location(AWSProperty):
 
 class Disk(AWSObject):
     """
-    `Disk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html>`__
+    `Disk <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-disk.html>`__
     """
 
     resource_type = "AWS::Lightsail::Disk"
@@ -296,7 +296,7 @@ class Disk(AWSObject):
 
 class CacheBehavior(AWSProperty):
     """
-    `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehavior.html>`__
+    `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-cachebehavior.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class CacheBehavior(AWSProperty):
 
 class CacheBehaviorPerPath(AWSProperty):
     """
-    `CacheBehaviorPerPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehaviorperpath.html>`__
+    `CacheBehaviorPerPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-cachebehaviorperpath.html>`__
     """
 
     props: PropsDictType = {
@@ -317,7 +317,7 @@ class CacheBehaviorPerPath(AWSProperty):
 
 class CookieObject(AWSProperty):
     """
-    `CookieObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html>`__
+    `CookieObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-cookieobject.html>`__
     """
 
     props: PropsDictType = {
@@ -328,7 +328,7 @@ class CookieObject(AWSProperty):
 
 class HeaderObject(AWSProperty):
     """
-    `HeaderObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html>`__
+    `HeaderObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-headerobject.html>`__
     """
 
     props: PropsDictType = {
@@ -339,7 +339,7 @@ class HeaderObject(AWSProperty):
 
 class QueryStringObject(AWSProperty):
     """
-    `QueryStringObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html>`__
+    `QueryStringObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-querystringobject.html>`__
     """
 
     props: PropsDictType = {
@@ -350,7 +350,7 @@ class QueryStringObject(AWSProperty):
 
 class CacheSettings(AWSProperty):
     """
-    `CacheSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html>`__
+    `CacheSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-cachesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -367,7 +367,7 @@ class CacheSettings(AWSProperty):
 
 class InputOrigin(AWSProperty):
     """
-    `InputOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html>`__
+    `InputOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-distribution-inputorigin.html>`__
     """
 
     props: PropsDictType = {
@@ -379,7 +379,7 @@ class InputOrigin(AWSProperty):
 
 class Distribution(AWSObject):
     """
-    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html>`__
+    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-distribution.html>`__
     """
 
     resource_type = "AWS::Lightsail::Distribution"
@@ -400,7 +400,7 @@ class Distribution(AWSObject):
 
 class DiskProperty(AWSProperty):
     """
-    `DiskProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html>`__
+    `DiskProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-disk.html>`__
     """
 
     props: PropsDictType = {
@@ -416,7 +416,7 @@ class DiskProperty(AWSProperty):
 
 class Hardware(AWSProperty):
     """
-    `Hardware <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html>`__
+    `Hardware <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-hardware.html>`__
     """
 
     props: PropsDictType = {
@@ -428,7 +428,7 @@ class Hardware(AWSProperty):
 
 class MonthlyTransfer(AWSProperty):
     """
-    `MonthlyTransfer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html>`__
+    `MonthlyTransfer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-monthlytransfer.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class MonthlyTransfer(AWSProperty):
 
 class Port(AWSProperty):
     """
-    `Port <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html>`__
+    `Port <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-port.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class Port(AWSProperty):
 
 class Networking(AWSProperty):
     """
-    `Networking <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html>`__
+    `Networking <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-networking.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class Networking(AWSProperty):
 
 class State(AWSProperty):
     """
-    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html>`__
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lightsail-instance-state.html>`__
     """
 
     props: PropsDictType = {
@@ -479,7 +479,7 @@ class State(AWSProperty):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-instance.html>`__
     """
 
     resource_type = "AWS::Lightsail::Instance"
@@ -502,7 +502,7 @@ class Instance(AWSObject):
 
 class LoadBalancer(AWSObject):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-loadbalancer.html>`__
     """
 
     resource_type = "AWS::Lightsail::LoadBalancer"
@@ -522,7 +522,7 @@ class LoadBalancer(AWSObject):
 
 class LoadBalancerTlsCertificate(AWSObject):
     """
-    `LoadBalancerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html>`__
+    `LoadBalancerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-loadbalancertlscertificate.html>`__
     """
 
     resource_type = "AWS::Lightsail::LoadBalancerTlsCertificate"
@@ -539,7 +539,7 @@ class LoadBalancerTlsCertificate(AWSObject):
 
 class StaticIp(AWSObject):
     """
-    `StaticIp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-staticip.html>`__
+    `StaticIp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lightsail-staticip.html>`__
     """
 
     resource_type = "AWS::Lightsail::StaticIp"

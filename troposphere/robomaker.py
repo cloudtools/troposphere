@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-fleet.html>`__
     """
 
     resource_type = "AWS::RoboMaker::Fleet"
@@ -24,7 +24,7 @@ class Fleet(AWSObject):
 
 class Robot(AWSObject):
     """
-    `Robot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html>`__
+    `Robot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-robot.html>`__
     """
 
     resource_type = "AWS::RoboMaker::Robot"
@@ -40,7 +40,7 @@ class Robot(AWSObject):
 
 class RobotSoftwareSuite(AWSProperty):
     """
-    `RobotSoftwareSuite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html>`__
+    `RobotSoftwareSuite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class RobotSoftwareSuite(AWSProperty):
 
 class SourceConfig(AWSProperty):
     """
-    `SourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html>`__
+    `SourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-robomaker-simulationapplication-sourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class SourceConfig(AWSProperty):
 
 class RobotApplication(AWSObject):
     """
-    `RobotApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplication.html>`__
+    `RobotApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-robotapplication.html>`__
     """
 
     resource_type = "AWS::RoboMaker::RobotApplication"
@@ -80,7 +80,7 @@ class RobotApplication(AWSObject):
 
 class RobotApplicationVersion(AWSObject):
     """
-    `RobotApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html>`__
+    `RobotApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-robotapplicationversion.html>`__
     """
 
     resource_type = "AWS::RoboMaker::RobotApplicationVersion"
@@ -93,7 +93,7 @@ class RobotApplicationVersion(AWSObject):
 
 class RenderingEngine(AWSProperty):
     """
-    `RenderingEngine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html>`__
+    `RenderingEngine <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-robomaker-simulationapplication-renderingengine.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class RenderingEngine(AWSProperty):
 
 class SimulationSoftwareSuite(AWSProperty):
     """
-    `SimulationSoftwareSuite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html>`__
+    `SimulationSoftwareSuite <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class SimulationSoftwareSuite(AWSProperty):
 
 class SimulationApplication(AWSObject):
     """
-    `SimulationApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html>`__
+    `SimulationApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-simulationapplication.html>`__
     """
 
     resource_type = "AWS::RoboMaker::SimulationApplication"
@@ -134,7 +134,7 @@ class SimulationApplication(AWSObject):
 
 class SimulationApplicationVersion(AWSObject):
     """
-    `SimulationApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html>`__
+    `SimulationApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-robomaker-simulationapplicationversion.html>`__
     """
 
     resource_type = "AWS::RoboMaker::SimulationApplicationVersion"

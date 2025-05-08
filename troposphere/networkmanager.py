@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ConnectAttachmentOptions(AWSProperty):
     """
-    `ConnectAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html>`__
+    `ConnectAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ConnectAttachmentOptions(AWSProperty):
 
 class ProposedNetworkFunctionGroupChange(AWSProperty):
     """
-    `ProposedNetworkFunctionGroupChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposednetworkfunctiongroupchange.html>`__
+    `ProposedNetworkFunctionGroupChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-vpcattachment-proposednetworkfunctiongroupchange.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ProposedNetworkFunctionGroupChange(AWSProperty):
 
 class ProposedSegmentChange(AWSProperty):
     """
-    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
+    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class ProposedSegmentChange(AWSProperty):
 
 class ConnectAttachment(AWSObject):
     """
-    `ConnectAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html>`__
+    `ConnectAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-connectattachment.html>`__
     """
 
     resource_type = "AWS::NetworkManager::ConnectAttachment"
@@ -68,7 +68,7 @@ class ConnectAttachment(AWSObject):
 
 class BgpOptions(AWSProperty):
     """
-    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-bgpoptions.html>`__
+    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-connectpeer-bgpoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class BgpOptions(AWSProperty):
 
 class ConnectPeer(AWSObject):
     """
-    `ConnectPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html>`__
+    `ConnectPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-connectpeer.html>`__
     """
 
     resource_type = "AWS::NetworkManager::ConnectPeer"
@@ -96,7 +96,7 @@ class ConnectPeer(AWSObject):
 
 class CoreNetwork(AWSObject):
     """
-    `CoreNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html>`__
+    `CoreNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-corenetwork.html>`__
     """
 
     resource_type = "AWS::NetworkManager::CoreNetwork"
@@ -111,7 +111,7 @@ class CoreNetwork(AWSObject):
 
 class CustomerGatewayAssociation(AWSObject):
     """
-    `CustomerGatewayAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html>`__
+    `CustomerGatewayAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-customergatewayassociation.html>`__
     """
 
     resource_type = "AWS::NetworkManager::CustomerGatewayAssociation"
@@ -126,7 +126,7 @@ class CustomerGatewayAssociation(AWSObject):
 
 class AWSLocation(AWSProperty):
     """
-    `AWSLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-awslocation.html>`__
+    `AWSLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-device-awslocation.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +137,7 @@ class AWSLocation(AWSProperty):
 
 class Location(AWSProperty):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-site-location.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class Location(AWSProperty):
 
 class Device(AWSObject):
     """
-    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html>`__
+    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-device.html>`__
     """
 
     resource_type = "AWS::NetworkManager::Device"
@@ -170,7 +170,7 @@ class Device(AWSObject):
 
 class DirectConnectGatewayAttachment(AWSObject):
     """
-    `DirectConnectGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html>`__
+    `DirectConnectGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-directconnectgatewayattachment.html>`__
     """
 
     resource_type = "AWS::NetworkManager::DirectConnectGatewayAttachment"
@@ -190,7 +190,7 @@ class DirectConnectGatewayAttachment(AWSObject):
 
 class GlobalNetwork(AWSObject):
     """
-    `GlobalNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html>`__
+    `GlobalNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-globalnetwork.html>`__
     """
 
     resource_type = "AWS::NetworkManager::GlobalNetwork"
@@ -205,7 +205,7 @@ class GlobalNetwork(AWSObject):
 
 class Bandwidth(AWSProperty):
     """
-    `Bandwidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html>`__
+    `Bandwidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-link-bandwidth.html>`__
     """
 
     props: PropsDictType = {
@@ -216,7 +216,7 @@ class Bandwidth(AWSProperty):
 
 class Link(AWSObject):
     """
-    `Link <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html>`__
+    `Link <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-link.html>`__
     """
 
     resource_type = "AWS::NetworkManager::Link"
@@ -234,7 +234,7 @@ class Link(AWSObject):
 
 class LinkAssociation(AWSObject):
     """
-    `LinkAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html>`__
+    `LinkAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-linkassociation.html>`__
     """
 
     resource_type = "AWS::NetworkManager::LinkAssociation"
@@ -248,7 +248,7 @@ class LinkAssociation(AWSObject):
 
 class Site(AWSObject):
     """
-    `Site <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html>`__
+    `Site <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-site.html>`__
     """
 
     resource_type = "AWS::NetworkManager::Site"
@@ -263,7 +263,7 @@ class Site(AWSObject):
 
 class SiteToSiteVpnAttachment(AWSObject):
     """
-    `SiteToSiteVpnAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html>`__
+    `SiteToSiteVpnAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-sitetositevpnattachment.html>`__
     """
 
     resource_type = "AWS::NetworkManager::SiteToSiteVpnAttachment"
@@ -283,7 +283,7 @@ class SiteToSiteVpnAttachment(AWSObject):
 
 class TransitGatewayPeering(AWSObject):
     """
-    `TransitGatewayPeering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewaypeering.html>`__
+    `TransitGatewayPeering <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-transitgatewaypeering.html>`__
     """
 
     resource_type = "AWS::NetworkManager::TransitGatewayPeering"
@@ -297,7 +297,7 @@ class TransitGatewayPeering(AWSObject):
 
 class TransitGatewayRegistration(AWSObject):
     """
-    `TransitGatewayRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html>`__
+    `TransitGatewayRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-transitgatewayregistration.html>`__
     """
 
     resource_type = "AWS::NetworkManager::TransitGatewayRegistration"
@@ -310,7 +310,7 @@ class TransitGatewayRegistration(AWSObject):
 
 class TransitGatewayRouteTableAttachment(AWSObject):
     """
-    `TransitGatewayRouteTableAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html>`__
+    `TransitGatewayRouteTableAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-transitgatewayroutetableattachment.html>`__
     """
 
     resource_type = "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
@@ -330,7 +330,7 @@ class TransitGatewayRouteTableAttachment(AWSObject):
 
 class VpcOptions(AWSProperty):
     """
-    `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-vpcoptions.html>`__
+    `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-vpcattachment-vpcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -341,7 +341,7 @@ class VpcOptions(AWSProperty):
 
 class VpcAttachment(AWSObject):
     """
-    `VpcAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html>`__
+    `VpcAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkmanager-vpcattachment.html>`__
     """
 
     resource_type = "AWS::NetworkManager::VpcAttachment"
@@ -362,7 +362,7 @@ class VpcAttachment(AWSObject):
 
 class ConnectPeerBgpConfiguration(AWSProperty):
     """
-    `ConnectPeerBgpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html>`__
+    `ConnectPeerBgpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -375,7 +375,7 @@ class ConnectPeerBgpConfiguration(AWSProperty):
 
 class ConnectPeerConfiguration(AWSProperty):
     """
-    `ConnectPeerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html>`__
+    `ConnectPeerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -389,7 +389,7 @@ class ConnectPeerConfiguration(AWSProperty):
 
 class CoreNetworkEdge(AWSProperty):
     """
-    `CoreNetworkEdge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html>`__
+    `CoreNetworkEdge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-corenetwork-corenetworkedge.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class CoreNetworkEdge(AWSProperty):
 
 class CoreNetworkSegment(AWSProperty):
     """
-    `CoreNetworkSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html>`__
+    `CoreNetworkSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-corenetwork-corenetworksegment.html>`__
     """
 
     props: PropsDictType = {
@@ -413,7 +413,7 @@ class CoreNetworkSegment(AWSProperty):
 
 class Segments(AWSProperty):
     """
-    `Segments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-segments.html>`__
+    `Segments <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-networkmanager-corenetwork-segments.html>`__
     """
 
     props: PropsDictType = {

@@ -13,7 +13,7 @@ from .validators.wafregional import validate_waf_action_type
 
 class FieldToMatch(AWSProperty):
     """
-    `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html>`__
+    `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-xssmatchset-fieldtomatch.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class FieldToMatch(AWSProperty):
 
 class ByteMatchTuples(AWSProperty):
     """
-    `ByteMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-bytematchset-bytematchtuple.html>`__
+    `ByteMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-bytematchset-bytematchtuple.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class ByteMatchTuples(AWSProperty):
 
 class ByteMatchSet(AWSObject):
     """
-    `ByteMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html>`__
+    `ByteMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-bytematchset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::ByteMatchSet"
@@ -51,7 +51,7 @@ class ByteMatchSet(AWSObject):
 
 class GeoMatchConstraints(AWSProperty):
     """
-    `GeoMatchConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-geomatchset-geomatchconstraint.html>`__
+    `GeoMatchConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-geomatchset-geomatchconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class GeoMatchConstraints(AWSProperty):
 
 class GeoMatchSet(AWSObject):
     """
-    `GeoMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html>`__
+    `GeoMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-geomatchset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::GeoMatchSet"
@@ -75,7 +75,7 @@ class GeoMatchSet(AWSObject):
 
 class IPSetDescriptors(AWSProperty):
     """
-    `IPSetDescriptors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html>`__
+    `IPSetDescriptors <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-ipset-ipsetdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class IPSetDescriptors(AWSProperty):
 
 class IPSet(AWSObject):
     """
-    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html>`__
+    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-ipset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::IPSet"
@@ -99,7 +99,7 @@ class IPSet(AWSObject):
 
 class Predicates(AWSProperty):
     """
-    `Predicates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ratebasedrule-predicate.html>`__
+    `Predicates <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-ratebasedrule-predicate.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class Predicates(AWSProperty):
 
 class RateBasedRule(AWSObject):
     """
-    `RateBasedRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html>`__
+    `RateBasedRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-ratebasedrule.html>`__
     """
 
     resource_type = "AWS::WAFRegional::RateBasedRule"
@@ -127,7 +127,7 @@ class RateBasedRule(AWSObject):
 
 class RegexPatternSet(AWSObject):
     """
-    `RegexPatternSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-regexpatternset.html>`__
+    `RegexPatternSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-regexpatternset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::RegexPatternSet"
@@ -140,7 +140,7 @@ class RegexPatternSet(AWSObject):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-rule.html>`__
     """
 
     resource_type = "AWS::WAFRegional::Rule"
@@ -154,7 +154,7 @@ class Rule(AWSObject):
 
 class SizeConstraint(AWSProperty):
     """
-    `SizeConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html>`__
+    `SizeConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class SizeConstraint(AWSProperty):
 
 class SizeConstraintSet(AWSObject):
     """
-    `SizeConstraintSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html>`__
+    `SizeConstraintSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-sizeconstraintset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::SizeConstraintSet"
@@ -180,7 +180,7 @@ class SizeConstraintSet(AWSObject):
 
 class SqlInjectionMatchTuples(AWSProperty):
     """
-    `SqlInjectionMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html>`__
+    `SqlInjectionMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuple.html>`__
     """
 
     props: PropsDictType = {
@@ -191,7 +191,7 @@ class SqlInjectionMatchTuples(AWSProperty):
 
 class SqlInjectionMatchSet(AWSObject):
     """
-    `SqlInjectionMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html>`__
+    `SqlInjectionMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-sqlinjectionmatchset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::SqlInjectionMatchSet"
@@ -204,7 +204,7 @@ class SqlInjectionMatchSet(AWSObject):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-webacl-action.html>`__
     """
 
     props: PropsDictType = {
@@ -214,7 +214,7 @@ class Action(AWSProperty):
 
 class Rules(AWSProperty):
     """
-    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html>`__
+    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-webacl-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -226,7 +226,7 @@ class Rules(AWSProperty):
 
 class WebACL(AWSObject):
     """
-    `WebACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html>`__
+    `WebACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-webacl.html>`__
     """
 
     resource_type = "AWS::WAFRegional::WebACL"
@@ -241,7 +241,7 @@ class WebACL(AWSObject):
 
 class WebACLAssociation(AWSObject):
     """
-    `WebACLAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html>`__
+    `WebACLAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-webaclassociation.html>`__
     """
 
     resource_type = "AWS::WAFRegional::WebACLAssociation"
@@ -254,7 +254,7 @@ class WebACLAssociation(AWSObject):
 
 class XssMatchTuple(AWSProperty):
     """
-    `XssMatchTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-xssmatchtuple.html>`__
+    `XssMatchTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-wafregional-xssmatchset-xssmatchtuple.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class XssMatchTuple(AWSProperty):
 
 class XssMatchSet(AWSObject):
     """
-    `XssMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html>`__
+    `XssMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-wafregional-xssmatchset.html>`__
     """
 
     resource_type = "AWS::WAFRegional::XssMatchSet"

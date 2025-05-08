@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Destination(AWSObject):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html>`__
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-destination.html>`__
     """
 
     resource_type = "AWS::IoTWireless::Destination"
@@ -29,7 +29,7 @@ class Destination(AWSObject):
 
 class LoRaWANDeviceProfile(AWSProperty):
     """
-    `LoRaWANDeviceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html>`__
+    `LoRaWANDeviceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class LoRaWANDeviceProfile(AWSProperty):
 
 class DeviceProfile(AWSObject):
     """
-    `DeviceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html>`__
+    `DeviceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-deviceprofile.html>`__
     """
 
     resource_type = "AWS::IoTWireless::DeviceProfile"
@@ -71,7 +71,7 @@ class DeviceProfile(AWSObject):
 
 class FuotaTaskLoRaWAN(AWSProperty):
     """
-    `FuotaTaskLoRaWAN <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-fuotatask-lorawan.html>`__
+    `FuotaTaskLoRaWAN <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-fuotatask-lorawan.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class FuotaTaskLoRaWAN(AWSProperty):
 
 class FuotaTask(AWSObject):
     """
-    `FuotaTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html>`__
+    `FuotaTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-fuotatask.html>`__
     """
 
     resource_type = "AWS::IoTWireless::FuotaTask"
@@ -103,7 +103,7 @@ class FuotaTask(AWSObject):
 
 class LoRaWAN(AWSProperty):
     """
-    `LoRaWAN <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-multicastgroup-lorawan.html>`__
+    `LoRaWAN <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-multicastgroup-lorawan.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class LoRaWAN(AWSProperty):
 
 class MulticastGroup(AWSObject):
     """
-    `MulticastGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-multicastgroup.html>`__
+    `MulticastGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-multicastgroup.html>`__
     """
 
     resource_type = "AWS::IoTWireless::MulticastGroup"
@@ -133,7 +133,7 @@ class MulticastGroup(AWSObject):
 
 class TraceContent(AWSProperty):
     """
-    `TraceContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html>`__
+    `TraceContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class TraceContent(AWSProperty):
 
 class NetworkAnalyzerConfiguration(AWSObject):
     """
-    `NetworkAnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html>`__
+    `NetworkAnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-networkanalyzerconfiguration.html>`__
     """
 
     resource_type = "AWS::IoTWireless::NetworkAnalyzerConfiguration"
@@ -161,7 +161,7 @@ class NetworkAnalyzerConfiguration(AWSObject):
 
 class SidewalkAccountInfo(AWSProperty):
     """
-    `SidewalkAccountInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html>`__
+    `SidewalkAccountInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class SidewalkAccountInfo(AWSProperty):
 
 class SidewalkAccountInfoWithFingerprint(AWSProperty):
     """
-    `SidewalkAccountInfoWithFingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfowithfingerprint.html>`__
+    `SidewalkAccountInfoWithFingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-partneraccount-sidewalkaccountinfowithfingerprint.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class SidewalkAccountInfoWithFingerprint(AWSProperty):
 
 class SidewalkUpdateAccount(AWSProperty):
     """
-    `SidewalkUpdateAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html>`__
+    `SidewalkUpdateAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html>`__
     """
 
     props: PropsDictType = {
@@ -193,7 +193,7 @@ class SidewalkUpdateAccount(AWSProperty):
 
 class PartnerAccount(AWSObject):
     """
-    `PartnerAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html>`__
+    `PartnerAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-partneraccount.html>`__
     """
 
     resource_type = "AWS::IoTWireless::PartnerAccount"
@@ -211,7 +211,7 @@ class PartnerAccount(AWSObject):
 
 class LoRaWANServiceProfile(AWSProperty):
     """
-    `LoRaWANServiceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html>`__
+    `LoRaWANServiceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class LoRaWANServiceProfile(AWSProperty):
 
 class ServiceProfile(AWSObject):
     """
-    `ServiceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html>`__
+    `ServiceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-serviceprofile.html>`__
     """
 
     resource_type = "AWS::IoTWireless::ServiceProfile"
@@ -253,7 +253,7 @@ class ServiceProfile(AWSObject):
 
 class LoRaWANGatewayVersion(AWSProperty):
     """
-    `LoRaWANGatewayVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html>`__
+    `LoRaWANGatewayVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class LoRaWANGatewayVersion(AWSProperty):
 
 class LoRaWANUpdateGatewayTaskEntry(AWSProperty):
     """
-    `LoRaWANUpdateGatewayTaskEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html>`__
+    `LoRaWANUpdateGatewayTaskEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class LoRaWANUpdateGatewayTaskEntry(AWSProperty):
 
 class LoRaWANUpdateGatewayTaskCreate(AWSProperty):
     """
-    `LoRaWANUpdateGatewayTaskCreate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html>`__
+    `LoRaWANUpdateGatewayTaskCreate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +289,7 @@ class LoRaWANUpdateGatewayTaskCreate(AWSProperty):
 
 class UpdateWirelessGatewayTaskCreate(AWSProperty):
     """
-    `UpdateWirelessGatewayTaskCreate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html>`__
+    `UpdateWirelessGatewayTaskCreate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html>`__
     """
 
     props: PropsDictType = {
@@ -301,7 +301,7 @@ class UpdateWirelessGatewayTaskCreate(AWSProperty):
 
 class TaskDefinition(AWSObject):
     """
-    `TaskDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html>`__
+    `TaskDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-taskdefinition.html>`__
     """
 
     resource_type = "AWS::IoTWireless::TaskDefinition"
@@ -318,7 +318,7 @@ class TaskDefinition(AWSObject):
 
 class SessionKeysAbpV10x(AWSProperty):
     """
-    `SessionKeysAbpV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html>`__
+    `SessionKeysAbpV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class SessionKeysAbpV10x(AWSProperty):
 
 class AbpV10x(AWSProperty):
     """
-    `AbpV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html>`__
+    `AbpV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-abpv10x.html>`__
     """
 
     props: PropsDictType = {
@@ -340,7 +340,7 @@ class AbpV10x(AWSProperty):
 
 class SessionKeysAbpV11(AWSProperty):
     """
-    `SessionKeysAbpV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html>`__
+    `SessionKeysAbpV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html>`__
     """
 
     props: PropsDictType = {
@@ -353,7 +353,7 @@ class SessionKeysAbpV11(AWSProperty):
 
 class AbpV11(AWSProperty):
     """
-    `AbpV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html>`__
+    `AbpV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-abpv11.html>`__
     """
 
     props: PropsDictType = {
@@ -364,7 +364,7 @@ class AbpV11(AWSProperty):
 
 class Application(AWSProperty):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-application.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class Application(AWSProperty):
 
 class FPorts(AWSProperty):
     """
-    `FPorts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html>`__
+    `FPorts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-fports.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class FPorts(AWSProperty):
 
 class OtaaV10x(AWSProperty):
     """
-    `OtaaV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html>`__
+    `OtaaV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-otaav10x.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class OtaaV10x(AWSProperty):
 
 class OtaaV11(AWSProperty):
     """
-    `OtaaV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html>`__
+    `OtaaV11 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-otaav11.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class OtaaV11(AWSProperty):
 
 class LoRaWANDevice(AWSProperty):
     """
-    `LoRaWANDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html>`__
+    `LoRaWANDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdevice-lorawandevice.html>`__
     """
 
     props: PropsDictType = {
@@ -426,7 +426,7 @@ class LoRaWANDevice(AWSProperty):
 
 class WirelessDevice(AWSObject):
     """
-    `WirelessDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html>`__
+    `WirelessDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-wirelessdevice.html>`__
     """
 
     resource_type = "AWS::IoTWireless::WirelessDevice"
@@ -446,7 +446,7 @@ class WirelessDevice(AWSObject):
 
 class Sidewalk(AWSProperty):
     """
-    `Sidewalk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdeviceimporttask-sidewalk.html>`__
+    `Sidewalk <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessdeviceimporttask-sidewalk.html>`__
     """
 
     props: PropsDictType = {
@@ -459,7 +459,7 @@ class Sidewalk(AWSProperty):
 
 class WirelessDeviceImportTask(AWSObject):
     """
-    `WirelessDeviceImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html>`__
+    `WirelessDeviceImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-wirelessdeviceimporttask.html>`__
     """
 
     resource_type = "AWS::IoTWireless::WirelessDeviceImportTask"
@@ -473,7 +473,7 @@ class WirelessDeviceImportTask(AWSObject):
 
 class LoRaWANGateway(AWSProperty):
     """
-    `LoRaWANGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html>`__
+    `LoRaWANGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotwireless-wirelessgateway-lorawangateway.html>`__
     """
 
     props: PropsDictType = {
@@ -484,7 +484,7 @@ class LoRaWANGateway(AWSProperty):
 
 class WirelessGateway(AWSObject):
     """
-    `WirelessGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html>`__
+    `WirelessGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotwireless-wirelessgateway.html>`__
     """
 
     resource_type = "AWS::IoTWireless::WirelessGateway"

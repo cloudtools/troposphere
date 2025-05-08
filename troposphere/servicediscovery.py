@@ -12,7 +12,7 @@ from .validators import double
 
 class HttpNamespace(AWSObject):
     """
-    `HttpNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html>`__
+    `HttpNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicediscovery-httpnamespace.html>`__
     """
 
     resource_type = "AWS::ServiceDiscovery::HttpNamespace"
@@ -26,7 +26,7 @@ class HttpNamespace(AWSObject):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicediscovery-instance.html>`__
     """
 
     resource_type = "AWS::ServiceDiscovery::Instance"
@@ -40,7 +40,7 @@ class Instance(AWSObject):
 
 class SOA(AWSProperty):
     """
-    `SOA <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-soa.html>`__
+    `SOA <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-publicdnsnamespace-soa.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class SOA(AWSProperty):
 
 class PublicDnsPropertiesMutable(AWSProperty):
     """
-    `PublicDnsPropertiesMutable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html>`__
+    `PublicDnsPropertiesMutable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-publicdnsnamespace-publicdnspropertiesmutable.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class PublicDnsPropertiesMutable(AWSProperty):
 
 class Properties(AWSProperty):
     """
-    `Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-publicdnsnamespace-properties.html>`__
+    `Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-publicdnsnamespace-properties.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class Properties(AWSProperty):
 
 class PrivateDnsNamespace(AWSObject):
     """
-    `PrivateDnsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html>`__
+    `PrivateDnsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicediscovery-privatednsnamespace.html>`__
     """
 
     resource_type = "AWS::ServiceDiscovery::PrivateDnsNamespace"
@@ -86,7 +86,7 @@ class PrivateDnsNamespace(AWSObject):
 
 class PublicDnsNamespace(AWSObject):
     """
-    `PublicDnsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html>`__
+    `PublicDnsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicediscovery-publicdnsnamespace.html>`__
     """
 
     resource_type = "AWS::ServiceDiscovery::PublicDnsNamespace"
@@ -101,7 +101,7 @@ class PublicDnsNamespace(AWSObject):
 
 class DnsRecord(AWSProperty):
     """
-    `DnsRecord <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html>`__
+    `DnsRecord <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-service-dnsrecord.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class DnsRecord(AWSProperty):
 
 class DnsConfig(AWSProperty):
     """
-    `DnsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html>`__
+    `DnsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-service-dnsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class DnsConfig(AWSProperty):
 
 class HealthCheckConfig(AWSProperty):
     """
-    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html>`__
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-service-healthcheckconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class HealthCheckConfig(AWSProperty):
 
 class HealthCheckCustomConfig(AWSProperty):
     """
-    `HealthCheckCustomConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckcustomconfig.html>`__
+    `HealthCheckCustomConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-service-healthcheckcustomconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class HealthCheckCustomConfig(AWSProperty):
 
 class Service(AWSObject):
     """
-    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html>`__
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicediscovery-service.html>`__
     """
 
     resource_type = "AWS::ServiceDiscovery::Service"
@@ -166,7 +166,7 @@ class Service(AWSObject):
 
 class PrivateDnsPropertiesMutable(AWSProperty):
     """
-    `PrivateDnsPropertiesMutable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html>`__
+    `PrivateDnsPropertiesMutable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html>`__
     """
 
     props: PropsDictType = {

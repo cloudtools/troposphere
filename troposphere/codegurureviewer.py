@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class RepositoryAssociation(AWSObject):
     """
-    `RepositoryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html>`__
+    `RepositoryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codegurureviewer-repositoryassociation.html>`__
     """
 
     resource_type = "AWS::CodeGuruReviewer::RepositoryAssociation"

@@ -13,7 +13,7 @@ from .validators.opensearchservice import validate_search_service_engine_version
 
 class AppConfig(AWSProperty):
     """
-    `AppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-appconfig.html>`__
+    `AppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-application-appconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class AppConfig(AWSProperty):
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-application-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class DataSource(AWSProperty):
 
 class IamIdentityCenterOptions(AWSProperty):
     """
-    `IamIdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-iamidentitycenteroptions.html>`__
+    `IamIdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-application-iamidentitycenteroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class IamIdentityCenterOptions(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchservice-application.html>`__
     """
 
     resource_type = "AWS::OpenSearchService::Application"
@@ -64,7 +64,7 @@ class Application(AWSObject):
 
 class JWTOptions(AWSProperty):
     """
-    `JWTOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html>`__
+    `JWTOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-jwtoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class JWTOptions(AWSProperty):
 
 class MasterUserOptions(AWSProperty):
     """
-    `MasterUserOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html>`__
+    `MasterUserOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-masteruseroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class MasterUserOptions(AWSProperty):
 
 class Idp(AWSProperty):
     """
-    `Idp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-idp.html>`__
+    `Idp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-idp.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class Idp(AWSProperty):
 
 class SAMLOptions(AWSProperty):
     """
-    `SAMLOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-samloptions.html>`__
+    `SAMLOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-samloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class SAMLOptions(AWSProperty):
 
 class AdvancedSecurityOptionsInput(AWSProperty):
     """
-    `AdvancedSecurityOptionsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html>`__
+    `AdvancedSecurityOptionsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
 
 class ColdStorageOptions(AWSProperty):
     """
-    `ColdStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-coldstorageoptions.html>`__
+    `ColdStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-coldstorageoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class ColdStorageOptions(AWSProperty):
 
 class NodeConfig(AWSProperty):
     """
-    `NodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeconfig.html>`__
+    `NodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-nodeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class NodeConfig(AWSProperty):
 
 class NodeOption(AWSProperty):
     """
-    `NodeOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeoption.html>`__
+    `NodeOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-nodeoption.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class NodeOption(AWSProperty):
 
 class ZoneAwarenessConfig(AWSProperty):
     """
-    `ZoneAwarenessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html>`__
+    `ZoneAwarenessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-zoneawarenessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class ZoneAwarenessConfig(AWSProperty):
 
 class ClusterConfig(AWSProperty):
     """
-    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html>`__
+    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-clusterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class ClusterConfig(AWSProperty):
 
 class CognitoOptions(AWSProperty):
     """
-    `CognitoOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-cognitooptions.html>`__
+    `CognitoOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-cognitooptions.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class CognitoOptions(AWSProperty):
 
 class DomainEndpointOptions(AWSProperty):
     """
-    `DomainEndpointOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html>`__
+    `DomainEndpointOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-domainendpointoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class DomainEndpointOptions(AWSProperty):
 
 class EBSOptions(AWSProperty):
     """
-    `EBSOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-ebsoptions.html>`__
+    `EBSOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-ebsoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -238,7 +238,7 @@ class EBSOptions(AWSProperty):
 
 class EncryptionAtRestOptions(AWSProperty):
     """
-    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html>`__
+    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-encryptionatrestoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -249,7 +249,7 @@ class EncryptionAtRestOptions(AWSProperty):
 
 class IdentityCenterOptions(AWSProperty):
     """
-    `IdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-identitycenteroptions.html>`__
+    `IdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-identitycenteroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class IdentityCenterOptions(AWSProperty):
 
 class LogPublishingOption(AWSProperty):
     """
-    `LogPublishingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-logpublishingoption.html>`__
+    `LogPublishingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-logpublishingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class LogPublishingOption(AWSProperty):
 
 class NodeToNodeEncryptionOptions(AWSProperty):
     """
-    `NodeToNodeEncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html>`__
+    `NodeToNodeEncryptionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class NodeToNodeEncryptionOptions(AWSProperty):
 
 class WindowStartTime(AWSProperty):
     """
-    `WindowStartTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html>`__
+    `WindowStartTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-windowstarttime.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class WindowStartTime(AWSProperty):
 
 class OffPeakWindow(AWSProperty):
     """
-    `OffPeakWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html>`__
+    `OffPeakWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-offpeakwindow.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class OffPeakWindow(AWSProperty):
 
 class OffPeakWindowOptions(AWSProperty):
     """
-    `OffPeakWindowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html>`__
+    `OffPeakWindowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-offpeakwindowoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -317,7 +317,7 @@ class OffPeakWindowOptions(AWSProperty):
 
 class SnapshotOptions(AWSProperty):
     """
-    `SnapshotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-snapshotoptions.html>`__
+    `SnapshotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-snapshotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -327,7 +327,7 @@ class SnapshotOptions(AWSProperty):
 
 class SoftwareUpdateOptions(AWSProperty):
     """
-    `SoftwareUpdateOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html>`__
+    `SoftwareUpdateOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-softwareupdateoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -337,7 +337,7 @@ class SoftwareUpdateOptions(AWSProperty):
 
 class VPCOptions(AWSProperty):
     """
-    `VPCOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-vpcoptions.html>`__
+    `VPCOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-vpcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class VPCOptions(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchservice-domain.html>`__
     """
 
     resource_type = "AWS::OpenSearchService::Domain"
@@ -379,7 +379,7 @@ class Domain(AWSObject):
 
 class ServiceSoftwareOptions(AWSProperty):
     """
-    `ServiceSoftwareOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html>`__
+    `ServiceSoftwareOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchservice-domain-servicesoftwareoptions.html>`__
     """
 
     props: PropsDictType = {

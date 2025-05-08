@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class AwsLocation(AWSProperty):
     """
-    `AwsLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-awslocation.html>`__
+    `AwsLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-awslocation.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class AwsLocation(AWSProperty):
 
 class AthenaPropertiesInput(AWSProperty):
     """
-    `AthenaPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-athenapropertiesinput.html>`__
+    `AthenaPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-athenapropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class AthenaPropertiesInput(AWSProperty):
 
 class BasicAuthenticationCredentials(AWSProperty):
     """
-    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-basicauthenticationcredentials.html>`__
+    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-basicauthenticationcredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class BasicAuthenticationCredentials(AWSProperty):
 
 class AuthorizationCodeProperties(AWSProperty):
     """
-    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authorizationcodeproperties.html>`__
+    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-authorizationcodeproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class AuthorizationCodeProperties(AWSProperty):
 
 class GlueOAuth2Credentials(AWSProperty):
     """
-    `GlueOAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html>`__
+    `GlueOAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-glueoauth2credentials.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class GlueOAuth2Credentials(AWSProperty):
 
 class OAuth2ClientApplication(AWSProperty):
     """
-    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2clientapplication.html>`__
+    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-oauth2clientapplication.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class OAuth2ClientApplication(AWSProperty):
 
 class OAuth2Properties(AWSProperty):
     """
-    `OAuth2Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html>`__
+    `OAuth2Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-oauth2properties.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class OAuth2Properties(AWSProperty):
 
 class AuthenticationConfigurationInput(AWSProperty):
     """
-    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html>`__
+    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-authenticationconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class AuthenticationConfigurationInput(AWSProperty):
 
 class PhysicalConnectionRequirements(AWSProperty):
     """
-    `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-physicalconnectionrequirements.html>`__
+    `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-physicalconnectionrequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class PhysicalConnectionRequirements(AWSProperty):
 
 class GlueConnectionInput(AWSProperty):
     """
-    `GlueConnectionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html>`__
+    `GlueConnectionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-glueconnectioninput.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class GlueConnectionInput(AWSProperty):
 
 class GluePropertiesInput(AWSProperty):
     """
-    `GluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-gluepropertiesinput.html>`__
+    `GluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-gluepropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class GluePropertiesInput(AWSProperty):
 
 class HyperPodPropertiesInput(AWSProperty):
     """
-    `HyperPodPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-hyperpodpropertiesinput.html>`__
+    `HyperPodPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-hyperpodpropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class HyperPodPropertiesInput(AWSProperty):
 
 class IamPropertiesInput(AWSProperty):
     """
-    `IamPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html>`__
+    `IamPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-iampropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class IamPropertiesInput(AWSProperty):
 
 class UsernamePassword(AWSProperty):
     """
-    `UsernamePassword <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-usernamepassword.html>`__
+    `UsernamePassword <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-usernamepassword.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class UsernamePassword(AWSProperty):
 
 class RedshiftCredentials(AWSProperty):
     """
-    `RedshiftCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftcredentials.html>`__
+    `RedshiftCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-redshiftcredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class RedshiftCredentials(AWSProperty):
 
 class LineageSyncSchedule(AWSProperty):
     """
-    `LineageSyncSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-lineagesyncschedule.html>`__
+    `LineageSyncSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-lineagesyncschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class LineageSyncSchedule(AWSProperty):
 
 class RedshiftLineageSyncConfigurationInput(AWSProperty):
     """
-    `RedshiftLineageSyncConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html>`__
+    `RedshiftLineageSyncConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class RedshiftLineageSyncConfigurationInput(AWSProperty):
 
 class RedshiftStorageProperties(AWSProperty):
     """
-    `RedshiftStorageProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftstorageproperties.html>`__
+    `RedshiftStorageProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-redshiftstorageproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class RedshiftStorageProperties(AWSProperty):
 
 class RedshiftPropertiesInput(AWSProperty):
     """
-    `RedshiftPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html>`__
+    `RedshiftPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-redshiftpropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class RedshiftPropertiesInput(AWSProperty):
 
 class SparkEmrPropertiesInput(AWSProperty):
     """
-    `SparkEmrPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html>`__
+    `SparkEmrPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-sparkemrpropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class SparkEmrPropertiesInput(AWSProperty):
 
 class SparkGlueArgs(AWSProperty):
     """
-    `SparkGlueArgs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkglueargs.html>`__
+    `SparkGlueArgs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-sparkglueargs.html>`__
     """
 
     props: PropsDictType = {
@@ -270,7 +270,7 @@ class SparkGlueArgs(AWSProperty):
 
 class SparkGluePropertiesInput(AWSProperty):
     """
-    `SparkGluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkgluepropertiesinput.html>`__
+    `SparkGluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-sparkgluepropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -287,7 +287,7 @@ class SparkGluePropertiesInput(AWSProperty):
 
 class ConnectionPropertiesInput(AWSProperty):
     """
-    `ConnectionPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html>`__
+    `ConnectionPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-connection-connectionpropertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -303,7 +303,7 @@ class ConnectionPropertiesInput(AWSProperty):
 
 class Connection(AWSObject):
     """
-    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html>`__
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-connection.html>`__
     """
 
     resource_type = "AWS::DataZone::Connection"
@@ -320,7 +320,7 @@ class Connection(AWSObject):
 
 class FilterExpression(AWSProperty):
     """
-    `FilterExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-filterexpression.html>`__
+    `FilterExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-filterexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -331,7 +331,7 @@ class FilterExpression(AWSProperty):
 
 class RelationalFilterConfiguration(AWSProperty):
     """
-    `RelationalFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-relationalfilterconfiguration.html>`__
+    `RelationalFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-relationalfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class RelationalFilterConfiguration(AWSProperty):
 
 class GlueRunConfigurationInput(AWSProperty):
     """
-    `GlueRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-gluerunconfigurationinput.html>`__
+    `GlueRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-gluerunconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class GlueRunConfigurationInput(AWSProperty):
 
 class RedshiftCredentialConfiguration(AWSProperty):
     """
-    `RedshiftCredentialConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftcredentialconfiguration.html>`__
+    `RedshiftCredentialConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-redshiftcredentialconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class RedshiftCredentialConfiguration(AWSProperty):
 
 class RedshiftClusterStorage(AWSProperty):
     """
-    `RedshiftClusterStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftclusterstorage.html>`__
+    `RedshiftClusterStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-redshiftclusterstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class RedshiftClusterStorage(AWSProperty):
 
 class RedshiftServerlessStorage(AWSProperty):
     """
-    `RedshiftServerlessStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftserverlessstorage.html>`__
+    `RedshiftServerlessStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-redshiftserverlessstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class RedshiftServerlessStorage(AWSProperty):
 
 class RedshiftStorage(AWSProperty):
     """
-    `RedshiftStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftstorage.html>`__
+    `RedshiftStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-redshiftstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class RedshiftStorage(AWSProperty):
 
 class RedshiftRunConfigurationInput(AWSProperty):
     """
-    `RedshiftRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html>`__
+    `RedshiftRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-redshiftrunconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class RedshiftRunConfigurationInput(AWSProperty):
 
 class SageMakerRunConfigurationInput(AWSProperty):
     """
-    `SageMakerRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-sagemakerrunconfigurationinput.html>`__
+    `SageMakerRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-sagemakerrunconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -420,7 +420,7 @@ class SageMakerRunConfigurationInput(AWSProperty):
 
 class DataSourceConfigurationInput(AWSProperty):
     """
-    `DataSourceConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html>`__
+    `DataSourceConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-datasourceconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -432,7 +432,7 @@ class DataSourceConfigurationInput(AWSProperty):
 
 class FormInput(AWSProperty):
     """
-    `FormInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-forminput.html>`__
+    `FormInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-forminput.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class FormInput(AWSProperty):
 
 class RecommendationConfiguration(AWSProperty):
     """
-    `RecommendationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-recommendationconfiguration.html>`__
+    `RecommendationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-recommendationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -455,7 +455,7 @@ class RecommendationConfiguration(AWSProperty):
 
 class ScheduleConfiguration(AWSProperty):
     """
-    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html>`__
+    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-datasource-scheduleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -466,7 +466,7 @@ class ScheduleConfiguration(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-datasource.html>`__
     """
 
     resource_type = "AWS::DataZone::DataSource"
@@ -490,7 +490,7 @@ class DataSource(AWSObject):
 
 class SingleSignOn(AWSProperty):
     """
-    `SingleSignOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-domain-singlesignon.html>`__
+    `SingleSignOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-domain-singlesignon.html>`__
     """
 
     props: PropsDictType = {
@@ -502,7 +502,7 @@ class SingleSignOn(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-domain.html>`__
     """
 
     resource_type = "AWS::DataZone::Domain"
@@ -521,7 +521,7 @@ class Domain(AWSObject):
 
 class EnvironmentParameter(AWSProperty):
     """
-    `EnvironmentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html>`__
+    `EnvironmentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-environmentprofile-environmentparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -532,7 +532,7 @@ class EnvironmentParameter(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-environment.html>`__
     """
 
     resource_type = "AWS::DataZone::Environment"
@@ -553,7 +553,7 @@ class Environment(AWSObject):
 
 class AwsConsoleLinkParameters(AWSProperty):
     """
-    `AwsConsoleLinkParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentactions-awsconsolelinkparameters.html>`__
+    `AwsConsoleLinkParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-environmentactions-awsconsolelinkparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -563,7 +563,7 @@ class AwsConsoleLinkParameters(AWSProperty):
 
 class EnvironmentActions(AWSObject):
     """
-    `EnvironmentActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html>`__
+    `EnvironmentActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-environmentactions.html>`__
     """
 
     resource_type = "AWS::DataZone::EnvironmentActions"
@@ -580,7 +580,7 @@ class EnvironmentActions(AWSObject):
 
 class RegionalParameter(AWSProperty):
     """
-    `RegionalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html>`__
+    `RegionalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -591,7 +591,7 @@ class RegionalParameter(AWSProperty):
 
 class EnvironmentBlueprintConfiguration(AWSObject):
     """
-    `EnvironmentBlueprintConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html>`__
+    `EnvironmentBlueprintConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-environmentblueprintconfiguration.html>`__
     """
 
     resource_type = "AWS::DataZone::EnvironmentBlueprintConfiguration"
@@ -608,7 +608,7 @@ class EnvironmentBlueprintConfiguration(AWSObject):
 
 class EnvironmentProfile(AWSObject):
     """
-    `EnvironmentProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html>`__
+    `EnvironmentProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-environmentprofile.html>`__
     """
 
     resource_type = "AWS::DataZone::EnvironmentProfile"
@@ -627,7 +627,7 @@ class EnvironmentProfile(AWSObject):
 
 class GroupProfile(AWSObject):
     """
-    `GroupProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html>`__
+    `GroupProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-groupprofile.html>`__
     """
 
     resource_type = "AWS::DataZone::GroupProfile"
@@ -641,7 +641,7 @@ class GroupProfile(AWSObject):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-project.html>`__
     """
 
     resource_type = "AWS::DataZone::Project"
@@ -656,7 +656,7 @@ class Project(AWSObject):
 
 class Member(AWSProperty):
     """
-    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-member.html>`__
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-projectmembership-member.html>`__
     """
 
     props: PropsDictType = {
@@ -667,7 +667,7 @@ class Member(AWSProperty):
 
 class ProjectMembership(AWSObject):
     """
-    `ProjectMembership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html>`__
+    `ProjectMembership <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-projectmembership.html>`__
     """
 
     resource_type = "AWS::DataZone::ProjectMembership"
@@ -682,7 +682,7 @@ class ProjectMembership(AWSObject):
 
 class SubscriptionTargetForm(AWSProperty):
     """
-    `SubscriptionTargetForm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html>`__
+    `SubscriptionTargetForm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class SubscriptionTargetForm(AWSProperty):
 
 class SubscriptionTarget(AWSObject):
     """
-    `SubscriptionTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html>`__
+    `SubscriptionTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-subscriptiontarget.html>`__
     """
 
     resource_type = "AWS::DataZone::SubscriptionTarget"
@@ -713,7 +713,7 @@ class SubscriptionTarget(AWSObject):
 
 class UserProfile(AWSObject):
     """
-    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html>`__
+    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datazone-userprofile.html>`__
     """
 
     resource_type = "AWS::DataZone::UserProfile"
@@ -728,7 +728,7 @@ class UserProfile(AWSObject):
 
 class IamUserProfileDetails(AWSProperty):
     """
-    `IamUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-iamuserprofiledetails.html>`__
+    `IamUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-userprofile-iamuserprofiledetails.html>`__
     """
 
     props: PropsDictType = {
@@ -738,7 +738,7 @@ class IamUserProfileDetails(AWSProperty):
 
 class SsoUserProfileDetails(AWSProperty):
     """
-    `SsoUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-ssouserprofiledetails.html>`__
+    `SsoUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-userprofile-ssouserprofiledetails.html>`__
     """
 
     props: PropsDictType = {
@@ -750,7 +750,7 @@ class SsoUserProfileDetails(AWSProperty):
 
 class UserProfileDetails(AWSProperty):
     """
-    `UserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html>`__
+    `UserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datazone-userprofile-userprofiledetails.html>`__
     """
 
     props: PropsDictType = {

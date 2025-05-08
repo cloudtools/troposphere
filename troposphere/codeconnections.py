@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class Connection(AWSObject):
     """
-    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeconnections-connection.html>`__
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codeconnections-connection.html>`__
     """
 
     resource_type = "AWS::CodeConnections::Connection"

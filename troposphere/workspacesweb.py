@@ -12,7 +12,7 @@ from .validators import double
 
 class BrowserSettings(AWSObject):
     """
-    `BrowserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html>`__
+    `BrowserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-browsersettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::BrowserSettings"
@@ -27,7 +27,7 @@ class BrowserSettings(AWSObject):
 
 class CustomPattern(AWSProperty):
     """
-    `CustomPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html>`__
+    `CustomPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class CustomPattern(AWSProperty):
 
 class RedactionPlaceHolder(AWSProperty):
     """
-    `RedactionPlaceHolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html>`__
+    `RedactionPlaceHolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class RedactionPlaceHolder(AWSProperty):
 
 class InlineRedactionPattern(AWSProperty):
     """
-    `InlineRedactionPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html>`__
+    `InlineRedactionPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class InlineRedactionPattern(AWSProperty):
 
 class InlineRedactionConfiguration(AWSProperty):
     """
-    `InlineRedactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html>`__
+    `InlineRedactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class InlineRedactionConfiguration(AWSProperty):
 
 class DataProtectionSettings(AWSObject):
     """
-    `DataProtectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-dataprotectionsettings.html>`__
+    `DataProtectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-dataprotectionsettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::DataProtectionSettings"
@@ -96,7 +96,7 @@ class DataProtectionSettings(AWSObject):
 
 class IdentityProvider(AWSObject):
     """
-    `IdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html>`__
+    `IdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-identityprovider.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::IdentityProvider"
@@ -112,7 +112,7 @@ class IdentityProvider(AWSObject):
 
 class IpRule(AWSProperty):
     """
-    `IpRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-ipaccesssettings-iprule.html>`__
+    `IpRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-ipaccesssettings-iprule.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class IpRule(AWSProperty):
 
 class IpAccessSettings(AWSObject):
     """
-    `IpAccessSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssettings.html>`__
+    `IpAccessSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-ipaccesssettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::IpAccessSettings"
@@ -140,7 +140,7 @@ class IpAccessSettings(AWSObject):
 
 class NetworkSettings(AWSObject):
     """
-    `NetworkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-networksettings.html>`__
+    `NetworkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-networksettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::NetworkSettings"
@@ -155,7 +155,7 @@ class NetworkSettings(AWSObject):
 
 class Portal(AWSObject):
     """
-    `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html>`__
+    `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-portal.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::Portal"
@@ -180,7 +180,7 @@ class Portal(AWSObject):
 
 class TrustStore(AWSObject):
     """
-    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-truststore.html>`__
+    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-truststore.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::TrustStore"
@@ -193,7 +193,7 @@ class TrustStore(AWSObject):
 
 class UserAccessLoggingSettings(AWSObject):
     """
-    `UserAccessLoggingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsettings.html>`__
+    `UserAccessLoggingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-useraccessloggingsettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::UserAccessLoggingSettings"
@@ -206,7 +206,7 @@ class UserAccessLoggingSettings(AWSObject):
 
 class CookieSpecification(AWSProperty):
     """
-    `CookieSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiespecification.html>`__
+    `CookieSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-usersettings-cookiespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class CookieSpecification(AWSProperty):
 
 class CookieSynchronizationConfiguration(AWSProperty):
     """
-    `CookieSynchronizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html>`__
+    `CookieSynchronizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-usersettings-cookiesynchronizationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class CookieSynchronizationConfiguration(AWSProperty):
 
 class ToolbarConfiguration(AWSProperty):
     """
-    `ToolbarConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-toolbarconfiguration.html>`__
+    `ToolbarConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesweb-usersettings-toolbarconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class ToolbarConfiguration(AWSProperty):
 
 class UserSettings(AWSObject):
     """
-    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html>`__
+    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesweb-usersettings.html>`__
     """
 
     resource_type = "AWS::WorkSpacesWeb::UserSettings"

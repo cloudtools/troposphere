@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class BucketPolicy(AWSObject):
     """
-    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-bucketpolicy.html>`__
+    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3express-bucketpolicy.html>`__
     """
 
     resource_type = "AWS::S3Express::BucketPolicy"
@@ -25,7 +25,7 @@ class BucketPolicy(AWSObject):
 
 class ServerSideEncryptionByDefault(AWSProperty):
     """
-    `ServerSideEncryptionByDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionbydefault.html>`__
+    `ServerSideEncryptionByDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-serversideencryptionbydefault.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class ServerSideEncryptionByDefault(AWSProperty):
 
 class ServerSideEncryptionRule(AWSProperty):
     """
-    `ServerSideEncryptionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-serversideencryptionrule.html>`__
+    `ServerSideEncryptionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-serversideencryptionrule.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class ServerSideEncryptionRule(AWSProperty):
 
 class BucketEncryption(AWSProperty):
     """
-    `BucketEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-bucketencryption.html>`__
+    `BucketEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-bucketencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class BucketEncryption(AWSProperty):
 
 class AbortIncompleteMultipartUpload(AWSProperty):
     """
-    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html>`__
+    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class AbortIncompleteMultipartUpload(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class Rule(AWSProperty):
 
 class LifecycleConfiguration(AWSProperty):
     """
-    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-lifecycleconfiguration.html>`__
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3express-directorybucket-lifecycleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class DirectoryBucket(AWSObject):
     """
-    `DirectoryBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html>`__
+    `DirectoryBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3express-directorybucket.html>`__
     """
 
     resource_type = "AWS::S3Express::DirectoryBucket"

@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class AnywhereSettings(AWSProperty):
     """
-    `AnywhereSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-anywheresettings.html>`__
+    `AnywhereSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-anywheresettings.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class AnywhereSettings(AWSProperty):
 
 class CdiInputSpecification(AWSProperty):
     """
-    `CdiInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cdiinputspecification.html>`__
+    `CdiInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-cdiinputspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class CdiInputSpecification(AWSProperty):
 
 class ChannelEngineVersionRequest(AWSProperty):
     """
-    `ChannelEngineVersionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-channelengineversionrequest.html>`__
+    `ChannelEngineVersionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-channelengineversionrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class ChannelEngineVersionRequest(AWSProperty):
 
 class AacSettings(AWSProperty):
     """
-    `AacSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html>`__
+    `AacSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-aacsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class AacSettings(AWSProperty):
 
 class Ac3Settings(AWSProperty):
     """
-    `Ac3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ac3settings.html>`__
+    `Ac3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-ac3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class Ac3Settings(AWSProperty):
 
 class Eac3AtmosSettings(AWSProperty):
     """
-    `Eac3AtmosSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html>`__
+    `Eac3AtmosSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-eac3atmossettings.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class Eac3AtmosSettings(AWSProperty):
 
 class Eac3Settings(AWSProperty):
     """
-    `Eac3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3settings.html>`__
+    `Eac3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-eac3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class Eac3Settings(AWSProperty):
 
 class Mp2Settings(AWSProperty):
     """
-    `Mp2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html>`__
+    `Mp2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mp2settings.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class Mp2Settings(AWSProperty):
 
 class PassThroughSettings(AWSProperty):
     """
-    `PassThroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html>`__
+    `PassThroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-passthroughsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -143,7 +143,7 @@ class PassThroughSettings(AWSProperty):
 
 class WavSettings(AWSProperty):
     """
-    `WavSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-wavsettings.html>`__
+    `WavSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-wavsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class WavSettings(AWSProperty):
 
 class AudioCodecSettings(AWSProperty):
     """
-    `AudioCodecSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiocodecsettings.html>`__
+    `AudioCodecSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiocodecsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class AudioCodecSettings(AWSProperty):
 
 class AudioNormalizationSettings(AWSProperty):
     """
-    `AudioNormalizationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html>`__
+    `AudioNormalizationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audionormalizationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class AudioNormalizationSettings(AWSProperty):
 
 class NielsenCBET(AWSProperty):
     """
-    `NielsenCBET <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsencbet.html>`__
+    `NielsenCBET <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-nielsencbet.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class NielsenCBET(AWSProperty):
 
 class NielsenNaesIiNw(AWSProperty):
     """
-    `NielsenNaesIiNw <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html>`__
+    `NielsenNaesIiNw <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-nielsennaesiinw.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class NielsenNaesIiNw(AWSProperty):
 
 class NielsenWatermarksSettings(AWSProperty):
     """
-    `NielsenWatermarksSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html>`__
+    `NielsenWatermarksSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-nielsenwatermarkssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class NielsenWatermarksSettings(AWSProperty):
 
 class AudioWatermarkSettings(AWSProperty):
     """
-    `AudioWatermarkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiowatermarksettings.html>`__
+    `AudioWatermarkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiowatermarksettings.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class AudioWatermarkSettings(AWSProperty):
 
 class InputChannelLevel(AWSProperty):
     """
-    `InputChannelLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputchannellevel.html>`__
+    `InputChannelLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputchannellevel.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class InputChannelLevel(AWSProperty):
 
 class AudioChannelMapping(AWSProperty):
     """
-    `AudioChannelMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiochannelmapping.html>`__
+    `AudioChannelMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiochannelmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class AudioChannelMapping(AWSProperty):
 
 class RemixSettings(AWSProperty):
     """
-    `RemixSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-remixsettings.html>`__
+    `RemixSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-remixsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -263,7 +263,7 @@ class RemixSettings(AWSProperty):
 
 class AudioDescription(AWSProperty):
     """
-    `AudioDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html>`__
+    `AudioDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiodescription.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class AudioDescription(AWSProperty):
 
 class InputLocation(AWSProperty):
     """
-    `InputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlocation.html>`__
+    `InputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class InputLocation(AWSProperty):
 
 class AvailBlanking(AWSProperty):
     """
-    `AvailBlanking <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html>`__
+    `AvailBlanking <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-availblanking.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class AvailBlanking(AWSProperty):
 
 class Esam(AWSProperty):
     """
-    `Esam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html>`__
+    `Esam <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-esam.html>`__
     """
 
     props: PropsDictType = {
@@ -323,7 +323,7 @@ class Esam(AWSProperty):
 
 class Scte35SpliceInsert(AWSProperty):
     """
-    `Scte35SpliceInsert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html>`__
+    `Scte35SpliceInsert <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte35spliceinsert.html>`__
     """
 
     props: PropsDictType = {
@@ -335,7 +335,7 @@ class Scte35SpliceInsert(AWSProperty):
 
 class Scte35TimeSignalApos(AWSProperty):
     """
-    `Scte35TimeSignalApos <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html>`__
+    `Scte35TimeSignalApos <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte35timesignalapos.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class Scte35TimeSignalApos(AWSProperty):
 
 class AvailSettings(AWSProperty):
     """
-    `AvailSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availsettings.html>`__
+    `AvailSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-availsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class AvailSettings(AWSProperty):
 
 class AvailConfiguration(AWSProperty):
     """
-    `AvailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availconfiguration.html>`__
+    `AvailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-availconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -370,7 +370,7 @@ class AvailConfiguration(AWSProperty):
 
 class BlackoutSlate(AWSProperty):
     """
-    `BlackoutSlate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-blackoutslate.html>`__
+    `BlackoutSlate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-blackoutslate.html>`__
     """
 
     props: PropsDictType = {
@@ -384,7 +384,7 @@ class BlackoutSlate(AWSProperty):
 
 class AribDestinationSettings(AWSProperty):
     """
-    `AribDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribdestinationsettings.html>`__
+    `AribDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-aribdestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -392,7 +392,7 @@ class AribDestinationSettings(AWSProperty):
 
 class BurnInDestinationSettings(AWSProperty):
     """
-    `BurnInDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html>`__
+    `BurnInDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-burnindestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -418,7 +418,7 @@ class BurnInDestinationSettings(AWSProperty):
 
 class DvbSubDestinationSettings(AWSProperty):
     """
-    `DvbSubDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html>`__
+    `DvbSubDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dvbsubdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -444,7 +444,7 @@ class DvbSubDestinationSettings(AWSProperty):
 
 class EbuTtDDestinationSettings(AWSProperty):
     """
-    `EbuTtDDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ebuttddestinationsettings.html>`__
+    `EbuTtDDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-ebuttddestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class EbuTtDDestinationSettings(AWSProperty):
 
 class EmbeddedDestinationSettings(AWSProperty):
     """
-    `EmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddeddestinationsettings.html>`__
+    `EmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-embeddeddestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -465,7 +465,7 @@ class EmbeddedDestinationSettings(AWSProperty):
 
 class EmbeddedPlusScte20DestinationSettings(AWSProperty):
     """
-    `EmbeddedPlusScte20DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedplusscte20destinationsettings.html>`__
+    `EmbeddedPlusScte20DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-embeddedplusscte20destinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -473,7 +473,7 @@ class EmbeddedPlusScte20DestinationSettings(AWSProperty):
 
 class RtmpCaptionInfoDestinationSettings(AWSProperty):
     """
-    `RtmpCaptionInfoDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html>`__
+    `RtmpCaptionInfoDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -481,7 +481,7 @@ class RtmpCaptionInfoDestinationSettings(AWSProperty):
 
 class Scte20PlusEmbeddedDestinationSettings(AWSProperty):
     """
-    `Scte20PlusEmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20plusembeddeddestinationsettings.html>`__
+    `Scte20PlusEmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte20plusembeddeddestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -489,7 +489,7 @@ class Scte20PlusEmbeddedDestinationSettings(AWSProperty):
 
 class Scte27DestinationSettings(AWSProperty):
     """
-    `Scte27DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27destinationsettings.html>`__
+    `Scte27DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte27destinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -497,7 +497,7 @@ class Scte27DestinationSettings(AWSProperty):
 
 class SmpteTtDestinationSettings(AWSProperty):
     """
-    `SmpteTtDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smptettdestinationsettings.html>`__
+    `SmpteTtDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-smptettdestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -505,7 +505,7 @@ class SmpteTtDestinationSettings(AWSProperty):
 
 class TeletextDestinationSettings(AWSProperty):
     """
-    `TeletextDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextdestinationsettings.html>`__
+    `TeletextDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-teletextdestinationsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -513,7 +513,7 @@ class TeletextDestinationSettings(AWSProperty):
 
 class TtmlDestinationSettings(AWSProperty):
     """
-    `TtmlDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html>`__
+    `TtmlDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-ttmldestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -523,7 +523,7 @@ class TtmlDestinationSettings(AWSProperty):
 
 class WebvttDestinationSettings(AWSProperty):
     """
-    `WebvttDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-webvttdestinationsettings.html>`__
+    `WebvttDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-webvttdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -533,7 +533,7 @@ class WebvttDestinationSettings(AWSProperty):
 
 class CaptionDestinationSettings(AWSProperty):
     """
-    `CaptionDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondestinationsettings.html>`__
+    `CaptionDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captiondestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -564,7 +564,7 @@ class CaptionDestinationSettings(AWSProperty):
 
 class CaptionDescription(AWSProperty):
     """
-    `CaptionDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captiondescription.html>`__
+    `CaptionDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captiondescription.html>`__
     """
 
     props: PropsDictType = {
@@ -581,7 +581,7 @@ class CaptionDescription(AWSProperty):
 
 class ColorCorrection(AWSProperty):
     """
-    `ColorCorrection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html>`__
+    `ColorCorrection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-colorcorrection.html>`__
     """
 
     props: PropsDictType = {
@@ -593,7 +593,7 @@ class ColorCorrection(AWSProperty):
 
 class ColorCorrectionSettings(AWSProperty):
     """
-    `ColorCorrectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html>`__
+    `ColorCorrectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-colorcorrectionsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -603,7 +603,7 @@ class ColorCorrectionSettings(AWSProperty):
 
 class FeatureActivations(AWSProperty):
     """
-    `FeatureActivations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html>`__
+    `FeatureActivations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-featureactivations.html>`__
     """
 
     props: PropsDictType = {
@@ -614,7 +614,7 @@ class FeatureActivations(AWSProperty):
 
 class InputLossBehavior(AWSProperty):
     """
-    `InputLossBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossbehavior.html>`__
+    `InputLossBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputlossbehavior.html>`__
     """
 
     props: PropsDictType = {
@@ -628,7 +628,7 @@ class InputLossBehavior(AWSProperty):
 
 class EpochLockingSettings(AWSProperty):
     """
-    `EpochLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-epochlockingsettings.html>`__
+    `EpochLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-epochlockingsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -639,7 +639,7 @@ class EpochLockingSettings(AWSProperty):
 
 class PipelineLockingSettings(AWSProperty):
     """
-    `PipelineLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html>`__
+    `PipelineLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-pipelinelockingsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -647,7 +647,7 @@ class PipelineLockingSettings(AWSProperty):
 
 class OutputLockingSettings(AWSProperty):
     """
-    `OutputLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html>`__
+    `OutputLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputlockingsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -658,7 +658,7 @@ class OutputLockingSettings(AWSProperty):
 
 class GlobalConfiguration(AWSProperty):
     """
-    `GlobalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html>`__
+    `GlobalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-globalconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -674,7 +674,7 @@ class GlobalConfiguration(AWSProperty):
 
 class HtmlMotionGraphicsSettings(AWSProperty):
     """
-    `HtmlMotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-htmlmotiongraphicssettings.html>`__
+    `HtmlMotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-htmlmotiongraphicssettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -682,7 +682,7 @@ class HtmlMotionGraphicsSettings(AWSProperty):
 
 class MotionGraphicsSettings(AWSProperty):
     """
-    `MotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html>`__
+    `MotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-motiongraphicssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -692,7 +692,7 @@ class MotionGraphicsSettings(AWSProperty):
 
 class MotionGraphicsConfiguration(AWSProperty):
     """
-    `MotionGraphicsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html>`__
+    `MotionGraphicsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-motiongraphicsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -703,7 +703,7 @@ class MotionGraphicsConfiguration(AWSProperty):
 
 class NielsenConfiguration(AWSProperty):
     """
-    `NielsenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenconfiguration.html>`__
+    `NielsenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-nielsenconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -714,7 +714,7 @@ class NielsenConfiguration(AWSProperty):
 
 class DvbNitSettings(AWSProperty):
     """
-    `DvbNitSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbnitsettings.html>`__
+    `DvbNitSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dvbnitsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -726,7 +726,7 @@ class DvbNitSettings(AWSProperty):
 
 class DvbSdtSettings(AWSProperty):
     """
-    `DvbSdtSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsdtsettings.html>`__
+    `DvbSdtSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dvbsdtsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -739,7 +739,7 @@ class DvbSdtSettings(AWSProperty):
 
 class DvbTdtSettings(AWSProperty):
     """
-    `DvbTdtSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbtdtsettings.html>`__
+    `DvbTdtSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dvbtdtsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -749,7 +749,7 @@ class DvbTdtSettings(AWSProperty):
 
 class M2tsSettings(AWSProperty):
     """
-    `M2tsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html>`__
+    `M2tsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-m2tssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -806,7 +806,7 @@ class M2tsSettings(AWSProperty):
 
 class RawSettings(AWSProperty):
     """
-    `RawSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html>`__
+    `RawSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rawsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -814,7 +814,7 @@ class RawSettings(AWSProperty):
 
 class ArchiveContainerSettings(AWSProperty):
     """
-    `ArchiveContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html>`__
+    `ArchiveContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-archivecontainersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -825,7 +825,7 @@ class ArchiveContainerSettings(AWSProperty):
 
 class ArchiveOutputSettings(AWSProperty):
     """
-    `ArchiveOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveoutputsettings.html>`__
+    `ArchiveOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-archiveoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -837,7 +837,7 @@ class ArchiveOutputSettings(AWSProperty):
 
 class CmafIngestOutputSettings(AWSProperty):
     """
-    `CmafIngestOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html>`__
+    `CmafIngestOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-cmafingestoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -847,7 +847,7 @@ class CmafIngestOutputSettings(AWSProperty):
 
 class FrameCaptureOutputSettings(AWSProperty):
     """
-    `FrameCaptureOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html>`__
+    `FrameCaptureOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecaptureoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -857,7 +857,7 @@ class FrameCaptureOutputSettings(AWSProperty):
 
 class AudioOnlyHlsSettings(AWSProperty):
     """
-    `AudioOnlyHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioonlyhlssettings.html>`__
+    `AudioOnlyHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audioonlyhlssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -870,7 +870,7 @@ class AudioOnlyHlsSettings(AWSProperty):
 
 class Fmp4HlsSettings(AWSProperty):
     """
-    `Fmp4HlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fmp4hlssettings.html>`__
+    `Fmp4HlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-fmp4hlssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -882,7 +882,7 @@ class Fmp4HlsSettings(AWSProperty):
 
 class FrameCaptureHlsSettings(AWSProperty):
     """
-    `FrameCaptureHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturehlssettings.html>`__
+    `FrameCaptureHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecapturehlssettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -890,7 +890,7 @@ class FrameCaptureHlsSettings(AWSProperty):
 
 class M3u8Settings(AWSProperty):
     """
-    `M3u8Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m3u8settings.html>`__
+    `M3u8Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-m3u8settings.html>`__
     """
 
     props: PropsDictType = {
@@ -918,7 +918,7 @@ class M3u8Settings(AWSProperty):
 
 class StandardHlsSettings(AWSProperty):
     """
-    `StandardHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html>`__
+    `StandardHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-standardhlssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -929,7 +929,7 @@ class StandardHlsSettings(AWSProperty):
 
 class HlsSettings(AWSProperty):
     """
-    `HlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlssettings.html>`__
+    `HlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -942,7 +942,7 @@ class HlsSettings(AWSProperty):
 
 class HlsOutputSettings(AWSProperty):
     """
-    `HlsOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsoutputsettings.html>`__
+    `HlsOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -955,7 +955,7 @@ class HlsOutputSettings(AWSProperty):
 
 class MediaPackageOutputSettings(AWSProperty):
     """
-    `MediaPackageOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html>`__
+    `MediaPackageOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mediapackageoutputsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -963,7 +963,7 @@ class MediaPackageOutputSettings(AWSProperty):
 
 class MsSmoothOutputSettings(AWSProperty):
     """
-    `MsSmoothOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothoutputsettings.html>`__
+    `MsSmoothOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mssmoothoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -974,7 +974,7 @@ class MsSmoothOutputSettings(AWSProperty):
 
 class MultiplexM2tsSettings(AWSProperty):
     """
-    `MultiplexM2tsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html>`__
+    `MultiplexM2tsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multiplexm2tssettings.html>`__
     """
 
     props: PropsDictType = {
@@ -997,7 +997,7 @@ class MultiplexM2tsSettings(AWSProperty):
 
 class MultiplexContainerSettings(AWSProperty):
     """
-    `MultiplexContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexcontainersettings.html>`__
+    `MultiplexContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multiplexcontainersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1007,7 +1007,7 @@ class MultiplexContainerSettings(AWSProperty):
 
 class OutputLocationRef(AWSProperty):
     """
-    `OutputLocationRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html>`__
+    `OutputLocationRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputlocationref.html>`__
     """
 
     props: PropsDictType = {
@@ -1017,7 +1017,7 @@ class OutputLocationRef(AWSProperty):
 
 class MultiplexOutputSettings(AWSProperty):
     """
-    `MultiplexOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html>`__
+    `MultiplexOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multiplexoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1028,7 +1028,7 @@ class MultiplexOutputSettings(AWSProperty):
 
 class RtmpOutputSettings(AWSProperty):
     """
-    `RtmpOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpoutputsettings.html>`__
+    `RtmpOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rtmpoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1041,7 +1041,7 @@ class RtmpOutputSettings(AWSProperty):
 
 class UdpContainerSettings(AWSProperty):
     """
-    `UdpContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html>`__
+    `UdpContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-udpcontainersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1051,7 +1051,7 @@ class UdpContainerSettings(AWSProperty):
 
 class SrtOutputSettings(AWSProperty):
     """
-    `SrtOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html>`__
+    `SrtOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-srtoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1065,7 +1065,7 @@ class SrtOutputSettings(AWSProperty):
 
 class FecOutputSettings(AWSProperty):
     """
-    `FecOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-fecoutputsettings.html>`__
+    `FecOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-fecoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1077,7 +1077,7 @@ class FecOutputSettings(AWSProperty):
 
 class UdpOutputSettings(AWSProperty):
     """
-    `UdpOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpoutputsettings.html>`__
+    `UdpOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-udpoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1090,7 +1090,7 @@ class UdpOutputSettings(AWSProperty):
 
 class OutputSettings(AWSProperty):
     """
-    `OutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html>`__
+    `OutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1109,7 +1109,7 @@ class OutputSettings(AWSProperty):
 
 class Output(AWSProperty):
     """
-    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-output.html>`__
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-output.html>`__
     """
 
     props: PropsDictType = {
@@ -1123,7 +1123,7 @@ class Output(AWSProperty):
 
 class ArchiveS3Settings(AWSProperty):
     """
-    `ArchiveS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html>`__
+    `ArchiveS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-archives3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1133,7 +1133,7 @@ class ArchiveS3Settings(AWSProperty):
 
 class ArchiveCdnSettings(AWSProperty):
     """
-    `ArchiveCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecdnsettings.html>`__
+    `ArchiveCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-archivecdnsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1143,7 +1143,7 @@ class ArchiveCdnSettings(AWSProperty):
 
 class ArchiveGroupSettings(AWSProperty):
     """
-    `ArchiveGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivegroupsettings.html>`__
+    `ArchiveGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-archivegroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1155,7 +1155,7 @@ class ArchiveGroupSettings(AWSProperty):
 
 class CmafIngestGroupSettings(AWSProperty):
     """
-    `CmafIngestGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html>`__
+    `CmafIngestGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-cmafingestgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1176,7 +1176,7 @@ class CmafIngestGroupSettings(AWSProperty):
 
 class FrameCaptureS3Settings(AWSProperty):
     """
-    `FrameCaptureS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptures3settings.html>`__
+    `FrameCaptureS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecaptures3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1186,7 +1186,7 @@ class FrameCaptureS3Settings(AWSProperty):
 
 class FrameCaptureCdnSettings(AWSProperty):
     """
-    `FrameCaptureCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html>`__
+    `FrameCaptureCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecapturecdnsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1196,7 +1196,7 @@ class FrameCaptureCdnSettings(AWSProperty):
 
 class FrameCaptureGroupSettings(AWSProperty):
     """
-    `FrameCaptureGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturegroupsettings.html>`__
+    `FrameCaptureGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecapturegroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1207,7 +1207,7 @@ class FrameCaptureGroupSettings(AWSProperty):
 
 class CaptionLanguageMapping(AWSProperty):
     """
-    `CaptionLanguageMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionlanguagemapping.html>`__
+    `CaptionLanguageMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captionlanguagemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -1219,7 +1219,7 @@ class CaptionLanguageMapping(AWSProperty):
 
 class HlsAkamaiSettings(AWSProperty):
     """
-    `HlsAkamaiSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html>`__
+    `HlsAkamaiSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsakamaisettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1235,7 +1235,7 @@ class HlsAkamaiSettings(AWSProperty):
 
 class HlsBasicPutSettings(AWSProperty):
     """
-    `HlsBasicPutSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsbasicputsettings.html>`__
+    `HlsBasicPutSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsbasicputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1248,7 +1248,7 @@ class HlsBasicPutSettings(AWSProperty):
 
 class HlsMediaStoreSettings(AWSProperty):
     """
-    `HlsMediaStoreSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsmediastoresettings.html>`__
+    `HlsMediaStoreSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsmediastoresettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1262,7 +1262,7 @@ class HlsMediaStoreSettings(AWSProperty):
 
 class HlsS3Settings(AWSProperty):
     """
-    `HlsS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlss3settings.html>`__
+    `HlsS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlss3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1272,7 +1272,7 @@ class HlsS3Settings(AWSProperty):
 
 class HlsWebdavSettings(AWSProperty):
     """
-    `HlsWebdavSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlswebdavsettings.html>`__
+    `HlsWebdavSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlswebdavsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1286,7 +1286,7 @@ class HlsWebdavSettings(AWSProperty):
 
 class HlsCdnSettings(AWSProperty):
     """
-    `HlsCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlscdnsettings.html>`__
+    `HlsCdnSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlscdnsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1300,7 +1300,7 @@ class HlsCdnSettings(AWSProperty):
 
 class StaticKeySettings(AWSProperty):
     """
-    `StaticKeySettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-statickeysettings.html>`__
+    `StaticKeySettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-statickeysettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1311,7 +1311,7 @@ class StaticKeySettings(AWSProperty):
 
 class KeyProviderSettings(AWSProperty):
     """
-    `KeyProviderSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-keyprovidersettings.html>`__
+    `KeyProviderSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-keyprovidersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1321,7 +1321,7 @@ class KeyProviderSettings(AWSProperty):
 
 class HlsGroupSettings(AWSProperty):
     """
-    `HlsGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsgroupsettings.html>`__
+    `HlsGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1373,7 +1373,7 @@ class HlsGroupSettings(AWSProperty):
 
 class MediaPackageGroupSettings(AWSProperty):
     """
-    `MediaPackageGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html>`__
+    `MediaPackageGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mediapackagegroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1383,7 +1383,7 @@ class MediaPackageGroupSettings(AWSProperty):
 
 class MsSmoothGroupSettings(AWSProperty):
     """
-    `MsSmoothGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mssmoothgroupsettings.html>`__
+    `MsSmoothGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mssmoothgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1411,7 +1411,7 @@ class MsSmoothGroupSettings(AWSProperty):
 
 class MultiplexGroupSettings(AWSProperty):
     """
-    `MultiplexGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html>`__
+    `MultiplexGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multiplexgroupsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -1419,7 +1419,7 @@ class MultiplexGroupSettings(AWSProperty):
 
 class RtmpGroupSettings(AWSProperty):
     """
-    `RtmpGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpgroupsettings.html>`__
+    `RtmpGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rtmpgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1436,7 +1436,7 @@ class RtmpGroupSettings(AWSProperty):
 
 class SrtGroupSettings(AWSProperty):
     """
-    `SrtGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtgroupsettings.html>`__
+    `SrtGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-srtgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1446,7 +1446,7 @@ class SrtGroupSettings(AWSProperty):
 
 class UdpGroupSettings(AWSProperty):
     """
-    `UdpGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpgroupsettings.html>`__
+    `UdpGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-udpgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1458,7 +1458,7 @@ class UdpGroupSettings(AWSProperty):
 
 class OutputGroupSettings(AWSProperty):
     """
-    `OutputGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html>`__
+    `OutputGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputgroupsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1477,7 +1477,7 @@ class OutputGroupSettings(AWSProperty):
 
 class OutputGroup(AWSProperty):
     """
-    `OutputGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroup.html>`__
+    `OutputGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -1489,7 +1489,7 @@ class OutputGroup(AWSProperty):
 
 class ThumbnailConfiguration(AWSProperty):
     """
-    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-thumbnailconfiguration.html>`__
+    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-thumbnailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1499,7 +1499,7 @@ class ThumbnailConfiguration(AWSProperty):
 
 class TimecodeConfig(AWSProperty):
     """
-    `TimecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeconfig.html>`__
+    `TimecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-timecodeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1510,7 +1510,7 @@ class TimecodeConfig(AWSProperty):
 
 class ColorSpacePassthroughSettings(AWSProperty):
     """
-    `ColorSpacePassthroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html>`__
+    `ColorSpacePassthroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-colorspacepassthroughsettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -1518,7 +1518,7 @@ class ColorSpacePassthroughSettings(AWSProperty):
 
 class Hdr10Settings(AWSProperty):
     """
-    `Hdr10Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hdr10settings.html>`__
+    `Hdr10Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hdr10settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1529,7 +1529,7 @@ class Hdr10Settings(AWSProperty):
 
 class Rec601Settings(AWSProperty):
     """
-    `Rec601Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec601settings.html>`__
+    `Rec601Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rec601settings.html>`__
     """
 
     props: PropsDictType = {}
@@ -1537,7 +1537,7 @@ class Rec601Settings(AWSProperty):
 
 class Rec709Settings(AWSProperty):
     """
-    `Rec709Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec709settings.html>`__
+    `Rec709Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-rec709settings.html>`__
     """
 
     props: PropsDictType = {}
@@ -1545,7 +1545,7 @@ class Rec709Settings(AWSProperty):
 
 class Av1ColorSpaceSettings(AWSProperty):
     """
-    `Av1ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html>`__
+    `Av1ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-av1colorspacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1558,7 +1558,7 @@ class Av1ColorSpaceSettings(AWSProperty):
 
 class TimecodeBurninSettings(AWSProperty):
     """
-    `TimecodeBurninSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html>`__
+    `TimecodeBurninSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-timecodeburninsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1570,7 +1570,7 @@ class TimecodeBurninSettings(AWSProperty):
 
 class Av1Settings(AWSProperty):
     """
-    `Av1Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html>`__
+    `Av1Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-av1settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1596,7 +1596,7 @@ class Av1Settings(AWSProperty):
 
 class FrameCaptureSettings(AWSProperty):
     """
-    `FrameCaptureSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html>`__
+    `FrameCaptureSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-framecapturesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1608,7 +1608,7 @@ class FrameCaptureSettings(AWSProperty):
 
 class H264ColorSpaceSettings(AWSProperty):
     """
-    `H264ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264colorspacesettings.html>`__
+    `H264ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h264colorspacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1620,7 +1620,7 @@ class H264ColorSpaceSettings(AWSProperty):
 
 class BandwidthReductionFilterSettings(AWSProperty):
     """
-    `BandwidthReductionFilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html>`__
+    `BandwidthReductionFilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1631,7 +1631,7 @@ class BandwidthReductionFilterSettings(AWSProperty):
 
 class TemporalFilterSettings(AWSProperty):
     """
-    `TemporalFilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-temporalfiltersettings.html>`__
+    `TemporalFilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-temporalfiltersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1642,7 +1642,7 @@ class TemporalFilterSettings(AWSProperty):
 
 class H264FilterSettings(AWSProperty):
     """
-    `H264FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html>`__
+    `H264FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h264filtersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1653,7 +1653,7 @@ class H264FilterSettings(AWSProperty):
 
 class H264Settings(AWSProperty):
     """
-    `H264Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html>`__
+    `H264Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h264settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1705,7 +1705,7 @@ class H264Settings(AWSProperty):
 
 class DolbyVision81Settings(AWSProperty):
     """
-    `DolbyVision81Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html>`__
+    `DolbyVision81Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dolbyvision81settings.html>`__
     """
 
     props: PropsDictType = {}
@@ -1713,7 +1713,7 @@ class DolbyVision81Settings(AWSProperty):
 
 class H265ColorSpaceSettings(AWSProperty):
     """
-    `H265ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html>`__
+    `H265ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h265colorspacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1727,7 +1727,7 @@ class H265ColorSpaceSettings(AWSProperty):
 
 class H265FilterSettings(AWSProperty):
     """
-    `H265FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html>`__
+    `H265FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h265filtersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1738,7 +1738,7 @@ class H265FilterSettings(AWSProperty):
 
 class H265Settings(AWSProperty):
     """
-    `H265Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html>`__
+    `H265Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-h265settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1785,7 +1785,7 @@ class H265Settings(AWSProperty):
 
 class Mpeg2FilterSettings(AWSProperty):
     """
-    `Mpeg2FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2filtersettings.html>`__
+    `Mpeg2FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mpeg2filtersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1795,7 +1795,7 @@ class Mpeg2FilterSettings(AWSProperty):
 
 class Mpeg2Settings(AWSProperty):
     """
-    `Mpeg2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mpeg2settings.html>`__
+    `Mpeg2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mpeg2settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1821,7 +1821,7 @@ class Mpeg2Settings(AWSProperty):
 
 class VideoCodecSettings(AWSProperty):
     """
-    `VideoCodecSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html>`__
+    `VideoCodecSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videocodecsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1835,7 +1835,7 @@ class VideoCodecSettings(AWSProperty):
 
 class VideoDescription(AWSProperty):
     """
-    `VideoDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html>`__
+    `VideoDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videodescription.html>`__
     """
 
     props: PropsDictType = {
@@ -1851,7 +1851,7 @@ class VideoDescription(AWSProperty):
 
 class EncoderSettings(AWSProperty):
     """
-    `EncoderSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-encodersettings.html>`__
+    `EncoderSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-encodersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1874,7 +1874,7 @@ class EncoderSettings(AWSProperty):
 
 class AudioSilenceFailoverSettings(AWSProperty):
     """
-    `AudioSilenceFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html>`__
+    `AudioSilenceFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiosilencefailoversettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1885,7 +1885,7 @@ class AudioSilenceFailoverSettings(AWSProperty):
 
 class InputLossFailoverSettings(AWSProperty):
     """
-    `InputLossFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputlossfailoversettings.html>`__
+    `InputLossFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputlossfailoversettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1895,7 +1895,7 @@ class InputLossFailoverSettings(AWSProperty):
 
 class VideoBlackFailoverSettings(AWSProperty):
     """
-    `VideoBlackFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoblackfailoversettings.html>`__
+    `VideoBlackFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoblackfailoversettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1906,7 +1906,7 @@ class VideoBlackFailoverSettings(AWSProperty):
 
 class FailoverConditionSettings(AWSProperty):
     """
-    `FailoverConditionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failoverconditionsettings.html>`__
+    `FailoverConditionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-failoverconditionsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1918,7 +1918,7 @@ class FailoverConditionSettings(AWSProperty):
 
 class FailoverCondition(AWSProperty):
     """
-    `FailoverCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-failovercondition.html>`__
+    `FailoverCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-failovercondition.html>`__
     """
 
     props: PropsDictType = {
@@ -1928,7 +1928,7 @@ class FailoverCondition(AWSProperty):
 
 class AutomaticInputFailoverSettings(AWSProperty):
     """
-    `AutomaticInputFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-automaticinputfailoversettings.html>`__
+    `AutomaticInputFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-automaticinputfailoversettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1941,7 +1941,7 @@ class AutomaticInputFailoverSettings(AWSProperty):
 
 class AudioHlsRenditionSelection(AWSProperty):
     """
-    `AudioHlsRenditionSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html>`__
+    `AudioHlsRenditionSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiohlsrenditionselection.html>`__
     """
 
     props: PropsDictType = {
@@ -1952,7 +1952,7 @@ class AudioHlsRenditionSelection(AWSProperty):
 
 class AudioLanguageSelection(AWSProperty):
     """
-    `AudioLanguageSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiolanguageselection.html>`__
+    `AudioLanguageSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiolanguageselection.html>`__
     """
 
     props: PropsDictType = {
@@ -1963,7 +1963,7 @@ class AudioLanguageSelection(AWSProperty):
 
 class AudioPidSelection(AWSProperty):
     """
-    `AudioPidSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html>`__
+    `AudioPidSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiopidselection.html>`__
     """
 
     props: PropsDictType = {
@@ -1973,7 +1973,7 @@ class AudioPidSelection(AWSProperty):
 
 class AudioDolbyEDecode(AWSProperty):
     """
-    `AudioDolbyEDecode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html>`__
+    `AudioDolbyEDecode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiodolbyedecode.html>`__
     """
 
     props: PropsDictType = {
@@ -1983,7 +1983,7 @@ class AudioDolbyEDecode(AWSProperty):
 
 class AudioTrack(AWSProperty):
     """
-    `AudioTrack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html>`__
+    `AudioTrack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiotrack.html>`__
     """
 
     props: PropsDictType = {
@@ -1993,7 +1993,7 @@ class AudioTrack(AWSProperty):
 
 class AudioTrackSelection(AWSProperty):
     """
-    `AudioTrackSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrackselection.html>`__
+    `AudioTrackSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audiotrackselection.html>`__
     """
 
     props: PropsDictType = {
@@ -2004,7 +2004,7 @@ class AudioTrackSelection(AWSProperty):
 
 class AudioSelectorSettings(AWSProperty):
     """
-    `AudioSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselectorsettings.html>`__
+    `AudioSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audioselectorsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2017,7 +2017,7 @@ class AudioSelectorSettings(AWSProperty):
 
 class AudioSelector(AWSProperty):
     """
-    `AudioSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audioselector.html>`__
+    `AudioSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-audioselector.html>`__
     """
 
     props: PropsDictType = {
@@ -2028,7 +2028,7 @@ class AudioSelector(AWSProperty):
 
 class AncillarySourceSettings(AWSProperty):
     """
-    `AncillarySourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html>`__
+    `AncillarySourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-ancillarysourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2038,7 +2038,7 @@ class AncillarySourceSettings(AWSProperty):
 
 class AribSourceSettings(AWSProperty):
     """
-    `AribSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribsourcesettings.html>`__
+    `AribSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-aribsourcesettings.html>`__
     """
 
     props: PropsDictType = {}
@@ -2046,7 +2046,7 @@ class AribSourceSettings(AWSProperty):
 
 class DvbSubSourceSettings(AWSProperty):
     """
-    `DvbSubSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubsourcesettings.html>`__
+    `DvbSubSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-dvbsubsourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2057,7 +2057,7 @@ class DvbSubSourceSettings(AWSProperty):
 
 class EmbeddedSourceSettings(AWSProperty):
     """
-    `EmbeddedSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html>`__
+    `EmbeddedSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-embeddedsourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2070,7 +2070,7 @@ class EmbeddedSourceSettings(AWSProperty):
 
 class Scte20SourceSettings(AWSProperty):
     """
-    `Scte20SourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20sourcesettings.html>`__
+    `Scte20SourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte20sourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2081,7 +2081,7 @@ class Scte20SourceSettings(AWSProperty):
 
 class Scte27SourceSettings(AWSProperty):
     """
-    `Scte27SourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27sourcesettings.html>`__
+    `Scte27SourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-scte27sourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2092,7 +2092,7 @@ class Scte27SourceSettings(AWSProperty):
 
 class CaptionRectangle(AWSProperty):
     """
-    `CaptionRectangle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html>`__
+    `CaptionRectangle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captionrectangle.html>`__
     """
 
     props: PropsDictType = {
@@ -2105,7 +2105,7 @@ class CaptionRectangle(AWSProperty):
 
 class TeletextSourceSettings(AWSProperty):
     """
-    `TeletextSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextsourcesettings.html>`__
+    `TeletextSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-teletextsourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2116,7 +2116,7 @@ class TeletextSourceSettings(AWSProperty):
 
 class CaptionSelectorSettings(AWSProperty):
     """
-    `CaptionSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html>`__
+    `CaptionSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captionselectorsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2132,7 +2132,7 @@ class CaptionSelectorSettings(AWSProperty):
 
 class CaptionSelector(AWSProperty):
     """
-    `CaptionSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselector.html>`__
+    `CaptionSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-captionselector.html>`__
     """
 
     props: PropsDictType = {
@@ -2144,7 +2144,7 @@ class CaptionSelector(AWSProperty):
 
 class HlsInputSettings(AWSProperty):
     """
-    `HlsInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsinputsettings.html>`__
+    `HlsInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-hlsinputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2158,7 +2158,7 @@ class HlsInputSettings(AWSProperty):
 
 class MulticastInputSettings(AWSProperty):
     """
-    `MulticastInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multicastinputsettings.html>`__
+    `MulticastInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multicastinputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2168,7 +2168,7 @@ class MulticastInputSettings(AWSProperty):
 
 class NetworkInputSettings(AWSProperty):
     """
-    `NetworkInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-networkinputsettings.html>`__
+    `NetworkInputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-networkinputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2180,7 +2180,7 @@ class NetworkInputSettings(AWSProperty):
 
 class VideoSelectorColorSpaceSettings(AWSProperty):
     """
-    `VideoSelectorColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorcolorspacesettings.html>`__
+    `VideoSelectorColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoselectorcolorspacesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2190,7 +2190,7 @@ class VideoSelectorColorSpaceSettings(AWSProperty):
 
 class VideoSelectorPid(AWSProperty):
     """
-    `VideoSelectorPid <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorpid.html>`__
+    `VideoSelectorPid <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoselectorpid.html>`__
     """
 
     props: PropsDictType = {
@@ -2200,7 +2200,7 @@ class VideoSelectorPid(AWSProperty):
 
 class VideoSelectorProgramId(AWSProperty):
     """
-    `VideoSelectorProgramId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorprogramid.html>`__
+    `VideoSelectorProgramId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoselectorprogramid.html>`__
     """
 
     props: PropsDictType = {
@@ -2210,7 +2210,7 @@ class VideoSelectorProgramId(AWSProperty):
 
 class VideoSelectorSettings(AWSProperty):
     """
-    `VideoSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselectorsettings.html>`__
+    `VideoSelectorSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoselectorsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2221,7 +2221,7 @@ class VideoSelectorSettings(AWSProperty):
 
 class VideoSelector(AWSProperty):
     """
-    `VideoSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videoselector.html>`__
+    `VideoSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-videoselector.html>`__
     """
 
     props: PropsDictType = {
@@ -2234,7 +2234,7 @@ class VideoSelector(AWSProperty):
 
 class InputSettings(AWSProperty):
     """
-    `InputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html>`__
+    `InputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2254,7 +2254,7 @@ class InputSettings(AWSProperty):
 
 class InputAttachment(AWSProperty):
     """
-    `InputAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html>`__
+    `InputAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputattachment.html>`__
     """
 
     props: PropsDictType = {
@@ -2268,7 +2268,7 @@ class InputAttachment(AWSProperty):
 
 class InputSpecification(AWSProperty):
     """
-    `InputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputspecification.html>`__
+    `InputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-inputspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2280,7 +2280,7 @@ class InputSpecification(AWSProperty):
 
 class MaintenanceCreateSettings(AWSProperty):
     """
-    `MaintenanceCreateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html>`__
+    `MaintenanceCreateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-maintenancecreatesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2291,7 +2291,7 @@ class MaintenanceCreateSettings(AWSProperty):
 
 class MediaPackageOutputDestinationSettings(AWSProperty):
     """
-    `MediaPackageOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html>`__
+    `MediaPackageOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2303,7 +2303,7 @@ class MediaPackageOutputDestinationSettings(AWSProperty):
 
 class MultiplexProgramChannelDestinationSettings(AWSProperty):
     """
-    `MultiplexProgramChannelDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html>`__
+    `MultiplexProgramChannelDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-multiplexprogramchanneldestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2314,7 +2314,7 @@ class MultiplexProgramChannelDestinationSettings(AWSProperty):
 
 class OutputDestinationSettings(AWSProperty):
     """
-    `OutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestinationsettings.html>`__
+    `OutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2327,7 +2327,7 @@ class OutputDestinationSettings(AWSProperty):
 
 class SrtOutputDestinationSettings(AWSProperty):
     """
-    `SrtOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html>`__
+    `SrtOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-srtoutputdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2339,7 +2339,7 @@ class SrtOutputDestinationSettings(AWSProperty):
 
 class OutputDestination(AWSProperty):
     """
-    `OutputDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html>`__
+    `OutputDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-outputdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -2353,7 +2353,7 @@ class OutputDestination(AWSProperty):
 
 class VpcOutputSettings(AWSProperty):
     """
-    `VpcOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-vpcoutputsettings.html>`__
+    `VpcOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-vpcoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2365,7 +2365,7 @@ class VpcOutputSettings(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-channel.html>`__
     """
 
     resource_type = "AWS::MediaLive::Channel"
@@ -2391,7 +2391,7 @@ class Channel(AWSObject):
 
 class ChannelPlacementGroup(AWSObject):
     """
-    `ChannelPlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html>`__
+    `ChannelPlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-channelplacementgroup.html>`__
     """
 
     resource_type = "AWS::MediaLive::ChannelPlacementGroup"
@@ -2406,7 +2406,7 @@ class ChannelPlacementGroup(AWSObject):
 
 class CloudWatchAlarmTemplate(AWSObject):
     """
-    `CloudWatchAlarmTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html>`__
+    `CloudWatchAlarmTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-cloudwatchalarmtemplate.html>`__
     """
 
     resource_type = "AWS::MediaLive::CloudWatchAlarmTemplate"
@@ -2430,7 +2430,7 @@ class CloudWatchAlarmTemplate(AWSObject):
 
 class CloudWatchAlarmTemplateGroup(AWSObject):
     """
-    `CloudWatchAlarmTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html>`__
+    `CloudWatchAlarmTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-cloudwatchalarmtemplategroup.html>`__
     """
 
     resource_type = "AWS::MediaLive::CloudWatchAlarmTemplateGroup"
@@ -2444,7 +2444,7 @@ class CloudWatchAlarmTemplateGroup(AWSObject):
 
 class InterfaceMapping(AWSProperty):
     """
-    `InterfaceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-interfacemapping.html>`__
+    `InterfaceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-cluster-interfacemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -2455,7 +2455,7 @@ class InterfaceMapping(AWSProperty):
 
 class ClusterNetworkSettings(AWSProperty):
     """
-    `ClusterNetworkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-clusternetworksettings.html>`__
+    `ClusterNetworkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-cluster-clusternetworksettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2466,7 +2466,7 @@ class ClusterNetworkSettings(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-cluster.html>`__
     """
 
     resource_type = "AWS::MediaLive::Cluster"
@@ -2482,7 +2482,7 @@ class Cluster(AWSObject):
 
 class EventBridgeRuleTemplateTarget(AWSProperty):
     """
-    `EventBridgeRuleTemplateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget.html>`__
+    `EventBridgeRuleTemplateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -2492,7 +2492,7 @@ class EventBridgeRuleTemplateTarget(AWSProperty):
 
 class EventBridgeRuleTemplate(AWSObject):
     """
-    `EventBridgeRuleTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html>`__
+    `EventBridgeRuleTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-eventbridgeruletemplate.html>`__
     """
 
     resource_type = "AWS::MediaLive::EventBridgeRuleTemplate"
@@ -2509,7 +2509,7 @@ class EventBridgeRuleTemplate(AWSObject):
 
 class EventBridgeRuleTemplateGroup(AWSObject):
     """
-    `EventBridgeRuleTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplategroup.html>`__
+    `EventBridgeRuleTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-eventbridgeruletemplategroup.html>`__
     """
 
     resource_type = "AWS::MediaLive::EventBridgeRuleTemplateGroup"
@@ -2523,7 +2523,7 @@ class EventBridgeRuleTemplateGroup(AWSObject):
 
 class InputRequestDestinationRoute(AWSProperty):
     """
-    `InputRequestDestinationRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputrequestdestinationroute.html>`__
+    `InputRequestDestinationRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputrequestdestinationroute.html>`__
     """
 
     props: PropsDictType = {
@@ -2534,7 +2534,7 @@ class InputRequestDestinationRoute(AWSProperty):
 
 class InputDestinationRequest(AWSProperty):
     """
-    `InputDestinationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html>`__
+    `InputDestinationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputdestinationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2547,7 +2547,7 @@ class InputDestinationRequest(AWSProperty):
 
 class InputDeviceSettings(AWSProperty):
     """
-    `InputDeviceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicesettings.html>`__
+    `InputDeviceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputdevicesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2557,7 +2557,7 @@ class InputDeviceSettings(AWSProperty):
 
 class InputSourceRequest(AWSProperty):
     """
-    `InputSourceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html>`__
+    `InputSourceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputsourcerequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2569,7 +2569,7 @@ class InputSourceRequest(AWSProperty):
 
 class InputVpcRequest(AWSProperty):
     """
-    `InputVpcRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputvpcrequest.html>`__
+    `InputVpcRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputvpcrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2580,7 +2580,7 @@ class InputVpcRequest(AWSProperty):
 
 class MediaConnectFlowRequest(AWSProperty):
     """
-    `MediaConnectFlowRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-mediaconnectflowrequest.html>`__
+    `MediaConnectFlowRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-mediaconnectflowrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2590,7 +2590,7 @@ class MediaConnectFlowRequest(AWSProperty):
 
 class MulticastSourceCreateRequest(AWSProperty):
     """
-    `MulticastSourceCreateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourcecreaterequest.html>`__
+    `MulticastSourceCreateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-multicastsourcecreaterequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2601,7 +2601,7 @@ class MulticastSourceCreateRequest(AWSProperty):
 
 class MulticastSettingsCreateRequest(AWSProperty):
     """
-    `MulticastSettingsCreateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsettingscreaterequest.html>`__
+    `MulticastSettingsCreateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-multicastsettingscreaterequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2611,7 +2611,7 @@ class MulticastSettingsCreateRequest(AWSProperty):
 
 class SrtCallerDecryptionRequest(AWSProperty):
     """
-    `SrtCallerDecryptionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallerdecryptionrequest.html>`__
+    `SrtCallerDecryptionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-srtcallerdecryptionrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2622,7 +2622,7 @@ class SrtCallerDecryptionRequest(AWSProperty):
 
 class SrtCallerSourceRequest(AWSProperty):
     """
-    `SrtCallerSourceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html>`__
+    `SrtCallerSourceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-srtcallersourcerequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2636,7 +2636,7 @@ class SrtCallerSourceRequest(AWSProperty):
 
 class SrtSettingsRequest(AWSProperty):
     """
-    `SrtSettingsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html>`__
+    `SrtSettingsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-srtsettingsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2646,7 +2646,7 @@ class SrtSettingsRequest(AWSProperty):
 
 class Input(AWSObject):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-input.html>`__
     """
 
     resource_type = "AWS::MediaLive::Input"
@@ -2670,7 +2670,7 @@ class Input(AWSObject):
 
 class InputWhitelistRuleCidr(AWSProperty):
     """
-    `InputWhitelistRuleCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html>`__
+    `InputWhitelistRuleCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html>`__
     """
 
     props: PropsDictType = {
@@ -2680,7 +2680,7 @@ class InputWhitelistRuleCidr(AWSProperty):
 
 class InputSecurityGroup(AWSObject):
     """
-    `InputSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-inputsecuritygroup.html>`__
+    `InputSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-inputsecuritygroup.html>`__
     """
 
     resource_type = "AWS::MediaLive::InputSecurityGroup"
@@ -2693,7 +2693,7 @@ class InputSecurityGroup(AWSObject):
 
 class MultiplexMediaConnectOutputDestinationSettings(AWSProperty):
     """
-    `MultiplexMediaConnectOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexmediaconnectoutputdestinationsettings.html>`__
+    `MultiplexMediaConnectOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplex-multiplexmediaconnectoutputdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2703,7 +2703,7 @@ class MultiplexMediaConnectOutputDestinationSettings(AWSProperty):
 
 class MultiplexOutputDestination(AWSProperty):
     """
-    `MultiplexOutputDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexoutputdestination.html>`__
+    `MultiplexOutputDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplex-multiplexoutputdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -2716,7 +2716,7 @@ class MultiplexOutputDestination(AWSProperty):
 
 class MultiplexSettings(AWSProperty):
     """
-    `MultiplexSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplex-multiplexsettings.html>`__
+    `MultiplexSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplex-multiplexsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2729,7 +2729,7 @@ class MultiplexSettings(AWSProperty):
 
 class Multiplex(AWSObject):
     """
-    `Multiplex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html>`__
+    `Multiplex <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-multiplex.html>`__
     """
 
     resource_type = "AWS::MediaLive::Multiplex"
@@ -2745,7 +2745,7 @@ class Multiplex(AWSObject):
 
 class MultiplexProgramPacketIdentifiersMap(AWSProperty):
     """
-    `MultiplexProgramPacketIdentifiersMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html>`__
+    `MultiplexProgramPacketIdentifiersMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexprogrampacketidentifiersmap.html>`__
     """
 
     props: PropsDictType = {
@@ -2767,7 +2767,7 @@ class MultiplexProgramPacketIdentifiersMap(AWSProperty):
 
 class MultiplexProgramPipelineDetail(AWSProperty):
     """
-    `MultiplexProgramPipelineDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogrampipelinedetail.html>`__
+    `MultiplexProgramPipelineDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexprogrampipelinedetail.html>`__
     """
 
     props: PropsDictType = {
@@ -2778,7 +2778,7 @@ class MultiplexProgramPipelineDetail(AWSProperty):
 
 class MultiplexProgramServiceDescriptor(AWSProperty):
     """
-    `MultiplexProgramServiceDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramservicedescriptor.html>`__
+    `MultiplexProgramServiceDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexprogramservicedescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -2789,7 +2789,7 @@ class MultiplexProgramServiceDescriptor(AWSProperty):
 
 class MultiplexStatmuxVideoSettings(AWSProperty):
     """
-    `MultiplexStatmuxVideoSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexstatmuxvideosettings.html>`__
+    `MultiplexStatmuxVideoSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexstatmuxvideosettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2801,7 +2801,7 @@ class MultiplexStatmuxVideoSettings(AWSProperty):
 
 class MultiplexVideoSettings(AWSProperty):
     """
-    `MultiplexVideoSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html>`__
+    `MultiplexVideoSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2812,7 +2812,7 @@ class MultiplexVideoSettings(AWSProperty):
 
 class MultiplexProgramSettings(AWSProperty):
     """
-    `MultiplexProgramSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html>`__
+    `MultiplexProgramSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-multiplexprogram-multiplexprogramsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2825,7 +2825,7 @@ class MultiplexProgramSettings(AWSProperty):
 
 class Multiplexprogram(AWSObject):
     """
-    `Multiplexprogram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html>`__
+    `Multiplexprogram <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-multiplexprogram.html>`__
     """
 
     resource_type = "AWS::MediaLive::Multiplexprogram"
@@ -2842,7 +2842,7 @@ class Multiplexprogram(AWSObject):
 
 class IpPool(AWSProperty):
     """
-    `IpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-ippool.html>`__
+    `IpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-network-ippool.html>`__
     """
 
     props: PropsDictType = {
@@ -2852,7 +2852,7 @@ class IpPool(AWSProperty):
 
 class Route(AWSProperty):
     """
-    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-route.html>`__
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-network-route.html>`__
     """
 
     props: PropsDictType = {
@@ -2863,7 +2863,7 @@ class Route(AWSProperty):
 
 class Network(AWSObject):
     """
-    `Network <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html>`__
+    `Network <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-network.html>`__
     """
 
     resource_type = "AWS::MediaLive::Network"
@@ -2878,7 +2878,7 @@ class Network(AWSObject):
 
 class SdiSource(AWSObject):
     """
-    `SdiSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html>`__
+    `SdiSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-sdisource.html>`__
     """
 
     resource_type = "AWS::MediaLive::SdiSource"
@@ -2893,7 +2893,7 @@ class SdiSource(AWSObject):
 
 class SignalMap(AWSObject):
     """
-    `SignalMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html>`__
+    `SignalMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-medialive-signalmap.html>`__
     """
 
     resource_type = "AWS::MediaLive::SignalMap"
@@ -2911,7 +2911,7 @@ class SignalMap(AWSObject):
 
 class InputDeviceRequest(AWSProperty):
     """
-    `InputDeviceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html>`__
+    `InputDeviceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-inputdevicerequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2921,7 +2921,7 @@ class InputDeviceRequest(AWSProperty):
 
 class MaintenanceUpdateSettings(AWSProperty):
     """
-    `MaintenanceUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenanceupdatesettings.html>`__
+    `MaintenanceUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-channel-maintenanceupdatesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2933,7 +2933,7 @@ class MaintenanceUpdateSettings(AWSProperty):
 
 class MediaResourceNeighbor(AWSProperty):
     """
-    `MediaResourceNeighbor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresourceneighbor.html>`__
+    `MediaResourceNeighbor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-signalmap-mediaresourceneighbor.html>`__
     """
 
     props: PropsDictType = {
@@ -2944,7 +2944,7 @@ class MediaResourceNeighbor(AWSProperty):
 
 class MediaResource(AWSProperty):
     """
-    `MediaResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html>`__
+    `MediaResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-signalmap-mediaresource.html>`__
     """
 
     props: PropsDictType = {
@@ -2956,7 +2956,7 @@ class MediaResource(AWSProperty):
 
 class MonitorDeployment(AWSProperty):
     """
-    `MonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-monitordeployment.html>`__
+    `MonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-signalmap-monitordeployment.html>`__
     """
 
     props: PropsDictType = {
@@ -2968,7 +2968,7 @@ class MonitorDeployment(AWSProperty):
 
 class MulticastSourceUpdateRequest(AWSProperty):
     """
-    `MulticastSourceUpdateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourceupdaterequest.html>`__
+    `MulticastSourceUpdateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-multicastsourceupdaterequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2979,7 +2979,7 @@ class MulticastSourceUpdateRequest(AWSProperty):
 
 class MulticastSettingsUpdateRequest(AWSProperty):
     """
-    `MulticastSettingsUpdateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsettingsupdaterequest.html>`__
+    `MulticastSettingsUpdateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-input-multicastsettingsupdaterequest.html>`__
     """
 
     props: PropsDictType = {
@@ -2989,7 +2989,7 @@ class MulticastSettingsUpdateRequest(AWSProperty):
 
 class SuccessfulMonitorDeployment(AWSProperty):
     """
-    `SuccessfulMonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html>`__
+    `SuccessfulMonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-medialive-signalmap-successfulmonitordeployment.html>`__
     """
 
     props: PropsDictType = {

@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class EnvironmentAccountConnection(AWSObject):
     """
-    `EnvironmentAccountConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmentaccountconnection.html>`__
+    `EnvironmentAccountConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-proton-environmentaccountconnection.html>`__
     """
 
     resource_type = "AWS::Proton::EnvironmentAccountConnection"
@@ -29,7 +29,7 @@ class EnvironmentAccountConnection(AWSObject):
 
 class EnvironmentTemplate(AWSObject):
     """
-    `EnvironmentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmenttemplate.html>`__
+    `EnvironmentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-proton-environmenttemplate.html>`__
     """
 
     resource_type = "AWS::Proton::EnvironmentTemplate"
@@ -46,7 +46,7 @@ class EnvironmentTemplate(AWSObject):
 
 class ServiceTemplate(AWSObject):
     """
-    `ServiceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-servicetemplate.html>`__
+    `ServiceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-proton-servicetemplate.html>`__
     """
 
     resource_type = "AWS::Proton::ServiceTemplate"

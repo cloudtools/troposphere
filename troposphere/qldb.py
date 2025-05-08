@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Ledger(AWSObject):
     """
-    `Ledger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-ledger.html>`__
+    `Ledger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qldb-ledger.html>`__
     """
 
     resource_type = "AWS::QLDB::Ledger"
@@ -28,7 +28,7 @@ class Ledger(AWSObject):
 
 class KinesisConfiguration(AWSProperty):
     """
-    `KinesisConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html>`__
+    `KinesisConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qldb-stream-kinesisconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class KinesisConfiguration(AWSProperty):
 
 class Stream(AWSObject):
     """
-    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html>`__
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qldb-stream.html>`__
     """
 
     resource_type = "AWS::QLDB::Stream"

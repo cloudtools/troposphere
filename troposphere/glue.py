@@ -20,7 +20,7 @@ from .validators.glue import (
 
 class CsvClassifier(AWSProperty):
     """
-    `CsvClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html>`__
+    `CsvClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-classifier-csvclassifier.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class CsvClassifier(AWSProperty):
 
 class GrokClassifier(AWSProperty):
     """
-    `GrokClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html>`__
+    `GrokClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-classifier-grokclassifier.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class GrokClassifier(AWSProperty):
 
 class JsonClassifier(AWSProperty):
     """
-    `JsonClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html>`__
+    `JsonClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-classifier-jsonclassifier.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class JsonClassifier(AWSProperty):
 
 class XMLClassifier(AWSProperty):
     """
-    `XMLClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html>`__
+    `XMLClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-classifier-xmlclassifier.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class XMLClassifier(AWSProperty):
 
 class Classifier(AWSObject):
     """
-    `Classifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html>`__
+    `Classifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-classifier.html>`__
     """
 
     resource_type = "AWS::Glue::Classifier"
@@ -89,7 +89,7 @@ class Classifier(AWSObject):
 
 class BasicAuthenticationCredentials(AWSProperty):
     """
-    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-basicauthenticationcredentials.html>`__
+    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-basicauthenticationcredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class BasicAuthenticationCredentials(AWSProperty):
 
 class AuthorizationCodeProperties(AWSProperty):
     """
-    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authorizationcodeproperties.html>`__
+    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-authorizationcodeproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class AuthorizationCodeProperties(AWSProperty):
 
 class OAuth2ClientApplication(AWSProperty):
     """
-    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2clientapplication.html>`__
+    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-oauth2clientapplication.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class OAuth2ClientApplication(AWSProperty):
 
 class OAuth2Credentials(AWSProperty):
     """
-    `OAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2credentials.html>`__
+    `OAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-oauth2credentials.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class OAuth2Credentials(AWSProperty):
 
 class OAuth2PropertiesInput(AWSProperty):
     """
-    `OAuth2PropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2propertiesinput.html>`__
+    `OAuth2PropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-oauth2propertiesinput.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class OAuth2PropertiesInput(AWSProperty):
 
 class AuthenticationConfigurationInput(AWSProperty):
     """
-    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authenticationconfigurationinput.html>`__
+    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-authenticationconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class AuthenticationConfigurationInput(AWSProperty):
 
 class PhysicalConnectionRequirements(AWSProperty):
     """
-    `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html>`__
+    `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-physicalconnectionrequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class PhysicalConnectionRequirements(AWSProperty):
 
 class ConnectionInput(AWSProperty):
     """
-    `ConnectionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html>`__
+    `ConnectionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-connection-connectioninput.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class ConnectionInput(AWSProperty):
 
 class Connection(AWSObject):
     """
-    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html>`__
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-connection.html>`__
     """
 
     resource_type = "AWS::Glue::Connection"
@@ -211,7 +211,7 @@ class Connection(AWSObject):
 
 class LakeFormationConfiguration(AWSProperty):
     """
-    `LakeFormationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-lakeformationconfiguration.html>`__
+    `LakeFormationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-lakeformationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class LakeFormationConfiguration(AWSProperty):
 
 class RecrawlPolicy(AWSProperty):
     """
-    `RecrawlPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html>`__
+    `RecrawlPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-recrawlpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -232,7 +232,7 @@ class RecrawlPolicy(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class Schedule(AWSProperty):
 
 class SchemaChangePolicy(AWSProperty):
     """
-    `SchemaChangePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html>`__
+    `SchemaChangePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-schemachangepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -253,7 +253,7 @@ class SchemaChangePolicy(AWSProperty):
 
 class CatalogTarget(AWSProperty):
     """
-    `CatalogTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html>`__
+    `CatalogTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-catalogtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class CatalogTarget(AWSProperty):
 
 class DeltaTarget(AWSProperty):
     """
-    `DeltaTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html>`__
+    `DeltaTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-deltatarget.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class DeltaTarget(AWSProperty):
 
 class DynamoDBTarget(AWSProperty):
     """
-    `DynamoDBTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html>`__
+    `DynamoDBTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-dynamodbtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -290,7 +290,7 @@ class DynamoDBTarget(AWSProperty):
 
 class HudiTarget(AWSProperty):
     """
-    `HudiTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-huditarget.html>`__
+    `HudiTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-huditarget.html>`__
     """
 
     props: PropsDictType = {
@@ -303,7 +303,7 @@ class HudiTarget(AWSProperty):
 
 class IcebergTarget(AWSProperty):
     """
-    `IcebergTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html>`__
+    `IcebergTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-icebergtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class IcebergTarget(AWSProperty):
 
 class JdbcTarget(AWSProperty):
     """
-    `JdbcTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html>`__
+    `JdbcTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-jdbctarget.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class JdbcTarget(AWSProperty):
 
 class MongoDBTarget(AWSProperty):
     """
-    `MongoDBTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-mongodbtarget.html>`__
+    `MongoDBTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-mongodbtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -340,7 +340,7 @@ class MongoDBTarget(AWSProperty):
 
 class S3Target(AWSProperty):
     """
-    `S3Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html>`__
+    `S3Target <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-s3target.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +355,7 @@ class S3Target(AWSProperty):
 
 class Targets(AWSProperty):
     """
-    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html>`__
+    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-crawler-targets.html>`__
     """
 
     props: PropsDictType = {
@@ -372,7 +372,7 @@ class Targets(AWSProperty):
 
 class Crawler(AWSObject):
     """
-    `Crawler <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html>`__
+    `Crawler <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-crawler.html>`__
     """
 
     resource_type = "AWS::Glue::Crawler"
@@ -397,7 +397,7 @@ class Crawler(AWSObject):
 
 class CustomEntityType(AWSObject):
     """
-    `CustomEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html>`__
+    `CustomEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-customentitytype.html>`__
     """
 
     resource_type = "AWS::Glue::CustomEntityType"
@@ -412,7 +412,7 @@ class CustomEntityType(AWSObject):
 
 class ConnectionPasswordEncryption(AWSProperty):
     """
-    `ConnectionPasswordEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html>`__
+    `ConnectionPasswordEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class ConnectionPasswordEncryption(AWSProperty):
 
 class EncryptionAtRest(AWSProperty):
     """
-    `EncryptionAtRest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html>`__
+    `EncryptionAtRest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html>`__
     """
 
     props: PropsDictType = {
@@ -435,7 +435,7 @@ class EncryptionAtRest(AWSProperty):
 
 class DataCatalogEncryptionSettingsProperty(AWSProperty):
     """
-    `DataCatalogEncryptionSettingsProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html>`__
+    `DataCatalogEncryptionSettingsProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -446,7 +446,7 @@ class DataCatalogEncryptionSettingsProperty(AWSProperty):
 
 class DataCatalogEncryptionSettings(AWSObject):
     """
-    `DataCatalogEncryptionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html>`__
+    `DataCatalogEncryptionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-datacatalogencryptionsettings.html>`__
     """
 
     resource_type = "AWS::Glue::DataCatalogEncryptionSettings"
@@ -459,7 +459,7 @@ class DataCatalogEncryptionSettings(AWSObject):
 
 class DataQualityTargetTable(AWSProperty):
     """
-    `DataQualityTargetTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-dataqualityruleset-dataqualitytargettable.html>`__
+    `DataQualityTargetTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-dataqualityruleset-dataqualitytargettable.html>`__
     """
 
     props: PropsDictType = {
@@ -470,7 +470,7 @@ class DataQualityTargetTable(AWSProperty):
 
 class DataQualityRuleset(AWSObject):
     """
-    `DataQualityRuleset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-dataqualityruleset.html>`__
+    `DataQualityRuleset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-dataqualityruleset.html>`__
     """
 
     resource_type = "AWS::Glue::DataQualityRuleset"
@@ -487,7 +487,7 @@ class DataQualityRuleset(AWSObject):
 
 class DatabaseIdentifier(AWSProperty):
     """
-    `DatabaseIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html>`__
+    `DatabaseIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-database-databaseidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -499,7 +499,7 @@ class DatabaseIdentifier(AWSProperty):
 
 class FederatedDatabase(AWSProperty):
     """
-    `FederatedDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html>`__
+    `FederatedDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-database-federateddatabase.html>`__
     """
 
     props: PropsDictType = {
@@ -510,7 +510,7 @@ class FederatedDatabase(AWSProperty):
 
 class DataLakePrincipal(AWSProperty):
     """
-    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html>`__
+    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-database-datalakeprincipal.html>`__
     """
 
     props: PropsDictType = {
@@ -520,7 +520,7 @@ class DataLakePrincipal(AWSProperty):
 
 class PrincipalPrivileges(AWSProperty):
     """
-    `PrincipalPrivileges <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html>`__
+    `PrincipalPrivileges <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-database-principalprivileges.html>`__
     """
 
     props: PropsDictType = {
@@ -531,7 +531,7 @@ class PrincipalPrivileges(AWSProperty):
 
 class DatabaseInput(AWSProperty):
     """
-    `DatabaseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html>`__
+    `DatabaseInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-database-databaseinput.html>`__
     """
 
     props: PropsDictType = {
@@ -547,7 +547,7 @@ class DatabaseInput(AWSProperty):
 
 class Database(AWSObject):
     """
-    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html>`__
+    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-database.html>`__
     """
 
     resource_type = "AWS::Glue::Database"
@@ -561,7 +561,7 @@ class Database(AWSObject):
 
 class DevEndpoint(AWSObject):
     """
-    `DevEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html>`__
+    `DevEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-devendpoint.html>`__
     """
 
     resource_type = "AWS::Glue::DevEndpoint"
@@ -587,7 +587,7 @@ class DevEndpoint(AWSObject):
 
 class ConnectionsList(AWSProperty):
     """
-    `ConnectionsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html>`__
+    `ConnectionsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-job-connectionslist.html>`__
     """
 
     props: PropsDictType = {
@@ -597,7 +597,7 @@ class ConnectionsList(AWSProperty):
 
 class ExecutionProperty(AWSProperty):
     """
-    `ExecutionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html>`__
+    `ExecutionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-job-executionproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -607,7 +607,7 @@ class ExecutionProperty(AWSProperty):
 
 class JobCommand(AWSProperty):
     """
-    `JobCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html>`__
+    `JobCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-job-jobcommand.html>`__
     """
 
     props: PropsDictType = {
@@ -620,7 +620,7 @@ class JobCommand(AWSProperty):
 
 class NotificationProperty(AWSProperty):
     """
-    `NotificationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html>`__
+    `NotificationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-trigger-notificationproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -630,7 +630,7 @@ class NotificationProperty(AWSProperty):
 
 class Job(AWSObject):
     """
-    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html>`__
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-job.html>`__
     """
 
     resource_type = "AWS::Glue::Job"
@@ -664,7 +664,7 @@ class Job(AWSObject):
 
 class GlueTables(AWSProperty):
     """
-    `GlueTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html>`__
+    `GlueTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-inputrecordtables-gluetables.html>`__
     """
 
     props: PropsDictType = {
@@ -677,7 +677,7 @@ class GlueTables(AWSProperty):
 
 class InputRecordTables(AWSProperty):
     """
-    `InputRecordTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html>`__
+    `InputRecordTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-inputrecordtables.html>`__
     """
 
     props: PropsDictType = {
@@ -687,7 +687,7 @@ class InputRecordTables(AWSProperty):
 
 class MLUserDataEncryption(AWSProperty):
     """
-    `MLUserDataEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html>`__
+    `MLUserDataEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -698,7 +698,7 @@ class MLUserDataEncryption(AWSProperty):
 
 class TransformEncryption(AWSProperty):
     """
-    `TransformEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html>`__
+    `TransformEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-transformencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -709,7 +709,7 @@ class TransformEncryption(AWSProperty):
 
 class FindMatchesParameters(AWSProperty):
     """
-    `FindMatchesParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html>`__
+    `FindMatchesParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -722,7 +722,7 @@ class FindMatchesParameters(AWSProperty):
 
 class TransformParameters(AWSProperty):
     """
-    `TransformParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html>`__
+    `TransformParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-mltransform-transformparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -733,7 +733,7 @@ class TransformParameters(AWSProperty):
 
 class MLTransform(AWSObject):
     """
-    `MLTransform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html>`__
+    `MLTransform <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-mltransform.html>`__
     """
 
     resource_type = "AWS::Glue::MLTransform"
@@ -757,7 +757,7 @@ class MLTransform(AWSObject):
 
 class Column(AWSProperty):
     """
-    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html>`__
+    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-column.html>`__
     """
 
     props: PropsDictType = {
@@ -769,7 +769,7 @@ class Column(AWSProperty):
 
 class Order(AWSProperty):
     """
-    `Order <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html>`__
+    `Order <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-order.html>`__
     """
 
     props: PropsDictType = {
@@ -780,7 +780,7 @@ class Order(AWSProperty):
 
 class SchemaId(AWSProperty):
     """
-    `SchemaId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html>`__
+    `SchemaId <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-schemaid.html>`__
     """
 
     props: PropsDictType = {
@@ -792,7 +792,7 @@ class SchemaId(AWSProperty):
 
 class SchemaReference(AWSProperty):
     """
-    `SchemaReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html>`__
+    `SchemaReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-schemareference.html>`__
     """
 
     props: PropsDictType = {
@@ -804,7 +804,7 @@ class SchemaReference(AWSProperty):
 
 class SerdeInfo(AWSProperty):
     """
-    `SerdeInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html>`__
+    `SerdeInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-serdeinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -816,7 +816,7 @@ class SerdeInfo(AWSProperty):
 
 class SkewedInfo(AWSProperty):
     """
-    `SkewedInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html>`__
+    `SkewedInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-skewedinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -828,7 +828,7 @@ class SkewedInfo(AWSProperty):
 
 class StorageDescriptor(AWSProperty):
     """
-    `StorageDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html>`__
+    `StorageDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-storagedescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -850,7 +850,7 @@ class StorageDescriptor(AWSProperty):
 
 class PartitionInput(AWSProperty):
     """
-    `PartitionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html>`__
+    `PartitionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-partition-partitioninput.html>`__
     """
 
     props: PropsDictType = {
@@ -862,7 +862,7 @@ class PartitionInput(AWSProperty):
 
 class Partition(AWSObject):
     """
-    `Partition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html>`__
+    `Partition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-partition.html>`__
     """
 
     resource_type = "AWS::Glue::Partition"
@@ -877,7 +877,7 @@ class Partition(AWSObject):
 
 class Registry(AWSObject):
     """
-    `Registry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html>`__
+    `Registry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-registry.html>`__
     """
 
     resource_type = "AWS::Glue::Registry"
@@ -891,7 +891,7 @@ class Registry(AWSObject):
 
 class RegistryProperty(AWSProperty):
     """
-    `RegistryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html>`__
+    `RegistryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-schema-registry.html>`__
     """
 
     props: PropsDictType = {
@@ -902,7 +902,7 @@ class RegistryProperty(AWSProperty):
 
 class SchemaVersionProperty(AWSProperty):
     """
-    `SchemaVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html>`__
+    `SchemaVersionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-schema-schemaversion.html>`__
     """
 
     props: PropsDictType = {
@@ -913,7 +913,7 @@ class SchemaVersionProperty(AWSProperty):
 
 class Schema(AWSObject):
     """
-    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html>`__
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-schema.html>`__
     """
 
     resource_type = "AWS::Glue::Schema"
@@ -932,7 +932,7 @@ class Schema(AWSObject):
 
 class SchemaProperty(AWSProperty):
     """
-    `SchemaProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html>`__
+    `SchemaProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-schemaversion-schema.html>`__
     """
 
     props: PropsDictType = {
@@ -944,7 +944,7 @@ class SchemaProperty(AWSProperty):
 
 class SchemaVersion(AWSObject):
     """
-    `SchemaVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html>`__
+    `SchemaVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-schemaversion.html>`__
     """
 
     resource_type = "AWS::Glue::SchemaVersion"
@@ -957,7 +957,7 @@ class SchemaVersion(AWSObject):
 
 class SchemaVersionMetadata(AWSObject):
     """
-    `SchemaVersionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html>`__
+    `SchemaVersionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-schemaversionmetadata.html>`__
     """
 
     resource_type = "AWS::Glue::SchemaVersionMetadata"
@@ -971,7 +971,7 @@ class SchemaVersionMetadata(AWSObject):
 
 class CloudWatchEncryption(AWSProperty):
     """
-    `CloudWatchEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html>`__
+    `CloudWatchEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-securityconfiguration-cloudwatchencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -982,7 +982,7 @@ class CloudWatchEncryption(AWSProperty):
 
 class JobBookmarksEncryption(AWSProperty):
     """
-    `JobBookmarksEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html>`__
+    `JobBookmarksEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -993,7 +993,7 @@ class JobBookmarksEncryption(AWSProperty):
 
 class S3Encryption(AWSProperty):
     """
-    `S3Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html>`__
+    `S3Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-securityconfiguration-s3encryption.html>`__
     """
 
     props: PropsDictType = {
@@ -1004,7 +1004,7 @@ class S3Encryption(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-securityconfiguration-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1016,7 +1016,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class SecurityConfiguration(AWSObject):
     """
-    `SecurityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html>`__
+    `SecurityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-securityconfiguration.html>`__
     """
 
     resource_type = "AWS::Glue::SecurityConfiguration"
@@ -1029,7 +1029,7 @@ class SecurityConfiguration(AWSObject):
 
 class IcebergInput(AWSProperty):
     """
-    `IcebergInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html>`__
+    `IcebergInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-iceberginput.html>`__
     """
 
     props: PropsDictType = {
@@ -1040,7 +1040,7 @@ class IcebergInput(AWSProperty):
 
 class OpenTableFormatInput(AWSProperty):
     """
-    `OpenTableFormatInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html>`__
+    `OpenTableFormatInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-opentableformatinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1050,7 +1050,7 @@ class OpenTableFormatInput(AWSProperty):
 
 class TableIdentifier(AWSProperty):
     """
-    `TableIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html>`__
+    `TableIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-tableidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -1063,7 +1063,7 @@ class TableIdentifier(AWSProperty):
 
 class TableInput(AWSProperty):
     """
-    `TableInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html>`__
+    `TableInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-table-tableinput.html>`__
     """
 
     props: PropsDictType = {
@@ -1083,7 +1083,7 @@ class TableInput(AWSProperty):
 
 class Table(AWSObject):
     """
-    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html>`__
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-table.html>`__
     """
 
     resource_type = "AWS::Glue::Table"
@@ -1098,7 +1098,7 @@ class Table(AWSObject):
 
 class IcebergConfiguration(AWSProperty):
     """
-    `IcebergConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration-icebergconfiguration.html>`__
+    `IcebergConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration-icebergconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1109,7 +1109,7 @@ class IcebergConfiguration(AWSProperty):
 
 class OrphanFileDeletionConfiguration(AWSProperty):
     """
-    `OrphanFileDeletionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration.html>`__
+    `OrphanFileDeletionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1119,7 +1119,7 @@ class OrphanFileDeletionConfiguration(AWSProperty):
 
 class RetentionConfiguration(AWSProperty):
     """
-    `RetentionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html>`__
+    `RetentionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1129,7 +1129,7 @@ class RetentionConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1139,7 +1139,7 @@ class VpcConfiguration(AWSProperty):
 
 class TableOptimizerConfiguration(AWSProperty):
     """
-    `TableOptimizerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html>`__
+    `TableOptimizerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1153,7 +1153,7 @@ class TableOptimizerConfiguration(AWSProperty):
 
 class TableOptimizer(AWSObject):
     """
-    `TableOptimizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html>`__
+    `TableOptimizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-tableoptimizer.html>`__
     """
 
     resource_type = "AWS::Glue::TableOptimizer"
@@ -1169,7 +1169,7 @@ class TableOptimizer(AWSObject):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-trigger-action.html>`__
     """
 
     props: PropsDictType = {
@@ -1184,7 +1184,7 @@ class Action(AWSProperty):
 
 class EventBatchingCondition(AWSProperty):
     """
-    `EventBatchingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-eventbatchingcondition.html>`__
+    `EventBatchingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-trigger-eventbatchingcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -1195,7 +1195,7 @@ class EventBatchingCondition(AWSProperty):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-trigger-condition.html>`__
     """
 
     props: PropsDictType = {
@@ -1209,7 +1209,7 @@ class Condition(AWSProperty):
 
 class Predicate(AWSProperty):
     """
-    `Predicate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html>`__
+    `Predicate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-trigger-predicate.html>`__
     """
 
     props: PropsDictType = {
@@ -1220,7 +1220,7 @@ class Predicate(AWSProperty):
 
 class Trigger(AWSObject):
     """
-    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html>`__
+    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-trigger.html>`__
     """
 
     resource_type = "AWS::Glue::Trigger"
@@ -1241,7 +1241,7 @@ class Trigger(AWSObject):
 
 class ConfigurationObject(AWSProperty):
     """
-    `ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html>`__
+    `ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-usageprofile-configurationobject.html>`__
     """
 
     props: PropsDictType = {
@@ -1254,7 +1254,7 @@ class ConfigurationObject(AWSProperty):
 
 class ProfileConfiguration(AWSProperty):
     """
-    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-profileconfiguration.html>`__
+    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-glue-usageprofile-profileconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1265,7 +1265,7 @@ class ProfileConfiguration(AWSProperty):
 
 class UsageProfile(AWSObject):
     """
-    `UsageProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-usageprofile.html>`__
+    `UsageProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-usageprofile.html>`__
     """
 
     resource_type = "AWS::Glue::UsageProfile"
@@ -1280,7 +1280,7 @@ class UsageProfile(AWSObject):
 
 class Workflow(AWSObject):
     """
-    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-workflow.html>`__
+    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-glue-workflow.html>`__
     """
 
     resource_type = "AWS::Glue::Workflow"

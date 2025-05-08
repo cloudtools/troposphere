@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AccessPolicy(AWSObject):
     """
-    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html>`__
+    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-accesspolicy.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::AccessPolicy"
@@ -27,7 +27,7 @@ class AccessPolicy(AWSObject):
 
 class Collection(AWSObject):
     """
-    `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html>`__
+    `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-collection.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::Collection"
@@ -43,7 +43,7 @@ class Collection(AWSObject):
 
 class IndexProperty(AWSProperty):
     """
-    `IndexProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-index.html>`__
+    `IndexProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-index.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class IndexProperty(AWSProperty):
 
 class IndexSettings(AWSProperty):
     """
-    `IndexSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-indexsettings.html>`__
+    `IndexSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-indexsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class IndexSettings(AWSProperty):
 
 class Parameters(AWSProperty):
     """
-    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-parameters.html>`__
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-parameters.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class Parameters(AWSProperty):
 
 class Method(AWSProperty):
     """
-    `Method <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html>`__
+    `Method <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-method.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class Method(AWSProperty):
 
 class PropertyMapping(AWSProperty):
     """
-    `PropertyMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html>`__
+    `PropertyMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-propertymapping.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class PropertyMapping(AWSProperty):
 
 class Mappings(AWSProperty):
     """
-    `Mappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-mappings.html>`__
+    `Mappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-index-mappings.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class Mappings(AWSProperty):
 
 class Index(AWSObject):
     """
-    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-index.html>`__
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-index.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::Index"
@@ -129,7 +129,7 @@ class Index(AWSObject):
 
 class LifecyclePolicy(AWSObject):
     """
-    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html>`__
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-lifecyclepolicy.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::LifecyclePolicy"
@@ -144,7 +144,7 @@ class LifecyclePolicy(AWSObject):
 
 class IamIdentityCenterConfigOptions(AWSProperty):
     """
-    `IamIdentityCenterConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html>`__
+    `IamIdentityCenterConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class IamIdentityCenterConfigOptions(AWSProperty):
 
 class SamlConfigOptions(AWSProperty):
     """
-    `SamlConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html>`__
+    `SamlConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class SamlConfigOptions(AWSProperty):
 
 class SecurityConfig(AWSObject):
     """
-    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html>`__
+    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-securityconfig.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::SecurityConfig"
@@ -189,7 +189,7 @@ class SecurityConfig(AWSObject):
 
 class SecurityPolicy(AWSObject):
     """
-    `SecurityPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html>`__
+    `SecurityPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-securitypolicy.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::SecurityPolicy"
@@ -204,7 +204,7 @@ class SecurityPolicy(AWSObject):
 
 class VpcEndpoint(AWSObject):
     """
-    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html>`__
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-vpcendpoint.html>`__
     """
 
     resource_type = "AWS::OpenSearchServerless::VpcEndpoint"

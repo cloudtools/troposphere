@@ -13,7 +13,7 @@ from .validators.certificatemanager import validate_tags_or_list
 
 class ExpiryEventsConfiguration(AWSProperty):
     """
-    `ExpiryEventsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html>`__
+    `ExpiryEventsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-certificatemanager-account-expiryeventsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ExpiryEventsConfiguration(AWSProperty):
 
 class Account(AWSObject):
     """
-    `Account <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html>`__
+    `Account <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-certificatemanager-account.html>`__
     """
 
     resource_type = "AWS::CertificateManager::Account"
@@ -35,7 +35,7 @@ class Account(AWSObject):
 
 class DomainValidationOption(AWSProperty):
     """
-    `DomainValidationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html>`__
+    `DomainValidationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-certificatemanager-certificate-domainvalidationoption.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class DomainValidationOption(AWSProperty):
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-certificatemanager-certificate.html>`__
     """
 
     resource_type = "AWS::CertificateManager::Certificate"

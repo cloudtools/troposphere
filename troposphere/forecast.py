@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class EncryptionConfig(AWSProperty):
     """
-    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-encryptionconfig.html>`__
+    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-forecast-dataset-encryptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class EncryptionConfig(AWSProperty):
 
 class AttributesItems(AWSProperty):
     """
-    `AttributesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-attributesitems.html>`__
+    `AttributesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-forecast-dataset-attributesitems.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AttributesItems(AWSProperty):
 
 class Schema(AWSProperty):
     """
-    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-schema.html>`__
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-forecast-dataset-schema.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class Schema(AWSProperty):
 
 class TagsItems(AWSProperty):
     """
-    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-forecast-dataset-tagsitems.html>`__
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-forecast-dataset-tagsitems.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class TagsItems(AWSProperty):
 
 class Dataset(AWSObject):
     """
-    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html>`__
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-forecast-dataset.html>`__
     """
 
     resource_type = "AWS::Forecast::Dataset"
@@ -72,7 +72,7 @@ class Dataset(AWSObject):
 
 class DatasetGroup(AWSObject):
     """
-    `DatasetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-datasetgroup.html>`__
+    `DatasetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-forecast-datasetgroup.html>`__
     """
 
     resource_type = "AWS::Forecast::DatasetGroup"

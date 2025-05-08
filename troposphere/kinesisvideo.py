@@ -12,7 +12,7 @@ from .validators import integer
 
 class SignalingChannel(AWSObject):
     """
-    `SignalingChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html>`__
+    `SignalingChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisvideo-signalingchannel.html>`__
     """
 
     resource_type = "AWS::KinesisVideo::SignalingChannel"
@@ -27,7 +27,7 @@ class SignalingChannel(AWSObject):
 
 class Stream(AWSObject):
     """
-    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html>`__
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kinesisvideo-stream.html>`__
     """
 
     resource_type = "AWS::KinesisVideo::Stream"

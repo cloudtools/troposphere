@@ -13,7 +13,7 @@ from .validators.servicecatalog import validate_tag_update
 
 class AcceptedPortfolioShare(AWSObject):
     """
-    `AcceptedPortfolioShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html>`__
+    `AcceptedPortfolioShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-acceptedportfolioshare.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::AcceptedPortfolioShare"
@@ -26,7 +26,7 @@ class AcceptedPortfolioShare(AWSObject):
 
 class ProvisioningArtifactProperties(AWSProperty):
     """
-    `ProvisioningArtifactProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html>`__
+    `ProvisioningArtifactProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class ProvisioningArtifactProperties(AWSProperty):
 
 class CodeStarParameters(AWSProperty):
     """
-    `CodeStarParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html>`__
+    `CodeStarParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class CodeStarParameters(AWSProperty):
 
 class ConnectionParameters(AWSProperty):
     """
-    `ConnectionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html>`__
+    `ConnectionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ConnectionParameters(AWSProperty):
 
 class SourceConnection(AWSProperty):
     """
-    `SourceConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html>`__
+    `SourceConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class SourceConnection(AWSProperty):
 
 class CloudFormationProduct(AWSObject):
     """
-    `CloudFormationProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html>`__
+    `CloudFormationProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-cloudformationproduct.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::CloudFormationProduct"
@@ -98,7 +98,7 @@ class CloudFormationProduct(AWSObject):
 
 class ProvisioningParameter(AWSProperty):
     """
-    `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html>`__
+    `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class ProvisioningParameter(AWSProperty):
 
 class ProvisioningPreferences(AWSProperty):
     """
-    `ProvisioningPreferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html>`__
+    `ProvisioningPreferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class ProvisioningPreferences(AWSProperty):
 
 class CloudFormationProvisionedProduct(AWSObject):
     """
-    `CloudFormationProvisionedProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html>`__
+    `CloudFormationProvisionedProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-cloudformationprovisionedproduct.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
@@ -148,7 +148,7 @@ class CloudFormationProvisionedProduct(AWSObject):
 
 class LaunchNotificationConstraint(AWSObject):
     """
-    `LaunchNotificationConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html>`__
+    `LaunchNotificationConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-launchnotificationconstraint.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::LaunchNotificationConstraint"
@@ -164,7 +164,7 @@ class LaunchNotificationConstraint(AWSObject):
 
 class LaunchRoleConstraint(AWSObject):
     """
-    `LaunchRoleConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html>`__
+    `LaunchRoleConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-launchroleconstraint.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::LaunchRoleConstraint"
@@ -181,7 +181,7 @@ class LaunchRoleConstraint(AWSObject):
 
 class LaunchTemplateConstraint(AWSObject):
     """
-    `LaunchTemplateConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html>`__
+    `LaunchTemplateConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-launchtemplateconstraint.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::LaunchTemplateConstraint"
@@ -197,7 +197,7 @@ class LaunchTemplateConstraint(AWSObject):
 
 class Portfolio(AWSObject):
     """
-    `Portfolio <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html>`__
+    `Portfolio <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-portfolio.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::Portfolio"
@@ -213,7 +213,7 @@ class Portfolio(AWSObject):
 
 class PortfolioPrincipalAssociation(AWSObject):
     """
-    `PortfolioPrincipalAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html>`__
+    `PortfolioPrincipalAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-portfolioprincipalassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
@@ -228,7 +228,7 @@ class PortfolioPrincipalAssociation(AWSObject):
 
 class PortfolioProductAssociation(AWSObject):
     """
-    `PortfolioProductAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html>`__
+    `PortfolioProductAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-portfolioproductassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::PortfolioProductAssociation"
@@ -243,7 +243,7 @@ class PortfolioProductAssociation(AWSObject):
 
 class PortfolioShare(AWSObject):
     """
-    `PortfolioShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html>`__
+    `PortfolioShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-portfolioshare.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::PortfolioShare"
@@ -258,7 +258,7 @@ class PortfolioShare(AWSObject):
 
 class ResourceUpdateConstraint(AWSObject):
     """
-    `ResourceUpdateConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html>`__
+    `ResourceUpdateConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-resourceupdateconstraint.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::ResourceUpdateConstraint"
@@ -274,7 +274,7 @@ class ResourceUpdateConstraint(AWSObject):
 
 class DefinitionParameter(AWSProperty):
     """
-    `DefinitionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html>`__
+    `DefinitionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-servicecatalog-serviceaction-definitionparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class DefinitionParameter(AWSProperty):
 
 class ServiceAction(AWSObject):
     """
-    `ServiceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html>`__
+    `ServiceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-serviceaction.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::ServiceAction"
@@ -301,7 +301,7 @@ class ServiceAction(AWSObject):
 
 class ServiceActionAssociation(AWSObject):
     """
-    `ServiceActionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html>`__
+    `ServiceActionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-serviceactionassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::ServiceActionAssociation"
@@ -315,7 +315,7 @@ class ServiceActionAssociation(AWSObject):
 
 class StackSetConstraint(AWSObject):
     """
-    `StackSetConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html>`__
+    `StackSetConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-stacksetconstraint.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::StackSetConstraint"
@@ -335,7 +335,7 @@ class StackSetConstraint(AWSObject):
 
 class TagOption(AWSObject):
     """
-    `TagOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html>`__
+    `TagOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-tagoption.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::TagOption"
@@ -349,7 +349,7 @@ class TagOption(AWSObject):
 
 class TagOptionAssociation(AWSObject):
     """
-    `TagOptionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html>`__
+    `TagOptionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-tagoptionassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalog::TagOptionAssociation"

@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ColumnWildcard(AWSProperty):
     """
-    `ColumnWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-columnwildcard.html>`__
+    `ColumnWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-columnwildcard.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ColumnWildcard(AWSProperty):
 
 class RowFilter(AWSProperty):
     """
-    `RowFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html>`__
+    `RowFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-datacellsfilter-rowfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class RowFilter(AWSProperty):
 
 class DataCellsFilter(AWSObject):
     """
-    `DataCellsFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html>`__
+    `DataCellsFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-datacellsfilter.html>`__
     """
 
     resource_type = "AWS::LakeFormation::DataCellsFilter"
@@ -51,7 +51,7 @@ class DataCellsFilter(AWSObject):
 
 class DataLakePrincipal(AWSProperty):
     """
-    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalakeprincipal.html>`__
+    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-datalakeprincipal.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class DataLakePrincipal(AWSProperty):
 
 class DataLakeSettings(AWSObject):
     """
-    `DataLakeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html>`__
+    `DataLakeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-datalakesettings.html>`__
     """
 
     resource_type = "AWS::LakeFormation::DataLakeSettings"
@@ -82,7 +82,7 @@ class DataLakeSettings(AWSObject):
 
 class DatabaseResource(AWSProperty):
     """
-    `DatabaseResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-databaseresource.html>`__
+    `DatabaseResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-tagassociation-databaseresource.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class DatabaseResource(AWSProperty):
 
 class PermissionsDataLocationResource(AWSProperty):
     """
-    `PermissionsDataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html>`__
+    `PermissionsDataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-permissions-datalocationresource.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class PermissionsDataLocationResource(AWSProperty):
 
 class TableResource(AWSProperty):
     """
-    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tableresource.html>`__
+    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-tagassociation-tableresource.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class TableResource(AWSProperty):
 
 class TableWithColumnsResource(AWSProperty):
     """
-    `TableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tablewithcolumnsresource.html>`__
+    `TableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-tablewithcolumnsresource.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class TableWithColumnsResource(AWSProperty):
 
 class ResourceProperty(AWSProperty):
     """
-    `ResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html>`__
+    `ResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-permissions-resource.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class ResourceProperty(AWSProperty):
 
 class Permissions(AWSObject):
     """
-    `Permissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-permissions.html>`__
+    `Permissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-permissions.html>`__
     """
 
     resource_type = "AWS::LakeFormation::Permissions"
@@ -159,7 +159,7 @@ class Permissions(AWSObject):
 
 class DataCellsFilterResource(AWSProperty):
     """
-    `DataCellsFilterResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html>`__
+    `DataCellsFilterResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class DataCellsFilterResource(AWSProperty):
 
 class DataLocationResource(AWSProperty):
     """
-    `DataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html>`__
+    `DataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-datalocationresource.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class DataLocationResource(AWSProperty):
 
 class LFTagKeyResource(AWSProperty):
     """
-    `LFTagKeyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html>`__
+    `LFTagKeyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class LFTagKeyResource(AWSProperty):
 
 class LFTag(AWSProperty):
     """
-    `LFTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html>`__
+    `LFTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-lftag.html>`__
     """
 
     props: PropsDictType = {
@@ -206,7 +206,7 @@ class LFTag(AWSProperty):
 
 class LFTagPolicyResource(AWSProperty):
     """
-    `LFTagPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html>`__
+    `LFTagPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class LFTagPolicyResource(AWSProperty):
 
 class PrincipalResource(AWSProperty):
     """
-    `PrincipalResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html>`__
+    `PrincipalResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-principalpermissions-resource.html>`__
     """
 
     props: PropsDictType = {
@@ -235,7 +235,7 @@ class PrincipalResource(AWSProperty):
 
 class PrincipalPermissions(AWSObject):
     """
-    `PrincipalPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html>`__
+    `PrincipalPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-principalpermissions.html>`__
     """
 
     resource_type = "AWS::LakeFormation::PrincipalPermissions"
@@ -251,7 +251,7 @@ class PrincipalPermissions(AWSObject):
 
 class Resource(AWSObject):
     """
-    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html>`__
+    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-resource.html>`__
     """
 
     resource_type = "AWS::LakeFormation::Resource"
@@ -267,7 +267,7 @@ class Resource(AWSObject):
 
 class Tag(AWSObject):
     """
-    `Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tag.html>`__
+    `Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-tag.html>`__
     """
 
     resource_type = "AWS::LakeFormation::Tag"
@@ -281,7 +281,7 @@ class Tag(AWSObject):
 
 class LFTagPair(AWSProperty):
     """
-    `LFTagPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html>`__
+    `LFTagPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-tagassociation-lftagpair.html>`__
     """
 
     props: PropsDictType = {
@@ -293,7 +293,7 @@ class LFTagPair(AWSProperty):
 
 class TagAssociationTableWithColumnsResource(AWSProperty):
     """
-    `TagAssociationTableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html>`__
+    `TagAssociationTableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class TagAssociationTableWithColumnsResource(AWSProperty):
 
 class TagAssociationResource(AWSProperty):
     """
-    `TagAssociationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html>`__
+    `TagAssociationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-tagassociation-resource.html>`__
     """
 
     props: PropsDictType = {
@@ -319,7 +319,7 @@ class TagAssociationResource(AWSProperty):
 
 class TagAssociation(AWSObject):
     """
-    `TagAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html>`__
+    `TagAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lakeformation-tagassociation.html>`__
     """
 
     resource_type = "AWS::LakeFormation::TagAssociation"
@@ -332,7 +332,7 @@ class TagAssociation(AWSObject):
 
 class PrincipalPermissionsProperty(AWSProperty):
     """
-    `PrincipalPermissionsProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html>`__
+    `PrincipalPermissionsProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-datalakesettings-principalpermissions.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class PrincipalPermissionsProperty(AWSProperty):
 
 class TableWildcard(AWSProperty):
     """
-    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
+    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lakeformation-permissions-tablewildcard.html>`__
     """
 
     props: PropsDictType = {}

@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ServerlessV2ScalingConfiguration(AWSProperty):
     """
-    `ServerlessV2ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html>`__
+    `ServerlessV2ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ServerlessV2ScalingConfiguration(AWSProperty):
 
 class DBCluster(AWSObject):
     """
-    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html>`__
+    `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdb-dbcluster.html>`__
     """
 
     resource_type = "AWS::DocDB::DBCluster"
@@ -62,7 +62,7 @@ class DBCluster(AWSObject):
 
 class DBClusterParameterGroup(AWSObject):
     """
-    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html>`__
+    `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdb-dbclusterparametergroup.html>`__
     """
 
     resource_type = "AWS::DocDB::DBClusterParameterGroup"
@@ -78,7 +78,7 @@ class DBClusterParameterGroup(AWSObject):
 
 class DBInstance(AWSObject):
     """
-    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html>`__
+    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdb-dbinstance.html>`__
     """
 
     resource_type = "AWS::DocDB::DBInstance"
@@ -99,7 +99,7 @@ class DBInstance(AWSObject):
 
 class DBSubnetGroup(AWSObject):
     """
-    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html>`__
+    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdb-dbsubnetgroup.html>`__
     """
 
     resource_type = "AWS::DocDB::DBSubnetGroup"
@@ -114,7 +114,7 @@ class DBSubnetGroup(AWSObject):
 
 class EventSubscription(AWSObject):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdb-eventsubscription.html>`__
     """
 
     resource_type = "AWS::DocDB::EventSubscription"

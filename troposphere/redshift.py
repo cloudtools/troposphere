@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Endpoint(AWSProperty):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-cluster-endpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Endpoint(AWSProperty):
 
 class LoggingProperties(AWSProperty):
     """
-    `LoggingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html>`__
+    `LoggingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-cluster-loggingproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class LoggingProperties(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-cluster.html>`__
     """
 
     resource_type = "AWS::Redshift::Cluster"
@@ -99,7 +99,7 @@ class Cluster(AWSObject):
 
 class AmazonRedshiftParameter(AWSProperty):
     """
-    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html>`__
+    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-clusterparametergroup-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class AmazonRedshiftParameter(AWSProperty):
 
 class ClusterParameterGroup(AWSObject):
     """
-    `ClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html>`__
+    `ClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-clusterparametergroup.html>`__
     """
 
     resource_type = "AWS::Redshift::ClusterParameterGroup"
@@ -126,7 +126,7 @@ class ClusterParameterGroup(AWSObject):
 
 class ClusterSecurityGroup(AWSObject):
     """
-    `ClusterSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html>`__
+    `ClusterSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-clustersecuritygroup.html>`__
     """
 
     resource_type = "AWS::Redshift::ClusterSecurityGroup"
@@ -139,7 +139,7 @@ class ClusterSecurityGroup(AWSObject):
 
 class ClusterSecurityGroupIngress(AWSObject):
     """
-    `ClusterSecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html>`__
+    `ClusterSecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-clustersecuritygroupingress.html>`__
     """
 
     resource_type = "AWS::Redshift::ClusterSecurityGroupIngress"
@@ -154,7 +154,7 @@ class ClusterSecurityGroupIngress(AWSObject):
 
 class ClusterSubnetGroup(AWSObject):
     """
-    `ClusterSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html>`__
+    `ClusterSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-clustersubnetgroup.html>`__
     """
 
     resource_type = "AWS::Redshift::ClusterSubnetGroup"
@@ -168,7 +168,7 @@ class ClusterSubnetGroup(AWSObject):
 
 class EndpointAccess(AWSObject):
     """
-    `EndpointAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html>`__
+    `EndpointAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-endpointaccess.html>`__
     """
 
     resource_type = "AWS::Redshift::EndpointAccess"
@@ -184,7 +184,7 @@ class EndpointAccess(AWSObject):
 
 class EndpointAuthorization(AWSObject):
     """
-    `EndpointAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html>`__
+    `EndpointAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-endpointauthorization.html>`__
     """
 
     resource_type = "AWS::Redshift::EndpointAuthorization"
@@ -199,7 +199,7 @@ class EndpointAuthorization(AWSObject):
 
 class EventSubscription(AWSObject):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-eventsubscription.html>`__
     """
 
     resource_type = "AWS::Redshift::EventSubscription"
@@ -218,7 +218,7 @@ class EventSubscription(AWSObject):
 
 class Integration(AWSObject):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-integration.html>`__
     """
 
     resource_type = "AWS::Redshift::Integration"
@@ -235,7 +235,7 @@ class Integration(AWSObject):
 
 class PauseClusterMessage(AWSProperty):
     """
-    `PauseClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html>`__
+    `PauseClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-scheduledaction-pauseclustermessage.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class PauseClusterMessage(AWSProperty):
 
 class ResizeClusterMessage(AWSProperty):
     """
-    `ResizeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html>`__
+    `ResizeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-scheduledaction-resizeclustermessage.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class ResizeClusterMessage(AWSProperty):
 
 class ResumeClusterMessage(AWSProperty):
     """
-    `ResumeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html>`__
+    `ResumeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-scheduledaction-resumeclustermessage.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class ResumeClusterMessage(AWSProperty):
 
 class ScheduledActionType(AWSProperty):
     """
-    `ScheduledActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html>`__
+    `ScheduledActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-scheduledaction-scheduledactiontype.html>`__
     """
 
     props: PropsDictType = {
@@ -281,7 +281,7 @@ class ScheduledActionType(AWSProperty):
 
 class ScheduledAction(AWSObject):
     """
-    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html>`__
+    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-redshift-scheduledaction.html>`__
     """
 
     resource_type = "AWS::Redshift::ScheduledAction"
@@ -300,7 +300,7 @@ class ScheduledAction(AWSObject):
 
 class NetworkInterface(AWSProperty):
     """
-    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-networkinterface.html>`__
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-endpointaccess-networkinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -313,7 +313,7 @@ class NetworkInterface(AWSProperty):
 
 class VpcEndpoint(AWSProperty):
     """
-    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html>`__
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-endpointaccess-vpcendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -325,7 +325,7 @@ class VpcEndpoint(AWSProperty):
 
 class VpcSecurityGroup(AWSProperty):
     """
-    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
+    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
     """
 
     props: PropsDictType = {

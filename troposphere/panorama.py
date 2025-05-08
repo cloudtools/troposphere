@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ManifestOverridesPayload(AWSProperty):
     """
-    `ManifestOverridesPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html>`__
+    `ManifestOverridesPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-panorama-applicationinstance-manifestoverridespayload.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ManifestOverridesPayload(AWSProperty):
 
 class ManifestPayload(AWSProperty):
     """
-    `ManifestPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html>`__
+    `ManifestPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-panorama-applicationinstance-manifestpayload.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class ManifestPayload(AWSProperty):
 
 class ApplicationInstance(AWSObject):
     """
-    `ApplicationInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html>`__
+    `ApplicationInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-panorama-applicationinstance.html>`__
     """
 
     resource_type = "AWS::Panorama::ApplicationInstance"
@@ -51,7 +51,7 @@ class ApplicationInstance(AWSObject):
 
 class StorageLocation(AWSProperty):
     """
-    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html>`__
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-panorama-package-storagelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class StorageLocation(AWSProperty):
 
 class Package(AWSObject):
     """
-    `Package <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html>`__
+    `Package <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-panorama-package.html>`__
     """
 
     resource_type = "AWS::Panorama::Package"
@@ -79,7 +79,7 @@ class Package(AWSObject):
 
 class PackageVersion(AWSObject):
     """
-    `PackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html>`__
+    `PackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-panorama-packageversion.html>`__
     """
 
     resource_type = "AWS::Panorama::PackageVersion"

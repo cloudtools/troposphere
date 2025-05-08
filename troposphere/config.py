@@ -18,7 +18,7 @@ from .validators.config import validate_source_details
 
 class AggregationAuthorization(AWSObject):
     """
-    `AggregationAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html>`__
+    `AggregationAuthorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-aggregationauthorization.html>`__
     """
 
     resource_type = "AWS::Config::AggregationAuthorization"
@@ -32,7 +32,7 @@ class AggregationAuthorization(AWSObject):
 
 class Compliance(AWSProperty):
     """
-    `Compliance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-compliance.html>`__
+    `Compliance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-compliance.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class Compliance(AWSProperty):
 
 class EvaluationModeConfiguration(AWSProperty):
     """
-    `EvaluationModeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-evaluationmodeconfiguration.html>`__
+    `EvaluationModeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-evaluationmodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class EvaluationModeConfiguration(AWSProperty):
 
 class Scope(AWSProperty):
     """
-    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html>`__
+    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-scope.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class Scope(AWSProperty):
 
 class CustomPolicyDetails(AWSProperty):
     """
-    `CustomPolicyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html>`__
+    `CustomPolicyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-custompolicydetails.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class CustomPolicyDetails(AWSProperty):
 
 class SourceDetails(AWSProperty):
     """
-    `SourceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html>`__
+    `SourceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-sourcedetail.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class SourceDetails(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configrule-source.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class Source(AWSProperty):
 
 class ConfigRule(AWSObject):
     """
-    `ConfigRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html>`__
+    `ConfigRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-configrule.html>`__
     """
 
     resource_type = "AWS::Config::ConfigRule"
@@ -124,7 +124,7 @@ class ConfigRule(AWSObject):
 
 class AccountAggregationSources(AWSProperty):
     """
-    `AccountAggregationSources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html>`__
+    `AccountAggregationSources <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationaggregator-accountaggregationsource.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class AccountAggregationSources(AWSProperty):
 
 class OrganizationAggregationSource(AWSProperty):
     """
-    `OrganizationAggregationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html>`__
+    `OrganizationAggregationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationaggregator-organizationaggregationsource.html>`__
     """
 
     props: PropsDictType = {
@@ -148,7 +148,7 @@ class OrganizationAggregationSource(AWSProperty):
 
 class ConfigurationAggregator(AWSObject):
     """
-    `ConfigurationAggregator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html>`__
+    `ConfigurationAggregator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-configurationaggregator.html>`__
     """
 
     resource_type = "AWS::Config::ConfigurationAggregator"
@@ -163,7 +163,7 @@ class ConfigurationAggregator(AWSObject):
 
 class ExclusionByResourceTypes(AWSProperty):
     """
-    `ExclusionByResourceTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-exclusionbyresourcetypes.html>`__
+    `ExclusionByResourceTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationrecorder-exclusionbyresourcetypes.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class ExclusionByResourceTypes(AWSProperty):
 
 class RecordingStrategy(AWSProperty):
     """
-    `RecordingStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html>`__
+    `RecordingStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationrecorder-recordingstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class RecordingStrategy(AWSProperty):
 
 class RecordingGroup(AWSProperty):
     """
-    `RecordingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html>`__
+    `RecordingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationrecorder-recordinggroup.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class RecordingGroup(AWSProperty):
 
 class RecordingModeOverride(AWSProperty):
     """
-    `RecordingModeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html>`__
+    `RecordingModeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationrecorder-recordingmodeoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class RecordingModeOverride(AWSProperty):
 
 class RecordingMode(AWSProperty):
     """
-    `RecordingMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html>`__
+    `RecordingMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-configurationrecorder-recordingmode.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class RecordingMode(AWSProperty):
 
 class ConfigurationRecorder(AWSObject):
     """
-    `ConfigurationRecorder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html>`__
+    `ConfigurationRecorder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-configurationrecorder.html>`__
     """
 
     resource_type = "AWS::Config::ConfigurationRecorder"
@@ -235,7 +235,7 @@ class ConfigurationRecorder(AWSObject):
 
 class ConformancePackInputParameter(AWSProperty):
     """
-    `ConformancePackInputParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html>`__
+    `ConformancePackInputParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -246,7 +246,7 @@ class ConformancePackInputParameter(AWSProperty):
 
 class TemplateSSMDocumentDetails(AWSProperty):
     """
-    `TemplateSSMDocumentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html>`__
+    `TemplateSSMDocumentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-conformancepack-templatessmdocumentdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class TemplateSSMDocumentDetails(AWSProperty):
 
 class ConformancePack(AWSObject):
     """
-    `ConformancePack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html>`__
+    `ConformancePack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-conformancepack.html>`__
     """
 
     resource_type = "AWS::Config::ConformancePack"
@@ -275,7 +275,7 @@ class ConformancePack(AWSObject):
 
 class ConfigSnapshotDeliveryProperties(AWSProperty):
     """
-    `ConfigSnapshotDeliveryProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html>`__
+    `ConfigSnapshotDeliveryProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class ConfigSnapshotDeliveryProperties(AWSProperty):
 
 class DeliveryChannel(AWSObject):
     """
-    `DeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html>`__
+    `DeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-deliverychannel.html>`__
     """
 
     resource_type = "AWS::Config::DeliveryChannel"
@@ -302,7 +302,7 @@ class DeliveryChannel(AWSObject):
 
 class OrganizationCustomPolicyRuleMetadata(AWSProperty):
     """
-    `OrganizationCustomPolicyRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html>`__
+    `OrganizationCustomPolicyRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -322,7 +322,7 @@ class OrganizationCustomPolicyRuleMetadata(AWSProperty):
 
 class OrganizationCustomRuleMetadata(AWSProperty):
     """
-    `OrganizationCustomRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html>`__
+    `OrganizationCustomRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -340,7 +340,7 @@ class OrganizationCustomRuleMetadata(AWSProperty):
 
 class OrganizationManagedRuleMetadata(AWSProperty):
     """
-    `OrganizationManagedRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html>`__
+    `OrganizationManagedRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class OrganizationManagedRuleMetadata(AWSProperty):
 
 class OrganizationConfigRule(AWSObject):
     """
-    `OrganizationConfigRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html>`__
+    `OrganizationConfigRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-organizationconfigrule.html>`__
     """
 
     resource_type = "AWS::Config::OrganizationConfigRule"
@@ -376,7 +376,7 @@ class OrganizationConfigRule(AWSObject):
 
 class OrganizationConformancePack(AWSObject):
     """
-    `OrganizationConformancePack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html>`__
+    `OrganizationConformancePack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-organizationconformancepack.html>`__
     """
 
     resource_type = "AWS::Config::OrganizationConformancePack"
@@ -394,7 +394,7 @@ class OrganizationConformancePack(AWSObject):
 
 class SsmControls(AWSProperty):
     """
-    `SsmControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html>`__
+    `SsmControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-remediationconfiguration-ssmcontrols.html>`__
     """
 
     props: PropsDictType = {
@@ -405,7 +405,7 @@ class SsmControls(AWSProperty):
 
 class ExecutionControls(AWSProperty):
     """
-    `ExecutionControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html>`__
+    `ExecutionControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-remediationconfiguration-executioncontrols.html>`__
     """
 
     props: PropsDictType = {
@@ -415,7 +415,7 @@ class ExecutionControls(AWSProperty):
 
 class RemediationConfiguration(AWSObject):
     """
-    `RemediationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html>`__
+    `RemediationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-remediationconfiguration.html>`__
     """
 
     resource_type = "AWS::Config::RemediationConfiguration"
@@ -436,7 +436,7 @@ class RemediationConfiguration(AWSObject):
 
 class StoredQuery(AWSObject):
     """
-    `StoredQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html>`__
+    `StoredQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-config-storedquery.html>`__
     """
 
     resource_type = "AWS::Config::StoredQuery"
@@ -451,7 +451,7 @@ class StoredQuery(AWSObject):
 
 class ResourceValue(AWSProperty):
     """
-    `ResourceValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html>`__
+    `ResourceValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-remediationconfiguration-resourcevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -461,7 +461,7 @@ class ResourceValue(AWSProperty):
 
 class StaticValue(AWSProperty):
     """
-    `StaticValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html>`__
+    `StaticValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-remediationconfiguration-staticvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -471,7 +471,7 @@ class StaticValue(AWSProperty):
 
 class RemediationParameterValue(AWSProperty):
     """
-    `RemediationParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html>`__
+    `RemediationParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-config-remediationconfiguration-remediationparametervalue.html>`__
     """
 
     props: PropsDictType = {

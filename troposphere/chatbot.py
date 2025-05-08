@@ -13,7 +13,7 @@ from .validators.chatbot import validate_logginglevel
 
 class CustomActionAttachmentCriteria(AWSProperty):
     """
-    `CustomActionAttachmentCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachmentcriteria.html>`__
+    `CustomActionAttachmentCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-chatbot-customaction-customactionattachmentcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class CustomActionAttachmentCriteria(AWSProperty):
 
 class CustomActionAttachment(AWSProperty):
     """
-    `CustomActionAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactionattachment.html>`__
+    `CustomActionAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-chatbot-customaction-customactionattachment.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class CustomActionAttachment(AWSProperty):
 
 class CustomActionDefinition(AWSProperty):
     """
-    `CustomActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-customaction-customactiondefinition.html>`__
+    `CustomActionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-chatbot-customaction-customactiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class CustomActionDefinition(AWSProperty):
 
 class CustomAction(AWSObject):
     """
-    `CustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-customaction.html>`__
+    `CustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-chatbot-customaction.html>`__
     """
 
     resource_type = "AWS::Chatbot::CustomAction"
@@ -64,7 +64,7 @@ class CustomAction(AWSObject):
 
 class MicrosoftTeamsChannelConfiguration(AWSObject):
     """
-    `MicrosoftTeamsChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html>`__
+    `MicrosoftTeamsChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-chatbot-microsoftteamschannelconfiguration.html>`__
     """
 
     resource_type = "AWS::Chatbot::MicrosoftTeamsChannelConfiguration"
@@ -87,7 +87,7 @@ class MicrosoftTeamsChannelConfiguration(AWSObject):
 
 class SlackChannelConfiguration(AWSObject):
     """
-    `SlackChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html>`__
+    `SlackChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-chatbot-slackchannelconfiguration.html>`__
     """
 
     resource_type = "AWS::Chatbot::SlackChannelConfiguration"

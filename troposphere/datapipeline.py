@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ParameterObjectAttribute(AWSProperty):
     """
-    `ParameterObjectAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterattribute.html>`__
+    `ParameterObjectAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-parameterattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ParameterObjectAttribute(AWSProperty):
 
 class ParameterObject(AWSProperty):
     """
-    `ParameterObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobject.html>`__
+    `ParameterObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-parameterobject.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ParameterObject(AWSProperty):
 
 class ParameterValue(AWSProperty):
     """
-    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html>`__
+    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-parametervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class ParameterValue(AWSProperty):
 
 class ObjectField(AWSProperty):
     """
-    `ObjectField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-field.html>`__
+    `ObjectField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-field.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ObjectField(AWSProperty):
 
 class PipelineObject(AWSProperty):
     """
-    `PipelineObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobject.html>`__
+    `PipelineObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-pipelineobject.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class PipelineObject(AWSProperty):
 
 class PipelineTag(AWSProperty):
     """
-    `PipelineTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetag.html>`__
+    `PipelineTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datapipeline-pipeline-pipelinetag.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class PipelineTag(AWSProperty):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html>`__
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datapipeline-pipeline.html>`__
     """
 
     resource_type = "AWS::DataPipeline::Pipeline"

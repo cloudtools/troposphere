@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ConnectionAlias(AWSObject):
     """
-    `ConnectionAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html>`__
+    `ConnectionAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspaces-connectionalias.html>`__
     """
 
     resource_type = "AWS::WorkSpaces::ConnectionAlias"
@@ -25,7 +25,7 @@ class ConnectionAlias(AWSObject):
 
 class WorkspaceProperties(AWSProperty):
     """
-    `WorkspaceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html>`__
+    `WorkspaceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspaces-workspace-workspaceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class WorkspaceProperties(AWSProperty):
 
 class Workspace(AWSObject):
     """
-    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html>`__
+    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspaces-workspace.html>`__
     """
 
     resource_type = "AWS::WorkSpaces::Workspace"
@@ -58,7 +58,7 @@ class Workspace(AWSObject):
 
 class ApplicationSettings(AWSProperty):
     """
-    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-applicationsettings.html>`__
+    `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspaces-workspacespool-applicationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class ApplicationSettings(AWSProperty):
 
 class Capacity(AWSProperty):
     """
-    `Capacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-capacity.html>`__
+    `Capacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspaces-workspacespool-capacity.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class Capacity(AWSProperty):
 
 class TimeoutSettings(AWSProperty):
     """
-    `TimeoutSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-timeoutsettings.html>`__
+    `TimeoutSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspaces-workspacespool-timeoutsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -91,7 +91,7 @@ class TimeoutSettings(AWSProperty):
 
 class WorkspacesPool(AWSObject):
     """
-    `WorkspacesPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacespool.html>`__
+    `WorkspacesPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspaces-workspacespool.html>`__
     """
 
     resource_type = "AWS::WorkSpaces::WorkspacesPool"

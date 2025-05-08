@@ -13,7 +13,7 @@ from .validators.sns import policytypes
 
 class SubscriptionResource(AWSObject):
     """
-    `SubscriptionResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html>`__
+    `SubscriptionResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sns-subscription.html>`__
     """
 
     resource_type = "AWS::SNS::Subscription"
@@ -35,7 +35,7 @@ class SubscriptionResource(AWSObject):
 
 class LoggingConfig(AWSProperty):
     """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-loggingconfig.html>`__
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sns-topic-loggingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class LoggingConfig(AWSProperty):
 
 class Subscription(AWSProperty):
     """
-    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html>`__
+    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sns-topic-subscription.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class Subscription(AWSProperty):
 
 class Topic(AWSObject):
     """
-    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html>`__
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sns-topic.html>`__
     """
 
     resource_type = "AWS::SNS::Topic"
@@ -83,7 +83,7 @@ class Topic(AWSObject):
 
 class TopicInlinePolicy(AWSObject):
     """
-    `TopicInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicinlinepolicy.html>`__
+    `TopicInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sns-topicinlinepolicy.html>`__
     """
 
     resource_type = "AWS::SNS::TopicInlinePolicy"
@@ -96,7 +96,7 @@ class TopicInlinePolicy(AWSObject):
 
 class TopicPolicy(AWSObject):
     """
-    `TopicPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html>`__
+    `TopicPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sns-topicpolicy.html>`__
     """
 
     resource_type = "AWS::SNS::TopicPolicy"

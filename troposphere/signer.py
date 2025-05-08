@@ -12,7 +12,7 @@ from .validators import integer
 
 class ProfilePermission(AWSObject):
     """
-    `ProfilePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html>`__
+    `ProfilePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-signer-profilepermission.html>`__
     """
 
     resource_type = "AWS::Signer::ProfilePermission"
@@ -28,7 +28,7 @@ class ProfilePermission(AWSObject):
 
 class SignatureValidityPeriod(AWSProperty):
     """
-    `SignatureValidityPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html>`__
+    `SignatureValidityPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-signer-signingprofile-signaturevalidityperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class SignatureValidityPeriod(AWSProperty):
 
 class SigningProfile(AWSObject):
     """
-    `SigningProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html>`__
+    `SigningProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-signer-signingprofile.html>`__
     """
 
     resource_type = "AWS::Signer::SigningProfile"

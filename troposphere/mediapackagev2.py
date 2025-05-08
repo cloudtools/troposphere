@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class InputSwitchConfiguration(AWSProperty):
     """
-    `InputSwitchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html>`__
+    `InputSwitchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class InputSwitchConfiguration(AWSProperty):
 
 class OutputHeaderConfiguration(AWSProperty):
     """
-    `OutputHeaderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-outputheaderconfiguration.html>`__
+    `OutputHeaderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-channel-outputheaderconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class OutputHeaderConfiguration(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackagev2-channel.html>`__
     """
 
     resource_type = "AWS::MediaPackageV2::Channel"
@@ -50,7 +50,7 @@ class Channel(AWSObject):
 
 class ChannelGroup(AWSObject):
     """
-    `ChannelGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html>`__
+    `ChannelGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackagev2-channelgroup.html>`__
     """
 
     resource_type = "AWS::MediaPackageV2::ChannelGroup"
@@ -64,7 +64,7 @@ class ChannelGroup(AWSObject):
 
 class ChannelPolicy(AWSObject):
     """
-    `ChannelPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html>`__
+    `ChannelPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackagev2-channelpolicy.html>`__
     """
 
     resource_type = "AWS::MediaPackageV2::ChannelPolicy"
@@ -78,7 +78,7 @@ class ChannelPolicy(AWSObject):
 
 class DashUtcTiming(AWSProperty):
     """
-    `DashUtcTiming <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html>`__
+    `DashUtcTiming <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-dashutctiming.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class DashUtcTiming(AWSProperty):
 
 class FilterConfiguration(AWSProperty):
     """
-    `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>`__
+    `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class FilterConfiguration(AWSProperty):
 
 class ScteDash(AWSProperty):
     """
-    `ScteDash <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html>`__
+    `ScteDash <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-sctedash.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class ScteDash(AWSProperty):
 
 class DashManifestConfiguration(AWSProperty):
     """
-    `DashManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html>`__
+    `DashManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -133,7 +133,7 @@ class DashManifestConfiguration(AWSProperty):
 
 class ForceEndpointErrorConfiguration(AWSProperty):
     """
-    `ForceEndpointErrorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html>`__
+    `ForceEndpointErrorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -143,7 +143,7 @@ class ForceEndpointErrorConfiguration(AWSProperty):
 
 class ScteHls(AWSProperty):
     """
-    `ScteHls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html>`__
+    `ScteHls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-sctehls.html>`__
     """
 
     props: PropsDictType = {
@@ -153,7 +153,7 @@ class ScteHls(AWSProperty):
 
 class StartTag(AWSProperty):
     """
-    `StartTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html>`__
+    `StartTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-starttag.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class StartTag(AWSProperty):
 
 class HlsManifestConfiguration(AWSProperty):
     """
-    `HlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html>`__
+    `HlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class HlsManifestConfiguration(AWSProperty):
 
 class LowLatencyHlsManifestConfiguration(AWSProperty):
     """
-    `LowLatencyHlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html>`__
+    `LowLatencyHlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -200,7 +200,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
 
 class EncryptionMethod(AWSProperty):
     """
-    `EncryptionMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html>`__
+    `EncryptionMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html>`__
     """
 
     props: PropsDictType = {
@@ -211,7 +211,7 @@ class EncryptionMethod(AWSProperty):
 
 class EncryptionContractConfiguration(AWSProperty):
     """
-    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptioncontractconfiguration.html>`__
+    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-encryptioncontractconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class EncryptionContractConfiguration(AWSProperty):
 
 class SpekeKeyProvider(AWSProperty):
     """
-    `SpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html>`__
+    `SpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -236,7 +236,7 @@ class SpekeKeyProvider(AWSProperty):
 
 class Encryption(AWSProperty):
     """
-    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html>`__
+    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-encryption.html>`__
     """
 
     props: PropsDictType = {
@@ -249,7 +249,7 @@ class Encryption(AWSProperty):
 
 class Scte(AWSProperty):
     """
-    `Scte <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html>`__
+    `Scte <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-scte.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class Scte(AWSProperty):
 
 class Segment(AWSProperty):
     """
-    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html>`__
+    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-originendpoint-segment.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class Segment(AWSProperty):
 
 class OriginEndpoint(AWSObject):
     """
-    `OriginEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html>`__
+    `OriginEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackagev2-originendpoint.html>`__
     """
 
     resource_type = "AWS::MediaPackageV2::OriginEndpoint"
@@ -298,7 +298,7 @@ class OriginEndpoint(AWSObject):
 
 class OriginEndpointPolicy(AWSObject):
     """
-    `OriginEndpointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html>`__
+    `OriginEndpointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediapackagev2-originendpointpolicy.html>`__
     """
 
     resource_type = "AWS::MediaPackageV2::OriginEndpointPolicy"
@@ -313,7 +313,7 @@ class OriginEndpointPolicy(AWSObject):
 
 class IngestEndpoint(AWSProperty):
     """
-    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-ingestendpoint.html>`__
+    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediapackagev2-channel-ingestendpoint.html>`__
     """
 
     props: PropsDictType = {

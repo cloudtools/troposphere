@@ -12,7 +12,7 @@ from .validators.codecommit import validate_trigger
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codecommit-repository-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class S3(AWSProperty):
 
 class Code(AWSProperty):
     """
-    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-code.html>`__
+    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codecommit-repository-code.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class Code(AWSProperty):
 
 class Trigger(AWSProperty):
     """
-    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html>`__
+    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codecommit-repository-repositorytrigger.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class Trigger(AWSProperty):
 
 class Repository(AWSObject):
     """
-    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html>`__
+    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codecommit-repository.html>`__
     """
 
     resource_type = "AWS::CodeCommit::Repository"

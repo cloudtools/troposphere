@@ -20,7 +20,7 @@ from .validators.autoscalingplans import (
 
 class TagFilter(AWSProperty):
     """
-    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html>`__
+    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-tagfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -31,7 +31,7 @@ class TagFilter(AWSProperty):
 
 class ApplicationSource(AWSProperty):
     """
-    `ApplicationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html>`__
+    `ApplicationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-applicationsource.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class ApplicationSource(AWSProperty):
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-metricdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class MetricDimension(AWSProperty):
 
 class CustomizedLoadMetricSpecification(AWSProperty):
     """
-    `CustomizedLoadMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html>`__
+    `CustomizedLoadMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class CustomizedLoadMetricSpecification(AWSProperty):
 
 class PredefinedLoadMetricSpecification(AWSProperty):
     """
-    `PredefinedLoadMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedloadmetricspecification.html>`__
+    `PredefinedLoadMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-predefinedloadmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class PredefinedLoadMetricSpecification(AWSProperty):
 
 class CustomizedScalingMetricSpecification(AWSProperty):
     """
-    `CustomizedScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html>`__
+    `CustomizedScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class CustomizedScalingMetricSpecification(AWSProperty):
 
 class PredefinedScalingMetricSpecification(AWSProperty):
     """
-    `PredefinedScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html>`__
+    `PredefinedScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class PredefinedScalingMetricSpecification(AWSProperty):
 
 class TargetTrackingConfiguration(AWSProperty):
     """
-    `TargetTrackingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html>`__
+    `TargetTrackingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class TargetTrackingConfiguration(AWSProperty):
 
 class ScalingInstruction(AWSProperty):
     """
-    `ScalingInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html>`__
+    `ScalingInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class ScalingInstruction(AWSProperty):
 
 class ScalingPlan(AWSObject):
     """
-    `ScalingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html>`__
+    `ScalingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-autoscalingplans-scalingplan.html>`__
     """
 
     resource_type = "AWS::AutoScalingPlans::ScalingPlan"

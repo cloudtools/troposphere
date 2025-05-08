@@ -12,7 +12,7 @@ from .validators.organizations import validate_policy_type
 
 class Account(AWSObject):
     """
-    `Account <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html>`__
+    `Account <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-organizations-account.html>`__
     """
 
     resource_type = "AWS::Organizations::Account"
@@ -28,7 +28,7 @@ class Account(AWSObject):
 
 class Organization(AWSObject):
     """
-    `Organization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html>`__
+    `Organization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-organizations-organization.html>`__
     """
 
     resource_type = "AWS::Organizations::Organization"
@@ -40,7 +40,7 @@ class Organization(AWSObject):
 
 class OrganizationalUnit(AWSObject):
     """
-    `OrganizationalUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html>`__
+    `OrganizationalUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-organizations-organizationalunit.html>`__
     """
 
     resource_type = "AWS::Organizations::OrganizationalUnit"
@@ -54,7 +54,7 @@ class OrganizationalUnit(AWSObject):
 
 class Policy(AWSObject):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-organizations-policy.html>`__
     """
 
     resource_type = "AWS::Organizations::Policy"
@@ -71,7 +71,7 @@ class Policy(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-organizations-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::Organizations::ResourcePolicy"

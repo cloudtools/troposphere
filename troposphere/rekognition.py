@@ -13,7 +13,7 @@ from .validators.rekognition import validate_PolygonRegionsOfInterest
 
 class Collection(AWSObject):
     """
-    `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html>`__
+    `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rekognition-collection.html>`__
     """
 
     resource_type = "AWS::Rekognition::Collection"
@@ -26,7 +26,7 @@ class Collection(AWSObject):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rekognition-project.html>`__
     """
 
     resource_type = "AWS::Rekognition::Project"
@@ -38,7 +38,7 @@ class Project(AWSObject):
 
 class BoundingBox(AWSProperty):
     """
-    `BoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-boundingbox.html>`__
+    `BoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-boundingbox.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class BoundingBox(AWSProperty):
 
 class ConnectedHomeSettings(AWSProperty):
     """
-    `ConnectedHomeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-connectedhomesettings.html>`__
+    `ConnectedHomeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-connectedhomesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class ConnectedHomeSettings(AWSProperty):
 
 class DataSharingPreference(AWSProperty):
     """
-    `DataSharingPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-datasharingpreference.html>`__
+    `DataSharingPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-datasharingpreference.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class DataSharingPreference(AWSProperty):
 
 class FaceSearchSettings(AWSProperty):
     """
-    `FaceSearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-facesearchsettings.html>`__
+    `FaceSearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-facesearchsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class FaceSearchSettings(AWSProperty):
 
 class KinesisDataStream(AWSProperty):
     """
-    `KinesisDataStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisdatastream.html>`__
+    `KinesisDataStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-kinesisdatastream.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class KinesisDataStream(AWSProperty):
 
 class KinesisVideoStream(AWSProperty):
     """
-    `KinesisVideoStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-kinesisvideostream.html>`__
+    `KinesisVideoStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-kinesisvideostream.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class KinesisVideoStream(AWSProperty):
 
 class NotificationChannel(AWSProperty):
     """
-    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-notificationchannel.html>`__
+    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-notificationchannel.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class NotificationChannel(AWSProperty):
 
 class S3Destination(AWSProperty):
     """
-    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-s3destination.html>`__
+    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-rekognition-streamprocessor-s3destination.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class S3Destination(AWSProperty):
 
 class StreamProcessor(AWSObject):
     """
-    `StreamProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-streamprocessor.html>`__
+    `StreamProcessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rekognition-streamprocessor.html>`__
     """
 
     resource_type = "AWS::Rekognition::StreamProcessor"

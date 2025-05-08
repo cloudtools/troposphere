@@ -12,7 +12,7 @@ from .validators import double, integer
 
 class Farm(AWSObject):
     """
-    `Farm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html>`__
+    `Farm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-farm.html>`__
     """
 
     resource_type = "AWS::Deadline::Farm"
@@ -27,7 +27,7 @@ class Farm(AWSObject):
 
 class AcceleratorCountRange(AWSProperty):
     """
-    `AcceleratorCountRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html>`__
+    `AcceleratorCountRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-acceleratorcountrange.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class AcceleratorCountRange(AWSProperty):
 
 class AcceleratorTotalMemoryMiBRange(AWSProperty):
     """
-    `AcceleratorTotalMemoryMiBRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratortotalmemorymibrange.html>`__
+    `AcceleratorTotalMemoryMiBRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-acceleratortotalmemorymibrange.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class AcceleratorTotalMemoryMiBRange(AWSProperty):
 
 class FleetAmountCapability(AWSProperty):
     """
-    `FleetAmountCapability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html>`__
+    `FleetAmountCapability <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-fleetamountcapability.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class FleetAmountCapability(AWSProperty):
 
 class FleetAttributeCapability(AWSProperty):
     """
-    `FleetAttributeCapability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetattributecapability.html>`__
+    `FleetAttributeCapability <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-fleetattributecapability.html>`__
     """
 
     props: PropsDictType = {
@@ -72,7 +72,7 @@ class FleetAttributeCapability(AWSProperty):
 
 class MemoryMiBRange(AWSProperty):
     """
-    `MemoryMiBRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-memorymibrange.html>`__
+    `MemoryMiBRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-memorymibrange.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class MemoryMiBRange(AWSProperty):
 
 class VCpuCountRange(AWSProperty):
     """
-    `VCpuCountRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-vcpucountrange.html>`__
+    `VCpuCountRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-vcpucountrange.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class VCpuCountRange(AWSProperty):
 
 class CustomerManagedWorkerCapabilities(AWSProperty):
     """
-    `CustomerManagedWorkerCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedworkercapabilities.html>`__
+    `CustomerManagedWorkerCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-customermanagedworkercapabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class CustomerManagedWorkerCapabilities(AWSProperty):
 
 class CustomerManagedFleetConfiguration(AWSProperty):
     """
-    `CustomerManagedFleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html>`__
+    `CustomerManagedFleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -124,7 +124,7 @@ class CustomerManagedFleetConfiguration(AWSProperty):
 
 class AcceleratorSelection(AWSProperty):
     """
-    `AcceleratorSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html>`__
+    `AcceleratorSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-acceleratorselection.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class AcceleratorSelection(AWSProperty):
 
 class AcceleratorCapabilities(AWSProperty):
     """
-    `AcceleratorCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html>`__
+    `AcceleratorCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-acceleratorcapabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class AcceleratorCapabilities(AWSProperty):
 
 class Ec2EbsVolume(AWSProperty):
     """
-    `Ec2EbsVolume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html>`__
+    `Ec2EbsVolume <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-ec2ebsvolume.html>`__
     """
 
     props: PropsDictType = {
@@ -158,7 +158,7 @@ class Ec2EbsVolume(AWSProperty):
 
 class ServiceManagedEc2InstanceCapabilities(AWSProperty):
     """
-    `ServiceManagedEc2InstanceCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html>`__
+    `ServiceManagedEc2InstanceCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class ServiceManagedEc2InstanceCapabilities(AWSProperty):
 
 class ServiceManagedEc2InstanceMarketOptions(AWSProperty):
     """
-    `ServiceManagedEc2InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancemarketoptions.html>`__
+    `ServiceManagedEc2InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-servicemanagedec2instancemarketoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -187,7 +187,7 @@ class ServiceManagedEc2InstanceMarketOptions(AWSProperty):
 
 class ServiceManagedEc2FleetConfiguration(AWSProperty):
     """
-    `ServiceManagedEc2FleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html>`__
+    `ServiceManagedEc2FleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class ServiceManagedEc2FleetConfiguration(AWSProperty):
 
 class FleetConfiguration(AWSProperty):
     """
-    `FleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetconfiguration.html>`__
+    `FleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-fleetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class FleetConfiguration(AWSProperty):
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-fleet.html>`__
     """
 
     resource_type = "AWS::Deadline::Fleet"
@@ -228,7 +228,7 @@ class Fleet(AWSObject):
 
 class LicenseEndpoint(AWSObject):
     """
-    `LicenseEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html>`__
+    `LicenseEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-licenseendpoint.html>`__
     """
 
     resource_type = "AWS::Deadline::LicenseEndpoint"
@@ -243,7 +243,7 @@ class LicenseEndpoint(AWSObject):
 
 class Limit(AWSObject):
     """
-    `Limit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-limit.html>`__
+    `Limit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-limit.html>`__
     """
 
     resource_type = "AWS::Deadline::Limit"
@@ -259,7 +259,7 @@ class Limit(AWSObject):
 
 class MeteredProduct(AWSObject):
     """
-    `MeteredProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html>`__
+    `MeteredProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-meteredproduct.html>`__
     """
 
     resource_type = "AWS::Deadline::MeteredProduct"
@@ -272,7 +272,7 @@ class MeteredProduct(AWSObject):
 
 class Monitor(AWSObject):
     """
-    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html>`__
+    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-monitor.html>`__
     """
 
     resource_type = "AWS::Deadline::Monitor"
@@ -287,7 +287,7 @@ class Monitor(AWSObject):
 
 class JobAttachmentSettings(AWSProperty):
     """
-    `JobAttachmentSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobattachmentsettings.html>`__
+    `JobAttachmentSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-queue-jobattachmentsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -298,7 +298,7 @@ class JobAttachmentSettings(AWSProperty):
 
 class PosixUser(AWSProperty):
     """
-    `PosixUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-posixuser.html>`__
+    `PosixUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-queue-posixuser.html>`__
     """
 
     props: PropsDictType = {
@@ -309,7 +309,7 @@ class PosixUser(AWSProperty):
 
 class WindowsUser(AWSProperty):
     """
-    `WindowsUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-windowsuser.html>`__
+    `WindowsUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-queue-windowsuser.html>`__
     """
 
     props: PropsDictType = {
@@ -320,7 +320,7 @@ class WindowsUser(AWSProperty):
 
 class JobRunAsUser(AWSProperty):
     """
-    `JobRunAsUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-jobrunasuser.html>`__
+    `JobRunAsUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-queue-jobrunasuser.html>`__
     """
 
     props: PropsDictType = {
@@ -332,7 +332,7 @@ class JobRunAsUser(AWSProperty):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-queue.html>`__
     """
 
     resource_type = "AWS::Deadline::Queue"
@@ -353,7 +353,7 @@ class Queue(AWSObject):
 
 class QueueEnvironment(AWSObject):
     """
-    `QueueEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html>`__
+    `QueueEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-queueenvironment.html>`__
     """
 
     resource_type = "AWS::Deadline::QueueEnvironment"
@@ -369,7 +369,7 @@ class QueueEnvironment(AWSObject):
 
 class QueueFleetAssociation(AWSObject):
     """
-    `QueueFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuefleetassociation.html>`__
+    `QueueFleetAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-queuefleetassociation.html>`__
     """
 
     resource_type = "AWS::Deadline::QueueFleetAssociation"
@@ -383,7 +383,7 @@ class QueueFleetAssociation(AWSObject):
 
 class QueueLimitAssociation(AWSObject):
     """
-    `QueueLimitAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuelimitassociation.html>`__
+    `QueueLimitAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-queuelimitassociation.html>`__
     """
 
     resource_type = "AWS::Deadline::QueueLimitAssociation"
@@ -397,7 +397,7 @@ class QueueLimitAssociation(AWSObject):
 
 class FileSystemLocation(AWSProperty):
     """
-    `FileSystemLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-storageprofile-filesystemlocation.html>`__
+    `FileSystemLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-storageprofile-filesystemlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class FileSystemLocation(AWSProperty):
 
 class StorageProfile(AWSObject):
     """
-    `StorageProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html>`__
+    `StorageProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-deadline-storageprofile.html>`__
     """
 
     resource_type = "AWS::Deadline::StorageProfile"
@@ -424,7 +424,7 @@ class StorageProfile(AWSObject):
 
 class FleetCapabilities(AWSProperty):
     """
-    `FleetCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetcapabilities.html>`__
+    `FleetCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-deadline-fleet-fleetcapabilities.html>`__
     """
 
     props: PropsDictType = {

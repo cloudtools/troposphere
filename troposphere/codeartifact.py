@@ -12,7 +12,7 @@ from .validators.codeartifact import policytypes
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codeartifact-domain.html>`__
     """
 
     resource_type = "AWS::CodeArtifact::Domain"
@@ -27,7 +27,7 @@ class Domain(AWSObject):
 
 class RestrictionType(AWSProperty):
     """
-    `RestrictionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictiontype.html>`__
+    `RestrictionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codeartifact-packagegroup-restrictiontype.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class RestrictionType(AWSProperty):
 
 class Restrictions(AWSProperty):
     """
-    `Restrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictions.html>`__
+    `Restrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codeartifact-packagegroup-restrictions.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class Restrictions(AWSProperty):
 
 class OriginConfiguration(AWSProperty):
     """
-    `OriginConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-originconfiguration.html>`__
+    `OriginConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codeartifact-packagegroup-originconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class OriginConfiguration(AWSProperty):
 
 class PackageGroup(AWSObject):
     """
-    `PackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html>`__
+    `PackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codeartifact-packagegroup.html>`__
     """
 
     resource_type = "AWS::CodeArtifact::PackageGroup"
@@ -78,7 +78,7 @@ class PackageGroup(AWSObject):
 
 class Repository(AWSObject):
     """
-    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html>`__
+    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codeartifact-repository.html>`__
     """
 
     resource_type = "AWS::CodeArtifact::Repository"

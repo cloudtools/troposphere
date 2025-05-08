@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class DRTAccess(AWSObject):
     """
-    `DRTAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-drtaccess.html>`__
+    `DRTAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-shield-drtaccess.html>`__
     """
 
     resource_type = "AWS::Shield::DRTAccess"
@@ -24,7 +24,7 @@ class DRTAccess(AWSObject):
 
 class EmergencyContact(AWSProperty):
     """
-    `EmergencyContact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-proactiveengagement-emergencycontact.html>`__
+    `EmergencyContact <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-shield-proactiveengagement-emergencycontact.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class EmergencyContact(AWSProperty):
 
 class ProactiveEngagement(AWSObject):
     """
-    `ProactiveEngagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html>`__
+    `ProactiveEngagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-shield-proactiveengagement.html>`__
     """
 
     resource_type = "AWS::Shield::ProactiveEngagement"
@@ -49,7 +49,7 @@ class ProactiveEngagement(AWSObject):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-shield-protection-action.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class Action(AWSProperty):
 
 class ApplicationLayerAutomaticResponseConfiguration(AWSProperty):
     """
-    `ApplicationLayerAutomaticResponseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html>`__
+    `ApplicationLayerAutomaticResponseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-shield-protection-applicationlayerautomaticresponseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class ApplicationLayerAutomaticResponseConfiguration(AWSProperty):
 
 class Protection(AWSObject):
     """
-    `Protection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-protection.html>`__
+    `Protection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-shield-protection.html>`__
     """
 
     resource_type = "AWS::Shield::Protection"
@@ -90,7 +90,7 @@ class Protection(AWSObject):
 
 class ProtectionGroup(AWSObject):
     """
-    `ProtectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-protectiongroup.html>`__
+    `ProtectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-shield-protectiongroup.html>`__
     """
 
     resource_type = "AWS::Shield::ProtectionGroup"

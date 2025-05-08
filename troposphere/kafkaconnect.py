@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class ScaleInPolicy(AWSProperty):
     """
-    `ScaleInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleinpolicy.html>`__
+    `ScaleInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-scaleinpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class ScaleInPolicy(AWSProperty):
 
 class ScaleOutPolicy(AWSProperty):
     """
-    `ScaleOutPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-scaleoutpolicy.html>`__
+    `ScaleOutPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-scaleoutpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class ScaleOutPolicy(AWSProperty):
 
 class AutoScaling(AWSProperty):
     """
-    `AutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html>`__
+    `AutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-autoscaling.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class AutoScaling(AWSProperty):
 
 class ProvisionedCapacity(AWSProperty):
     """
-    `ProvisionedCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-provisionedcapacity.html>`__
+    `ProvisionedCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-provisionedcapacity.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ProvisionedCapacity(AWSProperty):
 
 class Capacity(AWSProperty):
     """
-    `Capacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-capacity.html>`__
+    `Capacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-capacity.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class Capacity(AWSProperty):
 
 class Vpc(AWSProperty):
     """
-    `Vpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-vpc.html>`__
+    `Vpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-vpc.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class Vpc(AWSProperty):
 
 class ApacheKafkaCluster(AWSProperty):
     """
-    `ApacheKafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-apachekafkacluster.html>`__
+    `ApacheKafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-apachekafkacluster.html>`__
     """
 
     props: PropsDictType = {
@@ -90,7 +90,7 @@ class ApacheKafkaCluster(AWSProperty):
 
 class KafkaCluster(AWSProperty):
     """
-    `KafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkacluster.html>`__
+    `KafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-kafkacluster.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class KafkaCluster(AWSProperty):
 
 class KafkaClusterClientAuthentication(AWSProperty):
     """
-    `KafkaClusterClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html>`__
+    `KafkaClusterClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-kafkaclusterclientauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class KafkaClusterClientAuthentication(AWSProperty):
 
 class KafkaClusterEncryptionInTransit(AWSProperty):
     """
-    `KafkaClusterEncryptionInTransit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html>`__
+    `KafkaClusterEncryptionInTransit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-kafkaclusterencryptionintransit.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,7 @@ class KafkaClusterEncryptionInTransit(AWSProperty):
 
 class CloudWatchLogsLogDelivery(AWSProperty):
     """
-    `CloudWatchLogsLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html>`__
+    `CloudWatchLogsLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-cloudwatchlogslogdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class CloudWatchLogsLogDelivery(AWSProperty):
 
 class FirehoseLogDelivery(AWSProperty):
     """
-    `FirehoseLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-firehoselogdelivery.html>`__
+    `FirehoseLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-firehoselogdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class FirehoseLogDelivery(AWSProperty):
 
 class S3LogDelivery(AWSProperty):
     """
-    `S3LogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-s3logdelivery.html>`__
+    `S3LogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-s3logdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class S3LogDelivery(AWSProperty):
 
 class WorkerLogDelivery(AWSProperty):
     """
-    `WorkerLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerlogdelivery.html>`__
+    `WorkerLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-workerlogdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -166,7 +166,7 @@ class WorkerLogDelivery(AWSProperty):
 
 class LogDelivery(AWSProperty):
     """
-    `LogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-logdelivery.html>`__
+    `LogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-logdelivery.html>`__
     """
 
     props: PropsDictType = {
@@ -176,7 +176,7 @@ class LogDelivery(AWSProperty):
 
 class CustomPluginProperty(AWSProperty):
     """
-    `CustomPluginProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html>`__
+    `CustomPluginProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-customplugin.html>`__
     """
 
     props: PropsDictType = {
@@ -187,7 +187,7 @@ class CustomPluginProperty(AWSProperty):
 
 class Plugin(AWSProperty):
     """
-    `Plugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-plugin.html>`__
+    `Plugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-plugin.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class Plugin(AWSProperty):
 
 class WorkerConfigurationProperty(AWSProperty):
     """
-    `WorkerConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html>`__
+    `WorkerConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-connector-workerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class WorkerConfigurationProperty(AWSProperty):
 
 class Connector(AWSObject):
     """
-    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html>`__
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kafkaconnect-connector.html>`__
     """
 
     resource_type = "AWS::KafkaConnect::Connector"
@@ -232,7 +232,7 @@ class Connector(AWSObject):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-customplugin-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class S3Location(AWSProperty):
 
 class CustomPluginLocation(AWSProperty):
     """
-    `CustomPluginLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html>`__
+    `CustomPluginLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-customplugin-custompluginlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -254,7 +254,7 @@ class CustomPluginLocation(AWSProperty):
 
 class CustomPlugin(AWSObject):
     """
-    `CustomPlugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html>`__
+    `CustomPlugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kafkaconnect-customplugin.html>`__
     """
 
     resource_type = "AWS::KafkaConnect::CustomPlugin"
@@ -270,7 +270,7 @@ class CustomPlugin(AWSObject):
 
 class WorkerConfiguration(AWSObject):
     """
-    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html>`__
+    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kafkaconnect-workerconfiguration.html>`__
     """
 
     resource_type = "AWS::KafkaConnect::WorkerConfiguration"
@@ -285,7 +285,7 @@ class WorkerConfiguration(AWSObject):
 
 class CustomPluginFileDescription(AWSProperty):
     """
-    `CustomPluginFileDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html>`__
+    `CustomPluginFileDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html>`__
     """
 
     props: PropsDictType = {

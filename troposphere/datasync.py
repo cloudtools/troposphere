@@ -12,7 +12,7 @@ from .validators import integer
 
 class Agent(AWSObject):
     """
-    `Agent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html>`__
+    `Agent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-agent.html>`__
     """
 
     resource_type = "AWS::DataSync::Agent"
@@ -29,7 +29,7 @@ class Agent(AWSObject):
 
 class AzureBlobSasConfiguration(AWSProperty):
     """
-    `AzureBlobSasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html>`__
+    `AzureBlobSasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -39,7 +39,7 @@ class AzureBlobSasConfiguration(AWSProperty):
 
 class LocationAzureBlob(AWSObject):
     """
-    `LocationAzureBlob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html>`__
+    `LocationAzureBlob <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationazureblob.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationAzureBlob"
@@ -58,7 +58,7 @@ class LocationAzureBlob(AWSObject):
 
 class Ec2Config(AWSProperty):
     """
-    `Ec2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html>`__
+    `Ec2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationefs-ec2config.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class Ec2Config(AWSProperty):
 
 class LocationEFS(AWSObject):
     """
-    `LocationEFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html>`__
+    `LocationEFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationefs.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationEFS"
@@ -87,7 +87,7 @@ class LocationEFS(AWSObject):
 
 class LocationFSxLustre(AWSObject):
     """
-    `LocationFSxLustre <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html>`__
+    `LocationFSxLustre <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationfsxlustre.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationFSxLustre"
@@ -102,7 +102,7 @@ class LocationFSxLustre(AWSObject):
 
 class MountOptions(AWSProperty):
     """
-    `MountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html>`__
+    `MountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationsmb-mountoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class MountOptions(AWSProperty):
 
 class NFS(AWSProperty):
     """
-    `NFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html>`__
+    `NFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxopenzfs-nfs.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class NFS(AWSProperty):
 
 class SmbMountOptions(AWSProperty):
     """
-    `SmbMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smbmountoptions.html>`__
+    `SmbMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxontap-smbmountoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class SmbMountOptions(AWSProperty):
 
 class SMB(AWSProperty):
     """
-    `SMB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html>`__
+    `SMB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxontap-smb.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class SMB(AWSProperty):
 
 class ONTAPProtocol(AWSProperty):
     """
-    `ONTAPProtocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html>`__
+    `ONTAPProtocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxontap-protocol.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class ONTAPProtocol(AWSProperty):
 
 class LocationFSxONTAP(AWSObject):
     """
-    `LocationFSxONTAP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html>`__
+    `LocationFSxONTAP <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationfsxontap.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationFSxONTAP"
@@ -172,7 +172,7 @@ class LocationFSxONTAP(AWSObject):
 
 class Protocol(AWSProperty):
     """
-    `Protocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html>`__
+    `Protocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxopenzfs-protocol.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class Protocol(AWSProperty):
 
 class LocationFSxOpenZFS(AWSObject):
     """
-    `LocationFSxOpenZFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html>`__
+    `LocationFSxOpenZFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationfsxopenzfs.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationFSxOpenZFS"
@@ -198,7 +198,7 @@ class LocationFSxOpenZFS(AWSObject):
 
 class LocationFSxWindows(AWSObject):
     """
-    `LocationFSxWindows <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html>`__
+    `LocationFSxWindows <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationfsxwindows.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationFSxWindows"
@@ -216,7 +216,7 @@ class LocationFSxWindows(AWSObject):
 
 class NameNode(AWSProperty):
     """
-    `NameNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-namenode.html>`__
+    `NameNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationhdfs-namenode.html>`__
     """
 
     props: PropsDictType = {
@@ -227,7 +227,7 @@ class NameNode(AWSProperty):
 
 class QopConfiguration(AWSProperty):
     """
-    `QopConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationhdfs-qopconfiguration.html>`__
+    `QopConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationhdfs-qopconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -238,7 +238,7 @@ class QopConfiguration(AWSProperty):
 
 class LocationHDFS(AWSObject):
     """
-    `LocationHDFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html>`__
+    `LocationHDFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationhdfs.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationHDFS"
@@ -262,7 +262,7 @@ class LocationHDFS(AWSObject):
 
 class OnPremConfig(AWSProperty):
     """
-    `OnPremConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html>`__
+    `OnPremConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationnfs-onpremconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -272,7 +272,7 @@ class OnPremConfig(AWSProperty):
 
 class LocationNFS(AWSObject):
     """
-    `LocationNFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html>`__
+    `LocationNFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationnfs.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationNFS"
@@ -288,7 +288,7 @@ class LocationNFS(AWSObject):
 
 class LocationObjectStorage(AWSObject):
     """
-    `LocationObjectStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html>`__
+    `LocationObjectStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationobjectstorage.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationObjectStorage"
@@ -309,7 +309,7 @@ class LocationObjectStorage(AWSObject):
 
 class S3Config(AWSProperty):
     """
-    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html>`__
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locations3-s3config.html>`__
     """
 
     props: PropsDictType = {
@@ -319,7 +319,7 @@ class S3Config(AWSProperty):
 
 class LocationS3(AWSObject):
     """
-    `LocationS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html>`__
+    `LocationS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locations3.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationS3"
@@ -335,7 +335,7 @@ class LocationS3(AWSObject):
 
 class LocationSMB(AWSObject):
     """
-    `LocationSMB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html>`__
+    `LocationSMB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-locationsmb.html>`__
     """
 
     resource_type = "AWS::DataSync::LocationSMB"
@@ -359,7 +359,7 @@ class LocationSMB(AWSObject):
 
 class ServerConfiguration(AWSProperty):
     """
-    `ServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html>`__
+    `ServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-storagesystem-serverconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -370,7 +370,7 @@ class ServerConfiguration(AWSProperty):
 
 class ServerCredentials(AWSProperty):
     """
-    `ServerCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html>`__
+    `ServerCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-storagesystem-servercredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class ServerCredentials(AWSProperty):
 
 class StorageSystem(AWSObject):
     """
-    `StorageSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html>`__
+    `StorageSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-storagesystem.html>`__
     """
 
     resource_type = "AWS::DataSync::StorageSystem"
@@ -399,7 +399,7 @@ class StorageSystem(AWSObject):
 
 class FilterRule(AWSProperty):
     """
-    `FilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html>`__
+    `FilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-filterrule.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class FilterRule(AWSProperty):
 
 class ManifestConfigSourceS3(AWSProperty):
     """
-    `ManifestConfigSourceS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfigsources3.html>`__
+    `ManifestConfigSourceS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-manifestconfigsources3.html>`__
     """
 
     props: PropsDictType = {
@@ -423,7 +423,7 @@ class ManifestConfigSourceS3(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-source.html>`__
     """
 
     props: PropsDictType = {
@@ -433,7 +433,7 @@ class Source(AWSProperty):
 
 class ManifestConfig(AWSProperty):
     """
-    `ManifestConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html>`__
+    `ManifestConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-manifestconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class ManifestConfig(AWSProperty):
 
 class Options(AWSProperty):
     """
-    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html>`__
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-options.html>`__
     """
 
     props: PropsDictType = {
@@ -469,7 +469,7 @@ class Options(AWSProperty):
 
 class TaskReportConfigDestinationS3(AWSProperty):
     """
-    `TaskReportConfigDestinationS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html>`__
+    `TaskReportConfigDestinationS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-taskreportconfigdestinations3.html>`__
     """
 
     props: PropsDictType = {
@@ -481,7 +481,7 @@ class TaskReportConfigDestinationS3(AWSProperty):
 
 class Destination(AWSProperty):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-destination.html>`__
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-destination.html>`__
     """
 
     props: PropsDictType = {
@@ -491,7 +491,7 @@ class Destination(AWSProperty):
 
 class Deleted(AWSProperty):
     """
-    `Deleted <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-deleted.html>`__
+    `Deleted <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-deleted.html>`__
     """
 
     props: PropsDictType = {
@@ -501,7 +501,7 @@ class Deleted(AWSProperty):
 
 class Skipped(AWSProperty):
     """
-    `Skipped <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-skipped.html>`__
+    `Skipped <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-skipped.html>`__
     """
 
     props: PropsDictType = {
@@ -511,7 +511,7 @@ class Skipped(AWSProperty):
 
 class Transferred(AWSProperty):
     """
-    `Transferred <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-transferred.html>`__
+    `Transferred <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-transferred.html>`__
     """
 
     props: PropsDictType = {
@@ -521,7 +521,7 @@ class Transferred(AWSProperty):
 
 class Verified(AWSProperty):
     """
-    `Verified <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-verified.html>`__
+    `Verified <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-verified.html>`__
     """
 
     props: PropsDictType = {
@@ -531,7 +531,7 @@ class Verified(AWSProperty):
 
 class Overrides(AWSProperty):
     """
-    `Overrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html>`__
+    `Overrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-overrides.html>`__
     """
 
     props: PropsDictType = {
@@ -544,7 +544,7 @@ class Overrides(AWSProperty):
 
 class TaskReportConfig(AWSProperty):
     """
-    `TaskReportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfig.html>`__
+    `TaskReportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-taskreportconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -558,7 +558,7 @@ class TaskReportConfig(AWSProperty):
 
 class TaskSchedule(AWSProperty):
     """
-    `TaskSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html>`__
+    `TaskSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-task-taskschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -569,7 +569,7 @@ class TaskSchedule(AWSProperty):
 
 class Task(AWSObject):
     """
-    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html>`__
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-datasync-task.html>`__
     """
 
     resource_type = "AWS::DataSync::Task"
@@ -592,7 +592,7 @@ class Task(AWSObject):
 
 class NfsMountOptions(AWSProperty):
     """
-    `NfsMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfsmountoptions.html>`__
+    `NfsMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-datasync-locationfsxontap-nfsmountoptions.html>`__
     """
 
     props: PropsDictType = {

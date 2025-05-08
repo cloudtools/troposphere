@@ -1,5 +1,5 @@
 # Converted from CodePipeline example located at:
-# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html # noqa
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codepipeline-pipeline.html # noqa
 
 from troposphere import Parameter, Ref, Template
 from troposphere.codepipeline import (

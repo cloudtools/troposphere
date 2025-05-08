@@ -20,7 +20,7 @@ from .validators.dynamodb import (
 
 class AttributeDefinition(AWSProperty):
     """
-    `AttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html>`__
+    `AttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-attributedefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -31,7 +31,7 @@ class AttributeDefinition(AWSProperty):
 
 class KeySchema(AWSProperty):
     """
-    `KeySchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.html>`__
+    `KeySchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-keyschema.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class KeySchema(AWSProperty):
 
 class Projection(AWSProperty):
     """
-    `Projection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html>`__
+    `Projection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-projection.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class Projection(AWSProperty):
 
 class WarmThroughput(AWSProperty):
     """
-    `WarmThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-warmthroughput.html>`__
+    `WarmThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-warmthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -64,7 +64,7 @@ class WarmThroughput(AWSProperty):
 
 class WriteOnDemandThroughputSettings(AWSProperty):
     """
-    `WriteOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html>`__
+    `WriteOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class WriteOnDemandThroughputSettings(AWSProperty):
 
 class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     """
-    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html>`__
+    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
 
 class CapacityAutoScalingSettings(AWSProperty):
     """
-    `CapacityAutoScalingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html>`__
+    `CapacityAutoScalingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -103,7 +103,7 @@ class CapacityAutoScalingSettings(AWSProperty):
 
 class WriteProvisionedThroughputSettings(AWSProperty):
     """
-    `WriteProvisionedThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html>`__
+    `WriteProvisionedThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class WriteProvisionedThroughputSettings(AWSProperty):
 
 class GlobalTableGlobalSecondaryIndex(AWSProperty):
     """
-    `GlobalTableGlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html>`__
+    `GlobalTableGlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-globalsecondaryindex.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class GlobalTableGlobalSecondaryIndex(AWSProperty):
 
 class GlobalTableSSESpecification(AWSProperty):
     """
-    `GlobalTableSSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html>`__
+    `GlobalTableSSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-ssespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class GlobalTableSSESpecification(AWSProperty):
 
 class LocalSecondaryIndex(AWSProperty):
     """
-    `LocalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-localsecondaryindex.html>`__
+    `LocalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-localsecondaryindex.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class LocalSecondaryIndex(AWSProperty):
 
 class ContributorInsightsSpecification(AWSProperty):
     """
-    `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html>`__
+    `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-contributorinsightsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class ContributorInsightsSpecification(AWSProperty):
 
 class KinesisStreamSpecification(AWSProperty):
     """
-    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html>`__
+    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-kinesisstreamspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class KinesisStreamSpecification(AWSProperty):
 
 class PointInTimeRecoverySpecification(AWSProperty):
     """
-    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
+    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class PointInTimeRecoverySpecification(AWSProperty):
 
 class ReadOnDemandThroughputSettings(AWSProperty):
     """
-    `ReadOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readondemandthroughputsettings.html>`__
+    `ReadOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-readondemandthroughputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class ReadOnDemandThroughputSettings(AWSProperty):
 
 class ReadProvisionedThroughputSettings(AWSProperty):
     """
-    `ReadProvisionedThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html>`__
+    `ReadProvisionedThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class ReadProvisionedThroughputSettings(AWSProperty):
 
 class ReplicaGlobalSecondaryIndexSpecification(AWSProperty):
     """
-    `ReplicaGlobalSecondaryIndexSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html>`__
+    `ReplicaGlobalSecondaryIndexSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class ReplicaGlobalSecondaryIndexSpecification(AWSProperty):
 
 class ReplicaSSESpecification(AWSProperty):
     """
-    `ReplicaSSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html>`__
+    `ReplicaSSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-replicassespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class ReplicaSSESpecification(AWSProperty):
 
 class ResourcePolicy(AWSProperty):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-resourcepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class ResourcePolicy(AWSProperty):
 
 class ReplicaStreamSpecification(AWSProperty):
     """
-    `ReplicaStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html>`__
+    `ReplicaStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-replicastreamspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class ReplicaStreamSpecification(AWSProperty):
 
 class ReplicaSpecification(AWSProperty):
     """
-    `ReplicaSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html>`__
+    `ReplicaSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-globaltable-replicaspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -272,7 +272,7 @@ class ReplicaSpecification(AWSProperty):
 
 class StreamSpecification(AWSProperty):
     """
-    `StreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html>`__
+    `StreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-streamspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class StreamSpecification(AWSProperty):
 
 class TimeToLiveSpecification(AWSProperty):
     """
-    `TimeToLiveSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.html>`__
+    `TimeToLiveSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-timetolivespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -294,7 +294,7 @@ class TimeToLiveSpecification(AWSProperty):
 
 class GlobalTable(AWSObject):
     """
-    `GlobalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html>`__
+    `GlobalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dynamodb-globaltable.html>`__
     """
 
     resource_type = "AWS::DynamoDB::GlobalTable"
@@ -321,7 +321,7 @@ class GlobalTable(AWSObject):
 
 class OnDemandThroughput(AWSProperty):
     """
-    `OnDemandThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ondemandthroughput.html>`__
+    `OnDemandThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-ondemandthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -332,7 +332,7 @@ class OnDemandThroughput(AWSProperty):
 
 class ProvisionedThroughput(AWSProperty):
     """
-    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html>`__
+    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-provisionedthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class ProvisionedThroughput(AWSProperty):
 
 class GlobalSecondaryIndex(AWSProperty):
     """
-    `GlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html>`__
+    `GlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-globalsecondaryindex.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class GlobalSecondaryIndex(AWSProperty):
 
 class Csv(AWSProperty):
     """
-    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-csv.html>`__
+    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-csv.html>`__
     """
 
     props: PropsDictType = {
@@ -370,7 +370,7 @@ class Csv(AWSProperty):
 
 class InputFormatOptions(AWSProperty):
     """
-    `InputFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-inputformatoptions.html>`__
+    `InputFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-inputformatoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class InputFormatOptions(AWSProperty):
 
 class S3BucketSource(AWSProperty):
     """
-    `S3BucketSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-s3bucketsource.html>`__
+    `S3BucketSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-s3bucketsource.html>`__
     """
 
     props: PropsDictType = {
@@ -392,7 +392,7 @@ class S3BucketSource(AWSProperty):
 
 class ImportSourceSpecification(AWSProperty):
     """
-    `ImportSourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-importsourcespecification.html>`__
+    `ImportSourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-importsourcespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -405,7 +405,7 @@ class ImportSourceSpecification(AWSProperty):
 
 class SSESpecification(AWSProperty):
     """
-    `SSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html>`__
+    `SSESpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dynamodb-table-ssespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class SSESpecification(AWSProperty):
 
 class Table(AWSObject):
     """
-    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html>`__
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dynamodb-table.html>`__
     """
 
     resource_type = "AWS::DynamoDB::Table"

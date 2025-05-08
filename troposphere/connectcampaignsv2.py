@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class EmailOutboundConfig(AWSProperty):
     """
-    `EmailOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html>`__
+    `EmailOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class EmailOutboundConfig(AWSProperty):
 
 class EmailOutboundMode(AWSProperty):
     """
-    `EmailOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html>`__
+    `EmailOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-emailoutboundmode.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class EmailOutboundMode(AWSProperty):
 
 class EmailChannelSubtypeConfig(AWSProperty):
     """
-    `EmailChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html>`__
+    `EmailChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-emailchannelsubtypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class EmailChannelSubtypeConfig(AWSProperty):
 
 class SmsOutboundConfig(AWSProperty):
     """
-    `SmsOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundconfig.html>`__
+    `SmsOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-smsoutboundconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class SmsOutboundConfig(AWSProperty):
 
 class SmsOutboundMode(AWSProperty):
     """
-    `SmsOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smsoutboundmode.html>`__
+    `SmsOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-smsoutboundmode.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class SmsOutboundMode(AWSProperty):
 
 class SmsChannelSubtypeConfig(AWSProperty):
     """
-    `SmsChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html>`__
+    `SmsChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-smschannelsubtypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -79,7 +79,7 @@ class SmsChannelSubtypeConfig(AWSProperty):
 
 class AnswerMachineDetectionConfig(AWSProperty):
     """
-    `AnswerMachineDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-answermachinedetectionconfig.html>`__
+    `AnswerMachineDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-answermachinedetectionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -90,7 +90,7 @@ class AnswerMachineDetectionConfig(AWSProperty):
 
 class TelephonyOutboundConfig(AWSProperty):
     """
-    `TelephonyOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html>`__
+    `TelephonyOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class TelephonyOutboundConfig(AWSProperty):
 
 class PredictiveConfig(AWSProperty):
     """
-    `PredictiveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html>`__
+    `PredictiveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-predictiveconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class PredictiveConfig(AWSProperty):
 
 class ProgressiveConfig(AWSProperty):
     """
-    `ProgressiveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html>`__
+    `ProgressiveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class ProgressiveConfig(AWSProperty):
 
 class TelephonyOutboundMode(AWSProperty):
     """
-    `TelephonyOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html>`__
+    `TelephonyOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class TelephonyOutboundMode(AWSProperty):
 
 class TelephonyChannelSubtypeConfig(AWSProperty):
     """
-    `TelephonyChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html>`__
+    `TelephonyChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-telephonychannelsubtypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class TelephonyChannelSubtypeConfig(AWSProperty):
 
 class ChannelSubtypeConfig(AWSProperty):
     """
-    `ChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html>`__
+    `ChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class ChannelSubtypeConfig(AWSProperty):
 
 class CommunicationLimit(AWSProperty):
     """
-    `CommunicationLimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimit.html>`__
+    `CommunicationLimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-communicationlimit.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class CommunicationLimit(AWSProperty):
 
 class CommunicationLimits(AWSProperty):
     """
-    `CommunicationLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimits.html>`__
+    `CommunicationLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-communicationlimits.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class CommunicationLimits(AWSProperty):
 
 class CommunicationLimitsConfig(AWSProperty):
     """
-    `CommunicationLimitsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html>`__
+    `CommunicationLimitsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-communicationlimitsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -191,7 +191,7 @@ class CommunicationLimitsConfig(AWSProperty):
 
 class LocalTimeZoneConfig(AWSProperty):
     """
-    `LocalTimeZoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html>`__
+    `LocalTimeZoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -202,7 +202,7 @@ class LocalTimeZoneConfig(AWSProperty):
 
 class TimeRange(AWSProperty):
     """
-    `TimeRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timerange.html>`__
+    `TimeRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-timerange.html>`__
     """
 
     props: PropsDictType = {
@@ -213,7 +213,7 @@ class TimeRange(AWSProperty):
 
 class DailyHour(AWSProperty):
     """
-    `DailyHour <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-dailyhour.html>`__
+    `DailyHour <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-dailyhour.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class DailyHour(AWSProperty):
 
 class OpenHours(AWSProperty):
     """
-    `OpenHours <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-openhours.html>`__
+    `OpenHours <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-openhours.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class OpenHours(AWSProperty):
 
 class RestrictedPeriod(AWSProperty):
     """
-    `RestrictedPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html>`__
+    `RestrictedPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-restrictedperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -246,7 +246,7 @@ class RestrictedPeriod(AWSProperty):
 
 class RestrictedPeriods(AWSProperty):
     """
-    `RestrictedPeriods <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html>`__
+    `RestrictedPeriods <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-restrictedperiods.html>`__
     """
 
     props: PropsDictType = {
@@ -256,7 +256,7 @@ class RestrictedPeriods(AWSProperty):
 
 class TimeWindow(AWSProperty):
     """
-    `TimeWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timewindow.html>`__
+    `TimeWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-timewindow.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class TimeWindow(AWSProperty):
 
 class CommunicationTimeConfig(AWSProperty):
     """
-    `CommunicationTimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html>`__
+    `CommunicationTimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class CommunicationTimeConfig(AWSProperty):
 
 class Schedule(AWSProperty):
     """
-    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-schedule.html>`__
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-schedule.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class Schedule(AWSProperty):
 
 class EventTrigger(AWSProperty):
     """
-    `EventTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-eventtrigger.html>`__
+    `EventTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-eventtrigger.html>`__
     """
 
     props: PropsDictType = {
@@ -302,7 +302,7 @@ class EventTrigger(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-connectcampaignsv2-campaign-source.html>`__
     """
 
     props: PropsDictType = {
@@ -313,7 +313,7 @@ class Source(AWSProperty):
 
 class Campaign(AWSObject):
     """
-    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html>`__
+    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-connectcampaignsv2-campaign.html>`__
     """
 
     resource_type = "AWS::ConnectCampaignsV2::Campaign"

@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class ComponentInfo(AWSProperty):
     """
-    `ComponentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-componentinfo.html>`__
+    `ComponentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-systemsmanagersap-application-componentinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ComponentInfo(AWSProperty):
 
 class Credential(AWSProperty):
     """
-    `Credential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html>`__
+    `Credential <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-systemsmanagersap-application-credential.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class Credential(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-systemsmanagersap-application.html>`__
     """
 
     resource_type = "AWS::SystemsManagerSAP::Application"

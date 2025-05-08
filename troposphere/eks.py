@@ -19,7 +19,7 @@ from .validators.eks import (
 
 class AccessScope(AWSProperty):
     """
-    `AccessScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accessscope.html>`__
+    `AccessScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-accessentry-accessscope.html>`__
     """
 
     props: PropsDictType = {
@@ -30,7 +30,7 @@ class AccessScope(AWSProperty):
 
 class AccessPolicy(AWSProperty):
     """
-    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-accessentry-accesspolicy.html>`__
+    `AccessPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-accessentry-accesspolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -41,7 +41,7 @@ class AccessPolicy(AWSProperty):
 
 class AccessEntry(AWSObject):
     """
-    `AccessEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-accessentry.html>`__
+    `AccessEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-accessentry.html>`__
     """
 
     resource_type = "AWS::EKS::AccessEntry"
@@ -59,7 +59,7 @@ class AccessEntry(AWSObject):
 
 class PodIdentityAssociationProperty(AWSProperty):
     """
-    `PodIdentityAssociationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html>`__
+    `PodIdentityAssociationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-addon-podidentityassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class PodIdentityAssociationProperty(AWSProperty):
 
 class Addon(AWSObject):
     """
-    `Addon <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html>`__
+    `Addon <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-addon.html>`__
     """
 
     resource_type = "AWS::EKS::Addon"
@@ -90,7 +90,7 @@ class Addon(AWSObject):
 
 class AccessConfig(AWSProperty):
     """
-    `AccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-accessconfig.html>`__
+    `AccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-accessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -101,7 +101,7 @@ class AccessConfig(AWSProperty):
 
 class ComputeConfig(AWSProperty):
     """
-    `ComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html>`__
+    `ComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-computeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class ComputeConfig(AWSProperty):
 
 class Provider(AWSProperty):
     """
-    `Provider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html>`__
+    `Provider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-provider.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class Provider(AWSProperty):
 
 class EncryptionConfig(AWSProperty):
     """
-    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html>`__
+    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-encryptionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class EncryptionConfig(AWSProperty):
 
 class ElasticLoadBalancing(AWSProperty):
     """
-    `ElasticLoadBalancing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html>`__
+    `ElasticLoadBalancing <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-elasticloadbalancing.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class ElasticLoadBalancing(AWSProperty):
 
 class KubernetesNetworkConfig(AWSProperty):
     """
-    `KubernetesNetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html>`__
+    `KubernetesNetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-kubernetesnetworkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class KubernetesNetworkConfig(AWSProperty):
 
 class LoggingTypeConfig(AWSProperty):
     """
-    `LoggingTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-loggingtypeconfig.html>`__
+    `LoggingTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-loggingtypeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class LoggingTypeConfig(AWSProperty):
 
 class ClusterLogging(AWSProperty):
     """
-    `ClusterLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html>`__
+    `ClusterLogging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-clusterlogging.html>`__
     """
 
     props: PropsDictType = {
@@ -180,7 +180,7 @@ class ClusterLogging(AWSProperty):
 
 class Logging(AWSProperty):
     """
-    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-logging.html>`__
+    `Logging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-logging.html>`__
     """
 
     props: PropsDictType = {
@@ -190,7 +190,7 @@ class Logging(AWSProperty):
 
 class ControlPlanePlacement(AWSProperty):
     """
-    `ControlPlanePlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html>`__
+    `ControlPlanePlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-controlplaneplacement.html>`__
     """
 
     props: PropsDictType = {
@@ -200,7 +200,7 @@ class ControlPlanePlacement(AWSProperty):
 
 class OutpostConfig(AWSProperty):
     """
-    `OutpostConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html>`__
+    `OutpostConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-outpostconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class OutpostConfig(AWSProperty):
 
 class RemoteNodeNetwork(AWSProperty):
     """
-    `RemoteNodeNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenodenetwork.html>`__
+    `RemoteNodeNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-remotenodenetwork.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class RemoteNodeNetwork(AWSProperty):
 
 class RemotePodNetwork(AWSProperty):
     """
-    `RemotePodNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotepodnetwork.html>`__
+    `RemotePodNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-remotepodnetwork.html>`__
     """
 
     props: PropsDictType = {
@@ -232,7 +232,7 @@ class RemotePodNetwork(AWSProperty):
 
 class RemoteNetworkConfig(AWSProperty):
     """
-    `RemoteNetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html>`__
+    `RemoteNetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-remotenetworkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -243,7 +243,7 @@ class RemoteNetworkConfig(AWSProperty):
 
 class ResourcesVpcConfig(AWSProperty):
     """
-    `ResourcesVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html>`__
+    `ResourcesVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-resourcesvpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class ResourcesVpcConfig(AWSProperty):
 
 class BlockStorage(AWSProperty):
     """
-    `BlockStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html>`__
+    `BlockStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-blockstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class BlockStorage(AWSProperty):
 
 class StorageConfig(AWSProperty):
     """
-    `StorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html>`__
+    `StorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-storageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class StorageConfig(AWSProperty):
 
 class UpgradePolicy(AWSProperty):
     """
-    `UpgradePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-upgradepolicy.html>`__
+    `UpgradePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-upgradepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -287,7 +287,7 @@ class UpgradePolicy(AWSProperty):
 
 class ZonalShiftConfig(AWSProperty):
     """
-    `ZonalShiftConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html>`__
+    `ZonalShiftConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-cluster-zonalshiftconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class ZonalShiftConfig(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-cluster.html>`__
     """
 
     resource_type = "AWS::EKS::Cluster"
@@ -325,7 +325,7 @@ class Cluster(AWSObject):
 
 class Label(AWSProperty):
     """
-    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html>`__
+    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-fargateprofile-label.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class Label(AWSProperty):
 
 class Selector(AWSProperty):
     """
-    `Selector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html>`__
+    `Selector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-fargateprofile-selector.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class Selector(AWSProperty):
 
 class FargateProfile(AWSObject):
     """
-    `FargateProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html>`__
+    `FargateProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-fargateprofile.html>`__
     """
 
     resource_type = "AWS::EKS::FargateProfile"
@@ -364,7 +364,7 @@ class FargateProfile(AWSObject):
 
 class RequiredClaim(AWSProperty):
     """
-    `RequiredClaim <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html>`__
+    `RequiredClaim <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-identityproviderconfig-requiredclaim.html>`__
     """
 
     props: PropsDictType = {
@@ -375,7 +375,7 @@ class RequiredClaim(AWSProperty):
 
 class OidcIdentityProviderConfig(AWSProperty):
     """
-    `OidcIdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html>`__
+    `OidcIdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class OidcIdentityProviderConfig(AWSProperty):
 
 class IdentityProviderConfig(AWSObject):
     """
-    `IdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html>`__
+    `IdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-identityproviderconfig.html>`__
     """
 
     resource_type = "AWS::EKS::IdentityProviderConfig"
@@ -407,7 +407,7 @@ class IdentityProviderConfig(AWSObject):
 
 class LaunchTemplateSpecification(AWSProperty):
     """
-    `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html>`__
+    `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-launchtemplatespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -419,7 +419,7 @@ class LaunchTemplateSpecification(AWSProperty):
 
 class NodeRepairConfig(AWSProperty):
     """
-    `NodeRepairConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html>`__
+    `NodeRepairConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-noderepairconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -429,7 +429,7 @@ class NodeRepairConfig(AWSProperty):
 
 class RemoteAccess(AWSProperty):
     """
-    `RemoteAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html>`__
+    `RemoteAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-remoteaccess.html>`__
     """
 
     props: PropsDictType = {
@@ -440,7 +440,7 @@ class RemoteAccess(AWSProperty):
 
 class ScalingConfig(AWSProperty):
     """
-    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html>`__
+    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-scalingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -452,7 +452,7 @@ class ScalingConfig(AWSProperty):
 
 class Taint(AWSProperty):
     """
-    `Taint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-taint.html>`__
+    `Taint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-taint.html>`__
     """
 
     props: PropsDictType = {
@@ -464,7 +464,7 @@ class Taint(AWSProperty):
 
 class UpdateConfig(AWSProperty):
     """
-    `UpdateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html>`__
+    `UpdateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-eks-nodegroup-updateconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -476,7 +476,7 @@ class UpdateConfig(AWSProperty):
 
 class Nodegroup(AWSObject):
     """
-    `Nodegroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html>`__
+    `Nodegroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-nodegroup.html>`__
     """
 
     resource_type = "AWS::EKS::Nodegroup"
@@ -506,7 +506,7 @@ class Nodegroup(AWSObject):
 
 class PodIdentityAssociation(AWSObject):
     """
-    `PodIdentityAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html>`__
+    `PodIdentityAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-eks-podidentityassociation.html>`__
     """
 
     resource_type = "AWS::EKS::PodIdentityAssociation"

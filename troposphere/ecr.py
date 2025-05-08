@@ -13,7 +13,7 @@ from .validators.ecr import policytypes
 
 class RepositoryCatalogData(AWSProperty):
     """
-    `RepositoryCatalogData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-publicrepository-repositorycatalogdata.html>`__
+    `RepositoryCatalogData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-publicrepository-repositorycatalogdata.html>`__
     """
 
     props: PropsDictType = {
@@ -27,7 +27,7 @@ class RepositoryCatalogData(AWSProperty):
 
 class PublicRepository(AWSObject):
     """
-    `PublicRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html>`__
+    `PublicRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-publicrepository.html>`__
     """
 
     resource_type = "AWS::ECR::PublicRepository"
@@ -42,7 +42,7 @@ class PublicRepository(AWSObject):
 
 class PullThroughCacheRule(AWSObject):
     """
-    `PullThroughCacheRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html>`__
+    `PullThroughCacheRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-pullthroughcacherule.html>`__
     """
 
     resource_type = "AWS::ECR::PullThroughCacheRule"
@@ -59,7 +59,7 @@ class PullThroughCacheRule(AWSObject):
 
 class RegistryPolicy(AWSObject):
     """
-    `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html>`__
+    `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-registrypolicy.html>`__
     """
 
     resource_type = "AWS::ECR::RegistryPolicy"
@@ -71,7 +71,7 @@ class RegistryPolicy(AWSObject):
 
 class RepositoryFilter(AWSProperty):
     """
-    `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>`__
+    `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class RepositoryFilter(AWSProperty):
 
 class ScanningRule(AWSProperty):
     """
-    `ScanningRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-registryscanningconfiguration-scanningrule.html>`__
+    `ScanningRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-registryscanningconfiguration-scanningrule.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class ScanningRule(AWSProperty):
 
 class RegistryScanningConfiguration(AWSObject):
     """
-    `RegistryScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registryscanningconfiguration.html>`__
+    `RegistryScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-registryscanningconfiguration.html>`__
     """
 
     resource_type = "AWS::ECR::RegistryScanningConfiguration"
@@ -106,7 +106,7 @@ class RegistryScanningConfiguration(AWSObject):
 
 class ReplicationDestination(AWSProperty):
     """
-    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html>`__
+    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-replicationconfiguration-replicationdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class ReplicationDestination(AWSProperty):
 
 class ReplicationRule(AWSProperty):
     """
-    `ReplicationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html>`__
+    `ReplicationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-replicationconfiguration-replicationrule.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class ReplicationRule(AWSProperty):
 
 class ReplicationConfigurationProperty(AWSProperty):
     """
-    `ReplicationConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html>`__
+    `ReplicationConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class ReplicationConfigurationProperty(AWSProperty):
 
 class ReplicationConfiguration(AWSObject):
     """
-    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html>`__
+    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-replicationconfiguration.html>`__
     """
 
     resource_type = "AWS::ECR::ReplicationConfiguration"
@@ -150,7 +150,7 @@ class ReplicationConfiguration(AWSObject):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-repositorycreationtemplate-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class ImageScanningConfiguration(AWSProperty):
     """
-    `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html>`__
+    `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-repository-imagescanningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class ImageScanningConfiguration(AWSProperty):
 
 class LifecyclePolicy(AWSProperty):
     """
-    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html>`__
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ecr-repository-lifecyclepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -182,7 +182,7 @@ class LifecyclePolicy(AWSProperty):
 
 class Repository(AWSObject):
     """
-    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html>`__
+    `Repository <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-repository.html>`__
     """
 
     resource_type = "AWS::ECR::Repository"
@@ -201,7 +201,7 @@ class Repository(AWSObject):
 
 class RepositoryCreationTemplate(AWSObject):
     """
-    `RepositoryCreationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html>`__
+    `RepositoryCreationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecr-repositorycreationtemplate.html>`__
     """
 
     resource_type = "AWS::ECR::RepositoryCreationTemplate"

@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class DocumentAttributeValue(AWSProperty):
     """
-    `DocumentAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html>`__
+    `DocumentAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-documentattributevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class DocumentAttributeValue(AWSProperty):
 
 class DocumentAttributeCondition(AWSProperty):
     """
-    `DocumentAttributeCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html>`__
+    `DocumentAttributeCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-documentattributecondition.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class DocumentAttributeCondition(AWSProperty):
 
 class HookConfiguration(AWSProperty):
     """
-    `HookConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html>`__
+    `HookConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-hookconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class HookConfiguration(AWSProperty):
 
 class DocumentAttributeTarget(AWSProperty):
     """
-    `DocumentAttributeTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html>`__
+    `DocumentAttributeTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-documentattributetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -61,7 +61,7 @@ class DocumentAttributeTarget(AWSProperty):
 
 class InlineCustomDocumentEnrichmentConfiguration(AWSProperty):
     """
-    `InlineCustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html>`__
+    `InlineCustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class InlineCustomDocumentEnrichmentConfiguration(AWSProperty):
 
 class CustomDocumentEnrichmentConfiguration(AWSProperty):
     """
-    `CustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html>`__
+    `CustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class CustomDocumentEnrichmentConfiguration(AWSProperty):
 
 class ConfluenceAttachmentToIndexFieldMapping(AWSProperty):
     """
-    `ConfluenceAttachmentToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html>`__
+    `ConfluenceAttachmentToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class ConfluenceAttachmentToIndexFieldMapping(AWSProperty):
 
 class ConfluenceAttachmentConfiguration(AWSProperty):
     """
-    `ConfluenceAttachmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html>`__
+    `ConfluenceAttachmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class ConfluenceAttachmentConfiguration(AWSProperty):
 
 class ConfluenceBlogToIndexFieldMapping(AWSProperty):
     """
-    `ConfluenceBlogToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html>`__
+    `ConfluenceBlogToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluenceblogtoindexfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -121,7 +121,7 @@ class ConfluenceBlogToIndexFieldMapping(AWSProperty):
 
 class ConfluenceBlogConfiguration(AWSProperty):
     """
-    `ConfluenceBlogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html>`__
+    `ConfluenceBlogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluenceblogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class ConfluenceBlogConfiguration(AWSProperty):
 
 class ConfluencePageToIndexFieldMapping(AWSProperty):
     """
-    `ConfluencePageToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html>`__
+    `ConfluencePageToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluencepagetoindexfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -143,7 +143,7 @@ class ConfluencePageToIndexFieldMapping(AWSProperty):
 
 class ConfluencePageConfiguration(AWSProperty):
     """
-    `ConfluencePageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html>`__
+    `ConfluencePageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluencepageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -153,7 +153,7 @@ class ConfluencePageConfiguration(AWSProperty):
 
 class ConfluenceSpaceToIndexFieldMapping(AWSProperty):
     """
-    `ConfluenceSpaceToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html>`__
+    `ConfluenceSpaceToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluencespacetoindexfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class ConfluenceSpaceToIndexFieldMapping(AWSProperty):
 
 class ConfluenceSpaceConfiguration(AWSProperty):
     """
-    `ConfluenceSpaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html>`__
+    `ConfluenceSpaceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluencespaceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class ConfluenceSpaceConfiguration(AWSProperty):
 
 class DataSourceVpcConfiguration(AWSProperty):
     """
-    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcevpcconfiguration.html>`__
+    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-datasourcevpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -190,7 +190,7 @@ class DataSourceVpcConfiguration(AWSProperty):
 
 class ConfluenceConfiguration(AWSProperty):
     """
-    `ConfluenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html>`__
+    `ConfluenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-confluenceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class ConfluenceConfiguration(AWSProperty):
 
 class AclConfiguration(AWSProperty):
     """
-    `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-aclconfiguration.html>`__
+    `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-aclconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class AclConfiguration(AWSProperty):
 
 class DataSourceToIndexFieldMapping(AWSProperty):
     """
-    `DataSourceToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html>`__
+    `DataSourceToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-datasourcetoindexfieldmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -231,7 +231,7 @@ class DataSourceToIndexFieldMapping(AWSProperty):
 
 class ColumnConfiguration(AWSProperty):
     """
-    `ColumnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html>`__
+    `ColumnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-columnconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class ColumnConfiguration(AWSProperty):
 
 class ConnectionConfiguration(AWSProperty):
     """
-    `ConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-connectionconfiguration.html>`__
+    `ConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-connectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class ConnectionConfiguration(AWSProperty):
 
 class SqlConfiguration(AWSProperty):
     """
-    `SqlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sqlconfiguration.html>`__
+    `SqlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-sqlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class SqlConfiguration(AWSProperty):
 
 class DatabaseConfiguration(AWSProperty):
     """
-    `DatabaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html>`__
+    `DatabaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-databaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -284,7 +284,7 @@ class DatabaseConfiguration(AWSProperty):
 
 class GoogleDriveConfiguration(AWSProperty):
     """
-    `GoogleDriveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-googledriveconfiguration.html>`__
+    `GoogleDriveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-googledriveconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class GoogleDriveConfiguration(AWSProperty):
 
 class S3Path(AWSProperty):
     """
-    `S3Path <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-faq-s3path.html>`__
+    `S3Path <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-faq-s3path.html>`__
     """
 
     props: PropsDictType = {
@@ -311,7 +311,7 @@ class S3Path(AWSProperty):
 
 class OneDriveUsers(AWSProperty):
     """
-    `OneDriveUsers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html>`__
+    `OneDriveUsers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-onedriveusers.html>`__
     """
 
     props: PropsDictType = {
@@ -322,7 +322,7 @@ class OneDriveUsers(AWSProperty):
 
 class OneDriveConfiguration(AWSProperty):
     """
-    `OneDriveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveconfiguration.html>`__
+    `OneDriveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-onedriveconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class OneDriveConfiguration(AWSProperty):
 
 class AccessControlListConfiguration(AWSProperty):
     """
-    `AccessControlListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-accesscontrollistconfiguration.html>`__
+    `AccessControlListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-accesscontrollistconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -348,7 +348,7 @@ class AccessControlListConfiguration(AWSProperty):
 
 class DocumentsMetadataConfiguration(AWSProperty):
     """
-    `DocumentsMetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentsmetadataconfiguration.html>`__
+    `DocumentsMetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-documentsmetadataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +358,7 @@ class DocumentsMetadataConfiguration(AWSProperty):
 
 class S3DataSourceConfiguration(AWSProperty):
     """
-    `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html>`__
+    `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-s3datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -373,7 +373,7 @@ class S3DataSourceConfiguration(AWSProperty):
 
 class SalesforceChatterFeedConfiguration(AWSProperty):
     """
-    `SalesforceChatterFeedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html>`__
+    `SalesforceChatterFeedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforcechatterfeedconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class SalesforceChatterFeedConfiguration(AWSProperty):
 
 class SalesforceCustomKnowledgeArticleTypeConfiguration(AWSProperty):
     """
-    `SalesforceCustomKnowledgeArticleTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html>`__
+    `SalesforceCustomKnowledgeArticleTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforcecustomknowledgearticletypeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -399,7 +399,7 @@ class SalesforceCustomKnowledgeArticleTypeConfiguration(AWSProperty):
 
 class SalesforceStandardKnowledgeArticleTypeConfiguration(AWSProperty):
     """
-    `SalesforceStandardKnowledgeArticleTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html>`__
+    `SalesforceStandardKnowledgeArticleTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforcestandardknowledgearticletypeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -411,7 +411,7 @@ class SalesforceStandardKnowledgeArticleTypeConfiguration(AWSProperty):
 
 class SalesforceKnowledgeArticleConfiguration(AWSProperty):
     """
-    `SalesforceKnowledgeArticleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html>`__
+    `SalesforceKnowledgeArticleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -429,7 +429,7 @@ class SalesforceKnowledgeArticleConfiguration(AWSProperty):
 
 class SalesforceStandardObjectAttachmentConfiguration(AWSProperty):
     """
-    `SalesforceStandardObjectAttachmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html>`__
+    `SalesforceStandardObjectAttachmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforcestandardobjectattachmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -440,7 +440,7 @@ class SalesforceStandardObjectAttachmentConfiguration(AWSProperty):
 
 class SalesforceStandardObjectConfiguration(AWSProperty):
     """
-    `SalesforceStandardObjectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html>`__
+    `SalesforceStandardObjectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforcestandardobjectconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -453,7 +453,7 @@ class SalesforceStandardObjectConfiguration(AWSProperty):
 
 class SalesforceConfiguration(AWSProperty):
     """
-    `SalesforceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html>`__
+    `SalesforceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-salesforceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -480,7 +480,7 @@ class SalesforceConfiguration(AWSProperty):
 
 class ServiceNowKnowledgeArticleConfiguration(AWSProperty):
     """
-    `ServiceNowKnowledgeArticleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html>`__
+    `ServiceNowKnowledgeArticleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -496,7 +496,7 @@ class ServiceNowKnowledgeArticleConfiguration(AWSProperty):
 
 class ServiceNowServiceCatalogConfiguration(AWSProperty):
     """
-    `ServiceNowServiceCatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html>`__
+    `ServiceNowServiceCatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-servicenowservicecatalogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -511,7 +511,7 @@ class ServiceNowServiceCatalogConfiguration(AWSProperty):
 
 class ServiceNowConfiguration(AWSProperty):
     """
-    `ServiceNowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowconfiguration.html>`__
+    `ServiceNowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-servicenowconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -529,7 +529,7 @@ class ServiceNowConfiguration(AWSProperty):
 
 class SharePointConfiguration(AWSProperty):
     """
-    `SharePointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-sharepointconfiguration.html>`__
+    `SharePointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-sharepointconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -550,7 +550,7 @@ class SharePointConfiguration(AWSProperty):
 
 class ProxyConfiguration(AWSProperty):
     """
-    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-proxyconfiguration.html>`__
+    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-proxyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -562,7 +562,7 @@ class ProxyConfiguration(AWSProperty):
 
 class WebCrawlerBasicAuthentication(AWSProperty):
     """
-    `WebCrawlerBasicAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerbasicauthentication.html>`__
+    `WebCrawlerBasicAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlerbasicauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -574,7 +574,7 @@ class WebCrawlerBasicAuthentication(AWSProperty):
 
 class WebCrawlerAuthenticationConfiguration(AWSProperty):
     """
-    `WebCrawlerAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html>`__
+    `WebCrawlerAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -584,7 +584,7 @@ class WebCrawlerAuthenticationConfiguration(AWSProperty):
 
 class WebCrawlerSeedUrlConfiguration(AWSProperty):
     """
-    `WebCrawlerSeedUrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html>`__
+    `WebCrawlerSeedUrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlerseedurlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -595,7 +595,7 @@ class WebCrawlerSeedUrlConfiguration(AWSProperty):
 
 class WebCrawlerSiteMapsConfiguration(AWSProperty):
     """
-    `WebCrawlerSiteMapsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html>`__
+    `WebCrawlerSiteMapsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlersitemapsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -605,7 +605,7 @@ class WebCrawlerSiteMapsConfiguration(AWSProperty):
 
 class WebCrawlerUrls(AWSProperty):
     """
-    `WebCrawlerUrls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerurls.html>`__
+    `WebCrawlerUrls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlerurls.html>`__
     """
 
     props: PropsDictType = {
@@ -616,7 +616,7 @@ class WebCrawlerUrls(AWSProperty):
 
 class WebCrawlerConfiguration(AWSProperty):
     """
-    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerconfiguration.html>`__
+    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-webcrawlerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -634,7 +634,7 @@ class WebCrawlerConfiguration(AWSProperty):
 
 class WorkDocsConfiguration(AWSProperty):
     """
-    `WorkDocsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-workdocsconfiguration.html>`__
+    `WorkDocsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-workdocsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -649,7 +649,7 @@ class WorkDocsConfiguration(AWSProperty):
 
 class DataSourceConfiguration(AWSProperty):
     """
-    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html>`__
+    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-datasource-datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -668,7 +668,7 @@ class DataSourceConfiguration(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kendra-datasource.html>`__
     """
 
     resource_type = "AWS::Kendra::DataSource"
@@ -692,7 +692,7 @@ class DataSource(AWSObject):
 
 class Faq(AWSObject):
     """
-    `Faq <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html>`__
+    `Faq <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kendra-faq.html>`__
     """
 
     resource_type = "AWS::Kendra::Faq"
@@ -711,7 +711,7 @@ class Faq(AWSObject):
 
 class CapacityUnitsConfiguration(AWSProperty):
     """
-    `CapacityUnitsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html>`__
+    `CapacityUnitsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-capacityunitsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -722,7 +722,7 @@ class CapacityUnitsConfiguration(AWSProperty):
 
 class ValueImportanceItem(AWSProperty):
     """
-    `ValueImportanceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-valueimportanceitem.html>`__
+    `ValueImportanceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-valueimportanceitem.html>`__
     """
 
     props: PropsDictType = {
@@ -733,7 +733,7 @@ class ValueImportanceItem(AWSProperty):
 
 class Relevance(AWSProperty):
     """
-    `Relevance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html>`__
+    `Relevance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-relevance.html>`__
     """
 
     props: PropsDictType = {
@@ -747,7 +747,7 @@ class Relevance(AWSProperty):
 
 class Search(AWSProperty):
     """
-    `Search <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-search.html>`__
+    `Search <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-search.html>`__
     """
 
     props: PropsDictType = {
@@ -760,7 +760,7 @@ class Search(AWSProperty):
 
 class DocumentMetadataConfiguration(AWSProperty):
     """
-    `DocumentMetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-documentmetadataconfiguration.html>`__
+    `DocumentMetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-documentmetadataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -773,7 +773,7 @@ class DocumentMetadataConfiguration(AWSProperty):
 
 class ServerSideEncryptionConfiguration(AWSProperty):
     """
-    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html>`__
+    `ServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-serversideencryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -783,7 +783,7 @@ class ServerSideEncryptionConfiguration(AWSProperty):
 
 class JsonTokenTypeConfiguration(AWSProperty):
     """
-    `JsonTokenTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html>`__
+    `JsonTokenTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-jsontokentypeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -794,7 +794,7 @@ class JsonTokenTypeConfiguration(AWSProperty):
 
 class JwtTokenTypeConfiguration(AWSProperty):
     """
-    `JwtTokenTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jwttokentypeconfiguration.html>`__
+    `JwtTokenTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-jwttokentypeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -810,7 +810,7 @@ class JwtTokenTypeConfiguration(AWSProperty):
 
 class UserTokenConfiguration(AWSProperty):
     """
-    `UserTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-usertokenconfiguration.html>`__
+    `UserTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-kendra-index-usertokenconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -821,7 +821,7 @@ class UserTokenConfiguration(AWSProperty):
 
 class Index(AWSObject):
     """
-    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html>`__
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-kendra-index.html>`__
     """
 
     resource_type = "AWS::Kendra::Index"

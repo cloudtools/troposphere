@@ -13,7 +13,7 @@ from .validators.lex import policytypes
 
 class CustomVocabularyItem(AWSProperty):
     """
-    `CustomVocabularyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html>`__
+    `CustomVocabularyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-customvocabularyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class CustomVocabularyItem(AWSProperty):
 
 class CustomVocabulary(AWSProperty):
     """
-    `CustomVocabulary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html>`__
+    `CustomVocabulary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-customvocabulary.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class CustomVocabulary(AWSProperty):
 
 class BedrockAgentConfiguration(AWSProperty):
     """
-    `BedrockAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentconfiguration.html>`__
+    `BedrockAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockagentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class BedrockAgentConfiguration(AWSProperty):
 
 class BedrockGuardrailConfiguration(AWSProperty):
     """
-    `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
+    `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class BedrockGuardrailConfiguration(AWSProperty):
 
 class BedrockModelSpecification(AWSProperty):
     """
-    `BedrockModelSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockmodelspecification.html>`__
+    `BedrockModelSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockmodelspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class BedrockModelSpecification(AWSProperty):
 
 class BedrockAgentIntentKnowledgeBaseConfiguration(AWSProperty):
     """
-    `BedrockAgentIntentKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentintentknowledgebaseconfiguration.html>`__
+    `BedrockAgentIntentKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockagentintentknowledgebaseconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class BedrockAgentIntentKnowledgeBaseConfiguration(AWSProperty):
 
 class BedrockAgentIntentConfiguration(AWSProperty):
     """
-    `BedrockAgentIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentintentconfiguration.html>`__
+    `BedrockAgentIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockagentintentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -95,7 +95,7 @@ class BedrockAgentIntentConfiguration(AWSProperty):
 
 class DialogCodeHookSetting(AWSProperty):
     """
-    `DialogCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html>`__
+    `DialogCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dialogcodehooksetting.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class DialogCodeHookSetting(AWSProperty):
 
 class CustomPayload(AWSProperty):
     """
-    `CustomPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-custompayload.html>`__
+    `CustomPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-custompayload.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class CustomPayload(AWSProperty):
 
 class Button(AWSProperty):
     """
-    `Button <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-button.html>`__
+    `Button <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-button.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class Button(AWSProperty):
 
 class ImageResponseCard(AWSProperty):
     """
-    `ImageResponseCard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-imageresponsecard.html>`__
+    `ImageResponseCard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-imageresponsecard.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class ImageResponseCard(AWSProperty):
 
 class PlainTextMessage(AWSProperty):
     """
-    `PlainTextMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-plaintextmessage.html>`__
+    `PlainTextMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-plaintextmessage.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class PlainTextMessage(AWSProperty):
 
 class SSMLMessage(AWSProperty):
     """
-    `SSMLMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html>`__
+    `SSMLMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-ssmlmessage.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class SSMLMessage(AWSProperty):
 
 class Message(AWSProperty):
     """
-    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-message.html>`__
+    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-message.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class Message(AWSProperty):
 
 class MessageGroup(AWSProperty):
     """
-    `MessageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-messagegroup.html>`__
+    `MessageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-messagegroup.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class MessageGroup(AWSProperty):
 
 class FulfillmentStartResponseSpecification(AWSProperty):
     """
-    `FulfillmentStartResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentstartresponsespecification.html>`__
+    `FulfillmentStartResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-fulfillmentstartresponsespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class FulfillmentStartResponseSpecification(AWSProperty):
 
 class FulfillmentUpdateResponseSpecification(AWSProperty):
     """
-    `FulfillmentUpdateResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html>`__
+    `FulfillmentUpdateResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-fulfillmentupdateresponsespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class FulfillmentUpdateResponseSpecification(AWSProperty):
 
 class FulfillmentUpdatesSpecification(AWSProperty):
     """
-    `FulfillmentUpdatesSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentupdatesspecification.html>`__
+    `FulfillmentUpdatesSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-fulfillmentupdatesspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class FulfillmentUpdatesSpecification(AWSProperty):
 
 class Condition(AWSProperty):
     """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html>`__
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-condition.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class Condition(AWSProperty):
 
 class DialogAction(AWSProperty):
     """
-    `DialogAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html>`__
+    `DialogAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dialogaction.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class DialogAction(AWSProperty):
 
 class SlotValue(AWSProperty):
     """
-    `SlotValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalue.html>`__
+    `SlotValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class SlotValue(AWSProperty):
 
 class SlotValueOverride(AWSProperty):
     """
-    `SlotValueOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html>`__
+    `SlotValueOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalueoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class SlotValueOverride(AWSProperty):
 
 class SlotValueOverrideMap(AWSProperty):
     """
-    `SlotValueOverrideMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html>`__
+    `SlotValueOverrideMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalueoverridemap.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class SlotValueOverrideMap(AWSProperty):
 
 class IntentOverride(AWSProperty):
     """
-    `IntentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html>`__
+    `IntentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-intentoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -286,7 +286,7 @@ class IntentOverride(AWSProperty):
 
 class SessionAttribute(AWSProperty):
     """
-    `SessionAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sessionattribute.html>`__
+    `SessionAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-sessionattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -297,7 +297,7 @@ class SessionAttribute(AWSProperty):
 
 class DialogState(AWSProperty):
     """
-    `DialogState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html>`__
+    `DialogState <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dialogstate.html>`__
     """
 
     props: PropsDictType = {
@@ -309,7 +309,7 @@ class DialogState(AWSProperty):
 
 class ResponseSpecification(AWSProperty):
     """
-    `ResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html>`__
+    `ResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-responsespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -320,7 +320,7 @@ class ResponseSpecification(AWSProperty):
 
 class ConditionalBranch(AWSProperty):
     """
-    `ConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html>`__
+    `ConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-conditionalbranch.html>`__
     """
 
     props: PropsDictType = {
@@ -333,7 +333,7 @@ class ConditionalBranch(AWSProperty):
 
 class DefaultConditionalBranch(AWSProperty):
     """
-    `DefaultConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html>`__
+    `DefaultConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-defaultconditionalbranch.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +344,7 @@ class DefaultConditionalBranch(AWSProperty):
 
 class ConditionalSpecification(AWSProperty):
     """
-    `ConditionalSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html>`__
+    `ConditionalSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-conditionalspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class ConditionalSpecification(AWSProperty):
 
 class PostFulfillmentStatusSpecification(AWSProperty):
     """
-    `PostFulfillmentStatusSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html>`__
+    `PostFulfillmentStatusSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-postfulfillmentstatusspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -374,7 +374,7 @@ class PostFulfillmentStatusSpecification(AWSProperty):
 
 class FulfillmentCodeHookSetting(AWSProperty):
     """
-    `FulfillmentCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-fulfillmentcodehooksetting.html>`__
+    `FulfillmentCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-fulfillmentcodehooksetting.html>`__
     """
 
     props: PropsDictType = {
@@ -390,7 +390,7 @@ class FulfillmentCodeHookSetting(AWSProperty):
 
 class PostDialogCodeHookInvocationSpecification(AWSProperty):
     """
-    `PostDialogCodeHookInvocationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html>`__
+    `PostDialogCodeHookInvocationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -408,7 +408,7 @@ class PostDialogCodeHookInvocationSpecification(AWSProperty):
 
 class DialogCodeHookInvocationSetting(AWSProperty):
     """
-    `DialogCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html>`__
+    `DialogCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dialogcodehookinvocationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class DialogCodeHookInvocationSetting(AWSProperty):
 
 class InitialResponseSetting(AWSProperty):
     """
-    `InitialResponseSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html>`__
+    `InitialResponseSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-initialresponsesetting.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class InitialResponseSetting(AWSProperty):
 
 class InputContext(AWSProperty):
     """
-    `InputContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-inputcontext.html>`__
+    `InputContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-inputcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -444,7 +444,7 @@ class InputContext(AWSProperty):
 
 class IntentClosingSetting(AWSProperty):
     """
-    `IntentClosingSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentclosingsetting.html>`__
+    `IntentClosingSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-intentclosingsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class IntentClosingSetting(AWSProperty):
 
 class ElicitationCodeHookInvocationSetting(AWSProperty):
     """
-    `ElicitationCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-elicitationcodehookinvocationsetting.html>`__
+    `ElicitationCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-elicitationcodehookinvocationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class ElicitationCodeHookInvocationSetting(AWSProperty):
 
 class AllowedInputTypes(AWSProperty):
     """
-    `AllowedInputTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html>`__
+    `AllowedInputTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-allowedinputtypes.html>`__
     """
 
     props: PropsDictType = {
@@ -479,7 +479,7 @@ class AllowedInputTypes(AWSProperty):
 
 class AudioSpecification(AWSProperty):
     """
-    `AudioSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiospecification.html>`__
+    `AudioSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-audiospecification.html>`__
     """
 
     props: PropsDictType = {
@@ -490,7 +490,7 @@ class AudioSpecification(AWSProperty):
 
 class DTMFSpecification(AWSProperty):
     """
-    `DTMFSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dtmfspecification.html>`__
+    `DTMFSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dtmfspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -503,7 +503,7 @@ class DTMFSpecification(AWSProperty):
 
 class AudioAndDTMFInputSpecification(AWSProperty):
     """
-    `AudioAndDTMFInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html>`__
+    `AudioAndDTMFInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-audioanddtmfinputspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -515,7 +515,7 @@ class AudioAndDTMFInputSpecification(AWSProperty):
 
 class TextInputSpecification(AWSProperty):
     """
-    `TextInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textinputspecification.html>`__
+    `TextInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-textinputspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -525,7 +525,7 @@ class TextInputSpecification(AWSProperty):
 
 class PromptAttemptSpecification(AWSProperty):
     """
-    `PromptAttemptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html>`__
+    `PromptAttemptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-promptattemptspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -538,7 +538,7 @@ class PromptAttemptSpecification(AWSProperty):
 
 class PromptSpecification(AWSProperty):
     """
-    `PromptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html>`__
+    `PromptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-promptspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -552,7 +552,7 @@ class PromptSpecification(AWSProperty):
 
 class IntentConfirmationSetting(AWSProperty):
     """
-    `IntentConfirmationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html>`__
+    `IntentConfirmationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-intentconfirmationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -574,7 +574,7 @@ class IntentConfirmationSetting(AWSProperty):
 
 class KendraConfiguration(AWSProperty):
     """
-    `KendraConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-kendraconfiguration.html>`__
+    `KendraConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-kendraconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -586,7 +586,7 @@ class KendraConfiguration(AWSProperty):
 
 class OutputContext(AWSProperty):
     """
-    `OutputContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-outputcontext.html>`__
+    `OutputContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-outputcontext.html>`__
     """
 
     props: PropsDictType = {
@@ -598,7 +598,7 @@ class OutputContext(AWSProperty):
 
 class QInConnectAssistantConfiguration(AWSProperty):
     """
-    `QInConnectAssistantConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qinconnectassistantconfiguration.html>`__
+    `QInConnectAssistantConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-qinconnectassistantconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -608,7 +608,7 @@ class QInConnectAssistantConfiguration(AWSProperty):
 
 class QInConnectIntentConfiguration(AWSProperty):
     """
-    `QInConnectIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qinconnectintentconfiguration.html>`__
+    `QInConnectIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-qinconnectintentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -618,7 +618,7 @@ class QInConnectIntentConfiguration(AWSProperty):
 
 class BKBExactResponseFields(AWSProperty):
     """
-    `BKBExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bkbexactresponsefields.html>`__
+    `BKBExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bkbexactresponsefields.html>`__
     """
 
     props: PropsDictType = {
@@ -628,7 +628,7 @@ class BKBExactResponseFields(AWSProperty):
 
 class BedrockKnowledgeStoreConfiguration(AWSProperty):
     """
-    `BedrockKnowledgeStoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockknowledgestoreconfiguration.html>`__
+    `BedrockKnowledgeStoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-bedrockknowledgestoreconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -640,7 +640,7 @@ class BedrockKnowledgeStoreConfiguration(AWSProperty):
 
 class ExactResponseFields(AWSProperty):
     """
-    `ExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-exactresponsefields.html>`__
+    `ExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-exactresponsefields.html>`__
     """
 
     props: PropsDictType = {
@@ -651,7 +651,7 @@ class ExactResponseFields(AWSProperty):
 
 class OpensearchConfiguration(AWSProperty):
     """
-    `OpensearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-opensearchconfiguration.html>`__
+    `OpensearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-opensearchconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -665,7 +665,7 @@ class OpensearchConfiguration(AWSProperty):
 
 class QnAKendraConfiguration(AWSProperty):
     """
-    `QnAKendraConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qnakendraconfiguration.html>`__
+    `QnAKendraConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-qnakendraconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -678,7 +678,7 @@ class QnAKendraConfiguration(AWSProperty):
 
 class DataSourceConfiguration(AWSProperty):
     """
-    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-datasourceconfiguration.html>`__
+    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class DataSourceConfiguration(AWSProperty):
 
 class QnAIntentConfiguration(AWSProperty):
     """
-    `QnAIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qnaintentconfiguration.html>`__
+    `QnAIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-qnaintentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -704,7 +704,7 @@ class QnAIntentConfiguration(AWSProperty):
 
 class SampleUtterance(AWSProperty):
     """
-    `SampleUtterance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html>`__
+    `SampleUtterance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-sampleutterance.html>`__
     """
 
     props: PropsDictType = {
@@ -714,7 +714,7 @@ class SampleUtterance(AWSProperty):
 
 class MultipleValuesSetting(AWSProperty):
     """
-    `MultipleValuesSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-multiplevaluessetting.html>`__
+    `MultipleValuesSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-multiplevaluessetting.html>`__
     """
 
     props: PropsDictType = {
@@ -724,7 +724,7 @@ class MultipleValuesSetting(AWSProperty):
 
 class ObfuscationSetting(AWSProperty):
     """
-    `ObfuscationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-obfuscationsetting.html>`__
+    `ObfuscationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-obfuscationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -734,7 +734,7 @@ class ObfuscationSetting(AWSProperty):
 
 class SlotCaptureSetting(AWSProperty):
     """
-    `SlotCaptureSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html>`__
+    `SlotCaptureSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotcapturesetting.html>`__
     """
 
     props: PropsDictType = {
@@ -751,7 +751,7 @@ class SlotCaptureSetting(AWSProperty):
 
 class SlotDefaultValue(AWSProperty):
     """
-    `SlotDefaultValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvalue.html>`__
+    `SlotDefaultValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotdefaultvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -761,7 +761,7 @@ class SlotDefaultValue(AWSProperty):
 
 class SlotDefaultValueSpecification(AWSProperty):
     """
-    `SlotDefaultValueSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvaluespecification.html>`__
+    `SlotDefaultValueSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotdefaultvaluespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -771,7 +771,7 @@ class SlotDefaultValueSpecification(AWSProperty):
 
 class StillWaitingResponseSpecification(AWSProperty):
     """
-    `StillWaitingResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html>`__
+    `StillWaitingResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-stillwaitingresponsespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -784,7 +784,7 @@ class StillWaitingResponseSpecification(AWSProperty):
 
 class WaitAndContinueSpecification(AWSProperty):
     """
-    `WaitAndContinueSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-waitandcontinuespecification.html>`__
+    `WaitAndContinueSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-waitandcontinuespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -797,7 +797,7 @@ class WaitAndContinueSpecification(AWSProperty):
 
 class SlotValueElicitationSetting(AWSProperty):
     """
-    `SlotValueElicitationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueelicitationsetting.html>`__
+    `SlotValueElicitationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalueelicitationsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -812,7 +812,7 @@ class SlotValueElicitationSetting(AWSProperty):
 
 class Slot(AWSProperty):
     """
-    `Slot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html>`__
+    `Slot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slot.html>`__
     """
 
     props: PropsDictType = {
@@ -827,7 +827,7 @@ class Slot(AWSProperty):
 
 class SlotPriority(AWSProperty):
     """
-    `SlotPriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotpriority.html>`__
+    `SlotPriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotpriority.html>`__
     """
 
     props: PropsDictType = {
@@ -838,7 +838,7 @@ class SlotPriority(AWSProperty):
 
 class Intent(AWSProperty):
     """
-    `Intent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html>`__
+    `Intent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-intent.html>`__
     """
 
     props: PropsDictType = {
@@ -864,7 +864,7 @@ class Intent(AWSProperty):
 
 class SubSlotTypeComposition(AWSProperty):
     """
-    `SubSlotTypeComposition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html>`__
+    `SubSlotTypeComposition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-subslottypecomposition.html>`__
     """
 
     props: PropsDictType = {
@@ -875,7 +875,7 @@ class SubSlotTypeComposition(AWSProperty):
 
 class CompositeSlotTypeSetting(AWSProperty):
     """
-    `CompositeSlotTypeSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-compositeslottypesetting.html>`__
+    `CompositeSlotTypeSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-compositeslottypesetting.html>`__
     """
 
     props: PropsDictType = {
@@ -885,7 +885,7 @@ class CompositeSlotTypeSetting(AWSProperty):
 
 class GrammarSlotTypeSource(AWSProperty):
     """
-    `GrammarSlotTypeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesource.html>`__
+    `GrammarSlotTypeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-grammarslottypesource.html>`__
     """
 
     props: PropsDictType = {
@@ -897,7 +897,7 @@ class GrammarSlotTypeSource(AWSProperty):
 
 class GrammarSlotTypeSetting(AWSProperty):
     """
-    `GrammarSlotTypeSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-grammarslottypesetting.html>`__
+    `GrammarSlotTypeSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-grammarslottypesetting.html>`__
     """
 
     props: PropsDictType = {
@@ -907,7 +907,7 @@ class GrammarSlotTypeSetting(AWSProperty):
 
 class ExternalSourceSetting(AWSProperty):
     """
-    `ExternalSourceSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-externalsourcesetting.html>`__
+    `ExternalSourceSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-externalsourcesetting.html>`__
     """
 
     props: PropsDictType = {
@@ -917,7 +917,7 @@ class ExternalSourceSetting(AWSProperty):
 
 class SampleValue(AWSProperty):
     """
-    `SampleValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-samplevalue.html>`__
+    `SampleValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-samplevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -927,7 +927,7 @@ class SampleValue(AWSProperty):
 
 class SlotTypeValue(AWSProperty):
     """
-    `SlotTypeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottypevalue.html>`__
+    `SlotTypeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slottypevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -938,7 +938,7 @@ class SlotTypeValue(AWSProperty):
 
 class AdvancedRecognitionSetting(AWSProperty):
     """
-    `AdvancedRecognitionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html>`__
+    `AdvancedRecognitionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-advancedrecognitionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -948,7 +948,7 @@ class AdvancedRecognitionSetting(AWSProperty):
 
 class SlotValueRegexFilter(AWSProperty):
     """
-    `SlotValueRegexFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueregexfilter.html>`__
+    `SlotValueRegexFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalueregexfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -958,7 +958,7 @@ class SlotValueRegexFilter(AWSProperty):
 
 class SlotValueSelectionSetting(AWSProperty):
     """
-    `SlotValueSelectionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueselectionsetting.html>`__
+    `SlotValueSelectionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slotvalueselectionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -970,7 +970,7 @@ class SlotValueSelectionSetting(AWSProperty):
 
 class SlotType(AWSProperty):
     """
-    `SlotType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html>`__
+    `SlotType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-slottype.html>`__
     """
 
     props: PropsDictType = {
@@ -986,7 +986,7 @@ class SlotType(AWSProperty):
 
 class VoiceSettings(AWSProperty):
     """
-    `VoiceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html>`__
+    `VoiceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-voicesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -997,7 +997,7 @@ class VoiceSettings(AWSProperty):
 
 class BotLocale(AWSProperty):
     """
-    `BotLocale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html>`__
+    `BotLocale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-botlocale.html>`__
     """
 
     props: PropsDictType = {
@@ -1013,7 +1013,7 @@ class BotLocale(AWSProperty):
 
 class DataPrivacy(AWSProperty):
     """
-    `DataPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html>`__
+    `DataPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-dataprivacy.html>`__
     """
 
     props: PropsDictType = {
@@ -1023,7 +1023,7 @@ class DataPrivacy(AWSProperty):
 
 class Replication(AWSProperty):
     """
-    `Replication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-replication.html>`__
+    `Replication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-replication.html>`__
     """
 
     props: PropsDictType = {
@@ -1033,7 +1033,7 @@ class Replication(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -1045,7 +1045,7 @@ class S3Location(AWSProperty):
 
 class LambdaCodeHook(AWSProperty):
     """
-    `LambdaCodeHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html>`__
+    `LambdaCodeHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-lambdacodehook.html>`__
     """
 
     props: PropsDictType = {
@@ -1056,7 +1056,7 @@ class LambdaCodeHook(AWSProperty):
 
 class CodeHookSpecification(AWSProperty):
     """
-    `CodeHookSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-codehookspecification.html>`__
+    `CodeHookSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-codehookspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1066,7 +1066,7 @@ class CodeHookSpecification(AWSProperty):
 
 class BotAliasLocaleSettings(AWSProperty):
     """
-    `BotAliasLocaleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettings.html>`__
+    `BotAliasLocaleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-botaliaslocalesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1077,7 +1077,7 @@ class BotAliasLocaleSettings(AWSProperty):
 
 class BotAliasLocaleSettingsItem(AWSProperty):
     """
-    `BotAliasLocaleSettingsItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-botaliaslocalesettingsitem.html>`__
+    `BotAliasLocaleSettingsItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-botaliaslocalesettingsitem.html>`__
     """
 
     props: PropsDictType = {
@@ -1088,7 +1088,7 @@ class BotAliasLocaleSettingsItem(AWSProperty):
 
 class S3BucketLogDestination(AWSProperty):
     """
-    `S3BucketLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html>`__
+    `S3BucketLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-s3bucketlogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -1100,7 +1100,7 @@ class S3BucketLogDestination(AWSProperty):
 
 class AudioLogDestination(AWSProperty):
     """
-    `AudioLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologdestination.html>`__
+    `AudioLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-audiologdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -1110,7 +1110,7 @@ class AudioLogDestination(AWSProperty):
 
 class AudioLogSetting(AWSProperty):
     """
-    `AudioLogSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-audiologsetting.html>`__
+    `AudioLogSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-audiologsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -1121,7 +1121,7 @@ class AudioLogSetting(AWSProperty):
 
 class CloudWatchLogGroupLogDestination(AWSProperty):
     """
-    `CloudWatchLogGroupLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html>`__
+    `CloudWatchLogGroupLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -1132,7 +1132,7 @@ class CloudWatchLogGroupLogDestination(AWSProperty):
 
 class TextLogDestination(AWSProperty):
     """
-    `TextLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogdestination.html>`__
+    `TextLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-textlogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -1142,7 +1142,7 @@ class TextLogDestination(AWSProperty):
 
 class TextLogSetting(AWSProperty):
     """
-    `TextLogSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-textlogsetting.html>`__
+    `TextLogSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-textlogsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -1153,7 +1153,7 @@ class TextLogSetting(AWSProperty):
 
 class ConversationLogSettings(AWSProperty):
     """
-    `ConversationLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-conversationlogsettings.html>`__
+    `ConversationLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-conversationlogsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1164,7 +1164,7 @@ class ConversationLogSettings(AWSProperty):
 
 class SentimentAnalysisSettings(AWSProperty):
     """
-    `SentimentAnalysisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-sentimentanalysissettings.html>`__
+    `SentimentAnalysisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botalias-sentimentanalysissettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1174,7 +1174,7 @@ class SentimentAnalysisSettings(AWSProperty):
 
 class TestBotAliasSettings(AWSProperty):
     """
-    `TestBotAliasSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html>`__
+    `TestBotAliasSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-bot-testbotaliassettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1187,7 +1187,7 @@ class TestBotAliasSettings(AWSProperty):
 
 class Bot(AWSObject):
     """
-    `Bot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html>`__
+    `Bot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lex-bot.html>`__
     """
 
     resource_type = "AWS::Lex::Bot"
@@ -1210,7 +1210,7 @@ class Bot(AWSObject):
 
 class BotAlias(AWSObject):
     """
-    `BotAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html>`__
+    `BotAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lex-botalias.html>`__
     """
 
     resource_type = "AWS::Lex::BotAlias"
@@ -1229,7 +1229,7 @@ class BotAlias(AWSObject):
 
 class BotVersionLocaleDetails(AWSProperty):
     """
-    `BotVersionLocaleDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocaledetails.html>`__
+    `BotVersionLocaleDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botversion-botversionlocaledetails.html>`__
     """
 
     props: PropsDictType = {
@@ -1239,7 +1239,7 @@ class BotVersionLocaleDetails(AWSProperty):
 
 class BotVersionLocaleSpecification(AWSProperty):
     """
-    `BotVersionLocaleSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botversion-botversionlocalespecification.html>`__
+    `BotVersionLocaleSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lex-botversion-botversionlocalespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1250,7 +1250,7 @@ class BotVersionLocaleSpecification(AWSProperty):
 
 class BotVersion(AWSObject):
     """
-    `BotVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botversion.html>`__
+    `BotVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lex-botversion.html>`__
     """
 
     resource_type = "AWS::Lex::BotVersion"
@@ -1264,7 +1264,7 @@ class BotVersion(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lex-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::Lex::ResourcePolicy"

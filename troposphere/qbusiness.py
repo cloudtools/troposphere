@@ -12,7 +12,7 @@ from .validators import double
 
 class AttachmentsConfiguration(AWSProperty):
     """
-    `AttachmentsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-attachmentsconfiguration.html>`__
+    `AttachmentsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-attachmentsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AttachmentsConfiguration(AWSProperty):
 
 class AutoSubscriptionConfiguration(AWSProperty):
     """
-    `AutoSubscriptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-autosubscriptionconfiguration.html>`__
+    `AutoSubscriptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-autosubscriptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AutoSubscriptionConfiguration(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class PersonalizationConfiguration(AWSProperty):
     """
-    `PersonalizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html>`__
+    `PersonalizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-personalizationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class PersonalizationConfiguration(AWSProperty):
 
 class QAppsConfiguration(AWSProperty):
     """
-    `QAppsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html>`__
+    `QAppsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-qappsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class QAppsConfiguration(AWSProperty):
 
 class QuickSightConfiguration(AWSProperty):
     """
-    `QuickSightConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-quicksightconfiguration.html>`__
+    `QuickSightConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-application-quicksightconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class QuickSightConfiguration(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-application.html>`__
     """
 
     resource_type = "AWS::QBusiness::Application"
@@ -98,7 +98,7 @@ class Application(AWSObject):
 
 class DocumentAttributeValue(AWSProperty):
     """
-    `DocumentAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributevalue.html>`__
+    `DocumentAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-documentattributevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -111,7 +111,7 @@ class DocumentAttributeValue(AWSProperty):
 
 class DocumentAttribute(AWSProperty):
     """
-    `DocumentAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-documentattribute.html>`__
+    `DocumentAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-dataaccessor-documentattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class DocumentAttribute(AWSProperty):
 
 class AttributeFilter(AWSProperty):
     """
-    `AttributeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-attributefilter.html>`__
+    `AttributeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-dataaccessor-attributefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -141,7 +141,7 @@ class AttributeFilter(AWSProperty):
 
 class ActionFilterConfiguration(AWSProperty):
     """
-    `ActionFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionfilterconfiguration.html>`__
+    `ActionFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-dataaccessor-actionfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class ActionFilterConfiguration(AWSProperty):
 
 class ActionConfiguration(AWSProperty):
     """
-    `ActionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionconfiguration.html>`__
+    `ActionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-dataaccessor-actionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class ActionConfiguration(AWSProperty):
 
 class DataAccessor(AWSObject):
     """
-    `DataAccessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html>`__
+    `DataAccessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-dataaccessor.html>`__
     """
 
     resource_type = "AWS::QBusiness::DataAccessor"
@@ -178,7 +178,7 @@ class DataAccessor(AWSObject):
 
 class DataSourceVpcConfiguration(AWSProperty):
     """
-    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-datasourcevpcconfiguration.html>`__
+    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-datasourcevpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -189,7 +189,7 @@ class DataSourceVpcConfiguration(AWSProperty):
 
 class DocumentAttributeCondition(AWSProperty):
     """
-    `DocumentAttributeCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributecondition.html>`__
+    `DocumentAttributeCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-documentattributecondition.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class DocumentAttributeCondition(AWSProperty):
 
 class HookConfiguration(AWSProperty):
     """
-    `HookConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-hookconfiguration.html>`__
+    `HookConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-hookconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -214,7 +214,7 @@ class HookConfiguration(AWSProperty):
 
 class DocumentAttributeTarget(AWSProperty):
     """
-    `DocumentAttributeTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentattributetarget.html>`__
+    `DocumentAttributeTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-documentattributetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -226,7 +226,7 @@ class DocumentAttributeTarget(AWSProperty):
 
 class InlineDocumentEnrichmentConfiguration(AWSProperty):
     """
-    `InlineDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html>`__
+    `InlineDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -238,7 +238,7 @@ class InlineDocumentEnrichmentConfiguration(AWSProperty):
 
 class DocumentEnrichmentConfiguration(AWSProperty):
     """
-    `DocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html>`__
+    `DocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-documentenrichmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class DocumentEnrichmentConfiguration(AWSProperty):
 
 class AudioExtractionConfiguration(AWSProperty):
     """
-    `AudioExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-audioextractionconfiguration.html>`__
+    `AudioExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-audioextractionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -260,7 +260,7 @@ class AudioExtractionConfiguration(AWSProperty):
 
 class ImageExtractionConfiguration(AWSProperty):
     """
-    `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-imageextractionconfiguration.html>`__
+    `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-imageextractionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -270,7 +270,7 @@ class ImageExtractionConfiguration(AWSProperty):
 
 class VideoExtractionConfiguration(AWSProperty):
     """
-    `VideoExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-videoextractionconfiguration.html>`__
+    `VideoExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-videoextractionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class VideoExtractionConfiguration(AWSProperty):
 
 class MediaExtractionConfiguration(AWSProperty):
     """
-    `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html>`__
+    `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class MediaExtractionConfiguration(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-datasource.html>`__
     """
 
     resource_type = "AWS::QBusiness::DataSource"
@@ -314,7 +314,7 @@ class DataSource(AWSObject):
 
 class DocumentAttributeConfiguration(AWSProperty):
     """
-    `DocumentAttributeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-documentattributeconfiguration.html>`__
+    `DocumentAttributeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-index-documentattributeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -326,7 +326,7 @@ class DocumentAttributeConfiguration(AWSProperty):
 
 class IndexCapacityConfiguration(AWSProperty):
     """
-    `IndexCapacityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexcapacityconfiguration.html>`__
+    `IndexCapacityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-index-indexcapacityconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class IndexCapacityConfiguration(AWSProperty):
 
 class Index(AWSObject):
     """
-    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-index.html>`__
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-index.html>`__
     """
 
     resource_type = "AWS::QBusiness::Index"
@@ -354,7 +354,7 @@ class Index(AWSObject):
 
 class Permission(AWSObject):
     """
-    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html>`__
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-permission.html>`__
     """
 
     resource_type = "AWS::QBusiness::Permission"
@@ -369,7 +369,7 @@ class Permission(AWSObject):
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -380,7 +380,7 @@ class S3(AWSProperty):
 
 class APISchema(AWSProperty):
     """
-    `APISchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-apischema.html>`__
+    `APISchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-apischema.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class APISchema(AWSProperty):
 
 class CustomPluginConfiguration(AWSProperty):
     """
-    `CustomPluginConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-custompluginconfiguration.html>`__
+    `CustomPluginConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-custompluginconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -403,7 +403,7 @@ class CustomPluginConfiguration(AWSProperty):
 
 class BasicAuthConfiguration(AWSProperty):
     """
-    `BasicAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-basicauthconfiguration.html>`__
+    `BasicAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-basicauthconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class BasicAuthConfiguration(AWSProperty):
 
 class OAuth2ClientCredentialConfiguration(AWSProperty):
     """
-    `OAuth2ClientCredentialConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html>`__
+    `OAuth2ClientCredentialConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-oauth2clientcredentialconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -427,7 +427,7 @@ class OAuth2ClientCredentialConfiguration(AWSProperty):
 
 class PluginAuthConfiguration(AWSProperty):
     """
-    `PluginAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-pluginauthconfiguration.html>`__
+    `PluginAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-plugin-pluginauthconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -442,7 +442,7 @@ class PluginAuthConfiguration(AWSProperty):
 
 class Plugin(AWSObject):
     """
-    `Plugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html>`__
+    `Plugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-plugin.html>`__
     """
 
     resource_type = "AWS::QBusiness::Plugin"
@@ -461,7 +461,7 @@ class Plugin(AWSObject):
 
 class KendraIndexConfiguration(AWSProperty):
     """
-    `KendraIndexConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-kendraindexconfiguration.html>`__
+    `KendraIndexConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-retriever-kendraindexconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -471,7 +471,7 @@ class KendraIndexConfiguration(AWSProperty):
 
 class NativeIndexConfiguration(AWSProperty):
     """
-    `NativeIndexConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-nativeindexconfiguration.html>`__
+    `NativeIndexConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-retriever-nativeindexconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -481,7 +481,7 @@ class NativeIndexConfiguration(AWSProperty):
 
 class RetrieverConfiguration(AWSProperty):
     """
-    `RetrieverConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-retriever-retrieverconfiguration.html>`__
+    `RetrieverConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-retriever-retrieverconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -492,7 +492,7 @@ class RetrieverConfiguration(AWSProperty):
 
 class Retriever(AWSObject):
     """
-    `Retriever <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-retriever.html>`__
+    `Retriever <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-retriever.html>`__
     """
 
     resource_type = "AWS::QBusiness::Retriever"
@@ -509,7 +509,7 @@ class Retriever(AWSObject):
 
 class BrowserExtensionConfiguration(AWSProperty):
     """
-    `BrowserExtensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-browserextensionconfiguration.html>`__
+    `BrowserExtensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-webexperience-browserextensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class BrowserExtensionConfiguration(AWSProperty):
 
 class CustomizationConfiguration(AWSProperty):
     """
-    `CustomizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-customizationconfiguration.html>`__
+    `CustomizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-webexperience-customizationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -532,7 +532,7 @@ class CustomizationConfiguration(AWSProperty):
 
 class OpenIDConnectProviderConfiguration(AWSProperty):
     """
-    `OpenIDConnectProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html>`__
+    `OpenIDConnectProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -543,7 +543,7 @@ class OpenIDConnectProviderConfiguration(AWSProperty):
 
 class SamlProviderConfiguration(AWSProperty):
     """
-    `SamlProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-samlproviderconfiguration.html>`__
+    `SamlProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-webexperience-samlproviderconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -553,7 +553,7 @@ class SamlProviderConfiguration(AWSProperty):
 
 class IdentityProviderConfiguration(AWSProperty):
     """
-    `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html>`__
+    `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -564,7 +564,7 @@ class IdentityProviderConfiguration(AWSProperty):
 
 class WebExperience(AWSObject):
     """
-    `WebExperience <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html>`__
+    `WebExperience <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-qbusiness-webexperience.html>`__
     """
 
     resource_type = "AWS::QBusiness::WebExperience"
@@ -586,7 +586,7 @@ class WebExperience(AWSObject):
 
 class TextDocumentStatistics(AWSProperty):
     """
-    `TextDocumentStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-textdocumentstatistics.html>`__
+    `TextDocumentStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-index-textdocumentstatistics.html>`__
     """
 
     props: PropsDictType = {
@@ -597,7 +597,7 @@ class TextDocumentStatistics(AWSProperty):
 
 class IndexStatistics(AWSProperty):
     """
-    `IndexStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-index-indexstatistics.html>`__
+    `IndexStatistics <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-qbusiness-index-indexstatistics.html>`__
     """
 
     props: PropsDictType = {

@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class DataQuery(AWSProperty):
     """
-    `DataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-dataquery.html>`__
+    `DataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-dataquery.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class DataQuery(AWSProperty):
 
 class S3OutputConfigurations(AWSProperty):
     """
-    `S3OutputConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3outputconfigurations.html>`__
+    `S3OutputConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-s3outputconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class S3OutputConfigurations(AWSProperty):
 
 class S3Destination(AWSProperty):
     """
-    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html>`__
+    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-s3destination.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class S3Destination(AWSProperty):
 
 class DestinationConfigurations(AWSProperty):
     """
-    `DestinationConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-destinationconfigurations.html>`__
+    `DestinationConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-destinationconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -58,7 +58,7 @@ class DestinationConfigurations(AWSProperty):
 
 class RefreshCadence(AWSProperty):
     """
-    `RefreshCadence <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-refreshcadence.html>`__
+    `RefreshCadence <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-refreshcadence.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class RefreshCadence(AWSProperty):
 
 class ExportProperty(AWSProperty):
     """
-    `ExportProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-export.html>`__
+    `ExportProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-export.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class ExportProperty(AWSProperty):
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-bcmdataexports-export-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class ResourceTag(AWSProperty):
 
 class Export(AWSObject):
     """
-    `Export <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-export.html>`__
+    `Export <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bcmdataexports-export.html>`__
     """
 
     resource_type = "AWS::BCMDataExports::Export"

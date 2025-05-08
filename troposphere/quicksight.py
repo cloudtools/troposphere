@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class FreeFormLayoutScreenCanvasSizeOptions(AWSProperty):
     """
-    `FreeFormLayoutScreenCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutscreencanvassizeoptions.html>`__
+    `FreeFormLayoutScreenCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutscreencanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class FreeFormLayoutScreenCanvasSizeOptions(AWSProperty):
 
 class FreeFormLayoutCanvasSizeOptions(AWSProperty):
     """
-    `FreeFormLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutcanvassizeoptions.html>`__
+    `FreeFormLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutcanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class FreeFormLayoutCanvasSizeOptions(AWSProperty):
 
 class DefaultFreeFormLayoutConfiguration(AWSProperty):
     """
-    `DefaultFreeFormLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfreeformlayoutconfiguration.html>`__
+    `DefaultFreeFormLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultfreeformlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class DefaultFreeFormLayoutConfiguration(AWSProperty):
 
 class GridLayoutScreenCanvasSizeOptions(AWSProperty):
     """
-    `GridLayoutScreenCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutscreencanvassizeoptions.html>`__
+    `GridLayoutScreenCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gridlayoutscreencanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class GridLayoutScreenCanvasSizeOptions(AWSProperty):
 
 class GridLayoutCanvasSizeOptions(AWSProperty):
     """
-    `GridLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutcanvassizeoptions.html>`__
+    `GridLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gridlayoutcanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class GridLayoutCanvasSizeOptions(AWSProperty):
 
 class DefaultGridLayoutConfiguration(AWSProperty):
     """
-    `DefaultGridLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultgridlayoutconfiguration.html>`__
+    `DefaultGridLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultgridlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class DefaultGridLayoutConfiguration(AWSProperty):
 
 class DefaultInteractiveLayoutConfiguration(AWSProperty):
     """
-    `DefaultInteractiveLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultinteractivelayoutconfiguration.html>`__
+    `DefaultInteractiveLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultinteractivelayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class DefaultInteractiveLayoutConfiguration(AWSProperty):
 
 class Spacing(AWSProperty):
     """
-    `Spacing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-spacing.html>`__
+    `Spacing <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-spacing.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class Spacing(AWSProperty):
 
 class SectionBasedLayoutPaperCanvasSizeOptions(AWSProperty):
     """
-    `SectionBasedLayoutPaperCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionbasedlayoutpapercanvassizeoptions.html>`__
+    `SectionBasedLayoutPaperCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionbasedlayoutpapercanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class SectionBasedLayoutPaperCanvasSizeOptions(AWSProperty):
 
 class SectionBasedLayoutCanvasSizeOptions(AWSProperty):
     """
-    `SectionBasedLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionbasedlayoutcanvassizeoptions.html>`__
+    `SectionBasedLayoutCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionbasedlayoutcanvassizeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class SectionBasedLayoutCanvasSizeOptions(AWSProperty):
 
 class DefaultSectionBasedLayoutConfiguration(AWSProperty):
     """
-    `DefaultSectionBasedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultsectionbasedlayoutconfiguration.html>`__
+    `DefaultSectionBasedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultsectionbasedlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class DefaultSectionBasedLayoutConfiguration(AWSProperty):
 
 class DefaultPaginatedLayoutConfiguration(AWSProperty):
     """
-    `DefaultPaginatedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultpaginatedlayoutconfiguration.html>`__
+    `DefaultPaginatedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultpaginatedlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class DefaultPaginatedLayoutConfiguration(AWSProperty):
 
 class DefaultNewSheetConfiguration(AWSProperty):
     """
-    `DefaultNewSheetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultnewsheetconfiguration.html>`__
+    `DefaultNewSheetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultnewsheetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class DefaultNewSheetConfiguration(AWSProperty):
 
 class AnalysisDefaults(AWSProperty):
     """
-    `AnalysisDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-analysisdefaults.html>`__
+    `AnalysisDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-analysisdefaults.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class AnalysisDefaults(AWSProperty):
 
 class AssetOptions(AWSProperty):
     """
-    `AssetOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-assetoptions.html>`__
+    `AssetOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-assetoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class AssetOptions(AWSProperty):
 
 class CalculatedField(AWSProperty):
     """
-    `CalculatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html>`__
+    `CalculatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-calculatedfield.html>`__
     """
 
     props: PropsDictType = {
@@ -187,7 +187,7 @@ class CalculatedField(AWSProperty):
 
 class CustomColor(AWSProperty):
     """
-    `CustomColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcolor.html>`__
+    `CustomColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class CustomColor(AWSProperty):
 
 class ColorsConfiguration(AWSProperty):
     """
-    `ColorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorsconfiguration.html>`__
+    `ColorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-colorsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class ColorsConfiguration(AWSProperty):
 
 class ColumnIdentifier(AWSProperty):
     """
-    `ColumnIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnidentifier.html>`__
+    `ColumnIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columnidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class ColumnIdentifier(AWSProperty):
 
 class NullValueFormatConfiguration(AWSProperty):
     """
-    `NullValueFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-nullvalueformatconfiguration.html>`__
+    `NullValueFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-nullvalueformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class NullValueFormatConfiguration(AWSProperty):
 
 class DecimalPlacesConfiguration(AWSProperty):
     """
-    `DecimalPlacesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-decimalplacesconfiguration.html>`__
+    `DecimalPlacesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-decimalplacesconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class DecimalPlacesConfiguration(AWSProperty):
 
 class NegativeValueConfiguration(AWSProperty):
     """
-    `NegativeValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-negativevalueconfiguration.html>`__
+    `NegativeValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-negativevalueconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class NegativeValueConfiguration(AWSProperty):
 
 class ThousandSeparatorOptions(AWSProperty):
     """
-    `ThousandSeparatorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-thousandseparatoroptions.html>`__
+    `ThousandSeparatorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-thousandseparatoroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -262,7 +262,7 @@ class ThousandSeparatorOptions(AWSProperty):
 
 class NumericSeparatorConfiguration(AWSProperty):
     """
-    `NumericSeparatorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericseparatorconfiguration.html>`__
+    `NumericSeparatorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericseparatorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -273,7 +273,7 @@ class NumericSeparatorConfiguration(AWSProperty):
 
 class CurrencyDisplayFormatConfiguration(AWSProperty):
     """
-    `CurrencyDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-currencydisplayformatconfiguration.html>`__
+    `CurrencyDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-currencydisplayformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -290,7 +290,7 @@ class CurrencyDisplayFormatConfiguration(AWSProperty):
 
 class NumberDisplayFormatConfiguration(AWSProperty):
     """
-    `NumberDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numberdisplayformatconfiguration.html>`__
+    `NumberDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numberdisplayformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -306,7 +306,7 @@ class NumberDisplayFormatConfiguration(AWSProperty):
 
 class PercentageDisplayFormatConfiguration(AWSProperty):
     """
-    `PercentageDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentagedisplayformatconfiguration.html>`__
+    `PercentageDisplayFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-percentagedisplayformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -321,7 +321,7 @@ class PercentageDisplayFormatConfiguration(AWSProperty):
 
 class NumericFormatConfiguration(AWSProperty):
     """
-    `NumericFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericformatconfiguration.html>`__
+    `NumericFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -339,7 +339,7 @@ class NumericFormatConfiguration(AWSProperty):
 
 class DateTimeFormatConfiguration(AWSProperty):
     """
-    `DateTimeFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimeformatconfiguration.html>`__
+    `DateTimeFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimeformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -351,7 +351,7 @@ class DateTimeFormatConfiguration(AWSProperty):
 
 class NumberFormatConfiguration(AWSProperty):
     """
-    `NumberFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numberformatconfiguration.html>`__
+    `NumberFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numberformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -361,7 +361,7 @@ class NumberFormatConfiguration(AWSProperty):
 
 class StringFormatConfiguration(AWSProperty):
     """
-    `StringFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringformatconfiguration.html>`__
+    `StringFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-stringformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -372,7 +372,7 @@ class StringFormatConfiguration(AWSProperty):
 
 class FormatConfiguration(AWSProperty):
     """
-    `FormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-formatconfiguration.html>`__
+    `FormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-formatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -384,7 +384,7 @@ class FormatConfiguration(AWSProperty):
 
 class ColumnConfiguration(AWSProperty):
     """
-    `ColumnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnconfiguration.html>`__
+    `ColumnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columnconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class ColumnConfiguration(AWSProperty):
 
 class DataSetIdentifierDeclaration(AWSProperty):
     """
-    `DataSetIdentifierDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetidentifierdeclaration.html>`__
+    `DataSetIdentifierDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-datasetidentifierdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -408,7 +408,7 @@ class DataSetIdentifierDeclaration(AWSProperty):
 
 class CustomFilterConfiguration(AWSProperty):
     """
-    `CustomFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customfilterconfiguration.html>`__
+    `CustomFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -422,7 +422,7 @@ class CustomFilterConfiguration(AWSProperty):
 
 class CustomFilterListConfiguration(AWSProperty):
     """
-    `CustomFilterListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customfilterlistconfiguration.html>`__
+    `CustomFilterListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customfilterlistconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -435,7 +435,7 @@ class CustomFilterListConfiguration(AWSProperty):
 
 class FilterListConfiguration(AWSProperty):
     """
-    `FilterListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistconfiguration.html>`__
+    `FilterListConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterlistconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -448,7 +448,7 @@ class FilterListConfiguration(AWSProperty):
 
 class CategoryFilterConfiguration(AWSProperty):
     """
-    `CategoryFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryfilterconfiguration.html>`__
+    `CategoryFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categoryfilterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class CategoryFilterConfiguration(AWSProperty):
 
 class FontSize(AWSProperty):
     """
-    `FontSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontsize.html>`__
+    `FontSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fontsize.html>`__
     """
 
     props: PropsDictType = {
@@ -471,7 +471,7 @@ class FontSize(AWSProperty):
 
 class FontWeight(AWSProperty):
     """
-    `FontWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontweight.html>`__
+    `FontWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fontweight.html>`__
     """
 
     props: PropsDictType = {
@@ -481,7 +481,7 @@ class FontWeight(AWSProperty):
 
 class FontConfiguration(AWSProperty):
     """
-    `FontConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontconfiguration.html>`__
+    `FontConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fontconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -496,7 +496,7 @@ class FontConfiguration(AWSProperty):
 
 class LabelOptions(AWSProperty):
     """
-    `LabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-labeloptions.html>`__
+    `LabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-labeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -508,7 +508,7 @@ class LabelOptions(AWSProperty):
 
 class SheetControlInfoIconLabelOptions(AWSProperty):
     """
-    `SheetControlInfoIconLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrolinfoiconlabeloptions.html>`__
+    `SheetControlInfoIconLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetcontrolinfoiconlabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class SheetControlInfoIconLabelOptions(AWSProperty):
 
 class DateTimePickerControlDisplayOptions(AWSProperty):
     """
-    `DateTimePickerControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html>`__
+    `DateTimePickerControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -533,7 +533,7 @@ class DateTimePickerControlDisplayOptions(AWSProperty):
 
 class DefaultDateTimePickerControlOptions(AWSProperty):
     """
-    `DefaultDateTimePickerControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html>`__
+    `DefaultDateTimePickerControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -545,7 +545,7 @@ class DefaultDateTimePickerControlOptions(AWSProperty):
 
 class ListControlSelectAllOptions(AWSProperty):
     """
-    `ListControlSelectAllOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolselectalloptions.html>`__
+    `ListControlSelectAllOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-listcontrolselectalloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -555,7 +555,7 @@ class ListControlSelectAllOptions(AWSProperty):
 
 class DropDownControlDisplayOptions(AWSProperty):
     """
-    `DropDownControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html>`__
+    `DropDownControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -567,7 +567,7 @@ class DropDownControlDisplayOptions(AWSProperty):
 
 class FilterSelectableValues(AWSProperty):
     """
-    `FilterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterselectablevalues.html>`__
+    `FilterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterselectablevalues.html>`__
     """
 
     props: PropsDictType = {
@@ -577,7 +577,7 @@ class FilterSelectableValues(AWSProperty):
 
 class DefaultFilterDropDownControlOptions(AWSProperty):
     """
-    `DefaultFilterDropDownControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html>`__
+    `DefaultFilterDropDownControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -590,7 +590,7 @@ class DefaultFilterDropDownControlOptions(AWSProperty):
 
 class ListControlSearchOptions(AWSProperty):
     """
-    `ListControlSearchOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolsearchoptions.html>`__
+    `ListControlSearchOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-listcontrolsearchoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -600,7 +600,7 @@ class ListControlSearchOptions(AWSProperty):
 
 class ListControlDisplayOptions(AWSProperty):
     """
-    `ListControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html>`__
+    `ListControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-listcontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -613,7 +613,7 @@ class ListControlDisplayOptions(AWSProperty):
 
 class DefaultFilterListControlOptions(AWSProperty):
     """
-    `DefaultFilterListControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterlistcontroloptions.html>`__
+    `DefaultFilterListControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultfilterlistcontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -625,7 +625,7 @@ class DefaultFilterListControlOptions(AWSProperty):
 
 class RelativeDateTimeControlDisplayOptions(AWSProperty):
     """
-    `RelativeDateTimeControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html>`__
+    `RelativeDateTimeControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -637,7 +637,7 @@ class RelativeDateTimeControlDisplayOptions(AWSProperty):
 
 class DefaultRelativeDateTimeControlOptions(AWSProperty):
     """
-    `DefaultRelativeDateTimeControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultrelativedatetimecontroloptions.html>`__
+    `DefaultRelativeDateTimeControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultrelativedatetimecontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -648,7 +648,7 @@ class DefaultRelativeDateTimeControlOptions(AWSProperty):
 
 class SliderControlDisplayOptions(AWSProperty):
     """
-    `SliderControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-slidercontroldisplayoptions.html>`__
+    `SliderControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-slidercontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -659,7 +659,7 @@ class SliderControlDisplayOptions(AWSProperty):
 
 class DefaultSliderControlOptions(AWSProperty):
     """
-    `DefaultSliderControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultslidercontroloptions.html>`__
+    `DefaultSliderControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultslidercontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -673,7 +673,7 @@ class DefaultSliderControlOptions(AWSProperty):
 
 class TextControlPlaceholderOptions(AWSProperty):
     """
-    `TextControlPlaceholderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textcontrolplaceholderoptions.html>`__
+    `TextControlPlaceholderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-textcontrolplaceholderoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -683,7 +683,7 @@ class TextControlPlaceholderOptions(AWSProperty):
 
 class TextAreaControlDisplayOptions(AWSProperty):
     """
-    `TextAreaControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html>`__
+    `TextAreaControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-textareacontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -695,7 +695,7 @@ class TextAreaControlDisplayOptions(AWSProperty):
 
 class DefaultTextAreaControlOptions(AWSProperty):
     """
-    `DefaultTextAreaControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaulttextareacontroloptions.html>`__
+    `DefaultTextAreaControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaulttextareacontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -706,7 +706,7 @@ class DefaultTextAreaControlOptions(AWSProperty):
 
 class TextFieldControlDisplayOptions(AWSProperty):
     """
-    `TextFieldControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textfieldcontroldisplayoptions.html>`__
+    `TextFieldControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-textfieldcontroldisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -718,7 +718,7 @@ class TextFieldControlDisplayOptions(AWSProperty):
 
 class DefaultTextFieldControlOptions(AWSProperty):
     """
-    `DefaultTextFieldControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaulttextfieldcontroloptions.html>`__
+    `DefaultTextFieldControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaulttextfieldcontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -728,7 +728,7 @@ class DefaultTextFieldControlOptions(AWSProperty):
 
 class DefaultFilterControlOptions(AWSProperty):
     """
-    `DefaultFilterControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html>`__
+    `DefaultFilterControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultfiltercontroloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -747,7 +747,7 @@ class DefaultFilterControlOptions(AWSProperty):
 
 class DefaultFilterControlConfiguration(AWSProperty):
     """
-    `DefaultFilterControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontrolconfiguration.html>`__
+    `DefaultFilterControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-defaultfiltercontrolconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -758,7 +758,7 @@ class DefaultFilterControlConfiguration(AWSProperty):
 
 class CategoryFilter(AWSProperty):
     """
-    `CategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryfilter.html>`__
+    `CategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categoryfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -771,7 +771,7 @@ class CategoryFilter(AWSProperty):
 
 class CategoryInnerFilter(AWSProperty):
     """
-    `CategoryInnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryinnerfilter.html>`__
+    `CategoryInnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categoryinnerfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -783,7 +783,7 @@ class CategoryInnerFilter(AWSProperty):
 
 class InnerFilter(AWSProperty):
     """
-    `InnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-innerfilter.html>`__
+    `InnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-innerfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -793,7 +793,7 @@ class InnerFilter(AWSProperty):
 
 class NestedFilter(AWSProperty):
     """
-    `NestedFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-nestedfilter.html>`__
+    `NestedFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-nestedfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -806,7 +806,7 @@ class NestedFilter(AWSProperty):
 
 class AttributeAggregationFunction(AWSProperty):
     """
-    `AttributeAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html>`__
+    `AttributeAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-attributeaggregationfunction.html>`__
     """
 
     props: PropsDictType = {
@@ -817,7 +817,7 @@ class AttributeAggregationFunction(AWSProperty):
 
 class PercentileAggregation(AWSProperty):
     """
-    `PercentileAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentileaggregation.html>`__
+    `PercentileAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-percentileaggregation.html>`__
     """
 
     props: PropsDictType = {
@@ -827,7 +827,7 @@ class PercentileAggregation(AWSProperty):
 
 class NumericalAggregationFunction(AWSProperty):
     """
-    `NumericalAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericalaggregationfunction.html>`__
+    `NumericalAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericalaggregationfunction.html>`__
     """
 
     props: PropsDictType = {
@@ -838,7 +838,7 @@ class NumericalAggregationFunction(AWSProperty):
 
 class AggregationFunction(AWSProperty):
     """
-    `AggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationfunction.html>`__
+    `AggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-aggregationfunction.html>`__
     """
 
     props: PropsDictType = {
@@ -851,7 +851,7 @@ class AggregationFunction(AWSProperty):
 
 class NumericEqualityFilter(AWSProperty):
     """
-    `NumericEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalityfilter.html>`__
+    `NumericEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericequalityfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -869,7 +869,7 @@ class NumericEqualityFilter(AWSProperty):
 
 class NumericRangeFilterValue(AWSProperty):
     """
-    `NumericRangeFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefiltervalue.html>`__
+    `NumericRangeFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericrangefiltervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -880,7 +880,7 @@ class NumericRangeFilterValue(AWSProperty):
 
 class NumericRangeFilter(AWSProperty):
     """
-    `NumericRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericrangefilter.html>`__
+    `NumericRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericrangefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -899,7 +899,7 @@ class NumericRangeFilter(AWSProperty):
 
 class AnchorDateConfiguration(AWSProperty):
     """
-    `AnchorDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-anchordateconfiguration.html>`__
+    `AnchorDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-anchordateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -910,7 +910,7 @@ class AnchorDateConfiguration(AWSProperty):
 
 class ExcludePeriodConfiguration(AWSProperty):
     """
-    `ExcludePeriodConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-excludeperiodconfiguration.html>`__
+    `ExcludePeriodConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-excludeperiodconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -922,7 +922,7 @@ class ExcludePeriodConfiguration(AWSProperty):
 
 class RelativeDatesFilter(AWSProperty):
     """
-    `RelativeDatesFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatesfilter.html>`__
+    `RelativeDatesFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-relativedatesfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -942,7 +942,7 @@ class RelativeDatesFilter(AWSProperty):
 
 class RollingDateConfiguration(AWSProperty):
     """
-    `RollingDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rollingdateconfiguration.html>`__
+    `RollingDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-rollingdateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -953,7 +953,7 @@ class RollingDateConfiguration(AWSProperty):
 
 class TimeEqualityFilter(AWSProperty):
     """
-    `TimeEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html>`__
+    `TimeEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-timeequalityfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -969,7 +969,7 @@ class TimeEqualityFilter(AWSProperty):
 
 class TimeRangeFilterValue(AWSProperty):
     """
-    `TimeRangeFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timerangefiltervalue.html>`__
+    `TimeRangeFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-timerangefiltervalue.html>`__
     """
 
     props: PropsDictType = {
@@ -981,7 +981,7 @@ class TimeRangeFilterValue(AWSProperty):
 
 class TimeRangeFilter(AWSProperty):
     """
-    `TimeRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timerangefilter.html>`__
+    `TimeRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-timerangefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -1000,7 +1000,7 @@ class TimeRangeFilter(AWSProperty):
 
 class AggregationSortConfiguration(AWSProperty):
     """
-    `AggregationSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-aggregationsortconfiguration.html>`__
+    `AggregationSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-aggregationsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1012,7 +1012,7 @@ class AggregationSortConfiguration(AWSProperty):
 
 class TopBottomFilter(AWSProperty):
     """
-    `TopBottomFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomfilter.html>`__
+    `TopBottomFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-topbottomfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -1028,7 +1028,7 @@ class TopBottomFilter(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -1045,7 +1045,7 @@ class Filter(AWSProperty):
 
 class SheetVisualScopingConfiguration(AWSProperty):
     """
-    `SheetVisualScopingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetvisualscopingconfiguration.html>`__
+    `SheetVisualScopingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetvisualscopingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1057,7 +1057,7 @@ class SheetVisualScopingConfiguration(AWSProperty):
 
 class SelectedSheetsFilterScopeConfiguration(AWSProperty):
     """
-    `SelectedSheetsFilterScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-selectedsheetsfilterscopeconfiguration.html>`__
+    `SelectedSheetsFilterScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-selectedsheetsfilterscopeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1067,7 +1067,7 @@ class SelectedSheetsFilterScopeConfiguration(AWSProperty):
 
 class FilterScopeConfiguration(AWSProperty):
     """
-    `FilterScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterscopeconfiguration.html>`__
+    `FilterScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterscopeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1078,7 +1078,7 @@ class FilterScopeConfiguration(AWSProperty):
 
 class FilterGroup(AWSProperty):
     """
-    `FilterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtergroup.html>`__
+    `FilterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filtergroup.html>`__
     """
 
     props: PropsDictType = {
@@ -1092,7 +1092,7 @@ class FilterGroup(AWSProperty):
 
 class DynamicDefaultValue(AWSProperty):
     """
-    `DynamicDefaultValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dynamicdefaultvalue.html>`__
+    `DynamicDefaultValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-dynamicdefaultvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -1104,7 +1104,7 @@ class DynamicDefaultValue(AWSProperty):
 
 class DateTimeDefaultValues(AWSProperty):
     """
-    `DateTimeDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimedefaultvalues.html>`__
+    `DateTimeDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimedefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1116,7 +1116,7 @@ class DateTimeDefaultValues(AWSProperty):
 
 class DateTimeValueWhenUnsetConfiguration(AWSProperty):
     """
-    `DateTimeValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimevaluewhenunsetconfiguration.html>`__
+    `DateTimeValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimevaluewhenunsetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1127,7 +1127,7 @@ class DateTimeValueWhenUnsetConfiguration(AWSProperty):
 
 class MappedDataSetParameter(AWSProperty):
     """
-    `MappedDataSetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-mappeddatasetparameter.html>`__
+    `MappedDataSetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-mappeddatasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -1138,7 +1138,7 @@ class MappedDataSetParameter(AWSProperty):
 
 class DateTimeParameterDeclaration(AWSProperty):
     """
-    `DateTimeParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimeparameterdeclaration.html>`__
+    `DateTimeParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimeparameterdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -1152,7 +1152,7 @@ class DateTimeParameterDeclaration(AWSProperty):
 
 class DecimalDefaultValues(AWSProperty):
     """
-    `DecimalDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-decimaldefaultvalues.html>`__
+    `DecimalDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-decimaldefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1163,7 +1163,7 @@ class DecimalDefaultValues(AWSProperty):
 
 class DecimalValueWhenUnsetConfiguration(AWSProperty):
     """
-    `DecimalValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-decimalvaluewhenunsetconfiguration.html>`__
+    `DecimalValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-decimalvaluewhenunsetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1174,7 +1174,7 @@ class DecimalValueWhenUnsetConfiguration(AWSProperty):
 
 class DecimalParameterDeclaration(AWSProperty):
     """
-    `DecimalParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-decimalparameterdeclaration.html>`__
+    `DecimalParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-decimalparameterdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -1188,7 +1188,7 @@ class DecimalParameterDeclaration(AWSProperty):
 
 class IntegerDefaultValues(AWSProperty):
     """
-    `IntegerDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integerdefaultvalues.html>`__
+    `IntegerDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-integerdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1199,7 +1199,7 @@ class IntegerDefaultValues(AWSProperty):
 
 class IntegerValueWhenUnsetConfiguration(AWSProperty):
     """
-    `IntegerValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integervaluewhenunsetconfiguration.html>`__
+    `IntegerValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-integervaluewhenunsetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1210,7 @@ class IntegerValueWhenUnsetConfiguration(AWSProperty):
 
 class IntegerParameterDeclaration(AWSProperty):
     """
-    `IntegerParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-integerparameterdeclaration.html>`__
+    `IntegerParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-integerparameterdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -1224,7 +1224,7 @@ class IntegerParameterDeclaration(AWSProperty):
 
 class StringDefaultValues(AWSProperty):
     """
-    `StringDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringdefaultvalues.html>`__
+    `StringDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-stringdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1235,7 +1235,7 @@ class StringDefaultValues(AWSProperty):
 
 class StringValueWhenUnsetConfiguration(AWSProperty):
     """
-    `StringValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringvaluewhenunsetconfiguration.html>`__
+    `StringValueWhenUnsetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-stringvaluewhenunsetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1246,7 +1246,7 @@ class StringValueWhenUnsetConfiguration(AWSProperty):
 
 class StringParameterDeclaration(AWSProperty):
     """
-    `StringParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-stringparameterdeclaration.html>`__
+    `StringParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-stringparameterdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -1260,7 +1260,7 @@ class StringParameterDeclaration(AWSProperty):
 
 class ParameterDeclaration(AWSProperty):
     """
-    `ParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterdeclaration.html>`__
+    `ParameterDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -1273,7 +1273,7 @@ class ParameterDeclaration(AWSProperty):
 
 class QueryExecutionOptions(AWSProperty):
     """
-    `QueryExecutionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-queryexecutionoptions.html>`__
+    `QueryExecutionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-queryexecutionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1283,7 +1283,7 @@ class QueryExecutionOptions(AWSProperty):
 
 class CascadingControlSource(AWSProperty):
     """
-    `CascadingControlSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-cascadingcontrolsource.html>`__
+    `CascadingControlSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-cascadingcontrolsource.html>`__
     """
 
     props: PropsDictType = {
@@ -1294,7 +1294,7 @@ class CascadingControlSource(AWSProperty):
 
 class CascadingControlConfiguration(AWSProperty):
     """
-    `CascadingControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-cascadingcontrolconfiguration.html>`__
+    `CascadingControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-cascadingcontrolconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1304,7 +1304,7 @@ class CascadingControlConfiguration(AWSProperty):
 
 class FilterCrossSheetControl(AWSProperty):
     """
-    `FilterCrossSheetControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercrosssheetcontrol.html>`__
+    `FilterCrossSheetControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filtercrosssheetcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1316,7 +1316,7 @@ class FilterCrossSheetControl(AWSProperty):
 
 class FilterDateTimePickerControl(AWSProperty):
     """
-    `FilterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html>`__
+    `FilterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterdatetimepickercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1331,7 +1331,7 @@ class FilterDateTimePickerControl(AWSProperty):
 
 class FilterDropDownControl(AWSProperty):
     """
-    `FilterDropDownControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdropdowncontrol.html>`__
+    `FilterDropDownControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterdropdowncontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1348,7 +1348,7 @@ class FilterDropDownControl(AWSProperty):
 
 class FilterListControl(AWSProperty):
     """
-    `FilterListControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html>`__
+    `FilterListControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterlistcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1364,7 +1364,7 @@ class FilterListControl(AWSProperty):
 
 class FilterRelativeDateTimeControl(AWSProperty):
     """
-    `FilterRelativeDateTimeControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterrelativedatetimecontrol.html>`__
+    `FilterRelativeDateTimeControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterrelativedatetimecontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1378,7 +1378,7 @@ class FilterRelativeDateTimeControl(AWSProperty):
 
 class FilterSliderControl(AWSProperty):
     """
-    `FilterSliderControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterslidercontrol.html>`__
+    `FilterSliderControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filterslidercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1395,7 +1395,7 @@ class FilterSliderControl(AWSProperty):
 
 class FilterTextAreaControl(AWSProperty):
     """
-    `FilterTextAreaControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextareacontrol.html>`__
+    `FilterTextAreaControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filtertextareacontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1409,7 +1409,7 @@ class FilterTextAreaControl(AWSProperty):
 
 class FilterTextFieldControl(AWSProperty):
     """
-    `FilterTextFieldControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextfieldcontrol.html>`__
+    `FilterTextFieldControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filtertextfieldcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1422,7 +1422,7 @@ class FilterTextFieldControl(AWSProperty):
 
 class FilterControl(AWSProperty):
     """
-    `FilterControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercontrol.html>`__
+    `FilterControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filtercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1439,7 +1439,7 @@ class FilterControl(AWSProperty):
 
 class FreeFormLayoutElementBackgroundStyle(AWSProperty):
     """
-    `FreeFormLayoutElementBackgroundStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutelementbackgroundstyle.html>`__
+    `FreeFormLayoutElementBackgroundStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutelementbackgroundstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -1450,7 +1450,7 @@ class FreeFormLayoutElementBackgroundStyle(AWSProperty):
 
 class FreeFormLayoutElementBorderStyle(AWSProperty):
     """
-    `FreeFormLayoutElementBorderStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutelementborderstyle.html>`__
+    `FreeFormLayoutElementBorderStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutelementborderstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -1461,7 +1461,7 @@ class FreeFormLayoutElementBorderStyle(AWSProperty):
 
 class LoadingAnimation(AWSProperty):
     """
-    `LoadingAnimation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-loadinganimation.html>`__
+    `LoadingAnimation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-loadinganimation.html>`__
     """
 
     props: PropsDictType = {
@@ -1471,7 +1471,7 @@ class LoadingAnimation(AWSProperty):
 
 class SheetElementConfigurationOverrides(AWSProperty):
     """
-    `SheetElementConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetelementconfigurationoverrides.html>`__
+    `SheetElementConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetelementconfigurationoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -1481,7 +1481,7 @@ class SheetElementConfigurationOverrides(AWSProperty):
 
 class SheetElementRenderingRule(AWSProperty):
     """
-    `SheetElementRenderingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetelementrenderingrule.html>`__
+    `SheetElementRenderingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetelementrenderingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -1492,7 +1492,7 @@ class SheetElementRenderingRule(AWSProperty):
 
 class FreeFormLayoutElement(AWSProperty):
     """
-    `FreeFormLayoutElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutelement.html>`__
+    `FreeFormLayoutElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutelement.html>`__
     """
 
     props: PropsDictType = {
@@ -1513,7 +1513,7 @@ class FreeFormLayoutElement(AWSProperty):
 
 class FreeFormLayoutConfiguration(AWSProperty):
     """
-    `FreeFormLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutconfiguration.html>`__
+    `FreeFormLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1524,7 +1524,7 @@ class FreeFormLayoutConfiguration(AWSProperty):
 
 class GridLayoutElement(AWSProperty):
     """
-    `GridLayoutElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutelement.html>`__
+    `GridLayoutElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gridlayoutelement.html>`__
     """
 
     props: PropsDictType = {
@@ -1539,7 +1539,7 @@ class GridLayoutElement(AWSProperty):
 
 class GridLayoutConfiguration(AWSProperty):
     """
-    `GridLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gridlayoutconfiguration.html>`__
+    `GridLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gridlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1550,7 +1550,7 @@ class GridLayoutConfiguration(AWSProperty):
 
 class FreeFormSectionLayoutConfiguration(AWSProperty):
     """
-    `FreeFormSectionLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformsectionlayoutconfiguration.html>`__
+    `FreeFormSectionLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-freeformsectionlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1560,7 +1560,7 @@ class FreeFormSectionLayoutConfiguration(AWSProperty):
 
 class SectionLayoutConfiguration(AWSProperty):
     """
-    `SectionLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionlayoutconfiguration.html>`__
+    `SectionLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1570,7 +1570,7 @@ class SectionLayoutConfiguration(AWSProperty):
 
 class BodySectionContent(AWSProperty):
     """
-    `BodySectionContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectioncontent.html>`__
+    `BodySectionContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectioncontent.html>`__
     """
 
     props: PropsDictType = {
@@ -1580,7 +1580,7 @@ class BodySectionContent(AWSProperty):
 
 class ColumnSort(AWSProperty):
     """
-    `ColumnSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html>`__
+    `ColumnSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columnsort.html>`__
     """
 
     props: PropsDictType = {
@@ -1592,7 +1592,7 @@ class ColumnSort(AWSProperty):
 
 class BodySectionDynamicCategoryDimensionConfiguration(AWSProperty):
     """
-    `BodySectionDynamicCategoryDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectiondynamiccategorydimensionconfiguration.html>`__
+    `BodySectionDynamicCategoryDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectiondynamiccategorydimensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1604,7 +1604,7 @@ class BodySectionDynamicCategoryDimensionConfiguration(AWSProperty):
 
 class BodySectionDynamicNumericDimensionConfiguration(AWSProperty):
     """
-    `BodySectionDynamicNumericDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectiondynamicnumericdimensionconfiguration.html>`__
+    `BodySectionDynamicNumericDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectiondynamicnumericdimensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1616,7 +1616,7 @@ class BodySectionDynamicNumericDimensionConfiguration(AWSProperty):
 
 class BodySectionRepeatDimensionConfiguration(AWSProperty):
     """
-    `BodySectionRepeatDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatdimensionconfiguration.html>`__
+    `BodySectionRepeatDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectionrepeatdimensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1633,7 +1633,7 @@ class BodySectionRepeatDimensionConfiguration(AWSProperty):
 
 class SectionAfterPageBreak(AWSProperty):
     """
-    `SectionAfterPageBreak <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionafterpagebreak.html>`__
+    `SectionAfterPageBreak <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionafterpagebreak.html>`__
     """
 
     props: PropsDictType = {
@@ -1643,7 +1643,7 @@ class SectionAfterPageBreak(AWSProperty):
 
 class BodySectionRepeatPageBreakConfiguration(AWSProperty):
     """
-    `BodySectionRepeatPageBreakConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatpagebreakconfiguration.html>`__
+    `BodySectionRepeatPageBreakConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectionrepeatpagebreakconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1653,7 +1653,7 @@ class BodySectionRepeatPageBreakConfiguration(AWSProperty):
 
 class BodySectionRepeatConfiguration(AWSProperty):
     """
-    `BodySectionRepeatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatconfiguration.html>`__
+    `BodySectionRepeatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectionrepeatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1665,7 +1665,7 @@ class BodySectionRepeatConfiguration(AWSProperty):
 
 class SectionPageBreakConfiguration(AWSProperty):
     """
-    `SectionPageBreakConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionpagebreakconfiguration.html>`__
+    `SectionPageBreakConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionpagebreakconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1675,7 +1675,7 @@ class SectionPageBreakConfiguration(AWSProperty):
 
 class SectionStyle(AWSProperty):
     """
-    `SectionStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionstyle.html>`__
+    `SectionStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -1686,7 +1686,7 @@ class SectionStyle(AWSProperty):
 
 class BodySectionConfiguration(AWSProperty):
     """
-    `BodySectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionconfiguration.html>`__
+    `BodySectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bodysectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1700,7 +1700,7 @@ class BodySectionConfiguration(AWSProperty):
 
 class HeaderFooterSectionConfiguration(AWSProperty):
     """
-    `HeaderFooterSectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-headerfootersectionconfiguration.html>`__
+    `HeaderFooterSectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-headerfootersectionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1712,7 +1712,7 @@ class HeaderFooterSectionConfiguration(AWSProperty):
 
 class SectionBasedLayoutConfiguration(AWSProperty):
     """
-    `SectionBasedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionbasedlayoutconfiguration.html>`__
+    `SectionBasedLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sectionbasedlayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1725,7 +1725,7 @@ class SectionBasedLayoutConfiguration(AWSProperty):
 
 class LayoutConfiguration(AWSProperty):
     """
-    `LayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-layoutconfiguration.html>`__
+    `LayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-layoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1737,7 +1737,7 @@ class LayoutConfiguration(AWSProperty):
 
 class Layout(AWSProperty):
     """
-    `Layout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-layout.html>`__
+    `Layout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-layout.html>`__
     """
 
     props: PropsDictType = {
@@ -1747,7 +1747,7 @@ class Layout(AWSProperty):
 
 class ParameterDateTimePickerControl(AWSProperty):
     """
-    `ParameterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterdatetimepickercontrol.html>`__
+    `ParameterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterdatetimepickercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1760,7 +1760,7 @@ class ParameterDateTimePickerControl(AWSProperty):
 
 class ParameterSelectableValues(AWSProperty):
     """
-    `ParameterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterselectablevalues.html>`__
+    `ParameterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterselectablevalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1771,7 +1771,7 @@ class ParameterSelectableValues(AWSProperty):
 
 class ParameterDropDownControl(AWSProperty):
     """
-    `ParameterDropDownControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterdropdowncontrol.html>`__
+    `ParameterDropDownControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterdropdowncontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1788,7 +1788,7 @@ class ParameterDropDownControl(AWSProperty):
 
 class ParameterListControl(AWSProperty):
     """
-    `ParameterListControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterlistcontrol.html>`__
+    `ParameterListControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterlistcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1804,7 +1804,7 @@ class ParameterListControl(AWSProperty):
 
 class ParameterSliderControl(AWSProperty):
     """
-    `ParameterSliderControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parameterslidercontrol.html>`__
+    `ParameterSliderControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parameterslidercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1820,7 +1820,7 @@ class ParameterSliderControl(AWSProperty):
 
 class ParameterTextAreaControl(AWSProperty):
     """
-    `ParameterTextAreaControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametertextareacontrol.html>`__
+    `ParameterTextAreaControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parametertextareacontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1834,7 +1834,7 @@ class ParameterTextAreaControl(AWSProperty):
 
 class ParameterTextFieldControl(AWSProperty):
     """
-    `ParameterTextFieldControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametertextfieldcontrol.html>`__
+    `ParameterTextFieldControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parametertextfieldcontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1847,7 +1847,7 @@ class ParameterTextFieldControl(AWSProperty):
 
 class ParameterControl(AWSProperty):
     """
-    `ParameterControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-parametercontrol.html>`__
+    `ParameterControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-parametercontrol.html>`__
     """
 
     props: PropsDictType = {
@@ -1862,7 +1862,7 @@ class ParameterControl(AWSProperty):
 
 class SheetControlLayoutConfiguration(AWSProperty):
     """
-    `SheetControlLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrollayoutconfiguration.html>`__
+    `SheetControlLayoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetcontrollayoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1872,7 +1872,7 @@ class SheetControlLayoutConfiguration(AWSProperty):
 
 class SheetControlLayout(AWSProperty):
     """
-    `SheetControlLayout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrollayout.html>`__
+    `SheetControlLayout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetcontrollayout.html>`__
     """
 
     props: PropsDictType = {
@@ -1882,7 +1882,7 @@ class SheetControlLayout(AWSProperty):
 
 class LocalNavigationConfiguration(AWSProperty):
     """
-    `LocalNavigationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-localnavigationconfiguration.html>`__
+    `LocalNavigationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-localnavigationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1892,7 +1892,7 @@ class LocalNavigationConfiguration(AWSProperty):
 
 class CustomActionNavigationOperation(AWSProperty):
     """
-    `CustomActionNavigationOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionnavigationoperation.html>`__
+    `CustomActionNavigationOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customactionnavigationoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -1902,7 +1902,7 @@ class CustomActionNavigationOperation(AWSProperty):
 
 class CustomParameterValues(AWSProperty):
     """
-    `CustomParameterValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customparametervalues.html>`__
+    `CustomParameterValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customparametervalues.html>`__
     """
 
     props: PropsDictType = {
@@ -1915,7 +1915,7 @@ class CustomParameterValues(AWSProperty):
 
 class CustomValuesConfiguration(AWSProperty):
     """
-    `CustomValuesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customvaluesconfiguration.html>`__
+    `CustomValuesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customvaluesconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1926,7 +1926,7 @@ class CustomValuesConfiguration(AWSProperty):
 
 class DestinationParameterValueConfiguration(AWSProperty):
     """
-    `DestinationParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-destinationparametervalueconfiguration.html>`__
+    `DestinationParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-destinationparametervalueconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1940,7 +1940,7 @@ class DestinationParameterValueConfiguration(AWSProperty):
 
 class SetParameterValueConfiguration(AWSProperty):
     """
-    `SetParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html>`__
+    `SetParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-setparametervalueconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1951,7 +1951,7 @@ class SetParameterValueConfiguration(AWSProperty):
 
 class CustomActionSetParametersOperation(AWSProperty):
     """
-    `CustomActionSetParametersOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionsetparametersoperation.html>`__
+    `CustomActionSetParametersOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customactionsetparametersoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -1961,7 +1961,7 @@ class CustomActionSetParametersOperation(AWSProperty):
 
 class CustomActionURLOperation(AWSProperty):
     """
-    `CustomActionURLOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionurloperation.html>`__
+    `CustomActionURLOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customactionurloperation.html>`__
     """
 
     props: PropsDictType = {
@@ -1972,7 +1972,7 @@ class CustomActionURLOperation(AWSProperty):
 
 class ImageCustomActionOperation(AWSProperty):
     """
-    `ImageCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomactionoperation.html>`__
+    `ImageCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-imagecustomactionoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -1984,7 +1984,7 @@ class ImageCustomActionOperation(AWSProperty):
 
 class ImageCustomAction(AWSProperty):
     """
-    `ImageCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html>`__
+    `ImageCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-imagecustomaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1998,7 +1998,7 @@ class ImageCustomAction(AWSProperty):
 
 class ImageMenuOption(AWSProperty):
     """
-    `ImageMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagemenuoption.html>`__
+    `ImageMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-imagemenuoption.html>`__
     """
 
     props: PropsDictType = {
@@ -2008,7 +2008,7 @@ class ImageMenuOption(AWSProperty):
 
 class ImageInteractionOptions(AWSProperty):
     """
-    `ImageInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imageinteractionoptions.html>`__
+    `ImageInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-imageinteractionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2018,7 +2018,7 @@ class ImageInteractionOptions(AWSProperty):
 
 class SheetImageScalingConfiguration(AWSProperty):
     """
-    `SheetImageScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagescalingconfiguration.html>`__
+    `SheetImageScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimagescalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2028,7 +2028,7 @@ class SheetImageScalingConfiguration(AWSProperty):
 
 class SheetImageStaticFileSource(AWSProperty):
     """
-    `SheetImageStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagestaticfilesource.html>`__
+    `SheetImageStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimagestaticfilesource.html>`__
     """
 
     props: PropsDictType = {
@@ -2038,7 +2038,7 @@ class SheetImageStaticFileSource(AWSProperty):
 
 class SheetImageSource(AWSProperty):
     """
-    `SheetImageSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagesource.html>`__
+    `SheetImageSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimagesource.html>`__
     """
 
     props: PropsDictType = {
@@ -2048,7 +2048,7 @@ class SheetImageSource(AWSProperty):
 
 class SheetImageTooltipText(AWSProperty):
     """
-    `SheetImageTooltipText <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltiptext.html>`__
+    `SheetImageTooltipText <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimagetooltiptext.html>`__
     """
 
     props: PropsDictType = {
@@ -2058,7 +2058,7 @@ class SheetImageTooltipText(AWSProperty):
 
 class SheetImageTooltipConfiguration(AWSProperty):
     """
-    `SheetImageTooltipConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html>`__
+    `SheetImageTooltipConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2069,7 +2069,7 @@ class SheetImageTooltipConfiguration(AWSProperty):
 
 class SheetImage(AWSProperty):
     """
-    `SheetImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimage.html>`__
+    `SheetImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetimage.html>`__
     """
 
     props: PropsDictType = {
@@ -2085,7 +2085,7 @@ class SheetImage(AWSProperty):
 
 class SheetTextBox(AWSProperty):
     """
-    `SheetTextBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheettextbox.html>`__
+    `SheetTextBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheettextbox.html>`__
     """
 
     props: PropsDictType = {
@@ -2096,7 +2096,7 @@ class SheetTextBox(AWSProperty):
 
 class DateAxisOptions(AWSProperty):
     """
-    `DateAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dateaxisoptions.html>`__
+    `DateAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-dateaxisoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2106,7 +2106,7 @@ class DateAxisOptions(AWSProperty):
 
 class AxisDisplayMinMaxRange(AWSProperty):
     """
-    `AxisDisplayMinMaxRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayminmaxrange.html>`__
+    `AxisDisplayMinMaxRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisdisplayminmaxrange.html>`__
     """
 
     props: PropsDictType = {
@@ -2117,7 +2117,7 @@ class AxisDisplayMinMaxRange(AWSProperty):
 
 class AxisDisplayRange(AWSProperty):
     """
-    `AxisDisplayRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayrange.html>`__
+    `AxisDisplayRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisdisplayrange.html>`__
     """
 
     props: PropsDictType = {
@@ -2128,7 +2128,7 @@ class AxisDisplayRange(AWSProperty):
 
 class AxisLinearScale(AWSProperty):
     """
-    `AxisLinearScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axislinearscale.html>`__
+    `AxisLinearScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axislinearscale.html>`__
     """
 
     props: PropsDictType = {
@@ -2139,7 +2139,7 @@ class AxisLinearScale(AWSProperty):
 
 class AxisLogarithmicScale(AWSProperty):
     """
-    `AxisLogarithmicScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axislogarithmicscale.html>`__
+    `AxisLogarithmicScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axislogarithmicscale.html>`__
     """
 
     props: PropsDictType = {
@@ -2149,7 +2149,7 @@ class AxisLogarithmicScale(AWSProperty):
 
 class AxisScale(AWSProperty):
     """
-    `AxisScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisscale.html>`__
+    `AxisScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisscale.html>`__
     """
 
     props: PropsDictType = {
@@ -2160,7 +2160,7 @@ class AxisScale(AWSProperty):
 
 class NumericAxisOptions(AWSProperty):
     """
-    `NumericAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericaxisoptions.html>`__
+    `NumericAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericaxisoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2171,7 +2171,7 @@ class NumericAxisOptions(AWSProperty):
 
 class AxisDataOptions(AWSProperty):
     """
-    `AxisDataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdataoptions.html>`__
+    `AxisDataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisdataoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2182,7 +2182,7 @@ class AxisDataOptions(AWSProperty):
 
 class AxisTickLabelOptions(AWSProperty):
     """
-    `AxisTickLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisticklabeloptions.html>`__
+    `AxisTickLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisticklabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2193,7 +2193,7 @@ class AxisTickLabelOptions(AWSProperty):
 
 class PercentVisibleRange(AWSProperty):
     """
-    `PercentVisibleRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentvisiblerange.html>`__
+    `PercentVisibleRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-percentvisiblerange.html>`__
     """
 
     props: PropsDictType = {
@@ -2204,7 +2204,7 @@ class PercentVisibleRange(AWSProperty):
 
 class VisibleRangeOptions(AWSProperty):
     """
-    `VisibleRangeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visiblerangeoptions.html>`__
+    `VisibleRangeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visiblerangeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2214,7 +2214,7 @@ class VisibleRangeOptions(AWSProperty):
 
 class ScrollBarOptions(AWSProperty):
     """
-    `ScrollBarOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scrollbaroptions.html>`__
+    `ScrollBarOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scrollbaroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2225,7 +2225,7 @@ class ScrollBarOptions(AWSProperty):
 
 class AxisDisplayOptions(AWSProperty):
     """
-    `AxisDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html>`__
+    `AxisDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axisdisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2240,7 +2240,7 @@ class AxisDisplayOptions(AWSProperty):
 
 class CategoricalDimensionField(AWSProperty):
     """
-    `CategoricalDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoricaldimensionfield.html>`__
+    `CategoricalDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categoricaldimensionfield.html>`__
     """
 
     props: PropsDictType = {
@@ -2253,7 +2253,7 @@ class CategoricalDimensionField(AWSProperty):
 
 class DateDimensionField(AWSProperty):
     """
-    `DateDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datedimensionfield.html>`__
+    `DateDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datedimensionfield.html>`__
     """
 
     props: PropsDictType = {
@@ -2267,7 +2267,7 @@ class DateDimensionField(AWSProperty):
 
 class NumericalDimensionField(AWSProperty):
     """
-    `NumericalDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericaldimensionfield.html>`__
+    `NumericalDimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericaldimensionfield.html>`__
     """
 
     props: PropsDictType = {
@@ -2280,7 +2280,7 @@ class NumericalDimensionField(AWSProperty):
 
 class DimensionField(AWSProperty):
     """
-    `DimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dimensionfield.html>`__
+    `DimensionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-dimensionfield.html>`__
     """
 
     props: PropsDictType = {
@@ -2292,7 +2292,7 @@ class DimensionField(AWSProperty):
 
 class CalculatedMeasureField(AWSProperty):
     """
-    `CalculatedMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedmeasurefield.html>`__
+    `CalculatedMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-calculatedmeasurefield.html>`__
     """
 
     props: PropsDictType = {
@@ -2303,7 +2303,7 @@ class CalculatedMeasureField(AWSProperty):
 
 class CategoricalMeasureField(AWSProperty):
     """
-    `CategoricalMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoricalmeasurefield.html>`__
+    `CategoricalMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categoricalmeasurefield.html>`__
     """
 
     props: PropsDictType = {
@@ -2316,7 +2316,7 @@ class CategoricalMeasureField(AWSProperty):
 
 class DateMeasureField(AWSProperty):
     """
-    `DateMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datemeasurefield.html>`__
+    `DateMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datemeasurefield.html>`__
     """
 
     props: PropsDictType = {
@@ -2329,7 +2329,7 @@ class DateMeasureField(AWSProperty):
 
 class NumericalMeasureField(AWSProperty):
     """
-    `NumericalMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericalmeasurefield.html>`__
+    `NumericalMeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericalmeasurefield.html>`__
     """
 
     props: PropsDictType = {
@@ -2342,7 +2342,7 @@ class NumericalMeasureField(AWSProperty):
 
 class MeasureField(AWSProperty):
     """
-    `MeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-measurefield.html>`__
+    `MeasureField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-measurefield.html>`__
     """
 
     props: PropsDictType = {
@@ -2355,7 +2355,7 @@ class MeasureField(AWSProperty):
 
 class BarChartAggregatedFieldWells(AWSProperty):
     """
-    `BarChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartaggregatedfieldwells.html>`__
+    `BarChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-barchartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -2368,7 +2368,7 @@ class BarChartAggregatedFieldWells(AWSProperty):
 
 class BarChartFieldWells(AWSProperty):
     """
-    `BarChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartfieldwells.html>`__
+    `BarChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-barchartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -2378,7 +2378,7 @@ class BarChartFieldWells(AWSProperty):
 
 class FieldSort(AWSProperty):
     """
-    `FieldSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldsort.html>`__
+    `FieldSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldsort.html>`__
     """
 
     props: PropsDictType = {
@@ -2389,7 +2389,7 @@ class FieldSort(AWSProperty):
 
 class FieldSortOptions(AWSProperty):
     """
-    `FieldSortOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldsortoptions.html>`__
+    `FieldSortOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldsortoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2400,7 +2400,7 @@ class FieldSortOptions(AWSProperty):
 
 class ItemsLimitConfiguration(AWSProperty):
     """
-    `ItemsLimitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-itemslimitconfiguration.html>`__
+    `ItemsLimitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-itemslimitconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2411,7 +2411,7 @@ class ItemsLimitConfiguration(AWSProperty):
 
 class BarChartSortConfiguration(AWSProperty):
     """
-    `BarChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartsortconfiguration.html>`__
+    `BarChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-barchartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2426,7 +2426,7 @@ class BarChartSortConfiguration(AWSProperty):
 
 class AxisLabelReferenceOptions(AWSProperty):
     """
-    `AxisLabelReferenceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axislabelreferenceoptions.html>`__
+    `AxisLabelReferenceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axislabelreferenceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2437,7 +2437,7 @@ class AxisLabelReferenceOptions(AWSProperty):
 
 class AxisLabelOptions(AWSProperty):
     """
-    `AxisLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axislabeloptions.html>`__
+    `AxisLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-axislabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2449,7 +2449,7 @@ class AxisLabelOptions(AWSProperty):
 
 class ChartAxisLabelOptions(AWSProperty):
     """
-    `ChartAxisLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-chartaxislabeloptions.html>`__
+    `ChartAxisLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-chartaxislabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2461,7 +2461,7 @@ class ChartAxisLabelOptions(AWSProperty):
 
 class ContributionAnalysisDefault(AWSProperty):
     """
-    `ContributionAnalysisDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contributionanalysisdefault.html>`__
+    `ContributionAnalysisDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-contributionanalysisdefault.html>`__
     """
 
     props: PropsDictType = {
@@ -2472,7 +2472,7 @@ class ContributionAnalysisDefault(AWSProperty):
 
 class DataPathLabelType(AWSProperty):
     """
-    `DataPathLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathlabeltype.html>`__
+    `DataPathLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datapathlabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2484,7 +2484,7 @@ class DataPathLabelType(AWSProperty):
 
 class FieldLabelType(AWSProperty):
     """
-    `FieldLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldlabeltype.html>`__
+    `FieldLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldlabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2495,7 +2495,7 @@ class FieldLabelType(AWSProperty):
 
 class MaximumLabelType(AWSProperty):
     """
-    `MaximumLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-maximumlabeltype.html>`__
+    `MaximumLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-maximumlabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2505,7 +2505,7 @@ class MaximumLabelType(AWSProperty):
 
 class MinimumLabelType(AWSProperty):
     """
-    `MinimumLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-minimumlabeltype.html>`__
+    `MinimumLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-minimumlabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2515,7 +2515,7 @@ class MinimumLabelType(AWSProperty):
 
 class RangeEndsLabelType(AWSProperty):
     """
-    `RangeEndsLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rangeendslabeltype.html>`__
+    `RangeEndsLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-rangeendslabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2525,7 +2525,7 @@ class RangeEndsLabelType(AWSProperty):
 
 class DataLabelType(AWSProperty):
     """
-    `DataLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datalabeltype.html>`__
+    `DataLabelType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datalabeltype.html>`__
     """
 
     props: PropsDictType = {
@@ -2539,7 +2539,7 @@ class DataLabelType(AWSProperty):
 
 class DataLabelOptions(AWSProperty):
     """
-    `DataLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datalabeloptions.html>`__
+    `DataLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datalabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2558,7 +2558,7 @@ class DataLabelOptions(AWSProperty):
 
 class LegendOptions(AWSProperty):
     """
-    `LegendOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html>`__
+    `LegendOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-legendoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2573,7 +2573,7 @@ class LegendOptions(AWSProperty):
 
 class ReferenceLineDynamicDataConfiguration(AWSProperty):
     """
-    `ReferenceLineDynamicDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedynamicdataconfiguration.html>`__
+    `ReferenceLineDynamicDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinedynamicdataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2585,7 +2585,7 @@ class ReferenceLineDynamicDataConfiguration(AWSProperty):
 
 class ReferenceLineStaticDataConfiguration(AWSProperty):
     """
-    `ReferenceLineStaticDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinestaticdataconfiguration.html>`__
+    `ReferenceLineStaticDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinestaticdataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2595,7 +2595,7 @@ class ReferenceLineStaticDataConfiguration(AWSProperty):
 
 class ReferenceLineDataConfiguration(AWSProperty):
     """
-    `ReferenceLineDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinedataconfiguration.html>`__
+    `ReferenceLineDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinedataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2608,7 +2608,7 @@ class ReferenceLineDataConfiguration(AWSProperty):
 
 class ReferenceLineCustomLabelConfiguration(AWSProperty):
     """
-    `ReferenceLineCustomLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinecustomlabelconfiguration.html>`__
+    `ReferenceLineCustomLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinecustomlabelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2618,7 +2618,7 @@ class ReferenceLineCustomLabelConfiguration(AWSProperty):
 
 class ReferenceLineValueLabelConfiguration(AWSProperty):
     """
-    `ReferenceLineValueLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinevaluelabelconfiguration.html>`__
+    `ReferenceLineValueLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinevaluelabelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2629,7 +2629,7 @@ class ReferenceLineValueLabelConfiguration(AWSProperty):
 
 class ReferenceLineLabelConfiguration(AWSProperty):
     """
-    `ReferenceLineLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinelabelconfiguration.html>`__
+    `ReferenceLineLabelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinelabelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2644,7 +2644,7 @@ class ReferenceLineLabelConfiguration(AWSProperty):
 
 class ReferenceLineStyleConfiguration(AWSProperty):
     """
-    `ReferenceLineStyleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referencelinestyleconfiguration.html>`__
+    `ReferenceLineStyleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referencelinestyleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2655,7 +2655,7 @@ class ReferenceLineStyleConfiguration(AWSProperty):
 
 class ReferenceLine(AWSProperty):
     """
-    `ReferenceLine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-referenceline.html>`__
+    `ReferenceLine <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-referenceline.html>`__
     """
 
     props: PropsDictType = {
@@ -2668,7 +2668,7 @@ class ReferenceLine(AWSProperty):
 
 class PanelTitleOptions(AWSProperty):
     """
-    `PanelTitleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-paneltitleoptions.html>`__
+    `PanelTitleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-paneltitleoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2680,7 +2680,7 @@ class PanelTitleOptions(AWSProperty):
 
 class PanelConfiguration(AWSProperty):
     """
-    `PanelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-panelconfiguration.html>`__
+    `PanelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-panelconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2698,7 +2698,7 @@ class PanelConfiguration(AWSProperty):
 
 class SmallMultiplesAxisProperties(AWSProperty):
     """
-    `SmallMultiplesAxisProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-smallmultiplesaxisproperties.html>`__
+    `SmallMultiplesAxisProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-smallmultiplesaxisproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -2709,7 +2709,7 @@ class SmallMultiplesAxisProperties(AWSProperty):
 
 class SmallMultiplesOptions(AWSProperty):
     """
-    `SmallMultiplesOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-smallmultiplesoptions.html>`__
+    `SmallMultiplesOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-smallmultiplesoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2723,7 +2723,7 @@ class SmallMultiplesOptions(AWSProperty):
 
 class ColumnTooltipItem(AWSProperty):
     """
-    `ColumnTooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columntooltipitem.html>`__
+    `ColumnTooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columntooltipitem.html>`__
     """
 
     props: PropsDictType = {
@@ -2737,7 +2737,7 @@ class ColumnTooltipItem(AWSProperty):
 
 class FieldTooltipItem(AWSProperty):
     """
-    `FieldTooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldtooltipitem.html>`__
+    `FieldTooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldtooltipitem.html>`__
     """
 
     props: PropsDictType = {
@@ -2750,7 +2750,7 @@ class FieldTooltipItem(AWSProperty):
 
 class TooltipItem(AWSProperty):
     """
-    `TooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipitem.html>`__
+    `TooltipItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tooltipitem.html>`__
     """
 
     props: PropsDictType = {
@@ -2761,7 +2761,7 @@ class TooltipItem(AWSProperty):
 
 class FieldBasedTooltip(AWSProperty):
     """
-    `FieldBasedTooltip <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldbasedtooltip.html>`__
+    `FieldBasedTooltip <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldbasedtooltip.html>`__
     """
 
     props: PropsDictType = {
@@ -2773,7 +2773,7 @@ class FieldBasedTooltip(AWSProperty):
 
 class TooltipOptions(AWSProperty):
     """
-    `TooltipOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipoptions.html>`__
+    `TooltipOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tooltipoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2785,7 +2785,7 @@ class TooltipOptions(AWSProperty):
 
 class ContextMenuOption(AWSProperty):
     """
-    `ContextMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contextmenuoption.html>`__
+    `ContextMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-contextmenuoption.html>`__
     """
 
     props: PropsDictType = {
@@ -2795,7 +2795,7 @@ class ContextMenuOption(AWSProperty):
 
 class VisualMenuOption(AWSProperty):
     """
-    `VisualMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualmenuoption.html>`__
+    `VisualMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualmenuoption.html>`__
     """
 
     props: PropsDictType = {
@@ -2805,7 +2805,7 @@ class VisualMenuOption(AWSProperty):
 
 class VisualInteractionOptions(AWSProperty):
     """
-    `VisualInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualinteractionoptions.html>`__
+    `VisualInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualinteractionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2816,7 +2816,7 @@ class VisualInteractionOptions(AWSProperty):
 
 class DataPathType(AWSProperty):
     """
-    `DataPathType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathtype.html>`__
+    `DataPathType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datapathtype.html>`__
     """
 
     props: PropsDictType = {
@@ -2826,7 +2826,7 @@ class DataPathType(AWSProperty):
 
 class DataPathValue(AWSProperty):
     """
-    `DataPathValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathvalue.html>`__
+    `DataPathValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datapathvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -2838,7 +2838,7 @@ class DataPathValue(AWSProperty):
 
 class DataPathColor(AWSProperty):
     """
-    `DataPathColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathcolor.html>`__
+    `DataPathColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datapathcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -2850,7 +2850,7 @@ class DataPathColor(AWSProperty):
 
 class VisualPalette(AWSProperty):
     """
-    `VisualPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualpalette.html>`__
+    `VisualPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualpalette.html>`__
     """
 
     props: PropsDictType = {
@@ -2861,7 +2861,7 @@ class VisualPalette(AWSProperty):
 
 class BarChartConfiguration(AWSProperty):
     """
-    `BarChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html>`__
+    `BarChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-barchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2887,7 +2887,7 @@ class BarChartConfiguration(AWSProperty):
 
 class CategoryDrillDownFilter(AWSProperty):
     """
-    `CategoryDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categorydrilldownfilter.html>`__
+    `CategoryDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-categorydrilldownfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -2898,7 +2898,7 @@ class CategoryDrillDownFilter(AWSProperty):
 
 class NumericEqualityDrillDownFilter(AWSProperty):
     """
-    `NumericEqualityDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-numericequalitydrilldownfilter.html>`__
+    `NumericEqualityDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-numericequalitydrilldownfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -2909,7 +2909,7 @@ class NumericEqualityDrillDownFilter(AWSProperty):
 
 class TimeRangeDrillDownFilter(AWSProperty):
     """
-    `TimeRangeDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timerangedrilldownfilter.html>`__
+    `TimeRangeDrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-timerangedrilldownfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -2922,7 +2922,7 @@ class TimeRangeDrillDownFilter(AWSProperty):
 
 class DrillDownFilter(AWSProperty):
     """
-    `DrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-drilldownfilter.html>`__
+    `DrillDownFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-drilldownfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -2934,7 +2934,7 @@ class DrillDownFilter(AWSProperty):
 
 class DateTimeHierarchy(AWSProperty):
     """
-    `DateTimeHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimehierarchy.html>`__
+    `DateTimeHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datetimehierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -2945,7 +2945,7 @@ class DateTimeHierarchy(AWSProperty):
 
 class ExplicitHierarchy(AWSProperty):
     """
-    `ExplicitHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-explicithierarchy.html>`__
+    `ExplicitHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-explicithierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -2957,7 +2957,7 @@ class ExplicitHierarchy(AWSProperty):
 
 class PredefinedHierarchy(AWSProperty):
     """
-    `PredefinedHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-predefinedhierarchy.html>`__
+    `PredefinedHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-predefinedhierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -2969,7 +2969,7 @@ class PredefinedHierarchy(AWSProperty):
 
 class ColumnHierarchy(AWSProperty):
     """
-    `ColumnHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnhierarchy.html>`__
+    `ColumnHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columnhierarchy.html>`__
     """
 
     props: PropsDictType = {
@@ -2981,7 +2981,7 @@ class ColumnHierarchy(AWSProperty):
 
 class FilterOperationSelectedFieldsConfiguration(AWSProperty):
     """
-    `FilterOperationSelectedFieldsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filteroperationselectedfieldsconfiguration.html>`__
+    `FilterOperationSelectedFieldsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filteroperationselectedfieldsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -2993,7 +2993,7 @@ class FilterOperationSelectedFieldsConfiguration(AWSProperty):
 
 class SameSheetTargetVisualConfiguration(AWSProperty):
     """
-    `SameSheetTargetVisualConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-samesheettargetvisualconfiguration.html>`__
+    `SameSheetTargetVisualConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-samesheettargetvisualconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3004,7 +3004,7 @@ class SameSheetTargetVisualConfiguration(AWSProperty):
 
 class FilterOperationTargetVisualsConfiguration(AWSProperty):
     """
-    `FilterOperationTargetVisualsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filteroperationtargetvisualsconfiguration.html>`__
+    `FilterOperationTargetVisualsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filteroperationtargetvisualsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3017,7 +3017,7 @@ class FilterOperationTargetVisualsConfiguration(AWSProperty):
 
 class CustomActionFilterOperation(AWSProperty):
     """
-    `CustomActionFilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionfilteroperation.html>`__
+    `CustomActionFilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customactionfilteroperation.html>`__
     """
 
     props: PropsDictType = {
@@ -3031,7 +3031,7 @@ class CustomActionFilterOperation(AWSProperty):
 
 class VisualCustomActionOperation(AWSProperty):
     """
-    `VisualCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualcustomactionoperation.html>`__
+    `VisualCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualcustomactionoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -3044,7 +3044,7 @@ class VisualCustomActionOperation(AWSProperty):
 
 class VisualCustomAction(AWSProperty):
     """
-    `VisualCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualcustomaction.html>`__
+    `VisualCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualcustomaction.html>`__
     """
 
     props: PropsDictType = {
@@ -3058,7 +3058,7 @@ class VisualCustomAction(AWSProperty):
 
 class LongFormatText(AWSProperty):
     """
-    `LongFormatText <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-longformattext.html>`__
+    `LongFormatText <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-longformattext.html>`__
     """
 
     props: PropsDictType = {
@@ -3069,7 +3069,7 @@ class LongFormatText(AWSProperty):
 
 class VisualSubtitleLabelOptions(AWSProperty):
     """
-    `VisualSubtitleLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualsubtitlelabeloptions.html>`__
+    `VisualSubtitleLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualsubtitlelabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3080,7 +3080,7 @@ class VisualSubtitleLabelOptions(AWSProperty):
 
 class ShortFormatText(AWSProperty):
     """
-    `ShortFormatText <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-shortformattext.html>`__
+    `ShortFormatText <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-shortformattext.html>`__
     """
 
     props: PropsDictType = {
@@ -3091,7 +3091,7 @@ class ShortFormatText(AWSProperty):
 
 class VisualTitleLabelOptions(AWSProperty):
     """
-    `VisualTitleLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualtitlelabeloptions.html>`__
+    `VisualTitleLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-visualtitlelabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3102,7 +3102,7 @@ class VisualTitleLabelOptions(AWSProperty):
 
 class BarChartVisual(AWSProperty):
     """
-    `BarChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartvisual.html>`__
+    `BarChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-barchartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3118,7 +3118,7 @@ class BarChartVisual(AWSProperty):
 
 class BoxPlotAggregatedFieldWells(AWSProperty):
     """
-    `BoxPlotAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotaggregatedfieldwells.html>`__
+    `BoxPlotAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3129,7 +3129,7 @@ class BoxPlotAggregatedFieldWells(AWSProperty):
 
 class BoxPlotFieldWells(AWSProperty):
     """
-    `BoxPlotFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotfieldwells.html>`__
+    `BoxPlotFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3139,7 +3139,7 @@ class BoxPlotFieldWells(AWSProperty):
 
 class BoxPlotStyleOptions(AWSProperty):
     """
-    `BoxPlotStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotstyleoptions.html>`__
+    `BoxPlotStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotstyleoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3149,7 +3149,7 @@ class BoxPlotStyleOptions(AWSProperty):
 
 class BoxPlotOptions(AWSProperty):
     """
-    `BoxPlotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html>`__
+    `BoxPlotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3161,7 +3161,7 @@ class BoxPlotOptions(AWSProperty):
 
 class PaginationConfiguration(AWSProperty):
     """
-    `PaginationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-paginationconfiguration.html>`__
+    `PaginationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-paginationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3172,7 +3172,7 @@ class PaginationConfiguration(AWSProperty):
 
 class BoxPlotSortConfiguration(AWSProperty):
     """
-    `BoxPlotSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotsortconfiguration.html>`__
+    `BoxPlotSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3183,7 +3183,7 @@ class BoxPlotSortConfiguration(AWSProperty):
 
 class BoxPlotChartConfiguration(AWSProperty):
     """
-    `BoxPlotChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotchartconfiguration.html>`__
+    `BoxPlotChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3204,7 +3204,7 @@ class BoxPlotChartConfiguration(AWSProperty):
 
 class BoxPlotVisual(AWSProperty):
     """
-    `BoxPlotVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotvisual.html>`__
+    `BoxPlotVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-boxplotvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3220,7 +3220,7 @@ class BoxPlotVisual(AWSProperty):
 
 class ComboChartAggregatedFieldWells(AWSProperty):
     """
-    `ComboChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartaggregatedfieldwells.html>`__
+    `ComboChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-combochartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3233,7 +3233,7 @@ class ComboChartAggregatedFieldWells(AWSProperty):
 
 class ComboChartFieldWells(AWSProperty):
     """
-    `ComboChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartfieldwells.html>`__
+    `ComboChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-combochartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3243,7 +3243,7 @@ class ComboChartFieldWells(AWSProperty):
 
 class ComboChartSortConfiguration(AWSProperty):
     """
-    `ComboChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartsortconfiguration.html>`__
+    `ComboChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-combochartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3256,7 +3256,7 @@ class ComboChartSortConfiguration(AWSProperty):
 
 class YAxisOptions(AWSProperty):
     """
-    `YAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-yaxisoptions.html>`__
+    `YAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-yaxisoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3266,7 +3266,7 @@ class YAxisOptions(AWSProperty):
 
 class SingleAxisOptions(AWSProperty):
     """
-    `SingleAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-singleaxisoptions.html>`__
+    `SingleAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-singleaxisoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3276,7 +3276,7 @@ class SingleAxisOptions(AWSProperty):
 
 class ComboChartConfiguration(AWSProperty):
     """
-    `ComboChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartconfiguration.html>`__
+    `ComboChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-combochartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3303,7 +3303,7 @@ class ComboChartConfiguration(AWSProperty):
 
 class ComboChartVisual(AWSProperty):
     """
-    `ComboChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartvisual.html>`__
+    `ComboChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-combochartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3319,7 +3319,7 @@ class ComboChartVisual(AWSProperty):
 
 class CustomContentConfiguration(AWSProperty):
     """
-    `CustomContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentconfiguration.html>`__
+    `CustomContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customcontentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3332,7 +3332,7 @@ class CustomContentConfiguration(AWSProperty):
 
 class CustomContentVisual(AWSProperty):
     """
-    `CustomContentVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentvisual.html>`__
+    `CustomContentVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customcontentvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3348,7 +3348,7 @@ class CustomContentVisual(AWSProperty):
 
 class EmptyVisual(AWSProperty):
     """
-    `EmptyVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-emptyvisual.html>`__
+    `EmptyVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-emptyvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3360,7 +3360,7 @@ class EmptyVisual(AWSProperty):
 
 class GradientStop(AWSProperty):
     """
-    `GradientStop <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gradientstop.html>`__
+    `GradientStop <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gradientstop.html>`__
     """
 
     props: PropsDictType = {
@@ -3372,7 +3372,7 @@ class GradientStop(AWSProperty):
 
 class GradientColor(AWSProperty):
     """
-    `GradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gradientcolor.html>`__
+    `GradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gradientcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3382,7 +3382,7 @@ class GradientColor(AWSProperty):
 
 class ConditionalFormattingGradientColor(AWSProperty):
     """
-    `ConditionalFormattingGradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattinggradientcolor.html>`__
+    `ConditionalFormattingGradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattinggradientcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3393,7 +3393,7 @@ class ConditionalFormattingGradientColor(AWSProperty):
 
 class ConditionalFormattingSolidColor(AWSProperty):
     """
-    `ConditionalFormattingSolidColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingsolidcolor.html>`__
+    `ConditionalFormattingSolidColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingsolidcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3404,7 +3404,7 @@ class ConditionalFormattingSolidColor(AWSProperty):
 
 class ConditionalFormattingColor(AWSProperty):
     """
-    `ConditionalFormattingColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingcolor.html>`__
+    `ConditionalFormattingColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3415,7 +3415,7 @@ class ConditionalFormattingColor(AWSProperty):
 
 class ShapeConditionalFormat(AWSProperty):
     """
-    `ShapeConditionalFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-shapeconditionalformat.html>`__
+    `ShapeConditionalFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-shapeconditionalformat.html>`__
     """
 
     props: PropsDictType = {
@@ -3425,7 +3425,7 @@ class ShapeConditionalFormat(AWSProperty):
 
 class FilledMapShapeConditionalFormatting(AWSProperty):
     """
-    `FilledMapShapeConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapshapeconditionalformatting.html>`__
+    `FilledMapShapeConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapshapeconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -3436,7 +3436,7 @@ class FilledMapShapeConditionalFormatting(AWSProperty):
 
 class FilledMapConditionalFormattingOption(AWSProperty):
     """
-    `FilledMapConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconditionalformattingoption.html>`__
+    `FilledMapConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapconditionalformattingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -3446,7 +3446,7 @@ class FilledMapConditionalFormattingOption(AWSProperty):
 
 class FilledMapConditionalFormatting(AWSProperty):
     """
-    `FilledMapConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconditionalformatting.html>`__
+    `FilledMapConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -3456,7 +3456,7 @@ class FilledMapConditionalFormatting(AWSProperty):
 
 class FilledMapAggregatedFieldWells(AWSProperty):
     """
-    `FilledMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapaggregatedfieldwells.html>`__
+    `FilledMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3467,7 +3467,7 @@ class FilledMapAggregatedFieldWells(AWSProperty):
 
 class FilledMapFieldWells(AWSProperty):
     """
-    `FilledMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapfieldwells.html>`__
+    `FilledMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3477,7 +3477,7 @@ class FilledMapFieldWells(AWSProperty):
 
 class FilledMapSortConfiguration(AWSProperty):
     """
-    `FilledMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapsortconfiguration.html>`__
+    `FilledMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3487,7 +3487,7 @@ class FilledMapSortConfiguration(AWSProperty):
 
 class GeospatialMapStyleOptions(AWSProperty):
     """
-    `GeospatialMapStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapstyleoptions.html>`__
+    `GeospatialMapStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialmapstyleoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3497,7 +3497,7 @@ class GeospatialMapStyleOptions(AWSProperty):
 
 class GeospatialCoordinateBounds(AWSProperty):
     """
-    `GeospatialCoordinateBounds <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcoordinatebounds.html>`__
+    `GeospatialCoordinateBounds <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialcoordinatebounds.html>`__
     """
 
     props: PropsDictType = {
@@ -3510,7 +3510,7 @@ class GeospatialCoordinateBounds(AWSProperty):
 
 class GeospatialWindowOptions(AWSProperty):
     """
-    `GeospatialWindowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialwindowoptions.html>`__
+    `GeospatialWindowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialwindowoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3521,7 +3521,7 @@ class GeospatialWindowOptions(AWSProperty):
 
 class FilledMapConfiguration(AWSProperty):
     """
-    `FilledMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapconfiguration.html>`__
+    `FilledMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3537,7 +3537,7 @@ class FilledMapConfiguration(AWSProperty):
 
 class FilledMapVisual(AWSProperty):
     """
-    `FilledMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filledmapvisual.html>`__
+    `FilledMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-filledmapvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3554,7 +3554,7 @@ class FilledMapVisual(AWSProperty):
 
 class FunnelChartDataLabelOptions(AWSProperty):
     """
-    `FunnelChartDataLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartdatalabeloptions.html>`__
+    `FunnelChartDataLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartdatalabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3570,7 +3570,7 @@ class FunnelChartDataLabelOptions(AWSProperty):
 
 class FunnelChartAggregatedFieldWells(AWSProperty):
     """
-    `FunnelChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartaggregatedfieldwells.html>`__
+    `FunnelChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3581,7 +3581,7 @@ class FunnelChartAggregatedFieldWells(AWSProperty):
 
 class FunnelChartFieldWells(AWSProperty):
     """
-    `FunnelChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartfieldwells.html>`__
+    `FunnelChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3591,7 +3591,7 @@ class FunnelChartFieldWells(AWSProperty):
 
 class FunnelChartSortConfiguration(AWSProperty):
     """
-    `FunnelChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartsortconfiguration.html>`__
+    `FunnelChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3602,7 +3602,7 @@ class FunnelChartSortConfiguration(AWSProperty):
 
 class FunnelChartConfiguration(AWSProperty):
     """
-    `FunnelChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartconfiguration.html>`__
+    `FunnelChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3619,7 +3619,7 @@ class FunnelChartConfiguration(AWSProperty):
 
 class FunnelChartVisual(AWSProperty):
     """
-    `FunnelChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartvisual.html>`__
+    `FunnelChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-funnelchartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3635,7 +3635,7 @@ class FunnelChartVisual(AWSProperty):
 
 class GaugeChartArcConditionalFormatting(AWSProperty):
     """
-    `GaugeChartArcConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartarcconditionalformatting.html>`__
+    `GaugeChartArcConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartarcconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -3645,7 +3645,7 @@ class GaugeChartArcConditionalFormatting(AWSProperty):
 
 class ConditionalFormattingCustomIconOptions(AWSProperty):
     """
-    `ConditionalFormattingCustomIconOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingcustomiconoptions.html>`__
+    `ConditionalFormattingCustomIconOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingcustomiconoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3656,7 +3656,7 @@ class ConditionalFormattingCustomIconOptions(AWSProperty):
 
 class ConditionalFormattingIconDisplayConfiguration(AWSProperty):
     """
-    `ConditionalFormattingIconDisplayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingicondisplayconfiguration.html>`__
+    `ConditionalFormattingIconDisplayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingicondisplayconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3666,7 +3666,7 @@ class ConditionalFormattingIconDisplayConfiguration(AWSProperty):
 
 class ConditionalFormattingCustomIconCondition(AWSProperty):
     """
-    `ConditionalFormattingCustomIconCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingcustomiconcondition.html>`__
+    `ConditionalFormattingCustomIconCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingcustomiconcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -3679,7 +3679,7 @@ class ConditionalFormattingCustomIconCondition(AWSProperty):
 
 class ConditionalFormattingIconSet(AWSProperty):
     """
-    `ConditionalFormattingIconSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingiconset.html>`__
+    `ConditionalFormattingIconSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingiconset.html>`__
     """
 
     props: PropsDictType = {
@@ -3690,7 +3690,7 @@ class ConditionalFormattingIconSet(AWSProperty):
 
 class ConditionalFormattingIcon(AWSProperty):
     """
-    `ConditionalFormattingIcon <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-conditionalformattingicon.html>`__
+    `ConditionalFormattingIcon <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-conditionalformattingicon.html>`__
     """
 
     props: PropsDictType = {
@@ -3701,7 +3701,7 @@ class ConditionalFormattingIcon(AWSProperty):
 
 class GaugeChartPrimaryValueConditionalFormatting(AWSProperty):
     """
-    `GaugeChartPrimaryValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartprimaryvalueconditionalformatting.html>`__
+    `GaugeChartPrimaryValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartprimaryvalueconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -3712,7 +3712,7 @@ class GaugeChartPrimaryValueConditionalFormatting(AWSProperty):
 
 class GaugeChartConditionalFormattingOption(AWSProperty):
     """
-    `GaugeChartConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconditionalformattingoption.html>`__
+    `GaugeChartConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartconditionalformattingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -3723,7 +3723,7 @@ class GaugeChartConditionalFormattingOption(AWSProperty):
 
 class GaugeChartConditionalFormatting(AWSProperty):
     """
-    `GaugeChartConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconditionalformatting.html>`__
+    `GaugeChartConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -3736,7 +3736,7 @@ class GaugeChartConditionalFormatting(AWSProperty):
 
 class GaugeChartColorConfiguration(AWSProperty):
     """
-    `GaugeChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartcolorconfiguration.html>`__
+    `GaugeChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartcolorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3747,7 +3747,7 @@ class GaugeChartColorConfiguration(AWSProperty):
 
 class GaugeChartFieldWells(AWSProperty):
     """
-    `GaugeChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartfieldwells.html>`__
+    `GaugeChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3758,7 +3758,7 @@ class GaugeChartFieldWells(AWSProperty):
 
 class ArcAxisDisplayRange(AWSProperty):
     """
-    `ArcAxisDisplayRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-arcaxisdisplayrange.html>`__
+    `ArcAxisDisplayRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-arcaxisdisplayrange.html>`__
     """
 
     props: PropsDictType = {
@@ -3769,7 +3769,7 @@ class ArcAxisDisplayRange(AWSProperty):
 
 class ArcAxisConfiguration(AWSProperty):
     """
-    `ArcAxisConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-arcaxisconfiguration.html>`__
+    `ArcAxisConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-arcaxisconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3780,7 +3780,7 @@ class ArcAxisConfiguration(AWSProperty):
 
 class ArcConfiguration(AWSProperty):
     """
-    `ArcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-arcconfiguration.html>`__
+    `ArcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-arcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3791,7 +3791,7 @@ class ArcConfiguration(AWSProperty):
 
 class ComparisonFormatConfiguration(AWSProperty):
     """
-    `ComparisonFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonformatconfiguration.html>`__
+    `ComparisonFormatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-comparisonformatconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3805,7 +3805,7 @@ class ComparisonFormatConfiguration(AWSProperty):
 
 class ComparisonConfiguration(AWSProperty):
     """
-    `ComparisonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-comparisonconfiguration.html>`__
+    `ComparisonConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-comparisonconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3816,7 +3816,7 @@ class ComparisonConfiguration(AWSProperty):
 
 class GaugeChartOptions(AWSProperty):
     """
-    `GaugeChartOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartoptions.html>`__
+    `GaugeChartOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3830,7 +3830,7 @@ class GaugeChartOptions(AWSProperty):
 
 class GaugeChartConfiguration(AWSProperty):
     """
-    `GaugeChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartconfiguration.html>`__
+    `GaugeChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3846,7 +3846,7 @@ class GaugeChartConfiguration(AWSProperty):
 
 class GaugeChartVisual(AWSProperty):
     """
-    `GaugeChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartvisual.html>`__
+    `GaugeChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-gaugechartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3862,7 +3862,7 @@ class GaugeChartVisual(AWSProperty):
 
 class GeospatialMapAggregatedFieldWells(AWSProperty):
     """
-    `GeospatialMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapaggregatedfieldwells.html>`__
+    `GeospatialMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialmapaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3874,7 +3874,7 @@ class GeospatialMapAggregatedFieldWells(AWSProperty):
 
 class GeospatialMapFieldWells(AWSProperty):
     """
-    `GeospatialMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapfieldwells.html>`__
+    `GeospatialMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialmapfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -3884,7 +3884,7 @@ class GeospatialMapFieldWells(AWSProperty):
 
 class SimpleClusterMarker(AWSProperty):
     """
-    `SimpleClusterMarker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-simpleclustermarker.html>`__
+    `SimpleClusterMarker <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-simpleclustermarker.html>`__
     """
 
     props: PropsDictType = {
@@ -3894,7 +3894,7 @@ class SimpleClusterMarker(AWSProperty):
 
 class ClusterMarker(AWSProperty):
     """
-    `ClusterMarker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-clustermarker.html>`__
+    `ClusterMarker <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-clustermarker.html>`__
     """
 
     props: PropsDictType = {
@@ -3904,7 +3904,7 @@ class ClusterMarker(AWSProperty):
 
 class ClusterMarkerConfiguration(AWSProperty):
     """
-    `ClusterMarkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-clustermarkerconfiguration.html>`__
+    `ClusterMarkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-clustermarkerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3914,7 +3914,7 @@ class ClusterMarkerConfiguration(AWSProperty):
 
 class GeospatialHeatmapDataColor(AWSProperty):
     """
-    `GeospatialHeatmapDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapdatacolor.html>`__
+    `GeospatialHeatmapDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialheatmapdatacolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3924,7 +3924,7 @@ class GeospatialHeatmapDataColor(AWSProperty):
 
 class GeospatialHeatmapColorScale(AWSProperty):
     """
-    `GeospatialHeatmapColorScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapcolorscale.html>`__
+    `GeospatialHeatmapColorScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialheatmapcolorscale.html>`__
     """
 
     props: PropsDictType = {
@@ -3934,7 +3934,7 @@ class GeospatialHeatmapColorScale(AWSProperty):
 
 class GeospatialHeatmapConfiguration(AWSProperty):
     """
-    `GeospatialHeatmapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapconfiguration.html>`__
+    `GeospatialHeatmapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialheatmapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3944,7 +3944,7 @@ class GeospatialHeatmapConfiguration(AWSProperty):
 
 class GeospatialPointStyleOptions(AWSProperty):
     """
-    `GeospatialPointStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialpointstyleoptions.html>`__
+    `GeospatialPointStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialpointstyleoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3956,7 +3956,7 @@ class GeospatialPointStyleOptions(AWSProperty):
 
 class GeospatialMapConfiguration(AWSProperty):
     """
-    `GeospatialMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapconfiguration.html>`__
+    `GeospatialMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialmapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3972,7 +3972,7 @@ class GeospatialMapConfiguration(AWSProperty):
 
 class GeospatialMapVisual(AWSProperty):
     """
-    `GeospatialMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialmapvisual.html>`__
+    `GeospatialMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-geospatialmapvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -3988,7 +3988,7 @@ class GeospatialMapVisual(AWSProperty):
 
 class DataColor(AWSProperty):
     """
-    `DataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datacolor.html>`__
+    `DataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datacolor.html>`__
     """
 
     props: PropsDictType = {
@@ -3999,7 +3999,7 @@ class DataColor(AWSProperty):
 
 class ColorScale(AWSProperty):
     """
-    `ColorScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorscale.html>`__
+    `ColorScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-colorscale.html>`__
     """
 
     props: PropsDictType = {
@@ -4011,7 +4011,7 @@ class ColorScale(AWSProperty):
 
 class HeatMapAggregatedFieldWells(AWSProperty):
     """
-    `HeatMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapaggregatedfieldwells.html>`__
+    `HeatMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-heatmapaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -4023,7 +4023,7 @@ class HeatMapAggregatedFieldWells(AWSProperty):
 
 class HeatMapFieldWells(AWSProperty):
     """
-    `HeatMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapfieldwells.html>`__
+    `HeatMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-heatmapfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -4033,7 +4033,7 @@ class HeatMapFieldWells(AWSProperty):
 
 class HeatMapSortConfiguration(AWSProperty):
     """
-    `HeatMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapsortconfiguration.html>`__
+    `HeatMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-heatmapsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4046,7 +4046,7 @@ class HeatMapSortConfiguration(AWSProperty):
 
 class HeatMapConfiguration(AWSProperty):
     """
-    `HeatMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapconfiguration.html>`__
+    `HeatMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-heatmapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4064,7 +4064,7 @@ class HeatMapConfiguration(AWSProperty):
 
 class HeatMapVisual(AWSProperty):
     """
-    `HeatMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapvisual.html>`__
+    `HeatMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-heatmapvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -4080,7 +4080,7 @@ class HeatMapVisual(AWSProperty):
 
 class BinCountOptions(AWSProperty):
     """
-    `BinCountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bincountoptions.html>`__
+    `BinCountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-bincountoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4090,7 +4090,7 @@ class BinCountOptions(AWSProperty):
 
 class BinWidthOptions(AWSProperty):
     """
-    `BinWidthOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-binwidthoptions.html>`__
+    `BinWidthOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-binwidthoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4101,7 +4101,7 @@ class BinWidthOptions(AWSProperty):
 
 class HistogramBinOptions(AWSProperty):
     """
-    `HistogramBinOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogrambinoptions.html>`__
+    `HistogramBinOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-histogrambinoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4114,7 +4114,7 @@ class HistogramBinOptions(AWSProperty):
 
 class HistogramAggregatedFieldWells(AWSProperty):
     """
-    `HistogramAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramaggregatedfieldwells.html>`__
+    `HistogramAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-histogramaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -4124,7 +4124,7 @@ class HistogramAggregatedFieldWells(AWSProperty):
 
 class HistogramFieldWells(AWSProperty):
     """
-    `HistogramFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramfieldwells.html>`__
+    `HistogramFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-histogramfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -4134,7 +4134,7 @@ class HistogramFieldWells(AWSProperty):
 
 class HistogramConfiguration(AWSProperty):
     """
-    `HistogramConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramconfiguration.html>`__
+    `HistogramConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-histogramconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4152,7 +4152,7 @@ class HistogramConfiguration(AWSProperty):
 
 class HistogramVisual(AWSProperty):
     """
-    `HistogramVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-histogramvisual.html>`__
+    `HistogramVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-histogramvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -4167,7 +4167,7 @@ class HistogramVisual(AWSProperty):
 
 class ForecastComputation(AWSProperty):
     """
-    `ForecastComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastcomputation.html>`__
+    `ForecastComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-forecastcomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4187,7 +4187,7 @@ class ForecastComputation(AWSProperty):
 
 class GrowthRateComputation(AWSProperty):
     """
-    `GrowthRateComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-growthratecomputation.html>`__
+    `GrowthRateComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-growthratecomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4201,7 +4201,7 @@ class GrowthRateComputation(AWSProperty):
 
 class MaximumMinimumComputation(AWSProperty):
     """
-    `MaximumMinimumComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-maximumminimumcomputation.html>`__
+    `MaximumMinimumComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-maximumminimumcomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4215,7 +4215,7 @@ class MaximumMinimumComputation(AWSProperty):
 
 class MetricComparisonComputation(AWSProperty):
     """
-    `MetricComparisonComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-metriccomparisoncomputation.html>`__
+    `MetricComparisonComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-metriccomparisoncomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4229,7 +4229,7 @@ class MetricComparisonComputation(AWSProperty):
 
 class PeriodOverPeriodComputation(AWSProperty):
     """
-    `PeriodOverPeriodComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodoverperiodcomputation.html>`__
+    `PeriodOverPeriodComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-periodoverperiodcomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4242,7 +4242,7 @@ class PeriodOverPeriodComputation(AWSProperty):
 
 class PeriodToDateComputation(AWSProperty):
     """
-    `PeriodToDateComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-periodtodatecomputation.html>`__
+    `PeriodToDateComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-periodtodatecomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4256,7 +4256,7 @@ class PeriodToDateComputation(AWSProperty):
 
 class TopBottomMoversComputation(AWSProperty):
     """
-    `TopBottomMoversComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottommoverscomputation.html>`__
+    `TopBottomMoversComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-topbottommoverscomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4273,7 +4273,7 @@ class TopBottomMoversComputation(AWSProperty):
 
 class TopBottomRankedComputation(AWSProperty):
     """
-    `TopBottomRankedComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-topbottomrankedcomputation.html>`__
+    `TopBottomRankedComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-topbottomrankedcomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4288,7 +4288,7 @@ class TopBottomRankedComputation(AWSProperty):
 
 class TotalAggregationComputation(AWSProperty):
     """
-    `TotalAggregationComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationcomputation.html>`__
+    `TotalAggregationComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-totalaggregationcomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4300,7 +4300,7 @@ class TotalAggregationComputation(AWSProperty):
 
 class UniqueValuesComputation(AWSProperty):
     """
-    `UniqueValuesComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-uniquevaluescomputation.html>`__
+    `UniqueValuesComputation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-uniquevaluescomputation.html>`__
     """
 
     props: PropsDictType = {
@@ -4312,7 +4312,7 @@ class UniqueValuesComputation(AWSProperty):
 
 class Computation(AWSProperty):
     """
-    `Computation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-computation.html>`__
+    `Computation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-computation.html>`__
     """
 
     props: PropsDictType = {
@@ -4331,7 +4331,7 @@ class Computation(AWSProperty):
 
 class CustomNarrativeOptions(AWSProperty):
     """
-    `CustomNarrativeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customnarrativeoptions.html>`__
+    `CustomNarrativeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-customnarrativeoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4341,7 +4341,7 @@ class CustomNarrativeOptions(AWSProperty):
 
 class InsightConfiguration(AWSProperty):
     """
-    `InsightConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-insightconfiguration.html>`__
+    `InsightConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-insightconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4353,7 +4353,7 @@ class InsightConfiguration(AWSProperty):
 
 class InsightVisual(AWSProperty):
     """
-    `InsightVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-insightvisual.html>`__
+    `InsightVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-insightvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -4369,7 +4369,7 @@ class InsightVisual(AWSProperty):
 
 class KPIActualValueConditionalFormatting(AWSProperty):
     """
-    `KPIActualValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiactualvalueconditionalformatting.html>`__
+    `KPIActualValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiactualvalueconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -4380,7 +4380,7 @@ class KPIActualValueConditionalFormatting(AWSProperty):
 
 class KPIComparisonValueConditionalFormatting(AWSProperty):
     """
-    `KPIComparisonValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html>`__
+    `KPIComparisonValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -4391,7 +4391,7 @@ class KPIComparisonValueConditionalFormatting(AWSProperty):
 
 class KPIPrimaryValueConditionalFormatting(AWSProperty):
     """
-    `KPIPrimaryValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiprimaryvalueconditionalformatting.html>`__
+    `KPIPrimaryValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiprimaryvalueconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -4402,7 +4402,7 @@ class KPIPrimaryValueConditionalFormatting(AWSProperty):
 
 class KPIProgressBarConditionalFormatting(AWSProperty):
     """
-    `KPIProgressBarConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiprogressbarconditionalformatting.html>`__
+    `KPIProgressBarConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiprogressbarconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -4412,7 +4412,7 @@ class KPIProgressBarConditionalFormatting(AWSProperty):
 
 class KPIConditionalFormattingOption(AWSProperty):
     """
-    `KPIConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiconditionalformattingoption.html>`__
+    `KPIConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiconditionalformattingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -4425,7 +4425,7 @@ class KPIConditionalFormattingOption(AWSProperty):
 
 class KPIConditionalFormatting(AWSProperty):
     """
-    `KPIConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiconditionalformatting.html>`__
+    `KPIConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -4435,7 +4435,7 @@ class KPIConditionalFormatting(AWSProperty):
 
 class KPIFieldWells(AWSProperty):
     """
-    `KPIFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpifieldwells.html>`__
+    `KPIFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpifieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -4447,7 +4447,7 @@ class KPIFieldWells(AWSProperty):
 
 class KPISparklineOptions(AWSProperty):
     """
-    `KPISparklineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpisparklineoptions.html>`__
+    `KPISparklineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpisparklineoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4460,7 +4460,7 @@ class KPISparklineOptions(AWSProperty):
 
 class KPIVisualStandardLayout(AWSProperty):
     """
-    `KPIVisualStandardLayout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpivisualstandardlayout.html>`__
+    `KPIVisualStandardLayout <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpivisualstandardlayout.html>`__
     """
 
     props: PropsDictType = {
@@ -4470,7 +4470,7 @@ class KPIVisualStandardLayout(AWSProperty):
 
 class KPIVisualLayoutOptions(AWSProperty):
     """
-    `KPIVisualLayoutOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpivisuallayoutoptions.html>`__
+    `KPIVisualLayoutOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpivisuallayoutoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4480,7 +4480,7 @@ class KPIVisualLayoutOptions(AWSProperty):
 
 class ProgressBarOptions(AWSProperty):
     """
-    `ProgressBarOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-progressbaroptions.html>`__
+    `ProgressBarOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-progressbaroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4490,7 +4490,7 @@ class ProgressBarOptions(AWSProperty):
 
 class SecondaryValueOptions(AWSProperty):
     """
-    `SecondaryValueOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-secondaryvalueoptions.html>`__
+    `SecondaryValueOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-secondaryvalueoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4500,7 +4500,7 @@ class SecondaryValueOptions(AWSProperty):
 
 class TrendArrowOptions(AWSProperty):
     """
-    `TrendArrowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-trendarrowoptions.html>`__
+    `TrendArrowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-trendarrowoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4510,7 +4510,7 @@ class TrendArrowOptions(AWSProperty):
 
 class KPIOptions(AWSProperty):
     """
-    `KPIOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpioptions.html>`__
+    `KPIOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpioptions.html>`__
     """
 
     props: PropsDictType = {
@@ -4528,7 +4528,7 @@ class KPIOptions(AWSProperty):
 
 class KPISortConfiguration(AWSProperty):
     """
-    `KPISortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpisortconfiguration.html>`__
+    `KPISortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpisortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4538,7 +4538,7 @@ class KPISortConfiguration(AWSProperty):
 
 class KPIConfiguration(AWSProperty):
     """
-    `KPIConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiconfiguration.html>`__
+    `KPIConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpiconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4551,7 +4551,7 @@ class KPIConfiguration(AWSProperty):
 
 class KPIVisual(AWSProperty):
     """
-    `KPIVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpivisual.html>`__
+    `KPIVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-kpivisual.html>`__
     """
 
     props: PropsDictType = {
@@ -4568,7 +4568,7 @@ class KPIVisual(AWSProperty):
 
 class GeospatialStaticFileSource(AWSProperty):
     """
-    `GeospatialStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialstaticfilesource.html>`__
+    `GeospatialStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialstaticfilesource.html>`__
     """
 
     props: PropsDictType = {
@@ -4578,7 +4578,7 @@ class GeospatialStaticFileSource(AWSProperty):
 
 class GeospatialDataSourceItem(AWSProperty):
     """
-    `GeospatialDataSourceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialdatasourceitem.html>`__
+    `GeospatialDataSourceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialdatasourceitem.html>`__
     """
 
     props: PropsDictType = {
@@ -4588,7 +4588,7 @@ class GeospatialDataSourceItem(AWSProperty):
 
 class GeospatialCategoricalDataColor(AWSProperty):
     """
-    `GeospatialCategoricalDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricaldatacolor.html>`__
+    `GeospatialCategoricalDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialcategoricaldatacolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4599,7 +4599,7 @@ class GeospatialCategoricalDataColor(AWSProperty):
 
 class GeospatialNullSymbolStyle(AWSProperty):
     """
-    `GeospatialNullSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnullsymbolstyle.html>`__
+    `GeospatialNullSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialnullsymbolstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4611,7 +4611,7 @@ class GeospatialNullSymbolStyle(AWSProperty):
 
 class GeospatialNullDataSettings(AWSProperty):
     """
-    `GeospatialNullDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnulldatasettings.html>`__
+    `GeospatialNullDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialnulldatasettings.html>`__
     """
 
     props: PropsDictType = {
@@ -4621,7 +4621,7 @@ class GeospatialNullDataSettings(AWSProperty):
 
 class GeospatialCategoricalColor(AWSProperty):
     """
-    `GeospatialCategoricalColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html>`__
+    `GeospatialCategoricalColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4634,7 +4634,7 @@ class GeospatialCategoricalColor(AWSProperty):
 
 class GeospatialGradientStepColor(AWSProperty):
     """
-    `GeospatialGradientStepColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientstepcolor.html>`__
+    `GeospatialGradientStepColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialgradientstepcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4645,7 +4645,7 @@ class GeospatialGradientStepColor(AWSProperty):
 
 class GeospatialGradientColor(AWSProperty):
     """
-    `GeospatialGradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientcolor.html>`__
+    `GeospatialGradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialgradientcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4658,7 +4658,7 @@ class GeospatialGradientColor(AWSProperty):
 
 class GeospatialSolidColor(AWSProperty):
     """
-    `GeospatialSolidColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialsolidcolor.html>`__
+    `GeospatialSolidColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialsolidcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4669,7 +4669,7 @@ class GeospatialSolidColor(AWSProperty):
 
 class GeospatialColor(AWSProperty):
     """
-    `GeospatialColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcolor.html>`__
+    `GeospatialColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialcolor.html>`__
     """
 
     props: PropsDictType = {
@@ -4681,7 +4681,7 @@ class GeospatialColor(AWSProperty):
 
 class GeospatialLineWidth(AWSProperty):
     """
-    `GeospatialLineWidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinewidth.html>`__
+    `GeospatialLineWidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallinewidth.html>`__
     """
 
     props: PropsDictType = {
@@ -4691,7 +4691,7 @@ class GeospatialLineWidth(AWSProperty):
 
 class GeospatialLineSymbolStyle(AWSProperty):
     """
-    `GeospatialLineSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html>`__
+    `GeospatialLineSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4702,7 +4702,7 @@ class GeospatialLineSymbolStyle(AWSProperty):
 
 class GeospatialLineStyle(AWSProperty):
     """
-    `GeospatialLineStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinestyle.html>`__
+    `GeospatialLineStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallinestyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4712,7 +4712,7 @@ class GeospatialLineStyle(AWSProperty):
 
 class GeospatialLineLayer(AWSProperty):
     """
-    `GeospatialLineLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinelayer.html>`__
+    `GeospatialLineLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallinelayer.html>`__
     """
 
     props: PropsDictType = {
@@ -4722,7 +4722,7 @@ class GeospatialLineLayer(AWSProperty):
 
 class GeospatialCircleRadius(AWSProperty):
     """
-    `GeospatialCircleRadius <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcircleradius.html>`__
+    `GeospatialCircleRadius <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialcircleradius.html>`__
     """
 
     props: PropsDictType = {
@@ -4732,7 +4732,7 @@ class GeospatialCircleRadius(AWSProperty):
 
 class GeospatialCircleSymbolStyle(AWSProperty):
     """
-    `GeospatialCircleSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcirclesymbolstyle.html>`__
+    `GeospatialCircleSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialcirclesymbolstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4745,7 +4745,7 @@ class GeospatialCircleSymbolStyle(AWSProperty):
 
 class GeospatialPointStyle(AWSProperty):
     """
-    `GeospatialPointStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyle.html>`__
+    `GeospatialPointStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialpointstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4755,7 +4755,7 @@ class GeospatialPointStyle(AWSProperty):
 
 class GeospatialPointLayer(AWSProperty):
     """
-    `GeospatialPointLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointlayer.html>`__
+    `GeospatialPointLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialpointlayer.html>`__
     """
 
     props: PropsDictType = {
@@ -4765,7 +4765,7 @@ class GeospatialPointLayer(AWSProperty):
 
 class GeospatialPolygonSymbolStyle(AWSProperty):
     """
-    `GeospatialPolygonSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonsymbolstyle.html>`__
+    `GeospatialPolygonSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialpolygonsymbolstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4777,7 +4777,7 @@ class GeospatialPolygonSymbolStyle(AWSProperty):
 
 class GeospatialPolygonStyle(AWSProperty):
     """
-    `GeospatialPolygonStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonstyle.html>`__
+    `GeospatialPolygonStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialpolygonstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4787,7 +4787,7 @@ class GeospatialPolygonStyle(AWSProperty):
 
 class GeospatialPolygonLayer(AWSProperty):
     """
-    `GeospatialPolygonLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonlayer.html>`__
+    `GeospatialPolygonLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialpolygonlayer.html>`__
     """
 
     props: PropsDictType = {
@@ -4797,7 +4797,7 @@ class GeospatialPolygonLayer(AWSProperty):
 
 class GeospatialLayerDefinition(AWSProperty):
     """
-    `GeospatialLayerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html>`__
+    `GeospatialLayerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -4809,7 +4809,7 @@ class GeospatialLayerDefinition(AWSProperty):
 
 class GeospatialLayerColorField(AWSProperty):
     """
-    `GeospatialLayerColorField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayercolorfield.html>`__
+    `GeospatialLayerColorField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallayercolorfield.html>`__
     """
 
     props: PropsDictType = {
@@ -4820,7 +4820,7 @@ class GeospatialLayerColorField(AWSProperty):
 
 class UnaggregatedField(AWSProperty):
     """
-    `UnaggregatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-unaggregatedfield.html>`__
+    `UnaggregatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-unaggregatedfield.html>`__
     """
 
     props: PropsDictType = {
@@ -4832,7 +4832,7 @@ class UnaggregatedField(AWSProperty):
 
 class GeospatialLayerJoinDefinition(AWSProperty):
     """
-    `GeospatialLayerJoinDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerjoindefinition.html>`__
+    `GeospatialLayerJoinDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallayerjoindefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -4844,7 +4844,7 @@ class GeospatialLayerJoinDefinition(AWSProperty):
 
 class LayerCustomActionOperation(AWSProperty):
     """
-    `LayerCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomactionoperation.html>`__
+    `LayerCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-layercustomactionoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -4857,7 +4857,7 @@ class LayerCustomActionOperation(AWSProperty):
 
 class LayerCustomAction(AWSProperty):
     """
-    `LayerCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html>`__
+    `LayerCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-layercustomaction.html>`__
     """
 
     props: PropsDictType = {
@@ -4871,7 +4871,7 @@ class LayerCustomAction(AWSProperty):
 
 class GeospatialLayerItem(AWSProperty):
     """
-    `GeospatialLayerItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayeritem.html>`__
+    `GeospatialLayerItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallayeritem.html>`__
     """
 
     props: PropsDictType = {
@@ -4889,7 +4889,7 @@ class GeospatialLayerItem(AWSProperty):
 
 class GeospatialMapState(AWSProperty):
     """
-    `GeospatialMapState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstate.html>`__
+    `GeospatialMapState <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialmapstate.html>`__
     """
 
     props: PropsDictType = {
@@ -4900,7 +4900,7 @@ class GeospatialMapState(AWSProperty):
 
 class GeospatialMapStyle(AWSProperty):
     """
-    `GeospatialMapStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstyle.html>`__
+    `GeospatialMapStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatialmapstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -4912,7 +4912,7 @@ class GeospatialMapStyle(AWSProperty):
 
 class GeospatialLayerMapConfiguration(AWSProperty):
     """
-    `GeospatialLayerMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html>`__
+    `GeospatialLayerMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -4926,7 +4926,7 @@ class GeospatialLayerMapConfiguration(AWSProperty):
 
 class LayerMapVisual(AWSProperty):
     """
-    `LayerMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layermapvisual.html>`__
+    `LayerMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-layermapvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -4941,7 +4941,7 @@ class LayerMapVisual(AWSProperty):
 
 class WhatIfPointScenario(AWSProperty):
     """
-    `WhatIfPointScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-whatifpointscenario.html>`__
+    `WhatIfPointScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-whatifpointscenario.html>`__
     """
 
     props: PropsDictType = {
@@ -4952,7 +4952,7 @@ class WhatIfPointScenario(AWSProperty):
 
 class WhatIfRangeScenario(AWSProperty):
     """
-    `WhatIfRangeScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-whatifrangescenario.html>`__
+    `WhatIfRangeScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-whatifrangescenario.html>`__
     """
 
     props: PropsDictType = {
@@ -4964,7 +4964,7 @@ class WhatIfRangeScenario(AWSProperty):
 
 class ForecastScenario(AWSProperty):
     """
-    `ForecastScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastscenario.html>`__
+    `ForecastScenario <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-forecastscenario.html>`__
     """
 
     props: PropsDictType = {
@@ -4975,7 +4975,7 @@ class ForecastScenario(AWSProperty):
 
 class TimeBasedForecastProperties(AWSProperty):
     """
-    `TimeBasedForecastProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timebasedforecastproperties.html>`__
+    `TimeBasedForecastProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-timebasedforecastproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -4990,7 +4990,7 @@ class TimeBasedForecastProperties(AWSProperty):
 
 class ForecastConfiguration(AWSProperty):
     """
-    `ForecastConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-forecastconfiguration.html>`__
+    `ForecastConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-forecastconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5001,7 +5001,7 @@ class ForecastConfiguration(AWSProperty):
 
 class LineChartLineStyleSettings(AWSProperty):
     """
-    `LineChartLineStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartlinestylesettings.html>`__
+    `LineChartLineStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartlinestylesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5014,7 +5014,7 @@ class LineChartLineStyleSettings(AWSProperty):
 
 class LineChartMarkerStyleSettings(AWSProperty):
     """
-    `LineChartMarkerStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartmarkerstylesettings.html>`__
+    `LineChartMarkerStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartmarkerstylesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5027,7 +5027,7 @@ class LineChartMarkerStyleSettings(AWSProperty):
 
 class LineChartDefaultSeriesSettings(AWSProperty):
     """
-    `LineChartDefaultSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartdefaultseriessettings.html>`__
+    `LineChartDefaultSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartdefaultseriessettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5039,7 +5039,7 @@ class LineChartDefaultSeriesSettings(AWSProperty):
 
 class LineChartAggregatedFieldWells(AWSProperty):
     """
-    `LineChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartaggregatedfieldwells.html>`__
+    `LineChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5052,7 +5052,7 @@ class LineChartAggregatedFieldWells(AWSProperty):
 
 class LineChartFieldWells(AWSProperty):
     """
-    `LineChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartfieldwells.html>`__
+    `LineChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5062,7 +5062,7 @@ class LineChartFieldWells(AWSProperty):
 
 class LineChartSortConfiguration(AWSProperty):
     """
-    `LineChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartsortconfiguration.html>`__
+    `LineChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5076,7 +5076,7 @@ class LineChartSortConfiguration(AWSProperty):
 
 class MissingDataConfiguration(AWSProperty):
     """
-    `MissingDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-missingdataconfiguration.html>`__
+    `MissingDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-missingdataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5086,7 +5086,7 @@ class MissingDataConfiguration(AWSProperty):
 
 class LineSeriesAxisDisplayOptions(AWSProperty):
     """
-    `LineSeriesAxisDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-lineseriesaxisdisplayoptions.html>`__
+    `LineSeriesAxisDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-lineseriesaxisdisplayoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5097,7 +5097,7 @@ class LineSeriesAxisDisplayOptions(AWSProperty):
 
 class LineChartSeriesSettings(AWSProperty):
     """
-    `LineChartSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartseriessettings.html>`__
+    `LineChartSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartseriessettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5108,7 +5108,7 @@ class LineChartSeriesSettings(AWSProperty):
 
 class DataFieldSeriesItem(AWSProperty):
     """
-    `DataFieldSeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datafieldseriesitem.html>`__
+    `DataFieldSeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datafieldseriesitem.html>`__
     """
 
     props: PropsDictType = {
@@ -5121,7 +5121,7 @@ class DataFieldSeriesItem(AWSProperty):
 
 class FieldSeriesItem(AWSProperty):
     """
-    `FieldSeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldseriesitem.html>`__
+    `FieldSeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-fieldseriesitem.html>`__
     """
 
     props: PropsDictType = {
@@ -5133,7 +5133,7 @@ class FieldSeriesItem(AWSProperty):
 
 class SeriesItem(AWSProperty):
     """
-    `SeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-seriesitem.html>`__
+    `SeriesItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-seriesitem.html>`__
     """
 
     props: PropsDictType = {
@@ -5144,7 +5144,7 @@ class SeriesItem(AWSProperty):
 
 class LineChartConfiguration(AWSProperty):
     """
-    `LineChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartconfiguration.html>`__
+    `LineChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5174,7 +5174,7 @@ class LineChartConfiguration(AWSProperty):
 
 class LineChartVisual(AWSProperty):
     """
-    `LineChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartvisual.html>`__
+    `LineChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-linechartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5190,7 +5190,7 @@ class LineChartVisual(AWSProperty):
 
 class ArcOptions(AWSProperty):
     """
-    `ArcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-arcoptions.html>`__
+    `ArcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-arcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5200,7 +5200,7 @@ class ArcOptions(AWSProperty):
 
 class DonutCenterOptions(AWSProperty):
     """
-    `DonutCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-donutcenteroptions.html>`__
+    `DonutCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-donutcenteroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5210,7 +5210,7 @@ class DonutCenterOptions(AWSProperty):
 
 class DonutOptions(AWSProperty):
     """
-    `DonutOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-donutoptions.html>`__
+    `DonutOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-donutoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5221,7 +5221,7 @@ class DonutOptions(AWSProperty):
 
 class PieChartAggregatedFieldWells(AWSProperty):
     """
-    `PieChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartaggregatedfieldwells.html>`__
+    `PieChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-piechartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5233,7 +5233,7 @@ class PieChartAggregatedFieldWells(AWSProperty):
 
 class PieChartFieldWells(AWSProperty):
     """
-    `PieChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartfieldwells.html>`__
+    `PieChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-piechartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5243,7 +5243,7 @@ class PieChartFieldWells(AWSProperty):
 
 class PieChartSortConfiguration(AWSProperty):
     """
-    `PieChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartsortconfiguration.html>`__
+    `PieChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-piechartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5256,7 +5256,7 @@ class PieChartSortConfiguration(AWSProperty):
 
 class PieChartConfiguration(AWSProperty):
     """
-    `PieChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartconfiguration.html>`__
+    `PieChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-piechartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5277,7 +5277,7 @@ class PieChartConfiguration(AWSProperty):
 
 class PieChartVisual(AWSProperty):
     """
-    `PieChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-piechartvisual.html>`__
+    `PieChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-piechartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5293,7 +5293,7 @@ class PieChartVisual(AWSProperty):
 
 class PivotTableConditionalFormattingScope(AWSProperty):
     """
-    `PivotTableConditionalFormattingScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableconditionalformattingscope.html>`__
+    `PivotTableConditionalFormattingScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableconditionalformattingscope.html>`__
     """
 
     props: PropsDictType = {
@@ -5303,7 +5303,7 @@ class PivotTableConditionalFormattingScope(AWSProperty):
 
 class TextConditionalFormat(AWSProperty):
     """
-    `TextConditionalFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textconditionalformat.html>`__
+    `TextConditionalFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-textconditionalformat.html>`__
     """
 
     props: PropsDictType = {
@@ -5315,7 +5315,7 @@ class TextConditionalFormat(AWSProperty):
 
 class PivotTableCellConditionalFormatting(AWSProperty):
     """
-    `PivotTableCellConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablecellconditionalformatting.html>`__
+    `PivotTableCellConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablecellconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -5328,7 +5328,7 @@ class PivotTableCellConditionalFormatting(AWSProperty):
 
 class PivotTableConditionalFormattingOption(AWSProperty):
     """
-    `PivotTableConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableconditionalformattingoption.html>`__
+    `PivotTableConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableconditionalformattingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -5338,7 +5338,7 @@ class PivotTableConditionalFormattingOption(AWSProperty):
 
 class PivotTableConditionalFormatting(AWSProperty):
     """
-    `PivotTableConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableconditionalformatting.html>`__
+    `PivotTableConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -5351,7 +5351,7 @@ class PivotTableConditionalFormatting(AWSProperty):
 
 class PivotTableDataPathOption(AWSProperty):
     """
-    `PivotTableDataPathOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottabledatapathoption.html>`__
+    `PivotTableDataPathOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottabledatapathoption.html>`__
     """
 
     props: PropsDictType = {
@@ -5362,7 +5362,7 @@ class PivotTableDataPathOption(AWSProperty):
 
 class PivotTableFieldCollapseStateTarget(AWSProperty):
     """
-    `PivotTableFieldCollapseStateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestatetarget.html>`__
+    `PivotTableFieldCollapseStateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldcollapsestatetarget.html>`__
     """
 
     props: PropsDictType = {
@@ -5373,7 +5373,7 @@ class PivotTableFieldCollapseStateTarget(AWSProperty):
 
 class PivotTableFieldCollapseStateOption(AWSProperty):
     """
-    `PivotTableFieldCollapseStateOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html>`__
+    `PivotTableFieldCollapseStateOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html>`__
     """
 
     props: PropsDictType = {
@@ -5384,7 +5384,7 @@ class PivotTableFieldCollapseStateOption(AWSProperty):
 
 class PivotTableFieldOption(AWSProperty):
     """
-    `PivotTableFieldOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html>`__
+    `PivotTableFieldOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldoption.html>`__
     """
 
     props: PropsDictType = {
@@ -5396,7 +5396,7 @@ class PivotTableFieldOption(AWSProperty):
 
 class PivotTableFieldOptions(AWSProperty):
     """
-    `PivotTableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoptions.html>`__
+    `PivotTableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5408,7 +5408,7 @@ class PivotTableFieldOptions(AWSProperty):
 
 class PivotTableAggregatedFieldWells(AWSProperty):
     """
-    `PivotTableAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableaggregatedfieldwells.html>`__
+    `PivotTableAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5420,7 +5420,7 @@ class PivotTableAggregatedFieldWells(AWSProperty):
 
 class PivotTableFieldWells(AWSProperty):
     """
-    `PivotTableFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldwells.html>`__
+    `PivotTableFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5430,7 +5430,7 @@ class PivotTableFieldWells(AWSProperty):
 
 class PivotTableRowsLabelOptions(AWSProperty):
     """
-    `PivotTableRowsLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablerowslabeloptions.html>`__
+    `PivotTableRowsLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablerowslabeloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5441,7 +5441,7 @@ class PivotTableRowsLabelOptions(AWSProperty):
 
 class RowAlternateColorOptions(AWSProperty):
     """
-    `RowAlternateColorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rowalternatecoloroptions.html>`__
+    `RowAlternateColorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-rowalternatecoloroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5453,7 +5453,7 @@ class RowAlternateColorOptions(AWSProperty):
 
 class TableBorderOptions(AWSProperty):
     """
-    `TableBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableborderoptions.html>`__
+    `TableBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableborderoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5465,7 +5465,7 @@ class TableBorderOptions(AWSProperty):
 
 class TableSideBorderOptions(AWSProperty):
     """
-    `TableSideBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablesideborderoptions.html>`__
+    `TableSideBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablesideborderoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5480,7 +5480,7 @@ class TableSideBorderOptions(AWSProperty):
 
 class GlobalTableBorderOptions(AWSProperty):
     """
-    `GlobalTableBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-globaltableborderoptions.html>`__
+    `GlobalTableBorderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-globaltableborderoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5491,7 +5491,7 @@ class GlobalTableBorderOptions(AWSProperty):
 
 class TableCellStyle(AWSProperty):
     """
-    `TableCellStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablecellstyle.html>`__
+    `TableCellStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablecellstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -5508,7 +5508,7 @@ class TableCellStyle(AWSProperty):
 
 class PivotTableOptions(AWSProperty):
     """
-    `PivotTableOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableoptions.html>`__
+    `PivotTableOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5530,7 +5530,7 @@ class PivotTableOptions(AWSProperty):
 
 class PivotTablePaginatedReportOptions(AWSProperty):
     """
-    `PivotTablePaginatedReportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablepaginatedreportoptions.html>`__
+    `PivotTablePaginatedReportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablepaginatedreportoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5541,7 +5541,7 @@ class PivotTablePaginatedReportOptions(AWSProperty):
 
 class DataPathSort(AWSProperty):
     """
-    `DataPathSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathsort.html>`__
+    `DataPathSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datapathsort.html>`__
     """
 
     props: PropsDictType = {
@@ -5552,7 +5552,7 @@ class DataPathSort(AWSProperty):
 
 class PivotTableSortBy(AWSProperty):
     """
-    `PivotTableSortBy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablesortby.html>`__
+    `PivotTableSortBy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablesortby.html>`__
     """
 
     props: PropsDictType = {
@@ -5564,7 +5564,7 @@ class PivotTableSortBy(AWSProperty):
 
 class PivotFieldSortOptions(AWSProperty):
     """
-    `PivotFieldSortOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivotfieldsortoptions.html>`__
+    `PivotFieldSortOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivotfieldsortoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5575,7 +5575,7 @@ class PivotFieldSortOptions(AWSProperty):
 
 class PivotTableSortConfiguration(AWSProperty):
     """
-    `PivotTableSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablesortconfiguration.html>`__
+    `PivotTableSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablesortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5585,7 +5585,7 @@ class PivotTableSortConfiguration(AWSProperty):
 
 class TotalAggregationFunction(AWSProperty):
     """
-    `TotalAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationfunction.html>`__
+    `TotalAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-totalaggregationfunction.html>`__
     """
 
     props: PropsDictType = {
@@ -5595,7 +5595,7 @@ class TotalAggregationFunction(AWSProperty):
 
 class TotalAggregationOption(AWSProperty):
     """
-    `TotalAggregationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationoption.html>`__
+    `TotalAggregationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-totalaggregationoption.html>`__
     """
 
     props: PropsDictType = {
@@ -5606,7 +5606,7 @@ class TotalAggregationOption(AWSProperty):
 
 class PivotTotalOptions(AWSProperty):
     """
-    `PivotTotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottotaloptions.html>`__
+    `PivotTotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottotaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5623,7 +5623,7 @@ class PivotTotalOptions(AWSProperty):
 
 class PivotTableFieldSubtotalOptions(AWSProperty):
     """
-    `PivotTableFieldSubtotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldsubtotaloptions.html>`__
+    `PivotTableFieldSubtotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablefieldsubtotaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5633,7 +5633,7 @@ class PivotTableFieldSubtotalOptions(AWSProperty):
 
 class TableStyleTarget(AWSProperty):
     """
-    `TableStyleTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablestyletarget.html>`__
+    `TableStyleTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablestyletarget.html>`__
     """
 
     props: PropsDictType = {
@@ -5643,7 +5643,7 @@ class TableStyleTarget(AWSProperty):
 
 class SubtotalOptions(AWSProperty):
     """
-    `SubtotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html>`__
+    `SubtotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-subtotaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5660,7 +5660,7 @@ class SubtotalOptions(AWSProperty):
 
 class PivotTableTotalOptions(AWSProperty):
     """
-    `PivotTableTotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottabletotaloptions.html>`__
+    `PivotTableTotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottabletotaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5673,7 +5673,7 @@ class PivotTableTotalOptions(AWSProperty):
 
 class PivotTableConfiguration(AWSProperty):
     """
-    `PivotTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottableconfiguration.html>`__
+    `PivotTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottableconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5689,7 +5689,7 @@ class PivotTableConfiguration(AWSProperty):
 
 class PivotTableVisual(AWSProperty):
     """
-    `PivotTableVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablevisual.html>`__
+    `PivotTableVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pivottablevisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5705,7 +5705,7 @@ class PivotTableVisual(AWSProperty):
 
 class PluginVisualFieldWell(AWSProperty):
     """
-    `PluginVisualFieldWell <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualfieldwell.html>`__
+    `PluginVisualFieldWell <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualfieldwell.html>`__
     """
 
     props: PropsDictType = {
@@ -5718,7 +5718,7 @@ class PluginVisualFieldWell(AWSProperty):
 
 class PluginVisualProperty(AWSProperty):
     """
-    `PluginVisualProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualproperty.html>`__
+    `PluginVisualProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -5729,7 +5729,7 @@ class PluginVisualProperty(AWSProperty):
 
 class PluginVisualOptions(AWSProperty):
     """
-    `PluginVisualOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualoptions.html>`__
+    `PluginVisualOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -5739,7 +5739,7 @@ class PluginVisualOptions(AWSProperty):
 
 class PluginVisualItemsLimitConfiguration(AWSProperty):
     """
-    `PluginVisualItemsLimitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualitemslimitconfiguration.html>`__
+    `PluginVisualItemsLimitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualitemslimitconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5749,7 +5749,7 @@ class PluginVisualItemsLimitConfiguration(AWSProperty):
 
 class PluginVisualTableQuerySort(AWSProperty):
     """
-    `PluginVisualTableQuerySort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualtablequerysort.html>`__
+    `PluginVisualTableQuerySort <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualtablequerysort.html>`__
     """
 
     props: PropsDictType = {
@@ -5760,7 +5760,7 @@ class PluginVisualTableQuerySort(AWSProperty):
 
 class PluginVisualSortConfiguration(AWSProperty):
     """
-    `PluginVisualSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualsortconfiguration.html>`__
+    `PluginVisualSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5770,7 +5770,7 @@ class PluginVisualSortConfiguration(AWSProperty):
 
 class PluginVisualConfiguration(AWSProperty):
     """
-    `PluginVisualConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualconfiguration.html>`__
+    `PluginVisualConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisualconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5782,7 +5782,7 @@ class PluginVisualConfiguration(AWSProperty):
 
 class PluginVisual(AWSProperty):
     """
-    `PluginVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisual.html>`__
+    `PluginVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-pluginvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5797,7 +5797,7 @@ class PluginVisual(AWSProperty):
 
 class RadarChartAggregatedFieldWells(AWSProperty):
     """
-    `RadarChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartaggregatedfieldwells.html>`__
+    `RadarChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5809,7 +5809,7 @@ class RadarChartAggregatedFieldWells(AWSProperty):
 
 class RadarChartFieldWells(AWSProperty):
     """
-    `RadarChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartfieldwells.html>`__
+    `RadarChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5819,7 +5819,7 @@ class RadarChartFieldWells(AWSProperty):
 
 class RadarChartAreaStyleSettings(AWSProperty):
     """
-    `RadarChartAreaStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartareastylesettings.html>`__
+    `RadarChartAreaStyleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartareastylesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5829,7 +5829,7 @@ class RadarChartAreaStyleSettings(AWSProperty):
 
 class RadarChartSeriesSettings(AWSProperty):
     """
-    `RadarChartSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartseriessettings.html>`__
+    `RadarChartSeriesSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartseriessettings.html>`__
     """
 
     props: PropsDictType = {
@@ -5839,7 +5839,7 @@ class RadarChartSeriesSettings(AWSProperty):
 
 class RadarChartSortConfiguration(AWSProperty):
     """
-    `RadarChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartsortconfiguration.html>`__
+    `RadarChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5852,7 +5852,7 @@ class RadarChartSortConfiguration(AWSProperty):
 
 class RadarChartConfiguration(AWSProperty):
     """
-    `RadarChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html>`__
+    `RadarChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5877,7 +5877,7 @@ class RadarChartConfiguration(AWSProperty):
 
 class RadarChartVisual(AWSProperty):
     """
-    `RadarChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartvisual.html>`__
+    `RadarChartVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-radarchartvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5893,7 +5893,7 @@ class RadarChartVisual(AWSProperty):
 
 class SankeyDiagramAggregatedFieldWells(AWSProperty):
     """
-    `SankeyDiagramAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sankeydiagramaggregatedfieldwells.html>`__
+    `SankeyDiagramAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sankeydiagramaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5905,7 +5905,7 @@ class SankeyDiagramAggregatedFieldWells(AWSProperty):
 
 class SankeyDiagramFieldWells(AWSProperty):
     """
-    `SankeyDiagramFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sankeydiagramfieldwells.html>`__
+    `SankeyDiagramFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sankeydiagramfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5915,7 +5915,7 @@ class SankeyDiagramFieldWells(AWSProperty):
 
 class SankeyDiagramSortConfiguration(AWSProperty):
     """
-    `SankeyDiagramSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sankeydiagramsortconfiguration.html>`__
+    `SankeyDiagramSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sankeydiagramsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5927,7 +5927,7 @@ class SankeyDiagramSortConfiguration(AWSProperty):
 
 class SankeyDiagramChartConfiguration(AWSProperty):
     """
-    `SankeyDiagramChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sankeydiagramchartconfiguration.html>`__
+    `SankeyDiagramChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sankeydiagramchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -5940,7 +5940,7 @@ class SankeyDiagramChartConfiguration(AWSProperty):
 
 class SankeyDiagramVisual(AWSProperty):
     """
-    `SankeyDiagramVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sankeydiagramvisual.html>`__
+    `SankeyDiagramVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sankeydiagramvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -5955,7 +5955,7 @@ class SankeyDiagramVisual(AWSProperty):
 
 class ScatterPlotCategoricallyAggregatedFieldWells(AWSProperty):
     """
-    `ScatterPlotCategoricallyAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotcategoricallyaggregatedfieldwells.html>`__
+    `ScatterPlotCategoricallyAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotcategoricallyaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5969,7 +5969,7 @@ class ScatterPlotCategoricallyAggregatedFieldWells(AWSProperty):
 
 class ScatterPlotUnaggregatedFieldWells(AWSProperty):
     """
-    `ScatterPlotUnaggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotunaggregatedfieldwells.html>`__
+    `ScatterPlotUnaggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotunaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5983,7 +5983,7 @@ class ScatterPlotUnaggregatedFieldWells(AWSProperty):
 
 class ScatterPlotFieldWells(AWSProperty):
     """
-    `ScatterPlotFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotfieldwells.html>`__
+    `ScatterPlotFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -5997,7 +5997,7 @@ class ScatterPlotFieldWells(AWSProperty):
 
 class ScatterPlotSortConfiguration(AWSProperty):
     """
-    `ScatterPlotSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotsortconfiguration.html>`__
+    `ScatterPlotSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6007,7 +6007,7 @@ class ScatterPlotSortConfiguration(AWSProperty):
 
 class ScatterPlotConfiguration(AWSProperty):
     """
-    `ScatterPlotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotconfiguration.html>`__
+    `ScatterPlotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6027,7 +6027,7 @@ class ScatterPlotConfiguration(AWSProperty):
 
 class ScatterPlotVisual(AWSProperty):
     """
-    `ScatterPlotVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotvisual.html>`__
+    `ScatterPlotVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-scatterplotvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -6043,7 +6043,7 @@ class ScatterPlotVisual(AWSProperty):
 
 class TableCellConditionalFormatting(AWSProperty):
     """
-    `TableCellConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablecellconditionalformatting.html>`__
+    `TableCellConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablecellconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -6054,7 +6054,7 @@ class TableCellConditionalFormatting(AWSProperty):
 
 class TableRowConditionalFormatting(AWSProperty):
     """
-    `TableRowConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablerowconditionalformatting.html>`__
+    `TableRowConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablerowconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -6065,7 +6065,7 @@ class TableRowConditionalFormatting(AWSProperty):
 
 class TableConditionalFormattingOption(AWSProperty):
     """
-    `TableConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableconditionalformattingoption.html>`__
+    `TableConditionalFormattingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableconditionalformattingoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6076,7 +6076,7 @@ class TableConditionalFormattingOption(AWSProperty):
 
 class TableConditionalFormatting(AWSProperty):
     """
-    `TableConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableconditionalformatting.html>`__
+    `TableConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableconditionalformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -6086,7 +6086,7 @@ class TableConditionalFormatting(AWSProperty):
 
 class TableCellImageSizingConfiguration(AWSProperty):
     """
-    `TableCellImageSizingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablecellimagesizingconfiguration.html>`__
+    `TableCellImageSizingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablecellimagesizingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6096,7 +6096,7 @@ class TableCellImageSizingConfiguration(AWSProperty):
 
 class TableFieldImageConfiguration(AWSProperty):
     """
-    `TableFieldImageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldimageconfiguration.html>`__
+    `TableFieldImageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldimageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6106,7 +6106,7 @@ class TableFieldImageConfiguration(AWSProperty):
 
 class TableFieldCustomIconContent(AWSProperty):
     """
-    `TableFieldCustomIconContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldcustomiconcontent.html>`__
+    `TableFieldCustomIconContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldcustomiconcontent.html>`__
     """
 
     props: PropsDictType = {
@@ -6116,7 +6116,7 @@ class TableFieldCustomIconContent(AWSProperty):
 
 class TableFieldCustomTextContent(AWSProperty):
     """
-    `TableFieldCustomTextContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldcustomtextcontent.html>`__
+    `TableFieldCustomTextContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldcustomtextcontent.html>`__
     """
 
     props: PropsDictType = {
@@ -6127,7 +6127,7 @@ class TableFieldCustomTextContent(AWSProperty):
 
 class TableFieldLinkContentConfiguration(AWSProperty):
     """
-    `TableFieldLinkContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldlinkcontentconfiguration.html>`__
+    `TableFieldLinkContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldlinkcontentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6138,7 +6138,7 @@ class TableFieldLinkContentConfiguration(AWSProperty):
 
 class TableFieldLinkConfiguration(AWSProperty):
     """
-    `TableFieldLinkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldlinkconfiguration.html>`__
+    `TableFieldLinkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldlinkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6149,7 +6149,7 @@ class TableFieldLinkConfiguration(AWSProperty):
 
 class TableFieldURLConfiguration(AWSProperty):
     """
-    `TableFieldURLConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldurlconfiguration.html>`__
+    `TableFieldURLConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldurlconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6160,7 +6160,7 @@ class TableFieldURLConfiguration(AWSProperty):
 
 class TableFieldOption(AWSProperty):
     """
-    `TableFieldOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoption.html>`__
+    `TableFieldOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6174,7 +6174,7 @@ class TableFieldOption(AWSProperty):
 
 class TablePinnedFieldOptions(AWSProperty):
     """
-    `TablePinnedFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepinnedfieldoptions.html>`__
+    `TablePinnedFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablepinnedfieldoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6184,7 +6184,7 @@ class TablePinnedFieldOptions(AWSProperty):
 
 class TransposedTableOption(AWSProperty):
     """
-    `TransposedTableOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-transposedtableoption.html>`__
+    `TransposedTableOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-transposedtableoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6196,7 +6196,7 @@ class TransposedTableOption(AWSProperty):
 
 class TableFieldOptions(AWSProperty):
     """
-    `TableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html>`__
+    `TableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6209,7 +6209,7 @@ class TableFieldOptions(AWSProperty):
 
 class TableAggregatedFieldWells(AWSProperty):
     """
-    `TableAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableaggregatedfieldwells.html>`__
+    `TableAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6220,7 +6220,7 @@ class TableAggregatedFieldWells(AWSProperty):
 
 class TableUnaggregatedFieldWells(AWSProperty):
     """
-    `TableUnaggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableunaggregatedfieldwells.html>`__
+    `TableUnaggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableunaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6230,7 +6230,7 @@ class TableUnaggregatedFieldWells(AWSProperty):
 
 class TableFieldWells(AWSProperty):
     """
-    `TableFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldwells.html>`__
+    `TableFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablefieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6241,7 +6241,7 @@ class TableFieldWells(AWSProperty):
 
 class DataBarsOptions(AWSProperty):
     """
-    `DataBarsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-databarsoptions.html>`__
+    `DataBarsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-databarsoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6253,7 +6253,7 @@ class DataBarsOptions(AWSProperty):
 
 class TableInlineVisualization(AWSProperty):
     """
-    `TableInlineVisualization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableinlinevisualization.html>`__
+    `TableInlineVisualization <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableinlinevisualization.html>`__
     """
 
     props: PropsDictType = {
@@ -6263,7 +6263,7 @@ class TableInlineVisualization(AWSProperty):
 
 class TableOptions(AWSProperty):
     """
-    `TableOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableoptions.html>`__
+    `TableOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6276,7 +6276,7 @@ class TableOptions(AWSProperty):
 
 class TablePaginatedReportOptions(AWSProperty):
     """
-    `TablePaginatedReportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepaginatedreportoptions.html>`__
+    `TablePaginatedReportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablepaginatedreportoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6287,7 +6287,7 @@ class TablePaginatedReportOptions(AWSProperty):
 
 class TableSortConfiguration(AWSProperty):
     """
-    `TableSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablesortconfiguration.html>`__
+    `TableSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablesortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6298,7 +6298,7 @@ class TableSortConfiguration(AWSProperty):
 
 class TotalOptions(AWSProperty):
     """
-    `TotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totaloptions.html>`__
+    `TotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-totaloptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6313,7 +6313,7 @@ class TotalOptions(AWSProperty):
 
 class TableConfiguration(AWSProperty):
     """
-    `TableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tableconfiguration.html>`__
+    `TableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tableconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6330,7 +6330,7 @@ class TableConfiguration(AWSProperty):
 
 class TableVisual(AWSProperty):
     """
-    `TableVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablevisual.html>`__
+    `TableVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-tablevisual.html>`__
     """
 
     props: PropsDictType = {
@@ -6346,7 +6346,7 @@ class TableVisual(AWSProperty):
 
 class TreeMapAggregatedFieldWells(AWSProperty):
     """
-    `TreeMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapaggregatedfieldwells.html>`__
+    `TreeMapAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-treemapaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6358,7 +6358,7 @@ class TreeMapAggregatedFieldWells(AWSProperty):
 
 class TreeMapFieldWells(AWSProperty):
     """
-    `TreeMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapfieldwells.html>`__
+    `TreeMapFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-treemapfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6368,7 +6368,7 @@ class TreeMapFieldWells(AWSProperty):
 
 class TreeMapSortConfiguration(AWSProperty):
     """
-    `TreeMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapsortconfiguration.html>`__
+    `TreeMapSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-treemapsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6379,7 +6379,7 @@ class TreeMapSortConfiguration(AWSProperty):
 
 class TreeMapConfiguration(AWSProperty):
     """
-    `TreeMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapconfiguration.html>`__
+    `TreeMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-treemapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6398,7 +6398,7 @@ class TreeMapConfiguration(AWSProperty):
 
 class TreeMapVisual(AWSProperty):
     """
-    `TreeMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapvisual.html>`__
+    `TreeMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-treemapvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -6414,7 +6414,7 @@ class TreeMapVisual(AWSProperty):
 
 class WaterfallChartGroupColorConfiguration(AWSProperty):
     """
-    `WaterfallChartGroupColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartgroupcolorconfiguration.html>`__
+    `WaterfallChartGroupColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartgroupcolorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6426,7 +6426,7 @@ class WaterfallChartGroupColorConfiguration(AWSProperty):
 
 class WaterfallChartColorConfiguration(AWSProperty):
     """
-    `WaterfallChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartcolorconfiguration.html>`__
+    `WaterfallChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartcolorconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6436,7 +6436,7 @@ class WaterfallChartColorConfiguration(AWSProperty):
 
 class WaterfallChartAggregatedFieldWells(AWSProperty):
     """
-    `WaterfallChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartaggregatedfieldwells.html>`__
+    `WaterfallChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6448,7 +6448,7 @@ class WaterfallChartAggregatedFieldWells(AWSProperty):
 
 class WaterfallChartFieldWells(AWSProperty):
     """
-    `WaterfallChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartfieldwells.html>`__
+    `WaterfallChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6461,7 +6461,7 @@ class WaterfallChartFieldWells(AWSProperty):
 
 class WaterfallChartOptions(AWSProperty):
     """
-    `WaterfallChartOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartoptions.html>`__
+    `WaterfallChartOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6471,7 +6471,7 @@ class WaterfallChartOptions(AWSProperty):
 
 class WaterfallChartSortConfiguration(AWSProperty):
     """
-    `WaterfallChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartsortconfiguration.html>`__
+    `WaterfallChartSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6482,7 +6482,7 @@ class WaterfallChartSortConfiguration(AWSProperty):
 
 class WaterfallChartConfiguration(AWSProperty):
     """
-    `WaterfallChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartconfiguration.html>`__
+    `WaterfallChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6503,7 +6503,7 @@ class WaterfallChartConfiguration(AWSProperty):
 
 class WaterfallVisual(AWSProperty):
     """
-    `WaterfallVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallvisual.html>`__
+    `WaterfallVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-waterfallvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -6519,7 +6519,7 @@ class WaterfallVisual(AWSProperty):
 
 class WordCloudAggregatedFieldWells(AWSProperty):
     """
-    `WordCloudAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudaggregatedfieldwells.html>`__
+    `WordCloudAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudaggregatedfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6530,7 +6530,7 @@ class WordCloudAggregatedFieldWells(AWSProperty):
 
 class WordCloudFieldWells(AWSProperty):
     """
-    `WordCloudFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudfieldwells.html>`__
+    `WordCloudFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudfieldwells.html>`__
     """
 
     props: PropsDictType = {
@@ -6540,7 +6540,7 @@ class WordCloudFieldWells(AWSProperty):
 
 class WordCloudOptions(AWSProperty):
     """
-    `WordCloudOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudoptions.html>`__
+    `WordCloudOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6555,7 +6555,7 @@ class WordCloudOptions(AWSProperty):
 
 class WordCloudSortConfiguration(AWSProperty):
     """
-    `WordCloudSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudsortconfiguration.html>`__
+    `WordCloudSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudsortconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6566,7 +6566,7 @@ class WordCloudSortConfiguration(AWSProperty):
 
 class WordCloudChartConfiguration(AWSProperty):
     """
-    `WordCloudChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudchartconfiguration.html>`__
+    `WordCloudChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudchartconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -6580,7 +6580,7 @@ class WordCloudChartConfiguration(AWSProperty):
 
 class WordCloudVisual(AWSProperty):
     """
-    `WordCloudVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-wordcloudvisual.html>`__
+    `WordCloudVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-wordcloudvisual.html>`__
     """
 
     props: PropsDictType = {
@@ -6596,7 +6596,7 @@ class WordCloudVisual(AWSProperty):
 
 class Visual(AWSProperty):
     """
-    `Visual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html>`__
+    `Visual <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-visual.html>`__
     """
 
     props: PropsDictType = {
@@ -6630,7 +6630,7 @@ class Visual(AWSProperty):
 
 class SheetDefinition(AWSProperty):
     """
-    `SheetDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html>`__
+    `SheetDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheetdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -6651,7 +6651,7 @@ class SheetDefinition(AWSProperty):
 
 class StaticFileS3SourceOptions(AWSProperty):
     """
-    `StaticFileS3SourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfiles3sourceoptions.html>`__
+    `StaticFileS3SourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-staticfiles3sourceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6663,7 +6663,7 @@ class StaticFileS3SourceOptions(AWSProperty):
 
 class StaticFileUrlSourceOptions(AWSProperty):
     """
-    `StaticFileUrlSourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfileurlsourceoptions.html>`__
+    `StaticFileUrlSourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-staticfileurlsourceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6673,7 +6673,7 @@ class StaticFileUrlSourceOptions(AWSProperty):
 
 class StaticFileSource(AWSProperty):
     """
-    `StaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfilesource.html>`__
+    `StaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-staticfilesource.html>`__
     """
 
     props: PropsDictType = {
@@ -6684,7 +6684,7 @@ class StaticFileSource(AWSProperty):
 
 class ImageStaticFile(AWSProperty):
     """
-    `ImageStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html>`__
+    `ImageStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-imagestaticfile.html>`__
     """
 
     props: PropsDictType = {
@@ -6695,7 +6695,7 @@ class ImageStaticFile(AWSProperty):
 
 class SpatialStaticFile(AWSProperty):
     """
-    `SpatialStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spatialstaticfile.html>`__
+    `SpatialStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-spatialstaticfile.html>`__
     """
 
     props: PropsDictType = {
@@ -6706,7 +6706,7 @@ class SpatialStaticFile(AWSProperty):
 
 class StaticFile(AWSProperty):
     """
-    `StaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfile.html>`__
+    `StaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-staticfile.html>`__
     """
 
     props: PropsDictType = {
@@ -6717,7 +6717,7 @@ class StaticFile(AWSProperty):
 
 class AnalysisDefinition(AWSProperty):
     """
-    `AnalysisDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysisdefinition.html>`__
+    `AnalysisDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-analysis-analysisdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -6736,7 +6736,7 @@ class AnalysisDefinition(AWSProperty):
 
 class Entity(AWSProperty):
     """
-    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-entity.html>`__
+    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-entity.html>`__
     """
 
     props: PropsDictType = {
@@ -6746,7 +6746,7 @@ class Entity(AWSProperty):
 
 class AnalysisError(AWSProperty):
     """
-    `AnalysisError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html>`__
+    `AnalysisError <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-analysis-analysiserror.html>`__
     """
 
     props: PropsDictType = {
@@ -6758,7 +6758,7 @@ class AnalysisError(AWSProperty):
 
 class DataSetReference(AWSProperty):
     """
-    `DataSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html>`__
+    `DataSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datasetreference.html>`__
     """
 
     props: PropsDictType = {
@@ -6769,7 +6769,7 @@ class DataSetReference(AWSProperty):
 
 class AnalysisSourceTemplate(AWSProperty):
     """
-    `AnalysisSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html>`__
+    `AnalysisSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-analysis-analysissourcetemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -6780,7 +6780,7 @@ class AnalysisSourceTemplate(AWSProperty):
 
 class AnalysisSourceEntity(AWSProperty):
     """
-    `AnalysisSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html>`__
+    `AnalysisSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-analysis-analysissourceentity.html>`__
     """
 
     props: PropsDictType = {
@@ -6790,7 +6790,7 @@ class AnalysisSourceEntity(AWSProperty):
 
 class DateTimeParameter(AWSProperty):
     """
-    `DateTimeParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html>`__
+    `DateTimeParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-datetimeparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -6801,7 +6801,7 @@ class DateTimeParameter(AWSProperty):
 
 class DecimalParameter(AWSProperty):
     """
-    `DecimalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html>`__
+    `DecimalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-decimalparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -6812,7 +6812,7 @@ class DecimalParameter(AWSProperty):
 
 class IntegerParameter(AWSProperty):
     """
-    `IntegerParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html>`__
+    `IntegerParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-integerparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -6823,7 +6823,7 @@ class IntegerParameter(AWSProperty):
 
 class StringParameter(AWSProperty):
     """
-    `StringParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html>`__
+    `StringParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-stringparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -6834,7 +6834,7 @@ class StringParameter(AWSProperty):
 
 class Parameters(AWSProperty):
     """
-    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html>`__
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-parameters.html>`__
     """
 
     props: PropsDictType = {
@@ -6847,7 +6847,7 @@ class Parameters(AWSProperty):
 
 class ResourcePermission(AWSProperty):
     """
-    `ResourcePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html>`__
+    `ResourcePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-resourcepermission.html>`__
     """
 
     props: PropsDictType = {
@@ -6858,7 +6858,7 @@ class ResourcePermission(AWSProperty):
 
 class Sheet(AWSProperty):
     """
-    `Sheet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html>`__
+    `Sheet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-sheet.html>`__
     """
 
     props: PropsDictType = {
@@ -6869,7 +6869,7 @@ class Sheet(AWSProperty):
 
 class ValidationStrategy(AWSProperty):
     """
-    `ValidationStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-validationstrategy.html>`__
+    `ValidationStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-validationstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -6879,7 +6879,7 @@ class ValidationStrategy(AWSProperty):
 
 class Analysis(AWSObject):
     """
-    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html>`__
+    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-analysis.html>`__
     """
 
     resource_type = "AWS::QuickSight::Analysis"
@@ -6904,7 +6904,7 @@ class Analysis(AWSObject):
 
 class Capabilities(AWSProperty):
     """
-    `Capabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html>`__
+    `Capabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-custompermissions-capabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -6930,7 +6930,7 @@ class Capabilities(AWSProperty):
 
 class CustomPermissions(AWSObject):
     """
-    `CustomPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.html>`__
+    `CustomPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-custompermissions.html>`__
     """
 
     resource_type = "AWS::QuickSight::CustomPermissions"
@@ -6945,7 +6945,7 @@ class CustomPermissions(AWSObject):
 
 class AdHocFilteringOption(AWSProperty):
     """
-    `AdHocFilteringOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html>`__
+    `AdHocFilteringOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-adhocfilteringoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6955,7 +6955,7 @@ class AdHocFilteringOption(AWSProperty):
 
 class ExportHiddenFieldsOption(AWSProperty):
     """
-    `ExportHiddenFieldsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporthiddenfieldsoption.html>`__
+    `ExportHiddenFieldsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-exporthiddenfieldsoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6965,7 +6965,7 @@ class ExportHiddenFieldsOption(AWSProperty):
 
 class DashboardVisualPublishOptions(AWSProperty):
     """
-    `DashboardVisualPublishOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardvisualpublishoptions.html>`__
+    `DashboardVisualPublishOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboardvisualpublishoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -6975,7 +6975,7 @@ class DashboardVisualPublishOptions(AWSProperty):
 
 class DataPointDrillUpDownOption(AWSProperty):
     """
-    `DataPointDrillUpDownOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointdrillupdownoption.html>`__
+    `DataPointDrillUpDownOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-datapointdrillupdownoption.html>`__
     """
 
     props: PropsDictType = {
@@ -6985,7 +6985,7 @@ class DataPointDrillUpDownOption(AWSProperty):
 
 class DataPointMenuLabelOption(AWSProperty):
     """
-    `DataPointMenuLabelOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointmenulabeloption.html>`__
+    `DataPointMenuLabelOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-datapointmenulabeloption.html>`__
     """
 
     props: PropsDictType = {
@@ -6995,7 +6995,7 @@ class DataPointMenuLabelOption(AWSProperty):
 
 class DataPointTooltipOption(AWSProperty):
     """
-    `DataPointTooltipOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointtooltipoption.html>`__
+    `DataPointTooltipOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-datapointtooltipoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7005,7 +7005,7 @@ class DataPointTooltipOption(AWSProperty):
 
 class ExportToCSVOption(AWSProperty):
     """
-    `ExportToCSVOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html>`__
+    `ExportToCSVOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-exporttocsvoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7015,7 +7015,7 @@ class ExportToCSVOption(AWSProperty):
 
 class ExportWithHiddenFieldsOption(AWSProperty):
     """
-    `ExportWithHiddenFieldsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exportwithhiddenfieldsoption.html>`__
+    `ExportWithHiddenFieldsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-exportwithhiddenfieldsoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7025,7 +7025,7 @@ class ExportWithHiddenFieldsOption(AWSProperty):
 
 class SheetControlsOption(AWSProperty):
     """
-    `SheetControlsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html>`__
+    `SheetControlsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-sheetcontrolsoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7035,7 +7035,7 @@ class SheetControlsOption(AWSProperty):
 
 class SheetLayoutElementMaximizationOption(AWSProperty):
     """
-    `SheetLayoutElementMaximizationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutelementmaximizationoption.html>`__
+    `SheetLayoutElementMaximizationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-sheetlayoutelementmaximizationoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7045,7 +7045,7 @@ class SheetLayoutElementMaximizationOption(AWSProperty):
 
 class VisualAxisSortOption(AWSProperty):
     """
-    `VisualAxisSortOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualaxissortoption.html>`__
+    `VisualAxisSortOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-visualaxissortoption.html>`__
     """
 
     props: PropsDictType = {
@@ -7055,7 +7055,7 @@ class VisualAxisSortOption(AWSProperty):
 
 class DashboardPublishOptions(AWSProperty):
     """
-    `DashboardPublishOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html>`__
+    `DashboardPublishOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboardpublishoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -7078,7 +7078,7 @@ class DashboardPublishOptions(AWSProperty):
 
 class DashboardSourceTemplate(AWSProperty):
     """
-    `DashboardSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html>`__
+    `DashboardSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -7089,7 +7089,7 @@ class DashboardSourceTemplate(AWSProperty):
 
 class DashboardSourceEntity(AWSProperty):
     """
-    `DashboardSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html>`__
+    `DashboardSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboardsourceentity.html>`__
     """
 
     props: PropsDictType = {
@@ -7099,7 +7099,7 @@ class DashboardSourceEntity(AWSProperty):
 
 class DashboardVersionDefinition(AWSProperty):
     """
-    `DashboardVersionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversiondefinition.html>`__
+    `DashboardVersionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboardversiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -7117,7 +7117,7 @@ class DashboardVersionDefinition(AWSProperty):
 
 class LinkSharingConfiguration(AWSProperty):
     """
-    `LinkSharingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linksharingconfiguration.html>`__
+    `LinkSharingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-linksharingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7127,7 +7127,7 @@ class LinkSharingConfiguration(AWSProperty):
 
 class Dashboard(AWSObject):
     """
-    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html>`__
+    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-dashboard.html>`__
     """
 
     resource_type = "AWS::QuickSight::Dashboard"
@@ -7153,7 +7153,7 @@ class Dashboard(AWSObject):
 
 class GeoSpatialColumnGroup(AWSProperty):
     """
-    `GeoSpatialColumnGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html>`__
+    `GeoSpatialColumnGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-geospatialcolumngroup.html>`__
     """
 
     props: PropsDictType = {
@@ -7165,7 +7165,7 @@ class GeoSpatialColumnGroup(AWSProperty):
 
 class ColumnGroup(AWSProperty):
     """
-    `ColumnGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html>`__
+    `ColumnGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-columngroup.html>`__
     """
 
     props: PropsDictType = {
@@ -7175,7 +7175,7 @@ class ColumnGroup(AWSProperty):
 
 class ColumnLevelPermissionRule(AWSProperty):
     """
-    `ColumnLevelPermissionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html>`__
+    `ColumnLevelPermissionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-columnlevelpermissionrule.html>`__
     """
 
     props: PropsDictType = {
@@ -7186,7 +7186,7 @@ class ColumnLevelPermissionRule(AWSProperty):
 
 class LookbackWindow(AWSProperty):
     """
-    `LookbackWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html>`__
+    `LookbackWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-lookbackwindow.html>`__
     """
 
     props: PropsDictType = {
@@ -7198,7 +7198,7 @@ class LookbackWindow(AWSProperty):
 
 class IncrementalRefresh(AWSProperty):
     """
-    `IncrementalRefresh <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html>`__
+    `IncrementalRefresh <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-incrementalrefresh.html>`__
     """
 
     props: PropsDictType = {
@@ -7208,7 +7208,7 @@ class IncrementalRefresh(AWSProperty):
 
 class RefreshConfiguration(AWSProperty):
     """
-    `RefreshConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshconfiguration.html>`__
+    `RefreshConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-refreshconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7218,7 +7218,7 @@ class RefreshConfiguration(AWSProperty):
 
 class RefreshFailureEmailAlert(AWSProperty):
     """
-    `RefreshFailureEmailAlert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureemailalert.html>`__
+    `RefreshFailureEmailAlert <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-refreshfailureemailalert.html>`__
     """
 
     props: PropsDictType = {
@@ -7228,7 +7228,7 @@ class RefreshFailureEmailAlert(AWSProperty):
 
 class RefreshFailureConfiguration(AWSProperty):
     """
-    `RefreshFailureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureconfiguration.html>`__
+    `RefreshFailureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-refreshfailureconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7238,7 +7238,7 @@ class RefreshFailureConfiguration(AWSProperty):
 
 class DataSetRefreshProperties(AWSProperty):
     """
-    `DataSetRefreshProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html>`__
+    `DataSetRefreshProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-datasetrefreshproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -7249,7 +7249,7 @@ class DataSetRefreshProperties(AWSProperty):
 
 class DataSetUsageConfiguration(AWSProperty):
     """
-    `DataSetUsageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html>`__
+    `DataSetUsageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-datasetusageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7260,7 +7260,7 @@ class DataSetUsageConfiguration(AWSProperty):
 
 class DateTimeDatasetParameterDefaultValues(AWSProperty):
     """
-    `DateTimeDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html>`__
+    `DateTimeDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -7270,7 +7270,7 @@ class DateTimeDatasetParameterDefaultValues(AWSProperty):
 
 class DateTimeDatasetParameter(AWSProperty):
     """
-    `DateTimeDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html>`__
+    `DateTimeDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-datetimedatasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -7284,7 +7284,7 @@ class DateTimeDatasetParameter(AWSProperty):
 
 class DecimalDatasetParameterDefaultValues(AWSProperty):
     """
-    `DecimalDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html>`__
+    `DecimalDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -7294,7 +7294,7 @@ class DecimalDatasetParameterDefaultValues(AWSProperty):
 
 class DecimalDatasetParameter(AWSProperty):
     """
-    `DecimalDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html>`__
+    `DecimalDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-decimaldatasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -7307,7 +7307,7 @@ class DecimalDatasetParameter(AWSProperty):
 
 class IntegerDatasetParameterDefaultValues(AWSProperty):
     """
-    `IntegerDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html>`__
+    `IntegerDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -7317,7 +7317,7 @@ class IntegerDatasetParameterDefaultValues(AWSProperty):
 
 class IntegerDatasetParameter(AWSProperty):
     """
-    `IntegerDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html>`__
+    `IntegerDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-integerdatasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -7330,7 +7330,7 @@ class IntegerDatasetParameter(AWSProperty):
 
 class StringDatasetParameterDefaultValues(AWSProperty):
     """
-    `StringDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html>`__
+    `StringDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -7340,7 +7340,7 @@ class StringDatasetParameterDefaultValues(AWSProperty):
 
 class StringDatasetParameter(AWSProperty):
     """
-    `StringDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html>`__
+    `StringDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-stringdatasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -7353,7 +7353,7 @@ class StringDatasetParameter(AWSProperty):
 
 class DatasetParameter(AWSProperty):
     """
-    `DatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html>`__
+    `DatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-datasetparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -7366,7 +7366,7 @@ class DatasetParameter(AWSProperty):
 
 class FieldFolder(AWSProperty):
     """
-    `FieldFolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html>`__
+    `FieldFolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-fieldfolder.html>`__
     """
 
     props: PropsDictType = {
@@ -7377,7 +7377,7 @@ class FieldFolder(AWSProperty):
 
 class IngestionWaitPolicy(AWSProperty):
     """
-    `IngestionWaitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html>`__
+    `IngestionWaitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-ingestionwaitpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -7388,7 +7388,7 @@ class IngestionWaitPolicy(AWSProperty):
 
 class JoinKeyProperties(AWSProperty):
     """
-    `JoinKeyProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html>`__
+    `JoinKeyProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-joinkeyproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -7398,7 +7398,7 @@ class JoinKeyProperties(AWSProperty):
 
 class JoinInstruction(AWSProperty):
     """
-    `JoinInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html>`__
+    `JoinInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-joininstruction.html>`__
     """
 
     props: PropsDictType = {
@@ -7413,7 +7413,7 @@ class JoinInstruction(AWSProperty):
 
 class LogicalTableSource(AWSProperty):
     """
-    `LogicalTableSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html>`__
+    `LogicalTableSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-logicaltablesource.html>`__
     """
 
     props: PropsDictType = {
@@ -7425,7 +7425,7 @@ class LogicalTableSource(AWSProperty):
 
 class CastColumnTypeOperation(AWSProperty):
     """
-    `CastColumnTypeOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html>`__
+    `CastColumnTypeOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-castcolumntypeoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7438,7 +7438,7 @@ class CastColumnTypeOperation(AWSProperty):
 
 class CalculatedColumn(AWSProperty):
     """
-    `CalculatedColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html>`__
+    `CalculatedColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-calculatedcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -7450,7 +7450,7 @@ class CalculatedColumn(AWSProperty):
 
 class CreateColumnsOperation(AWSProperty):
     """
-    `CreateColumnsOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html>`__
+    `CreateColumnsOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-createcolumnsoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7460,7 +7460,7 @@ class CreateColumnsOperation(AWSProperty):
 
 class FilterOperation(AWSProperty):
     """
-    `FilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>`__
+    `FilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-filteroperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7470,7 +7470,7 @@ class FilterOperation(AWSProperty):
 
 class NewDefaultValues(AWSProperty):
     """
-    `NewDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html>`__
+    `NewDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-newdefaultvalues.html>`__
     """
 
     props: PropsDictType = {
@@ -7483,7 +7483,7 @@ class NewDefaultValues(AWSProperty):
 
 class OverrideDatasetParameterOperation(AWSProperty):
     """
-    `OverrideDatasetParameterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html>`__
+    `OverrideDatasetParameterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7495,7 +7495,7 @@ class OverrideDatasetParameterOperation(AWSProperty):
 
 class ProjectOperation(AWSProperty):
     """
-    `ProjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html>`__
+    `ProjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-projectoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7505,7 +7505,7 @@ class ProjectOperation(AWSProperty):
 
 class RenameColumnOperation(AWSProperty):
     """
-    `RenameColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html>`__
+    `RenameColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-renamecolumnoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7516,7 +7516,7 @@ class RenameColumnOperation(AWSProperty):
 
 class ColumnDescription(AWSProperty):
     """
-    `ColumnDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html>`__
+    `ColumnDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-columndescription.html>`__
     """
 
     props: PropsDictType = {
@@ -7526,7 +7526,7 @@ class ColumnDescription(AWSProperty):
 
 class ColumnTag(AWSProperty):
     """
-    `ColumnTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html>`__
+    `ColumnTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-columntag.html>`__
     """
 
     props: PropsDictType = {
@@ -7537,7 +7537,7 @@ class ColumnTag(AWSProperty):
 
 class TagColumnOperation(AWSProperty):
     """
-    `TagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html>`__
+    `TagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-tagcolumnoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7548,7 +7548,7 @@ class TagColumnOperation(AWSProperty):
 
 class UntagColumnOperation(AWSProperty):
     """
-    `UntagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html>`__
+    `UntagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-untagcolumnoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7559,7 +7559,7 @@ class UntagColumnOperation(AWSProperty):
 
 class TransformOperation(AWSProperty):
     """
-    `TransformOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html>`__
+    `TransformOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-transformoperation.html>`__
     """
 
     props: PropsDictType = {
@@ -7576,7 +7576,7 @@ class TransformOperation(AWSProperty):
 
 class LogicalTable(AWSProperty):
     """
-    `LogicalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html>`__
+    `LogicalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-logicaltable.html>`__
     """
 
     props: PropsDictType = {
@@ -7588,7 +7588,7 @@ class LogicalTable(AWSProperty):
 
 class UniqueKey(AWSProperty):
     """
-    `UniqueKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html>`__
+    `UniqueKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-uniquekey.html>`__
     """
 
     props: PropsDictType = {
@@ -7598,7 +7598,7 @@ class UniqueKey(AWSProperty):
 
 class PerformanceConfiguration(AWSProperty):
     """
-    `PerformanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-performanceconfiguration.html>`__
+    `PerformanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-performanceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7608,7 +7608,7 @@ class PerformanceConfiguration(AWSProperty):
 
 class InputColumn(AWSProperty):
     """
-    `InputColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html>`__
+    `InputColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-inputcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -7620,7 +7620,7 @@ class InputColumn(AWSProperty):
 
 class CustomSql(AWSProperty):
     """
-    `CustomSql <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html>`__
+    `CustomSql <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-customsql.html>`__
     """
 
     props: PropsDictType = {
@@ -7633,7 +7633,7 @@ class CustomSql(AWSProperty):
 
 class RelationalTable(AWSProperty):
     """
-    `RelationalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html>`__
+    `RelationalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-relationaltable.html>`__
     """
 
     props: PropsDictType = {
@@ -7647,7 +7647,7 @@ class RelationalTable(AWSProperty):
 
 class UploadSettings(AWSProperty):
     """
-    `UploadSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html>`__
+    `UploadSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-uploadsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -7661,7 +7661,7 @@ class UploadSettings(AWSProperty):
 
 class S3Source(AWSProperty):
     """
-    `S3Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html>`__
+    `S3Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-s3source.html>`__
     """
 
     props: PropsDictType = {
@@ -7673,7 +7673,7 @@ class S3Source(AWSProperty):
 
 class PhysicalTable(AWSProperty):
     """
-    `PhysicalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html>`__
+    `PhysicalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-physicaltable.html>`__
     """
 
     props: PropsDictType = {
@@ -7685,7 +7685,7 @@ class PhysicalTable(AWSProperty):
 
 class RowLevelPermissionDataSet(AWSProperty):
     """
-    `RowLevelPermissionDataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html>`__
+    `RowLevelPermissionDataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html>`__
     """
 
     props: PropsDictType = {
@@ -7699,7 +7699,7 @@ class RowLevelPermissionDataSet(AWSProperty):
 
 class RowLevelPermissionTagRule(AWSProperty):
     """
-    `RowLevelPermissionTagRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html>`__
+    `RowLevelPermissionTagRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html>`__
     """
 
     props: PropsDictType = {
@@ -7712,7 +7712,7 @@ class RowLevelPermissionTagRule(AWSProperty):
 
 class RowLevelPermissionTagConfiguration(AWSProperty):
     """
-    `RowLevelPermissionTagConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html>`__
+    `RowLevelPermissionTagConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7724,7 +7724,7 @@ class RowLevelPermissionTagConfiguration(AWSProperty):
 
 class DataSet(AWSObject):
     """
-    `DataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html>`__
+    `DataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-dataset.html>`__
     """
 
     resource_type = "AWS::QuickSight::DataSet"
@@ -7758,7 +7758,7 @@ class DataSet(AWSObject):
 
 class AmazonElasticsearchParameters(AWSProperty):
     """
-    `AmazonElasticsearchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html>`__
+    `AmazonElasticsearchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7768,7 +7768,7 @@ class AmazonElasticsearchParameters(AWSProperty):
 
 class AmazonOpenSearchParameters(AWSProperty):
     """
-    `AmazonOpenSearchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html>`__
+    `AmazonOpenSearchParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-amazonopensearchparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7778,7 +7778,7 @@ class AmazonOpenSearchParameters(AWSProperty):
 
 class AthenaParameters(AWSProperty):
     """
-    `AthenaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html>`__
+    `AthenaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-athenaparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7789,7 +7789,7 @@ class AthenaParameters(AWSProperty):
 
 class AuroraParameters(AWSProperty):
     """
-    `AuroraParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html>`__
+    `AuroraParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-auroraparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7801,7 +7801,7 @@ class AuroraParameters(AWSProperty):
 
 class AuroraPostgreSqlParameters(AWSProperty):
     """
-    `AuroraPostgreSqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html>`__
+    `AuroraPostgreSqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7813,7 +7813,7 @@ class AuroraPostgreSqlParameters(AWSProperty):
 
 class DatabricksParameters(AWSProperty):
     """
-    `DatabricksParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html>`__
+    `DatabricksParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-databricksparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7825,7 +7825,7 @@ class DatabricksParameters(AWSProperty):
 
 class MariaDbParameters(AWSProperty):
     """
-    `MariaDbParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html>`__
+    `MariaDbParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-mariadbparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7837,7 +7837,7 @@ class MariaDbParameters(AWSProperty):
 
 class MySqlParameters(AWSProperty):
     """
-    `MySqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html>`__
+    `MySqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-mysqlparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7849,7 +7849,7 @@ class MySqlParameters(AWSProperty):
 
 class OracleParameters(AWSProperty):
     """
-    `OracleParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html>`__
+    `OracleParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-oracleparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7861,7 +7861,7 @@ class OracleParameters(AWSProperty):
 
 class PostgreSqlParameters(AWSProperty):
     """
-    `PostgreSqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html>`__
+    `PostgreSqlParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-postgresqlparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7873,7 +7873,7 @@ class PostgreSqlParameters(AWSProperty):
 
 class PrestoParameters(AWSProperty):
     """
-    `PrestoParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html>`__
+    `PrestoParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-prestoparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7885,7 +7885,7 @@ class PrestoParameters(AWSProperty):
 
 class RdsParameters(AWSProperty):
     """
-    `RdsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html>`__
+    `RdsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-rdsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7896,7 +7896,7 @@ class RdsParameters(AWSProperty):
 
 class IdentityCenterConfiguration(AWSProperty):
     """
-    `IdentityCenterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-identitycenterconfiguration.html>`__
+    `IdentityCenterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-identitycenterconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -7906,7 +7906,7 @@ class IdentityCenterConfiguration(AWSProperty):
 
 class RedshiftIAMParameters(AWSProperty):
     """
-    `RedshiftIAMParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftiamparameters.html>`__
+    `RedshiftIAMParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-redshiftiamparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7919,7 +7919,7 @@ class RedshiftIAMParameters(AWSProperty):
 
 class RedshiftParameters(AWSProperty):
     """
-    `RedshiftParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html>`__
+    `RedshiftParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-redshiftparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7934,7 +7934,7 @@ class RedshiftParameters(AWSProperty):
 
 class ManifestFileLocation(AWSProperty):
     """
-    `ManifestFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html>`__
+    `ManifestFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-manifestfilelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -7945,7 +7945,7 @@ class ManifestFileLocation(AWSProperty):
 
 class S3Parameters(AWSProperty):
     """
-    `S3Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html>`__
+    `S3Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-s3parameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7956,7 +7956,7 @@ class S3Parameters(AWSProperty):
 
 class VpcConnectionProperties(AWSProperty):
     """
-    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
+    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -7966,7 +7966,7 @@ class VpcConnectionProperties(AWSProperty):
 
 class OAuthParameters(AWSProperty):
     """
-    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html>`__
+    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-oauthparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7979,7 +7979,7 @@ class OAuthParameters(AWSProperty):
 
 class SnowflakeParameters(AWSProperty):
     """
-    `SnowflakeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html>`__
+    `SnowflakeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-snowflakeparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -7994,7 +7994,7 @@ class SnowflakeParameters(AWSProperty):
 
 class SparkParameters(AWSProperty):
     """
-    `SparkParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html>`__
+    `SparkParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-sparkparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8005,7 +8005,7 @@ class SparkParameters(AWSProperty):
 
 class SqlServerParameters(AWSProperty):
     """
-    `SqlServerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html>`__
+    `SqlServerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-sqlserverparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8017,7 +8017,7 @@ class SqlServerParameters(AWSProperty):
 
 class StarburstParameters(AWSProperty):
     """
-    `StarburstParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html>`__
+    `StarburstParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-starburstparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8033,7 +8033,7 @@ class StarburstParameters(AWSProperty):
 
 class TeradataParameters(AWSProperty):
     """
-    `TeradataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html>`__
+    `TeradataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-teradataparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8045,7 +8045,7 @@ class TeradataParameters(AWSProperty):
 
 class TrinoParameters(AWSProperty):
     """
-    `TrinoParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html>`__
+    `TrinoParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-trinoparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8057,7 +8057,7 @@ class TrinoParameters(AWSProperty):
 
 class DataSourceParameters(AWSProperty):
     """
-    `DataSourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html>`__
+    `DataSourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-datasourceparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -8086,7 +8086,7 @@ class DataSourceParameters(AWSProperty):
 
 class CredentialPair(AWSProperty):
     """
-    `CredentialPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html>`__
+    `CredentialPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-credentialpair.html>`__
     """
 
     props: PropsDictType = {
@@ -8098,7 +8098,7 @@ class CredentialPair(AWSProperty):
 
 class DataSourceCredentials(AWSProperty):
     """
-    `DataSourceCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html>`__
+    `DataSourceCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-datasourcecredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -8110,7 +8110,7 @@ class DataSourceCredentials(AWSProperty):
 
 class DataSourceErrorInfo(AWSProperty):
     """
-    `DataSourceErrorInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html>`__
+    `DataSourceErrorInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-datasourceerrorinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -8121,7 +8121,7 @@ class DataSourceErrorInfo(AWSProperty):
 
 class SslProperties(AWSProperty):
     """
-    `SslProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html>`__
+    `SslProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-datasource-sslproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -8131,7 +8131,7 @@ class SslProperties(AWSProperty):
 
 class DataSource(AWSObject):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-datasource.html>`__
     """
 
     resource_type = "AWS::QuickSight::DataSource"
@@ -8155,7 +8155,7 @@ class DataSource(AWSObject):
 
 class Folder(AWSObject):
     """
-    `Folder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html>`__
+    `Folder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-folder.html>`__
     """
 
     resource_type = "AWS::QuickSight::Folder"
@@ -8174,7 +8174,7 @@ class Folder(AWSObject):
 
 class RefreshOnDay(AWSProperty):
     """
-    `RefreshOnDay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshonday.html>`__
+    `RefreshOnDay <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-refreshschedule-refreshonday.html>`__
     """
 
     props: PropsDictType = {
@@ -8185,7 +8185,7 @@ class RefreshOnDay(AWSProperty):
 
 class ScheduleFrequency(AWSProperty):
     """
-    `ScheduleFrequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html>`__
+    `ScheduleFrequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-refreshschedule-schedulefrequency.html>`__
     """
 
     props: PropsDictType = {
@@ -8198,7 +8198,7 @@ class ScheduleFrequency(AWSProperty):
 
 class RefreshScheduleMap(AWSProperty):
     """
-    `RefreshScheduleMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html>`__
+    `RefreshScheduleMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-refreshschedule-refreshschedulemap.html>`__
     """
 
     props: PropsDictType = {
@@ -8211,7 +8211,7 @@ class RefreshScheduleMap(AWSProperty):
 
 class RefreshSchedule(AWSObject):
     """
-    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html>`__
+    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-refreshschedule.html>`__
     """
 
     resource_type = "AWS::QuickSight::RefreshSchedule"
@@ -8225,7 +8225,7 @@ class RefreshSchedule(AWSObject):
 
 class TemplateSourceAnalysis(AWSProperty):
     """
-    `TemplateSourceAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html>`__
+    `TemplateSourceAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templatesourceanalysis.html>`__
     """
 
     props: PropsDictType = {
@@ -8236,7 +8236,7 @@ class TemplateSourceAnalysis(AWSProperty):
 
 class TemplateSourceTemplate(AWSProperty):
     """
-    `TemplateSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html>`__
+    `TemplateSourceTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templatesourcetemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -8246,7 +8246,7 @@ class TemplateSourceTemplate(AWSProperty):
 
 class TemplateSourceEntity(AWSProperty):
     """
-    `TemplateSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html>`__
+    `TemplateSourceEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templatesourceentity.html>`__
     """
 
     props: PropsDictType = {
@@ -8257,7 +8257,7 @@ class TemplateSourceEntity(AWSProperty):
 
 class ColumnGroupColumnSchema(AWSProperty):
     """
-    `ColumnGroupColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupcolumnschema.html>`__
+    `ColumnGroupColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columngroupcolumnschema.html>`__
     """
 
     props: PropsDictType = {
@@ -8267,7 +8267,7 @@ class ColumnGroupColumnSchema(AWSProperty):
 
 class ColumnGroupSchema(AWSProperty):
     """
-    `ColumnGroupSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupschema.html>`__
+    `ColumnGroupSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columngroupschema.html>`__
     """
 
     props: PropsDictType = {
@@ -8278,7 +8278,7 @@ class ColumnGroupSchema(AWSProperty):
 
 class ColumnSchema(AWSProperty):
     """
-    `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnschema.html>`__
+    `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-columnschema.html>`__
     """
 
     props: PropsDictType = {
@@ -8290,7 +8290,7 @@ class ColumnSchema(AWSProperty):
 
 class DataSetSchema(AWSProperty):
     """
-    `DataSetSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetschema.html>`__
+    `DataSetSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datasetschema.html>`__
     """
 
     props: PropsDictType = {
@@ -8300,7 +8300,7 @@ class DataSetSchema(AWSProperty):
 
 class DataSetConfiguration(AWSProperty):
     """
-    `DataSetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetconfiguration.html>`__
+    `DataSetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-datasetconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -8312,7 +8312,7 @@ class DataSetConfiguration(AWSProperty):
 
 class TemplateVersionDefinition(AWSProperty):
     """
-    `TemplateVersionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html>`__
+    `TemplateVersionDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templateversiondefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -8330,7 +8330,7 @@ class TemplateVersionDefinition(AWSProperty):
 
 class Template(AWSObject):
     """
-    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html>`__
+    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-template.html>`__
     """
 
     resource_type = "AWS::QuickSight::Template"
@@ -8350,7 +8350,7 @@ class Template(AWSObject):
 
 class DataColorPalette(AWSProperty):
     """
-    `DataColorPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html>`__
+    `DataColorPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-datacolorpalette.html>`__
     """
 
     props: PropsDictType = {
@@ -8362,7 +8362,7 @@ class DataColorPalette(AWSProperty):
 
 class GutterStyle(AWSProperty):
     """
-    `GutterStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html>`__
+    `GutterStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-gutterstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8372,7 +8372,7 @@ class GutterStyle(AWSProperty):
 
 class MarginStyle(AWSProperty):
     """
-    `MarginStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html>`__
+    `MarginStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-marginstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8382,7 +8382,7 @@ class MarginStyle(AWSProperty):
 
 class TileLayoutStyle(AWSProperty):
     """
-    `TileLayoutStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html>`__
+    `TileLayoutStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-tilelayoutstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8393,7 +8393,7 @@ class TileLayoutStyle(AWSProperty):
 
 class BorderStyle(AWSProperty):
     """
-    `BorderStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html>`__
+    `BorderStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-borderstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8403,7 +8403,7 @@ class BorderStyle(AWSProperty):
 
 class TileStyle(AWSProperty):
     """
-    `TileStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html>`__
+    `TileStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-tilestyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8413,7 +8413,7 @@ class TileStyle(AWSProperty):
 
 class SheetStyle(AWSProperty):
     """
-    `SheetStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html>`__
+    `SheetStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-sheetstyle.html>`__
     """
 
     props: PropsDictType = {
@@ -8424,7 +8424,7 @@ class SheetStyle(AWSProperty):
 
 class Font(AWSProperty):
     """
-    `Font <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html>`__
+    `Font <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-font.html>`__
     """
 
     props: PropsDictType = {
@@ -8434,7 +8434,7 @@ class Font(AWSProperty):
 
 class Typography(AWSProperty):
     """
-    `Typography <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html>`__
+    `Typography <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-typography.html>`__
     """
 
     props: PropsDictType = {
@@ -8444,7 +8444,7 @@ class Typography(AWSProperty):
 
 class UIColorPalette(AWSProperty):
     """
-    `UIColorPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html>`__
+    `UIColorPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-uicolorpalette.html>`__
     """
 
     props: PropsDictType = {
@@ -8469,7 +8469,7 @@ class UIColorPalette(AWSProperty):
 
 class ThemeConfiguration(AWSProperty):
     """
-    `ThemeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html>`__
+    `ThemeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-themeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -8482,7 +8482,7 @@ class ThemeConfiguration(AWSProperty):
 
 class Theme(AWSObject):
     """
-    `Theme <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html>`__
+    `Theme <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-theme.html>`__
     """
 
     resource_type = "AWS::QuickSight::Theme"
@@ -8501,7 +8501,7 @@ class Theme(AWSObject):
 
 class DataAggregation(AWSProperty):
     """
-    `DataAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html>`__
+    `DataAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-dataaggregation.html>`__
     """
 
     props: PropsDictType = {
@@ -8512,7 +8512,7 @@ class DataAggregation(AWSProperty):
 
 class CellValueSynonym(AWSProperty):
     """
-    `CellValueSynonym <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-cellvaluesynonym.html>`__
+    `CellValueSynonym <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-cellvaluesynonym.html>`__
     """
 
     props: PropsDictType = {
@@ -8523,7 +8523,7 @@ class CellValueSynonym(AWSProperty):
 
 class ComparativeOrder(AWSProperty):
     """
-    `ComparativeOrder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html>`__
+    `ComparativeOrder <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-comparativeorder.html>`__
     """
 
     props: PropsDictType = {
@@ -8535,7 +8535,7 @@ class ComparativeOrder(AWSProperty):
 
 class NegativeFormat(AWSProperty):
     """
-    `NegativeFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-negativeformat.html>`__
+    `NegativeFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-negativeformat.html>`__
     """
 
     props: PropsDictType = {
@@ -8546,7 +8546,7 @@ class NegativeFormat(AWSProperty):
 
 class DisplayFormatOptions(AWSProperty):
     """
-    `DisplayFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html>`__
+    `DisplayFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-displayformatoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -8567,7 +8567,7 @@ class DisplayFormatOptions(AWSProperty):
 
 class DefaultFormatting(AWSProperty):
     """
-    `DefaultFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html>`__
+    `DefaultFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-defaultformatting.html>`__
     """
 
     props: PropsDictType = {
@@ -8578,7 +8578,7 @@ class DefaultFormatting(AWSProperty):
 
 class SemanticType(AWSProperty):
     """
-    `SemanticType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semantictype.html>`__
+    `SemanticType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-semantictype.html>`__
     """
 
     props: PropsDictType = {
@@ -8594,7 +8594,7 @@ class SemanticType(AWSProperty):
 
 class TopicCalculatedField(AWSProperty):
     """
-    `TopicCalculatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html>`__
+    `TopicCalculatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topiccalculatedfield.html>`__
     """
 
     props: PropsDictType = {
@@ -8620,7 +8620,7 @@ class TopicCalculatedField(AWSProperty):
 
 class TopicColumn(AWSProperty):
     """
-    `TopicColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html>`__
+    `TopicColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topiccolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -8646,7 +8646,7 @@ class TopicColumn(AWSProperty):
 
 class CollectiveConstant(AWSProperty):
     """
-    `CollectiveConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html>`__
+    `CollectiveConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-collectiveconstant.html>`__
     """
 
     props: PropsDictType = {
@@ -8656,7 +8656,7 @@ class CollectiveConstant(AWSProperty):
 
 class TopicCategoryFilterConstant(AWSProperty):
     """
-    `TopicCategoryFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html>`__
+    `TopicCategoryFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topiccategoryfilterconstant.html>`__
     """
 
     props: PropsDictType = {
@@ -8668,7 +8668,7 @@ class TopicCategoryFilterConstant(AWSProperty):
 
 class TopicCategoryFilter(AWSProperty):
     """
-    `TopicCategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html>`__
+    `TopicCategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topiccategoryfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8681,7 +8681,7 @@ class TopicCategoryFilter(AWSProperty):
 
 class RangeConstant(AWSProperty):
     """
-    `RangeConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html>`__
+    `RangeConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-rangeconstant.html>`__
     """
 
     props: PropsDictType = {
@@ -8692,7 +8692,7 @@ class RangeConstant(AWSProperty):
 
 class TopicRangeFilterConstant(AWSProperty):
     """
-    `TopicRangeFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrangefilterconstant.html>`__
+    `TopicRangeFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicrangefilterconstant.html>`__
     """
 
     props: PropsDictType = {
@@ -8703,7 +8703,7 @@ class TopicRangeFilterConstant(AWSProperty):
 
 class TopicDateRangeFilter(AWSProperty):
     """
-    `TopicDateRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html>`__
+    `TopicDateRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicdaterangefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8714,7 +8714,7 @@ class TopicDateRangeFilter(AWSProperty):
 
 class TopicSingularFilterConstant(AWSProperty):
     """
-    `TopicSingularFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicsingularfilterconstant.html>`__
+    `TopicSingularFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicsingularfilterconstant.html>`__
     """
 
     props: PropsDictType = {
@@ -8725,7 +8725,7 @@ class TopicSingularFilterConstant(AWSProperty):
 
 class TopicNumericEqualityFilter(AWSProperty):
     """
-    `TopicNumericEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericequalityfilter.html>`__
+    `TopicNumericEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicnumericequalityfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8736,7 +8736,7 @@ class TopicNumericEqualityFilter(AWSProperty):
 
 class TopicNumericRangeFilter(AWSProperty):
     """
-    `TopicNumericRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericrangefilter.html>`__
+    `TopicNumericRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicnumericrangefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8748,7 +8748,7 @@ class TopicNumericRangeFilter(AWSProperty):
 
 class TopicRelativeDateFilter(AWSProperty):
     """
-    `TopicRelativeDateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html>`__
+    `TopicRelativeDateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicrelativedatefilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8760,7 +8760,7 @@ class TopicRelativeDateFilter(AWSProperty):
 
 class TopicFilter(AWSProperty):
     """
-    `TopicFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html>`__
+    `TopicFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -8780,7 +8780,7 @@ class TopicFilter(AWSProperty):
 
 class NamedEntityDefinitionMetric(AWSProperty):
     """
-    `NamedEntityDefinitionMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html>`__
+    `NamedEntityDefinitionMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-namedentitydefinitionmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -8791,7 +8791,7 @@ class NamedEntityDefinitionMetric(AWSProperty):
 
 class NamedEntityDefinition(AWSProperty):
     """
-    `NamedEntityDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html>`__
+    `NamedEntityDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-namedentitydefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -8805,7 +8805,7 @@ class NamedEntityDefinition(AWSProperty):
 
 class SemanticEntityType(AWSProperty):
     """
-    `SemanticEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html>`__
+    `SemanticEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-semanticentitytype.html>`__
     """
 
     props: PropsDictType = {
@@ -8817,7 +8817,7 @@ class SemanticEntityType(AWSProperty):
 
 class TopicNamedEntity(AWSProperty):
     """
-    `TopicNamedEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html>`__
+    `TopicNamedEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicnamedentity.html>`__
     """
 
     props: PropsDictType = {
@@ -8831,7 +8831,7 @@ class TopicNamedEntity(AWSProperty):
 
 class DatasetMetadata(AWSProperty):
     """
-    `DatasetMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html>`__
+    `DatasetMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-datasetmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -8848,7 +8848,7 @@ class DatasetMetadata(AWSProperty):
 
 class TopicConfigOptions(AWSProperty):
     """
-    `TopicConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicconfigoptions.html>`__
+    `TopicConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-topic-topicconfigoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -8858,7 +8858,7 @@ class TopicConfigOptions(AWSProperty):
 
 class Topic(AWSObject):
     """
-    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html>`__
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-topic.html>`__
     """
 
     resource_type = "AWS::QuickSight::Topic"
@@ -8877,7 +8877,7 @@ class Topic(AWSObject):
 
 class VPCConnection(AWSObject):
     """
-    `VPCConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html>`__
+    `VPCConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-quicksight-vpcconnection.html>`__
     """
 
     resource_type = "AWS::QuickSight::VPCConnection"
@@ -8897,7 +8897,7 @@ class VPCConnection(AWSObject):
 
 class DashboardError(AWSProperty):
     """
-    `DashboardError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboarderror.html>`__
+    `DashboardError <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-dashboard-dashboarderror.html>`__
     """
 
     props: PropsDictType = {
@@ -8909,7 +8909,7 @@ class DashboardError(AWSProperty):
 
 class NetworkInterface(AWSProperty):
     """
-    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-networkinterface.html>`__
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-vpcconnection-networkinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -8923,7 +8923,7 @@ class NetworkInterface(AWSProperty):
 
 class TemplateError(AWSProperty):
     """
-    `TemplateError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateerror.html>`__
+    `TemplateError <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templateerror.html>`__
     """
 
     props: PropsDictType = {
@@ -8935,7 +8935,7 @@ class TemplateError(AWSProperty):
 
 class TemplateVersion(AWSProperty):
     """
-    `TemplateVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html>`__
+    `TemplateVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-template-templateversion.html>`__
     """
 
     props: PropsDictType = {
@@ -8953,7 +8953,7 @@ class TemplateVersion(AWSProperty):
 
 class ThemeError(AWSProperty):
     """
-    `ThemeError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html>`__
+    `ThemeError <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-themeerror.html>`__
     """
 
     props: PropsDictType = {
@@ -8964,7 +8964,7 @@ class ThemeError(AWSProperty):
 
 class ThemeVersion(AWSProperty):
     """
-    `ThemeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html>`__
+    `ThemeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-quicksight-theme-themeversion.html>`__
     """
 
     props: PropsDictType = {

@@ -12,7 +12,7 @@ from .validators import integer
 
 class AssessmentTarget(AWSObject):
     """
-    `AssessmentTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html>`__
+    `AssessmentTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-inspector-assessmenttarget.html>`__
     """
 
     resource_type = "AWS::Inspector::AssessmentTarget"
@@ -25,7 +25,7 @@ class AssessmentTarget(AWSObject):
 
 class AssessmentTemplate(AWSObject):
     """
-    `AssessmentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html>`__
+    `AssessmentTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-inspector-assessmenttemplate.html>`__
     """
 
     resource_type = "AWS::Inspector::AssessmentTemplate"
@@ -41,7 +41,7 @@ class AssessmentTemplate(AWSObject):
 
 class ResourceGroup(AWSObject):
     """
-    `ResourceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html>`__
+    `ResourceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-inspector-resourcegroup.html>`__
     """
 
     resource_type = "AWS::Inspector::ResourceGroup"

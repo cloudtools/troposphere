@@ -12,7 +12,7 @@ from .validators import boolean
 
 class Permission(AWSObject):
     """
-    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html>`__
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ram-permission.html>`__
     """
 
     resource_type = "AWS::RAM::Permission"
@@ -27,7 +27,7 @@ class Permission(AWSObject):
 
 class ResourceShare(AWSObject):
     """
-    `ResourceShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html>`__
+    `ResourceShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ram-resourceshare.html>`__
     """
 
     resource_type = "AWS::RAM::ResourceShare"

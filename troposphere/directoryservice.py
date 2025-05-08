@@ -12,7 +12,7 @@ from .validators import boolean
 
 class VpcSettings(AWSProperty):
     """
-    `VpcSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html>`__
+    `VpcSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-directoryservice-simplead-vpcsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class VpcSettings(AWSProperty):
 
 class MicrosoftAD(AWSObject):
     """
-    `MicrosoftAD <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html>`__
+    `MicrosoftAD <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-directoryservice-microsoftad.html>`__
     """
 
     resource_type = "AWS::DirectoryService::MicrosoftAD"
@@ -41,7 +41,7 @@ class MicrosoftAD(AWSObject):
 
 class SimpleAD(AWSObject):
     """
-    `SimpleAD <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html>`__
+    `SimpleAD <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-directoryservice-simplead.html>`__
     """
 
     resource_type = "AWS::DirectoryService::SimpleAD"

@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ApiKeyRestrictions(AWSProperty):
     """
-    `ApiKeyRestrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html>`__
+    `ApiKeyRestrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-location-apikey-apikeyrestrictions.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class ApiKeyRestrictions(AWSProperty):
 
 class APIKey(AWSObject):
     """
-    `APIKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html>`__
+    `APIKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-apikey.html>`__
     """
 
     resource_type = "AWS::Location::APIKey"
@@ -43,7 +43,7 @@ class APIKey(AWSObject):
 
 class GeofenceCollection(AWSObject):
     """
-    `GeofenceCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html>`__
+    `GeofenceCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-geofencecollection.html>`__
     """
 
     resource_type = "AWS::Location::GeofenceCollection"
@@ -58,7 +58,7 @@ class GeofenceCollection(AWSObject):
 
 class MapConfiguration(AWSProperty):
     """
-    `MapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html>`__
+    `MapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-location-map-mapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class MapConfiguration(AWSProperty):
 
 class Map(AWSObject):
     """
-    `Map <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html>`__
+    `Map <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-map.html>`__
     """
 
     resource_type = "AWS::Location::Map"
@@ -86,7 +86,7 @@ class Map(AWSObject):
 
 class DataSourceConfiguration(AWSProperty):
     """
-    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html>`__
+    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-location-placeindex-datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class DataSourceConfiguration(AWSProperty):
 
 class PlaceIndex(AWSObject):
     """
-    `PlaceIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html>`__
+    `PlaceIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-placeindex.html>`__
     """
 
     resource_type = "AWS::Location::PlaceIndex"
@@ -113,7 +113,7 @@ class PlaceIndex(AWSObject):
 
 class RouteCalculator(AWSObject):
     """
-    `RouteCalculator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html>`__
+    `RouteCalculator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-routecalculator.html>`__
     """
 
     resource_type = "AWS::Location::RouteCalculator"
@@ -129,7 +129,7 @@ class RouteCalculator(AWSObject):
 
 class Tracker(AWSObject):
     """
-    `Tracker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html>`__
+    `Tracker <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-tracker.html>`__
     """
 
     resource_type = "AWS::Location::Tracker"
@@ -147,7 +147,7 @@ class Tracker(AWSObject):
 
 class TrackerConsumer(AWSObject):
     """
-    `TrackerConsumer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html>`__
+    `TrackerConsumer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-location-trackerconsumer.html>`__
     """
 
     resource_type = "AWS::Location::TrackerConsumer"

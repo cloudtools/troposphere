@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class Hypervisor(AWSObject):
     """
-    `Hypervisor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html>`__
+    `Hypervisor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-backupgateway-hypervisor.html>`__
     """
 
     resource_type = "AWS::BackupGateway::Hypervisor"

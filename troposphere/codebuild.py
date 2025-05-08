@@ -27,7 +27,7 @@ from .validators.codebuild import (
 
 class ComputeConfiguration(AWSProperty):
     """
-    `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html>`__
+    `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-fleet-computeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class ComputeConfiguration(AWSProperty):
 
 class FleetProxyRule(AWSProperty):
     """
-    `FleetProxyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-fleetproxyrule.html>`__
+    `FleetProxyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-fleet-fleetproxyrule.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class FleetProxyRule(AWSProperty):
 
 class ProxyConfiguration(AWSProperty):
     """
-    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html>`__
+    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-fleet-proxyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ProxyConfiguration(AWSProperty):
 
 class TargetTrackingScalingConfiguration(AWSProperty):
     """
-    `TargetTrackingScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-targettrackingscalingconfiguration.html>`__
+    `TargetTrackingScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-fleet-targettrackingscalingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -74,7 +74,7 @@ class TargetTrackingScalingConfiguration(AWSProperty):
 
 class ScalingConfigurationInput(AWSProperty):
     """
-    `ScalingConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html>`__
+    `ScalingConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-fleet-scalingconfigurationinput.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class ScalingConfigurationInput(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class VpcConfig(AWSProperty):
 
 class Fleet(AWSObject):
     """
-    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html>`__
+    `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codebuild-fleet.html>`__
     """
 
     resource_type = "AWS::CodeBuild::Fleet"
@@ -121,7 +121,7 @@ class Fleet(AWSObject):
 
 class Artifacts(AWSProperty):
     """
-    `Artifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html>`__
+    `Artifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-artifacts.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class Artifacts(AWSProperty):
 
 class EnvironmentVariable(AWSProperty):
     """
-    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html>`__
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-environmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class EnvironmentVariable(AWSProperty):
 
 class ProjectFleet(AWSProperty):
     """
-    `ProjectFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfleet.html>`__
+    `ProjectFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projectfleet.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class ProjectFleet(AWSProperty):
 
 class RegistryCredential(AWSProperty):
     """
-    `RegistryCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-registrycredential.html>`__
+    `RegistryCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-registrycredential.html>`__
     """
 
     props: PropsDictType = {
@@ -178,7 +178,7 @@ class RegistryCredential(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-environment.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class Environment(AWSProperty):
 
 class CloudWatchLogs(AWSProperty):
     """
-    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html>`__
+    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-cloudwatchlogsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -211,7 +211,7 @@ class CloudWatchLogs(AWSProperty):
 
 class S3Logs(AWSProperty):
     """
-    `S3Logs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html>`__
+    `S3Logs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-s3logsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -223,7 +223,7 @@ class S3Logs(AWSProperty):
 
 class LogsConfig(AWSProperty):
     """
-    `LogsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html>`__
+    `LogsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-logsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class LogsConfig(AWSProperty):
 
 class BatchRestrictions(AWSProperty):
     """
-    `BatchRestrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html>`__
+    `BatchRestrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-batchrestrictions.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class BatchRestrictions(AWSProperty):
 
 class ProjectBuildBatchConfig(AWSProperty):
     """
-    `ProjectBuildBatchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectbuildbatchconfig.html>`__
+    `ProjectBuildBatchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projectbuildbatchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -259,7 +259,7 @@ class ProjectBuildBatchConfig(AWSProperty):
 
 class ProjectCache(AWSProperty):
     """
-    `ProjectCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html>`__
+    `ProjectCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projectcache.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class ProjectCache(AWSProperty):
 
 class ProjectFileSystemLocation(AWSProperty):
     """
-    `ProjectFileSystemLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html>`__
+    `ProjectFileSystemLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projectfilesystemlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +289,7 @@ class ProjectFileSystemLocation(AWSProperty):
 
 class ProjectSourceVersion(AWSProperty):
     """
-    `ProjectSourceVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectsourceversion.html>`__
+    `ProjectSourceVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projectsourceversion.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class ProjectSourceVersion(AWSProperty):
 
 class ScopeConfiguration(AWSProperty):
     """
-    `ScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html>`__
+    `ScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-scopeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class ScopeConfiguration(AWSProperty):
 
 class ProjectTriggers(AWSProperty):
     """
-    `ProjectTriggers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html>`__
+    `ProjectTriggers <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-projecttriggers.html>`__
     """
 
     props: PropsDictType = {
@@ -328,7 +328,7 @@ class ProjectTriggers(AWSProperty):
 
 class BuildStatusConfig(AWSProperty):
     """
-    `BuildStatusConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-buildstatusconfig.html>`__
+    `BuildStatusConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-buildstatusconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -339,7 +339,7 @@ class BuildStatusConfig(AWSProperty):
 
 class GitSubmodulesConfig(AWSProperty):
     """
-    `GitSubmodulesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-gitsubmodulesconfig.html>`__
+    `GitSubmodulesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-gitsubmodulesconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -349,7 +349,7 @@ class GitSubmodulesConfig(AWSProperty):
 
 class SourceAuth(AWSProperty):
     """
-    `SourceAuth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html>`__
+    `SourceAuth <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-sourceauth.html>`__
     """
 
     props: PropsDictType = {
@@ -363,7 +363,7 @@ class SourceAuth(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-source.html>`__
     """
 
     props: PropsDictType = {
@@ -385,7 +385,7 @@ class Source(AWSProperty):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html>`__
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codebuild-project.html>`__
     """
 
     resource_type = "AWS::CodeBuild::Project"
@@ -421,7 +421,7 @@ class Project(AWSObject):
 
 class S3ReportExportConfig(AWSProperty):
     """
-    `S3ReportExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html>`__
+    `S3ReportExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-reportgroup-s3reportexportconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -436,7 +436,7 @@ class S3ReportExportConfig(AWSProperty):
 
 class ReportExportConfig(AWSProperty):
     """
-    `ReportExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-reportexportconfig.html>`__
+    `ReportExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-reportgroup-reportexportconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -447,7 +447,7 @@ class ReportExportConfig(AWSProperty):
 
 class ReportGroup(AWSObject):
     """
-    `ReportGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html>`__
+    `ReportGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codebuild-reportgroup.html>`__
     """
 
     resource_type = "AWS::CodeBuild::ReportGroup"
@@ -463,7 +463,7 @@ class ReportGroup(AWSObject):
 
 class SourceCredential(AWSObject):
     """
-    `SourceCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html>`__
+    `SourceCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codebuild-sourcecredential.html>`__
     """
 
     resource_type = "AWS::CodeBuild::SourceCredential"
@@ -478,7 +478,7 @@ class SourceCredential(AWSObject):
 
 class WebhookFilter(AWSProperty):
     """
-    `WebhookFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html>`__
+    `WebhookFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codebuild-project-webhookfilter.html>`__
     """
 
     props: PropsDictType = {

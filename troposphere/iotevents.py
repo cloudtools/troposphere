@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class AcknowledgeFlow(AWSProperty):
     """
-    `AcknowledgeFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-acknowledgeflow.html>`__
+    `AcknowledgeFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-acknowledgeflow.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AcknowledgeFlow(AWSProperty):
 
 class InitializationConfiguration(AWSProperty):
     """
-    `InitializationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html>`__
+    `InitializationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-initializationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class InitializationConfiguration(AWSProperty):
 
 class AlarmCapabilities(AWSProperty):
     """
-    `AlarmCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html>`__
+    `AlarmCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-alarmcapabilities.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class AlarmCapabilities(AWSProperty):
 
 class Payload(AWSProperty):
     """
-    `Payload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html>`__
+    `Payload <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-payload.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class Payload(AWSProperty):
 
 class DynamoDB(AWSProperty):
     """
-    `DynamoDB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html>`__
+    `DynamoDB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-dynamodb.html>`__
     """
 
     props: PropsDictType = {
@@ -73,7 +73,7 @@ class DynamoDB(AWSProperty):
 
 class DynamoDBv2(AWSProperty):
     """
-    `DynamoDBv2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html>`__
+    `DynamoDBv2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-dynamodbv2.html>`__
     """
 
     props: PropsDictType = {
@@ -84,7 +84,7 @@ class DynamoDBv2(AWSProperty):
 
 class Firehose(AWSProperty):
     """
-    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html>`__
+    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-firehose.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class Firehose(AWSProperty):
 
 class IotEvents(AWSProperty):
     """
-    `IotEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html>`__
+    `IotEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-iotevents.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class IotEvents(AWSProperty):
 
 class AssetPropertyTimestamp(AWSProperty):
     """
-    `AssetPropertyTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html>`__
+    `AssetPropertyTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class AssetPropertyTimestamp(AWSProperty):
 
 class AssetPropertyVariant(AWSProperty):
     """
-    `AssetPropertyVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html>`__
+    `AssetPropertyVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-assetpropertyvariant.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class AssetPropertyVariant(AWSProperty):
 
 class AssetPropertyValue(AWSProperty):
     """
-    `AssetPropertyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html>`__
+    `AssetPropertyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-assetpropertyvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -143,7 +143,7 @@ class AssetPropertyValue(AWSProperty):
 
 class IotSiteWise(AWSProperty):
     """
-    `IotSiteWise <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html>`__
+    `IotSiteWise <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-iotsitewise.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class IotSiteWise(AWSProperty):
 
 class IotTopicPublish(AWSProperty):
     """
-    `IotTopicPublish <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html>`__
+    `IotTopicPublish <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-iottopicpublish.html>`__
     """
 
     props: PropsDictType = {
@@ -168,7 +168,7 @@ class IotTopicPublish(AWSProperty):
 
 class Lambda(AWSProperty):
     """
-    `Lambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html>`__
+    `Lambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-lambda.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class Lambda(AWSProperty):
 
 class Sns(AWSProperty):
     """
-    `Sns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html>`__
+    `Sns <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-sns.html>`__
     """
 
     props: PropsDictType = {
@@ -190,7 +190,7 @@ class Sns(AWSProperty):
 
 class Sqs(AWSProperty):
     """
-    `Sqs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html>`__
+    `Sqs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-sqs.html>`__
     """
 
     props: PropsDictType = {
@@ -202,7 +202,7 @@ class Sqs(AWSProperty):
 
 class AlarmAction(AWSProperty):
     """
-    `AlarmAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html>`__
+    `AlarmAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-alarmaction.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class AlarmAction(AWSProperty):
 
 class AlarmEventActions(AWSProperty):
     """
-    `AlarmEventActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html>`__
+    `AlarmEventActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-alarmeventactions.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class AlarmEventActions(AWSProperty):
 
 class SimpleRule(AWSProperty):
     """
-    `SimpleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html>`__
+    `SimpleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-simplerule.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class SimpleRule(AWSProperty):
 
 class AlarmRule(AWSProperty):
     """
-    `AlarmRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html>`__
+    `AlarmRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-alarmmodel-alarmrule.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class AlarmRule(AWSProperty):
 
 class AlarmModel(AWSObject):
     """
-    `AlarmModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html>`__
+    `AlarmModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotevents-alarmmodel.html>`__
     """
 
     resource_type = "AWS::IoTEvents::AlarmModel"
@@ -272,7 +272,7 @@ class AlarmModel(AWSObject):
 
 class ClearTimer(AWSProperty):
     """
-    `ClearTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html>`__
+    `ClearTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-cleartimer.html>`__
     """
 
     props: PropsDictType = {
@@ -282,7 +282,7 @@ class ClearTimer(AWSProperty):
 
 class ResetTimer(AWSProperty):
     """
-    `ResetTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html>`__
+    `ResetTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-resettimer.html>`__
     """
 
     props: PropsDictType = {
@@ -292,7 +292,7 @@ class ResetTimer(AWSProperty):
 
 class SetTimer(AWSProperty):
     """
-    `SetTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html>`__
+    `SetTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-settimer.html>`__
     """
 
     props: PropsDictType = {
@@ -304,7 +304,7 @@ class SetTimer(AWSProperty):
 
 class SetVariable(AWSProperty):
     """
-    `SetVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html>`__
+    `SetVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-setvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -315,7 +315,7 @@ class SetVariable(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-action.html>`__
     """
 
     props: PropsDictType = {
@@ -337,7 +337,7 @@ class Action(AWSProperty):
 
 class Event(AWSProperty):
     """
-    `Event <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html>`__
+    `Event <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-event.html>`__
     """
 
     props: PropsDictType = {
@@ -349,7 +349,7 @@ class Event(AWSProperty):
 
 class OnEnter(AWSProperty):
     """
-    `OnEnter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html>`__
+    `OnEnter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-onenter.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class OnEnter(AWSProperty):
 
 class OnExit(AWSProperty):
     """
-    `OnExit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html>`__
+    `OnExit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-onexit.html>`__
     """
 
     props: PropsDictType = {
@@ -369,7 +369,7 @@ class OnExit(AWSProperty):
 
 class TransitionEvent(AWSProperty):
     """
-    `TransitionEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html>`__
+    `TransitionEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-transitionevent.html>`__
     """
 
     props: PropsDictType = {
@@ -382,7 +382,7 @@ class TransitionEvent(AWSProperty):
 
 class OnInput(AWSProperty):
     """
-    `OnInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html>`__
+    `OnInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-oninput.html>`__
     """
 
     props: PropsDictType = {
@@ -393,7 +393,7 @@ class OnInput(AWSProperty):
 
 class State(AWSProperty):
     """
-    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html>`__
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-state.html>`__
     """
 
     props: PropsDictType = {
@@ -406,7 +406,7 @@ class State(AWSProperty):
 
 class DetectorModelDefinition(AWSProperty):
     """
-    `DetectorModelDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html>`__
+    `DetectorModelDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-detectormodel-detectormodeldefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -417,7 +417,7 @@ class DetectorModelDefinition(AWSProperty):
 
 class DetectorModel(AWSObject):
     """
-    `DetectorModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html>`__
+    `DetectorModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotevents-detectormodel.html>`__
     """
 
     resource_type = "AWS::IoTEvents::DetectorModel"
@@ -435,7 +435,7 @@ class DetectorModel(AWSObject):
 
 class Attribute(AWSProperty):
     """
-    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html>`__
+    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-input-attribute.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class Attribute(AWSProperty):
 
 class InputDefinition(AWSProperty):
     """
-    `InputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html>`__
+    `InputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iotevents-input-inputdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -455,7 +455,7 @@ class InputDefinition(AWSProperty):
 
 class Input(AWSObject):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iotevents-input.html>`__
     """
 
     resource_type = "AWS::IoTEvents::Input"

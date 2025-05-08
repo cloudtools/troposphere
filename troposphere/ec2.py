@@ -40,7 +40,7 @@ from .validators.ec2 import (
 
 class TagSpecifications(AWSProperty):
     """
-    `TagSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html>`__
+    `TagSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-capacityreservation-tagspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class TagSpecifications(AWSProperty):
 
 class CapacityReservation(AWSObject):
     """
-    `CapacityReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html>`__
+    `CapacityReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-capacityreservation.html>`__
     """
 
     resource_type = "AWS::EC2::CapacityReservation"
@@ -77,7 +77,7 @@ class CapacityReservation(AWSObject):
 
 class InstanceTypeSpecification(AWSProperty):
     """
-    `InstanceTypeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservationfleet-instancetypespecification.html>`__
+    `InstanceTypeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-capacityreservationfleet-instancetypespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class InstanceTypeSpecification(AWSProperty):
 
 class CapacityReservationFleet(AWSObject):
     """
-    `CapacityReservationFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html>`__
+    `CapacityReservationFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-capacityreservationfleet.html>`__
     """
 
     resource_type = "AWS::EC2::CapacityReservationFleet"
@@ -113,7 +113,7 @@ class CapacityReservationFleet(AWSObject):
 
 class CarrierGateway(AWSObject):
     """
-    `CarrierGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html>`__
+    `CarrierGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-carriergateway.html>`__
     """
 
     resource_type = "AWS::EC2::CarrierGateway"
@@ -126,7 +126,7 @@ class CarrierGateway(AWSObject):
 
 class ClientVpnAuthorizationRule(AWSObject):
     """
-    `ClientVpnAuthorizationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnauthorizationrule.html>`__
+    `ClientVpnAuthorizationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-clientvpnauthorizationrule.html>`__
     """
 
     resource_type = "AWS::EC2::ClientVpnAuthorizationRule"
@@ -142,7 +142,7 @@ class ClientVpnAuthorizationRule(AWSObject):
 
 class CertificateAuthenticationRequest(AWSProperty):
     """
-    `CertificateAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html>`__
+    `CertificateAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class CertificateAuthenticationRequest(AWSProperty):
 
 class DirectoryServiceAuthenticationRequest(AWSProperty):
     """
-    `DirectoryServiceAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html>`__
+    `DirectoryServiceAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class DirectoryServiceAuthenticationRequest(AWSProperty):
 
 class FederatedAuthenticationRequest(AWSProperty):
     """
-    `FederatedAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html>`__
+    `FederatedAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class FederatedAuthenticationRequest(AWSProperty):
 
 class ClientAuthenticationRequest(AWSProperty):
     """
-    `ClientAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html>`__
+    `ClientAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class ClientAuthenticationRequest(AWSProperty):
 
 class ClientConnectOptions(AWSProperty):
     """
-    `ClientConnectOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html>`__
+    `ClientConnectOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class ClientConnectOptions(AWSProperty):
 
 class ClientLoginBannerOptions(AWSProperty):
     """
-    `ClientLoginBannerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientloginbanneroptions.html>`__
+    `ClientLoginBannerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-clientloginbanneroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class ClientLoginBannerOptions(AWSProperty):
 
 class ClientRouteEnforcementOptions(AWSProperty):
     """
-    `ClientRouteEnforcementOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientrouteenforcementoptions.html>`__
+    `ClientRouteEnforcementOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-clientrouteenforcementoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -218,7 +218,7 @@ class ClientRouteEnforcementOptions(AWSProperty):
 
 class ConnectionLogOptions(AWSProperty):
     """
-    `ConnectionLogOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html>`__
+    `ConnectionLogOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class ConnectionLogOptions(AWSProperty):
 
 class ClientVpnEndpoint(AWSObject):
     """
-    `ClientVpnEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html>`__
+    `ClientVpnEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-clientvpnendpoint.html>`__
     """
 
     resource_type = "AWS::EC2::ClientVpnEndpoint"
@@ -259,7 +259,7 @@ class ClientVpnEndpoint(AWSObject):
 
 class ClientVpnRoute(AWSObject):
     """
-    `ClientVpnRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html>`__
+    `ClientVpnRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-clientvpnroute.html>`__
     """
 
     resource_type = "AWS::EC2::ClientVpnRoute"
@@ -274,7 +274,7 @@ class ClientVpnRoute(AWSObject):
 
 class ClientVpnTargetNetworkAssociation(AWSObject):
     """
-    `ClientVpnTargetNetworkAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html>`__
+    `ClientVpnTargetNetworkAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-clientvpntargetnetworkassociation.html>`__
     """
 
     resource_type = "AWS::EC2::ClientVpnTargetNetworkAssociation"
@@ -287,7 +287,7 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
 
 class CustomerGateway(AWSObject):
     """
-    `CustomerGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html>`__
+    `CustomerGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-customergateway.html>`__
     """
 
     resource_type = "AWS::EC2::CustomerGateway"
@@ -305,7 +305,7 @@ class CustomerGateway(AWSObject):
 
 class DHCPOptions(AWSObject):
     """
-    `DHCPOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html>`__
+    `DHCPOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-dhcpoptions.html>`__
     """
 
     resource_type = "AWS::EC2::DHCPOptions"
@@ -323,7 +323,7 @@ class DHCPOptions(AWSObject):
 
 class AcceleratorCountRequest(AWSProperty):
     """
-    `AcceleratorCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratorcountrequest.html>`__
+    `AcceleratorCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-acceleratorcountrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -334,7 +334,7 @@ class AcceleratorCountRequest(AWSProperty):
 
 class AcceleratorTotalMemoryMiBRequest(AWSProperty):
     """
-    `AcceleratorTotalMemoryMiBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html>`__
+    `AcceleratorTotalMemoryMiBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-acceleratortotalmemorymibrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -345,7 +345,7 @@ class AcceleratorTotalMemoryMiBRequest(AWSProperty):
 
 class BaselineEbsBandwidthMbpsRequest(AWSProperty):
     """
-    `BaselineEbsBandwidthMbpsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-baselineebsbandwidthmbpsrequest.html>`__
+    `BaselineEbsBandwidthMbpsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-baselineebsbandwidthmbpsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -356,7 +356,7 @@ class BaselineEbsBandwidthMbpsRequest(AWSProperty):
 
 class PerformanceFactorReferenceRequest(AWSProperty):
     """
-    `PerformanceFactorReferenceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-performancefactorreferencerequest.html>`__
+    `PerformanceFactorReferenceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-performancefactorreferencerequest.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class PerformanceFactorReferenceRequest(AWSProperty):
 
 class CpuPerformanceFactorRequest(AWSProperty):
     """
-    `CpuPerformanceFactorRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-cpuperformancefactorrequest.html>`__
+    `CpuPerformanceFactorRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-cpuperformancefactorrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class CpuPerformanceFactorRequest(AWSProperty):
 
 class BaselinePerformanceFactorsRequest(AWSProperty):
     """
-    `BaselinePerformanceFactorsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-baselineperformancefactorsrequest.html>`__
+    `BaselinePerformanceFactorsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-baselineperformancefactorsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class BaselinePerformanceFactorsRequest(AWSProperty):
 
 class MemoryGiBPerVCpuRequest(AWSProperty):
     """
-    `MemoryGiBPerVCpuRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html>`__
+    `MemoryGiBPerVCpuRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html>`__
     """
 
     props: PropsDictType = {
@@ -397,7 +397,7 @@ class MemoryGiBPerVCpuRequest(AWSProperty):
 
 class MemoryMiBRequest(AWSProperty):
     """
-    `MemoryMiBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorymibrequest.html>`__
+    `MemoryMiBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-memorymibrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -408,7 +408,7 @@ class MemoryMiBRequest(AWSProperty):
 
 class NetworkBandwidthGbpsRequest(AWSProperty):
     """
-    `NetworkBandwidthGbpsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-networkbandwidthgbpsrequest.html>`__
+    `NetworkBandwidthGbpsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-networkbandwidthgbpsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -419,7 +419,7 @@ class NetworkBandwidthGbpsRequest(AWSProperty):
 
 class NetworkInterfaceCountRequest(AWSProperty):
     """
-    `NetworkInterfaceCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-networkinterfacecountrequest.html>`__
+    `NetworkInterfaceCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-networkinterfacecountrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -430,7 +430,7 @@ class NetworkInterfaceCountRequest(AWSProperty):
 
 class TotalLocalStorageGBRequest(AWSProperty):
     """
-    `TotalLocalStorageGBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-totallocalstoragegbrequest.html>`__
+    `TotalLocalStorageGBRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-totallocalstoragegbrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -441,7 +441,7 @@ class TotalLocalStorageGBRequest(AWSProperty):
 
 class VCpuCountRangeRequest(AWSProperty):
     """
-    `VCpuCountRangeRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-vcpucountrangerequest.html>`__
+    `VCpuCountRangeRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-vcpucountrangerequest.html>`__
     """
 
     props: PropsDictType = {
@@ -452,7 +452,7 @@ class VCpuCountRangeRequest(AWSProperty):
 
 class InstanceRequirementsRequest(AWSProperty):
     """
-    `InstanceRequirementsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html>`__
+    `InstanceRequirementsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-instancerequirementsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -486,7 +486,7 @@ class InstanceRequirementsRequest(AWSProperty):
 
 class Placement(AWSProperty):
     """
-    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html>`__
+    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-placement.html>`__
     """
 
     props: PropsDictType = {
@@ -504,7 +504,7 @@ class Placement(AWSProperty):
 
 class FleetLaunchTemplateOverridesRequest(AWSProperty):
     """
-    `FleetLaunchTemplateOverridesRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html>`__
+    `FleetLaunchTemplateOverridesRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -521,7 +521,7 @@ class FleetLaunchTemplateOverridesRequest(AWSProperty):
 
 class FleetLaunchTemplateSpecificationRequest(AWSProperty):
     """
-    `FleetLaunchTemplateSpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html>`__
+    `FleetLaunchTemplateSpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -533,7 +533,7 @@ class FleetLaunchTemplateSpecificationRequest(AWSProperty):
 
 class FleetLaunchTemplateConfigRequest(AWSProperty):
     """
-    `FleetLaunchTemplateConfigRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html>`__
+    `FleetLaunchTemplateConfigRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -544,7 +544,7 @@ class FleetLaunchTemplateConfigRequest(AWSProperty):
 
 class CapacityReservationOptionsRequest(AWSProperty):
     """
-    `CapacityReservationOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html>`__
+    `CapacityReservationOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -554,7 +554,7 @@ class CapacityReservationOptionsRequest(AWSProperty):
 
 class OnDemandOptionsRequest(AWSProperty):
     """
-    `OnDemandOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html>`__
+    `OnDemandOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -569,7 +569,7 @@ class OnDemandOptionsRequest(AWSProperty):
 
 class CapacityRebalance(AWSProperty):
     """
-    `CapacityRebalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html>`__
+    `CapacityRebalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-capacityrebalance.html>`__
     """
 
     props: PropsDictType = {
@@ -580,7 +580,7 @@ class CapacityRebalance(AWSProperty):
 
 class MaintenanceStrategies(AWSProperty):
     """
-    `MaintenanceStrategies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html>`__
+    `MaintenanceStrategies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-maintenancestrategies.html>`__
     """
 
     props: PropsDictType = {
@@ -590,7 +590,7 @@ class MaintenanceStrategies(AWSProperty):
 
 class SpotOptionsRequest(AWSProperty):
     """
-    `SpotOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html>`__
+    `SpotOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-spotoptionsrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -607,7 +607,7 @@ class SpotOptionsRequest(AWSProperty):
 
 class TargetCapacitySpecificationRequest(AWSProperty):
     """
-    `TargetCapacitySpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html>`__
+    `TargetCapacitySpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -621,7 +621,7 @@ class TargetCapacitySpecificationRequest(AWSProperty):
 
 class EC2Fleet(AWSObject):
     """
-    `EC2Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html>`__
+    `EC2Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ec2fleet.html>`__
     """
 
     resource_type = "AWS::EC2::EC2Fleet"
@@ -644,7 +644,7 @@ class EC2Fleet(AWSObject):
 
 class EIP(AWSObject):
     """
-    `EIP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html>`__
+    `EIP <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-eip.html>`__
     """
 
     resource_type = "AWS::EC2::EIP"
@@ -663,7 +663,7 @@ class EIP(AWSObject):
 
 class EIPAssociation(AWSObject):
     """
-    `EIPAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html>`__
+    `EIPAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-eipassociation.html>`__
     """
 
     resource_type = "AWS::EC2::EIPAssociation"
@@ -678,7 +678,7 @@ class EIPAssociation(AWSObject):
 
 class EgressOnlyInternetGateway(AWSObject):
     """
-    `EgressOnlyInternetGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html>`__
+    `EgressOnlyInternetGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-egressonlyinternetgateway.html>`__
     """
 
     resource_type = "AWS::EC2::EgressOnlyInternetGateway"
@@ -690,7 +690,7 @@ class EgressOnlyInternetGateway(AWSObject):
 
 class EnclaveCertificateIamRoleAssociation(AWSObject):
     """
-    `EnclaveCertificateIamRoleAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html>`__
+    `EnclaveCertificateIamRoleAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-enclavecertificateiamroleassociation.html>`__
     """
 
     resource_type = "AWS::EC2::EnclaveCertificateIamRoleAssociation"
@@ -703,7 +703,7 @@ class EnclaveCertificateIamRoleAssociation(AWSObject):
 
 class DestinationOptions(AWSProperty):
     """
-    `DestinationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html>`__
+    `DestinationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-flowlog-destinationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -715,7 +715,7 @@ class DestinationOptions(AWSProperty):
 
 class FlowLog(AWSObject):
     """
-    `FlowLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html>`__
+    `FlowLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-flowlog.html>`__
     """
 
     resource_type = "AWS::EC2::FlowLog"
@@ -738,7 +738,7 @@ class FlowLog(AWSObject):
 
 class GatewayRouteTableAssociation(AWSObject):
     """
-    `GatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html>`__
+    `GatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-gatewayroutetableassociation.html>`__
     """
 
     resource_type = "AWS::EC2::GatewayRouteTableAssociation"
@@ -751,7 +751,7 @@ class GatewayRouteTableAssociation(AWSObject):
 
 class Host(AWSObject):
     """
-    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html>`__
+    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-host.html>`__
     """
 
     resource_type = "AWS::EC2::Host"
@@ -770,7 +770,7 @@ class Host(AWSObject):
 
 class IpamOperatingRegion(AWSProperty):
     """
-    `IpamOperatingRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html>`__
+    `IpamOperatingRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html>`__
     """
 
     props: PropsDictType = {
@@ -780,7 +780,7 @@ class IpamOperatingRegion(AWSProperty):
 
 class IpamOrganizationalUnitExclusion(AWSProperty):
     """
-    `IpamOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamorganizationalunitexclusion.html>`__
+    `IpamOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ipam-ipamorganizationalunitexclusion.html>`__
     """
 
     props: PropsDictType = {
@@ -790,7 +790,7 @@ class IpamOrganizationalUnitExclusion(AWSProperty):
 
 class IPAM(AWSObject):
     """
-    `IPAM <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html>`__
+    `IPAM <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipam.html>`__
     """
 
     resource_type = "AWS::EC2::IPAM"
@@ -810,7 +810,7 @@ class IPAM(AWSObject):
 
 class IPAMAllocation(AWSObject):
     """
-    `IPAMAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html>`__
+    `IPAMAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipamallocation.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMAllocation"
@@ -825,7 +825,7 @@ class IPAMAllocation(AWSObject):
 
 class ProvisionedCidr(AWSProperty):
     """
-    `ProvisionedCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-provisionedcidr.html>`__
+    `ProvisionedCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ipampool-provisionedcidr.html>`__
     """
 
     props: PropsDictType = {
@@ -835,7 +835,7 @@ class ProvisionedCidr(AWSProperty):
 
 class SourceResource(AWSProperty):
     """
-    `SourceResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html>`__
+    `SourceResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ipampool-sourceresource.html>`__
     """
 
     props: PropsDictType = {
@@ -848,7 +848,7 @@ class SourceResource(AWSProperty):
 
 class IPAMPool(AWSObject):
     """
-    `IPAMPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html>`__
+    `IPAMPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipampool.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMPool"
@@ -875,7 +875,7 @@ class IPAMPool(AWSObject):
 
 class IPAMPoolCidr(AWSObject):
     """
-    `IPAMPoolCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html>`__
+    `IPAMPoolCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipampoolcidr.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMPoolCidr"
@@ -889,7 +889,7 @@ class IPAMPoolCidr(AWSObject):
 
 class IpamResourceDiscoveryOrganizationalUnitExclusion(AWSProperty):
     """
-    `IpamResourceDiscoveryOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html>`__
+    `IpamResourceDiscoveryOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html>`__
     """
 
     props: PropsDictType = {
@@ -899,7 +899,7 @@ class IpamResourceDiscoveryOrganizationalUnitExclusion(AWSProperty):
 
 class IPAMResourceDiscovery(AWSObject):
     """
-    `IPAMResourceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html>`__
+    `IPAMResourceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipamresourcediscovery.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMResourceDiscovery"
@@ -917,7 +917,7 @@ class IPAMResourceDiscovery(AWSObject):
 
 class IPAMResourceDiscoveryAssociation(AWSObject):
     """
-    `IPAMResourceDiscoveryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html>`__
+    `IPAMResourceDiscoveryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipamresourcediscoveryassociation.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMResourceDiscoveryAssociation"
@@ -931,7 +931,7 @@ class IPAMResourceDiscoveryAssociation(AWSObject):
 
 class IPAMScope(AWSObject):
     """
-    `IPAMScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html>`__
+    `IPAMScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-ipamscope.html>`__
     """
 
     resource_type = "AWS::EC2::IPAMScope"
@@ -945,7 +945,7 @@ class IPAMScope(AWSObject):
 
 class EBSBlockDevice(AWSProperty):
     """
-    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html>`__
+    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-ebs.html>`__
     """
 
     props: PropsDictType = {
@@ -962,7 +962,7 @@ class EBSBlockDevice(AWSProperty):
 
 class BlockDeviceMapping(AWSProperty):
     """
-    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html>`__
+    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-blockdevicemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -975,7 +975,7 @@ class BlockDeviceMapping(AWSProperty):
 
 class CpuOptions(AWSProperty):
     """
-    `CpuOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html>`__
+    `CpuOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-cpuoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -987,7 +987,7 @@ class CpuOptions(AWSProperty):
 
 class CreditSpecification(AWSProperty):
     """
-    `CreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html>`__
+    `CreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-creditspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -997,7 +997,7 @@ class CreditSpecification(AWSProperty):
 
 class ElasticGpuSpecification(AWSProperty):
     """
-    `ElasticGpuSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html>`__
+    `ElasticGpuSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-elasticgpuspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1007,7 +1007,7 @@ class ElasticGpuSpecification(AWSProperty):
 
 class ElasticInferenceAccelerator(AWSProperty):
     """
-    `ElasticInferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html>`__
+    `ElasticInferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-elasticinferenceaccelerator.html>`__
     """
 
     props: PropsDictType = {
@@ -1018,7 +1018,7 @@ class ElasticInferenceAccelerator(AWSProperty):
 
 class EnclaveOptions(AWSProperty):
     """
-    `EnclaveOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enclaveoptions.html>`__
+    `EnclaveOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-enclaveoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1028,7 +1028,7 @@ class EnclaveOptions(AWSProperty):
 
 class HibernationOptions(AWSProperty):
     """
-    `HibernationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-hibernationoptions.html>`__
+    `HibernationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-hibernationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1038,7 +1038,7 @@ class HibernationOptions(AWSProperty):
 
 class InstanceIpv6Address(AWSProperty):
     """
-    `InstanceIpv6Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html>`__
+    `InstanceIpv6Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-instanceipv6address.html>`__
     """
 
     props: PropsDictType = {
@@ -1048,7 +1048,7 @@ class InstanceIpv6Address(AWSProperty):
 
 class LaunchTemplateSpecification(AWSProperty):
     """
-    `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html>`__
+    `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-launchtemplatespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1060,7 +1060,7 @@ class LaunchTemplateSpecification(AWSProperty):
 
 class LicenseSpecification(AWSProperty):
     """
-    `LicenseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html>`__
+    `LicenseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-licensespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1070,7 +1070,7 @@ class LicenseSpecification(AWSProperty):
 
 class EnaSrdUdpSpecification(AWSProperty):
     """
-    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
+    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1080,7 +1080,7 @@ class EnaSrdUdpSpecification(AWSProperty):
 
 class EnaSrdSpecification(AWSProperty):
     """
-    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>`__
+    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1091,7 +1091,7 @@ class EnaSrdSpecification(AWSProperty):
 
 class PrivateIpAddressSpecification(AWSProperty):
     """
-    `PrivateIpAddressSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html>`__
+    `PrivateIpAddressSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-privateipaddressspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1102,7 +1102,7 @@ class PrivateIpAddressSpecification(AWSProperty):
 
 class NetworkInterfaceProperty(AWSProperty):
     """
-    `NetworkInterfaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html>`__
+    `NetworkInterfaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-networkinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -1125,7 +1125,7 @@ class NetworkInterfaceProperty(AWSProperty):
 
 class PrivateDnsNameOptions(AWSProperty):
     """
-    `PrivateDnsNameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privatednsnameoptions.html>`__
+    `PrivateDnsNameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-privatednsnameoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1137,7 +1137,7 @@ class PrivateDnsNameOptions(AWSProperty):
 
 class AssociationParameters(AWSProperty):
     """
-    `AssociationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-associationparameter.html>`__
+    `AssociationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-associationparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -1148,7 +1148,7 @@ class AssociationParameters(AWSProperty):
 
 class SsmAssociations(AWSProperty):
     """
-    `SsmAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html>`__
+    `SsmAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-ssmassociation.html>`__
     """
 
     props: PropsDictType = {
@@ -1159,7 +1159,7 @@ class SsmAssociations(AWSProperty):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html>`__
     """
 
     resource_type = "AWS::EC2::Instance"
@@ -1210,7 +1210,7 @@ class Instance(AWSObject):
 
 class InstanceConnectEndpoint(AWSObject):
     """
-    `InstanceConnectEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html>`__
+    `InstanceConnectEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instanceconnectendpoint.html>`__
     """
 
     resource_type = "AWS::EC2::InstanceConnectEndpoint"
@@ -1226,7 +1226,7 @@ class InstanceConnectEndpoint(AWSObject):
 
 class InternetGateway(AWSObject):
     """
-    `InternetGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html>`__
+    `InternetGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-internetgateway.html>`__
     """
 
     resource_type = "AWS::EC2::InternetGateway"
@@ -1238,7 +1238,7 @@ class InternetGateway(AWSObject):
 
 class KeyPair(AWSObject):
     """
-    `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html>`__
+    `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-keypair.html>`__
     """
 
     resource_type = "AWS::EC2::KeyPair"
@@ -1254,7 +1254,7 @@ class KeyPair(AWSObject):
 
 class CapacityReservationTarget(AWSProperty):
     """
-    `CapacityReservationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html>`__
+    `CapacityReservationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-capacityreservationtarget.html>`__
     """
 
     props: PropsDictType = {
@@ -1265,7 +1265,7 @@ class CapacityReservationTarget(AWSProperty):
 
 class CapacityReservationSpecification(AWSProperty):
     """
-    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html>`__
+    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-capacityreservationspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1276,7 +1276,7 @@ class CapacityReservationSpecification(AWSProperty):
 
 class IamInstanceProfile(AWSProperty):
     """
-    `IamInstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html>`__
+    `IamInstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-iaminstanceprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -1287,7 +1287,7 @@ class IamInstanceProfile(AWSProperty):
 
 class SpotOptions(AWSProperty):
     """
-    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-spotoptions.html>`__
+    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-spotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1301,7 +1301,7 @@ class SpotOptions(AWSProperty):
 
 class InstanceMarketOptions(AWSProperty):
     """
-    `InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html>`__
+    `InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-instancemarketoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1312,7 +1312,7 @@ class InstanceMarketOptions(AWSProperty):
 
 class AcceleratorCount(AWSProperty):
     """
-    `AcceleratorCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratorcount.html>`__
+    `AcceleratorCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-acceleratorcount.html>`__
     """
 
     props: PropsDictType = {
@@ -1323,7 +1323,7 @@ class AcceleratorCount(AWSProperty):
 
 class AcceleratorTotalMemoryMiB(AWSProperty):
     """
-    `AcceleratorTotalMemoryMiB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html>`__
+    `AcceleratorTotalMemoryMiB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-acceleratortotalmemorymib.html>`__
     """
 
     props: PropsDictType = {
@@ -1334,7 +1334,7 @@ class AcceleratorTotalMemoryMiB(AWSProperty):
 
 class BaselineEbsBandwidthMbps(AWSProperty):
     """
-    `BaselineEbsBandwidthMbps <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html>`__
+    `BaselineEbsBandwidthMbps <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-baselineebsbandwidthmbps.html>`__
     """
 
     props: PropsDictType = {
@@ -1345,7 +1345,7 @@ class BaselineEbsBandwidthMbps(AWSProperty):
 
 class Reference(AWSProperty):
     """
-    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-reference.html>`__
+    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-reference.html>`__
     """
 
     props: PropsDictType = {
@@ -1355,7 +1355,7 @@ class Reference(AWSProperty):
 
 class Cpu(AWSProperty):
     """
-    `Cpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html>`__
+    `Cpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-cpu.html>`__
     """
 
     props: PropsDictType = {
@@ -1365,7 +1365,7 @@ class Cpu(AWSProperty):
 
 class BaselinePerformanceFactors(AWSProperty):
     """
-    `BaselinePerformanceFactors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html>`__
+    `BaselinePerformanceFactors <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-baselineperformancefactors.html>`__
     """
 
     props: PropsDictType = {
@@ -1375,7 +1375,7 @@ class BaselinePerformanceFactors(AWSProperty):
 
 class MemoryGiBPerVCpu(AWSProperty):
     """
-    `MemoryGiBPerVCpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html>`__
+    `MemoryGiBPerVCpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-memorygibpervcpu.html>`__
     """
 
     props: PropsDictType = {
@@ -1386,7 +1386,7 @@ class MemoryGiBPerVCpu(AWSProperty):
 
 class MemoryMiB(AWSProperty):
     """
-    `MemoryMiB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorymib.html>`__
+    `MemoryMiB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-memorymib.html>`__
     """
 
     props: PropsDictType = {
@@ -1397,7 +1397,7 @@ class MemoryMiB(AWSProperty):
 
 class NetworkBandwidthGbps(AWSProperty):
     """
-    `NetworkBandwidthGbps <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html>`__
+    `NetworkBandwidthGbps <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html>`__
     """
 
     props: PropsDictType = {
@@ -1408,7 +1408,7 @@ class NetworkBandwidthGbps(AWSProperty):
 
 class NetworkInterfaceCount(AWSProperty):
     """
-    `NetworkInterfaceCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html>`__
+    `NetworkInterfaceCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-networkinterfacecount.html>`__
     """
 
     props: PropsDictType = {
@@ -1419,7 +1419,7 @@ class NetworkInterfaceCount(AWSProperty):
 
 class TotalLocalStorageGB(AWSProperty):
     """
-    `TotalLocalStorageGB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-totallocalstoragegb.html>`__
+    `TotalLocalStorageGB <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-totallocalstoragegb.html>`__
     """
 
     props: PropsDictType = {
@@ -1430,7 +1430,7 @@ class TotalLocalStorageGB(AWSProperty):
 
 class VCpuCount(AWSProperty):
     """
-    `VCpuCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-vcpucount.html>`__
+    `VCpuCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-vcpucount.html>`__
     """
 
     props: PropsDictType = {
@@ -1441,7 +1441,7 @@ class VCpuCount(AWSProperty):
 
 class InstanceRequirements(AWSProperty):
     """
-    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html>`__
+    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-instancerequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -1475,7 +1475,7 @@ class InstanceRequirements(AWSProperty):
 
 class LaunchTemplateBlockDeviceMapping(AWSProperty):
     """
-    `LaunchTemplateBlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html>`__
+    `LaunchTemplateBlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-blockdevicemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -1488,7 +1488,7 @@ class LaunchTemplateBlockDeviceMapping(AWSProperty):
 
 class LaunchTemplateCreditSpecification(AWSProperty):
     """
-    `LaunchTemplateCreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html>`__
+    `LaunchTemplateCreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-creditspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1498,7 +1498,7 @@ class LaunchTemplateCreditSpecification(AWSProperty):
 
 class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
     """
-    `LaunchTemplateElasticInferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html>`__
+    `LaunchTemplateElasticInferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html>`__
     """
 
     props: PropsDictType = {
@@ -1509,7 +1509,7 @@ class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
 
 class MaintenanceOptions(AWSProperty):
     """
-    `MaintenanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html>`__
+    `MaintenanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-maintenanceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1519,7 +1519,7 @@ class MaintenanceOptions(AWSProperty):
 
 class MetadataOptions(AWSProperty):
     """
-    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.html>`__
+    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-metadataoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1533,7 +1533,7 @@ class MetadataOptions(AWSProperty):
 
 class Monitoring(AWSProperty):
     """
-    `Monitoring <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetmonitoring.html>`__
+    `Monitoring <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotfleetmonitoring.html>`__
     """
 
     props: PropsDictType = {
@@ -1543,7 +1543,7 @@ class Monitoring(AWSProperty):
 
 class ConnectionTrackingSpecification(AWSProperty):
     """
-    `ConnectionTrackingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-connectiontrackingspecification.html>`__
+    `ConnectionTrackingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinterface-connectiontrackingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1555,7 +1555,7 @@ class ConnectionTrackingSpecification(AWSProperty):
 
 class Ipv4PrefixSpecification(AWSProperty):
     """
-    `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv4prefixspecification.html>`__
+    `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinterface-ipv4prefixspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1565,7 +1565,7 @@ class Ipv4PrefixSpecification(AWSProperty):
 
 class Ipv6Add(AWSProperty):
     """
-    `Ipv6Add <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html>`__
+    `Ipv6Add <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-ipv6add.html>`__
     """
 
     props: PropsDictType = {
@@ -1575,7 +1575,7 @@ class Ipv6Add(AWSProperty):
 
 class Ipv6PrefixSpecification(AWSProperty):
     """
-    `Ipv6PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv6prefixspecification.html>`__
+    `Ipv6PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinterface-ipv6prefixspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1585,7 +1585,7 @@ class Ipv6PrefixSpecification(AWSProperty):
 
 class NetworkInterfaces(AWSProperty):
     """
-    `NetworkInterfaces <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html>`__
+    `NetworkInterfaces <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-networkinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -1616,7 +1616,7 @@ class NetworkInterfaces(AWSProperty):
 
 class NetworkPerformanceOptions(AWSProperty):
     """
-    `NetworkPerformanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkperformanceoptions.html>`__
+    `NetworkPerformanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-networkperformanceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1626,7 +1626,7 @@ class NetworkPerformanceOptions(AWSProperty):
 
 class LaunchTemplateData(AWSProperty):
     """
-    `LaunchTemplateData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html>`__
+    `LaunchTemplateData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-launchtemplate-launchtemplatedata.html>`__
     """
 
     props: PropsDictType = {
@@ -1670,7 +1670,7 @@ class LaunchTemplateData(AWSProperty):
 
 class LaunchTemplate(AWSObject):
     """
-    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html>`__
+    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-launchtemplate.html>`__
     """
 
     resource_type = "AWS::EC2::LaunchTemplate"
@@ -1685,7 +1685,7 @@ class LaunchTemplate(AWSObject):
 
 class LocalGatewayRoute(AWSObject):
     """
-    `LocalGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html>`__
+    `LocalGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-localgatewayroute.html>`__
     """
 
     resource_type = "AWS::EC2::LocalGatewayRoute"
@@ -1700,7 +1700,7 @@ class LocalGatewayRoute(AWSObject):
 
 class LocalGatewayRouteTable(AWSObject):
     """
-    `LocalGatewayRouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html>`__
+    `LocalGatewayRouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-localgatewayroutetable.html>`__
     """
 
     resource_type = "AWS::EC2::LocalGatewayRouteTable"
@@ -1714,7 +1714,7 @@ class LocalGatewayRouteTable(AWSObject):
 
 class LocalGatewayRouteTableVPCAssociation(AWSObject):
     """
-    `LocalGatewayRouteTableVPCAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html>`__
+    `LocalGatewayRouteTableVPCAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-localgatewayroutetablevpcassociation.html>`__
     """
 
     resource_type = "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
@@ -1728,7 +1728,7 @@ class LocalGatewayRouteTableVPCAssociation(AWSObject):
 
 class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(AWSObject):
     """
-    `LocalGatewayRouteTableVirtualInterfaceGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html>`__
+    `LocalGatewayRouteTableVirtualInterfaceGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html>`__
     """
 
     resource_type = "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
@@ -1742,7 +1742,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(AWSObject):
 
 class NatGateway(AWSObject):
     """
-    `NatGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html>`__
+    `NatGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-natgateway.html>`__
     """
 
     resource_type = "AWS::EC2::NatGateway"
@@ -1762,7 +1762,7 @@ class NatGateway(AWSObject):
 
 class NetworkAcl(AWSObject):
     """
-    `NetworkAcl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html>`__
+    `NetworkAcl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkacl.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkAcl"
@@ -1775,7 +1775,7 @@ class NetworkAcl(AWSObject):
 
 class ICMP(AWSProperty):
     """
-    `ICMP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html>`__
+    `ICMP <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkaclentry-icmp.html>`__
     """
 
     props: PropsDictType = {
@@ -1786,7 +1786,7 @@ class ICMP(AWSProperty):
 
 class PortRange(AWSProperty):
     """
-    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html>`__
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkaclentry-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -1797,7 +1797,7 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSObject):
     """
-    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html>`__
+    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkaclentry.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkAclEntry"
@@ -1820,7 +1820,7 @@ class NetworkAclEntry(AWSObject):
 
 class PacketHeaderStatementRequest(AWSProperty):
     """
-    `PacketHeaderStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html>`__
+    `PacketHeaderStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsaccessscope-packetheaderstatementrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -1836,7 +1836,7 @@ class PacketHeaderStatementRequest(AWSProperty):
 
 class ResourceStatementRequest(AWSProperty):
     """
-    `ResourceStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html>`__
+    `ResourceStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsaccessscope-resourcestatementrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -1847,7 +1847,7 @@ class ResourceStatementRequest(AWSProperty):
 
 class PathStatementRequest(AWSProperty):
     """
-    `PathStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html>`__
+    `PathStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsaccessscope-pathstatementrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -1858,7 +1858,7 @@ class PathStatementRequest(AWSProperty):
 
 class ThroughResourcesStatementRequest(AWSProperty):
     """
-    `ThroughResourcesStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html>`__
+    `ThroughResourcesStatementRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsaccessscope-throughresourcesstatementrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -1868,7 +1868,7 @@ class ThroughResourcesStatementRequest(AWSProperty):
 
 class AccessScopePathRequest(AWSProperty):
     """
-    `AccessScopePathRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html>`__
+    `AccessScopePathRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsaccessscope-accessscopepathrequest.html>`__
     """
 
     props: PropsDictType = {
@@ -1880,7 +1880,7 @@ class AccessScopePathRequest(AWSProperty):
 
 class NetworkInsightsAccessScope(AWSObject):
     """
-    `NetworkInsightsAccessScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscope.html>`__
+    `NetworkInsightsAccessScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinsightsaccessscope.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInsightsAccessScope"
@@ -1894,7 +1894,7 @@ class NetworkInsightsAccessScope(AWSObject):
 
 class NetworkInsightsAccessScopeAnalysis(AWSObject):
     """
-    `NetworkInsightsAccessScopeAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html>`__
+    `NetworkInsightsAccessScopeAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinsightsaccessscopeanalysis.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInsightsAccessScopeAnalysis"
@@ -1907,7 +1907,7 @@ class NetworkInsightsAccessScopeAnalysis(AWSObject):
 
 class NetworkInsightsAnalysis(AWSObject):
     """
-    `NetworkInsightsAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html>`__
+    `NetworkInsightsAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinsightsanalysis.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInsightsAnalysis"
@@ -1922,7 +1922,7 @@ class NetworkInsightsAnalysis(AWSObject):
 
 class FilterPortRange(AWSProperty):
     """
-    `FilterPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-filterportrange.html>`__
+    `FilterPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightspath-filterportrange.html>`__
     """
 
     props: PropsDictType = {
@@ -1933,7 +1933,7 @@ class FilterPortRange(AWSProperty):
 
 class PathFilter(AWSProperty):
     """
-    `PathFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html>`__
+    `PathFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightspath-pathfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -1946,7 +1946,7 @@ class PathFilter(AWSProperty):
 
 class NetworkInsightsPath(AWSObject):
     """
-    `NetworkInsightsPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html>`__
+    `NetworkInsightsPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinsightspath.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInsightsPath"
@@ -1966,7 +1966,7 @@ class NetworkInsightsPath(AWSObject):
 
 class NetworkInterface(AWSObject):
     """
-    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html>`__
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinterface.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInterface"
@@ -1993,7 +1993,7 @@ class NetworkInterface(AWSObject):
 
 class NetworkInterfaceAttachment(AWSObject):
     """
-    `NetworkInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html>`__
+    `NetworkInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinterfaceattachment.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInterfaceAttachment"
@@ -2009,7 +2009,7 @@ class NetworkInterfaceAttachment(AWSObject):
 
 class NetworkInterfacePermission(AWSObject):
     """
-    `NetworkInterfacePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html>`__
+    `NetworkInterfacePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkinterfacepermission.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInterfacePermission"
@@ -2023,7 +2023,7 @@ class NetworkInterfacePermission(AWSObject):
 
 class NetworkPerformanceMetricSubscription(AWSObject):
     """
-    `NetworkPerformanceMetricSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html>`__
+    `NetworkPerformanceMetricSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-networkperformancemetricsubscription.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkPerformanceMetricSubscription"
@@ -2038,7 +2038,7 @@ class NetworkPerformanceMetricSubscription(AWSObject):
 
 class PlacementGroup(AWSObject):
     """
-    `PlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html>`__
+    `PlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-placementgroup.html>`__
     """
 
     resource_type = "AWS::EC2::PlacementGroup"
@@ -2053,7 +2053,7 @@ class PlacementGroup(AWSObject):
 
 class Entry(AWSProperty):
     """
-    `Entry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html>`__
+    `Entry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-prefixlist-entry.html>`__
     """
 
     props: PropsDictType = {
@@ -2064,7 +2064,7 @@ class Entry(AWSProperty):
 
 class PrefixList(AWSObject):
     """
-    `PrefixList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html>`__
+    `PrefixList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-prefixlist.html>`__
     """
 
     resource_type = "AWS::EC2::PrefixList"
@@ -2080,7 +2080,7 @@ class PrefixList(AWSObject):
 
 class Route(AWSObject):
     """
-    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html>`__
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-route.html>`__
     """
 
     resource_type = "AWS::EC2::Route"
@@ -2109,7 +2109,7 @@ class Route(AWSObject):
 
 class RouteServer(AWSObject):
     """
-    `RouteServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserver.html>`__
+    `RouteServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routeserver.html>`__
     """
 
     resource_type = "AWS::EC2::RouteServer"
@@ -2125,7 +2125,7 @@ class RouteServer(AWSObject):
 
 class RouteServerAssociation(AWSObject):
     """
-    `RouteServerAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverassociation.html>`__
+    `RouteServerAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routeserverassociation.html>`__
     """
 
     resource_type = "AWS::EC2::RouteServerAssociation"
@@ -2138,7 +2138,7 @@ class RouteServerAssociation(AWSObject):
 
 class RouteServerEndpoint(AWSObject):
     """
-    `RouteServerEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverendpoint.html>`__
+    `RouteServerEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routeserverendpoint.html>`__
     """
 
     resource_type = "AWS::EC2::RouteServerEndpoint"
@@ -2152,7 +2152,7 @@ class RouteServerEndpoint(AWSObject):
 
 class BgpOptions(AWSProperty):
     """
-    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-routeserverpeer-bgpoptions.html>`__
+    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-routeserverpeer-bgpoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2163,7 +2163,7 @@ class BgpOptions(AWSProperty):
 
 class RouteServerPeer(AWSObject):
     """
-    `RouteServerPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverpeer.html>`__
+    `RouteServerPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routeserverpeer.html>`__
     """
 
     resource_type = "AWS::EC2::RouteServerPeer"
@@ -2178,7 +2178,7 @@ class RouteServerPeer(AWSObject):
 
 class RouteServerPropagation(AWSObject):
     """
-    `RouteServerPropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverpropagation.html>`__
+    `RouteServerPropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routeserverpropagation.html>`__
     """
 
     resource_type = "AWS::EC2::RouteServerPropagation"
@@ -2191,7 +2191,7 @@ class RouteServerPropagation(AWSObject):
 
 class RouteTable(AWSObject):
     """
-    `RouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html>`__
+    `RouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-routetable.html>`__
     """
 
     resource_type = "AWS::EC2::RouteTable"
@@ -2204,7 +2204,7 @@ class RouteTable(AWSObject):
 
 class SecurityGroup(AWSObject):
     """
-    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html>`__
+    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-securitygroup.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroup"
@@ -2221,7 +2221,7 @@ class SecurityGroup(AWSObject):
 
 class SecurityGroupEgress(AWSObject):
     """
-    `SecurityGroupEgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupegress.html>`__
+    `SecurityGroupEgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-securitygroupegress.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroupEgress"
@@ -2244,7 +2244,7 @@ class SecurityGroupEgress(AWSObject):
 
 class SecurityGroupIngress(AWSObject):
     """
-    `SecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html>`__
+    `SecurityGroupIngress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-securitygroupingress.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroupIngress"
@@ -2270,7 +2270,7 @@ class SecurityGroupIngress(AWSObject):
 
 class SecurityGroupVpcAssociation(AWSObject):
     """
-    `SecurityGroupVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupvpcassociation.html>`__
+    `SecurityGroupVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-securitygroupvpcassociation.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroupVpcAssociation"
@@ -2283,7 +2283,7 @@ class SecurityGroupVpcAssociation(AWSObject):
 
 class SnapshotBlockPublicAccess(AWSObject):
     """
-    `SnapshotBlockPublicAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-snapshotblockpublicaccess.html>`__
+    `SnapshotBlockPublicAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-snapshotblockpublicaccess.html>`__
     """
 
     resource_type = "AWS::EC2::SnapshotBlockPublicAccess"
@@ -2295,7 +2295,7 @@ class SnapshotBlockPublicAccess(AWSObject):
 
 class IamInstanceProfileSpecification(AWSProperty):
     """
-    `IamInstanceProfileSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html>`__
+    `IamInstanceProfileSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2305,7 +2305,7 @@ class IamInstanceProfileSpecification(AWSProperty):
 
 class InstanceNetworkInterfaceSpecification(AWSProperty):
     """
-    `InstanceNetworkInterfaceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html>`__
+    `InstanceNetworkInterfaceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2325,7 +2325,7 @@ class InstanceNetworkInterfaceSpecification(AWSProperty):
 
 class SecurityGroups(AWSProperty):
     """
-    `SecurityGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-groupidentifier.html>`__
+    `SecurityGroups <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-groupidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -2335,7 +2335,7 @@ class SecurityGroups(AWSProperty):
 
 class SpotFleetTagSpecification(AWSProperty):
     """
-    `SpotFleetTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html>`__
+    `SpotFleetTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotfleettagspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2346,7 +2346,7 @@ class SpotFleetTagSpecification(AWSProperty):
 
 class SpotPlacement(AWSProperty):
     """
-    `SpotPlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html>`__
+    `SpotPlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotplacement.html>`__
     """
 
     props: PropsDictType = {
@@ -2358,7 +2358,7 @@ class SpotPlacement(AWSProperty):
 
 class LaunchSpecifications(AWSProperty):
     """
-    `LaunchSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html>`__
+    `LaunchSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotfleetlaunchspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2385,7 +2385,7 @@ class LaunchSpecifications(AWSProperty):
 
 class FleetLaunchTemplateSpecification(AWSProperty):
     """
-    `FleetLaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html>`__
+    `FleetLaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -2397,7 +2397,7 @@ class FleetLaunchTemplateSpecification(AWSProperty):
 
 class LaunchTemplateOverrides(AWSProperty):
     """
-    `LaunchTemplateOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html>`__
+    `LaunchTemplateOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-launchtemplateoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -2413,7 +2413,7 @@ class LaunchTemplateOverrides(AWSProperty):
 
 class LaunchTemplateConfigs(AWSProperty):
     """
-    `LaunchTemplateConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html>`__
+    `LaunchTemplateConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-launchtemplateconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2424,7 +2424,7 @@ class LaunchTemplateConfigs(AWSProperty):
 
 class ClassicLoadBalancer(AWSProperty):
     """
-    `ClassicLoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html>`__
+    `ClassicLoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-classicloadbalancer.html>`__
     """
 
     props: PropsDictType = {
@@ -2434,7 +2434,7 @@ class ClassicLoadBalancer(AWSProperty):
 
 class ClassicLoadBalancersConfig(AWSProperty):
     """
-    `ClassicLoadBalancersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html>`__
+    `ClassicLoadBalancersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2444,7 +2444,7 @@ class ClassicLoadBalancersConfig(AWSProperty):
 
 class TargetGroup(AWSProperty):
     """
-    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html>`__
+    `TargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-targetgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -2454,7 +2454,7 @@ class TargetGroup(AWSProperty):
 
 class TargetGroupConfig(AWSProperty):
     """
-    `TargetGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html>`__
+    `TargetGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-targetgroupsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2464,7 +2464,7 @@ class TargetGroupConfig(AWSProperty):
 
 class LoadBalancersConfig(AWSProperty):
     """
-    `LoadBalancersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html>`__
+    `LoadBalancersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-loadbalancersconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -2475,7 +2475,7 @@ class LoadBalancersConfig(AWSProperty):
 
 class SpotCapacityRebalance(AWSProperty):
     """
-    `SpotCapacityRebalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotcapacityrebalance.html>`__
+    `SpotCapacityRebalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotcapacityrebalance.html>`__
     """
 
     props: PropsDictType = {
@@ -2486,7 +2486,7 @@ class SpotCapacityRebalance(AWSProperty):
 
 class SpotMaintenanceStrategies(AWSProperty):
     """
-    `SpotMaintenanceStrategies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html>`__
+    `SpotMaintenanceStrategies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotmaintenancestrategies.html>`__
     """
 
     props: PropsDictType = {
@@ -2496,7 +2496,7 @@ class SpotMaintenanceStrategies(AWSProperty):
 
 class SpotFleetRequestConfigData(AWSProperty):
     """
-    `SpotFleetRequestConfigData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html>`__
+    `SpotFleetRequestConfigData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html>`__
     """
 
     props: PropsDictType = {
@@ -2531,7 +2531,7 @@ class SpotFleetRequestConfigData(AWSProperty):
 
 class SpotFleet(AWSObject):
     """
-    `SpotFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html>`__
+    `SpotFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-spotfleet.html>`__
     """
 
     resource_type = "AWS::EC2::SpotFleet"
@@ -2543,7 +2543,7 @@ class SpotFleet(AWSObject):
 
 class PrivateDnsNameOptionsOnLaunch(AWSProperty):
     """
-    `PrivateDnsNameOptionsOnLaunch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-subnet-privatednsnameoptionsonlaunch.html>`__
+    `PrivateDnsNameOptionsOnLaunch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-subnet-privatednsnameoptionsonlaunch.html>`__
     """
 
     props: PropsDictType = {
@@ -2555,7 +2555,7 @@ class PrivateDnsNameOptionsOnLaunch(AWSProperty):
 
 class Subnet(AWSObject):
     """
-    `Subnet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html>`__
+    `Subnet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnet.html>`__
     """
 
     resource_type = "AWS::EC2::Subnet"
@@ -2586,7 +2586,7 @@ class Subnet(AWSObject):
 
 class SubnetCidrBlock(AWSObject):
     """
-    `SubnetCidrBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html>`__
+    `SubnetCidrBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnetcidrblock.html>`__
     """
 
     resource_type = "AWS::EC2::SubnetCidrBlock"
@@ -2601,7 +2601,7 @@ class SubnetCidrBlock(AWSObject):
 
 class SubnetNetworkAclAssociation(AWSObject):
     """
-    `SubnetNetworkAclAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html>`__
+    `SubnetNetworkAclAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnetnetworkaclassociation.html>`__
     """
 
     resource_type = "AWS::EC2::SubnetNetworkAclAssociation"
@@ -2614,7 +2614,7 @@ class SubnetNetworkAclAssociation(AWSObject):
 
 class SubnetRouteTableAssociation(AWSObject):
     """
-    `SubnetRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html>`__
+    `SubnetRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnetroutetableassociation.html>`__
     """
 
     resource_type = "AWS::EC2::SubnetRouteTableAssociation"
@@ -2627,7 +2627,7 @@ class SubnetRouteTableAssociation(AWSObject):
 
 class TrafficMirrorFilter(AWSObject):
     """
-    `TrafficMirrorFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html>`__
+    `TrafficMirrorFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-trafficmirrorfilter.html>`__
     """
 
     resource_type = "AWS::EC2::TrafficMirrorFilter"
@@ -2641,7 +2641,7 @@ class TrafficMirrorFilter(AWSObject):
 
 class TrafficMirrorPortRange(AWSProperty):
     """
-    `TrafficMirrorPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html>`__
+    `TrafficMirrorPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html>`__
     """
 
     props: PropsDictType = {
@@ -2652,7 +2652,7 @@ class TrafficMirrorPortRange(AWSProperty):
 
 class TrafficMirrorFilterRule(AWSObject):
     """
-    `TrafficMirrorFilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html>`__
+    `TrafficMirrorFilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-trafficmirrorfilterrule.html>`__
     """
 
     resource_type = "AWS::EC2::TrafficMirrorFilterRule"
@@ -2674,7 +2674,7 @@ class TrafficMirrorFilterRule(AWSObject):
 
 class TrafficMirrorSession(AWSObject):
     """
-    `TrafficMirrorSession <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html>`__
+    `TrafficMirrorSession <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-trafficmirrorsession.html>`__
     """
 
     resource_type = "AWS::EC2::TrafficMirrorSession"
@@ -2693,7 +2693,7 @@ class TrafficMirrorSession(AWSObject):
 
 class TrafficMirrorTarget(AWSObject):
     """
-    `TrafficMirrorTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html>`__
+    `TrafficMirrorTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-trafficmirrortarget.html>`__
     """
 
     resource_type = "AWS::EC2::TrafficMirrorTarget"
@@ -2709,7 +2709,7 @@ class TrafficMirrorTarget(AWSObject):
 
 class TransitGateway(AWSObject):
     """
-    `TransitGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html>`__
+    `TransitGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgateway.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGateway"
@@ -2733,7 +2733,7 @@ class TransitGateway(AWSObject):
 
 class Options(AWSProperty):
     """
-    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html>`__
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-transitgatewayvpcattachment-options.html>`__
     """
 
     props: PropsDictType = {
@@ -2746,7 +2746,7 @@ class Options(AWSProperty):
 
 class TransitGatewayAttachment(AWSObject):
     """
-    `TransitGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html>`__
+    `TransitGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayattachment.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayAttachment"
@@ -2762,7 +2762,7 @@ class TransitGatewayAttachment(AWSObject):
 
 class TransitGatewayConnectOptions(AWSProperty):
     """
-    `TransitGatewayConnectOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html>`__
+    `TransitGatewayConnectOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -2772,7 +2772,7 @@ class TransitGatewayConnectOptions(AWSProperty):
 
 class TransitGatewayConnect(AWSObject):
     """
-    `TransitGatewayConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html>`__
+    `TransitGatewayConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayconnect.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayConnect"
@@ -2786,7 +2786,7 @@ class TransitGatewayConnect(AWSObject):
 
 class MulticastDomainOptions(AWSProperty):
     """
-    `MulticastDomainOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaymulticastdomain-options.html>`__
+    `MulticastDomainOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-transitgatewaymulticastdomain-options.html>`__
     """
 
     props: PropsDictType = {
@@ -2798,7 +2798,7 @@ class MulticastDomainOptions(AWSProperty):
 
 class TransitGatewayMulticastDomain(AWSObject):
     """
-    `TransitGatewayMulticastDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html>`__
+    `TransitGatewayMulticastDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewaymulticastdomain.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayMulticastDomain"
@@ -2812,7 +2812,7 @@ class TransitGatewayMulticastDomain(AWSObject):
 
 class TransitGatewayMulticastDomainAssociation(AWSObject):
     """
-    `TransitGatewayMulticastDomainAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html>`__
+    `TransitGatewayMulticastDomainAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewaymulticastdomainassociation.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayMulticastDomainAssociation"
@@ -2826,7 +2826,7 @@ class TransitGatewayMulticastDomainAssociation(AWSObject):
 
 class TransitGatewayMulticastGroupMember(AWSObject):
     """
-    `TransitGatewayMulticastGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html>`__
+    `TransitGatewayMulticastGroupMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewaymulticastgroupmember.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayMulticastGroupMember"
@@ -2840,7 +2840,7 @@ class TransitGatewayMulticastGroupMember(AWSObject):
 
 class TransitGatewayMulticastGroupSource(AWSObject):
     """
-    `TransitGatewayMulticastGroupSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html>`__
+    `TransitGatewayMulticastGroupSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewaymulticastgroupsource.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayMulticastGroupSource"
@@ -2854,7 +2854,7 @@ class TransitGatewayMulticastGroupSource(AWSObject):
 
 class TransitGatewayPeeringAttachment(AWSObject):
     """
-    `TransitGatewayPeeringAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html>`__
+    `TransitGatewayPeeringAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewaypeeringattachment.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayPeeringAttachment"
@@ -2870,7 +2870,7 @@ class TransitGatewayPeeringAttachment(AWSObject):
 
 class TransitGatewayRoute(AWSObject):
     """
-    `TransitGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html>`__
+    `TransitGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayroute.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayRoute"
@@ -2885,7 +2885,7 @@ class TransitGatewayRoute(AWSObject):
 
 class TransitGatewayRouteTable(AWSObject):
     """
-    `TransitGatewayRouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html>`__
+    `TransitGatewayRouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayroutetable.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayRouteTable"
@@ -2898,7 +2898,7 @@ class TransitGatewayRouteTable(AWSObject):
 
 class TransitGatewayRouteTableAssociation(AWSObject):
     """
-    `TransitGatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html>`__
+    `TransitGatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayroutetableassociation.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayRouteTableAssociation"
@@ -2911,7 +2911,7 @@ class TransitGatewayRouteTableAssociation(AWSObject):
 
 class TransitGatewayRouteTablePropagation(AWSObject):
     """
-    `TransitGatewayRouteTablePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html>`__
+    `TransitGatewayRouteTablePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayroutetablepropagation.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayRouteTablePropagation"
@@ -2924,7 +2924,7 @@ class TransitGatewayRouteTablePropagation(AWSObject):
 
 class TransitGatewayVpcAttachment(AWSObject):
     """
-    `TransitGatewayVpcAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html>`__
+    `TransitGatewayVpcAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-transitgatewayvpcattachment.html>`__
     """
 
     resource_type = "AWS::EC2::TransitGatewayVpcAttachment"
@@ -2942,7 +2942,7 @@ class TransitGatewayVpcAttachment(AWSObject):
 
 class VPC(AWSObject):
     """
-    `VPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html>`__
+    `VPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpc.html>`__
     """
 
     resource_type = "AWS::EC2::VPC"
@@ -2960,7 +2960,7 @@ class VPC(AWSObject):
 
 class VPCBlockPublicAccessExclusion(AWSObject):
     """
-    `VPCBlockPublicAccessExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html>`__
+    `VPCBlockPublicAccessExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcblockpublicaccessexclusion.html>`__
     """
 
     resource_type = "AWS::EC2::VPCBlockPublicAccessExclusion"
@@ -2975,7 +2975,7 @@ class VPCBlockPublicAccessExclusion(AWSObject):
 
 class VPCBlockPublicAccessOptions(AWSObject):
     """
-    `VPCBlockPublicAccessOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessoptions.html>`__
+    `VPCBlockPublicAccessOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcblockpublicaccessoptions.html>`__
     """
 
     resource_type = "AWS::EC2::VPCBlockPublicAccessOptions"
@@ -2987,7 +2987,7 @@ class VPCBlockPublicAccessOptions(AWSObject):
 
 class VPCCidrBlock(AWSObject):
     """
-    `VPCCidrBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html>`__
+    `VPCCidrBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpccidrblock.html>`__
     """
 
     resource_type = "AWS::EC2::VPCCidrBlock"
@@ -3008,7 +3008,7 @@ class VPCCidrBlock(AWSObject):
 
 class VPCDHCPOptionsAssociation(AWSObject):
     """
-    `VPCDHCPOptionsAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html>`__
+    `VPCDHCPOptionsAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcdhcpoptionsassociation.html>`__
     """
 
     resource_type = "AWS::EC2::VPCDHCPOptionsAssociation"
@@ -3021,7 +3021,7 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 class DnsOptionsSpecification(AWSProperty):
     """
-    `DnsOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html>`__
+    `DnsOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -3032,7 +3032,7 @@ class DnsOptionsSpecification(AWSProperty):
 
 class VPCEndpoint(AWSObject):
     """
-    `VPCEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html>`__
+    `VPCEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcendpoint.html>`__
     """
 
     resource_type = "AWS::EC2::VPCEndpoint"
@@ -3057,7 +3057,7 @@ class VPCEndpoint(AWSObject):
 
 class VPCEndpointConnectionNotification(AWSObject):
     """
-    `VPCEndpointConnectionNotification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html>`__
+    `VPCEndpointConnectionNotification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcendpointconnectionnotification.html>`__
     """
 
     resource_type = "AWS::EC2::VPCEndpointConnectionNotification"
@@ -3072,7 +3072,7 @@ class VPCEndpointConnectionNotification(AWSObject):
 
 class VPCEndpointService(AWSObject):
     """
-    `VPCEndpointService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html>`__
+    `VPCEndpointService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcendpointservice.html>`__
     """
 
     resource_type = "AWS::EC2::VPCEndpointService"
@@ -3091,7 +3091,7 @@ class VPCEndpointService(AWSObject):
 
 class VPCEndpointServicePermissions(AWSObject):
     """
-    `VPCEndpointServicePermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html>`__
+    `VPCEndpointServicePermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcendpointservicepermissions.html>`__
     """
 
     resource_type = "AWS::EC2::VPCEndpointServicePermissions"
@@ -3104,7 +3104,7 @@ class VPCEndpointServicePermissions(AWSObject):
 
 class VPCGatewayAttachment(AWSObject):
     """
-    `VPCGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html>`__
+    `VPCGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcgatewayattachment.html>`__
     """
 
     resource_type = "AWS::EC2::VPCGatewayAttachment"
@@ -3118,7 +3118,7 @@ class VPCGatewayAttachment(AWSObject):
 
 class VPCPeeringConnection(AWSObject):
     """
-    `VPCPeeringConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html>`__
+    `VPCPeeringConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpcpeeringconnection.html>`__
     """
 
     resource_type = "AWS::EC2::VPCPeeringConnection"
@@ -3135,7 +3135,7 @@ class VPCPeeringConnection(AWSObject):
 
 class IKEVersionsRequestListValue(AWSProperty):
     """
-    `IKEVersionsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html>`__
+    `IKEVersionsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3145,7 +3145,7 @@ class IKEVersionsRequestListValue(AWSProperty):
 
 class Phase1DHGroupNumbersRequestListValue(AWSProperty):
     """
-    `Phase1DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1dhgroupnumbersrequestlistvalue.html>`__
+    `Phase1DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase1dhgroupnumbersrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3155,7 +3155,7 @@ class Phase1DHGroupNumbersRequestListValue(AWSProperty):
 
 class Phase1EncryptionAlgorithmsRequestListValue(AWSProperty):
     """
-    `Phase1EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html>`__
+    `Phase1EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3165,7 +3165,7 @@ class Phase1EncryptionAlgorithmsRequestListValue(AWSProperty):
 
 class Phase1IntegrityAlgorithmsRequestListValue(AWSProperty):
     """
-    `Phase1IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1integrityalgorithmsrequestlistvalue.html>`__
+    `Phase1IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase1integrityalgorithmsrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3175,7 +3175,7 @@ class Phase1IntegrityAlgorithmsRequestListValue(AWSProperty):
 
 class Phase2DHGroupNumbersRequestListValue(AWSProperty):
     """
-    `Phase2DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2dhgroupnumbersrequestlistvalue.html>`__
+    `Phase2DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase2dhgroupnumbersrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3185,7 +3185,7 @@ class Phase2DHGroupNumbersRequestListValue(AWSProperty):
 
 class Phase2EncryptionAlgorithmsRequestListValue(AWSProperty):
     """
-    `Phase2EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html>`__
+    `Phase2EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3195,7 +3195,7 @@ class Phase2EncryptionAlgorithmsRequestListValue(AWSProperty):
 
 class Phase2IntegrityAlgorithmsRequestListValue(AWSProperty):
     """
-    `Phase2IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2integrityalgorithmsrequestlistvalue.html>`__
+    `Phase2IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-phase2integrityalgorithmsrequestlistvalue.html>`__
     """
 
     props: PropsDictType = {
@@ -3205,7 +3205,7 @@ class Phase2IntegrityAlgorithmsRequestListValue(AWSProperty):
 
 class CloudwatchLogOptionsSpecification(AWSProperty):
     """
-    `CloudwatchLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html>`__
+    `CloudwatchLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -3217,7 +3217,7 @@ class CloudwatchLogOptionsSpecification(AWSProperty):
 
 class VpnTunnelLogOptionsSpecification(AWSProperty):
     """
-    `VpnTunnelLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html>`__
+    `VpnTunnelLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -3227,7 +3227,7 @@ class VpnTunnelLogOptionsSpecification(AWSProperty):
 
 class VpnTunnelOptionsSpecification(AWSProperty):
     """
-    `VpnTunnelOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html>`__
+    `VpnTunnelOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -3268,7 +3268,7 @@ class VpnTunnelOptionsSpecification(AWSProperty):
 
 class VPNConnection(AWSObject):
     """
-    `VPNConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html>`__
+    `VPNConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpnconnection.html>`__
     """
 
     resource_type = "AWS::EC2::VPNConnection"
@@ -3297,7 +3297,7 @@ class VPNConnection(AWSObject):
 
 class VPNConnectionRoute(AWSObject):
     """
-    `VPNConnectionRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectionroute.html>`__
+    `VPNConnectionRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpnconnectionroute.html>`__
     """
 
     resource_type = "AWS::EC2::VPNConnectionRoute"
@@ -3310,7 +3310,7 @@ class VPNConnectionRoute(AWSObject):
 
 class VPNGateway(AWSObject):
     """
-    `VPNGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html>`__
+    `VPNGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpngateway.html>`__
     """
 
     resource_type = "AWS::EC2::VPNGateway"
@@ -3324,7 +3324,7 @@ class VPNGateway(AWSObject):
 
 class VPNGatewayRoutePropagation(AWSObject):
     """
-    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html>`__
+    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-vpngatewayroutepropagation.html>`__
     """
 
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
@@ -3337,7 +3337,7 @@ class VPNGatewayRoutePropagation(AWSObject):
 
 class CidrOptions(AWSProperty):
     """
-    `CidrOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-cidroptions.html>`__
+    `CidrOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessendpoint-cidroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3350,7 +3350,7 @@ class CidrOptions(AWSProperty):
 
 class VerifiedAccessEndpointPortRange(AWSProperty):
     """
-    `VerifiedAccessEndpointPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-portrange.html>`__
+    `VerifiedAccessEndpointPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessendpoint-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -3361,7 +3361,7 @@ class VerifiedAccessEndpointPortRange(AWSProperty):
 
 class LoadBalancerOptions(AWSProperty):
     """
-    `LoadBalancerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html>`__
+    `LoadBalancerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3375,7 +3375,7 @@ class LoadBalancerOptions(AWSProperty):
 
 class NetworkInterfaceOptions(AWSProperty):
     """
-    `NetworkInterfaceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html>`__
+    `NetworkInterfaceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3388,7 +3388,7 @@ class NetworkInterfaceOptions(AWSProperty):
 
 class RdsOptions(AWSProperty):
     """
-    `RdsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-rdsoptions.html>`__
+    `RdsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessendpoint-rdsoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3404,7 +3404,7 @@ class RdsOptions(AWSProperty):
 
 class SseSpecification(AWSProperty):
     """
-    `SseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-ssespecification.html>`__
+    `SseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccesstrustprovider-ssespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -3415,7 +3415,7 @@ class SseSpecification(AWSProperty):
 
 class VerifiedAccessEndpoint(AWSObject):
     """
-    `VerifiedAccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html>`__
+    `VerifiedAccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-verifiedaccessendpoint.html>`__
     """
 
     resource_type = "AWS::EC2::VerifiedAccessEndpoint"
@@ -3442,7 +3442,7 @@ class VerifiedAccessEndpoint(AWSObject):
 
 class VerifiedAccessGroup(AWSObject):
     """
-    `VerifiedAccessGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html>`__
+    `VerifiedAccessGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-verifiedaccessgroup.html>`__
     """
 
     resource_type = "AWS::EC2::VerifiedAccessGroup"
@@ -3459,7 +3459,7 @@ class VerifiedAccessGroup(AWSObject):
 
 class CloudWatchLogs(AWSProperty):
     """
-    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html>`__
+    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html>`__
     """
 
     props: PropsDictType = {
@@ -3470,7 +3470,7 @@ class CloudWatchLogs(AWSProperty):
 
 class KinesisDataFirehose(AWSProperty):
     """
-    `KinesisDataFirehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html>`__
+    `KinesisDataFirehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html>`__
     """
 
     props: PropsDictType = {
@@ -3481,7 +3481,7 @@ class KinesisDataFirehose(AWSProperty):
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessinstance-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -3494,7 +3494,7 @@ class S3(AWSProperty):
 
 class VerifiedAccessLogs(AWSProperty):
     """
-    `VerifiedAccessLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html>`__
+    `VerifiedAccessLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html>`__
     """
 
     props: PropsDictType = {
@@ -3508,7 +3508,7 @@ class VerifiedAccessLogs(AWSProperty):
 
 class VerifiedAccessTrustProviderProperty(AWSProperty):
     """
-    `VerifiedAccessTrustProviderProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>`__
+    `VerifiedAccessTrustProviderProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -3522,7 +3522,7 @@ class VerifiedAccessTrustProviderProperty(AWSProperty):
 
 class VerifiedAccessInstance(AWSObject):
     """
-    `VerifiedAccessInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html>`__
+    `VerifiedAccessInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-verifiedaccessinstance.html>`__
     """
 
     resource_type = "AWS::EC2::VerifiedAccessInstance"
@@ -3540,7 +3540,7 @@ class VerifiedAccessInstance(AWSObject):
 
 class DeviceOptions(AWSProperty):
     """
-    `DeviceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-deviceoptions.html>`__
+    `DeviceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccesstrustprovider-deviceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3551,7 +3551,7 @@ class DeviceOptions(AWSProperty):
 
 class NativeApplicationOidcOptions(AWSProperty):
     """
-    `NativeApplicationOidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions.html>`__
+    `NativeApplicationOidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3568,7 +3568,7 @@ class NativeApplicationOidcOptions(AWSProperty):
 
 class OidcOptions(AWSProperty):
     """
-    `OidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-oidcoptions.html>`__
+    `OidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-verifiedaccesstrustprovider-oidcoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -3584,7 +3584,7 @@ class OidcOptions(AWSProperty):
 
 class VerifiedAccessTrustProvider(AWSObject):
     """
-    `VerifiedAccessTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html>`__
+    `VerifiedAccessTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-verifiedaccesstrustprovider.html>`__
     """
 
     resource_type = "AWS::EC2::VerifiedAccessTrustProvider"
@@ -3605,7 +3605,7 @@ class VerifiedAccessTrustProvider(AWSObject):
 
 class Volume(AWSObject):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volume.html>`__
     """
 
     resource_type = "AWS::EC2::Volume"
@@ -3628,7 +3628,7 @@ class Volume(AWSObject):
 
 class VolumeAttachment(AWSObject):
     """
-    `VolumeAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html>`__
+    `VolumeAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-volumeattachment.html>`__
     """
 
     resource_type = "AWS::EC2::VolumeAttachment"
@@ -3642,7 +3642,7 @@ class VolumeAttachment(AWSObject):
 
 class CapacityAllocation(AWSProperty):
     """
-    `CapacityAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-capacityallocation.html>`__
+    `CapacityAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-capacityreservation-capacityallocation.html>`__
     """
 
     props: PropsDictType = {
@@ -3653,7 +3653,7 @@ class CapacityAllocation(AWSProperty):
 
 class CommitmentInfo(AWSProperty):
     """
-    `CommitmentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-commitmentinfo.html>`__
+    `CommitmentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-capacityreservation-commitmentinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -3664,7 +3664,7 @@ class CommitmentInfo(AWSProperty):
 
 class EbsBlockDevice(AWSProperty):
     """
-    `EbsBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html>`__
+    `EbsBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-spotfleet-ebsblockdevice.html>`__
     """
 
     props: PropsDictType = {
@@ -3679,7 +3679,7 @@ class EbsBlockDevice(AWSProperty):
 
 class Egress(AWSProperty):
     """
-    `Egress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-egress.html>`__
+    `Egress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-securitygroup-egress.html>`__
     """
 
     props: PropsDictType = {
@@ -3696,7 +3696,7 @@ class Egress(AWSProperty):
 
 class Ingress(AWSProperty):
     """
-    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html>`__
+    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-securitygroup-ingress.html>`__
     """
 
     props: PropsDictType = {
@@ -3715,7 +3715,7 @@ class Ingress(AWSProperty):
 
 class MountPoint(AWSProperty):
     """
-    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html>`__
+    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-volume.html>`__
     """
 
     props: PropsDictType = {
@@ -3726,7 +3726,7 @@ class MountPoint(AWSProperty):
 
 class PeeringAttachmentStatus(AWSProperty):
     """
-    `PeeringAttachmentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html>`__
+    `PeeringAttachmentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html>`__
     """
 
     props: PropsDictType = {
@@ -3737,7 +3737,7 @@ class PeeringAttachmentStatus(AWSProperty):
 
 class SecurityGroupRule(AWSProperty):
     """
-    `SecurityGroupRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html>`__
+    `SecurityGroupRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-securitygroup-ingress.html>`__
     """
 
     props: PropsDictType = {
@@ -3758,7 +3758,7 @@ class SecurityGroupRule(AWSProperty):
 
 class State(AWSProperty):
     """
-    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html>`__
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-state.html>`__
     """
 
     props: PropsDictType = {
@@ -3769,7 +3769,7 @@ class State(AWSProperty):
 
 class TransitGatewayRouteTableRoute(AWSProperty):
     """
-    `TransitGatewayRouteTableRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html>`__
+    `TransitGatewayRouteTableRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html>`__
     """
 
     props: PropsDictType = {
@@ -3785,7 +3785,7 @@ class TransitGatewayRouteTableRoute(AWSProperty):
 
 class VolumeProperty(AWSProperty):
     """
-    `VolumeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html>`__
+    `VolumeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ec2-instance-volume.html>`__
     """
 
     props: PropsDictType = {

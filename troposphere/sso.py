@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class SignInOptions(AWSProperty):
     """
-    `SignInOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-signinoptions.html>`__
+    `SignInOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-application-signinoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class SignInOptions(AWSProperty):
 
 class PortalOptionsConfiguration(AWSProperty):
     """
-    `PortalOptionsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-portaloptionsconfiguration.html>`__
+    `PortalOptionsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-application-portaloptionsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class PortalOptionsConfiguration(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-application.html>`__
     """
 
     resource_type = "AWS::SSO::Application"
@@ -51,7 +51,7 @@ class Application(AWSObject):
 
 class ApplicationAssignment(AWSObject):
     """
-    `ApplicationAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html>`__
+    `ApplicationAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-applicationassignment.html>`__
     """
 
     resource_type = "AWS::SSO::ApplicationAssignment"
@@ -65,7 +65,7 @@ class ApplicationAssignment(AWSObject):
 
 class Assignment(AWSObject):
     """
-    `Assignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html>`__
+    `Assignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-assignment.html>`__
     """
 
     resource_type = "AWS::SSO::Assignment"
@@ -82,7 +82,7 @@ class Assignment(AWSObject):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-instance.html>`__
     """
 
     resource_type = "AWS::SSO::Instance"
@@ -95,7 +95,7 @@ class Instance(AWSObject):
 
 class AccessControlAttributeValue(AWSProperty):
     """
-    `AccessControlAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html>`__
+    `AccessControlAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class AccessControlAttributeValue(AWSProperty):
 
 class AccessControlAttribute(AWSProperty):
     """
-    `AccessControlAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html>`__
+    `AccessControlAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class AccessControlAttribute(AWSProperty):
 
 class InstanceAccessControlAttributeConfiguration(AWSObject):
     """
-    `InstanceAccessControlAttributeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html>`__
+    `InstanceAccessControlAttributeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html>`__
     """
 
     resource_type = "AWS::SSO::InstanceAccessControlAttributeConfiguration"
@@ -129,7 +129,7 @@ class InstanceAccessControlAttributeConfiguration(AWSObject):
 
 class CustomerManagedPolicyReference(AWSProperty):
     """
-    `CustomerManagedPolicyReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-customermanagedpolicyreference.html>`__
+    `CustomerManagedPolicyReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-permissionset-customermanagedpolicyreference.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class CustomerManagedPolicyReference(AWSProperty):
 
 class PermissionsBoundary(AWSProperty):
     """
-    `PermissionsBoundary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html>`__
+    `PermissionsBoundary <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-sso-permissionset-permissionsboundary.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class PermissionsBoundary(AWSProperty):
 
 class PermissionSet(AWSObject):
     """
-    `PermissionSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html>`__
+    `PermissionSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sso-permissionset.html>`__
     """
 
     resource_type = "AWS::SSO::PermissionSet"

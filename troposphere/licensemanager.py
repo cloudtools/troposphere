@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Grant(AWSObject):
     """
-    `Grant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html>`__
+    `Grant <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-licensemanager-grant.html>`__
     """
 
     resource_type = "AWS::LicenseManager::Grant"
@@ -29,7 +29,7 @@ class Grant(AWSObject):
 
 class BorrowConfiguration(AWSProperty):
     """
-    `BorrowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html>`__
+    `BorrowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-borrowconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -40,7 +40,7 @@ class BorrowConfiguration(AWSProperty):
 
 class ProvisionalConfiguration(AWSProperty):
     """
-    `ProvisionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html>`__
+    `ProvisionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-provisionalconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class ProvisionalConfiguration(AWSProperty):
 
 class ConsumptionConfiguration(AWSProperty):
     """
-    `ConsumptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html>`__
+    `ConsumptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-consumptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class ConsumptionConfiguration(AWSProperty):
 
 class Entitlement(AWSProperty):
     """
-    `Entitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html>`__
+    `Entitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-entitlement.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class Entitlement(AWSProperty):
 
 class IssuerData(AWSProperty):
     """
-    `IssuerData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html>`__
+    `IssuerData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-issuerdata.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class IssuerData(AWSProperty):
 
 class Metadata(AWSProperty):
     """
-    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html>`__
+    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-metadata.html>`__
     """
 
     props: PropsDictType = {
@@ -99,7 +99,7 @@ class Metadata(AWSProperty):
 
 class ValidityDateFormat(AWSProperty):
     """
-    `ValidityDateFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html>`__
+    `ValidityDateFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-licensemanager-license-validitydateformat.html>`__
     """
 
     props: PropsDictType = {
@@ -110,7 +110,7 @@ class ValidityDateFormat(AWSProperty):
 
 class License(AWSObject):
     """
-    `License <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html>`__
+    `License <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-licensemanager-license.html>`__
     """
 
     resource_type = "AWS::LicenseManager::License"

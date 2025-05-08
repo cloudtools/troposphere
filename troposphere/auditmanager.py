@@ -12,7 +12,7 @@ from .validators import double
 
 class AWSAccount(AWSProperty):
     """
-    `AWSAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html>`__
+    `AWSAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-awsaccount.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class AWSAccount(AWSProperty):
 
 class AssessmentReportsDestination(AWSProperty):
     """
-    `AssessmentReportsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html>`__
+    `AssessmentReportsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-assessmentreportsdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class AssessmentReportsDestination(AWSProperty):
 
 class Delegation(AWSProperty):
     """
-    `Delegation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html>`__
+    `Delegation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-delegation.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class Delegation(AWSProperty):
 
 class Role(AWSProperty):
     """
-    `Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html>`__
+    `Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-role.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class Role(AWSProperty):
 
 class AWSService(AWSProperty):
     """
-    `AWSService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html>`__
+    `AWSService <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-awsservice.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class AWSService(AWSProperty):
 
 class Scope(AWSProperty):
     """
-    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html>`__
+    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-auditmanager-assessment-scope.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class Scope(AWSProperty):
 
 class Assessment(AWSObject):
     """
-    `Assessment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html>`__
+    `Assessment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-auditmanager-assessment.html>`__
     """
 
     resource_type = "AWS::AuditManager::Assessment"

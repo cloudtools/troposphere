@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType, Tags
 
 class Profile(AWSObject):
     """
-    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html>`__
+    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53profiles-profile.html>`__
     """
 
     resource_type = "AWS::Route53Profiles::Profile"
@@ -24,7 +24,7 @@ class Profile(AWSObject):
 
 class ProfileAssociation(AWSObject):
     """
-    `ProfileAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html>`__
+    `ProfileAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53profiles-profileassociation.html>`__
     """
 
     resource_type = "AWS::Route53Profiles::ProfileAssociation"
@@ -40,7 +40,7 @@ class ProfileAssociation(AWSObject):
 
 class ProfileResourceAssociation(AWSObject):
     """
-    `ProfileResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileresourceassociation.html>`__
+    `ProfileResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53profiles-profileresourceassociation.html>`__
     """
 
     resource_type = "AWS::Route53Profiles::ProfileResourceAssociation"

@@ -13,7 +13,7 @@ from .validators.athena import validate_encryptionoption, validate_workgroup_sta
 
 class CapacityAssignment(AWSProperty):
     """
-    `CapacityAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignment.html>`__
+    `CapacityAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-capacityreservation-capacityassignment.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class CapacityAssignment(AWSProperty):
 
 class CapacityAssignmentConfiguration(AWSProperty):
     """
-    `CapacityAssignmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html>`__
+    `CapacityAssignmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class CapacityAssignmentConfiguration(AWSProperty):
 
 class CapacityReservation(AWSObject):
     """
-    `CapacityReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html>`__
+    `CapacityReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-athena-capacityreservation.html>`__
     """
 
     resource_type = "AWS::Athena::CapacityReservation"
@@ -48,7 +48,7 @@ class CapacityReservation(AWSObject):
 
 class DataCatalog(AWSObject):
     """
-    `DataCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html>`__
+    `DataCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-athena-datacatalog.html>`__
     """
 
     resource_type = "AWS::Athena::DataCatalog"
@@ -67,7 +67,7 @@ class DataCatalog(AWSObject):
 
 class NamedQuery(AWSObject):
     """
-    `NamedQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html>`__
+    `NamedQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-athena-namedquery.html>`__
     """
 
     resource_type = "AWS::Athena::NamedQuery"
@@ -83,7 +83,7 @@ class NamedQuery(AWSObject):
 
 class PreparedStatement(AWSObject):
     """
-    `PreparedStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html>`__
+    `PreparedStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-athena-preparedstatement.html>`__
     """
 
     resource_type = "AWS::Athena::PreparedStatement"
@@ -98,7 +98,7 @@ class PreparedStatement(AWSObject):
 
 class CustomerContentEncryptionConfiguration(AWSProperty):
     """
-    `CustomerContentEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>`__
+    `CustomerContentEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class CustomerContentEncryptionConfiguration(AWSProperty):
 
 class EngineVersion(AWSProperty):
     """
-    `EngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html>`__
+    `EngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-engineversion.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class EngineVersion(AWSProperty):
 
 class AclConfiguration(AWSProperty):
     """
-    `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html>`__
+    `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-aclconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class AclConfiguration(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html>`__
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-encryptionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class ResultConfiguration(AWSProperty):
     """
-    `ResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html>`__
+    `ResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-resultconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -153,7 +153,7 @@ class ResultConfiguration(AWSProperty):
 
 class WorkGroupConfiguration(AWSProperty):
     """
-    `WorkGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html>`__
+    `WorkGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-workgroupconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -174,7 +174,7 @@ class WorkGroupConfiguration(AWSProperty):
 
 class WorkGroup(AWSObject):
     """
-    `WorkGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html>`__
+    `WorkGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-athena-workgroup.html>`__
     """
 
     resource_type = "AWS::Athena::WorkGroup"

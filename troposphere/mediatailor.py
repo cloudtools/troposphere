@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class LogConfigurationForChannel(AWSProperty):
     """
-    `LogConfigurationForChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-logconfigurationforchannel.html>`__
+    `LogConfigurationForChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-logconfigurationforchannel.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class LogConfigurationForChannel(AWSProperty):
 
 class DashPlaylistSettings(AWSProperty):
     """
-    `DashPlaylistSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-dashplaylistsettings.html>`__
+    `DashPlaylistSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-dashplaylistsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class DashPlaylistSettings(AWSProperty):
 
 class HlsPlaylistSettings(AWSProperty):
     """
-    `HlsPlaylistSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-hlsplaylistsettings.html>`__
+    `HlsPlaylistSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-hlsplaylistsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class HlsPlaylistSettings(AWSProperty):
 
 class RequestOutputItem(AWSProperty):
     """
-    `RequestOutputItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-requestoutputitem.html>`__
+    `RequestOutputItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-requestoutputitem.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class RequestOutputItem(AWSProperty):
 
 class SlateSource(AWSProperty):
     """
-    `SlateSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-slatesource.html>`__
+    `SlateSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-slatesource.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class SlateSource(AWSProperty):
 
 class TimeShiftConfiguration(AWSProperty):
     """
-    `TimeShiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-timeshiftconfiguration.html>`__
+    `TimeShiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-channel-timeshiftconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -80,7 +80,7 @@ class TimeShiftConfiguration(AWSProperty):
 
 class Channel(AWSObject):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-channel.html>`__
     """
 
     resource_type = "AWS::MediaTailor::Channel"
@@ -100,7 +100,7 @@ class Channel(AWSObject):
 
 class ChannelPolicy(AWSObject):
     """
-    `ChannelPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channelpolicy.html>`__
+    `ChannelPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-channelpolicy.html>`__
     """
 
     resource_type = "AWS::MediaTailor::ChannelPolicy"
@@ -113,7 +113,7 @@ class ChannelPolicy(AWSObject):
 
 class HttpPackageConfiguration(AWSProperty):
     """
-    `HttpPackageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html>`__
+    `HttpPackageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-vodsource-httppackageconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class HttpPackageConfiguration(AWSProperty):
 
 class LiveSource(AWSObject):
     """
-    `LiveSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-livesource.html>`__
+    `LiveSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-livesource.html>`__
     """
 
     resource_type = "AWS::MediaTailor::LiveSource"
@@ -140,7 +140,7 @@ class LiveSource(AWSObject):
 
 class AdConditioningConfiguration(AWSProperty):
     """
-    `AdConditioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adconditioningconfiguration.html>`__
+    `AdConditioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-adconditioningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class AdConditioningConfiguration(AWSProperty):
 
 class AvailSuppression(AWSProperty):
     """
-    `AvailSuppression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-availsuppression.html>`__
+    `AvailSuppression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-availsuppression.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class AvailSuppression(AWSProperty):
 
 class Bumper(AWSProperty):
     """
-    `Bumper <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-bumper.html>`__
+    `Bumper <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-bumper.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class Bumper(AWSProperty):
 
 class CdnConfiguration(AWSProperty):
     """
-    `CdnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html>`__
+    `CdnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-cdnconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class CdnConfiguration(AWSProperty):
 
 class DashConfiguration(AWSProperty):
     """
-    `DashConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html>`__
+    `DashConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class DashConfiguration(AWSProperty):
 
 class HlsConfiguration(AWSProperty):
     """
-    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>`__
+    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -206,7 +206,7 @@ class HlsConfiguration(AWSProperty):
 
 class LivePreRollConfiguration(AWSProperty):
     """
-    `LivePreRollConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html>`__
+    `LivePreRollConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -217,7 +217,7 @@ class LivePreRollConfiguration(AWSProperty):
 
 class AdMarkerPassthrough(AWSProperty):
     """
-    `AdMarkerPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-admarkerpassthrough.html>`__
+    `AdMarkerPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-admarkerpassthrough.html>`__
     """
 
     props: PropsDictType = {
@@ -227,7 +227,7 @@ class AdMarkerPassthrough(AWSProperty):
 
 class ManifestProcessingRules(AWSProperty):
     """
-    `ManifestProcessingRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html>`__
+    `ManifestProcessingRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html>`__
     """
 
     props: PropsDictType = {
@@ -237,7 +237,7 @@ class ManifestProcessingRules(AWSProperty):
 
 class PlaybackConfiguration(AWSObject):
     """
-    `PlaybackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html>`__
+    `PlaybackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-playbackconfiguration.html>`__
     """
 
     resource_type = "AWS::MediaTailor::PlaybackConfiguration"
@@ -264,7 +264,7 @@ class PlaybackConfiguration(AWSObject):
 
 class SecretsManagerAccessTokenConfiguration(AWSProperty):
     """
-    `SecretsManagerAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html>`__
+    `SecretsManagerAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class SecretsManagerAccessTokenConfiguration(AWSProperty):
 
 class AccessConfiguration(AWSProperty):
     """
-    `AccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-accessconfiguration.html>`__
+    `AccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-sourcelocation-accessconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -290,7 +290,7 @@ class AccessConfiguration(AWSProperty):
 
 class DefaultSegmentDeliveryConfiguration(AWSProperty):
     """
-    `DefaultSegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-defaultsegmentdeliveryconfiguration.html>`__
+    `DefaultSegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-sourcelocation-defaultsegmentdeliveryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class DefaultSegmentDeliveryConfiguration(AWSProperty):
 
 class HttpConfiguration(AWSProperty):
     """
-    `HttpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html>`__
+    `HttpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-sourcelocation-httpconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -310,7 +310,7 @@ class HttpConfiguration(AWSProperty):
 
 class SegmentDeliveryConfiguration(AWSProperty):
     """
-    `SegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-segmentdeliveryconfiguration.html>`__
+    `SegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediatailor-sourcelocation-segmentdeliveryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -321,7 +321,7 @@ class SegmentDeliveryConfiguration(AWSProperty):
 
 class SourceLocation(AWSObject):
     """
-    `SourceLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html>`__
+    `SourceLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-sourcelocation.html>`__
     """
 
     resource_type = "AWS::MediaTailor::SourceLocation"
@@ -341,7 +341,7 @@ class SourceLocation(AWSObject):
 
 class VodSource(AWSObject):
     """
-    `VodSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html>`__
+    `VodSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediatailor-vodsource.html>`__
     """
 
     resource_type = "AWS::MediaTailor::VodSource"

@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class AttributeItem(AWSProperty):
     """
-    `AttributeItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html>`__
+    `AttributeItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AttributeItem(AWSProperty):
 
 class AttributeDetails(AWSProperty):
     """
-    `AttributeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html>`__
+    `AttributeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AttributeDetails(AWSProperty):
 
 class Range(AWSProperty):
     """
-    `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html>`__
+    `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-calculatedattributedefinition-range.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class Range(AWSProperty):
 
 class Threshold(AWSProperty):
     """
-    `Threshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html>`__
+    `Threshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class Threshold(AWSProperty):
 
 class Conditions(AWSProperty):
     """
-    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html>`__
+    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class Conditions(AWSProperty):
 
 class CalculatedAttributeDefinition(AWSObject):
     """
-    `CalculatedAttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html>`__
+    `CalculatedAttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-calculatedattributedefinition.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::CalculatedAttributeDefinition"
@@ -86,7 +86,7 @@ class CalculatedAttributeDefinition(AWSObject):
 
 class ConflictResolution(AWSProperty):
     """
-    `ConflictResolution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-conflictresolution.html>`__
+    `ConflictResolution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-conflictresolution.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class ConflictResolution(AWSProperty):
 
 class Consolidation(AWSProperty):
     """
-    `Consolidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html>`__
+    `Consolidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-consolidation.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class Consolidation(AWSProperty):
 
 class AutoMerging(AWSProperty):
     """
-    `AutoMerging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html>`__
+    `AutoMerging <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-automerging.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,7 @@ class AutoMerging(AWSProperty):
 
 class S3ExportingConfig(AWSProperty):
     """
-    `S3ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-s3exportingconfig.html>`__
+    `S3ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-s3exportingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class S3ExportingConfig(AWSProperty):
 
 class ExportingConfig(AWSProperty):
     """
-    `ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html>`__
+    `ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-exportingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -141,7 +141,7 @@ class ExportingConfig(AWSProperty):
 
 class JobSchedule(AWSProperty):
     """
-    `JobSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-jobschedule.html>`__
+    `JobSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-jobschedule.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class JobSchedule(AWSProperty):
 
 class Matching(AWSProperty):
     """
-    `Matching <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html>`__
+    `Matching <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-matching.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class Matching(AWSProperty):
 
 class AttributeTypesSelector(AWSProperty):
     """
-    `AttributeTypesSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html>`__
+    `AttributeTypesSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-attributetypesselector.html>`__
     """
 
     props: PropsDictType = {
@@ -178,7 +178,7 @@ class AttributeTypesSelector(AWSProperty):
 
 class MatchingRule(AWSProperty):
     """
-    `MatchingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html>`__
+    `MatchingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-matchingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class MatchingRule(AWSProperty):
 
 class RuleBasedMatching(AWSProperty):
     """
-    `RuleBasedMatching <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html>`__
+    `RuleBasedMatching <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-rulebasedmatching.html>`__
     """
 
     props: PropsDictType = {
@@ -205,7 +205,7 @@ class RuleBasedMatching(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html>`__
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-domain.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::Domain"
@@ -223,7 +223,7 @@ class Domain(AWSObject):
 
 class EventStream(AWSObject):
     """
-    `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventstream.html>`__
+    `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-eventstream.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::EventStream"
@@ -238,7 +238,7 @@ class EventStream(AWSObject):
 
 class ObjectAttribute(AWSProperty):
     """
-    `ObjectAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-objectattribute.html>`__
+    `ObjectAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventtrigger-objectattribute.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class ObjectAttribute(AWSProperty):
 
 class EventTriggerDimension(AWSProperty):
     """
-    `EventTriggerDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggerdimension.html>`__
+    `EventTriggerDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventtrigger-eventtriggerdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -261,7 +261,7 @@ class EventTriggerDimension(AWSProperty):
 
 class EventTriggerCondition(AWSProperty):
     """
-    `EventTriggerCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggercondition.html>`__
+    `EventTriggerCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventtrigger-eventtriggercondition.html>`__
     """
 
     props: PropsDictType = {
@@ -272,7 +272,7 @@ class EventTriggerCondition(AWSProperty):
 
 class Period(AWSProperty):
     """
-    `Period <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-period.html>`__
+    `Period <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventtrigger-period.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class Period(AWSProperty):
 
 class EventTriggerLimits(AWSProperty):
     """
-    `EventTriggerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggerlimits.html>`__
+    `EventTriggerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventtrigger-eventtriggerlimits.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class EventTriggerLimits(AWSProperty):
 
 class EventTrigger(AWSObject):
     """
-    `EventTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html>`__
+    `EventTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-eventtrigger.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::EventTrigger"
@@ -315,7 +315,7 @@ class EventTrigger(AWSObject):
 
 class IncrementalPullConfig(AWSProperty):
     """
-    `IncrementalPullConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html>`__
+    `IncrementalPullConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-incrementalpullconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -325,7 +325,7 @@ class IncrementalPullConfig(AWSProperty):
 
 class MarketoSourceProperties(AWSProperty):
     """
-    `MarketoSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html>`__
+    `MarketoSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-marketosourceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -335,7 +335,7 @@ class MarketoSourceProperties(AWSProperty):
 
 class S3SourceProperties(AWSProperty):
     """
-    `S3SourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html>`__
+    `S3SourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-s3sourceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -346,7 +346,7 @@ class S3SourceProperties(AWSProperty):
 
 class SalesforceSourceProperties(AWSProperty):
     """
-    `SalesforceSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html>`__
+    `SalesforceSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-salesforcesourceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +358,7 @@ class SalesforceSourceProperties(AWSProperty):
 
 class ServiceNowSourceProperties(AWSProperty):
     """
-    `ServiceNowSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html>`__
+    `ServiceNowSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-servicenowsourceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -368,7 +368,7 @@ class ServiceNowSourceProperties(AWSProperty):
 
 class ZendeskSourceProperties(AWSProperty):
     """
-    `ZendeskSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html>`__
+    `ZendeskSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-zendesksourceproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class ZendeskSourceProperties(AWSProperty):
 
 class SourceConnectorProperties(AWSProperty):
     """
-    `SourceConnectorProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html>`__
+    `SourceConnectorProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-sourceconnectorproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -392,7 +392,7 @@ class SourceConnectorProperties(AWSProperty):
 
 class SourceFlowConfig(AWSProperty):
     """
-    `SourceFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html>`__
+    `SourceFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-sourceflowconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -405,7 +405,7 @@ class SourceFlowConfig(AWSProperty):
 
 class ConnectorOperator(AWSProperty):
     """
-    `ConnectorOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html>`__
+    `ConnectorOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-connectoroperator.html>`__
     """
 
     props: PropsDictType = {
@@ -419,7 +419,7 @@ class ConnectorOperator(AWSProperty):
 
 class TaskPropertiesMap(AWSProperty):
     """
-    `TaskPropertiesMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html>`__
+    `TaskPropertiesMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-taskpropertiesmap.html>`__
     """
 
     props: PropsDictType = {
@@ -430,7 +430,7 @@ class TaskPropertiesMap(AWSProperty):
 
 class Task(AWSProperty):
     """
-    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html>`__
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-task.html>`__
     """
 
     props: PropsDictType = {
@@ -444,7 +444,7 @@ class Task(AWSProperty):
 
 class ScheduledTriggerProperties(AWSProperty):
     """
-    `ScheduledTriggerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html>`__
+    `ScheduledTriggerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -460,7 +460,7 @@ class ScheduledTriggerProperties(AWSProperty):
 
 class TriggerProperties(AWSProperty):
     """
-    `TriggerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html>`__
+    `TriggerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-triggerproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -470,7 +470,7 @@ class TriggerProperties(AWSProperty):
 
 class TriggerConfig(AWSProperty):
     """
-    `TriggerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html>`__
+    `TriggerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-triggerconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -481,7 +481,7 @@ class TriggerConfig(AWSProperty):
 
 class FlowDefinition(AWSProperty):
     """
-    `FlowDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html>`__
+    `FlowDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-flowdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -496,7 +496,7 @@ class FlowDefinition(AWSProperty):
 
 class ObjectTypeMapping(AWSProperty):
     """
-    `ObjectTypeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html>`__
+    `ObjectTypeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-integration-objecttypemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -507,7 +507,7 @@ class ObjectTypeMapping(AWSProperty):
 
 class Integration(AWSObject):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-integration.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::Integration"
@@ -525,7 +525,7 @@ class Integration(AWSObject):
 
 class ObjectTypeField(AWSProperty):
     """
-    `ObjectTypeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html>`__
+    `ObjectTypeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-objecttype-objecttypefield.html>`__
     """
 
     props: PropsDictType = {
@@ -537,7 +537,7 @@ class ObjectTypeField(AWSProperty):
 
 class FieldMap(AWSProperty):
     """
-    `FieldMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html>`__
+    `FieldMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-objecttype-fieldmap.html>`__
     """
 
     props: PropsDictType = {
@@ -548,7 +548,7 @@ class FieldMap(AWSProperty):
 
 class ObjectTypeKey(AWSProperty):
     """
-    `ObjectTypeKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html>`__
+    `ObjectTypeKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-objecttype-objecttypekey.html>`__
     """
 
     props: PropsDictType = {
@@ -559,7 +559,7 @@ class ObjectTypeKey(AWSProperty):
 
 class KeyMap(AWSProperty):
     """
-    `KeyMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html>`__
+    `KeyMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-objecttype-keymap.html>`__
     """
 
     props: PropsDictType = {
@@ -570,7 +570,7 @@ class KeyMap(AWSProperty):
 
 class ObjectType(AWSObject):
     """
-    `ObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html>`__
+    `ObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-objecttype.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::ObjectType"
@@ -592,7 +592,7 @@ class ObjectType(AWSObject):
 
 class RangeOverride(AWSProperty):
     """
-    `RangeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-rangeoverride.html>`__
+    `RangeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-rangeoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -604,7 +604,7 @@ class RangeOverride(AWSProperty):
 
 class ConditionOverrides(AWSProperty):
     """
-    `ConditionOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html>`__
+    `ConditionOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -614,7 +614,7 @@ class ConditionOverrides(AWSProperty):
 
 class CalculatedAttributeDimension(AWSProperty):
     """
-    `CalculatedAttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html>`__
+    `CalculatedAttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html>`__
     """
 
     props: PropsDictType = {
@@ -626,7 +626,7 @@ class CalculatedAttributeDimension(AWSProperty):
 
 class ProfileDimension(AWSProperty):
     """
-    `ProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiledimension.html>`__
+    `ProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-profiledimension.html>`__
     """
 
     props: PropsDictType = {
@@ -637,7 +637,7 @@ class ProfileDimension(AWSProperty):
 
 class AddressDimension(AWSProperty):
     """
-    `AddressDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html>`__
+    `AddressDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-addressdimension.html>`__
     """
 
     props: PropsDictType = {
@@ -652,7 +652,7 @@ class AddressDimension(AWSProperty):
 
 class AttributeDimension(AWSProperty):
     """
-    `AttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-attributedimension.html>`__
+    `AttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-attributedimension.html>`__
     """
 
     props: PropsDictType = {
@@ -663,7 +663,7 @@ class AttributeDimension(AWSProperty):
 
 class DateDimension(AWSProperty):
     """
-    `DateDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-datedimension.html>`__
+    `DateDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-datedimension.html>`__
     """
 
     props: PropsDictType = {
@@ -674,7 +674,7 @@ class DateDimension(AWSProperty):
 
 class ExtraLengthValueProfileDimension(AWSProperty):
     """
-    `ExtraLengthValueProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html>`__
+    `ExtraLengthValueProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html>`__
     """
 
     props: PropsDictType = {
@@ -685,7 +685,7 @@ class ExtraLengthValueProfileDimension(AWSProperty):
 
 class ProfileAttributes(AWSProperty):
     """
-    `ProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>`__
+    `ProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -715,7 +715,7 @@ class ProfileAttributes(AWSProperty):
 
 class Dimension(AWSProperty):
     """
-    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-dimension.html>`__
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -726,7 +726,7 @@ class Dimension(AWSProperty):
 
 class SourceSegment(AWSProperty):
     """
-    `SourceSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sourcesegment.html>`__
+    `SourceSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-sourcesegment.html>`__
     """
 
     props: PropsDictType = {
@@ -736,7 +736,7 @@ class SourceSegment(AWSProperty):
 
 class Group(AWSProperty):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-group.html>`__
     """
 
     props: PropsDictType = {
@@ -749,7 +749,7 @@ class Group(AWSProperty):
 
 class SegmentGroup(AWSProperty):
     """
-    `SegmentGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html>`__
+    `SegmentGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html>`__
     """
 
     props: PropsDictType = {
@@ -760,7 +760,7 @@ class SegmentGroup(AWSProperty):
 
 class SegmentDefinition(AWSObject):
     """
-    `SegmentDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html>`__
+    `SegmentDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-customerprofiles-segmentdefinition.html>`__
     """
 
     resource_type = "AWS::CustomerProfiles::SegmentDefinition"
@@ -777,7 +777,7 @@ class SegmentDefinition(AWSObject):
 
 class DestinationDetails(AWSProperty):
     """
-    `DestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html>`__
+    `DestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-eventstream-destinationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -788,7 +788,7 @@ class DestinationDetails(AWSProperty):
 
 class DomainStats(AWSProperty):
     """
-    `DomainStats <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-domainstats.html>`__
+    `DomainStats <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-customerprofiles-domain-domainstats.html>`__
     """
 
     props: PropsDictType = {

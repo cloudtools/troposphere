@@ -12,7 +12,7 @@ from .validators import double, integer
 
 class BridgeNetworkOutput(AWSProperty):
     """
-    `BridgeNetworkOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgeoutput-bridgenetworkoutput.html>`__
+    `BridgeNetworkOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridgeoutput-bridgenetworkoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -26,7 +26,7 @@ class BridgeNetworkOutput(AWSProperty):
 
 class BridgeOutputProperty(AWSProperty):
     """
-    `BridgeOutputProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html>`__
+    `BridgeOutputProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridge-bridgeoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class BridgeOutputProperty(AWSProperty):
 
 class VpcInterfaceAttachment(AWSProperty):
     """
-    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-vpcinterfaceattachment.html>`__
+    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowsource-vpcinterfaceattachment.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class VpcInterfaceAttachment(AWSProperty):
 
 class BridgeFlowSource(AWSProperty):
     """
-    `BridgeFlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html>`__
+    `BridgeFlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class BridgeFlowSource(AWSProperty):
 
 class MulticastSourceSettings(AWSProperty):
     """
-    `MulticastSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-multicastsourcesettings.html>`__
+    `MulticastSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridgesource-multicastsourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class MulticastSourceSettings(AWSProperty):
 
 class BridgeNetworkSource(AWSProperty):
     """
-    `BridgeNetworkSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html>`__
+    `BridgeNetworkSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class BridgeNetworkSource(AWSProperty):
 
 class BridgeSourceProperty(AWSProperty):
     """
-    `BridgeSourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html>`__
+    `BridgeSourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridge-bridgesource.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class BridgeSourceProperty(AWSProperty):
 
 class EgressGatewayBridge(AWSProperty):
     """
-    `EgressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-egressgatewaybridge.html>`__
+    `EgressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridge-egressgatewaybridge.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class EgressGatewayBridge(AWSProperty):
 
 class SourcePriority(AWSProperty):
     """
-    `SourcePriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcepriority.html>`__
+    `SourcePriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-sourcepriority.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class SourcePriority(AWSProperty):
 
 class FailoverConfig(AWSProperty):
     """
-    `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html>`__
+    `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-failoverconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class FailoverConfig(AWSProperty):
 
 class IngressGatewayBridge(AWSProperty):
     """
-    `IngressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html>`__
+    `IngressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class IngressGatewayBridge(AWSProperty):
 
 class Bridge(AWSObject):
     """
-    `Bridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html>`__
+    `Bridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-bridge.html>`__
     """
 
     resource_type = "AWS::MediaConnect::Bridge"
@@ -154,7 +154,7 @@ class Bridge(AWSObject):
 
 class BridgeOutput(AWSObject):
     """
-    `BridgeOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html>`__
+    `BridgeOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-bridgeoutput.html>`__
     """
 
     resource_type = "AWS::MediaConnect::BridgeOutput"
@@ -168,7 +168,7 @@ class BridgeOutput(AWSObject):
 
 class BridgeSource(AWSObject):
     """
-    `BridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html>`__
+    `BridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-bridgesource.html>`__
     """
 
     resource_type = "AWS::MediaConnect::BridgeSource"
@@ -183,7 +183,7 @@ class BridgeSource(AWSObject):
 
 class Maintenance(AWSProperty):
     """
-    `Maintenance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html>`__
+    `Maintenance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-maintenance.html>`__
     """
 
     props: PropsDictType = {
@@ -194,7 +194,7 @@ class Maintenance(AWSProperty):
 
 class Fmtp(AWSProperty):
     """
-    `Fmtp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-fmtp.html>`__
+    `Fmtp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-fmtp.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class Fmtp(AWSProperty):
 
 class MediaStreamAttributes(AWSProperty):
     """
-    `MediaStreamAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html>`__
+    `MediaStreamAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-mediastreamattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +221,7 @@ class MediaStreamAttributes(AWSProperty):
 
 class MediaStream(AWSProperty):
     """
-    `MediaStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html>`__
+    `MediaStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-mediastream.html>`__
     """
 
     props: PropsDictType = {
@@ -238,7 +238,7 @@ class MediaStream(AWSProperty):
 
 class NdiDiscoveryServerConfig(AWSProperty):
     """
-    `NdiDiscoveryServerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndidiscoveryserverconfig.html>`__
+    `NdiDiscoveryServerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-ndidiscoveryserverconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class NdiDiscoveryServerConfig(AWSProperty):
 
 class NdiConfig(AWSProperty):
     """
-    `NdiConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndiconfig.html>`__
+    `NdiConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-ndiconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -262,7 +262,7 @@ class NdiConfig(AWSProperty):
 
 class Encryption(AWSProperty):
     """
-    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html>`__
+    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowsource-encryption.html>`__
     """
 
     props: PropsDictType = {
@@ -280,7 +280,7 @@ class Encryption(AWSProperty):
 
 class GatewayBridgeSource(AWSProperty):
     """
-    `GatewayBridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-gatewaybridgesource.html>`__
+    `GatewayBridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowsource-gatewaybridgesource.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class GatewayBridgeSource(AWSProperty):
 
 class Interface(AWSProperty):
     """
-    `Interface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html>`__
+    `Interface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowoutput-interface.html>`__
     """
 
     props: PropsDictType = {
@@ -301,7 +301,7 @@ class Interface(AWSProperty):
 
 class InputConfiguration(AWSProperty):
     """
-    `InputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html>`__
+    `InputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-inputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -312,7 +312,7 @@ class InputConfiguration(AWSProperty):
 
 class MediaStreamSourceConfiguration(AWSProperty):
     """
-    `MediaStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamsourceconfiguration.html>`__
+    `MediaStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-mediastreamsourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class MediaStreamSourceConfiguration(AWSProperty):
 
 class Source(AWSProperty):
     """
-    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html>`__
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-source.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +355,7 @@ class Source(AWSProperty):
 
 class SilentAudio(AWSProperty):
     """
-    `SilentAudio <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-silentaudio.html>`__
+    `SilentAudio <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-silentaudio.html>`__
     """
 
     props: PropsDictType = {
@@ -366,7 +366,7 @@ class SilentAudio(AWSProperty):
 
 class AudioMonitoringSetting(AWSProperty):
     """
-    `AudioMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-audiomonitoringsetting.html>`__
+    `AudioMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-audiomonitoringsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class AudioMonitoringSetting(AWSProperty):
 
 class BlackFrames(AWSProperty):
     """
-    `BlackFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html>`__
+    `BlackFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-blackframes.html>`__
     """
 
     props: PropsDictType = {
@@ -387,7 +387,7 @@ class BlackFrames(AWSProperty):
 
 class FrozenFrames(AWSProperty):
     """
-    `FrozenFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-frozenframes.html>`__
+    `FrozenFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-frozenframes.html>`__
     """
 
     props: PropsDictType = {
@@ -398,7 +398,7 @@ class FrozenFrames(AWSProperty):
 
 class VideoMonitoringSetting(AWSProperty):
     """
-    `VideoMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-videomonitoringsetting.html>`__
+    `VideoMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-videomonitoringsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -409,7 +409,7 @@ class VideoMonitoringSetting(AWSProperty):
 
 class SourceMonitoringConfig(AWSProperty):
     """
-    `SourceMonitoringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcemonitoringconfig.html>`__
+    `SourceMonitoringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-sourcemonitoringconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -422,7 +422,7 @@ class SourceMonitoringConfig(AWSProperty):
 
 class VpcInterface(AWSProperty):
     """
-    `VpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html>`__
+    `VpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flow-vpcinterface.html>`__
     """
 
     props: PropsDictType = {
@@ -437,7 +437,7 @@ class VpcInterface(AWSProperty):
 
 class Flow(AWSObject):
     """
-    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html>`__
+    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-flow.html>`__
     """
 
     resource_type = "AWS::MediaConnect::Flow"
@@ -458,7 +458,7 @@ class Flow(AWSObject):
 
 class FlowEntitlement(AWSObject):
     """
-    `FlowEntitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html>`__
+    `FlowEntitlement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-flowentitlement.html>`__
     """
 
     resource_type = "AWS::MediaConnect::FlowEntitlement"
@@ -476,7 +476,7 @@ class FlowEntitlement(AWSObject):
 
 class FlowOutputEncryption(AWSProperty):
     """
-    `FlowOutputEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html>`__
+    `FlowOutputEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowoutput-encryption.html>`__
     """
 
     props: PropsDictType = {
@@ -489,7 +489,7 @@ class FlowOutputEncryption(AWSProperty):
 
 class DestinationConfiguration(AWSProperty):
     """
-    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html>`__
+    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -501,7 +501,7 @@ class DestinationConfiguration(AWSProperty):
 
 class EncodingParameters(AWSProperty):
     """
-    `EncodingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html>`__
+    `EncodingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowoutput-encodingparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -512,7 +512,7 @@ class EncodingParameters(AWSProperty):
 
 class MediaStreamOutputConfiguration(AWSProperty):
     """
-    `MediaStreamOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html>`__
+    `MediaStreamOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -525,7 +525,7 @@ class MediaStreamOutputConfiguration(AWSProperty):
 
 class FlowOutput(AWSObject):
     """
-    `FlowOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html>`__
+    `FlowOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-flowoutput.html>`__
     """
 
     resource_type = "AWS::MediaConnect::FlowOutput"
@@ -554,7 +554,7 @@ class FlowOutput(AWSObject):
 
 class FlowSource(AWSObject):
     """
-    `FlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html>`__
+    `FlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-flowsource.html>`__
     """
 
     resource_type = "AWS::MediaConnect::FlowSource"
@@ -583,7 +583,7 @@ class FlowSource(AWSObject):
 
 class FlowVpcInterface(AWSObject):
     """
-    `FlowVpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html>`__
+    `FlowVpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-flowvpcinterface.html>`__
     """
 
     resource_type = "AWS::MediaConnect::FlowVpcInterface"
@@ -599,7 +599,7 @@ class FlowVpcInterface(AWSObject):
 
 class GatewayNetwork(AWSProperty):
     """
-    `GatewayNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html>`__
+    `GatewayNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-mediaconnect-gateway-gatewaynetwork.html>`__
     """
 
     props: PropsDictType = {
@@ -610,7 +610,7 @@ class GatewayNetwork(AWSProperty):
 
 class Gateway(AWSObject):
     """
-    `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html>`__
+    `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-mediaconnect-gateway.html>`__
     """
 
     resource_type = "AWS::MediaConnect::Gateway"

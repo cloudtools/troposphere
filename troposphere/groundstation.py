@@ -13,7 +13,7 @@ from .validators.groundstation import validate_json_checker
 
 class Bandwidth(AWSProperty):
     """
-    `Bandwidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequencybandwidth.html>`__
+    `Bandwidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-frequencybandwidth.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class Bandwidth(AWSProperty):
 
 class Frequency(AWSProperty):
     """
-    `Frequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-frequency.html>`__
+    `Frequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-frequency.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class Frequency(AWSProperty):
 
 class SpectrumConfig(AWSProperty):
     """
-    `SpectrumConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html>`__
+    `SpectrumConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-spectrumconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class SpectrumConfig(AWSProperty):
 
 class AntennaDownlinkConfig(AWSProperty):
     """
-    `AntennaDownlinkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html>`__
+    `AntennaDownlinkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-antennadownlinkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class AntennaDownlinkConfig(AWSProperty):
 
 class DecodeConfig(AWSProperty):
     """
-    `DecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-decodeconfig.html>`__
+    `DecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-decodeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -67,7 +67,7 @@ class DecodeConfig(AWSProperty):
 
 class DemodulationConfig(AWSProperty):
     """
-    `DemodulationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-demodulationconfig.html>`__
+    `DemodulationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-demodulationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class DemodulationConfig(AWSProperty):
 
 class AntennaDownlinkDemodDecodeConfig(AWSProperty):
     """
-    `AntennaDownlinkDemodDecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html>`__
+    `AntennaDownlinkDemodDecodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-antennadownlinkdemoddecodeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class AntennaDownlinkDemodDecodeConfig(AWSProperty):
 
 class Eirp(AWSProperty):
     """
-    `Eirp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-eirp.html>`__
+    `Eirp <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-eirp.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class Eirp(AWSProperty):
 
 class AntennaUplinkConfig(AWSProperty):
     """
-    `AntennaUplinkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennauplinkconfig.html>`__
+    `AntennaUplinkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-antennauplinkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class AntennaUplinkConfig(AWSProperty):
 
 class DataflowEndpointConfig(AWSProperty):
     """
-    `DataflowEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-dataflowendpointconfig.html>`__
+    `DataflowEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-dataflowendpointconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class DataflowEndpointConfig(AWSProperty):
 
 class S3RecordingConfig(AWSProperty):
     """
-    `S3RecordingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html>`__
+    `S3RecordingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-s3recordingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class S3RecordingConfig(AWSProperty):
 
 class TrackingConfig(AWSProperty):
     """
-    `TrackingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html>`__
+    `TrackingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-trackingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class TrackingConfig(AWSProperty):
 
 class UplinkEchoConfig(AWSProperty):
     """
-    `UplinkEchoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html>`__
+    `UplinkEchoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-uplinkechoconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class UplinkEchoConfig(AWSProperty):
 
 class ConfigData(AWSProperty):
     """
-    `ConfigData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html>`__
+    `ConfigData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-config-configdata.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class ConfigData(AWSProperty):
 
 class Config(AWSObject):
     """
-    `Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html>`__
+    `Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-groundstation-config.html>`__
     """
 
     resource_type = "AWS::GroundStation::Config"
@@ -186,7 +186,7 @@ class Config(AWSObject):
 
 class SocketAddress(AWSProperty):
     """
-    `SocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html>`__
+    `SocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class SocketAddress(AWSProperty):
 
 class ConnectionDetails(AWSProperty):
     """
-    `ConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>`__
+    `ConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class ConnectionDetails(AWSProperty):
 
 class IntegerRange(AWSProperty):
     """
-    `IntegerRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html>`__
+    `IntegerRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-integerrange.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class IntegerRange(AWSProperty):
 
 class RangedSocketAddress(AWSProperty):
     """
-    `RangedSocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html>`__
+    `RangedSocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class RangedSocketAddress(AWSProperty):
 
 class RangedConnectionDetails(AWSProperty):
     """
-    `RangedConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html>`__
+    `RangedConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html>`__
     """
 
     props: PropsDictType = {
@@ -241,7 +241,7 @@ class RangedConnectionDetails(AWSProperty):
 
 class AwsGroundStationAgentEndpoint(AWSProperty):
     """
-    `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
+    `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class AwsGroundStationAgentEndpoint(AWSProperty):
 
 class DataflowEndpoint(AWSProperty):
     """
-    `DataflowEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html>`__
+    `DataflowEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -267,7 +267,7 @@ class DataflowEndpoint(AWSProperty):
 
 class SecurityDetails(AWSProperty):
     """
-    `SecurityDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html>`__
+    `SecurityDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html>`__
     """
 
     props: PropsDictType = {
@@ -279,7 +279,7 @@ class SecurityDetails(AWSProperty):
 
 class EndpointDetails(AWSProperty):
     """
-    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html>`__
+    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -291,7 +291,7 @@ class EndpointDetails(AWSProperty):
 
 class DataflowEndpointGroup(AWSObject):
     """
-    `DataflowEndpointGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html>`__
+    `DataflowEndpointGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-groundstation-dataflowendpointgroup.html>`__
     """
 
     resource_type = "AWS::GroundStation::DataflowEndpointGroup"
@@ -306,7 +306,7 @@ class DataflowEndpointGroup(AWSObject):
 
 class DataflowEdge(AWSProperty):
     """
-    `DataflowEdge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html>`__
+    `DataflowEdge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-missionprofile-dataflowedge.html>`__
     """
 
     props: PropsDictType = {
@@ -317,7 +317,7 @@ class DataflowEdge(AWSProperty):
 
 class StreamsKmsKey(AWSProperty):
     """
-    `StreamsKmsKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html>`__
+    `StreamsKmsKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-groundstation-missionprofile-streamskmskey.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class StreamsKmsKey(AWSProperty):
 
 class MissionProfile(AWSObject):
     """
-    `MissionProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html>`__
+    `MissionProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-groundstation-missionprofile.html>`__
     """
 
     resource_type = "AWS::GroundStation::MissionProfile"

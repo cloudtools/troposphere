@@ -22,7 +22,7 @@ from .validators.ssm import (
 
 class S3OutputLocation(AWSProperty):
     """
-    `S3OutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html>`__
+    `S3OutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-association-s3outputlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class S3OutputLocation(AWSProperty):
 
 class InstanceAssociationOutputLocation(AWSProperty):
     """
-    `InstanceAssociationOutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html>`__
+    `InstanceAssociationOutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-association-instanceassociationoutputlocation.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class InstanceAssociationOutputLocation(AWSProperty):
 
 class Targets(AWSProperty):
     """
-    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html>`__
+    `Targets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtarget-targets.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class Targets(AWSProperty):
 
 class Association(AWSObject):
     """
-    `Association <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html>`__
+    `Association <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-association.html>`__
     """
 
     resource_type = "AWS::SSM::Association"
@@ -83,7 +83,7 @@ class Association(AWSObject):
 
 class AttachmentsSource(AWSProperty):
     """
-    `AttachmentsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html>`__
+    `AttachmentsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-document-attachmentssource.html>`__
     """
 
     props: PropsDictType = {
@@ -95,7 +95,7 @@ class AttachmentsSource(AWSProperty):
 
 class DocumentRequires(AWSProperty):
     """
-    `DocumentRequires <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html>`__
+    `DocumentRequires <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-document-documentrequires.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class DocumentRequires(AWSProperty):
 
 class Document(AWSObject):
     """
-    `Document <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html>`__
+    `Document <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-document.html>`__
     """
 
     resource_type = "AWS::SSM::Document"
@@ -127,7 +127,7 @@ class Document(AWSObject):
 
 class MaintenanceWindow(AWSObject):
     """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html>`__
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-maintenancewindow.html>`__
     """
 
     resource_type = "AWS::SSM::MaintenanceWindow"
@@ -149,7 +149,7 @@ class MaintenanceWindow(AWSObject):
 
 class MaintenanceWindowTarget(AWSObject):
     """
-    `MaintenanceWindowTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html>`__
+    `MaintenanceWindowTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-maintenancewindowtarget.html>`__
     """
 
     resource_type = "AWS::SSM::MaintenanceWindowTarget"
@@ -166,7 +166,7 @@ class MaintenanceWindowTarget(AWSObject):
 
 class LoggingInfo(AWSProperty):
     """
-    `LoggingInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html>`__
+    `LoggingInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-logginginfo.html>`__
     """
 
     props: PropsDictType = {
@@ -178,7 +178,7 @@ class LoggingInfo(AWSProperty):
 
 class MaintenanceWindowAutomationParameters(AWSProperty):
     """
-    `MaintenanceWindowAutomationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html>`__
+    `MaintenanceWindowAutomationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -189,7 +189,7 @@ class MaintenanceWindowAutomationParameters(AWSProperty):
 
 class MaintenanceWindowLambdaParameters(AWSProperty):
     """
-    `MaintenanceWindowLambdaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html>`__
+    `MaintenanceWindowLambdaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class MaintenanceWindowLambdaParameters(AWSProperty):
 
 class CloudWatchOutputConfig(AWSProperty):
     """
-    `CloudWatchOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html>`__
+    `CloudWatchOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -212,7 +212,7 @@ class CloudWatchOutputConfig(AWSProperty):
 
 class NotificationConfig(AWSProperty):
     """
-    `NotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html>`__
+    `NotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-notificationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class NotificationConfig(AWSProperty):
 
 class MaintenanceWindowRunCommandParameters(AWSProperty):
     """
-    `MaintenanceWindowRunCommandParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html>`__
+    `MaintenanceWindowRunCommandParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -244,7 +244,7 @@ class MaintenanceWindowRunCommandParameters(AWSProperty):
 
 class MaintenanceWindowStepFunctionsParameters(AWSProperty):
     """
-    `MaintenanceWindowStepFunctionsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html>`__
+    `MaintenanceWindowStepFunctionsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class MaintenanceWindowStepFunctionsParameters(AWSProperty):
 
 class TaskInvocationParameters(AWSProperty):
     """
-    `TaskInvocationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html>`__
+    `TaskInvocationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class TaskInvocationParameters(AWSProperty):
 
 class MaintenanceWindowTask(AWSObject):
     """
-    `MaintenanceWindowTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html>`__
+    `MaintenanceWindowTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-maintenancewindowtask.html>`__
     """
 
     resource_type = "AWS::SSM::MaintenanceWindowTask"
@@ -302,7 +302,7 @@ class MaintenanceWindowTask(AWSObject):
 
 class Parameter(AWSObject):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-parameter.html>`__
     """
 
     resource_type = "AWS::SSM::Parameter"
@@ -322,7 +322,7 @@ class Parameter(AWSObject):
 
 class PatchFilter(AWSProperty):
     """
-    `PatchFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html>`__
+    `PatchFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-patchbaseline-patchfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -333,7 +333,7 @@ class PatchFilter(AWSProperty):
 
 class PatchFilterGroup(AWSProperty):
     """
-    `PatchFilterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html>`__
+    `PatchFilterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-patchbaseline-patchfiltergroup.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class PatchFilterGroup(AWSProperty):
 
 class PatchSource(AWSProperty):
     """
-    `PatchSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html>`__
+    `PatchSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-patchbaseline-patchsource.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +355,7 @@ class PatchSource(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-patchbaseline-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -369,7 +369,7 @@ class Rule(AWSProperty):
 
 class RuleGroup(AWSProperty):
     """
-    `RuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html>`__
+    `RuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-patchbaseline-rulegroup.html>`__
     """
 
     props: PropsDictType = {
@@ -379,7 +379,7 @@ class RuleGroup(AWSProperty):
 
 class PatchBaseline(AWSObject):
     """
-    `PatchBaseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html>`__
+    `PatchBaseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-patchbaseline.html>`__
     """
 
     resource_type = "AWS::SSM::PatchBaseline"
@@ -404,7 +404,7 @@ class PatchBaseline(AWSObject):
 
 class S3Destination(AWSProperty):
     """
-    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html>`__
+    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-resourcedatasync-s3destination.html>`__
     """
 
     props: PropsDictType = {
@@ -418,7 +418,7 @@ class S3Destination(AWSProperty):
 
 class AwsOrganizationsSource(AWSProperty):
     """
-    `AwsOrganizationsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html>`__
+    `AwsOrganizationsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-resourcedatasync-awsorganizationssource.html>`__
     """
 
     props: PropsDictType = {
@@ -429,7 +429,7 @@ class AwsOrganizationsSource(AWSProperty):
 
 class SyncSource(AWSProperty):
     """
-    `SyncSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html>`__
+    `SyncSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ssm-resourcedatasync-syncsource.html>`__
     """
 
     props: PropsDictType = {
@@ -442,7 +442,7 @@ class SyncSource(AWSProperty):
 
 class ResourceDataSync(AWSObject):
     """
-    `ResourceDataSync <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html>`__
+    `ResourceDataSync <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-resourcedatasync.html>`__
     """
 
     resource_type = "AWS::SSM::ResourceDataSync"
@@ -462,7 +462,7 @@ class ResourceDataSync(AWSObject):
 
 class ResourcePolicy(AWSObject):
     """
-    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcepolicy.html>`__
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ssm-resourcepolicy.html>`__
     """
 
     resource_type = "AWS::SSM::ResourcePolicy"

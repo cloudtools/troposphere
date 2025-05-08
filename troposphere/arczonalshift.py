@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class AutoshiftObserverNotificationStatus(AWSObject):
     """
-    `AutoshiftObserverNotificationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html>`__
+    `AutoshiftObserverNotificationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html>`__
     """
 
     resource_type = "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus"
@@ -23,7 +23,7 @@ class AutoshiftObserverNotificationStatus(AWSObject):
 
 class ControlCondition(AWSProperty):
     """
-    `ControlCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html>`__
+    `ControlCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ControlCondition(AWSProperty):
 
 class PracticeRunConfiguration(AWSProperty):
     """
-    `PracticeRunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html>`__
+    `PracticeRunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class PracticeRunConfiguration(AWSProperty):
 
 class ZonalAutoshiftConfiguration(AWSObject):
     """
-    `ZonalAutoshiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html>`__
+    `ZonalAutoshiftConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-arczonalshift-zonalautoshiftconfiguration.html>`__
     """
 
     resource_type = "AWS::ARCZonalShift::ZonalAutoshiftConfiguration"

@@ -23,7 +23,7 @@ from .validators.apigatewayv2 import (
 
 class BodyS3Location(AWSProperty):
     """
-    `BodyS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html>`__
+    `BodyS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-api-bodys3location.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class BodyS3Location(AWSProperty):
 
 class Cors(AWSProperty):
     """
-    `Cors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html>`__
+    `Cors <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-api-cors.html>`__
     """
 
     props: PropsDictType = {
@@ -51,7 +51,7 @@ class Cors(AWSProperty):
 
 class Api(AWSObject):
     """
-    `Api <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html>`__
+    `Api <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-api.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Api"
@@ -80,7 +80,7 @@ class Api(AWSObject):
 
 class IntegrationOverrides(AWSProperty):
     """
-    `IntegrationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html>`__
+    `IntegrationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-apigatewaymanagedoverrides-integrationoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class IntegrationOverrides(AWSProperty):
 
 class RouteOverrides(AWSProperty):
     """
-    `RouteOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html>`__
+    `RouteOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routeoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class RouteOverrides(AWSProperty):
 
 class AccessLogSettings(AWSProperty):
     """
-    `AccessLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html>`__
+    `AccessLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-stage-accesslogsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class AccessLogSettings(AWSProperty):
 
 class RouteSettings(AWSProperty):
     """
-    `RouteSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html>`__
+    `RouteSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-stage-routesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class RouteSettings(AWSProperty):
 
 class StageOverrides(AWSProperty):
     """
-    `StageOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html>`__
+    `StageOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-apigatewaymanagedoverrides-stageoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -147,7 +147,7 @@ class StageOverrides(AWSProperty):
 
 class ApiGatewayManagedOverrides(AWSObject):
     """
-    `ApiGatewayManagedOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html>`__
+    `ApiGatewayManagedOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides"
@@ -162,7 +162,7 @@ class ApiGatewayManagedOverrides(AWSObject):
 
 class ApiMapping(AWSObject):
     """
-    `ApiMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html>`__
+    `ApiMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-apimapping.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::ApiMapping"
@@ -177,7 +177,7 @@ class ApiMapping(AWSObject):
 
 class JWTConfiguration(AWSProperty):
     """
-    `JWTConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html>`__
+    `JWTConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -188,7 +188,7 @@ class JWTConfiguration(AWSProperty):
 
 class Authorizer(AWSObject):
     """
-    `Authorizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html>`__
+    `Authorizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-authorizer.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Authorizer"
@@ -210,7 +210,7 @@ class Authorizer(AWSObject):
 
 class Deployment(AWSObject):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-deployment.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Deployment"
@@ -224,7 +224,7 @@ class Deployment(AWSObject):
 
 class DomainNameConfiguration(AWSProperty):
     """
-    `DomainNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html>`__
+    `DomainNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class DomainNameConfiguration(AWSProperty):
 
 class MutualTlsAuthentication(AWSProperty):
     """
-    `MutualTlsAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html>`__
+    `MutualTlsAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-domainname-mutualtlsauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -250,7 +250,7 @@ class MutualTlsAuthentication(AWSProperty):
 
 class DomainName(AWSObject):
     """
-    `DomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html>`__
+    `DomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-domainname.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::DomainName"
@@ -265,7 +265,7 @@ class DomainName(AWSObject):
 
 class ResponseParameter(AWSProperty):
     """
-    `ResponseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html>`__
+    `ResponseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-integration-responseparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -276,7 +276,7 @@ class ResponseParameter(AWSProperty):
 
 class ResponseParameterMap(AWSProperty):
     """
-    `ResponseParameterMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparametermap.html>`__
+    `ResponseParameterMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-integration-responseparametermap.html>`__
     """
 
     props: PropsDictType = {
@@ -286,7 +286,7 @@ class ResponseParameterMap(AWSProperty):
 
 class TlsConfig(AWSProperty):
     """
-    `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html>`__
+    `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-integration-tlsconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class TlsConfig(AWSProperty):
 
 class Integration(AWSObject):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-integration.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Integration"
@@ -325,7 +325,7 @@ class Integration(AWSObject):
 
 class IntegrationResponse(AWSObject):
     """
-    `IntegrationResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html>`__
+    `IntegrationResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-integrationresponse.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::IntegrationResponse"
@@ -343,7 +343,7 @@ class IntegrationResponse(AWSObject):
 
 class Model(AWSObject):
     """
-    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html>`__
+    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-model.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Model"
@@ -362,7 +362,7 @@ class Model(AWSObject):
 
 class Route(AWSObject):
     """
-    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html>`__
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-route.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Route"
@@ -385,7 +385,7 @@ class Route(AWSObject):
 
 class ParameterConstraints(AWSProperty):
     """
-    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>`__
+    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>`__
     """
 
     props: PropsDictType = {
@@ -395,7 +395,7 @@ class ParameterConstraints(AWSProperty):
 
 class RouteResponse(AWSObject):
     """
-    `RouteResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html>`__
+    `RouteResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-routeresponse.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::RouteResponse"
@@ -412,7 +412,7 @@ class RouteResponse(AWSObject):
 
 class Stage(AWSObject):
     """
-    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html>`__
+    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-stage.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::Stage"
@@ -435,7 +435,7 @@ class Stage(AWSObject):
 
 class VpcLink(AWSObject):
     """
-    `VpcLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html>`__
+    `VpcLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-apigatewayv2-vpclink.html>`__
     """
 
     resource_type = "AWS::ApiGatewayV2::VpcLink"

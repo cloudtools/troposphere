@@ -13,7 +13,7 @@ from .validators.waf import validate_waf_action_type
 
 class FieldToMatch(AWSProperty):
     """
-    `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple-fieldtomatch.html>`__
+    `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-xssmatchset-xssmatchtuple-fieldtomatch.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class FieldToMatch(AWSProperty):
 
 class ByteMatchTuples(AWSProperty):
     """
-    `ByteMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html>`__
+    `ByteMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-bytematchset-bytematchtuples.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class ByteMatchTuples(AWSProperty):
 
 class ByteMatchSet(AWSObject):
     """
-    `ByteMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html>`__
+    `ByteMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-bytematchset.html>`__
     """
 
     resource_type = "AWS::WAF::ByteMatchSet"
@@ -51,7 +51,7 @@ class ByteMatchSet(AWSObject):
 
 class IPSetDescriptors(AWSProperty):
     """
-    `IPSetDescriptors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptors.html>`__
+    `IPSetDescriptors <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-ipset-ipsetdescriptors.html>`__
     """
 
     props: PropsDictType = {
@@ -62,7 +62,7 @@ class IPSetDescriptors(AWSProperty):
 
 class IPSet(AWSObject):
     """
-    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html>`__
+    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-ipset.html>`__
     """
 
     resource_type = "AWS::WAF::IPSet"
@@ -75,7 +75,7 @@ class IPSet(AWSObject):
 
 class Predicates(AWSProperty):
     """
-    `Predicates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-rule-predicates.html>`__
+    `Predicates <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-rule-predicates.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class Predicates(AWSProperty):
 
 class Rule(AWSObject):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-rule.html>`__
     """
 
     resource_type = "AWS::WAF::Rule"
@@ -101,7 +101,7 @@ class Rule(AWSObject):
 
 class SizeConstraint(AWSProperty):
     """
-    `SizeConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html>`__
+    `SizeConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-sizeconstraintset-sizeconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class SizeConstraint(AWSProperty):
 
 class SizeConstraintSet(AWSObject):
     """
-    `SizeConstraintSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html>`__
+    `SizeConstraintSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-sizeconstraintset.html>`__
     """
 
     resource_type = "AWS::WAF::SizeConstraintSet"
@@ -127,7 +127,7 @@ class SizeConstraintSet(AWSObject):
 
 class SqlInjectionMatchTuples(AWSProperty):
     """
-    `SqlInjectionMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html>`__
+    `SqlInjectionMatchTuples <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-sqlinjectionmatchset-sqlinjectionmatchtuples.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class SqlInjectionMatchTuples(AWSProperty):
 
 class SqlInjectionMatchSet(AWSObject):
     """
-    `SqlInjectionMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html>`__
+    `SqlInjectionMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-sqlinjectionmatchset.html>`__
     """
 
     resource_type = "AWS::WAF::SqlInjectionMatchSet"
@@ -151,7 +151,7 @@ class SqlInjectionMatchSet(AWSObject):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-webacl-action.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class Action(AWSProperty):
 
 class Rules(AWSProperty):
     """
-    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html>`__
+    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-webacl-rules.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class Rules(AWSProperty):
 
 class WebACL(AWSObject):
     """
-    `WebACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html>`__
+    `WebACL <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-webacl.html>`__
     """
 
     resource_type = "AWS::WAF::WebACL"
@@ -188,7 +188,7 @@ class WebACL(AWSObject):
 
 class XssMatchTuple(AWSProperty):
     """
-    `XssMatchTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html>`__
+    `XssMatchTuple <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waf-xssmatchset-xssmatchtuple.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class XssMatchTuple(AWSProperty):
 
 class XssMatchSet(AWSObject):
     """
-    `XssMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html>`__
+    `XssMatchSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-waf-xssmatchset.html>`__
     """
 
     resource_type = "AWS::WAF::XssMatchSet"

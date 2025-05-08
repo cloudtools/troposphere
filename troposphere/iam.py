@@ -23,7 +23,7 @@ from .validators.iam import (
 
 class AccessKey(AWSObject):
     """
-    `AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html>`__
+    `AccessKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iam-accesskey.html>`__
     """
 
     resource_type = "AWS::IAM::AccessKey"
@@ -37,7 +37,7 @@ class AccessKey(AWSObject):
 
 class Policy(AWSProperty):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iam-user-policy.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class Policy(AWSProperty):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-group.html>`__
     """
 
     resource_type = "AWS::IAM::Group"
@@ -63,7 +63,7 @@ class Group(AWSObject):
 
 class GroupPolicy(AWSObject):
     """
-    `GroupPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html>`__
+    `GroupPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-grouppolicy.html>`__
     """
 
     resource_type = "AWS::IAM::GroupPolicy"
@@ -77,7 +77,7 @@ class GroupPolicy(AWSObject):
 
 class InstanceProfile(AWSObject):
     """
-    `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
+    `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html>`__
     """
 
     resource_type = "AWS::IAM::InstanceProfile"
@@ -91,7 +91,7 @@ class InstanceProfile(AWSObject):
 
 class ManagedPolicy(AWSObject):
     """
-    `ManagedPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html>`__
+    `ManagedPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-managedpolicy.html>`__
     """
 
     resource_type = "AWS::IAM::ManagedPolicy"
@@ -109,7 +109,7 @@ class ManagedPolicy(AWSObject):
 
 class OIDCProvider(AWSObject):
     """
-    `OIDCProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html>`__
+    `OIDCProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-oidcprovider.html>`__
     """
 
     resource_type = "AWS::IAM::OIDCProvider"
@@ -124,7 +124,7 @@ class OIDCProvider(AWSObject):
 
 class PolicyType(AWSObject):
     """
-    `PolicyType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html>`__
+    `PolicyType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-policy.html>`__
     """
 
     resource_type = "AWS::IAM::Policy"
@@ -140,7 +140,7 @@ class PolicyType(AWSObject):
 
 class Role(AWSObject):
     """
-    `Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html>`__
+    `Role <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-role.html>`__
     """
 
     resource_type = "AWS::IAM::Role"
@@ -160,7 +160,7 @@ class Role(AWSObject):
 
 class RolePolicy(AWSObject):
     """
-    `RolePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html>`__
+    `RolePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-rolepolicy.html>`__
     """
 
     resource_type = "AWS::IAM::RolePolicy"
@@ -174,7 +174,7 @@ class RolePolicy(AWSObject):
 
 class SAMLPrivateKey(AWSProperty):
     """
-    `SAMLPrivateKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-samlprovider-samlprivatekey.html>`__
+    `SAMLPrivateKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iam-samlprovider-samlprivatekey.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class SAMLPrivateKey(AWSProperty):
 
 class SAMLProvider(AWSObject):
     """
-    `SAMLProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html>`__
+    `SAMLProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-samlprovider.html>`__
     """
 
     resource_type = "AWS::IAM::SAMLProvider"
@@ -203,7 +203,7 @@ class SAMLProvider(AWSObject):
 
 class ServerCertificate(AWSObject):
     """
-    `ServerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html>`__
+    `ServerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-servercertificate.html>`__
     """
 
     resource_type = "AWS::IAM::ServerCertificate"
@@ -220,7 +220,7 @@ class ServerCertificate(AWSObject):
 
 class ServiceLinkedRole(AWSObject):
     """
-    `ServiceLinkedRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html>`__
+    `ServiceLinkedRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-servicelinkedrole.html>`__
     """
 
     resource_type = "AWS::IAM::ServiceLinkedRole"
@@ -234,7 +234,7 @@ class ServiceLinkedRole(AWSObject):
 
 class LoginProfile(AWSProperty):
     """
-    `LoginProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html>`__
+    `LoginProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iam-user-loginprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class LoginProfile(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-user.html>`__
     """
 
     resource_type = "AWS::IAM::User"
@@ -264,7 +264,7 @@ class User(AWSObject):
 
 class UserPolicy(AWSObject):
     """
-    `UserPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html>`__
+    `UserPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-userpolicy.html>`__
     """
 
     resource_type = "AWS::IAM::UserPolicy"
@@ -278,7 +278,7 @@ class UserPolicy(AWSObject):
 
 class UserToGroupAddition(AWSObject):
     """
-    `UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html>`__
+    `UserToGroupAddition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-iam-addusertogroup.html>`__
     """
 
     resource_type = "AWS::IAM::UserToGroupAddition"
@@ -291,7 +291,7 @@ class UserToGroupAddition(AWSObject):
 
 class VirtualMFADevice(AWSObject):
     """
-    `VirtualMFADevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html>`__
+    `VirtualMFADevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-virtualmfadevice.html>`__
     """
 
     resource_type = "AWS::IAM::VirtualMFADevice"

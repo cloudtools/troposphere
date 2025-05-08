@@ -11,7 +11,7 @@ from . import AWSObject, PropsDictType
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalogappregistry-application.html>`__
     """
 
     resource_type = "AWS::ServiceCatalogAppRegistry::Application"
@@ -25,7 +25,7 @@ class Application(AWSObject):
 
 class AttributeGroup(AWSObject):
     """
-    `AttributeGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html>`__
+    `AttributeGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalogappregistry-attributegroup.html>`__
     """
 
     resource_type = "AWS::ServiceCatalogAppRegistry::AttributeGroup"
@@ -40,7 +40,7 @@ class AttributeGroup(AWSObject):
 
 class AttributeGroupAssociation(AWSObject):
     """
-    `AttributeGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html>`__
+    `AttributeGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalogappregistry-attributegroupassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation"
@@ -53,7 +53,7 @@ class AttributeGroupAssociation(AWSObject):
 
 class ResourceAssociation(AWSObject):
     """
-    `ResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html>`__
+    `ResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalogappregistry-resourceassociation.html>`__
     """
 
     resource_type = "AWS::ServiceCatalogAppRegistry::ResourceAssociation"

@@ -12,7 +12,7 @@ from .validators import boolean, double
 
 class DeliveryOptions(AWSProperty):
     """
-    `DeliveryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html>`__
+    `DeliveryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-deliveryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class DeliveryOptions(AWSProperty):
 
 class ReputationOptions(AWSProperty):
     """
-    `ReputationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-reputationoptions.html>`__
+    `ReputationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-reputationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ReputationOptions(AWSProperty):
 
 class SendingOptions(AWSProperty):
     """
-    `SendingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-sendingoptions.html>`__
+    `SendingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-sendingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -44,7 +44,7 @@ class SendingOptions(AWSProperty):
 
 class SuppressionOptions(AWSProperty):
     """
-    `SuppressionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html>`__
+    `SuppressionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-suppressionoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class SuppressionOptions(AWSProperty):
 
 class TrackingOptions(AWSProperty):
     """
-    `TrackingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html>`__
+    `TrackingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-trackingoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class TrackingOptions(AWSProperty):
 
 class DashboardOptions(AWSProperty):
     """
-    `DashboardOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html>`__
+    `DashboardOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-dashboardoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class DashboardOptions(AWSProperty):
 
 class GuardianOptions(AWSProperty):
     """
-    `GuardianOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html>`__
+    `GuardianOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-guardianoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -85,7 +85,7 @@ class GuardianOptions(AWSProperty):
 
 class VdmOptions(AWSProperty):
     """
-    `VdmOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html>`__
+    `VdmOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationset-vdmoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -96,7 +96,7 @@ class VdmOptions(AWSProperty):
 
 class ConfigurationSet(AWSObject):
     """
-    `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html>`__
+    `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-configurationset.html>`__
     """
 
     resource_type = "AWS::SES::ConfigurationSet"
@@ -114,7 +114,7 @@ class ConfigurationSet(AWSObject):
 
 class DimensionConfiguration(AWSProperty):
     """
-    `DimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html>`__
+    `DimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -126,7 +126,7 @@ class DimensionConfiguration(AWSProperty):
 
 class CloudWatchDestination(AWSProperty):
     """
-    `CloudWatchDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html>`__
+    `CloudWatchDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -136,7 +136,7 @@ class CloudWatchDestination(AWSProperty):
 
 class EventBridgeDestination(AWSProperty):
     """
-    `EventBridgeDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html>`__
+    `EventBridgeDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class EventBridgeDestination(AWSProperty):
 
 class KinesisFirehoseDestination(AWSProperty):
     """
-    `KinesisFirehoseDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html>`__
+    `KinesisFirehoseDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html>`__
     """
 
     props: PropsDictType = {
@@ -157,7 +157,7 @@ class KinesisFirehoseDestination(AWSProperty):
 
 class SnsDestination(AWSProperty):
     """
-    `SnsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html>`__
+    `SnsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-snsdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -167,7 +167,7 @@ class SnsDestination(AWSProperty):
 
 class EventDestination(AWSProperty):
     """
-    `EventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html>`__
+    `EventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-configurationseteventdestination-eventdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class EventDestination(AWSProperty):
 
 class ConfigurationSetEventDestination(AWSObject):
     """
-    `ConfigurationSetEventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html>`__
+    `ConfigurationSetEventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-configurationseteventdestination.html>`__
     """
 
     resource_type = "AWS::SES::ConfigurationSetEventDestination"
@@ -196,7 +196,7 @@ class ConfigurationSetEventDestination(AWSObject):
 
 class Topic(AWSProperty):
     """
-    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html>`__
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-contactlist-topic.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class Topic(AWSProperty):
 
 class ContactList(AWSObject):
     """
-    `ContactList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html>`__
+    `ContactList <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-contactlist.html>`__
     """
 
     resource_type = "AWS::SES::ContactList"
@@ -224,7 +224,7 @@ class ContactList(AWSObject):
 
 class DedicatedIpPool(AWSObject):
     """
-    `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html>`__
+    `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-dedicatedippool.html>`__
     """
 
     resource_type = "AWS::SES::DedicatedIpPool"
@@ -237,7 +237,7 @@ class DedicatedIpPool(AWSObject):
 
 class ConfigurationSetAttributes(AWSProperty):
     """
-    `ConfigurationSetAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-configurationsetattributes.html>`__
+    `ConfigurationSetAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-emailidentity-configurationsetattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -247,7 +247,7 @@ class ConfigurationSetAttributes(AWSProperty):
 
 class DkimAttributes(AWSProperty):
     """
-    `DkimAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimattributes.html>`__
+    `DkimAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-emailidentity-dkimattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -257,7 +257,7 @@ class DkimAttributes(AWSProperty):
 
 class DkimSigningAttributes(AWSProperty):
     """
-    `DkimSigningAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimsigningattributes.html>`__
+    `DkimSigningAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-emailidentity-dkimsigningattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -269,7 +269,7 @@ class DkimSigningAttributes(AWSProperty):
 
 class FeedbackAttributes(AWSProperty):
     """
-    `FeedbackAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-feedbackattributes.html>`__
+    `FeedbackAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-emailidentity-feedbackattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -279,7 +279,7 @@ class FeedbackAttributes(AWSProperty):
 
 class MailFromAttributes(AWSProperty):
     """
-    `MailFromAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-mailfromattributes.html>`__
+    `MailFromAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-emailidentity-mailfromattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -290,7 +290,7 @@ class MailFromAttributes(AWSProperty):
 
 class EmailIdentity(AWSObject):
     """
-    `EmailIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html>`__
+    `EmailIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-emailidentity.html>`__
     """
 
     resource_type = "AWS::SES::EmailIdentity"
@@ -307,7 +307,7 @@ class EmailIdentity(AWSObject):
 
 class MailManagerAddonInstance(AWSObject):
     """
-    `MailManagerAddonInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddoninstance.html>`__
+    `MailManagerAddonInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanageraddoninstance.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerAddonInstance"
@@ -320,7 +320,7 @@ class MailManagerAddonInstance(AWSObject):
 
 class MailManagerAddonSubscription(AWSObject):
     """
-    `MailManagerAddonSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddonsubscription.html>`__
+    `MailManagerAddonSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanageraddonsubscription.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerAddonSubscription"
@@ -333,7 +333,7 @@ class MailManagerAddonSubscription(AWSObject):
 
 class ArchiveRetention(AWSProperty):
     """
-    `ArchiveRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerarchive-archiveretention.html>`__
+    `ArchiveRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerarchive-archiveretention.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class ArchiveRetention(AWSProperty):
 
 class MailManagerArchive(AWSObject):
     """
-    `MailManagerArchive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerarchive.html>`__
+    `MailManagerArchive <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanagerarchive.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerArchive"
@@ -358,7 +358,7 @@ class MailManagerArchive(AWSObject):
 
 class IngressPointConfiguration(AWSProperty):
     """
-    `IngressPointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html>`__
+    `IngressPointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -369,7 +369,7 @@ class IngressPointConfiguration(AWSProperty):
 
 class PrivateNetworkConfiguration(AWSProperty):
     """
-    `PrivateNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-privatenetworkconfiguration.html>`__
+    `PrivateNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanageringresspoint-privatenetworkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -379,7 +379,7 @@ class PrivateNetworkConfiguration(AWSProperty):
 
 class PublicNetworkConfiguration(AWSProperty):
     """
-    `PublicNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-publicnetworkconfiguration.html>`__
+    `PublicNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanageringresspoint-publicnetworkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -389,7 +389,7 @@ class PublicNetworkConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanageringresspoint-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class NetworkConfiguration(AWSProperty):
 
 class MailManagerIngressPoint(AWSObject):
     """
-    `MailManagerIngressPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html>`__
+    `MailManagerIngressPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanageringresspoint.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerIngressPoint"
@@ -419,7 +419,7 @@ class MailManagerIngressPoint(AWSObject):
 
 class RelayAuthentication(AWSProperty):
     """
-    `RelayAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerrelay-relayauthentication.html>`__
+    `RelayAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerrelay-relayauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -430,7 +430,7 @@ class RelayAuthentication(AWSProperty):
 
 class MailManagerRelay(AWSObject):
     """
-    `MailManagerRelay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerrelay.html>`__
+    `MailManagerRelay <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanagerrelay.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerRelay"
@@ -446,7 +446,7 @@ class MailManagerRelay(AWSObject):
 
 class AddHeaderAction(AWSProperty):
     """
-    `AddHeaderAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html>`__
+    `AddHeaderAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-addheaderaction.html>`__
     """
 
     props: PropsDictType = {
@@ -457,7 +457,7 @@ class AddHeaderAction(AWSProperty):
 
 class ArchiveAction(AWSProperty):
     """
-    `ArchiveAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-archiveaction.html>`__
+    `ArchiveAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-archiveaction.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class ArchiveAction(AWSProperty):
 
 class DeliverToMailboxAction(AWSProperty):
     """
-    `DeliverToMailboxAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html>`__
+    `DeliverToMailboxAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html>`__
     """
 
     props: PropsDictType = {
@@ -480,7 +480,7 @@ class DeliverToMailboxAction(AWSProperty):
 
 class DeliverToQBusinessAction(AWSProperty):
     """
-    `DeliverToQBusinessAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertoqbusinessaction.html>`__
+    `DeliverToQBusinessAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-delivertoqbusinessaction.html>`__
     """
 
     props: PropsDictType = {
@@ -493,7 +493,7 @@ class DeliverToQBusinessAction(AWSProperty):
 
 class MailManagerS3Action(AWSProperty):
     """
-    `MailManagerS3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-s3action.html>`__
+    `MailManagerS3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-s3action.html>`__
     """
 
     props: PropsDictType = {
@@ -507,7 +507,7 @@ class MailManagerS3Action(AWSProperty):
 
 class RelayAction(AWSProperty):
     """
-    `RelayAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-relayaction.html>`__
+    `RelayAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-relayaction.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class RelayAction(AWSProperty):
 
 class ReplaceRecipientAction(AWSProperty):
     """
-    `ReplaceRecipientAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-replacerecipientaction.html>`__
+    `ReplaceRecipientAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-replacerecipientaction.html>`__
     """
 
     props: PropsDictType = {
@@ -529,7 +529,7 @@ class ReplaceRecipientAction(AWSProperty):
 
 class SendAction(AWSProperty):
     """
-    `SendAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-sendaction.html>`__
+    `SendAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-sendaction.html>`__
     """
 
     props: PropsDictType = {
@@ -540,7 +540,7 @@ class SendAction(AWSProperty):
 
 class RuleAction(AWSProperty):
     """
-    `RuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html>`__
+    `RuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruleaction.html>`__
     """
 
     props: PropsDictType = {
@@ -558,7 +558,7 @@ class RuleAction(AWSProperty):
 
 class Analysis(AWSProperty):
     """
-    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-analysis.html>`__
+    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-analysis.html>`__
     """
 
     props: PropsDictType = {
@@ -569,7 +569,7 @@ class Analysis(AWSProperty):
 
 class RuleBooleanToEvaluate(AWSProperty):
     """
-    `RuleBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html>`__
+    `RuleBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -580,7 +580,7 @@ class RuleBooleanToEvaluate(AWSProperty):
 
 class RuleBooleanExpression(AWSProperty):
     """
-    `RuleBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html>`__
+    `RuleBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -591,7 +591,7 @@ class RuleBooleanExpression(AWSProperty):
 
 class RuleDmarcExpression(AWSProperty):
     """
-    `RuleDmarcExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html>`__
+    `RuleDmarcExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -602,7 +602,7 @@ class RuleDmarcExpression(AWSProperty):
 
 class RuleIpToEvaluate(AWSProperty):
     """
-    `RuleIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html>`__
+    `RuleIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -612,7 +612,7 @@ class RuleIpToEvaluate(AWSProperty):
 
 class RuleIpExpression(AWSProperty):
     """
-    `RuleIpExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html>`__
+    `RuleIpExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruleipexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -624,7 +624,7 @@ class RuleIpExpression(AWSProperty):
 
 class RuleNumberToEvaluate(AWSProperty):
     """
-    `RuleNumberToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumbertoevaluate.html>`__
+    `RuleNumberToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulenumbertoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -634,7 +634,7 @@ class RuleNumberToEvaluate(AWSProperty):
 
 class RuleNumberExpression(AWSProperty):
     """
-    `RuleNumberExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html>`__
+    `RuleNumberExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -646,7 +646,7 @@ class RuleNumberExpression(AWSProperty):
 
 class RuleStringToEvaluate(AWSProperty):
     """
-    `RuleStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html>`__
+    `RuleStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -658,7 +658,7 @@ class RuleStringToEvaluate(AWSProperty):
 
 class RuleStringExpression(AWSProperty):
     """
-    `RuleStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html>`__
+    `RuleStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulestringexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -670,7 +670,7 @@ class RuleStringExpression(AWSProperty):
 
 class RuleVerdictToEvaluate(AWSProperty):
     """
-    `RuleVerdictToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html>`__
+    `RuleVerdictToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -681,7 +681,7 @@ class RuleVerdictToEvaluate(AWSProperty):
 
 class RuleVerdictExpression(AWSProperty):
     """
-    `RuleVerdictExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdictexpression.html>`__
+    `RuleVerdictExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-ruleverdictexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class RuleVerdictExpression(AWSProperty):
 
 class RuleCondition(AWSProperty):
     """
-    `RuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html>`__
+    `RuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rulecondition.html>`__
     """
 
     props: PropsDictType = {
@@ -708,7 +708,7 @@ class RuleCondition(AWSProperty):
 
 class MailManagerRule(AWSProperty):
     """
-    `MailManagerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html>`__
+    `MailManagerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagerruleset-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -721,7 +721,7 @@ class MailManagerRule(AWSProperty):
 
 class MailManagerRuleSet(AWSObject):
     """
-    `MailManagerRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html>`__
+    `MailManagerRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanagerruleset.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerRuleSet"
@@ -735,7 +735,7 @@ class MailManagerRuleSet(AWSObject):
 
 class IngressAnalysis(AWSProperty):
     """
-    `IngressAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html>`__
+    `IngressAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html>`__
     """
 
     props: PropsDictType = {
@@ -746,7 +746,7 @@ class IngressAnalysis(AWSProperty):
 
 class IngressBooleanToEvaluate(AWSProperty):
     """
-    `IngressBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html>`__
+    `IngressBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -756,7 +756,7 @@ class IngressBooleanToEvaluate(AWSProperty):
 
 class IngressBooleanExpression(AWSProperty):
     """
-    `IngressBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html>`__
+    `IngressBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -767,7 +767,7 @@ class IngressBooleanExpression(AWSProperty):
 
 class IngressIpToEvaluate(AWSProperty):
     """
-    `IngressIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html>`__
+    `IngressIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -777,7 +777,7 @@ class IngressIpToEvaluate(AWSProperty):
 
 class IngressIpv4Expression(AWSProperty):
     """
-    `IngressIpv4Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html>`__
+    `IngressIpv4Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html>`__
     """
 
     props: PropsDictType = {
@@ -789,7 +789,7 @@ class IngressIpv4Expression(AWSProperty):
 
 class IngressIpv6ToEvaluate(AWSProperty):
     """
-    `IngressIpv6ToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6toevaluate.html>`__
+    `IngressIpv6ToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6toevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -799,7 +799,7 @@ class IngressIpv6ToEvaluate(AWSProperty):
 
 class IngressIpv6Expression(AWSProperty):
     """
-    `IngressIpv6Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6expression.html>`__
+    `IngressIpv6Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6expression.html>`__
     """
 
     props: PropsDictType = {
@@ -811,7 +811,7 @@ class IngressIpv6Expression(AWSProperty):
 
 class IngressStringToEvaluate(AWSProperty):
     """
-    `IngressStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>`__
+    `IngressStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -822,7 +822,7 @@ class IngressStringToEvaluate(AWSProperty):
 
 class IngressStringExpression(AWSProperty):
     """
-    `IngressStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html>`__
+    `IngressStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -834,7 +834,7 @@ class IngressStringExpression(AWSProperty):
 
 class IngressTlsProtocolToEvaluate(AWSProperty):
     """
-    `IngressTlsProtocolToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate.html>`__
+    `IngressTlsProtocolToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate.html>`__
     """
 
     props: PropsDictType = {
@@ -844,7 +844,7 @@ class IngressTlsProtocolToEvaluate(AWSProperty):
 
 class IngressTlsProtocolExpression(AWSProperty):
     """
-    `IngressTlsProtocolExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocolexpression.html>`__
+    `IngressTlsProtocolExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocolexpression.html>`__
     """
 
     props: PropsDictType = {
@@ -856,7 +856,7 @@ class IngressTlsProtocolExpression(AWSProperty):
 
 class PolicyCondition(AWSProperty):
     """
-    `PolicyCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html>`__
+    `PolicyCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html>`__
     """
 
     props: PropsDictType = {
@@ -870,7 +870,7 @@ class PolicyCondition(AWSProperty):
 
 class PolicyStatement(AWSProperty):
     """
-    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html>`__
+    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html>`__
     """
 
     props: PropsDictType = {
@@ -881,7 +881,7 @@ class PolicyStatement(AWSProperty):
 
 class MailManagerTrafficPolicy(AWSObject):
     """
-    `MailManagerTrafficPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html>`__
+    `MailManagerTrafficPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-mailmanagertrafficpolicy.html>`__
     """
 
     resource_type = "AWS::SES::MailManagerTrafficPolicy"
@@ -897,7 +897,7 @@ class MailManagerTrafficPolicy(AWSObject):
 
 class IpFilter(AWSProperty):
     """
-    `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html>`__
+    `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptfilter-ipfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -908,7 +908,7 @@ class IpFilter(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptfilter-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -919,7 +919,7 @@ class Filter(AWSProperty):
 
 class ReceiptFilter(AWSObject):
     """
-    `ReceiptFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html>`__
+    `ReceiptFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-receiptfilter.html>`__
     """
 
     resource_type = "AWS::SES::ReceiptFilter"
@@ -931,7 +931,7 @@ class ReceiptFilter(AWSObject):
 
 class BounceAction(AWSProperty):
     """
-    `BounceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html>`__
+    `BounceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-bounceaction.html>`__
     """
 
     props: PropsDictType = {
@@ -945,7 +945,7 @@ class BounceAction(AWSProperty):
 
 class ConnectAction(AWSProperty):
     """
-    `ConnectAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html>`__
+    `ConnectAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-connectaction.html>`__
     """
 
     props: PropsDictType = {
@@ -956,7 +956,7 @@ class ConnectAction(AWSProperty):
 
 class LambdaAction(AWSProperty):
     """
-    `LambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html>`__
+    `LambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-lambdaaction.html>`__
     """
 
     props: PropsDictType = {
@@ -968,7 +968,7 @@ class LambdaAction(AWSProperty):
 
 class S3Action(AWSProperty):
     """
-    `S3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html>`__
+    `S3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-s3action.html>`__
     """
 
     props: PropsDictType = {
@@ -982,7 +982,7 @@ class S3Action(AWSProperty):
 
 class SNSAction(AWSProperty):
     """
-    `SNSAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html>`__
+    `SNSAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-snsaction.html>`__
     """
 
     props: PropsDictType = {
@@ -993,7 +993,7 @@ class SNSAction(AWSProperty):
 
 class StopAction(AWSProperty):
     """
-    `StopAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html>`__
+    `StopAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-stopaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1004,7 +1004,7 @@ class StopAction(AWSProperty):
 
 class WorkmailAction(AWSProperty):
     """
-    `WorkmailAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html>`__
+    `WorkmailAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-workmailaction.html>`__
     """
 
     props: PropsDictType = {
@@ -1015,7 +1015,7 @@ class WorkmailAction(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-action.html>`__
     """
 
     props: PropsDictType = {
@@ -1032,7 +1032,7 @@ class Action(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-receiptrule-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -1047,7 +1047,7 @@ class Rule(AWSProperty):
 
 class ReceiptRule(AWSObject):
     """
-    `ReceiptRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptrule.html>`__
+    `ReceiptRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-receiptrule.html>`__
     """
 
     resource_type = "AWS::SES::ReceiptRule"
@@ -1061,7 +1061,7 @@ class ReceiptRule(AWSObject):
 
 class ReceiptRuleSet(AWSObject):
     """
-    `ReceiptRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html>`__
+    `ReceiptRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-receiptruleset.html>`__
     """
 
     resource_type = "AWS::SES::ReceiptRuleSet"
@@ -1073,7 +1073,7 @@ class ReceiptRuleSet(AWSObject):
 
 class EmailTemplate(AWSProperty):
     """
-    `EmailTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html>`__
+    `EmailTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-template-template.html>`__
     """
 
     props: PropsDictType = {
@@ -1086,7 +1086,7 @@ class EmailTemplate(AWSProperty):
 
 class Template(AWSObject):
     """
-    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html>`__
+    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-template.html>`__
     """
 
     resource_type = "AWS::SES::Template"
@@ -1098,7 +1098,7 @@ class Template(AWSObject):
 
 class DashboardAttributes(AWSProperty):
     """
-    `DashboardAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-dashboardattributes.html>`__
+    `DashboardAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-vdmattributes-dashboardattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -1108,7 +1108,7 @@ class DashboardAttributes(AWSProperty):
 
 class GuardianAttributes(AWSProperty):
     """
-    `GuardianAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-guardianattributes.html>`__
+    `GuardianAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-ses-vdmattributes-guardianattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -1118,7 +1118,7 @@ class GuardianAttributes(AWSProperty):
 
 class VdmAttributes(AWSObject):
     """
-    `VdmAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html>`__
+    `VdmAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ses-vdmattributes.html>`__
     """
 
     resource_type = "AWS::SES::VdmAttributes"

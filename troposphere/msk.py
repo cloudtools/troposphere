@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class BatchScramSecret(AWSObject):
     """
-    `BatchScramSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html>`__
+    `BatchScramSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-batchscramsecret.html>`__
     """
 
     resource_type = "AWS::MSK::BatchScramSecret"
@@ -25,7 +25,7 @@ class BatchScramSecret(AWSObject):
 
 class PublicAccess(AWSProperty):
     """
-    `PublicAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html>`__
+    `PublicAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-publicaccess.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class PublicAccess(AWSProperty):
 
 class VpcConnectivityIam(AWSProperty):
     """
-    `VpcConnectivityIam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityiam.html>`__
+    `VpcConnectivityIam <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivityiam.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class VpcConnectivityIam(AWSProperty):
 
 class VpcConnectivityScram(AWSProperty):
     """
-    `VpcConnectivityScram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html>`__
+    `VpcConnectivityScram <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivityscram.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class VpcConnectivityScram(AWSProperty):
 
 class VpcConnectivitySasl(AWSProperty):
     """
-    `VpcConnectivitySasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html>`__
+    `VpcConnectivitySasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivitysasl.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class VpcConnectivitySasl(AWSProperty):
 
 class VpcConnectivityTls(AWSProperty):
     """
-    `VpcConnectivityTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitytls.html>`__
+    `VpcConnectivityTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivitytls.html>`__
     """
 
     props: PropsDictType = {
@@ -76,7 +76,7 @@ class VpcConnectivityTls(AWSProperty):
 
 class VpcConnectivityClientAuthentication(AWSProperty):
     """
-    `VpcConnectivityClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityclientauthentication.html>`__
+    `VpcConnectivityClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivityclientauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -87,7 +87,7 @@ class VpcConnectivityClientAuthentication(AWSProperty):
 
 class VpcConnectivity(AWSProperty):
     """
-    `VpcConnectivity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivity.html>`__
+    `VpcConnectivity <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-vpcconnectivity.html>`__
     """
 
     props: PropsDictType = {
@@ -97,7 +97,7 @@ class VpcConnectivity(AWSProperty):
 
 class ConnectivityInfo(AWSProperty):
     """
-    `ConnectivityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html>`__
+    `ConnectivityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-connectivityinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class ConnectivityInfo(AWSProperty):
 
 class ProvisionedThroughput(AWSProperty):
     """
-    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-provisionedthroughput.html>`__
+    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-provisionedthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class ProvisionedThroughput(AWSProperty):
 
 class EBSStorageInfo(AWSProperty):
     """
-    `EBSStorageInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-ebsstorageinfo.html>`__
+    `EBSStorageInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-ebsstorageinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -130,7 +130,7 @@ class EBSStorageInfo(AWSProperty):
 
 class StorageInfo(AWSProperty):
     """
-    `StorageInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-storageinfo.html>`__
+    `StorageInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-storageinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -140,7 +140,7 @@ class StorageInfo(AWSProperty):
 
 class BrokerNodeGroupInfo(AWSProperty):
     """
-    `BrokerNodeGroupInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html>`__
+    `BrokerNodeGroupInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-brokernodegroupinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class BrokerNodeGroupInfo(AWSProperty):
 
 class Iam(AWSProperty):
     """
-    `Iam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-iam.html>`__
+    `Iam <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-serverlesscluster-iam.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class Iam(AWSProperty):
 
 class Scram(AWSProperty):
     """
-    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>`__
+    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-scram.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class Scram(AWSProperty):
 
 class Sasl(AWSProperty):
     """
-    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html>`__
+    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-sasl.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class Sasl(AWSProperty):
 
 class Tls(AWSProperty):
     """
-    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>`__
+    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-tls.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class Tls(AWSProperty):
 
 class Unauthenticated(AWSProperty):
     """
-    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html>`__
+    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-unauthenticated.html>`__
     """
 
     props: PropsDictType = {
@@ -207,7 +207,7 @@ class Unauthenticated(AWSProperty):
 
 class ClientAuthentication(AWSProperty):
     """
-    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html>`__
+    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-clientauthentication.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class ClientAuthentication(AWSProperty):
 
 class ConfigurationInfo(AWSProperty):
     """
-    `ConfigurationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-configurationinfo.html>`__
+    `ConfigurationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-configurationinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class ConfigurationInfo(AWSProperty):
 
 class EncryptionAtRest(AWSProperty):
     """
-    `EncryptionAtRest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionatrest.html>`__
+    `EncryptionAtRest <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-encryptionatrest.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class EncryptionAtRest(AWSProperty):
 
 class EncryptionInTransit(AWSProperty):
     """
-    `EncryptionInTransit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html>`__
+    `EncryptionInTransit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-encryptionintransit.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class EncryptionInTransit(AWSProperty):
 
 class EncryptionInfo(AWSProperty):
     """
-    `EncryptionInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html>`__
+    `EncryptionInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-encryptioninfo.html>`__
     """
 
     props: PropsDictType = {
@@ -262,7 +262,7 @@ class EncryptionInfo(AWSProperty):
 
 class CloudWatchLogs(AWSProperty):
     """
-    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html>`__
+    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-cloudwatchlogs.html>`__
     """
 
     props: PropsDictType = {
@@ -273,7 +273,7 @@ class CloudWatchLogs(AWSProperty):
 
 class Firehose(AWSProperty):
     """
-    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html>`__
+    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-firehose.html>`__
     """
 
     props: PropsDictType = {
@@ -284,7 +284,7 @@ class Firehose(AWSProperty):
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -296,7 +296,7 @@ class S3(AWSProperty):
 
 class BrokerLogs(AWSProperty):
     """
-    `BrokerLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html>`__
+    `BrokerLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-brokerlogs.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class BrokerLogs(AWSProperty):
 
 class LoggingInfo(AWSProperty):
     """
-    `LoggingInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html>`__
+    `LoggingInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-logginginfo.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +318,7 @@ class LoggingInfo(AWSProperty):
 
 class JmxExporter(AWSProperty):
     """
-    `JmxExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-jmxexporter.html>`__
+    `JmxExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-jmxexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -328,7 +328,7 @@ class JmxExporter(AWSProperty):
 
 class NodeExporter(AWSProperty):
     """
-    `NodeExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html>`__
+    `NodeExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-nodeexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -338,7 +338,7 @@ class NodeExporter(AWSProperty):
 
 class Prometheus(AWSProperty):
     """
-    `Prometheus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-prometheus.html>`__
+    `Prometheus <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-prometheus.html>`__
     """
 
     props: PropsDictType = {
@@ -349,7 +349,7 @@ class Prometheus(AWSProperty):
 
 class OpenMonitoring(AWSProperty):
     """
-    `OpenMonitoring <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-openmonitoring.html>`__
+    `OpenMonitoring <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-cluster-openmonitoring.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class OpenMonitoring(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-cluster.html>`__
     """
 
     resource_type = "AWS::MSK::Cluster"
@@ -383,7 +383,7 @@ class Cluster(AWSObject):
 
 class ClusterPolicy(AWSObject):
     """
-    `ClusterPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html>`__
+    `ClusterPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-clusterpolicy.html>`__
     """
 
     resource_type = "AWS::MSK::ClusterPolicy"
@@ -396,7 +396,7 @@ class ClusterPolicy(AWSObject):
 
 class LatestRevision(AWSProperty):
     """
-    `LatestRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html>`__
+    `LatestRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-configuration-latestrevision.html>`__
     """
 
     props: PropsDictType = {
@@ -408,7 +408,7 @@ class LatestRevision(AWSProperty):
 
 class Configuration(AWSObject):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-configuration.html>`__
     """
 
     resource_type = "AWS::MSK::Configuration"
@@ -424,7 +424,7 @@ class Configuration(AWSObject):
 
 class AmazonMskCluster(AWSProperty):
     """
-    `AmazonMskCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-amazonmskcluster.html>`__
+    `AmazonMskCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-amazonmskcluster.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class AmazonMskCluster(AWSProperty):
 
 class KafkaClusterClientVpcConfig(AWSProperty):
     """
-    `KafkaClusterClientVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html>`__
+    `KafkaClusterClientVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class KafkaClusterClientVpcConfig(AWSProperty):
 
 class KafkaCluster(AWSProperty):
     """
-    `KafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html>`__
+    `KafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-kafkacluster.html>`__
     """
 
     props: PropsDictType = {
@@ -456,7 +456,7 @@ class KafkaCluster(AWSProperty):
 
 class ConsumerGroupReplication(AWSProperty):
     """
-    `ConsumerGroupReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html>`__
+    `ConsumerGroupReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-consumergroupreplication.html>`__
     """
 
     props: PropsDictType = {
@@ -469,7 +469,7 @@ class ConsumerGroupReplication(AWSProperty):
 
 class ReplicationStartingPosition(AWSProperty):
     """
-    `ReplicationStartingPosition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingposition.html>`__
+    `ReplicationStartingPosition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-replicationstartingposition.html>`__
     """
 
     props: PropsDictType = {
@@ -479,7 +479,7 @@ class ReplicationStartingPosition(AWSProperty):
 
 class ReplicationTopicNameConfiguration(AWSProperty):
     """
-    `ReplicationTopicNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfiguration.html>`__
+    `ReplicationTopicNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-replicationtopicnameconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -489,7 +489,7 @@ class ReplicationTopicNameConfiguration(AWSProperty):
 
 class TopicReplication(AWSProperty):
     """
-    `TopicReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html>`__
+    `TopicReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-topicreplication.html>`__
     """
 
     props: PropsDictType = {
@@ -505,7 +505,7 @@ class TopicReplication(AWSProperty):
 
 class ReplicationInfo(AWSProperty):
     """
-    `ReplicationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html>`__
+    `ReplicationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-replicator-replicationinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class ReplicationInfo(AWSProperty):
 
 class Replicator(AWSObject):
     """
-    `Replicator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html>`__
+    `Replicator <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-replicator.html>`__
     """
 
     resource_type = "AWS::MSK::Replicator"
@@ -536,7 +536,7 @@ class Replicator(AWSObject):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-msk-serverlesscluster-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -547,7 +547,7 @@ class VpcConfig(AWSProperty):
 
 class ServerlessCluster(AWSObject):
     """
-    `ServerlessCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html>`__
+    `ServerlessCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-serverlesscluster.html>`__
     """
 
     resource_type = "AWS::MSK::ServerlessCluster"
@@ -562,7 +562,7 @@ class ServerlessCluster(AWSObject):
 
 class VpcConnection(AWSObject):
     """
-    `VpcConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html>`__
+    `VpcConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-msk-vpcconnection.html>`__
     """
 
     resource_type = "AWS::MSK::VpcConnection"

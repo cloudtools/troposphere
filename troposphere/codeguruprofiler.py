@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class AgentPermissions(AWSProperty):
     """
-    `AgentPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html>`__
+    `AgentPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class AgentPermissions(AWSProperty):
 
 class Channel(AWSProperty):
     """
-    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html>`__
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-codeguruprofiler-profilinggroup-channel.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class Channel(AWSProperty):
 
 class ProfilingGroup(AWSObject):
     """
-    `ProfilingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html>`__
+    `ProfilingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-codeguruprofiler-profilinggroup.html>`__
     """
 
     resource_type = "AWS::CodeGuruProfiler::ProfilingGroup"

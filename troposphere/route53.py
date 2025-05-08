@@ -13,7 +13,7 @@ from .validators.route53 import AliasTarget  # noqa: F401
 
 class Location(AWSProperty):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-cidrcollection-location.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class Location(AWSProperty):
 
 class CidrCollection(AWSObject):
     """
-    `CidrCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html>`__
+    `CidrCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-cidrcollection.html>`__
     """
 
     resource_type = "AWS::Route53::CidrCollection"
@@ -37,7 +37,7 @@ class CidrCollection(AWSObject):
 
 class DNSSEC(AWSObject):
     """
-    `DNSSEC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html>`__
+    `DNSSEC <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-dnssec.html>`__
     """
 
     resource_type = "AWS::Route53::DNSSEC"
@@ -49,7 +49,7 @@ class DNSSEC(AWSObject):
 
 class AlarmIdentifier(AWSProperty):
     """
-    `AlarmIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html>`__
+    `AlarmIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-healthcheck-alarmidentifier.html>`__
     """
 
     props: PropsDictType = {
@@ -60,7 +60,7 @@ class AlarmIdentifier(AWSProperty):
 
 class HealthCheckConfig(AWSProperty):
     """
-    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html>`__
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-healthcheck-healthcheckconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -86,7 +86,7 @@ class HealthCheckConfig(AWSProperty):
 
 class HealthCheck(AWSObject):
     """
-    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html>`__
+    `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-healthcheck.html>`__
     """
 
     resource_type = "AWS::Route53::HealthCheck"
@@ -99,7 +99,7 @@ class HealthCheck(AWSObject):
 
 class HostedZoneConfiguration(AWSProperty):
     """
-    `HostedZoneConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html>`__
+    `HostedZoneConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-hostedzone-hostedzoneconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -109,7 +109,7 @@ class HostedZoneConfiguration(AWSProperty):
 
 class HostedZoneVPCs(AWSProperty):
     """
-    `HostedZoneVPCs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html>`__
+    `HostedZoneVPCs <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-hostedzone-vpc.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,7 @@ class HostedZoneVPCs(AWSProperty):
 
 class QueryLoggingConfig(AWSProperty):
     """
-    `QueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html>`__
+    `QueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-hostedzone-queryloggingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -130,7 +130,7 @@ class QueryLoggingConfig(AWSProperty):
 
 class HostedZone(AWSObject):
     """
-    `HostedZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html>`__
+    `HostedZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-hostedzone.html>`__
     """
 
     resource_type = "AWS::Route53::HostedZone"
@@ -146,7 +146,7 @@ class HostedZone(AWSObject):
 
 class KeySigningKey(AWSObject):
     """
-    `KeySigningKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html>`__
+    `KeySigningKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-keysigningkey.html>`__
     """
 
     resource_type = "AWS::Route53::KeySigningKey"
@@ -161,7 +161,7 @@ class KeySigningKey(AWSObject):
 
 class CidrRoutingConfig(AWSProperty):
     """
-    `CidrRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrroutingconfig.html>`__
+    `CidrRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-cidrroutingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -172,7 +172,7 @@ class CidrRoutingConfig(AWSProperty):
 
 class GeoLocation(AWSProperty):
     """
-    `GeoLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html>`__
+    `GeoLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-recordset-geolocation.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class GeoLocation(AWSProperty):
 
 class Coordinates(AWSProperty):
     """
-    `Coordinates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordsetgroup-coordinates.html>`__
+    `Coordinates <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-recordsetgroup-coordinates.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class Coordinates(AWSProperty):
 
 class GeoProximityLocation(AWSProperty):
     """
-    `GeoProximityLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html>`__
+    `GeoProximityLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-geoproximitylocation.html>`__
     """
 
     props: PropsDictType = {
@@ -208,7 +208,7 @@ class GeoProximityLocation(AWSProperty):
 
 class RecordSet(AWSProperty):
     """
-    `RecordSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html>`__
+    `RecordSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-recordset.html>`__
     """
 
     props: PropsDictType = {
@@ -233,7 +233,7 @@ class RecordSet(AWSProperty):
 
 class RecordSetGroup(AWSObject):
     """
-    `RecordSetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html>`__
+    `RecordSetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53-recordsetgroup.html>`__
     """
 
     resource_type = "AWS::Route53::RecordSetGroup"
@@ -248,7 +248,7 @@ class RecordSetGroup(AWSObject):
 
 class RecordSetType(AWSObject):
     """
-    `RecordSetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html>`__
+    `RecordSetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53-recordset.html>`__
     """
 
     resource_type = "AWS::Route53::RecordSet"

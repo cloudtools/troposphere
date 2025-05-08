@@ -12,7 +12,7 @@ from .validators import integer
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-docdbelastic-cluster.html>`__
     """
 
     resource_type = "AWS::DocDBElastic::Cluster"

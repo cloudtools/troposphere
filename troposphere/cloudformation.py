@@ -25,7 +25,7 @@ from .validators.cloudformation import validate_int_to_str, validate_wait_condit
 
 class CustomResource(AWSObject):
     """
-    `CustomResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html>`__
+    `CustomResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cfn-customresource.html>`__
     """
 
     resource_type = "AWS::CloudFormation::CustomResource"
@@ -38,7 +38,7 @@ class CustomResource(AWSObject):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-guardhook-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class S3Location(AWSProperty):
 
 class Options(AWSProperty):
     """
-    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-options.html>`__
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-guardhook-options.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class Options(AWSProperty):
 
 class StackNames(AWSProperty):
     """
-    `StackNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stacknames.html>`__
+    `StackNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-lambdahook-stacknames.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class StackNames(AWSProperty):
 
 class StackRoles(AWSProperty):
     """
-    `StackRoles <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stackroles.html>`__
+    `StackRoles <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-lambdahook-stackroles.html>`__
     """
 
     props: PropsDictType = {
@@ -81,7 +81,7 @@ class StackRoles(AWSProperty):
 
 class StackFilters(AWSProperty):
     """
-    `StackFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stackfilters.html>`__
+    `StackFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-lambdahook-stackfilters.html>`__
     """
 
     props: PropsDictType = {
@@ -93,7 +93,7 @@ class StackFilters(AWSProperty):
 
 class HookTarget(AWSProperty):
     """
-    `HookTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-hooktarget.html>`__
+    `HookTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-lambdahook-hooktarget.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class HookTarget(AWSProperty):
 
 class TargetFilters(AWSProperty):
     """
-    `TargetFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html>`__
+    `TargetFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-lambdahook-targetfilters.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class TargetFilters(AWSProperty):
 
 class GuardHook(AWSObject):
     """
-    `GuardHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html>`__
+    `GuardHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-guardhook.html>`__
     """
 
     resource_type = "AWS::CloudFormation::GuardHook"
@@ -139,7 +139,7 @@ class GuardHook(AWSObject):
 
 class HookDefaultVersion(AWSObject):
     """
-    `HookDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html>`__
+    `HookDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-hookdefaultversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::HookDefaultVersion"
@@ -153,7 +153,7 @@ class HookDefaultVersion(AWSObject):
 
 class HookTypeConfig(AWSObject):
     """
-    `HookTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html>`__
+    `HookTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-hooktypeconfig.html>`__
     """
 
     resource_type = "AWS::CloudFormation::HookTypeConfig"
@@ -168,7 +168,7 @@ class HookTypeConfig(AWSObject):
 
 class LoggingConfig(AWSProperty):
     """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html>`__
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-typeactivation-loggingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -179,7 +179,7 @@ class LoggingConfig(AWSProperty):
 
 class HookVersion(AWSObject):
     """
-    `HookVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html>`__
+    `HookVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-hookversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::HookVersion"
@@ -194,7 +194,7 @@ class HookVersion(AWSObject):
 
 class LambdaHook(AWSObject):
     """
-    `LambdaHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html>`__
+    `LambdaHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-lambdahook.html>`__
     """
 
     resource_type = "AWS::CloudFormation::LambdaHook"
@@ -213,7 +213,7 @@ class LambdaHook(AWSObject):
 
 class Macro(AWSObject):
     """
-    `Macro <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html>`__
+    `Macro <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-macro.html>`__
     """
 
     resource_type = "AWS::CloudFormation::Macro"
@@ -229,7 +229,7 @@ class Macro(AWSObject):
 
 class ModuleDefaultVersion(AWSObject):
     """
-    `ModuleDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html>`__
+    `ModuleDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-moduledefaultversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::ModuleDefaultVersion"
@@ -243,7 +243,7 @@ class ModuleDefaultVersion(AWSObject):
 
 class ModuleVersion(AWSObject):
     """
-    `ModuleVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html>`__
+    `ModuleVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-moduleversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::ModuleVersion"
@@ -256,7 +256,7 @@ class ModuleVersion(AWSObject):
 
 class PublicTypeVersion(AWSObject):
     """
-    `PublicTypeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html>`__
+    `PublicTypeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-publictypeversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::PublicTypeVersion"
@@ -272,7 +272,7 @@ class PublicTypeVersion(AWSObject):
 
 class Publisher(AWSObject):
     """
-    `Publisher <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html>`__
+    `Publisher <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-publisher.html>`__
     """
 
     resource_type = "AWS::CloudFormation::Publisher"
@@ -285,7 +285,7 @@ class Publisher(AWSObject):
 
 class ResourceDefaultVersion(AWSObject):
     """
-    `ResourceDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html>`__
+    `ResourceDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-resourcedefaultversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::ResourceDefaultVersion"
@@ -299,7 +299,7 @@ class ResourceDefaultVersion(AWSObject):
 
 class ResourceVersion(AWSObject):
     """
-    `ResourceVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html>`__
+    `ResourceVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-resourceversion.html>`__
     """
 
     resource_type = "AWS::CloudFormation::ResourceVersion"
@@ -314,7 +314,7 @@ class ResourceVersion(AWSObject):
 
 class Stack(AWSObject):
     """
-    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html>`__
+    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-stack.html>`__
     """
 
     resource_type = "AWS::CloudFormation::Stack"
@@ -330,7 +330,7 @@ class Stack(AWSObject):
 
 class AutoDeployment(AWSProperty):
     """
-    `AutoDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html>`__
+    `AutoDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-autodeployment.html>`__
     """
 
     props: PropsDictType = {
@@ -341,7 +341,7 @@ class AutoDeployment(AWSProperty):
 
 class ManagedExecution(AWSProperty):
     """
-    `ManagedExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html>`__
+    `ManagedExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-managedexecution.html>`__
     """
 
     props: PropsDictType = {
@@ -351,7 +351,7 @@ class ManagedExecution(AWSProperty):
 
 class OperationPreferences(AWSProperty):
     """
-    `OperationPreferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html>`__
+    `OperationPreferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-operationpreferences.html>`__
     """
 
     props: PropsDictType = {
@@ -367,7 +367,7 @@ class OperationPreferences(AWSProperty):
 
 class Parameter(AWSProperty):
     """
-    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html>`__
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -378,7 +378,7 @@ class Parameter(AWSProperty):
 
 class DeploymentTargets(AWSProperty):
     """
-    `DeploymentTargets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html>`__
+    `DeploymentTargets <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-deploymenttargets.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class DeploymentTargets(AWSProperty):
 
 class StackInstances(AWSProperty):
     """
-    `StackInstances <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html>`__
+    `StackInstances <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-cloudformation-stackset-stackinstances.html>`__
     """
 
     props: PropsDictType = {
@@ -403,7 +403,7 @@ class StackInstances(AWSProperty):
 
 class StackSet(AWSObject):
     """
-    `StackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html>`__
+    `StackSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stackset.html>`__
     """
 
     resource_type = "AWS::CloudFormation::StackSet"
@@ -429,7 +429,7 @@ class StackSet(AWSObject):
 
 class TypeActivation(AWSObject):
     """
-    `TypeActivation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html>`__
+    `TypeActivation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-typeactivation.html>`__
     """
 
     resource_type = "AWS::CloudFormation::TypeActivation"
@@ -450,7 +450,7 @@ class TypeActivation(AWSObject):
 
 class WaitCondition(AWSObject):
     """
-    `WaitCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html>`__
+    `WaitCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waitcondition.html>`__
     """
 
     resource_type = "AWS::CloudFormation::WaitCondition"
@@ -467,7 +467,7 @@ class WaitCondition(AWSObject):
 
 class WaitConditionHandle(AWSObject):
     """
-    `WaitConditionHandle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html>`__
+    `WaitConditionHandle <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-waitconditionhandle.html>`__
     """
 
     resource_type = "AWS::CloudFormation::WaitConditionHandle"

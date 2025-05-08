@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class DefaultViewAssociation(AWSObject):
     """
-    `DefaultViewAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html>`__
+    `DefaultViewAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resourceexplorer2-defaultviewassociation.html>`__
     """
 
     resource_type = "AWS::ResourceExplorer2::DefaultViewAssociation"
@@ -23,7 +23,7 @@ class DefaultViewAssociation(AWSObject):
 
 class Index(AWSObject):
     """
-    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.html>`__
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resourceexplorer2-index.html>`__
     """
 
     resource_type = "AWS::ResourceExplorer2::Index"
@@ -36,7 +36,7 @@ class Index(AWSObject):
 
 class IncludedProperty(AWSProperty):
     """
-    `IncludedProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html>`__
+    `IncludedProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourceexplorer2-view-includedproperty.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class IncludedProperty(AWSProperty):
 
 class SearchFilter(AWSProperty):
     """
-    `SearchFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-searchfilter.html>`__
+    `SearchFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resourceexplorer2-view-searchfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -56,7 +56,7 @@ class SearchFilter(AWSProperty):
 
 class View(AWSObject):
     """
-    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.html>`__
+    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-resourceexplorer2-view.html>`__
     """
 
     resource_type = "AWS::ResourceExplorer2::View"

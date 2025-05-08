@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class PipeEnrichmentHttpParameters(AWSProperty):
     """
-    `PipeEnrichmentHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html>`__
+    `PipeEnrichmentHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipeenrichmenthttpparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -24,7 +24,7 @@ class PipeEnrichmentHttpParameters(AWSProperty):
 
 class PipeEnrichmentParameters(AWSProperty):
     """
-    `PipeEnrichmentParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html>`__
+    `PipeEnrichmentParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipeenrichmentparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class PipeEnrichmentParameters(AWSProperty):
 
 class CloudwatchLogsLogDestination(AWSProperty):
     """
-    `CloudwatchLogsLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html>`__
+    `CloudwatchLogsLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class CloudwatchLogsLogDestination(AWSProperty):
 
 class FirehoseLogDestination(AWSProperty):
     """
-    `FirehoseLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-firehoselogdestination.html>`__
+    `FirehoseLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-firehoselogdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class FirehoseLogDestination(AWSProperty):
 
 class S3LogDestination(AWSProperty):
     """
-    `S3LogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html>`__
+    `S3LogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-s3logdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -68,7 +68,7 @@ class S3LogDestination(AWSProperty):
 
 class PipeLogConfiguration(AWSProperty):
     """
-    `PipeLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html>`__
+    `PipeLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipelogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -82,7 +82,7 @@ class PipeLogConfiguration(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-filter.html>`__
     """
 
     props: PropsDictType = {
@@ -92,7 +92,7 @@ class Filter(AWSProperty):
 
 class FilterCriteria(AWSProperty):
     """
-    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filtercriteria.html>`__
+    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-filtercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class FilterCriteria(AWSProperty):
 
 class MQBrokerAccessCredentials(AWSProperty):
     """
-    `MQBrokerAccessCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html>`__
+    `MQBrokerAccessCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class MQBrokerAccessCredentials(AWSProperty):
 
 class PipeSourceActiveMQBrokerParameters(AWSProperty):
     """
-    `PipeSourceActiveMQBrokerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html>`__
+    `PipeSourceActiveMQBrokerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourceactivemqbrokerparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -125,7 +125,7 @@ class PipeSourceActiveMQBrokerParameters(AWSProperty):
 
 class DeadLetterConfig(AWSProperty):
     """
-    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-deadletterconfig.html>`__
+    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-deadletterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -135,7 +135,7 @@ class DeadLetterConfig(AWSProperty):
 
 class PipeSourceDynamoDBStreamParameters(AWSProperty):
     """
-    `PipeSourceDynamoDBStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcedynamodbstreamparameters.html>`__
+    `PipeSourceDynamoDBStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourcedynamodbstreamparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class PipeSourceDynamoDBStreamParameters(AWSProperty):
 
 class PipeSourceKinesisStreamParameters(AWSProperty):
     """
-    `PipeSourceKinesisStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcekinesisstreamparameters.html>`__
+    `PipeSourceKinesisStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourcekinesisstreamparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class PipeSourceKinesisStreamParameters(AWSProperty):
 
 class MSKAccessCredentials(AWSProperty):
     """
-    `MSKAccessCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskaccesscredentials.html>`__
+    `MSKAccessCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-mskaccesscredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -181,7 +181,7 @@ class MSKAccessCredentials(AWSProperty):
 
 class PipeSourceManagedStreamingKafkaParameters(AWSProperty):
     """
-    `PipeSourceManagedStreamingKafkaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcemanagedstreamingkafkaparameters.html>`__
+    `PipeSourceManagedStreamingKafkaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourcemanagedstreamingkafkaparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class PipeSourceManagedStreamingKafkaParameters(AWSProperty):
 
 class PipeSourceRabbitMQBrokerParameters(AWSProperty):
     """
-    `PipeSourceRabbitMQBrokerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html>`__
+    `PipeSourceRabbitMQBrokerParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourcerabbitmqbrokerparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class PipeSourceRabbitMQBrokerParameters(AWSProperty):
 
 class SelfManagedKafkaAccessConfigurationCredentials(AWSProperty):
     """
-    `SelfManagedKafkaAccessConfigurationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationcredentials.html>`__
+    `SelfManagedKafkaAccessConfigurationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationcredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -223,7 +223,7 @@ class SelfManagedKafkaAccessConfigurationCredentials(AWSProperty):
 
 class SelfManagedKafkaAccessConfigurationVpc(AWSProperty):
     """
-    `SelfManagedKafkaAccessConfigurationVpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html>`__
+    `SelfManagedKafkaAccessConfigurationVpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class SelfManagedKafkaAccessConfigurationVpc(AWSProperty):
 
 class PipeSourceSelfManagedKafkaParameters(AWSProperty):
     """
-    `PipeSourceSelfManagedKafkaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html>`__
+    `PipeSourceSelfManagedKafkaParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourceselfmanagedkafkaparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class PipeSourceSelfManagedKafkaParameters(AWSProperty):
 
 class PipeSourceSqsQueueParameters(AWSProperty):
     """
-    `PipeSourceSqsQueueParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourcesqsqueueparameters.html>`__
+    `PipeSourceSqsQueueParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourcesqsqueueparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -263,7 +263,7 @@ class PipeSourceSqsQueueParameters(AWSProperty):
 
 class PipeSourceParameters(AWSProperty):
     """
-    `PipeSourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipesourceparameters.html>`__
+    `PipeSourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipesourceparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -283,7 +283,7 @@ class PipeSourceParameters(AWSProperty):
 
 class BatchArrayProperties(AWSProperty):
     """
-    `BatchArrayProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batcharrayproperties.html>`__
+    `BatchArrayProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batcharrayproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -293,7 +293,7 @@ class BatchArrayProperties(AWSProperty):
 
 class BatchEnvironmentVariable(AWSProperty):
     """
-    `BatchEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchenvironmentvariable.html>`__
+    `BatchEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batchenvironmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -304,7 +304,7 @@ class BatchEnvironmentVariable(AWSProperty):
 
 class BatchResourceRequirement(AWSProperty):
     """
-    `BatchResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchresourcerequirement.html>`__
+    `BatchResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batchresourcerequirement.html>`__
     """
 
     props: PropsDictType = {
@@ -315,7 +315,7 @@ class BatchResourceRequirement(AWSProperty):
 
 class BatchContainerOverrides(AWSProperty):
     """
-    `BatchContainerOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchcontaineroverrides.html>`__
+    `BatchContainerOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batchcontaineroverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -328,7 +328,7 @@ class BatchContainerOverrides(AWSProperty):
 
 class BatchJobDependency(AWSProperty):
     """
-    `BatchJobDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchjobdependency.html>`__
+    `BatchJobDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batchjobdependency.html>`__
     """
 
     props: PropsDictType = {
@@ -339,7 +339,7 @@ class BatchJobDependency(AWSProperty):
 
 class BatchRetryStrategy(AWSProperty):
     """
-    `BatchRetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-batchretrystrategy.html>`__
+    `BatchRetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-batchretrystrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -349,7 +349,7 @@ class BatchRetryStrategy(AWSProperty):
 
 class PipeTargetBatchJobParameters(AWSProperty):
     """
-    `PipeTargetBatchJobParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html>`__
+    `PipeTargetBatchJobParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetbatchjobparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -365,7 +365,7 @@ class PipeTargetBatchJobParameters(AWSProperty):
 
 class PipeTargetCloudWatchLogsParameters(AWSProperty):
     """
-    `PipeTargetCloudWatchLogsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetcloudwatchlogsparameters.html>`__
+    `PipeTargetCloudWatchLogsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetcloudwatchlogsparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -376,7 +376,7 @@ class PipeTargetCloudWatchLogsParameters(AWSProperty):
 
 class CapacityProviderStrategyItem(AWSProperty):
     """
-    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-capacityproviderstrategyitem.html>`__
+    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-capacityproviderstrategyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -388,7 +388,7 @@ class CapacityProviderStrategyItem(AWSProperty):
 
 class EcsEnvironmentFile(AWSProperty):
     """
-    `EcsEnvironmentFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentfile.html>`__
+    `EcsEnvironmentFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecsenvironmentfile.html>`__
     """
 
     props: PropsDictType = {
@@ -399,7 +399,7 @@ class EcsEnvironmentFile(AWSProperty):
 
 class EcsEnvironmentVariable(AWSProperty):
     """
-    `EcsEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsenvironmentvariable.html>`__
+    `EcsEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecsenvironmentvariable.html>`__
     """
 
     props: PropsDictType = {
@@ -410,7 +410,7 @@ class EcsEnvironmentVariable(AWSProperty):
 
 class EcsResourceRequirement(AWSProperty):
     """
-    `EcsResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsresourcerequirement.html>`__
+    `EcsResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecsresourcerequirement.html>`__
     """
 
     props: PropsDictType = {
@@ -421,7 +421,7 @@ class EcsResourceRequirement(AWSProperty):
 
 class EcsContainerOverride(AWSProperty):
     """
-    `EcsContainerOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecscontaineroverride.html>`__
+    `EcsContainerOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecscontaineroverride.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +438,7 @@ class EcsContainerOverride(AWSProperty):
 
 class EcsEphemeralStorage(AWSProperty):
     """
-    `EcsEphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsephemeralstorage.html>`__
+    `EcsEphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecsephemeralstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -448,7 +448,7 @@ class EcsEphemeralStorage(AWSProperty):
 
 class EcsInferenceAcceleratorOverride(AWSProperty):
     """
-    `EcsInferenceAcceleratorOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecsinferenceacceleratoroverride.html>`__
+    `EcsInferenceAcceleratorOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecsinferenceacceleratoroverride.html>`__
     """
 
     props: PropsDictType = {
@@ -459,7 +459,7 @@ class EcsInferenceAcceleratorOverride(AWSProperty):
 
 class EcsTaskOverride(AWSProperty):
     """
-    `EcsTaskOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-ecstaskoverride.html>`__
+    `EcsTaskOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-ecstaskoverride.html>`__
     """
 
     props: PropsDictType = {
@@ -475,7 +475,7 @@ class EcsTaskOverride(AWSProperty):
 
 class AwsVpcConfiguration(AWSProperty):
     """
-    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-awsvpcconfiguration.html>`__
+    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-awsvpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -487,7 +487,7 @@ class AwsVpcConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -497,7 +497,7 @@ class NetworkConfiguration(AWSProperty):
 
 class PlacementConstraint(AWSProperty):
     """
-    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-placementconstraint.html>`__
+    `PlacementConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-placementconstraint.html>`__
     """
 
     props: PropsDictType = {
@@ -508,7 +508,7 @@ class PlacementConstraint(AWSProperty):
 
 class PlacementStrategy(AWSProperty):
     """
-    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-placementstrategy.html>`__
+    `PlacementStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-placementstrategy.html>`__
     """
 
     props: PropsDictType = {
@@ -519,7 +519,7 @@ class PlacementStrategy(AWSProperty):
 
 class PipeTargetEcsTaskParameters(AWSProperty):
     """
-    `PipeTargetEcsTaskParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetecstaskparameters.html>`__
+    `PipeTargetEcsTaskParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetecstaskparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -543,7 +543,7 @@ class PipeTargetEcsTaskParameters(AWSProperty):
 
 class PipeTargetEventBridgeEventBusParameters(AWSProperty):
     """
-    `PipeTargetEventBridgeEventBusParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html>`__
+    `PipeTargetEventBridgeEventBusParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargeteventbridgeeventbusparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -557,7 +557,7 @@ class PipeTargetEventBridgeEventBusParameters(AWSProperty):
 
 class PipeTargetHttpParameters(AWSProperty):
     """
-    `PipeTargetHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargethttpparameters.html>`__
+    `PipeTargetHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargethttpparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -569,7 +569,7 @@ class PipeTargetHttpParameters(AWSProperty):
 
 class PipeTargetKinesisStreamParameters(AWSProperty):
     """
-    `PipeTargetKinesisStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html>`__
+    `PipeTargetKinesisStreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetkinesisstreamparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -579,7 +579,7 @@ class PipeTargetKinesisStreamParameters(AWSProperty):
 
 class PipeTargetLambdaFunctionParameters(AWSProperty):
     """
-    `PipeTargetLambdaFunctionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetlambdafunctionparameters.html>`__
+    `PipeTargetLambdaFunctionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetlambdafunctionparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -589,7 +589,7 @@ class PipeTargetLambdaFunctionParameters(AWSProperty):
 
 class PipeTargetRedshiftDataParameters(AWSProperty):
     """
-    `PipeTargetRedshiftDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html>`__
+    `PipeTargetRedshiftDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetredshiftdataparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -604,7 +604,7 @@ class PipeTargetRedshiftDataParameters(AWSProperty):
 
 class SageMakerPipelineParameter(AWSProperty):
     """
-    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-sagemakerpipelineparameter.html>`__
+    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-sagemakerpipelineparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -615,7 +615,7 @@ class SageMakerPipelineParameter(AWSProperty):
 
 class PipeTargetSageMakerPipelineParameters(AWSProperty):
     """
-    `PipeTargetSageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html>`__
+    `PipeTargetSageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetsagemakerpipelineparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -625,7 +625,7 @@ class PipeTargetSageMakerPipelineParameters(AWSProperty):
 
 class PipeTargetSqsQueueParameters(AWSProperty):
     """
-    `PipeTargetSqsQueueParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetsqsqueueparameters.html>`__
+    `PipeTargetSqsQueueParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetsqsqueueparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -636,7 +636,7 @@ class PipeTargetSqsQueueParameters(AWSProperty):
 
 class PipeTargetStateMachineParameters(AWSProperty):
     """
-    `PipeTargetStateMachineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetstatemachineparameters.html>`__
+    `PipeTargetStateMachineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetstatemachineparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -646,7 +646,7 @@ class PipeTargetStateMachineParameters(AWSProperty):
 
 class DimensionMapping(AWSProperty):
     """
-    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html>`__
+    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-dimensionmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -658,7 +658,7 @@ class DimensionMapping(AWSProperty):
 
 class MultiMeasureAttributeMapping(AWSProperty):
     """
-    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html>`__
+    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-multimeasureattributemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -670,7 +670,7 @@ class MultiMeasureAttributeMapping(AWSProperty):
 
 class MultiMeasureMapping(AWSProperty):
     """
-    `MultiMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html>`__
+    `MultiMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-multimeasuremapping.html>`__
     """
 
     props: PropsDictType = {
@@ -681,7 +681,7 @@ class MultiMeasureMapping(AWSProperty):
 
 class SingleMeasureMapping(AWSProperty):
     """
-    `SingleMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html>`__
+    `SingleMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-singlemeasuremapping.html>`__
     """
 
     props: PropsDictType = {
@@ -693,7 +693,7 @@ class SingleMeasureMapping(AWSProperty):
 
 class PipeTargetTimestreamParameters(AWSProperty):
     """
-    `PipeTargetTimestreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargettimestreamparameters.html>`__
+    `PipeTargetTimestreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargettimestreamparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -710,7 +710,7 @@ class PipeTargetTimestreamParameters(AWSProperty):
 
 class PipeTargetParameters(AWSProperty):
     """
-    `PipeTargetParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html>`__
+    `PipeTargetParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pipes-pipe-pipetargetparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -735,7 +735,7 @@ class PipeTargetParameters(AWSProperty):
 
 class Pipe(AWSObject):
     """
-    `Pipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html>`__
+    `Pipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pipes-pipe.html>`__
     """
 
     resource_type = "AWS::Pipes::Pipe"

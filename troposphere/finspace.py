@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class AttributeMapItems(AWSProperty):
     """
-    `AttributeMapItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-attributemapitems.html>`__
+    `AttributeMapItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-finspace-environment-attributemapitems.html>`__
     """
 
     props: PropsDictType = {
@@ -22,7 +22,7 @@ class AttributeMapItems(AWSProperty):
 
 class FederationParameters(AWSProperty):
     """
-    `FederationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html>`__
+    `FederationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-finspace-environment-federationparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class FederationParameters(AWSProperty):
 
 class SuperuserParameters(AWSProperty):
     """
-    `SuperuserParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-superuserparameters.html>`__
+    `SuperuserParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-finspace-environment-superuserparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class SuperuserParameters(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-finspace-environment.html>`__
     """
 
     resource_type = "AWS::FinSpace::Environment"

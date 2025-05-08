@@ -16,7 +16,7 @@ from .validators.dms import validate_network_port
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html>`__
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-certificate.html>`__
     """
 
     resource_type = "AWS::DMS::Certificate"
@@ -30,7 +30,7 @@ class Certificate(AWSObject):
 
 class DataMigrationSettings(AWSProperty):
     """
-    `DataMigrationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-datamigration-datamigrationsettings.html>`__
+    `DataMigrationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-datamigration-datamigrationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class DataMigrationSettings(AWSProperty):
 
 class SourceDataSettings(AWSProperty):
     """
-    `SourceDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-datamigration-sourcedatasettings.html>`__
+    `SourceDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-datamigration-sourcedatasettings.html>`__
     """
 
     props: PropsDictType = {
@@ -55,7 +55,7 @@ class SourceDataSettings(AWSProperty):
 
 class DataMigration(AWSObject):
     """
-    `DataMigration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-datamigration.html>`__
+    `DataMigration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-datamigration.html>`__
     """
 
     resource_type = "AWS::DMS::DataMigration"
@@ -74,7 +74,7 @@ class DataMigration(AWSObject):
 
 class DocDbSettings(AWSProperty):
     """
-    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html>`__
+    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-docdbsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class DocDbSettings(AWSProperty):
 
 class IbmDb2LuwSettings(AWSProperty):
     """
-    `IbmDb2LuwSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html>`__
+    `IbmDb2LuwSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-dataprovider-ibmdb2luwsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -102,7 +102,7 @@ class IbmDb2LuwSettings(AWSProperty):
 
 class IbmDb2zOsSettings(AWSProperty):
     """
-    `IbmDb2zOsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2zossettings.html>`__
+    `IbmDb2zOsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-dataprovider-ibmdb2zossettings.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class IbmDb2zOsSettings(AWSProperty):
 
 class MariaDbSettings(AWSProperty):
     """
-    `MariaDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mariadbsettings.html>`__
+    `MariaDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-dataprovider-mariadbsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class MariaDbSettings(AWSProperty):
 
 class MicrosoftSqlServerSettings(AWSProperty):
     """
-    `MicrosoftSqlServerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html>`__
+    `MicrosoftSqlServerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-microsoftsqlserversettings.html>`__
     """
 
     props: PropsDictType = {
@@ -155,7 +155,7 @@ class MicrosoftSqlServerSettings(AWSProperty):
 
 class MongoDbSettings(AWSProperty):
     """
-    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html>`__
+    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-mongodbsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class MongoDbSettings(AWSProperty):
 
 class MySqlSettings(AWSProperty):
     """
-    `MySqlSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mysqlsettings.html>`__
+    `MySqlSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-mysqlsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -195,7 +195,7 @@ class MySqlSettings(AWSProperty):
 
 class OracleSettings(AWSProperty):
     """
-    `OracleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-oraclesettings.html>`__
+    `OracleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-oraclesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class OracleSettings(AWSProperty):
 
 class PostgreSqlSettings(AWSProperty):
     """
-    `PostgreSqlSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-postgresqlsettings.html>`__
+    `PostgreSqlSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-postgresqlsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class PostgreSqlSettings(AWSProperty):
 
 class RedshiftSettings(AWSProperty):
     """
-    `RedshiftSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html>`__
+    `RedshiftSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-redshiftsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -299,7 +299,7 @@ class RedshiftSettings(AWSProperty):
 
 class Settings(AWSProperty):
     """
-    `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html>`__
+    `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-dataprovider-settings.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +318,7 @@ class Settings(AWSProperty):
 
 class DataProvider(AWSObject):
     """
-    `DataProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html>`__
+    `DataProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-dataprovider.html>`__
     """
 
     resource_type = "AWS::DMS::DataProvider"
@@ -336,7 +336,7 @@ class DataProvider(AWSObject):
 
 class DynamoDbSettings(AWSProperty):
     """
-    `DynamoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html>`__
+    `DynamoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-dynamodbsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -346,7 +346,7 @@ class DynamoDbSettings(AWSProperty):
 
 class ElasticsearchSettings(AWSProperty):
     """
-    `ElasticsearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html>`__
+    `ElasticsearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-elasticsearchsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -359,7 +359,7 @@ class ElasticsearchSettings(AWSProperty):
 
 class GcpMySQLSettings(AWSProperty):
     """
-    `GcpMySQLSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-gcpmysqlsettings.html>`__
+    `GcpMySQLSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-gcpmysqlsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class GcpMySQLSettings(AWSProperty):
 
 class IbmDb2Settings(AWSProperty):
     """
-    `IbmDb2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html>`__
+    `IbmDb2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-ibmdb2settings.html>`__
     """
 
     props: PropsDictType = {
@@ -399,7 +399,7 @@ class IbmDb2Settings(AWSProperty):
 
 class KafkaSettings(AWSProperty):
     """
-    `KafkaSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html>`__
+    `KafkaSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-kafkasettings.html>`__
     """
 
     props: PropsDictType = {
@@ -426,7 +426,7 @@ class KafkaSettings(AWSProperty):
 
 class KinesisSettings(AWSProperty):
     """
-    `KinesisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html>`__
+    `KinesisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-kinesissettings.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class KinesisSettings(AWSProperty):
 
 class NeptuneSettings(AWSProperty):
     """
-    `NeptuneSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html>`__
+    `NeptuneSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-neptunesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -461,7 +461,7 @@ class NeptuneSettings(AWSProperty):
 
 class RedisSettings(AWSProperty):
     """
-    `RedisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redissettings.html>`__
+    `RedisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-redissettings.html>`__
     """
 
     props: PropsDictType = {
@@ -477,7 +477,7 @@ class RedisSettings(AWSProperty):
 
 class S3Settings(AWSProperty):
     """
-    `S3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html>`__
+    `S3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-s3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -527,7 +527,7 @@ class S3Settings(AWSProperty):
 
 class SybaseSettings(AWSProperty):
     """
-    `SybaseSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-sybasesettings.html>`__
+    `SybaseSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-endpoint-sybasesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -538,7 +538,7 @@ class SybaseSettings(AWSProperty):
 
 class Endpoint(AWSObject):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html>`__
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-endpoint.html>`__
     """
 
     resource_type = "AWS::DMS::Endpoint"
@@ -580,7 +580,7 @@ class Endpoint(AWSObject):
 
 class EventSubscription(AWSObject):
     """
-    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html>`__
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-eventsubscription.html>`__
     """
 
     resource_type = "AWS::DMS::EventSubscription"
@@ -598,7 +598,7 @@ class EventSubscription(AWSObject):
 
 class InstanceProfile(AWSObject):
     """
-    `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-instanceprofile.html>`__
+    `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-instanceprofile.html>`__
     """
 
     resource_type = "AWS::DMS::InstanceProfile"
@@ -619,7 +619,7 @@ class InstanceProfile(AWSObject):
 
 class DataProviderDescriptor(AWSProperty):
     """
-    `DataProviderDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html>`__
+    `DataProviderDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-migrationproject-dataproviderdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -633,7 +633,7 @@ class DataProviderDescriptor(AWSProperty):
 
 class SchemaConversionApplicationAttributes(AWSProperty):
     """
-    `SchemaConversionApplicationAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html>`__
+    `SchemaConversionApplicationAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -644,7 +644,7 @@ class SchemaConversionApplicationAttributes(AWSProperty):
 
 class MigrationProject(AWSObject):
     """
-    `MigrationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html>`__
+    `MigrationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-migrationproject.html>`__
     """
 
     resource_type = "AWS::DMS::MigrationProject"
@@ -669,7 +669,7 @@ class MigrationProject(AWSObject):
 
 class ComputeConfig(AWSProperty):
     """
-    `ComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationconfig-computeconfig.html>`__
+    `ComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-dms-replicationconfig-computeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -687,7 +687,7 @@ class ComputeConfig(AWSProperty):
 
 class ReplicationConfig(AWSObject):
     """
-    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html>`__
+    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-replicationconfig.html>`__
     """
 
     resource_type = "AWS::DMS::ReplicationConfig"
@@ -708,7 +708,7 @@ class ReplicationConfig(AWSObject):
 
 class ReplicationInstance(AWSObject):
     """
-    `ReplicationInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html>`__
+    `ReplicationInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-replicationinstance.html>`__
     """
 
     resource_type = "AWS::DMS::ReplicationInstance"
@@ -736,7 +736,7 @@ class ReplicationInstance(AWSObject):
 
 class ReplicationSubnetGroup(AWSObject):
     """
-    `ReplicationSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html>`__
+    `ReplicationSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-replicationsubnetgroup.html>`__
     """
 
     resource_type = "AWS::DMS::ReplicationSubnetGroup"
@@ -751,7 +751,7 @@ class ReplicationSubnetGroup(AWSObject):
 
 class ReplicationTask(AWSObject):
     """
-    `ReplicationTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html>`__
+    `ReplicationTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dms-replicationtask.html>`__
     """
 
     resource_type = "AWS::DMS::ReplicationTask"

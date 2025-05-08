@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Alarm(AWSProperty):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-alarm.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class Alarm(AWSProperty):
 
 class AlarmMetric(AWSProperty):
     """
-    `AlarmMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html>`__
+    `AlarmMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-alarmmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class AlarmMetric(AWSProperty):
 
 class HAClusterPrometheusExporter(AWSProperty):
     """
-    `HAClusterPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html>`__
+    `HAClusterPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-haclusterprometheusexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class HAClusterPrometheusExporter(AWSProperty):
 
 class HANAPrometheusExporter(AWSProperty):
     """
-    `HANAPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-hanaprometheusexporter.html>`__
+    `HANAPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-hanaprometheusexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class HANAPrometheusExporter(AWSProperty):
 
 class JMXPrometheusExporter(AWSProperty):
     """
-    `JMXPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html>`__
+    `JMXPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-jmxprometheusexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -69,7 +69,7 @@ class JMXPrometheusExporter(AWSProperty):
 
 class Log(AWSProperty):
     """
-    `Log <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html>`__
+    `Log <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-log.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class Log(AWSProperty):
 
 class NetWeaverPrometheusExporter(AWSProperty):
     """
-    `NetWeaverPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-netweaverprometheusexporter.html>`__
+    `NetWeaverPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-netweaverprometheusexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -95,7 +95,7 @@ class NetWeaverPrometheusExporter(AWSProperty):
 
 class Process(AWSProperty):
     """
-    `Process <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html>`__
+    `Process <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-process.html>`__
     """
 
     props: PropsDictType = {
@@ -106,7 +106,7 @@ class Process(AWSProperty):
 
 class SQLServerPrometheusExporter(AWSProperty):
     """
-    `SQLServerPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html>`__
+    `SQLServerPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html>`__
     """
 
     props: PropsDictType = {
@@ -117,7 +117,7 @@ class SQLServerPrometheusExporter(AWSProperty):
 
 class WindowsEvent(AWSProperty):
     """
-    `WindowsEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html>`__
+    `WindowsEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-windowsevent.html>`__
     """
 
     props: PropsDictType = {
@@ -130,7 +130,7 @@ class WindowsEvent(AWSProperty):
 
 class ConfigurationDetails(AWSProperty):
     """
-    `ConfigurationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html>`__
+    `ConfigurationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-configurationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class ConfigurationDetails(AWSProperty):
 
 class SubComponentConfigurationDetails(AWSProperty):
     """
-    `SubComponentConfigurationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html>`__
+    `SubComponentConfigurationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html>`__
     """
 
     props: PropsDictType = {
@@ -162,7 +162,7 @@ class SubComponentConfigurationDetails(AWSProperty):
 
 class SubComponentTypeConfiguration(AWSProperty):
     """
-    `SubComponentTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html>`__
+    `SubComponentTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class SubComponentTypeConfiguration(AWSProperty):
 
 class ComponentConfiguration(AWSProperty):
     """
-    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html>`__
+    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-componentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class ComponentConfiguration(AWSProperty):
 
 class ComponentMonitoringSetting(AWSProperty):
     """
-    `ComponentMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html>`__
+    `ComponentMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-componentmonitoringsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class ComponentMonitoringSetting(AWSProperty):
 
 class CustomComponent(AWSProperty):
     """
-    `CustomComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html>`__
+    `CustomComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-customcomponent.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class CustomComponent(AWSProperty):
 
 class LogPattern(AWSProperty):
     """
-    `LogPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html>`__
+    `LogPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-logpattern.html>`__
     """
 
     props: PropsDictType = {
@@ -222,7 +222,7 @@ class LogPattern(AWSProperty):
 
 class LogPatternSet(AWSProperty):
     """
-    `LogPatternSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html>`__
+    `LogPatternSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationinsights-application-logpatternset.html>`__
     """
 
     props: PropsDictType = {
@@ -233,7 +233,7 @@ class LogPatternSet(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationinsights-application.html>`__
     """
 
     resource_type = "AWS::ApplicationInsights::Application"

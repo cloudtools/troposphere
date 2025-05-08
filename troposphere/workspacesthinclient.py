@@ -12,7 +12,7 @@ from .validators import integer
 
 class MaintenanceWindow(AWSProperty):
     """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesthinclient-environment-maintenancewindow.html>`__
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-workspacesthinclient-environment-maintenancewindow.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class MaintenanceWindow(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-workspacesthinclient-environment.html>`__
     """
 
     resource_type = "AWS::WorkSpacesThinClient::Environment"

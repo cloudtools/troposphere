@@ -13,7 +13,7 @@ from .validators.fms import validate_json_checker
 
 class NotificationChannel(AWSObject):
     """
-    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html>`__
+    `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fms-notificationchannel.html>`__
     """
 
     resource_type = "AWS::FMS::NotificationChannel"
@@ -26,7 +26,7 @@ class NotificationChannel(AWSObject):
 
 class IEMap(AWSProperty):
     """
-    `IEMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html>`__
+    `IEMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-iemap.html>`__
     """
 
     props: PropsDictType = {
@@ -37,7 +37,7 @@ class IEMap(AWSProperty):
 
 class IcmpTypeCode(AWSProperty):
     """
-    `IcmpTypeCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-icmptypecode.html>`__
+    `IcmpTypeCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-icmptypecode.html>`__
     """
 
     props: PropsDictType = {
@@ -48,7 +48,7 @@ class IcmpTypeCode(AWSProperty):
 
 class PortRange(AWSProperty):
     """
-    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-portrange.html>`__
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSProperty):
     """
-    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html>`__
+    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-networkaclentry.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class NetworkAclEntry(AWSProperty):
 
 class NetworkAclEntrySet(AWSProperty):
     """
-    `NetworkAclEntrySet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html>`__
+    `NetworkAclEntrySet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-networkaclentryset.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class NetworkAclEntrySet(AWSProperty):
 
 class NetworkAclCommonPolicy(AWSProperty):
     """
-    `NetworkAclCommonPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html>`__
+    `NetworkAclCommonPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-networkaclcommonpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class NetworkAclCommonPolicy(AWSProperty):
 
 class NetworkFirewallPolicy(AWSProperty):
     """
-    `NetworkFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html>`__
+    `NetworkFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-networkfirewallpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -108,7 +108,7 @@ class NetworkFirewallPolicy(AWSProperty):
 
 class ThirdPartyFirewallPolicy(AWSProperty):
     """
-    `ThirdPartyFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html>`__
+    `ThirdPartyFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-thirdpartyfirewallpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class ThirdPartyFirewallPolicy(AWSProperty):
 
 class PolicyOption(AWSProperty):
     """
-    `PolicyOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html>`__
+    `PolicyOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-policyoption.html>`__
     """
 
     props: PropsDictType = {
@@ -130,7 +130,7 @@ class PolicyOption(AWSProperty):
 
 class SecurityServicePolicyData(AWSProperty):
     """
-    `SecurityServicePolicyData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html>`__
+    `SecurityServicePolicyData <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fms-policy-securityservicepolicydata.html>`__
     """
 
     props: PropsDictType = {
@@ -142,7 +142,7 @@ class SecurityServicePolicyData(AWSProperty):
 
 class Policy(AWSObject):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fms-policy.html>`__
     """
 
     resource_type = "AWS::FMS::Policy"
@@ -168,7 +168,7 @@ class Policy(AWSObject):
 
 class ResourceSet(AWSObject):
     """
-    `ResourceSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-resourceset.html>`__
+    `ResourceSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fms-resourceset.html>`__
     """
 
     resource_type = "AWS::FMS::ResourceSet"

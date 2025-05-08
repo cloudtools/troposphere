@@ -12,7 +12,7 @@ from .validators import boolean
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-invoicing-invoiceunit-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-invoicing-invoiceunit-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ResourceTag(AWSProperty):
 
 class Rule(AWSProperty):
     """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-invoicing-invoiceunit-rule.html>`__
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-invoicing-invoiceunit-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class Rule(AWSProperty):
 
 class InvoiceUnit(AWSObject):
     """
-    `InvoiceUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-invoicing-invoiceunit.html>`__
+    `InvoiceUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-invoicing-invoiceunit.html>`__
     """
 
     resource_type = "AWS::Invoicing::InvoiceUnit"

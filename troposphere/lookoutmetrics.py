@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class LambdaConfiguration(AWSProperty):
     """
-    `LambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html>`__
+    `LambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class LambdaConfiguration(AWSProperty):
 
 class SNSConfiguration(AWSProperty):
     """
-    `SNSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html>`__
+    `SNSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-alert-snsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class SNSConfiguration(AWSProperty):
 
 class Action(AWSProperty):
     """
-    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html>`__
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-alert-action.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class Action(AWSProperty):
 
 class Alert(AWSObject):
     """
-    `Alert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html>`__
+    `Alert <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lookoutmetrics-alert.html>`__
     """
 
     resource_type = "AWS::LookoutMetrics::Alert"
@@ -61,7 +61,7 @@ class Alert(AWSObject):
 
 class AnomalyDetectorConfig(AWSProperty):
     """
-    `AnomalyDetectorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html>`__
+    `AnomalyDetectorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class AnomalyDetectorConfig(AWSProperty):
 
 class Metric(AWSProperty):
     """
-    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html>`__
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-metric.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class Metric(AWSProperty):
 
 class AppFlowConfig(AWSProperty):
     """
-    `AppFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html>`__
+    `AppFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class AppFlowConfig(AWSProperty):
 
 class CloudwatchConfig(AWSProperty):
     """
-    `CloudwatchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html>`__
+    `CloudwatchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -104,7 +104,7 @@ class CloudwatchConfig(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html>`__
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -115,7 +115,7 @@ class VpcConfiguration(AWSProperty):
 
 class RDSSourceConfig(AWSProperty):
     """
-    `RDSSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html>`__
+    `RDSSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -132,7 +132,7 @@ class RDSSourceConfig(AWSProperty):
 
 class RedshiftSourceConfig(AWSProperty):
     """
-    `RedshiftSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html>`__
+    `RedshiftSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -149,7 +149,7 @@ class RedshiftSourceConfig(AWSProperty):
 
 class CsvFormatDescriptor(AWSProperty):
     """
-    `CsvFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html>`__
+    `CsvFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -164,7 +164,7 @@ class CsvFormatDescriptor(AWSProperty):
 
 class JsonFormatDescriptor(AWSProperty):
     """
-    `JsonFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html>`__
+    `JsonFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -175,7 +175,7 @@ class JsonFormatDescriptor(AWSProperty):
 
 class FileFormatDescriptor(AWSProperty):
     """
-    `FileFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html>`__
+    `FileFormatDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class FileFormatDescriptor(AWSProperty):
 
 class S3SourceConfig(AWSProperty):
     """
-    `S3SourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html>`__
+    `S3SourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class S3SourceConfig(AWSProperty):
 
 class MetricSource(AWSProperty):
     """
-    `MetricSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html>`__
+    `MetricSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-metricsource.html>`__
     """
 
     props: PropsDictType = {
@@ -213,7 +213,7 @@ class MetricSource(AWSProperty):
 
 class TimestampColumn(AWSProperty):
     """
-    `TimestampColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html>`__
+    `TimestampColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class TimestampColumn(AWSProperty):
 
 class MetricSet(AWSProperty):
     """
-    `MetricSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html>`__
+    `MetricSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lookoutmetrics-anomalydetector-metricset.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class MetricSet(AWSProperty):
 
 class AnomalyDetector(AWSObject):
     """
-    `AnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html>`__
+    `AnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lookoutmetrics-anomalydetector.html>`__
     """
 
     resource_type = "AWS::LookoutMetrics::AnomalyDetector"

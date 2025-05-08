@@ -12,7 +12,7 @@ from .validators import boolean, integer
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoverycontrol-cluster.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryControl::Cluster"
@@ -26,7 +26,7 @@ class Cluster(AWSObject):
 
 class ControlPanel(AWSObject):
     """
-    `ControlPanel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html>`__
+    `ControlPanel <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoverycontrol-controlpanel.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryControl::ControlPanel"
@@ -40,7 +40,7 @@ class ControlPanel(AWSObject):
 
 class RoutingControl(AWSObject):
     """
-    `RoutingControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html>`__
+    `RoutingControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoverycontrol-routingcontrol.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryControl::RoutingControl"
@@ -54,7 +54,7 @@ class RoutingControl(AWSObject):
 
 class AssertionRule(AWSProperty):
     """
-    `AssertionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html>`__
+    `AssertionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html>`__
     """
 
     props: PropsDictType = {
@@ -65,7 +65,7 @@ class AssertionRule(AWSProperty):
 
 class GatingRule(AWSProperty):
     """
-    `GatingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html>`__
+    `GatingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -77,7 +77,7 @@ class GatingRule(AWSProperty):
 
 class RuleConfig(AWSProperty):
     """
-    `RuleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html>`__
+    `RuleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class RuleConfig(AWSProperty):
 
 class SafetyRule(AWSObject):
     """
-    `SafetyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html>`__
+    `SafetyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-route53recoverycontrol-safetyrule.html>`__
     """
 
     resource_type = "AWS::Route53RecoveryControl::SafetyRule"
@@ -106,7 +106,7 @@ class SafetyRule(AWSObject):
 
 class ClusterEndpoint(AWSProperty):
     """
-    `ClusterEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html>`__
+    `ClusterEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html>`__
     """
 
     props: PropsDictType = {

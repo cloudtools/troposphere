@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class Discovery(AWSObject):
     """
-    `Discovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-discovery.html>`__
+    `Discovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationsignals-discovery.html>`__
     """
 
     resource_type = "AWS::ApplicationSignals::Discovery"
@@ -22,7 +22,7 @@ class Discovery(AWSObject):
 
 class BurnRateConfiguration(AWSProperty):
     """
-    `BurnRateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>`__
+    `BurnRateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -32,7 +32,7 @@ class BurnRateConfiguration(AWSProperty):
 
 class RecurrenceRule(AWSProperty):
     """
-    `RecurrenceRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-recurrencerule.html>`__
+    `RecurrenceRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-recurrencerule.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class RecurrenceRule(AWSProperty):
 
 class Window(AWSProperty):
     """
-    `Window <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-window.html>`__
+    `Window <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-window.html>`__
     """
 
     props: PropsDictType = {
@@ -53,7 +53,7 @@ class Window(AWSProperty):
 
 class ExclusionWindow(AWSProperty):
     """
-    `ExclusionWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-exclusionwindow.html>`__
+    `ExclusionWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-exclusionwindow.html>`__
     """
 
     props: PropsDictType = {
@@ -66,7 +66,7 @@ class ExclusionWindow(AWSProperty):
 
 class CalendarInterval(AWSProperty):
     """
-    `CalendarInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html>`__
+    `CalendarInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class CalendarInterval(AWSProperty):
 
 class RollingInterval(AWSProperty):
     """
-    `RollingInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-rollinginterval.html>`__
+    `RollingInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-rollinginterval.html>`__
     """
 
     props: PropsDictType = {
@@ -89,7 +89,7 @@ class RollingInterval(AWSProperty):
 
 class Interval(AWSProperty):
     """
-    `Interval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-interval.html>`__
+    `Interval <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-interval.html>`__
     """
 
     props: PropsDictType = {
@@ -100,7 +100,7 @@ class Interval(AWSProperty):
 
 class Goal(AWSProperty):
     """
-    `Goal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-goal.html>`__
+    `Goal <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-goal.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class Goal(AWSProperty):
 
 class DependencyConfig(AWSProperty):
     """
-    `DependencyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html>`__
+    `DependencyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class DependencyConfig(AWSProperty):
 
 class Dimension(AWSProperty):
     """
-    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dimension.html>`__
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class Dimension(AWSProperty):
 
 class Metric(AWSProperty):
     """
-    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metric.html>`__
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-metric.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class Metric(AWSProperty):
 
 class MetricStat(AWSProperty):
     """
-    `MetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html>`__
+    `MetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-metricstat.html>`__
     """
 
     props: PropsDictType = {
@@ -159,7 +159,7 @@ class MetricStat(AWSProperty):
 
 class MetricDataQuery(AWSProperty):
     """
-    `MetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricdataquery.html>`__
+    `MetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-metricdataquery.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class MetricDataQuery(AWSProperty):
 
 class MonitoredRequestCountMetric(AWSProperty):
     """
-    `MonitoredRequestCountMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html>`__
+    `MonitoredRequestCountMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html>`__
     """
 
     props: PropsDictType = {
@@ -184,7 +184,7 @@ class MonitoredRequestCountMetric(AWSProperty):
 
 class RequestBasedSliMetric(AWSProperty):
     """
-    `RequestBasedSliMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html>`__
+    `RequestBasedSliMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html>`__
     """
 
     props: PropsDictType = {
@@ -199,7 +199,7 @@ class RequestBasedSliMetric(AWSProperty):
 
 class RequestBasedSli(AWSProperty):
     """
-    `RequestBasedSli <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html>`__
+    `RequestBasedSli <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html>`__
     """
 
     props: PropsDictType = {
@@ -211,7 +211,7 @@ class RequestBasedSli(AWSProperty):
 
 class SliMetric(AWSProperty):
     """
-    `SliMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html>`__
+    `SliMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-slimetric.html>`__
     """
 
     props: PropsDictType = {
@@ -227,7 +227,7 @@ class SliMetric(AWSProperty):
 
 class Sli(AWSProperty):
     """
-    `Sli <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html>`__
+    `Sli <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-applicationsignals-servicelevelobjective-sli.html>`__
     """
 
     props: PropsDictType = {
@@ -239,7 +239,7 @@ class Sli(AWSProperty):
 
 class ServiceLevelObjective(AWSObject):
     """
-    `ServiceLevelObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-servicelevelobjective.html>`__
+    `ServiceLevelObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationsignals-servicelevelobjective.html>`__
     """
 
     resource_type = "AWS::ApplicationSignals::ServiceLevelObjective"

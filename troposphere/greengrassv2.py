@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ComponentDependencyRequirement(AWSProperty):
     """
-    `ComponentDependencyRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html>`__
+    `ComponentDependencyRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html>`__
     """
 
     props: PropsDictType = {
@@ -23,7 +23,7 @@ class ComponentDependencyRequirement(AWSProperty):
 
 class ComponentPlatform(AWSProperty):
     """
-    `ComponentPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html>`__
+    `ComponentPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-componentplatform.html>`__
     """
 
     props: PropsDictType = {
@@ -34,7 +34,7 @@ class ComponentPlatform(AWSProperty):
 
 class LambdaEventSource(AWSProperty):
     """
-    `LambdaEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html>`__
+    `LambdaEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdaeventsource.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class LambdaEventSource(AWSProperty):
 
 class LambdaDeviceMount(AWSProperty):
     """
-    `LambdaDeviceMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html>`__
+    `LambdaDeviceMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdadevicemount.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class LambdaDeviceMount(AWSProperty):
 
 class LambdaVolumeMount(AWSProperty):
     """
-    `LambdaVolumeMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html>`__
+    `LambdaVolumeMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdavolumemount.html>`__
     """
 
     props: PropsDictType = {
@@ -70,7 +70,7 @@ class LambdaVolumeMount(AWSProperty):
 
 class LambdaContainerParams(AWSProperty):
     """
-    `LambdaContainerParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html>`__
+    `LambdaContainerParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html>`__
     """
 
     props: PropsDictType = {
@@ -83,7 +83,7 @@ class LambdaContainerParams(AWSProperty):
 
 class LambdaLinuxProcessParams(AWSProperty):
     """
-    `LambdaLinuxProcessParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html>`__
+    `LambdaLinuxProcessParams <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html>`__
     """
 
     props: PropsDictType = {
@@ -94,7 +94,7 @@ class LambdaLinuxProcessParams(AWSProperty):
 
 class LambdaExecutionParameters(AWSProperty):
     """
-    `LambdaExecutionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html>`__
+    `LambdaExecutionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -114,7 +114,7 @@ class LambdaExecutionParameters(AWSProperty):
 
 class LambdaFunctionRecipeSource(AWSProperty):
     """
-    `LambdaFunctionRecipeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html>`__
+    `LambdaFunctionRecipeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html>`__
     """
 
     props: PropsDictType = {
@@ -129,7 +129,7 @@ class LambdaFunctionRecipeSource(AWSProperty):
 
 class ComponentVersion(AWSObject):
     """
-    `ComponentVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html>`__
+    `ComponentVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrassv2-componentversion.html>`__
     """
 
     resource_type = "AWS::GreengrassV2::ComponentVersion"
@@ -143,7 +143,7 @@ class ComponentVersion(AWSObject):
 
 class ComponentConfigurationUpdate(AWSProperty):
     """
-    `ComponentConfigurationUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html>`__
+    `ComponentConfigurationUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html>`__
     """
 
     props: PropsDictType = {
@@ -154,7 +154,7 @@ class ComponentConfigurationUpdate(AWSProperty):
 
 class SystemResourceLimits(AWSProperty):
     """
-    `SystemResourceLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html>`__
+    `SystemResourceLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-systemresourcelimits.html>`__
     """
 
     props: PropsDictType = {
@@ -165,7 +165,7 @@ class SystemResourceLimits(AWSProperty):
 
 class ComponentRunWith(AWSProperty):
     """
-    `ComponentRunWith <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentrunwith.html>`__
+    `ComponentRunWith <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-componentrunwith.html>`__
     """
 
     props: PropsDictType = {
@@ -177,7 +177,7 @@ class ComponentRunWith(AWSProperty):
 
 class ComponentDeploymentSpecification(AWSProperty):
     """
-    `ComponentDeploymentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html>`__
+    `ComponentDeploymentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -189,7 +189,7 @@ class ComponentDeploymentSpecification(AWSProperty):
 
 class IoTJobAbortCriteria(AWSProperty):
     """
-    `IoTJobAbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html>`__
+    `IoTJobAbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -202,7 +202,7 @@ class IoTJobAbortCriteria(AWSProperty):
 
 class IoTJobAbortConfig(AWSProperty):
     """
-    `IoTJobAbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html>`__
+    `IoTJobAbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-iotjobabortconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class IoTJobRateIncreaseCriteria(AWSProperty):
 
 class IoTJobExponentialRolloutRate(AWSProperty):
     """
-    `IoTJobExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html>`__
+    `IoTJobExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html>`__
     """
 
     props: PropsDictType = {
@@ -231,7 +231,7 @@ class IoTJobExponentialRolloutRate(AWSProperty):
 
 class IoTJobExecutionsRolloutConfig(AWSProperty):
     """
-    `IoTJobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html>`__
+    `IoTJobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class IoTJobExecutionsRolloutConfig(AWSProperty):
 
 class IoTJobTimeoutConfig(AWSProperty):
     """
-    `IoTJobTimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html>`__
+    `IoTJobTimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +252,7 @@ class IoTJobTimeoutConfig(AWSProperty):
 
 class DeploymentIoTJobConfiguration(AWSProperty):
     """
-    `DeploymentIoTJobConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html>`__
+    `DeploymentIoTJobConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -264,7 +264,7 @@ class DeploymentIoTJobConfiguration(AWSProperty):
 
 class DeploymentComponentUpdatePolicy(AWSProperty):
     """
-    `DeploymentComponentUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html>`__
+    `DeploymentComponentUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +275,7 @@ class DeploymentComponentUpdatePolicy(AWSProperty):
 
 class DeploymentConfigurationValidationPolicy(AWSProperty):
     """
-    `DeploymentConfigurationValidationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html>`__
+    `DeploymentConfigurationValidationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class DeploymentConfigurationValidationPolicy(AWSProperty):
 
 class DeploymentPolicies(AWSProperty):
     """
-    `DeploymentPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html>`__
+    `DeploymentPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-greengrassv2-deployment-deploymentpolicies.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +300,7 @@ class DeploymentPolicies(AWSProperty):
 
 class Deployment(AWSObject):
     """
-    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html>`__
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-greengrassv2-deployment.html>`__
     """
 
     resource_type = "AWS::GreengrassV2::Deployment"

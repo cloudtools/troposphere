@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class EksInfo(AWSProperty):
     """
-    `EksInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-eksinfo.html>`__
+    `EksInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrcontainers-virtualcluster-eksinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -21,7 +21,7 @@ class EksInfo(AWSProperty):
 
 class ContainerInfo(AWSProperty):
     """
-    `ContainerInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerinfo.html>`__
+    `ContainerInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrcontainers-virtualcluster-containerinfo.html>`__
     """
 
     props: PropsDictType = {
@@ -31,7 +31,7 @@ class ContainerInfo(AWSProperty):
 
 class ContainerProvider(AWSProperty):
     """
-    `ContainerProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-virtualcluster-containerprovider.html>`__
+    `ContainerProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-emrcontainers-virtualcluster-containerprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -43,7 +43,7 @@ class ContainerProvider(AWSProperty):
 
 class VirtualCluster(AWSObject):
     """
-    `VirtualCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html>`__
+    `VirtualCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-emrcontainers-virtualcluster.html>`__
     """
 
     resource_type = "AWS::EMRContainers::VirtualCluster"

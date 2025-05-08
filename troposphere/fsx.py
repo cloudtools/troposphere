@@ -18,7 +18,7 @@ from .validators.fsx import (
 
 class AutoExportPolicy(AWSProperty):
     """
-    `AutoExportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html>`__
+    `AutoExportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -28,7 +28,7 @@ class AutoExportPolicy(AWSProperty):
 
 class AutoImportPolicy(AWSProperty):
     """
-    `AutoImportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html>`__
+    `AutoImportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -38,7 +38,7 @@ class AutoImportPolicy(AWSProperty):
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-datarepositoryassociation-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -49,7 +49,7 @@ class S3(AWSProperty):
 
 class DataRepositoryAssociation(AWSObject):
     """
-    `DataRepositoryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html>`__
+    `DataRepositoryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fsx-datarepositoryassociation.html>`__
     """
 
     resource_type = "AWS::FSx::DataRepositoryAssociation"
@@ -67,7 +67,7 @@ class DataRepositoryAssociation(AWSObject):
 
 class MetadataConfiguration(AWSProperty):
     """
-    `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
+    `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -78,7 +78,7 @@ class MetadataConfiguration(AWSProperty):
 
 class LustreConfiguration(AWSProperty):
     """
-    `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
+    `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -107,7 +107,7 @@ class LustreConfiguration(AWSProperty):
 
 class DiskIopsConfiguration(AWSProperty):
     """
-    `DiskIopsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>`__
+    `DiskIopsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -118,7 +118,7 @@ class DiskIopsConfiguration(AWSProperty):
 
 class OntapConfiguration(AWSProperty):
     """
-    `OntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html>`__
+    `OntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-ontapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class OntapConfiguration(AWSProperty):
 
 class ReadCacheConfiguration(AWSProperty):
     """
-    `ReadCacheConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html>`__
+    `ReadCacheConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class ReadCacheConfiguration(AWSProperty):
 
 class ClientConfigurations(AWSProperty):
     """
-    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html>`__
+    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class ClientConfigurations(AWSProperty):
 
 class NfsExports(AWSProperty):
     """
-    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports.html>`__
+    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-openzfsconfiguration-nfsexports.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +171,7 @@ class NfsExports(AWSProperty):
 
 class UserAndGroupQuotas(AWSProperty):
     """
-    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-userandgroupquotas.html>`__
+    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-openzfsconfiguration-userandgroupquotas.html>`__
     """
 
     props: PropsDictType = {
@@ -183,7 +183,7 @@ class UserAndGroupQuotas(AWSProperty):
 
 class RootVolumeConfiguration(AWSProperty):
     """
-    `RootVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html>`__
+    `RootVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -198,7 +198,7 @@ class RootVolumeConfiguration(AWSProperty):
 
 class OpenZFSConfiguration(AWSProperty):
     """
-    `OpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html>`__
+    `OpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-openzfsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +221,7 @@ class OpenZFSConfiguration(AWSProperty):
 
 class AuditLogConfiguration(AWSProperty):
     """
-    `AuditLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html>`__
+    `AuditLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -233,7 +233,7 @@ class AuditLogConfiguration(AWSProperty):
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     """
-    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
+    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
 
 class WindowsConfiguration(AWSProperty):
     """
-    `WindowsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html>`__
+    `WindowsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-filesystem-windowsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -272,7 +272,7 @@ class WindowsConfiguration(AWSProperty):
 
 class FileSystem(AWSObject):
     """
-    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html>`__
+    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fsx-filesystem.html>`__
     """
 
     resource_type = "AWS::FSx::FileSystem"
@@ -296,7 +296,7 @@ class FileSystem(AWSObject):
 
 class Snapshot(AWSObject):
     """
-    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-snapshot.html>`__
+    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fsx-snapshot.html>`__
     """
 
     resource_type = "AWS::FSx::Snapshot"
@@ -310,7 +310,7 @@ class Snapshot(AWSObject):
 
 class ActiveDirectoryConfiguration(AWSProperty):
     """
-    `ActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html>`__
+    `ActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class ActiveDirectoryConfiguration(AWSProperty):
 
 class StorageVirtualMachine(AWSObject):
     """
-    `StorageVirtualMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html>`__
+    `StorageVirtualMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fsx-storagevirtualmachine.html>`__
     """
 
     resource_type = "AWS::FSx::StorageVirtualMachine"
@@ -341,7 +341,7 @@ class StorageVirtualMachine(AWSObject):
 
 class AggregateConfiguration(AWSProperty):
     """
-    `AggregateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-aggregateconfiguration.html>`__
+    `AggregateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-ontapconfiguration-aggregateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -352,7 +352,7 @@ class AggregateConfiguration(AWSProperty):
 
 class AutocommitPeriod(AWSProperty):
     """
-    `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>`__
+    `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -363,7 +363,7 @@ class AutocommitPeriod(AWSProperty):
 
 class RetentionPeriod(AWSProperty):
     """
-    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-retentionperiod.html>`__
+    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-retentionperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -374,7 +374,7 @@ class RetentionPeriod(AWSProperty):
 
 class SnaplockRetentionPeriod(AWSProperty):
     """
-    `SnaplockRetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html>`__
+    `SnaplockRetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-snaplockretentionperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class SnaplockRetentionPeriod(AWSProperty):
 
 class SnaplockConfiguration(AWSProperty):
     """
-    `SnaplockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration.html>`__
+    `SnaplockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -401,7 +401,7 @@ class SnaplockConfiguration(AWSProperty):
 
 class TieringPolicy(AWSProperty):
     """
-    `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>`__
+    `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -412,7 +412,7 @@ class TieringPolicy(AWSProperty):
 
 class VolumeOntapConfiguration(AWSProperty):
     """
-    `VolumeOntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html>`__
+    `VolumeOntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-ontapconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -434,7 +434,7 @@ class VolumeOntapConfiguration(AWSProperty):
 
 class OriginSnapshot(AWSProperty):
     """
-    `OriginSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html>`__
+    `OriginSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +445,7 @@ class OriginSnapshot(AWSProperty):
 
 class VolumeOpenZFSConfiguration(AWSProperty):
     """
-    `VolumeOpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html>`__
+    `VolumeOpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-fsx-volume-openzfsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -465,7 +465,7 @@ class VolumeOpenZFSConfiguration(AWSProperty):
 
 class Volume(AWSObject):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-fsx-volume.html>`__
     """
 
     resource_type = "AWS::FSx::Volume"

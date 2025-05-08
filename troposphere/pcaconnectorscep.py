@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class Challenge(AWSObject):
     """
-    `Challenge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-challenge.html>`__
+    `Challenge <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorscep-challenge.html>`__
     """
 
     resource_type = "AWS::PCAConnectorSCEP::Challenge"
@@ -24,7 +24,7 @@ class Challenge(AWSObject):
 
 class IntuneConfiguration(AWSProperty):
     """
-    `IntuneConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-intuneconfiguration.html>`__
+    `IntuneConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorscep-connector-intuneconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class IntuneConfiguration(AWSProperty):
 
 class MobileDeviceManagement(AWSProperty):
     """
-    `MobileDeviceManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html>`__
+    `MobileDeviceManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorscep-connector-mobiledevicemanagement.html>`__
     """
 
     props: PropsDictType = {
@@ -45,7 +45,7 @@ class MobileDeviceManagement(AWSProperty):
 
 class Connector(AWSObject):
     """
-    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html>`__
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-pcaconnectorscep-connector.html>`__
     """
 
     resource_type = "AWS::PCAConnectorSCEP::Connector"
@@ -59,7 +59,7 @@ class Connector(AWSObject):
 
 class OpenIdConfiguration(AWSProperty):
     """
-    `OpenIdConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorscep-connector-openidconfiguration.html>`__
+    `OpenIdConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-pcaconnectorscep-connector-openidconfiguration.html>`__
     """
 
     props: PropsDictType = {
