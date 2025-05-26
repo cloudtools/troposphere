@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feature/*
+      - feature/copilot
 jobs:
-  setup-copilot-steps:
+  copilot-setup-steps:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
