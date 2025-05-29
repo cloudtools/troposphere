@@ -538,6 +538,20 @@ class SendAction(AWSProperty):
     }
 
 
+class SnsAction(AWSProperty):
+    """
+    `SnsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-snsaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "Encoding": (str, False),
+        "PayloadType": (str, False),
+        "RoleArn": (str, True),
+        "TopicArn": (str, True),
+    }
+
+
 class RuleAction(AWSProperty):
     """
     `RuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html>`__
@@ -549,6 +563,7 @@ class RuleAction(AWSProperty):
         "DeliverToMailbox": (DeliverToMailboxAction, False),
         "DeliverToQBusiness": (DeliverToQBusinessAction, False),
         "Drop": (dict, False),
+        "PublishToSns": (SnsAction, False),
         "Relay": (RelayAction, False),
         "ReplaceRecipient": (ReplaceRecipientAction, False),
         "Send": (SendAction, False),

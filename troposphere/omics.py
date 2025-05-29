@@ -141,7 +141,7 @@ class VariantStore(AWSObject):
 
 class WorkflowParameter(AWSProperty):
     """
-    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-workflowparameter.html>`__
+    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-workflowparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -166,5 +166,29 @@ class Workflow(AWSObject):
         "Name": (str, False),
         "ParameterTemplate": (dict, False),
         "StorageCapacity": (double, False),
+        "StorageType": (str, False),
         "Tags": (dict, False),
+    }
+
+
+class WorkflowVersion(AWSObject):
+    """
+    `WorkflowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflowversion.html>`__
+    """
+
+    resource_type = "AWS::Omics::WorkflowVersion"
+
+    props: PropsDictType = {
+        "Accelerators": (str, False),
+        "DefinitionUri": (str, False),
+        "Description": (str, False),
+        "Engine": (str, False),
+        "Main": (str, False),
+        "ParameterTemplate": (dict, False),
+        "StorageCapacity": (double, False),
+        "StorageType": (str, False),
+        "Tags": (dict, False),
+        "VersionName": (str, True),
+        "WorkflowBucketOwnerId": (str, False),
+        "WorkflowId": (str, True),
     }

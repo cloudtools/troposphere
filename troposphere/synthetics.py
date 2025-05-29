@@ -60,6 +60,16 @@ class RunConfig(AWSProperty):
     }
 
 
+class RetryConfig(AWSProperty):
+    """
+    `RetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-retryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxRetries": (integer, True),
+    }
+
+
 class Schedule(AWSProperty):
     """
     `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html>`__
@@ -68,6 +78,7 @@ class Schedule(AWSProperty):
     props: PropsDictType = {
         "DurationInSeconds": (str, False),
         "Expression": (str, True),
+        "RetryConfig": (RetryConfig, False),
     }
 
 
@@ -117,6 +128,7 @@ class Canary(AWSObject):
         "ArtifactConfig": (ArtifactConfig, False),
         "ArtifactS3Location": (str, True),
         "Code": (Code, True),
+        "DryRunAndUpdate": (boolean, False),
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
         "Name": (str, True),

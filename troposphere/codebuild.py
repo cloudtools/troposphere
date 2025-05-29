@@ -32,6 +32,7 @@ class ComputeConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "disk": (integer, False),
+        "instanceType": (str, False),
         "machineType": (str, False),
         "memory": (integer, False),
         "vCpu": (integer, False),
@@ -140,6 +141,17 @@ class Artifacts(AWSProperty):
         validate_artifacts(self)
 
 
+class DockerServer(AWSProperty):
+    """
+    `DockerServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-dockerserver.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeType": (str, True),
+        "SecurityGroupIds": ([str], False),
+    }
+
+
 class EnvironmentVariable(AWSProperty):
     """
     `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html>`__
@@ -184,6 +196,7 @@ class Environment(AWSProperty):
     props: PropsDictType = {
         "Certificate": (str, False),
         "ComputeType": (str, True),
+        "DockerServer": (DockerServer, False),
         "EnvironmentVariables": (validate_environmentvariable_or_list, False),
         "Fleet": (ProjectFleet, False),
         "Image": (str, True),

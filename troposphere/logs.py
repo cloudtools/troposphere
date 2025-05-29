@@ -49,6 +49,17 @@ class Delivery(AWSObject):
     }
 
 
+class DestinationPolicy(AWSProperty):
+    """
+    `DestinationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-deliverydestination-destinationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeliveryDestinationName": (str, False),
+        "DeliveryDestinationPolicy": (dict, False),
+    }
+
+
 class DeliveryDestination(AWSObject):
     """
     `DeliveryDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html>`__
@@ -57,7 +68,7 @@ class DeliveryDestination(AWSObject):
     resource_type = "AWS::Logs::DeliveryDestination"
 
     props: PropsDictType = {
-        "DeliveryDestinationPolicy": (dict, False),
+        "DeliveryDestinationPolicy": (DestinationPolicy, False),
         "DestinationResourceArn": (str, False),
         "Name": (str, True),
         "OutputFormat": (str, False),

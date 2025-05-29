@@ -419,6 +419,8 @@ class ManagedScalingPolicy(AWSProperty):
 
     props: PropsDictType = {
         "ComputeLimits": (ComputeLimits, False),
+        "ScalingStrategy": (str, False),
+        "UtilizationPerformanceIndex": (integer, False),
     }
 
 

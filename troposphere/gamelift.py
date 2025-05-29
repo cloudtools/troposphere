@@ -405,16 +405,13 @@ class Fleet(AWSObject):
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
         "Description": (str, False),
-        "DesiredEC2Instances": (integer, False),
         "EC2InboundPermissions": ([IpPermission], False),
         "EC2InstanceType": (str, False),
         "FleetType": (str, False),
         "InstanceRoleARN": (str, False),
         "InstanceRoleCredentialsProvider": (str, False),
         "Locations": ([LocationConfiguration], False),
-        "MaxSize": (integer, False),
         "MetricGroups": ([str], False),
-        "MinSize": (integer, False),
         "Name": (str, True),
         "NewGameSessionProtectionPolicy": (str, False),
         "PeerVpcAwsAccountId": (str, False),
@@ -423,6 +420,7 @@ class Fleet(AWSObject):
         "RuntimeConfiguration": (RuntimeConfiguration, False),
         "ScalingPolicies": ([ScalingPolicy], False),
         "ScriptId": (str, False),
+        "Tags": (Tags, False),
     }
 
 

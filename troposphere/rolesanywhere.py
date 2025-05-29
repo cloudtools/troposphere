@@ -98,8 +98,8 @@ class Source(AWSProperty):
     """
 
     props: PropsDictType = {
-        "SourceData": (SourceData, False),
-        "SourceType": (str, False),
+        "SourceData": (SourceData, True),
+        "SourceType": (str, True),
     }
 
 

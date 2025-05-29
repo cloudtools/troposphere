@@ -65,6 +65,7 @@ class Contact(AWSObject):
         "Alias": (str, True),
         "DisplayName": (str, True),
         "Plan": ([Stage], False),
+        "Tags": (Tags, False),
         "Type": (str, True),
     }
 

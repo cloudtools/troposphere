@@ -810,6 +810,41 @@ class SlotValueElicitationSetting(AWSProperty):
     }
 
 
+class SubSlotValueElicitationSetting(AWSProperty):
+    """
+    `SubSlotValueElicitationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslotvalueelicitationsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValueSpecification": (SlotDefaultValueSpecification, False),
+        "PromptSpecification": (PromptSpecification, False),
+        "SampleUtterances": ([SampleUtterance], False),
+        "WaitAndContinueSpecification": (WaitAndContinueSpecification, False),
+    }
+
+
+class Specifications(AWSProperty):
+    """
+    `Specifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html>`__
+    """
+
+    props: PropsDictType = {
+        "SlotTypeId": (str, True),
+        "ValueElicitationSetting": (SubSlotValueElicitationSetting, True),
+    }
+
+
+class SubSlotSetting(AWSProperty):
+    """
+    `SubSlotSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslotsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, False),
+        "SlotSpecifications": (dict, False),
+    }
+
+
 class Slot(AWSProperty):
     """
     `Slot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html>`__
@@ -821,6 +856,7 @@ class Slot(AWSProperty):
         "Name": (str, True),
         "ObfuscationSetting": (ObfuscationSetting, False),
         "SlotTypeName": (str, True),
+        "SubSlotSetting": (SubSlotSetting, False),
         "ValueElicitationSetting": (SlotValueElicitationSetting, True),
     }
 

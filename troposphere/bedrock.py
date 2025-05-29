@@ -1893,6 +1893,43 @@ class GuardrailVersion(AWSObject):
     }
 
 
+class PromptRouterTargetModel(AWSProperty):
+    """
+    `PromptRouterTargetModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-intelligentpromptrouter-promptroutertargetmodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelArn": (str, True),
+    }
+
+
+class RoutingCriteria(AWSProperty):
+    """
+    `RoutingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-intelligentpromptrouter-routingcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResponseQualityDifference": (double, True),
+    }
+
+
+class IntelligentPromptRouter(AWSObject):
+    """
+    `IntelligentPromptRouter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-intelligentpromptrouter.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::IntelligentPromptRouter"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "FallbackModel": (PromptRouterTargetModel, True),
+        "Models": ([PromptRouterTargetModel], True),
+        "PromptRouterName": (str, True),
+        "RoutingCriteria": (RoutingCriteria, True),
+        "Tags": (Tags, False),
+    }
+
+
 class KendraKnowledgeBaseConfiguration(AWSProperty):
     """
     `KendraKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-kendraknowledgebaseconfiguration.html>`__

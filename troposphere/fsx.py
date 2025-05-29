@@ -65,6 +65,17 @@ class DataRepositoryAssociation(AWSObject):
     }
 
 
+class DataReadCacheConfiguration(AWSProperty):
+    """
+    `DataReadCacheConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-datareadcacheconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SizeGiB": (integer, False),
+        "SizingMode": (str, False),
+    }
+
+
 class MetadataConfiguration(AWSProperty):
     """
     `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
@@ -87,6 +98,7 @@ class LustreConfiguration(AWSProperty):
         "CopyTagsToBackups": (boolean, False),
         "DailyAutomaticBackupStartTime": (str, False),
         "DataCompressionType": (str, False),
+        "DataReadCacheConfiguration": (DataReadCacheConfiguration, False),
         "DeploymentType": (validate_lustreconfiguration_deploymenttype, False),
         "DriveCacheType": (str, False),
         "EfaEnabled": (boolean, False),
@@ -98,6 +110,7 @@ class LustreConfiguration(AWSProperty):
             validate_lustreconfiguration_perunitstoragethroughput,
             False,
         ),
+        "ThroughputCapacity": (integer, False),
         "WeeklyMaintenanceStartTime": (str, False),
     }
 
