@@ -37,6 +37,28 @@ class AzureBlobSasConfiguration(AWSProperty):
     }
 
 
+class CmkSecretConfig(AWSProperty):
+    """
+    `CmkSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-cmksecretconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+        "SecretArn": (str, False),
+    }
+
+
+class CustomSecretConfig(AWSProperty):
+    """
+    `CustomSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretAccessRoleArn": (str, True),
+        "SecretArn": (str, True),
+    }
+
+
 class LocationAzureBlob(AWSObject):
     """
     `LocationAzureBlob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html>`__
@@ -45,12 +67,14 @@ class LocationAzureBlob(AWSObject):
     resource_type = "AWS::DataSync::LocationAzureBlob"
 
     props: PropsDictType = {
-        "AgentArns": ([str], True),
+        "AgentArns": ([str], False),
         "AzureAccessTier": (str, False),
         "AzureBlobAuthenticationType": (str, True),
         "AzureBlobContainerUrl": (str, False),
         "AzureBlobSasConfiguration": (AzureBlobSasConfiguration, False),
         "AzureBlobType": (str, False),
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
     }
@@ -295,8 +319,10 @@ class LocationObjectStorage(AWSObject):
 
     props: PropsDictType = {
         "AccessKey": (str, False),
-        "AgentArns": ([str], True),
+        "AgentArns": ([str], False),
         "BucketName": (str, False),
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "SecretKey": (str, False),
         "ServerCertificate": (str, False),
         "ServerHostname": (str, False),
@@ -354,46 +380,6 @@ class LocationSMB(AWSObject):
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
         "User": (str, False),
-    }
-
-
-class ServerConfiguration(AWSProperty):
-    """
-    `ServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "ServerHostname": (str, True),
-        "ServerPort": (integer, False),
-    }
-
-
-class ServerCredentials(AWSProperty):
-    """
-    `ServerCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html>`__
-    """
-
-    props: PropsDictType = {
-        "Password": (str, True),
-        "Username": (str, True),
-    }
-
-
-class StorageSystem(AWSObject):
-    """
-    `StorageSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html>`__
-    """
-
-    resource_type = "AWS::DataSync::StorageSystem"
-
-    props: PropsDictType = {
-        "AgentArns": ([str], True),
-        "CloudWatchLogGroupArn": (str, False),
-        "Name": (str, False),
-        "ServerConfiguration": (ServerConfiguration, True),
-        "ServerCredentials": (ServerCredentials, False),
-        "SystemType": (str, True),
-        "Tags": (Tags, False),
     }
 
 
@@ -587,6 +573,16 @@ class Task(AWSObject):
         "Tags": (Tags, False),
         "TaskMode": (str, False),
         "TaskReportConfig": (TaskReportConfig, False),
+    }
+
+
+class ManagedSecretConfig(AWSProperty):
+    """
+    `ManagedSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-managedsecretconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
     }
 
 

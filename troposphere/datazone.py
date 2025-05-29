@@ -519,9 +519,24 @@ class Domain(AWSObject):
     }
 
 
+class DomainUnit(AWSObject):
+    """
+    `DomainUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domainunit.html>`__
+    """
+
+    resource_type = "AWS::DataZone::DomainUnit"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainIdentifier": (str, True),
+        "Name": (str, True),
+        "ParentDomainUnitIdentifier": (str, True),
+    }
+
+
 class EnvironmentParameter(AWSProperty):
     """
-    `EnvironmentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentprofile-environmentparameter.html>`__
+    `EnvironmentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-environmentparameter.html>`__
     """
 
     props: PropsDictType = {
@@ -578,6 +593,27 @@ class EnvironmentActions(AWSObject):
     }
 
 
+class LakeFormationConfiguration(AWSProperty):
+    """
+    `LakeFormationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-lakeformationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocationRegistrationExcludeS3Locations": ([str], False),
+        "LocationRegistrationRole": (str, False),
+    }
+
+
+class ProvisioningConfiguration(AWSProperty):
+    """
+    `ProvisioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-provisioningconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LakeFormationConfiguration": (LakeFormationConfiguration, True),
+    }
+
+
 class RegionalParameter(AWSProperty):
     """
     `RegionalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html>`__
@@ -600,7 +636,9 @@ class EnvironmentBlueprintConfiguration(AWSObject):
         "DomainIdentifier": (str, True),
         "EnabledRegions": ([str], True),
         "EnvironmentBlueprintIdentifier": (str, True),
+        "EnvironmentRolePermissionBoundary": (str, False),
         "ManageAccessRoleArn": (str, False),
+        "ProvisioningConfigurations": ([ProvisioningConfiguration], False),
         "ProvisioningRoleArn": (str, False),
         "RegionalParameters": ([RegionalParameter], False),
     }
@@ -639,6 +677,64 @@ class GroupProfile(AWSObject):
     }
 
 
+class OwnerGroupProperties(AWSProperty):
+    """
+    `OwnerGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-owner-ownergroupproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupIdentifier": (str, False),
+    }
+
+
+class OwnerUserProperties(AWSProperty):
+    """
+    `OwnerUserProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-owner-owneruserproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "UserIdentifier": (str, False),
+    }
+
+
+class OwnerProperties(AWSProperty):
+    """
+    `OwnerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-owner-ownerproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Group": (OwnerGroupProperties, False),
+        "User": (OwnerUserProperties, False),
+    }
+
+
+class Owner(AWSObject):
+    """
+    `Owner <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-owner.html>`__
+    """
+
+    resource_type = "AWS::DataZone::Owner"
+
+    props: PropsDictType = {
+        "DomainIdentifier": (str, True),
+        "EntityIdentifier": (str, True),
+        "EntityType": (str, True),
+        "Owner": (OwnerProperties, True),
+    }
+
+
+class EnvironmentConfigurationUserParameter(AWSProperty):
+    """
+    `EnvironmentConfigurationUserParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-environmentconfigurationuserparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnvironmentConfigurationName": (str, False),
+        "EnvironmentId": (str, False),
+        "EnvironmentParameters": ([EnvironmentParameter], False),
+    }
+
+
 class Project(AWSObject):
     """
     `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html>`__
@@ -649,8 +745,12 @@ class Project(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "DomainIdentifier": (str, True),
+        "DomainUnitId": (str, False),
         "GlossaryTerms": ([str], False),
         "Name": (str, True),
+        "ProjectProfileId": (str, False),
+        "ProjectProfileVersion": (str, False),
+        "UserParameters": ([EnvironmentConfigurationUserParameter], False),
     }
 
 

@@ -449,6 +449,8 @@ class EbuTtDDestinationSettings(AWSProperty):
 
     props: PropsDictType = {
         "CopyrightHolder": (str, False),
+        "DefaultFontSize": (integer, False),
+        "DefaultLineHeight": (integer, False),
         "FillLineGap": (str, False),
         "FontFamily": (str, False),
         "StyleControl": (str, False),
@@ -1153,12 +1155,24 @@ class ArchiveGroupSettings(AWSProperty):
     }
 
 
+class CmafIngestCaptionLanguageMapping(AWSProperty):
+    """
+    `CmafIngestCaptionLanguageMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestcaptionlanguagemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptionChannel": (integer, False),
+        "LanguageCode": (str, False),
+    }
+
+
 class CmafIngestGroupSettings(AWSProperty):
     """
     `CmafIngestGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html>`__
     """
 
     props: PropsDictType = {
+        "CaptionLanguageMappings": ([CmafIngestCaptionLanguageMapping], False),
         "Destination": (OutputLocationRef, False),
         "Id3Behavior": (str, False),
         "Id3NameModifier": (str, False),
@@ -1171,6 +1185,9 @@ class CmafIngestGroupSettings(AWSProperty):
         "SegmentLength": (integer, False),
         "SegmentLengthUnits": (str, False),
         "SendDelayMs": (integer, False),
+        "TimedMetadataId3Frame": (str, False),
+        "TimedMetadataId3Period": (integer, False),
+        "TimedMetadataPassthrough": (str, False),
     }
 
 
@@ -1575,6 +1592,7 @@ class Av1Settings(AWSProperty):
 
     props: PropsDictType = {
         "AfdSignaling": (str, False),
+        "Bitrate": (integer, False),
         "BufSize": (integer, False),
         "ColorSpaceSettings": (Av1ColorSpaceSettings, False),
         "FixedAfd": (str, False),
@@ -1589,6 +1607,7 @@ class Av1Settings(AWSProperty):
         "ParDenominator": (integer, False),
         "ParNumerator": (integer, False),
         "QvbrQualityLevel": (integer, False),
+        "RateControlMode": (str, False),
         "SceneChangeDetect": (str, False),
         "TimecodeBurninSettings": (TimecodeBurninSettings, False),
     }
@@ -2344,6 +2363,7 @@ class OutputDestination(AWSProperty):
 
     props: PropsDictType = {
         "Id": (str, False),
+        "LogicalInterfaceNames": ([str], False),
         "MediaPackageSettings": ([MediaPackageOutputDestinationSettings], False),
         "MultiplexSettings": (MultiplexProgramChannelDestinationSettings, False),
         "Settings": ([OutputDestinationSettings], False),
@@ -2609,6 +2629,49 @@ class MulticastSettingsCreateRequest(AWSProperty):
     }
 
 
+class InputSdpLocation(AWSProperty):
+    """
+    `InputSdpLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsdplocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "MediaIndex": (integer, False),
+        "SdpUrl": (str, False),
+    }
+
+
+class Smpte2110ReceiverGroupSdpSettings(AWSProperty):
+    """
+    `Smpte2110ReceiverGroupSdpSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsdpsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AncillarySdps": ([InputSdpLocation], False),
+        "AudioSdps": ([InputSdpLocation], False),
+        "VideoSdp": (InputSdpLocation, False),
+    }
+
+
+class Smpte2110ReceiverGroup(AWSProperty):
+    """
+    `Smpte2110ReceiverGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "SdpSettings": (Smpte2110ReceiverGroupSdpSettings, False),
+    }
+
+
+class Smpte2110ReceiverGroupSettings(AWSProperty):
+    """
+    `Smpte2110ReceiverGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Smpte2110ReceiverGroups": ([Smpte2110ReceiverGroup], False),
+    }
+
+
 class SrtCallerDecryptionRequest(AWSProperty):
     """
     `SrtCallerDecryptionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallerdecryptionrequest.html>`__
@@ -2660,6 +2723,8 @@ class Input(AWSObject):
         "MulticastSettings": (MulticastSettingsCreateRequest, False),
         "Name": (str, False),
         "RoleArn": (str, False),
+        "SdiSources": ([str], False),
+        "Smpte2110ReceiverGroupSettings": (Smpte2110ReceiverGroupSettings, False),
         "Sources": ([InputSourceRequest], False),
         "SrtSettings": (SrtSettingsRequest, False),
         "Tags": (dict, False),

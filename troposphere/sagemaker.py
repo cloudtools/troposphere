@@ -34,6 +34,7 @@ class App(AWSObject):
         "AppName": (str, True),
         "AppType": (str, True),
         "DomainId": (str, True),
+        "RecoveryMode": (boolean, False),
         "ResourceSpec": (ResourceSpec, False),
         "Tags": (Tags, False),
         "UserProfileName": (str, True),
@@ -649,6 +650,7 @@ class JupyterLabAppSettings(AWSProperty):
 
     props: PropsDictType = {
         "AppLifecycleManagement": (AppLifecycleManagement, False),
+        "BuiltInLifecycleConfigArn": (str, False),
         "CodeRepositories": ([CodeRepositoryProperty], False),
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
@@ -740,6 +742,7 @@ class CodeEditorAppSettings(AWSProperty):
 
     props: PropsDictType = {
         "AppLifecycleManagement": (AppLifecycleManagement, False),
+        "BuiltInLifecycleConfigArn": (str, False),
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
         "LifecycleConfigArns": ([str], False),
@@ -769,6 +772,17 @@ class SharingSettings(AWSProperty):
     }
 
 
+class HiddenSageMakerImage(AWSProperty):
+    """
+    `HiddenSageMakerImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-hiddensagemakerimage.html>`__
+    """
+
+    props: PropsDictType = {
+        "SageMakerImageName": (str, False),
+        "VersionAliases": ([str], False),
+    }
+
+
 class StudioWebPortalSettings(AWSProperty):
     """
     `StudioWebPortalSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html>`__
@@ -776,7 +790,9 @@ class StudioWebPortalSettings(AWSProperty):
 
     props: PropsDictType = {
         "HiddenAppTypes": ([str], False),
+        "HiddenInstanceTypes": ([str], False),
         "HiddenMlTools": ([str], False),
+        "HiddenSageMakerImageVersionAliases": ([HiddenSageMakerImage], False),
     }
 
 
@@ -786,6 +802,7 @@ class UserSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoMountHomeEFS": (str, False),
         "CodeEditorAppSettings": (CodeEditorAppSettings, False),
         "CustomFileSystemConfigs": ([CustomFileSystemConfig], False),
         "CustomPosixUserConfig": (CustomPosixUserConfig, False),

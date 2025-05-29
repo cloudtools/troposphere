@@ -1039,6 +1039,7 @@ class ThingPrincipalAttachment(AWSObject):
     props: PropsDictType = {
         "Principal": (str, True),
         "ThingName": (str, True),
+        "ThingPrincipalType": (str, False),
     }
 
 

@@ -214,6 +214,7 @@ class EnvironmentVariable(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
+        "Type": (str, False),
         "Value": (str, True),
     }
 

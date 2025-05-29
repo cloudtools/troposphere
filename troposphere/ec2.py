@@ -765,6 +765,7 @@ class Host(AWSObject):
         "InstanceFamily": (str, False),
         "InstanceType": (str, False),
         "OutpostArn": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -955,6 +956,7 @@ class EBSBlockDevice(AWSProperty):
         "KmsKeyId": (str, False),
         "SnapshotId": (str, False),
         "Throughput": (integer, False),
+        "VolumeInitializationRate": (integer, False),
         "VolumeSize": (integer, False),
         "VolumeType": (str, False),
     }
@@ -1915,6 +1917,7 @@ class NetworkInsightsAnalysis(AWSObject):
     props: PropsDictType = {
         "AdditionalAccounts": ([str], False),
         "FilterInArns": ([str], False),
+        "FilterOutArns": ([str], False),
         "NetworkInsightsPathId": (str, True),
         "Tags": (Tags, False),
     }
@@ -3622,6 +3625,7 @@ class Volume(AWSObject):
         "SnapshotId": (str, False),
         "Tags": (validate_tags_or_list, False),
         "Throughput": (integer, False),
+        "VolumeInitializationRate": (integer, False),
         "VolumeType": (str, False),
     }
 

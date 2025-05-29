@@ -103,5 +103,6 @@ class WorkspacesPool(AWSObject):
         "Description": (str, False),
         "DirectoryId": (str, True),
         "PoolName": (str, True),
+        "RunningMode": (str, False),
         "TimeoutSettings": (TimeoutSettings, False),
     }
