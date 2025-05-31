@@ -115,6 +115,47 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class CloudWatchLogDestination(AWSProperty):
+    """
+    `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-cloudwatchlogdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupArn": (str, True),
+    }
+
+
+class LoggingFilter(AWSProperty):
+    """
+    `LoggingFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "QspThreshold": (integer, True),
+    }
+
+
+class LoggingDestination(AWSProperty):
+    """
+    `LoggingDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogDestination, True),
+        "Filters": (LoggingFilter, True),
+    }
+
+
+class QueryLoggingConfiguration(AWSProperty):
+    """
+    `QueryLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-queryloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destinations": ([LoggingDestination], True),
+    }
+
+
 class Label(AWSProperty):
     """
     `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-label.html>`__
@@ -170,6 +211,7 @@ class Workspace(AWSObject):
         "Alias": (str, False),
         "KmsKeyArn": (str, False),
         "LoggingConfiguration": (LoggingConfiguration, False),
+        "QueryLoggingConfiguration": (QueryLoggingConfiguration, False),
         "Tags": (Tags, False),
         "WorkspaceConfiguration": (WorkspaceConfiguration, False),
     }

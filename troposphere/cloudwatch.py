@@ -226,6 +226,7 @@ class InsightRule(AWSObject):
     resource_type = "AWS::CloudWatch::InsightRule"
 
     props: PropsDictType = {
+        "ApplyOnTransformedLogs": (boolean, False),
         "RuleBody": (str, True),
         "RuleName": (str, True),
         "RuleState": (str, True),

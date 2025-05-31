@@ -10,6 +10,58 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, integer
 
 
+class PublicAccessBlockConfiguration(AWSProperty):
+    """
+    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-accesspoint-publicaccessblockconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlockPublicAcls": (boolean, False),
+        "BlockPublicPolicy": (boolean, False),
+        "IgnorePublicAcls": (boolean, False),
+        "RestrictPublicBuckets": (boolean, False),
+    }
+
+
+class Scope(AWSProperty):
+    """
+    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-accesspoint-scope.html>`__
+    """
+
+    props: PropsDictType = {
+        "Permissions": ([str], False),
+        "Prefixes": ([str], False),
+    }
+
+
+class VpcConfiguration(AWSProperty):
+    """
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-accesspoint-vpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcId": (str, False),
+    }
+
+
+class AccessPoint(AWSObject):
+    """
+    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-accesspoint.html>`__
+    """
+
+    resource_type = "AWS::S3Express::AccessPoint"
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "BucketAccountId": (str, False),
+        "Name": (str, False),
+        "Policy": (dict, False),
+        "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
+        "Scope": (Scope, False),
+        "VpcConfiguration": (VpcConfiguration, False),
+    }
+
+
 class BucketPolicy(AWSObject):
     """
     `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-bucketpolicy.html>`__

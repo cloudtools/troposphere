@@ -331,6 +331,19 @@ class MailManagerAddonSubscription(AWSObject):
     }
 
 
+class MailManagerAddressList(AWSObject):
+    """
+    `MailManagerAddressList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddresslist.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerAddressList"
+
+    props: PropsDictType = {
+        "AddressListName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ArchiveRetention(AWSProperty):
     """
     `ArchiveRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerarchive-archiveretention.html>`__
@@ -582,6 +595,17 @@ class Analysis(AWSProperty):
     }
 
 
+class RuleIsInAddressList(AWSProperty):
+    """
+    `RuleIsInAddressList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleisinaddresslist.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddressLists": ([str], True),
+        "Attribute": (str, True),
+    }
+
+
 class RuleBooleanToEvaluate(AWSProperty):
     """
     `RuleBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html>`__
@@ -590,6 +614,7 @@ class RuleBooleanToEvaluate(AWSProperty):
     props: PropsDictType = {
         "Analysis": (Analysis, False),
         "Attribute": (str, False),
+        "IsInAddressList": (RuleIsInAddressList, False),
     }
 
 
@@ -759,13 +784,25 @@ class IngressAnalysis(AWSProperty):
     }
 
 
+class IngressIsInAddressList(AWSProperty):
+    """
+    `IngressIsInAddressList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressisinaddresslist.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddressLists": ([str], True),
+        "Attribute": (str, True),
+    }
+
+
 class IngressBooleanToEvaluate(AWSProperty):
     """
     `IngressBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html>`__
     """
 
     props: PropsDictType = {
-        "Analysis": (IngressAnalysis, True),
+        "Analysis": (IngressAnalysis, False),
+        "IsInAddressList": (IngressIsInAddressList, False),
     }
 
 
