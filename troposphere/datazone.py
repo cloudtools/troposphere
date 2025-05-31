@@ -780,6 +780,46 @@ class ProjectMembership(AWSObject):
     }
 
 
+class DesignationConfiguration(AWSProperty):
+    """
+    `DesignationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-designationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DesignationId": (str, True),
+    }
+
+
+class ProjectScope(AWSProperty):
+    """
+    `ProjectScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-projectscope.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Policy": (str, False),
+    }
+
+
+class ProjectProfile(AWSObject):
+    """
+    `ProjectProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html>`__
+    """
+
+    resource_type = "AWS::DataZone::ProjectProfile"
+
+    props: PropsDictType = {
+        "AllowedDesignations": ([DesignationConfiguration], False),
+        "ChangeLog": (str, False),
+        "Description": (str, False),
+        "DomainIdentifier": (str, False),
+        "DomainUnitIdentifier": (str, False),
+        "Name": (str, True),
+        "ProjectScopes": ([ProjectScope], False),
+        "Status": (str, False),
+    }
+
+
 class SubscriptionTargetForm(AWSProperty):
     """
     `SubscriptionTargetForm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-subscriptiontarget-subscriptiontargetform.html>`__

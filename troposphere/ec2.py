@@ -803,6 +803,7 @@ class IPAM(AWSObject):
         ),
         "Description": (str, False),
         "EnablePrivateGua": (boolean, False),
+        "MeteredAccount": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
         "Tags": (Tags, False),
         "Tier": (str, False),
@@ -1070,6 +1071,20 @@ class LicenseSpecification(AWSProperty):
     }
 
 
+class MetadataOptions(AWSProperty):
+    """
+    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "HttpEndpoint": (str, False),
+        "HttpProtocolIpv6": (str, False),
+        "HttpPutResponseHopLimit": (integer, False),
+        "HttpTokens": (str, False),
+        "InstanceMetadataTags": (str, False),
+    }
+
+
 class EnaSrdUdpSpecification(AWSProperty):
     """
     `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
@@ -1191,6 +1206,7 @@ class Instance(AWSObject):
         "KeyName": (str, False),
         "LaunchTemplate": (LaunchTemplateSpecification, False),
         "LicenseSpecifications": ([LicenseSpecification], False),
+        "MetadataOptions": (MetadataOptions, False),
         "Monitoring": (boolean, False),
         "NetworkInterfaces": ([NetworkInterfaceProperty], False),
         "PlacementGroupName": (str, False),
@@ -1516,20 +1532,6 @@ class MaintenanceOptions(AWSProperty):
 
     props: PropsDictType = {
         "AutoRecovery": (str, False),
-    }
-
-
-class MetadataOptions(AWSProperty):
-    """
-    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "HttpEndpoint": (str, False),
-        "HttpProtocolIpv6": (str, False),
-        "HttpPutResponseHopLimit": (integer, False),
-        "HttpTokens": (str, False),
-        "InstanceMetadataTags": (str, False),
     }
 
 

@@ -1253,6 +1253,17 @@ class ConditionFlowNodeConfiguration(AWSProperty):
     }
 
 
+class InlineCodeFlowNodeConfiguration(AWSProperty):
+    """
+    `InlineCodeFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-inlinecodeflownodeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, True),
+        "Language": (str, True),
+    }
+
+
 class KnowledgeBaseFlowNodeConfiguration(AWSProperty):
     """
     `KnowledgeBaseFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html>`__
@@ -1578,6 +1589,7 @@ class FlowNodeConfiguration(AWSProperty):
         "Agent": (AgentFlowNodeConfiguration, False),
         "Collector": (dict, False),
         "Condition": (ConditionFlowNodeConfiguration, False),
+        "InlineCode": (InlineCodeFlowNodeConfiguration, False),
         "Input": (dict, False),
         "Iterator": (dict, False),
         "KnowledgeBase": (KnowledgeBaseFlowNodeConfiguration, False),
@@ -1659,6 +1671,17 @@ class Flow(AWSObject):
     }
 
 
+class FlowAliasConcurrencyConfiguration(AWSProperty):
+    """
+    `FlowAliasConcurrencyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasconcurrencyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxConcurrency": (double, False),
+        "Type": (str, True),
+    }
+
+
 class FlowAliasRoutingConfigurationListItem(AWSProperty):
     """
     `FlowAliasRoutingConfigurationListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasroutingconfigurationlistitem.html>`__
@@ -1677,6 +1700,7 @@ class FlowAlias(AWSObject):
     resource_type = "AWS::Bedrock::FlowAlias"
 
     props: PropsDictType = {
+        "ConcurrencyConfiguration": (FlowAliasConcurrencyConfiguration, False),
         "Description": (str, False),
         "FlowArn": (str, True),
         "Name": (str, True),

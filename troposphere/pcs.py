@@ -160,6 +160,17 @@ class Queue(AWSObject):
     }
 
 
+class Accounting(AWSProperty):
+    """
+    `Accounting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-accounting.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultPurgeTimeInDays": (integer, False),
+        "Mode": (str, True),
+    }
+
+
 class AuthKey(AWSProperty):
     """
     `AuthKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-authkey.html>`__
