@@ -738,7 +738,6 @@ class MSKEvent(AWSObject):
     resource_type = "MSK"
 
     props: PropsDictType = {
-        "BatchSize": (integer, False),
         "ConsumerGroupId": (str, False),
         "DestinationConfig": (DestinationConfig, False),
         "FilterCriteria": (FilterCriteria, False),
