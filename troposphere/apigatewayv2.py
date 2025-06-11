@@ -259,6 +259,7 @@ class DomainName(AWSObject):
         "DomainName": (str, True),
         "DomainNameConfigurations": ([DomainNameConfiguration], False),
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
+        "RoutingMode": (str, False),
         "Tags": (dict, False),
     }
 
@@ -407,6 +408,85 @@ class RouteResponse(AWSObject):
         "ResponseParameters": (dict, False),
         "RouteId": (str, True),
         "RouteResponseKey": (str, True),
+    }
+
+
+class ActionInvokeApi(AWSProperty):
+    """
+    `ActionInvokeApi <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-actioninvokeapi.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiId": (str, True),
+        "Stage": (str, True),
+        "StripBasePath": (boolean, False),
+    }
+
+
+class Action(AWSProperty):
+    """
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-action.html>`__
+    """
+
+    props: PropsDictType = {
+        "InvokeApi": (ActionInvokeApi, True),
+    }
+
+
+class MatchBasePaths(AWSProperty):
+    """
+    `MatchBasePaths <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-matchbasepaths.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnyOf": ([str], True),
+    }
+
+
+class MatchHeaderValue(AWSProperty):
+    """
+    `MatchHeaderValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-matchheadervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Header": (str, True),
+        "ValueGlob": (str, True),
+    }
+
+
+class MatchHeaders(AWSProperty):
+    """
+    `MatchHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-matchheaders.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnyOf": ([MatchHeaderValue], True),
+    }
+
+
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routingrule-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchBasePaths": (MatchBasePaths, False),
+        "MatchHeaders": (MatchHeaders, False),
+    }
+
+
+class RoutingRule(AWSObject):
+    """
+    `RoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routingrule.html>`__
+    """
+
+    resource_type = "AWS::ApiGatewayV2::RoutingRule"
+
+    props: PropsDictType = {
+        "Actions": ([Action], True),
+        "Conditions": ([Condition], True),
+        "DomainNameArn": (str, True),
+        "Priority": (integer, True),
     }
 
 

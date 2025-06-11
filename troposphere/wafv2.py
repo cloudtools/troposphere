@@ -1120,6 +1120,7 @@ class WebACL(AWSObject):
         "DefaultAction": (DefaultAction, True),
         "Description": (str, False),
         "Name": (str, False),
+        "OnSourceDDoSProtectionConfig": (dict, False),
         "Rules": ([WebACLRule], False),
         "Scope": (str, True),
         "Tags": (Tags, False),
