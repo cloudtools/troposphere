@@ -19,6 +19,7 @@ from .awslambda import (
     ImageConfig,
     LoggingConfig,
     ProvisionedConcurrencyConfiguration,
+    ProvisionedPollerConfig,
     RuntimeManagementConfig,
     SnapStart,
     SourceAccessConfiguration,
@@ -738,8 +739,10 @@ class MSKEvent(AWSObject):
 
     props: PropsDictType = {
         "ConsumerGroupId": (str, False),
+        "DestinationConfig": (DestinationConfig, False),
         "FilterCriteria": (FilterCriteria, False),
         "MaximumBatchingWindowInSeconds": (integer, False),
+        "ProvisionedPollerConfig": (ProvisionedPollerConfig, False),
         "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
         "StartingPosition": (str, True),
         "StartingPositionTimestamp": (double, False),
