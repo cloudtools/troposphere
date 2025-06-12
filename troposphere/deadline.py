@@ -194,6 +194,7 @@ class ServiceManagedEc2FleetConfiguration(AWSProperty):
     props: PropsDictType = {
         "InstanceCapabilities": (ServiceManagedEc2InstanceCapabilities, True),
         "InstanceMarketOptions": (ServiceManagedEc2InstanceMarketOptions, True),
+        "StorageProfileId": (str, False),
     }
 
 

@@ -290,6 +290,7 @@ class DomainName(AWSObject):
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
         "OwnershipVerificationCertificateArn": (str, False),
         "RegionalCertificateArn": (str, False),
+        "RoutingMode": (str, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
     }
@@ -322,6 +323,7 @@ class DomainNameV2(AWSObject):
         "DomainName": (str, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "Policy": (dict, False),
+        "RoutingMode": (str, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
     }

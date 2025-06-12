@@ -268,7 +268,7 @@ class AddOn(AWSProperty):
 
 class Location(AWSProperty):
     """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html>`__
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instancesnapshot-location.html>`__
     """
 
     props: PropsDictType = {
@@ -497,6 +497,20 @@ class Instance(AWSObject):
         "State": (State, False),
         "Tags": (Tags, False),
         "UserData": (str, False),
+    }
+
+
+class InstanceSnapshot(AWSObject):
+    """
+    `InstanceSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instancesnapshot.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::InstanceSnapshot"
+
+    props: PropsDictType = {
+        "InstanceName": (str, True),
+        "InstanceSnapshotName": (str, True),
+        "Tags": (Tags, False),
     }
 
 

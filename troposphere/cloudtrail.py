@@ -114,6 +114,17 @@ class AdvancedEventSelector(AWSProperty):
     }
 
 
+class ContextKeySelector(AWSProperty):
+    """
+    `ContextKeySelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-contextkeyselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "Equals": ([str], True),
+        "Type": (str, True),
+    }
+
+
 class InsightSelector(AWSProperty):
     """
     `InsightSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html>`__
@@ -134,12 +145,14 @@ class EventDataStore(AWSObject):
     props: PropsDictType = {
         "AdvancedEventSelectors": ([AdvancedEventSelector], False),
         "BillingMode": (str, False),
+        "ContextKeySelectors": ([ContextKeySelector], False),
         "FederationEnabled": (boolean, False),
         "FederationRoleArn": (str, False),
         "IngestionEnabled": (boolean, False),
         "InsightSelectors": ([InsightSelector], False),
         "InsightsDestination": (str, False),
         "KmsKeyId": (str, False),
+        "MaxEventSize": (str, False),
         "MultiRegionEnabled": (boolean, False),
         "Name": (str, False),
         "OrganizationEnabled": (boolean, False),

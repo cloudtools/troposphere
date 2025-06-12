@@ -321,6 +321,37 @@ class DHCPOptions(AWSObject):
     }
 
 
+class EBSBlockDevice(AWSProperty):
+    """
+    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeleteOnTermination": (boolean, False),
+        "Encrypted": (boolean, False),
+        "Iops": (integer, False),
+        "KmsKeyId": (str, False),
+        "SnapshotId": (str, False),
+        "Throughput": (integer, False),
+        "VolumeInitializationRate": (integer, False),
+        "VolumeSize": (integer, False),
+        "VolumeType": (str, False),
+    }
+
+
+class BlockDeviceMapping(AWSProperty):
+    """
+    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeviceName": (str, True),
+        "Ebs": (EBSBlockDevice, False),
+        "NoDevice": (dict, False),
+        "VirtualName": (str, False),
+    }
+
+
 class AcceleratorCountRequest(AWSProperty):
     """
     `AcceleratorCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-acceleratorcountrequest.html>`__
@@ -509,6 +540,7 @@ class FleetLaunchTemplateOverridesRequest(AWSProperty):
 
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
+        "BlockDeviceMappings": ([BlockDeviceMapping], False),
         "InstanceRequirements": (InstanceRequirementsRequest, False),
         "InstanceType": (str, False),
         "MaxPrice": (str, False),
@@ -942,37 +974,6 @@ class IPAMScope(AWSObject):
         "Description": (str, False),
         "IpamId": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class EBSBlockDevice(AWSProperty):
-    """
-    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html>`__
-    """
-
-    props: PropsDictType = {
-        "DeleteOnTermination": (boolean, False),
-        "Encrypted": (boolean, False),
-        "Iops": (integer, False),
-        "KmsKeyId": (str, False),
-        "SnapshotId": (str, False),
-        "Throughput": (integer, False),
-        "VolumeInitializationRate": (integer, False),
-        "VolumeSize": (integer, False),
-        "VolumeType": (str, False),
-    }
-
-
-class BlockDeviceMapping(AWSProperty):
-    """
-    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html>`__
-    """
-
-    props: PropsDictType = {
-        "DeviceName": (str, True),
-        "Ebs": (EBSBlockDevice, False),
-        "NoDevice": (dict, False),
-        "VirtualName": (str, False),
     }
 
 
