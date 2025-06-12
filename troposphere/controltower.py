@@ -16,7 +16,7 @@ class Parameter(AWSProperty):
 
     props: PropsDictType = {
         "Key": (str, False),
-        "Value": (dict, False),
+        "Value": (str, False),
     }
 
 
@@ -43,7 +43,7 @@ class EnabledControlParameter(AWSProperty):
 
     props: PropsDictType = {
         "Key": (str, True),
-        "Value": (dict, True),
+        "Value": (object, True),
     }
 
 
