@@ -722,6 +722,22 @@ class RStudioServerProDomainSettings(AWSProperty):
     }
 
 
+class UnifiedStudioSettings(AWSProperty):
+    """
+    `UnifiedStudioSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainAccountId": (str, False),
+        "DomainId": (str, False),
+        "DomainRegion": (str, False),
+        "EnvironmentId": (str, False),
+        "ProjectId": (str, False),
+        "ProjectS3Path": (str, False),
+        "StudioWebPortalAccess": (str, False),
+    }
+
+
 class DomainSettings(AWSProperty):
     """
     `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
@@ -732,6 +748,7 @@ class DomainSettings(AWSProperty):
         "ExecutionRoleIdentityConfig": (str, False),
         "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
         "SecurityGroupIds": ([str], False),
+        "UnifiedStudioSettings": (UnifiedStudioSettings, False),
     }
 
 
