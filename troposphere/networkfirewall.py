@@ -222,6 +222,7 @@ class LoggingConfiguration(AWSObject):
     resource_type = "AWS::NetworkFirewall::LoggingConfiguration"
 
     props: PropsDictType = {
+        "EnableMonitoringDashboard": (boolean, False),
         "FirewallArn": (str, True),
         "FirewallName": (str, False),
         "LoggingConfiguration": (LoggingConfigurationProperty, True),

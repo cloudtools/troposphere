@@ -513,8 +513,10 @@ class PodIdentityAssociation(AWSObject):
 
     props: PropsDictType = {
         "ClusterName": (str, True),
+        "DisableSessionTags": (boolean, False),
         "Namespace": (str, True),
         "RoleArn": (str, True),
         "ServiceAccount": (str, True),
         "Tags": (Tags, False),
+        "TargetRoleArn": (str, False),
     }
