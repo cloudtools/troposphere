@@ -1,3 +1,17 @@
+4.9.3 (2025*06*19)
+-------------------------------
+* Updates from spec version 196.0.0 (#2301)
+* Work around recursive definition in AWS::Budgets
+* Updates from spec version 197.0.0 (#2302)
+* Updates from spec version 198.0.0 (#2306)
+* Updates from spec version 199.0.0 (#2307)
+* Add MSKEvent params for serverless lambda esm (#2310)
+* Bedrock patch changes for spec 200.0.0
+* Updates from spec version 200.0.0 (#2311)
+* Fix controltower parameters value types (#2314)
+* Updates from spec version 201.0.0
+* Updates from spec version 202.0.0
+
 4.9.2 (2025*04*17)
 -------------------------------
 * Updates from spec version 194.0.0 (#2298)
