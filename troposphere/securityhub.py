@@ -10,6 +10,20 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, double, integer
 
 
+class AggregatorV2(AWSObject):
+    """
+    `AggregatorV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-aggregatorv2.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::AggregatorV2"
+
+    props: PropsDictType = {
+        "LinkedRegions": ([str], True),
+        "RegionLinkingMode": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class NoteUpdate(AWSProperty):
     """
     `NoteUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html>`__
@@ -204,6 +218,159 @@ class AutomationRule(AWSObject):
     }
 
 
+class AutomationRulesFindingFieldsUpdateV2(AWSProperty):
+    """
+    `AutomationRulesFindingFieldsUpdateV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesfindingfieldsupdatev2.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comment": (str, False),
+        "SeverityId": (integer, False),
+        "StatusId": (integer, False),
+    }
+
+
+class ExternalIntegrationConfiguration(AWSProperty):
+    """
+    `ExternalIntegrationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-externalintegrationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectorArn": (str, False),
+    }
+
+
+class AutomationRulesActionV2(AWSProperty):
+    """
+    `AutomationRulesActionV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-automationrulesactionv2.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExternalIntegrationConfiguration": (ExternalIntegrationConfiguration, False),
+        "FindingFieldsUpdate": (AutomationRulesFindingFieldsUpdateV2, False),
+        "Type": (str, True),
+    }
+
+
+class BooleanFilter(AWSProperty):
+    """
+    `BooleanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (boolean, True),
+    }
+
+
+class OcsfBooleanFilter(AWSProperty):
+    """
+    `OcsfBooleanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfbooleanfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "Filter": (BooleanFilter, True),
+    }
+
+
+class OcsfDateFilter(AWSProperty):
+    """
+    `OcsfDateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfdatefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "Filter": (DateFilter, True),
+    }
+
+
+class OcsfMapFilter(AWSProperty):
+    """
+    `OcsfMapFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfmapfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "Filter": (MapFilter, True),
+    }
+
+
+class OcsfNumberFilter(AWSProperty):
+    """
+    `OcsfNumberFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfnumberfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "Filter": (NumberFilter, True),
+    }
+
+
+class OcsfStringFilter(AWSProperty):
+    """
+    `OcsfStringFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfstringfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "Filter": (StringFilter, True),
+    }
+
+
+class CompositeFilter(AWSProperty):
+    """
+    `CompositeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-compositefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanFilters": ([OcsfBooleanFilter], False),
+        "DateFilters": ([OcsfDateFilter], False),
+        "MapFilters": ([OcsfMapFilter], False),
+        "NumberFilters": ([OcsfNumberFilter], False),
+        "Operator": (str, False),
+        "StringFilters": ([OcsfStringFilter], False),
+    }
+
+
+class OcsfFindingFilters(AWSProperty):
+    """
+    `OcsfFindingFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsffindingfilters.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompositeFilters": ([CompositeFilter], False),
+        "CompositeOperator": (str, False),
+    }
+
+
+class Criteria(AWSProperty):
+    """
+    `Criteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-criteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "OcsfFindingCriteria": (OcsfFindingFilters, False),
+    }
+
+
+class AutomationRuleV2(AWSObject):
+    """
+    `AutomationRuleV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrulev2.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::AutomationRuleV2"
+
+    props: PropsDictType = {
+        "Actions": ([AutomationRulesActionV2], True),
+        "Criteria": (Criteria, True),
+        "Description": (str, True),
+        "RuleName": (str, True),
+        "RuleOrder": (double, True),
+        "RuleStatus": (str, False),
+        "Tags": (dict, False),
+    }
+
+
 class ParameterValue(AWSProperty):
     """
     `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
@@ -332,13 +499,15 @@ class Hub(AWSObject):
     }
 
 
-class BooleanFilter(AWSProperty):
+class HubV2(AWSObject):
     """
-    `BooleanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-booleanfilter.html>`__
+    `HubV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hubv2.html>`__
     """
 
+    resource_type = "AWS::SecurityHub::HubV2"
+
     props: PropsDictType = {
-        "Value": (boolean, True),
+        "Tags": (dict, False),
     }
 
 

@@ -699,6 +699,17 @@ class ExtraLengthValueProfileDimension(AWSProperty):
     }
 
 
+class ProfileTypeDimension(AWSProperty):
+    """
+    `ProfileTypeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiletypedimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
 class ProfileAttributes(AWSProperty):
     """
     `ProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>`__
@@ -725,6 +736,7 @@ class ProfileAttributes(AWSProperty):
         "PartyTypeString": (ProfileDimension, False),
         "PersonalEmailAddress": (ProfileDimension, False),
         "PhoneNumber": (ProfileDimension, False),
+        "ProfileType": (ProfileTypeDimension, False),
         "ShippingAddress": (AddressDimension, False),
     }
 

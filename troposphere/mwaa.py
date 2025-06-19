@@ -80,4 +80,5 @@ class Environment(AWSObject):
         "Tags": (dict, False),
         "WebserverAccessMode": (str, False),
         "WeeklyMaintenanceWindowStart": (str, False),
+        "WorkerReplacementStrategy": (str, False),
     }

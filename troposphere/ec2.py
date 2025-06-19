@@ -3648,6 +3648,16 @@ class VolumeAttachment(AWSObject):
     }
 
 
+class BlockPublicAccessStates(AWSProperty):
+    """
+    `BlockPublicAccessStates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-subnet-blockpublicaccessstates.html>`__
+    """
+
+    props: PropsDictType = {
+        "InternetGatewayBlockMode": (str, False),
+    }
+
+
 class CapacityAllocation(AWSProperty):
     """
     `CapacityAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-capacityallocation.html>`__

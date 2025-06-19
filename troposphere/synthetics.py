@@ -55,6 +55,7 @@ class RunConfig(AWSProperty):
     props: PropsDictType = {
         "ActiveTracing": (boolean, False),
         "EnvironmentVariables": (dict, False),
+        "EphemeralStorage": (integer, False),
         "MemoryInMB": (integer, False),
         "TimeoutInSeconds": (integer, False),
     }
