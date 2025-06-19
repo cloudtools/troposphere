@@ -22,7 +22,7 @@ import jsonpointer  # type: ignore
 # file. In other words, a type such as AWS::Batch::JobDefinition will be
 # put into the batch.py file.
 #
-# Since there are usually discrepencies in the docs or spec files plus the
+# Since there are usually discrepancies in the docs or spec files plus the
 # need for validation routines to be included there is additional processing
 # done to the Resource Specification file and validators substituted into
 # the code.

@@ -1,0 +1,52 @@
+{
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "DemoEnabledBaseline": {
+   "Properties": {
+    "BaselineIdentifier": "arn:aws:controltower:eu-west-1::baseline/A1B2C3D4E5F6G7H8I",
+    "BaselineVersion": "4.0",
+    "Parameters": [
+     {
+      "Key": "IdentityCenterEnabledBaselineArn",
+      "Value": "arn:aws:controltower:eu-west-1:123456789012:enabledbaseline/A1B2C3D4E5F6G7H8I"
+     }
+    ],
+    "TargetIdentifier": "arn:aws:organizations::123456789012:ou/o-a1b2c3d4e5/ou-1234-a1b2c3d4"
+   },
+   "Type": "AWS::ControlTower::EnabledBaseline"
+  },
+  "DemoEnabledControl": {
+   "Properties": {
+    "ControlIdentifier": "arn:aws:controltower:us-east-2::control/EXAMPLE_NAME",
+    "Parameters": [
+     {
+      "Key": "ArrayParameter",
+      "Value": [
+       "string"
+      ]
+     },
+     {
+      "Key": "StringParameter",
+      "Value": "string"
+     },
+     {
+      "Key": "NumberParameter",
+      "Value": 42
+     },
+     {
+      "Key": "ObjectParameter",
+      "Value": {
+       "key1": "value1"
+      }
+     },
+     {
+      "Key": "BooleanParameter",
+      "Value": true
+     }
+    ],
+    "TargetIdentifier": "arn:aws:organizations::01234567890:ou/o-EXAMPLE/ou-zzxx-zzx0zzz2"
+   },
+   "Type": "AWS::ControlTower::EnabledControl"
+  }
+ }
+}
