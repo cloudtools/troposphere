@@ -716,6 +716,7 @@ class EgressOnlyInternetGateway(AWSObject):
     resource_type = "AWS::EC2::EgressOnlyInternetGateway"
 
     props: PropsDictType = {
+        "Tags": (Tags, False),
         "VpcId": (str, True),
     }
 

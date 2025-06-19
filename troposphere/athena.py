@@ -117,6 +117,27 @@ class EngineVersion(AWSProperty):
     }
 
 
+class ManagedStorageEncryptionConfiguration(AWSProperty):
+    """
+    `ManagedStorageEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedstorageencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKey": (str, False),
+    }
+
+
+class ManagedQueryResultsConfiguration(AWSProperty):
+    """
+    `ManagedQueryResultsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedqueryresultsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionConfiguration": (ManagedStorageEncryptionConfiguration, False),
+    }
+
+
 class AclConfiguration(AWSProperty):
     """
     `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html>`__
@@ -166,6 +187,7 @@ class WorkGroupConfiguration(AWSProperty):
         "EnforceWorkGroupConfiguration": (boolean, False),
         "EngineVersion": (EngineVersion, False),
         "ExecutionRole": (str, False),
+        "ManagedQueryResultsConfiguration": (ManagedQueryResultsConfiguration, False),
         "PublishCloudWatchMetricsEnabled": (boolean, False),
         "RequesterPaysEnabled": (boolean, False),
         "ResultConfiguration": (ResultConfiguration, False),
