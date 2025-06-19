@@ -215,6 +215,40 @@ class LivePreRollConfiguration(AWSProperty):
     }
 
 
+class AdsInteractionLog(AWSProperty):
+    """
+    `AdsInteractionLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adsinteractionlog.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExcludeEventTypes": ([str], False),
+        "PublishOptInEventTypes": ([str], False),
+    }
+
+
+class ManifestServiceInteractionLog(AWSProperty):
+    """
+    `ManifestServiceInteractionLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestserviceinteractionlog.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExcludeEventTypes": ([str], False),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdsInteractionLog": (AdsInteractionLog, False),
+        "EnabledLoggingStrategies": ([str], False),
+        "ManifestServiceInteractionLog": (ManifestServiceInteractionLog, False),
+        "PercentEnabled": (integer, True),
+    }
+
+
 class AdMarkerPassthrough(AWSProperty):
     """
     `AdMarkerPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-admarkerpassthrough.html>`__
@@ -252,6 +286,7 @@ class PlaybackConfiguration(AWSObject):
         "DashConfiguration": (DashConfiguration, False),
         "HlsConfiguration": (HlsConfiguration, False),
         "LivePreRollConfiguration": (LivePreRollConfiguration, False),
+        "LogConfiguration": (LogConfiguration, False),
         "ManifestProcessingRules": (ManifestProcessingRules, False),
         "Name": (str, True),
         "PersonalizationThresholdSeconds": (integer, False),

@@ -716,6 +716,7 @@ class EgressOnlyInternetGateway(AWSObject):
     resource_type = "AWS::EC2::EgressOnlyInternetGateway"
 
     props: PropsDictType = {
+        "Tags": (Tags, False),
         "VpcId": (str, True),
     }
 
@@ -3644,6 +3645,16 @@ class VolumeAttachment(AWSObject):
         "Device": (str, False),
         "InstanceId": (str, True),
         "VolumeId": (str, True),
+    }
+
+
+class BlockPublicAccessStates(AWSProperty):
+    """
+    `BlockPublicAccessStates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-subnet-blockpublicaccessstates.html>`__
+    """
+
+    props: PropsDictType = {
+        "InternetGatewayBlockMode": (str, False),
     }
 
 

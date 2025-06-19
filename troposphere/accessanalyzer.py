@@ -10,6 +10,38 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class InternalAccessAnalysisRuleCriteria(AWSProperty):
+    """
+    `InternalAccessAnalysisRuleCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-internalaccessanalysisrulecriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountIds": ([str], False),
+        "ResourceArns": ([str], False),
+        "ResourceTypes": ([str], False),
+    }
+
+
+class InternalAccessAnalysisRule(AWSProperty):
+    """
+    `InternalAccessAnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-internalaccessanalysisrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Inclusions": ([InternalAccessAnalysisRuleCriteria], False),
+    }
+
+
+class InternalAccessConfiguration(AWSProperty):
+    """
+    `InternalAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-internalaccessconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InternalAccessAnalysisRule": (InternalAccessAnalysisRule, False),
+    }
+
+
 class AnalysisRuleCriteria(AWSProperty):
     """
     `AnalysisRuleCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html>`__
@@ -48,6 +80,7 @@ class AnalyzerConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InternalAccessConfiguration": (InternalAccessConfiguration, False),
         "UnusedAccessConfiguration": (UnusedAccessConfiguration, False),
     }
 

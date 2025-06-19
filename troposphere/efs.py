@@ -164,6 +164,8 @@ class MountTarget(AWSObject):
     props: PropsDictType = {
         "FileSystemId": (str, True),
         "IpAddress": (str, False),
+        "IpAddressType": (str, False),
+        "Ipv6Address": (str, False),
         "SecurityGroups": ([str], True),
         "SubnetId": (str, True),
     }

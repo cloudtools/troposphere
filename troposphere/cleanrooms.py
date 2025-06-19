@@ -222,7 +222,7 @@ class MemberSpecification(AWSProperty):
         "AccountId": (str, True),
         "DisplayName": (str, True),
         "MLMemberAbilities": (MLMemberAbilities, False),
-        "MemberAbilities": ([str], True),
+        "MemberAbilities": ([str], False),
         "PaymentConfiguration": (PaymentConfiguration, False),
     }
 
@@ -238,12 +238,12 @@ class Collaboration(AWSObject):
         "AnalyticsEngine": (str, False),
         "CreatorDisplayName": (str, True),
         "CreatorMLMemberAbilities": (MLMemberAbilities, False),
-        "CreatorMemberAbilities": ([str], True),
+        "CreatorMemberAbilities": ([str], False),
         "CreatorPaymentConfiguration": (PaymentConfiguration, False),
         "DataEncryptionMetadata": (DataEncryptionMetadata, False),
         "Description": (str, True),
         "JobLogStatus": (str, False),
-        "Members": ([MemberSpecification], True),
+        "Members": ([MemberSpecification], False),
         "Name": (str, True),
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),

@@ -177,7 +177,7 @@ class ExperimentTemplate(AWSObject):
         "LogConfiguration": (ExperimentTemplateLogConfiguration, False),
         "RoleArn": (str, True),
         "StopConditions": ([ExperimentTemplateStopCondition], True),
-        "Tags": (dict, True),
+        "Tags": (dict, False),
         "Targets": (dict, True),
     }
 

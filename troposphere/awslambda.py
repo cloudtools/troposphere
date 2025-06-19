@@ -149,6 +149,40 @@ class EventInvokeConfig(AWSObject):
     }
 
 
+class SchemaRegistryAccessConfig(AWSProperty):
+    """
+    `SchemaRegistryAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryaccessconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+        "URI": (str, False),
+    }
+
+
+class SchemaValidationConfig(AWSProperty):
+    """
+    `SchemaValidationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemavalidationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, False),
+    }
+
+
+class SchemaRegistryConfig(AWSProperty):
+    """
+    `SchemaRegistryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessConfigs": ([SchemaRegistryAccessConfig], False),
+        "EventRecordFormat": (str, False),
+        "SchemaRegistryURI": (str, False),
+        "SchemaValidationConfigs": ([SchemaValidationConfig], False),
+    }
+
+
 class AmazonManagedKafkaEventSourceConfig(AWSProperty):
     """
     `AmazonManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html>`__
@@ -156,6 +190,7 @@ class AmazonManagedKafkaEventSourceConfig(AWSProperty):
 
     props: PropsDictType = {
         "ConsumerGroupId": (str, False),
+        "SchemaRegistryConfig": (SchemaRegistryConfig, False),
     }
 
 
@@ -249,6 +284,7 @@ class SelfManagedKafkaEventSourceConfig(AWSProperty):
 
     props: PropsDictType = {
         "ConsumerGroupId": (str, False),
+        "SchemaRegistryConfig": (SchemaRegistryConfig, False),
     }
 
 

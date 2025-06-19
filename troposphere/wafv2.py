@@ -314,6 +314,28 @@ class AndStatement(AWSProperty):
     }
 
 
+class ForwardedIPConfiguration(AWSProperty):
+    """
+    `ForwardedIPConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, True),
+        "HeaderName": (str, True),
+    }
+
+
+class AsnMatchStatement(AWSProperty):
+    """
+    `AsnMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-asnmatchstatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AsnList": ([integer], False),
+        "ForwardedIPConfig": (ForwardedIPConfiguration, False),
+    }
+
+
 class Body(AWSProperty):
     """
     `Body <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-body.html>`__
@@ -480,17 +502,6 @@ class ByteMatchStatement(AWSProperty):
         "SearchString": (str, False),
         "SearchStringBase64": (str, False),
         "TextTransformations": ([TextTransformation], True),
-    }
-
-
-class ForwardedIPConfiguration(AWSProperty):
-    """
-    `ForwardedIPConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "FallbackBehavior": (str, True),
-        "HeaderName": (str, True),
     }
 
 
@@ -672,6 +683,49 @@ class AWSManagedRulesATPRuleSet(AWSProperty):
     }
 
 
+class Regex(AWSProperty):
+    """
+    `Regex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regex.html>`__
+    """
+
+    props: PropsDictType = {
+        "RegexString": (str, False),
+    }
+
+
+class ClientSideAction(AWSProperty):
+    """
+    `ClientSideAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-clientsideaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExemptUriRegularExpressions": ([Regex], False),
+        "Sensitivity": (str, False),
+        "UsageOfAction": (str, True),
+    }
+
+
+class ClientSideActionConfig(AWSProperty):
+    """
+    `ClientSideActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-clientsideactionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Challenge": (ClientSideAction, True),
+    }
+
+
+class AWSManagedRulesAntiDDoSRuleSet(AWSProperty):
+    """
+    `AWSManagedRulesAntiDDoSRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesantiddosruleset.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientSideActionConfig": (ClientSideActionConfig, True),
+        "SensitivityToBlock": (str, False),
+    }
+
+
 class AWSManagedRulesBotControlRuleSet(AWSProperty):
     """
     `AWSManagedRulesBotControlRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html>`__
@@ -691,6 +745,7 @@ class ManagedRuleGroupConfig(AWSProperty):
     props: PropsDictType = {
         "AWSManagedRulesACFPRuleSet": (AWSManagedRulesACFPRuleSet, False),
         "AWSManagedRulesATPRuleSet": (AWSManagedRulesATPRuleSet, False),
+        "AWSManagedRulesAntiDDoSRuleSet": (AWSManagedRulesAntiDDoSRuleSet, False),
         "AWSManagedRulesBotControlRuleSet": (AWSManagedRulesBotControlRuleSet, False),
         "LoginPath": (str, False),
         "PasswordField": (FieldIdentifier, False),
@@ -835,6 +890,7 @@ class RateBasedStatementCustomKey(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ASN": (dict, False),
         "Cookie": (RateLimitCookie, False),
         "ForwardedIP": (dict, False),
         "HTTPMethod": (dict, False),
@@ -943,6 +999,7 @@ class Statement(AWSProperty):
 
     props: PropsDictType = {
         "AndStatement": (AndStatement, False),
+        "AsnMatchStatement": (AsnMatchStatement, False),
         "ByteMatchStatement": (ByteMatchStatement, False),
         "GeoMatchStatement": (GeoMatchStatement, False),
         "IPSetReferenceStatement": (IPSetReferenceStatement, False),
@@ -1075,6 +1132,16 @@ class DefaultAction(AWSProperty):
     }
 
 
+class OnSourceDDoSProtectionConfig(AWSProperty):
+    """
+    `OnSourceDDoSProtectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-onsourceddosprotectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ALBLowReputationMode": (str, True),
+    }
+
+
 class OverrideAction(AWSProperty):
     """
     `OverrideAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html>`__
@@ -1120,7 +1187,7 @@ class WebACL(AWSObject):
         "DefaultAction": (DefaultAction, True),
         "Description": (str, False),
         "Name": (str, False),
-        "OnSourceDDoSProtectionConfig": (dict, False),
+        "OnSourceDDoSProtectionConfig": (OnSourceDDoSProtectionConfig, False),
         "Rules": ([WebACLRule], False),
         "Scope": (str, True),
         "Tags": (Tags, False),

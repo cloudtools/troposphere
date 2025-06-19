@@ -76,6 +76,16 @@ class CustomRule(AWSProperty):
     }
 
 
+class JobConfig(AWSProperty):
+    """
+    `JobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-jobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BuildComputeType": (str, True),
+    }
+
+
 class App(AWSObject):
     """
     `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html>`__
@@ -96,6 +106,7 @@ class App(AWSObject):
         "EnableBranchAutoDeletion": (boolean, False),
         "EnvironmentVariables": ([EnvironmentVariable], False),
         "IAMServiceRole": (str, False),
+        "JobConfig": (JobConfig, False),
         "Name": (str, True),
         "OauthToken": (str, False),
         "Platform": (str, False),

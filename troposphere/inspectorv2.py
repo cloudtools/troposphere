@@ -146,8 +146,10 @@ class PackageFilter(AWSProperty):
     props: PropsDictType = {
         "Architecture": (StringFilter, False),
         "Epoch": (NumberFilter, False),
+        "FilePath": (StringFilter, False),
         "Name": (StringFilter, False),
         "Release": (StringFilter, False),
+        "SourceLambdaLayerArn": (StringFilter, False),
         "SourceLayerHash": (StringFilter, False),
         "Version": (StringFilter, False),
     }
@@ -171,6 +173,9 @@ class FilterCriteria(AWSProperty):
 
     props: PropsDictType = {
         "AwsAccountId": ([StringFilter], False),
+        "CodeVulnerabilityDetectorName": ([StringFilter], False),
+        "CodeVulnerabilityDetectorTags": ([StringFilter], False),
+        "CodeVulnerabilityFilePath": ([StringFilter], False),
         "ComponentId": ([StringFilter], False),
         "ComponentType": ([StringFilter], False),
         "Ec2InstanceImageId": ([StringFilter], False),
@@ -182,11 +187,19 @@ class FilterCriteria(AWSProperty):
         "EcrImageRegistry": ([StringFilter], False),
         "EcrImageRepositoryName": ([StringFilter], False),
         "EcrImageTags": ([StringFilter], False),
+        "EpssScore": ([NumberFilter], False),
+        "ExploitAvailable": ([StringFilter], False),
         "FindingArn": ([StringFilter], False),
         "FindingStatus": ([StringFilter], False),
         "FindingType": ([StringFilter], False),
         "FirstObservedAt": ([DateFilter], False),
+        "FixAvailable": ([StringFilter], False),
         "InspectorScore": ([NumberFilter], False),
+        "LambdaFunctionExecutionRoleArn": ([StringFilter], False),
+        "LambdaFunctionLastModifiedAt": ([DateFilter], False),
+        "LambdaFunctionLayers": ([StringFilter], False),
+        "LambdaFunctionName": ([StringFilter], False),
+        "LambdaFunctionRuntime": ([StringFilter], False),
         "LastObservedAt": ([DateFilter], False),
         "NetworkProtocol": ([StringFilter], False),
         "PortRange": ([PortRangeFilter], False),
@@ -216,4 +229,5 @@ class Filter(AWSObject):
         "FilterAction": (str, True),
         "FilterCriteria": (FilterCriteria, True),
         "Name": (str, True),
+        "Tags": (dict, False),
     }

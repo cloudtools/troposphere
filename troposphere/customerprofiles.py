@@ -31,14 +31,28 @@ class AttributeDetails(AWSProperty):
     }
 
 
+class ValueRange(AWSProperty):
+    """
+    `ValueRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-valuerange.html>`__
+    """
+
+    props: PropsDictType = {
+        "End": (integer, True),
+        "Start": (integer, True),
+    }
+
+
 class Range(AWSProperty):
     """
     `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html>`__
     """
 
     props: PropsDictType = {
+        "TimestampFormat": (str, False),
+        "TimestampSource": (str, False),
         "Unit": (str, True),
-        "Value": (integer, True),
+        "Value": (integer, False),
+        "ValueRange": (ValueRange, False),
     }
 
 
@@ -81,6 +95,7 @@ class CalculatedAttributeDefinition(AWSObject):
         "DomainName": (str, True),
         "Statistic": (str, True),
         "Tags": (Tags, False),
+        "UseHistoricalData": (boolean, False),
     }
 
 
@@ -583,6 +598,7 @@ class ObjectType(AWSObject):
         "ExpirationDays": (integer, False),
         "Fields": ([FieldMap], False),
         "Keys": ([KeyMap], False),
+        "MaxProfileObjectCount": (integer, False),
         "ObjectTypeName": (str, True),
         "SourceLastUpdatedTimestampFormat": (str, False),
         "Tags": (Tags, False),
@@ -683,6 +699,17 @@ class ExtraLengthValueProfileDimension(AWSProperty):
     }
 
 
+class ProfileTypeDimension(AWSProperty):
+    """
+    `ProfileTypeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiletypedimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
 class ProfileAttributes(AWSProperty):
     """
     `ProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>`__
@@ -709,6 +736,7 @@ class ProfileAttributes(AWSProperty):
         "PartyTypeString": (ProfileDimension, False),
         "PersonalEmailAddress": (ProfileDimension, False),
         "PhoneNumber": (ProfileDimension, False),
+        "ProfileType": (ProfileTypeDimension, False),
         "ShippingAddress": (AddressDimension, False),
     }
 
@@ -796,4 +824,15 @@ class DomainStats(AWSProperty):
         "ObjectCount": (double, False),
         "ProfileCount": (double, False),
         "TotalSize": (double, False),
+    }
+
+
+class Readiness(AWSProperty):
+    """
+    `Readiness <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-readiness.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "ProgressPercentage": (integer, False),
     }
