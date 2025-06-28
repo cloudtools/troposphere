@@ -787,17 +787,6 @@ class EphemeralStorage(AWSProperty):
     }
 
 
-class InferenceAccelerator(AWSProperty):
-    """
-    `InferenceAccelerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html>`__
-    """
-
-    props: PropsDictType = {
-        "DeviceName": (str, False),
-        "DeviceType": (str, False),
-    }
-
-
 class ProxyConfiguration(AWSProperty):
     """
     `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html>`__
@@ -928,7 +917,6 @@ class TaskDefinition(AWSObject):
         "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
         "Family": (str, False),
-        "InferenceAccelerators": ([InferenceAccelerator], False),
         "IpcMode": (str, False),
         "Memory": (str, False),
         "NetworkMode": (str, False),

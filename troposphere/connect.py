@@ -1018,6 +1018,16 @@ class ViewVersion(AWSObject):
     }
 
 
+class AutoEvaluationConfiguration(AWSProperty):
+    """
+    `AutoEvaluationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
 class FieldValue(AWSProperty):
     """
     `FieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html>`__

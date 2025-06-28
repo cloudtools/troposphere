@@ -37,6 +37,7 @@ class LaunchTemplateSpecificationOverride(AWSProperty):
         "LaunchTemplateId": (str, False),
         "LaunchTemplateName": (str, False),
         "TargetInstanceTypes": ([str], False),
+        "UserdataType": (str, False),
         "Version": (str, False),
     }
 
@@ -50,6 +51,7 @@ class LaunchTemplateSpecification(AWSProperty):
         "LaunchTemplateId": (str, False),
         "LaunchTemplateName": (str, False),
         "Overrides": ([LaunchTemplateSpecificationOverride], False),
+        "UserdataType": (str, False),
         "Version": (str, False),
     }
 

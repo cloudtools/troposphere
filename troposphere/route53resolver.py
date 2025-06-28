@@ -200,6 +200,7 @@ class ResolverRule(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverRule"
 
     props: PropsDictType = {
+        "DelegationRecord": (str, False),
         "DomainName": (str, False),
         "Name": (str, False),
         "ResolverEndpointId": (str, False),

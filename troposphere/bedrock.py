@@ -1933,6 +1933,16 @@ class ContextualGroundingPolicyConfig(AWSProperty):
     }
 
 
+class GuardrailCrossRegionConfig(AWSProperty):
+    """
+    `GuardrailCrossRegionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-guardrailcrossregionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "GuardrailProfileArn": (str, True),
+    }
+
+
 class PiiEntityConfig(AWSProperty):
     """
     `PiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html>`__
@@ -2054,6 +2064,7 @@ class Guardrail(AWSObject):
         "BlockedOutputsMessaging": (str, True),
         "ContentPolicyConfig": (ContentPolicyConfig, False),
         "ContextualGroundingPolicyConfig": (ContextualGroundingPolicyConfig, False),
+        "CrossRegionConfig": (GuardrailCrossRegionConfig, False),
         "Description": (str, False),
         "KmsKeyArn": (str, False),
         "Name": (str, True),

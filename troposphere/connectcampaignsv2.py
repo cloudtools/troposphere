@@ -186,6 +186,7 @@ class CommunicationLimitsConfig(AWSProperty):
 
     props: PropsDictType = {
         "AllChannelsSubtypes": (CommunicationLimits, False),
+        "InstanceLimitsHandling": (str, False),
     }
 
 

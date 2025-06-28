@@ -33,17 +33,6 @@ class CustomVocabulary(AWSProperty):
     }
 
 
-class BedrockAgentConfiguration(AWSProperty):
-    """
-    `BedrockAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "BedrockAgentAliasId": (str, False),
-        "BedrockAgentId": (str, False),
-    }
-
-
 class BedrockGuardrailConfiguration(AWSProperty):
     """
     `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
@@ -65,6 +54,102 @@ class BedrockModelSpecification(AWSProperty):
         "BedrockModelCustomPrompt": (str, False),
         "BedrockTraceStatus": (str, False),
         "ModelArn": (str, True),
+    }
+
+
+class DescriptiveBotBuilderSpecification(AWSProperty):
+    """
+    `DescriptiveBotBuilderSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-descriptivebotbuilderspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockModelSpecification": (BedrockModelSpecification, False),
+        "Enabled": (boolean, True),
+    }
+
+
+class SampleUtteranceGenerationSpecification(AWSProperty):
+    """
+    `SampleUtteranceGenerationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterancegenerationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockModelSpecification": (BedrockModelSpecification, False),
+        "Enabled": (boolean, True),
+    }
+
+
+class BuildtimeSettings(AWSProperty):
+    """
+    `BuildtimeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-buildtimesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DescriptiveBotBuilderSpecification": (
+            DescriptiveBotBuilderSpecification,
+            False,
+        ),
+        "SampleUtteranceGenerationSpecification": (
+            SampleUtteranceGenerationSpecification,
+            False,
+        ),
+    }
+
+
+class NluImprovementSpecification(AWSProperty):
+    """
+    `NluImprovementSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class SlotResolutionImprovementSpecification(AWSProperty):
+    """
+    `SlotResolutionImprovementSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotresolutionimprovementspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockModelSpecification": (BedrockModelSpecification, False),
+        "Enabled": (boolean, True),
+    }
+
+
+class RuntimeSettings(AWSProperty):
+    """
+    `RuntimeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-runtimesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "NluImprovementSpecification": (NluImprovementSpecification, False),
+        "SlotResolutionImprovementSpecification": (
+            SlotResolutionImprovementSpecification,
+            False,
+        ),
+    }
+
+
+class GenerativeAISettings(AWSProperty):
+    """
+    `GenerativeAISettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-generativeaisettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "BuildtimeSettings": (BuildtimeSettings, False),
+        "RuntimeSettings": (RuntimeSettings, False),
+    }
+
+
+class BedrockAgentConfiguration(AWSProperty):
+    """
+    `BedrockAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockAgentAliasId": (str, False),
+        "BedrockAgentId": (str, False),
     }
 
 
@@ -1039,6 +1124,7 @@ class BotLocale(AWSProperty):
     props: PropsDictType = {
         "CustomVocabulary": (CustomVocabulary, False),
         "Description": (str, False),
+        "GenerativeAISettings": (GenerativeAISettings, False),
         "Intents": ([Intent], False),
         "LocaleId": (str, True),
         "NluConfidenceThreshold": (double, True),

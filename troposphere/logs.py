@@ -479,6 +479,18 @@ class ParseRoute53(AWSProperty):
     }
 
 
+class ParseToOCSF(AWSProperty):
+    """
+    `ParseToOCSF <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventSource": (str, True),
+        "OcsfVersion": (str, True),
+        "Source": (str, False),
+    }
+
+
 class ParseVPC(AWSProperty):
     """
     `ParseVPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsevpc.html>`__
@@ -625,6 +637,7 @@ class Processor(AWSProperty):
         "ParseKeyValue": (ParseKeyValue, False),
         "ParsePostgres": (ParsePostgres, False),
         "ParseRoute53": (ParseRoute53, False),
+        "ParseToOCSF": (ParseToOCSF, False),
         "ParseVPC": (ParseVPC, False),
         "ParseWAF": (ParseWAF, False),
         "RenameKeys": (RenameKeys, False),

@@ -335,7 +335,9 @@ class VpcOptions(AWSProperty):
 
     props: PropsDictType = {
         "ApplianceModeSupport": (boolean, False),
+        "DnsSupport": (boolean, False),
         "Ipv6Support": (boolean, False),
+        "SecurityGroupReferencingSupport": (boolean, False),
     }
 
 

@@ -465,6 +465,7 @@ class S3OriginConfig(AWSProperty):
 
     props: PropsDictType = {
         "OriginAccessIdentity": (str, False),
+        "OriginReadTimeout": (integer, False),
     }
 
 
@@ -495,6 +496,7 @@ class Origin(AWSProperty):
         "OriginCustomHeaders": ([OriginCustomHeader], False),
         "OriginPath": (str, False),
         "OriginShield": (OriginShield, False),
+        "ResponseCompletionTimeout": (integer, False),
         "S3OriginConfig": (S3OriginConfig, False),
         "VpcOriginConfig": (VpcOriginConfig, False),
     }

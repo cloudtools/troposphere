@@ -780,6 +780,68 @@ class ProjectMembership(AWSObject):
     }
 
 
+class AwsAccount(AWSProperty):
+    """
+    `AwsAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-awsaccount.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, True),
+    }
+
+
+class EnvironmentConfigurationParameter(AWSProperty):
+    """
+    `EnvironmentConfigurationParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsEditable": (boolean, False),
+        "Name": (str, False),
+        "Value": (str, False),
+    }
+
+
+class EnvironmentConfigurationParametersDetails(AWSProperty):
+    """
+    `EnvironmentConfigurationParametersDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParameterOverrides": ([EnvironmentConfigurationParameter], False),
+        "ResolvedParameters": ([EnvironmentConfigurationParameter], False),
+        "SsmPath": (str, False),
+    }
+
+
+class Region(AWSProperty):
+    """
+    `Region <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-region.html>`__
+    """
+
+    props: PropsDictType = {
+        "RegionName": (str, True),
+    }
+
+
+class EnvironmentConfiguration(AWSProperty):
+    """
+    `EnvironmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsAccount": (AwsAccount, False),
+        "AwsRegion": (Region, True),
+        "ConfigurationParameters": (EnvironmentConfigurationParametersDetails, False),
+        "DeploymentMode": (str, False),
+        "DeploymentOrder": (double, False),
+        "Description": (str, False),
+        "EnvironmentBlueprintId": (str, True),
+        "Id": (str, False),
+        "Name": (str, True),
+    }
+
+
 class ProjectProfile(AWSObject):
     """
     `ProjectProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html>`__
@@ -791,6 +853,7 @@ class ProjectProfile(AWSObject):
         "Description": (str, False),
         "DomainIdentifier": (str, False),
         "DomainUnitIdentifier": (str, False),
+        "EnvironmentConfigurations": ([EnvironmentConfiguration], False),
         "Name": (str, True),
         "Status": (str, False),
     }

@@ -42,6 +42,16 @@ class ConfigurationObject(AWSProperty):
     }
 
 
+class IdentityCenterConfiguration(AWSProperty):
+    """
+    `IdentityCenterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-identitycenterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdentityCenterInstanceArn": (str, False),
+    }
+
+
 class ImageConfigurationInput(AWSProperty):
     """
     `ImageConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-imageconfigurationinput.html>`__
@@ -226,6 +236,7 @@ class Application(AWSObject):
         "Architecture": (str, False),
         "AutoStartConfiguration": (AutoStartConfiguration, False),
         "AutoStopConfiguration": (AutoStopConfiguration, False),
+        "IdentityCenterConfiguration": (IdentityCenterConfiguration, False),
         "ImageConfiguration": (ImageConfigurationInput, False),
         "InitialCapacity": ([InitialCapacityConfigKeyValuePair], False),
         "InteractiveConfiguration": (InteractiveConfiguration, False),
