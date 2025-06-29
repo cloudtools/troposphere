@@ -285,6 +285,7 @@ class PlaybackConfiguration(AWSObject):
         "ConfigurationAliases": (dict, False),
         "DashConfiguration": (DashConfiguration, False),
         "HlsConfiguration": (HlsConfiguration, False),
+        "InsertionMode": (str, False),
         "LivePreRollConfiguration": (LivePreRollConfiguration, False),
         "LogConfiguration": (LogConfiguration, False),
         "ManifestProcessingRules": (ManifestProcessingRules, False),

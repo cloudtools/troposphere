@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class Namespace(AWSObject):
+    """
+    `Namespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-namespace.html>`__
+    """
+
+    resource_type = "AWS::S3Tables::Namespace"
+
+    props: PropsDictType = {
+        "Namespace": (str, True),
+        "TableBucketARN": (str, True),
+    }
+
+
 class EncryptionConfiguration(AWSProperty):
     """
     `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-encryptionconfiguration.html>`__

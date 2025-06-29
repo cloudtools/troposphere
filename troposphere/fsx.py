@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.fsx import (
     storage_type,
     validate_lustreconfiguration,
@@ -304,6 +304,88 @@ class FileSystem(AWSObject):
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
         "WindowsConfiguration": (WindowsConfiguration, False),
+    }
+
+
+class S3AccessPointVpcConfiguration(AWSProperty):
+    """
+    `S3AccessPointVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointvpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcId": (str, True),
+    }
+
+
+class S3AccessPoint(AWSProperty):
+    """
+    `S3AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, False),
+        "Policy": (dict, False),
+        "ResourceARN": (str, False),
+        "VpcConfiguration": (S3AccessPointVpcConfiguration, False),
+    }
+
+
+class FileSystemGID(AWSProperty):
+    """
+    `FileSystemGID <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-filesystemgid.html>`__
+    """
+
+    props: PropsDictType = {
+        "Gid": (double, True),
+    }
+
+
+class OpenZFSPosixFileSystemUser(AWSProperty):
+    """
+    `OpenZFSPosixFileSystemUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-openzfsposixfilesystemuser.html>`__
+    """
+
+    props: PropsDictType = {
+        "Gid": (double, True),
+        "SecondaryGids": ([FileSystemGID], False),
+        "Uid": (double, True),
+    }
+
+
+class OpenZFSFileSystemIdentity(AWSProperty):
+    """
+    `OpenZFSFileSystemIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-openzfsfilesystemidentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "PosixUser": (OpenZFSPosixFileSystemUser, True),
+        "Type": (str, True),
+    }
+
+
+class S3AccessPointOpenZFSConfiguration(AWSProperty):
+    """
+    `S3AccessPointOpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointopenzfsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemIdentity": (OpenZFSFileSystemIdentity, True),
+        "VolumeId": (str, True),
+    }
+
+
+class S3AccessPointAttachment(AWSObject):
+    """
+    `S3AccessPointAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html>`__
+    """
+
+    resource_type = "AWS::FSx::S3AccessPointAttachment"
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "OpenZFSConfiguration": (S3AccessPointOpenZFSConfiguration, True),
+        "S3AccessPoint": (S3AccessPoint, False),
+        "Type": (str, True),
     }
 
 
