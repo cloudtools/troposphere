@@ -149,9 +149,7 @@ class BaseAWSObject:
     do_validation: bool
     properties: Dict[str, Any]
     propnames: Set[str]
-    props: ClassVar[
-        Dict[str, Tuple[Union[Tuple[type, ...], type, Callable[[Any], Any]], bool]]
-    ] = {}
+    props: PropsDictType = {}
     resource: Dict[str, Any]
     resource_type: Optional[str]
     template: Optional[Template]
