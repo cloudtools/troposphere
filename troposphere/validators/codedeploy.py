@@ -6,9 +6,9 @@
 from ..type_defs.compat import Final
 from . import exactly_one, mutually_exclusive
 
-KEY_ONLY: Final = "KEY_ONLY"
-VALUE_ONLY: Final = "VALUE_ONLY"
-KEY_AND_VALUE: Final = "KEY_AND_VALUE"
+KEY_ONLY: Final[str] = "KEY_ONLY"
+VALUE_ONLY: Final[str] = "VALUE_ONLY"
+KEY_AND_VALUE: Final[str] = "KEY_AND_VALUE"
 
 
 def deployment_option_validator(x):

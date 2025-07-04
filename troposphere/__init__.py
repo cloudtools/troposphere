@@ -44,20 +44,20 @@ if TYPE_CHECKING:
 __version__ = "4.9.3"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
-Delete: Final = "Delete"
-Retain: Final = "Retain"
-RetainExceptOnCreate: Final = "RetainExceptOnCreate"
-Snapshot: Final = "Snapshot"
+Delete: Final[str] = "Delete"
+Retain: Final[str] = "Retain"
+RetainExceptOnCreate: Final[str] = "RetainExceptOnCreate"
+Snapshot: Final[str] = "Snapshot"
 
 # Pseudo Parameters
-AWS_ACCOUNT_ID: Final = "AWS::AccountId"
-AWS_NOTIFICATION_ARNS: Final = "AWS::NotificationARNs"
-AWS_NO_VALUE: Final = "AWS::NoValue"
-AWS_PARTITION: Final = "AWS::Partition"
-AWS_REGION: Final = "AWS::Region"
-AWS_STACK_ID: Final = "AWS::StackId"
-AWS_STACK_NAME: Final = "AWS::StackName"
-AWS_URL_SUFFIX: Final = "AWS::URLSuffix"
+AWS_ACCOUNT_ID: Final[str] = "AWS::AccountId"
+AWS_NOTIFICATION_ARNS: Final[str] = "AWS::NotificationARNs"
+AWS_NO_VALUE: Final[str] = "AWS::NoValue"
+AWS_PARTITION: Final[str] = "AWS::Partition"
+AWS_REGION: Final[str] = "AWS::Region"
+AWS_STACK_ID: Final[str] = "AWS::StackId"
+AWS_STACK_NAME: Final[str] = "AWS::StackName"
+AWS_URL_SUFFIX: Final[str] = "AWS::URLSuffix"
 
 # Template Limits
 MAX_MAPPINGS: Final[int] = 200

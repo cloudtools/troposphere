@@ -8,20 +8,20 @@ from .. import AWSHelperFn, FindInMap, If, Ref, cloudformation
 from ..type_defs.compat import Final
 from . import boolean, exactly_one, mutually_exclusive
 
-EC2_INSTANCE_LAUNCH: Final = "autoscaling:EC2_INSTANCE_LAUNCH"
-EC2_INSTANCE_LAUNCH_ERROR: Final = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR"
-EC2_INSTANCE_TERMINATE: Final = "autoscaling:EC2_INSTANCE_TERMINATE"
-EC2_INSTANCE_TERMINATE_ERROR: Final = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
-TEST_NOTIFICATION: Final = "autoscaling:TEST_NOTIFICATION"
+EC2_INSTANCE_LAUNCH: Final[str] = "autoscaling:EC2_INSTANCE_LAUNCH"
+EC2_INSTANCE_LAUNCH_ERROR: Final[str] = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR"
+EC2_INSTANCE_TERMINATE: Final[str] = "autoscaling:EC2_INSTANCE_TERMINATE"
+EC2_INSTANCE_TERMINATE_ERROR: Final[str] = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
+TEST_NOTIFICATION: Final[str] = "autoscaling:TEST_NOTIFICATION"
 
 # Termination Policy constants
-Default: Final = "Default"
-OldestInstance: Final = "OldestInstance"
-NewestInstance: Final = "NewestInstance"
-OldestLaunchConfiguration: Final = "OldestLaunchConfiguration"
-OldestLaunchTemplate: Final = "OldestLaunchTemplate"
-ClosestToNextInstanceHour: Final = "ClosestToNextInstanceHour"
-AllocationStrategy: Final = "AllocationStrategy"
+Default: Final[str] = "Default"
+OldestInstance: Final[str] = "OldestInstance"
+NewestInstance: Final[str] = "NewestInstance"
+OldestLaunchConfiguration: Final[str] = "OldestLaunchConfiguration"
+OldestLaunchTemplate: Final[str] = "OldestLaunchTemplate"
+ClosestToNextInstanceHour: Final[str] = "ClosestToNextInstanceHour"
+AllocationStrategy: Final[str] = "AllocationStrategy"
 
 
 def validate_int_to_str(x):

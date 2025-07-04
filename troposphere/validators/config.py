@@ -6,11 +6,11 @@
 
 from ..type_defs.compat import Final
 
-ONE_HOUR: Final = "One_Hour"
-THREE_HOURS: Final = "Three_Hours"
-SIX_HOURS: Final = "Six_Hours"
-TWELVE_HOURS: Final = "Twelve_Hours"
-TWENTYFOUR_HOURS: Final = "TwentyFour_Hours"
+ONE_HOUR: Final[str] = "One_Hour"
+THREE_HOURS: Final[str] = "Three_Hours"
+SIX_HOURS: Final[str] = "Six_Hours"
+TWELVE_HOURS: Final[str] = "Twelve_Hours"
+TWENTYFOUR_HOURS: Final[str] = "TwentyFour_Hours"
 
 
 def validate_source_details(self):

@@ -7,9 +7,9 @@
 from ..type_defs.compat import Final
 from . import network_port
 
-CDC: Final = "cdc"
-FULL_LOAD: Final = "full-load"
-FULL_LOAD_AND_CDC: Final = "full-load-and-cdc"
+CDC: Final[str] = "cdc"
+FULL_LOAD: Final[str] = "full-load"
+FULL_LOAD_AND_CDC: Final[str] = "full-load-and-cdc"
 
 
 def validate_network_port(x):

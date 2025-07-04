@@ -7,9 +7,9 @@ from .. import AWSHelperFn, AWSProperty
 from ..type_defs.compat import Final
 from . import defer, double, integer, positive_integer
 
-CHANGE_IN_CAPACITY: Final = "CHANGE_IN_CAPACITY"
-PERCENT_CHANGE_IN_CAPACITY: Final = "PERCENT_CHANGE_IN_CAPACITY"
-EXACT_CAPACITY: Final = "EXACT_CAPACITY"
+CHANGE_IN_CAPACITY: Final[str] = "CHANGE_IN_CAPACITY"
+PERCENT_CHANGE_IN_CAPACITY: Final[str] = "PERCENT_CHANGE_IN_CAPACITY"
+EXACT_CAPACITY: Final[str] = "EXACT_CAPACITY"
 
 
 class KeyValueClass(AWSProperty):

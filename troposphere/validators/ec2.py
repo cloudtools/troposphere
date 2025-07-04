@@ -10,10 +10,10 @@ from ..compat import validate_policytype
 from ..type_defs.compat import Final
 from . import exactly_one, integer_range, network_port, tags_or_list
 
-PERMISSION_INSTANCE_ATTACH: Final = "INSTANCE-ATTACH"
-PERMISSION_EIP_ASSOCIATE: Final = "EIP-ASSOCIATE"
+PERMISSION_INSTANCE_ATTACH: Final[str] = "INSTANCE-ATTACH"
+PERMISSION_EIP_ASSOCIATE: Final[str] = "EIP-ASSOCIATE"
 
-NO_DEVICE: Final = {}
+NO_DEVICE: dict = {}
 
 
 def Ipv6Addresses(ipv6_address):
