@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import integer
+from .validators import boolean, integer
 
 
 class Namespace(AWSObject):
@@ -20,6 +20,80 @@ class Namespace(AWSObject):
     props: PropsDictType = {
         "Namespace": (str, True),
         "TableBucketARN": (str, True),
+    }
+
+
+class Compaction(AWSProperty):
+    """
+    `Compaction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-compaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+        "TargetFileSizeMB": (integer, False),
+    }
+
+
+class SchemaField(AWSProperty):
+    """
+    `SchemaField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Required": (boolean, False),
+        "Type": (str, True),
+    }
+
+
+class IcebergSchema(AWSProperty):
+    """
+    `IcebergSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "SchemaFieldList": ([SchemaField], True),
+    }
+
+
+class IcebergMetadata(AWSProperty):
+    """
+    `IcebergMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "IcebergSchema": (IcebergSchema, True),
+    }
+
+
+class SnapshotManagement(AWSProperty):
+    """
+    `SnapshotManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-snapshotmanagement.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxSnapshotAgeHours": (integer, False),
+        "MinSnapshotsToKeep": (integer, False),
+        "Status": (str, False),
+    }
+
+
+class Table(AWSObject):
+    """
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html>`__
+    """
+
+    resource_type = "AWS::S3Tables::Table"
+
+    props: PropsDictType = {
+        "Compaction": (Compaction, False),
+        "IcebergMetadata": (IcebergMetadata, False),
+        "Namespace": (str, True),
+        "OpenTableFormat": (str, True),
+        "SnapshotManagement": (SnapshotManagement, False),
+        "TableBucketARN": (str, True),
+        "TableName": (str, True),
+        "WithoutMetadata": (str, False),
     }
 
 

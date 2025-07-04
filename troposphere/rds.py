@@ -246,6 +246,7 @@ class DBInstance(AWSObject):
         "AutomaticBackupReplicationRetentionPeriod": (integer, False),
         "AvailabilityZone": (str, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
+        "BackupTarget": (str, False),
         "CACertificateIdentifier": (str, False),
         "CertificateDetails": (CertificateDetails, False),
         "CertificateRotationRestart": (boolean, False),

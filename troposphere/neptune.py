@@ -99,7 +99,6 @@ class DBInstance(AWSObject):
         "DBInstanceClass": (str, True),
         "DBInstanceIdentifier": (str, False),
         "DBParameterGroupName": (str, False),
-        "DBSnapshotIdentifier": (str, False),
         "DBSubnetGroupName": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "Tags": (Tags, False),

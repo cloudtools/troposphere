@@ -49,6 +49,21 @@ class Namespace(AWSObject):
     }
 
 
+class Snapshot(AWSObject):
+    """
+    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-snapshot.html>`__
+    """
+
+    resource_type = "AWS::RedshiftServerless::Snapshot"
+
+    props: PropsDictType = {
+        "NamespaceName": (str, False),
+        "RetentionPeriod": (integer, False),
+        "SnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ConfigParameter(AWSProperty):
     """
     `ConfigParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html>`__
@@ -180,5 +195,24 @@ class NamespaceProperty(AWSProperty):
         "NamespaceArn": (str, False),
         "NamespaceId": (str, False),
         "NamespaceName": (str, False),
+        "Status": (str, False),
+    }
+
+
+class SnapshotProperty(AWSProperty):
+    """
+    `SnapshotProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-snapshot-snapshot.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdminUsername": (str, False),
+        "KmsKeyId": (str, False),
+        "NamespaceArn": (str, False),
+        "NamespaceName": (str, False),
+        "OwnerAccount": (str, False),
+        "RetentionPeriod": (integer, False),
+        "SnapshotArn": (str, False),
+        "SnapshotCreateTime": (str, False),
+        "SnapshotName": (str, False),
         "Status": (str, False),
     }

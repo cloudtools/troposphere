@@ -145,6 +145,7 @@ class LogConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "LogDestination": (str, False),
+        "LogGroupArn": (str, False),
         "S3BucketName": (str, False),
     }
 

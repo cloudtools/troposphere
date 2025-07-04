@@ -160,6 +160,41 @@ class ActionConfiguration(AWSProperty):
     }
 
 
+class DataAccessorIdcTrustedTokenIssuerConfiguration(AWSProperty):
+    """
+    `DataAccessorIdcTrustedTokenIssuerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessoridctrustedtokenissuerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdcTrustedTokenIssuerArn": (str, True),
+    }
+
+
+class DataAccessorAuthenticationConfiguration(AWSProperty):
+    """
+    `DataAccessorAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessorauthenticationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdcTrustedTokenIssuerConfiguration": (
+            DataAccessorIdcTrustedTokenIssuerConfiguration,
+            True,
+        ),
+    }
+
+
+class DataAccessorAuthenticationDetail(AWSProperty):
+    """
+    `DataAccessorAuthenticationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessorauthenticationdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthenticationConfiguration": (DataAccessorAuthenticationConfiguration, False),
+        "AuthenticationType": (str, True),
+        "ExternalIds": ([str], False),
+    }
+
+
 class DataAccessor(AWSObject):
     """
     `DataAccessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html>`__
@@ -170,6 +205,7 @@ class DataAccessor(AWSObject):
     props: PropsDictType = {
         "ActionConfigurations": ([ActionConfiguration], True),
         "ApplicationId": (str, True),
+        "AuthenticationDetail": (DataAccessorAuthenticationDetail, False),
         "DisplayName": (str, True),
         "Principal": (str, True),
         "Tags": (Tags, False),
@@ -352,6 +388,18 @@ class Index(AWSObject):
     }
 
 
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-permission-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionKey": (str, True),
+        "ConditionOperator": (str, True),
+        "ConditionValues": ([str], True),
+    }
+
+
 class Permission(AWSObject):
     """
     `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html>`__
@@ -362,6 +410,7 @@ class Permission(AWSObject):
     props: PropsDictType = {
         "Actions": ([str], True),
         "ApplicationId": (str, True),
+        "Conditions": ([Condition], False),
         "Principal": (str, True),
         "StatementId": (str, True),
     }
