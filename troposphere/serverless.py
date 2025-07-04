@@ -322,16 +322,6 @@ class Auth(AWSProperty):
     }
 
 
-class Cors(AWSProperty):
-    props: PropsDictType = {
-        "AllowCredentials": (str, False),
-        "AllowHeaders": (str, False),
-        "AllowMethods": (str, False),
-        "AllowOrigin": (str, True),
-        "MaxAge": (str, False),
-    }
-
-
 class Route53(AWSProperty):
     props: PropsDictType = {
         "DistributionDomainName": (str, False),
