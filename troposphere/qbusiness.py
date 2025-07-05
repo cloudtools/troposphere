@@ -134,7 +134,7 @@ class AttributeFilter(AWSProperty):
         "GreaterThanOrEquals": (DocumentAttribute, False),
         "LessThan": (DocumentAttribute, False),
         "LessThanOrEquals": (DocumentAttribute, False),
-        "NotFilter": (object, False),
+        "NotFilter": (object, False),  # type: ignore
         "OrAllFilters": ([object], False),
     }
 

@@ -96,7 +96,7 @@ class Expression(AWSProperty):
         "And": ([object], False),
         "CostCategories": (CostCategoryValues, False),
         "Dimensions": (ExpressionDimensionValues, False),
-        "Not": (object, False),
+        "Not": (object, False),  # type: ignore
         "Or": ([object], False),
         "Tags": (TagValues, False),
     }

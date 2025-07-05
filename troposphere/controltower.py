@@ -43,7 +43,7 @@ class EnabledControlParameter(AWSProperty):
 
     props: PropsDictType = {
         "Key": (str, True),
-        "Value": (object, True),
+        "Value": (object, True),  # type: ignore
     }
 
 

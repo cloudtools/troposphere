@@ -1447,7 +1447,7 @@ class LoopFlowNodeConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Definition": (object, True),
+        "Definition": (object, True),  # type: ignore
     }
 
 

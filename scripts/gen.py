@@ -810,9 +810,15 @@ class CodeGenerator:
             else:
                 value_type = self._get_type(value)
 
+            # If the type is "object", we will ignore type errors.
+            # "object" is usually patched in to prevent recursion
+            ignore_type_error = "  # type: ignore" if value_type == "object" else ""
+
             required = value.required
 
-            code.append(f'        "{key}": ({value_type}, {required}),')
+            code.append(
+                f'        "{key}": ({value_type}, {required}),{ignore_type_error}'
+            )
         code.append("    }")
         if class_validator:
             code.append("")
