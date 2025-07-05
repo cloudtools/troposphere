@@ -246,7 +246,7 @@ def json_checker(prop: object) -> Any:
         raise TypeError("json object must be a str or dict")
 
 
-def waf_action_type(action: object) -> Literal["ALLOW", "BLOCK", "COUNT"]:
+def waf_action_type(action: str) -> str:
     valid_actions = ["ALLOW", "BLOCK", "COUNT"]
     if action in valid_actions:
         return action
