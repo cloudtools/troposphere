@@ -58,7 +58,7 @@ class Tags(AWSHelperFn):
     """
 
     defaultPropagateAtLaunch = True
-    manyType = [type([]), type(())]
+    manyType: list[type] = [type([]), type(())]
 
     def __init__(self, **kwargs):
         self.tags = []
