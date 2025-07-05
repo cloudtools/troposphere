@@ -1,9 +1,26 @@
+[tool.mypy]
+# Start off with these
+warn_unused_configs = true
+warn_redundant_casts = false
+warn_unused_ignores = false
+strict_equality = true
+check_untyped_defs = false
+disallow_subclassing_any = true
+disallow_untyped_decorators = true
+disallow_any_generics = false
+disallow_untyped_calls = true
+disallow_incomplete_defs = false
+disallow_untyped_defs = false
+no_implicit_reexport = false
+warn_return_any = false
+extra_checks = true
+
 [tool.pyright]
 include = [
   "**/troposphere",
 ]
 pythonPlatform = "All"
-pythonVersion = "3.8"
+pythonVersion = "3.9"
 reportDuplicateImport = "none"
 reportImportCycles = "none"
 reportIncompatibleMethodOverride = "warning"

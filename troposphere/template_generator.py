@@ -43,10 +43,10 @@ class TemplateGenerator(Template):
         "troposphere.openstack.nova",
     ]
 
-    _inspect_members = set()
-    _inspect_resources = {}
-    _custom_members = set()
-    _inspect_functions = {}
+    _inspect_members = set()  # type: ignore
+    _inspect_resources = {}  # type: ignore
+    _custom_members = set()  # type: ignore
+    _inspect_functions = {}  # type: ignore
 
     def __init__(self, cf_template, **kwargs):
         """

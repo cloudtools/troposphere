@@ -13,7 +13,6 @@ from typing import (
     TYPE_CHECKING,
     Any,
     Callable,
-    ClassVar,
     Dict,
     List,
     NoReturn,
@@ -105,15 +104,17 @@ def encode_to_dict(
         return encode_to_dict(cast("ToDictProtocol", obj).to_dict())
 
     if isinstance(obj, (list, tuple)):
+        obj = cast(Union[list[Any], tuple[Any]], obj)
         new_lst: List[Dict[str, Any]] = []
         for o in obj:
-            new_lst.append(encode_to_dict(o))
+            new_lst.append(encode_to_dict(o))  # type: ignore
         return new_lst
 
     if isinstance(obj, dict):
+        obj = cast(dict, obj)  # type: ignore
         props: Dict[str, Any] = {}
-        for name, prop in obj.items():
-            props[name] = encode_to_dict(prop)
+        for name, prop in obj.items():  # type: ignore
+            props[name] = encode_to_dict(prop)  # type: ignore
         return props
 
     # This is useful when dealing with external libs using
@@ -276,6 +277,8 @@ class BaseAWSObject:
                 if not isinstance(value, list):
                     self._raise_type(name, value, expected_type)
 
+                expected_type = cast(list[Any], expected_type)
+
                 # Special case a list of a single validation function
                 if len(expected_type) == 1 and isinstance(
                     expected_type[0], types.FunctionType
@@ -378,7 +381,7 @@ class BaseAWSObject:
                         "Property definition for %s must be "
                         "a Mapping type" % prop_name
                     )
-                value = cast(BaseAWSObject, prop_type)._from_dict(**value)
+                value = cast(BaseAWSObject, prop_type)._from_dict(None, **value)
 
             if isinstance(prop_type, list):
                 if not isinstance(value, list):
@@ -392,7 +395,7 @@ class BaseAWSObject:
                                 "Property definition for %s must be "
                                 "a list of Mapping types" % prop_name
                             )
-                        new_v = cast(BaseAWSObject, prop_type[0])._from_dict(**v)
+                        new_v = cast(BaseAWSObject, prop_type[0])._from_dict(None, **v)
                     new_value.append(new_v)
                 value = new_value
             props[prop_name] = value
@@ -509,7 +512,7 @@ class AWSHelperFn:
             return data
 
     def to_dict(self) -> Any:
-        return encode_to_dict(self.data)
+        return encode_to_dict(self.data)  # type: ignore
 
     def to_json(self, *, indent: int = 4, sort_keys: bool = True) -> str:
         """Object as JSON."""
@@ -898,7 +901,7 @@ class Template:
         self.globals = globals
 
     def to_dict(self) -> Dict[str, Any]:
-        t = {}
+        t: dict[str, Any] = {}
         if self.description:
             t["Description"] = self.description
         if self.metadata:
@@ -934,9 +937,9 @@ class Template:
         ).setdefault("ParameterLabels", {})
 
         if isinstance(parameter, BaseAWSObject):
-            parameter = parameter.title
-
-        labels[parameter] = {"default": label}
+            labels[parameter.title] = {"default": label}
+        else:
+            labels[parameter] = {"default": label}
 
     def add_parameter_to_group(
         self, parameter: Union[Parameter, str], group_name: str
@@ -949,9 +952,6 @@ class Template:
         groups = self.metadata.setdefault(
             "AWS::CloudFormation::Interface", {}
         ).setdefault("ParameterGroups", [])
-
-        if isinstance(parameter, BaseAWSObject):
-            parameter = parameter.title
 
         # Check if group_name already exists
         existing_group: Optional[Dict[str, Any]] = None
@@ -967,7 +967,10 @@ class Template:
             }
             groups.append(existing_group)
 
-        existing_group["Parameters"].append(parameter)
+        if isinstance(parameter, BaseAWSObject):
+            existing_group["Parameters"].append(parameter.title)
+        else:
+            existing_group["Parameters"].append(parameter)
 
         return group_name
 
@@ -1038,7 +1041,7 @@ class Parameter(AWSDeclaration):
         "Description": (str, False),
         "ConstraintDescription": (str, False),
     }
-    title: str
+    title: str | None
 
     def add_to_template(self) -> None:
         # Bound it to template if we know it
@@ -1046,6 +1049,7 @@ class Parameter(AWSDeclaration):
             self.template.add_parameter(self)
 
     def validate_title(self) -> None:
+        self.title = cast(str, self.title)
         if len(self.title) > PARAMETER_TITLE_MAX:
             raise ValueError(
                 "Parameter title can be no longer than "
