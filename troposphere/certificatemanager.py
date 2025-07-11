@@ -54,6 +54,7 @@ class Certificate(AWSObject):
 
     props: PropsDictType = {
         "CertificateAuthorityArn": (str, False),
+        "CertificateExport": (str, False),
         "CertificateTransparencyLoggingPreference": (str, False),
         "DomainName": (str, True),
         "DomainValidationOptions": ([DomainValidationOption], False),
