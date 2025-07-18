@@ -599,6 +599,27 @@ class CatalogConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "CatalogArn": (str, False),
+        "WarehouseLocation": (str, False),
+    }
+
+
+class PartitionField(AWSProperty):
+    """
+    `PartitionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-partitionfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceName": (str, True),
+    }
+
+
+class PartitionSpec(AWSProperty):
+    """
+    `PartitionSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-partitionspec.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identity": ([PartitionField], False),
     }
 
 
@@ -610,8 +631,29 @@ class DestinationTableConfiguration(AWSProperty):
     props: PropsDictType = {
         "DestinationDatabaseName": (str, True),
         "DestinationTableName": (str, True),
+        "PartitionSpec": (PartitionSpec, False),
         "S3ErrorOutputPrefix": (str, False),
         "UniqueKeys": ([str], False),
+    }
+
+
+class SchemaEvolutionConfiguration(AWSProperty):
+    """
+    `SchemaEvolutionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaevolutionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
+class TableCreationConfiguration(AWSProperty):
+    """
+    `TableCreationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-tablecreationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
     }
 
 
@@ -630,6 +672,8 @@ class IcebergDestinationConfiguration(AWSProperty):
         "RetryOptions": (RetryOptions, False),
         "RoleARN": (str, True),
         "S3Configuration": (S3DestinationConfiguration, True),
+        "SchemaEvolutionConfiguration": (SchemaEvolutionConfiguration, False),
+        "TableCreationConfiguration": (TableCreationConfiguration, False),
         "s3BackupMode": (str, False),
     }
 

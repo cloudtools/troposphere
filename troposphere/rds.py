@@ -122,6 +122,7 @@ class DBCluster(AWSObject):
         "DBSystemId": (str, False),
         "DatabaseInsightsMode": (str, False),
         "DatabaseName": (str, False),
+        "DeleteAutomatedBackups": (boolean, False),
         "DeletionProtection": (boolean, False),
         "Domain": (str, False),
         "DomainIAMRoleName": (str, False),

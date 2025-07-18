@@ -145,3 +145,16 @@ class TableBucketPolicy(AWSObject):
         "ResourcePolicy": (dict, True),
         "TableBucketARN": (str, True),
     }
+
+
+class TablePolicy(AWSObject):
+    """
+    `TablePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablepolicy.html>`__
+    """
+
+    resource_type = "AWS::S3Tables::TablePolicy"
+
+    props: PropsDictType = {
+        "ResourcePolicy": (dict, True),
+        "TableARN": (str, True),
+    }

@@ -91,6 +91,7 @@ class SftpConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MaxConcurrentConnections": (integer, False),
         "TrustedHostKeys": ([str], False),
         "UserSecretId": (str, False),
     }
@@ -216,6 +217,7 @@ class Server(AWSObject):
         "EndpointType": (str, False),
         "IdentityProviderDetails": (IdentityProviderDetails, False),
         "IdentityProviderType": (str, False),
+        "IpAddressType": (str, False),
         "LoggingRole": (str, False),
         "PostAuthenticationLoginBanner": (str, False),
         "PreAuthenticationLoginBanner": (str, False),

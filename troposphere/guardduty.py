@@ -184,6 +184,7 @@ class IPSet(AWSObject):
     props: PropsDictType = {
         "Activate": (boolean, False),
         "DetectorId": (str, False),
+        "ExpectedBucketOwner": (str, False),
         "Format": (str, True),
         "Location": (str, True),
         "Name": (str, False),
@@ -314,6 +315,7 @@ class ThreatIntelSet(AWSObject):
     props: PropsDictType = {
         "Activate": (boolean, False),
         "DetectorId": (str, False),
+        "ExpectedBucketOwner": (str, False),
         "Format": (str, True),
         "Location": (str, True),
         "Name": (str, False),

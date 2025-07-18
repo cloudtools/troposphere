@@ -413,6 +413,78 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class MetadataTableEncryptionConfiguration(AWSProperty):
+    """
+    `MetadataTableEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadatatableencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+        "SseAlgorithm": (str, True),
+    }
+
+
+class InventoryTableConfiguration(AWSProperty):
+    """
+    `InventoryTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventorytableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationState": (str, True),
+        "EncryptionConfiguration": (MetadataTableEncryptionConfiguration, False),
+        "TableArn": (str, False),
+        "TableName": (str, False),
+    }
+
+
+class RecordExpiration(AWSProperty):
+    """
+    `RecordExpiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-recordexpiration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Days": (integer, False),
+        "Expiration": (str, True),
+    }
+
+
+class JournalTableConfiguration(AWSProperty):
+    """
+    `JournalTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-journaltableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionConfiguration": (MetadataTableEncryptionConfiguration, False),
+        "RecordExpiration": (RecordExpiration, True),
+        "TableArn": (str, False),
+        "TableName": (str, False),
+    }
+
+
+class MetadataDestination(AWSProperty):
+    """
+    `MetadataDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadatadestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "TableBucketArn": (str, False),
+        "TableBucketType": (str, True),
+        "TableNamespace": (str, False),
+    }
+
+
+class MetadataConfiguration(AWSProperty):
+    """
+    `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (MetadataDestination, False),
+        "InventoryTableConfiguration": (InventoryTableConfiguration, False),
+        "JournalTableConfiguration": (JournalTableConfiguration, True),
+    }
+
+
 class S3TablesDestination(AWSProperty):
     """
     `S3TablesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3tablesdestination.html>`__
@@ -840,6 +912,7 @@ class Bucket(AWSObject):
         "InventoryConfigurations": ([InventoryConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "LoggingConfiguration": (LoggingConfiguration, False),
+        "MetadataConfiguration": (MetadataConfiguration, False),
         "MetadataTableConfiguration": (MetadataTableConfiguration, False),
         "MetricsConfigurations": ([MetricsConfiguration], False),
         "NotificationConfiguration": (NotificationConfiguration, False),

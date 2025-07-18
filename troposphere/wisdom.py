@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double
 
 
 class TagCondition(AWSProperty):
@@ -735,7 +735,7 @@ class Content(AWSProperty):
 
 class GroupingConfiguration(AWSProperty):
     """
-    `GroupingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-groupingconfiguration.html>`__
+    `GroupingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-quickresponse-groupingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -887,4 +887,47 @@ class MessageTemplateVersion(AWSObject):
     props: PropsDictType = {
         "MessageTemplateArn": (str, True),
         "MessageTemplateContentSha256": (str, False),
+    }
+
+
+class QuickResponseContentProvider(AWSProperty):
+    """
+    `QuickResponseContentProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-quickresponse-quickresponsecontentprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": (str, False),
+    }
+
+
+class QuickResponse(AWSObject):
+    """
+    `QuickResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-quickresponse.html>`__
+    """
+
+    resource_type = "AWS::Wisdom::QuickResponse"
+
+    props: PropsDictType = {
+        "Channels": ([str], False),
+        "Content": (QuickResponseContentProvider, True),
+        "ContentType": (str, False),
+        "Description": (str, False),
+        "GroupingConfiguration": (GroupingConfiguration, False),
+        "IsActive": (boolean, False),
+        "KnowledgeBaseArn": (str, True),
+        "Language": (str, False),
+        "Name": (str, True),
+        "ShortcutKey": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class QuickResponseContents(AWSProperty):
+    """
+    `QuickResponseContents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-quickresponse-quickresponsecontents.html>`__
+    """
+
+    props: PropsDictType = {
+        "Markdown": (QuickResponseContentProvider, False),
+        "PlainText": (QuickResponseContentProvider, False),
     }
