@@ -264,6 +264,17 @@ class DeadLetterConfig(AWSProperty):
     }
 
 
+class LogConfig(AWSProperty):
+    """
+    `LogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-logconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeDetail": (str, False),
+        "Level": (str, False),
+    }
+
+
 class EventBus(AWSObject):
     """
     `EventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html>`__
@@ -276,6 +287,7 @@ class EventBus(AWSObject):
         "Description": (str, False),
         "EventSourceName": (str, False),
         "KmsKeyIdentifier": (str, False),
+        "LogConfig": (LogConfig, False),
         "Name": (str, True),
         "Policy": (dict, False),
         "Tags": (Tags, False),

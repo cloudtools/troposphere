@@ -84,7 +84,6 @@ class User(AWSProperty):
     props: PropsDictType = {
         "ConsoleAccess": (boolean, False),
         "Groups": ([str], False),
-        "JolokiaApiAccess": (str, False),
         "Password": (str, True),
         "ReplicationUser": (boolean, False),
         "Username": (str, True),
