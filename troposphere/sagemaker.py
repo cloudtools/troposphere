@@ -555,6 +555,17 @@ class FSxLustreFileSystemConfig(AWSProperty):
     }
 
 
+class S3FileSystemConfig(AWSProperty):
+    """
+    `S3FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-s3filesystemconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MountPath": (str, False),
+        "S3Uri": (str, False),
+    }
+
+
 class CustomFileSystemConfig(AWSProperty):
     """
     `CustomFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html>`__
@@ -563,6 +574,7 @@ class CustomFileSystemConfig(AWSProperty):
     props: PropsDictType = {
         "EFSFileSystemConfig": (EFSFileSystemConfig, False),
         "FSxLustreFileSystemConfig": (FSxLustreFileSystemConfig, False),
+        "S3FileSystemConfig": (S3FileSystemConfig, False),
     }
 
 
@@ -3069,6 +3081,16 @@ class FSxLustreFileSystem(AWSProperty):
     }
 
 
+class S3FileSystem(AWSProperty):
+    """
+    `S3FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-s3filesystem.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, False),
+    }
+
+
 class CustomFileSystem(AWSProperty):
     """
     `CustomFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html>`__
@@ -3077,6 +3099,7 @@ class CustomFileSystem(AWSProperty):
     props: PropsDictType = {
         "EFSFileSystem": (EFSFileSystem, False),
         "FSxLustreFileSystem": (FSxLustreFileSystem, False),
+        "S3FileSystem": (S3FileSystem, False),
     }
 
 
@@ -3155,6 +3178,8 @@ class SpaceSettings(AWSProperty):
         "JupyterLabAppSettings": (SpaceJupyterLabAppSettings, False),
         "JupyterServerAppSettings": (JupyterServerAppSettings, False),
         "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+        "RemoteAccess": (str, False),
+        "SpaceManagedResources": (str, False),
         "SpaceStorageSettings": (SpaceStorageSettings, False),
     }
 

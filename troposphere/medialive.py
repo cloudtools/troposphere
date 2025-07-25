@@ -955,12 +955,27 @@ class HlsOutputSettings(AWSProperty):
     }
 
 
+class MediaPackageV2DestinationSettings(AWSProperty):
+    """
+    `MediaPackageV2DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2destinationsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioGroupId": (str, False),
+        "AudioRenditionSets": (str, False),
+        "HlsAutoSelect": (str, False),
+        "HlsDefault": (str, False),
+    }
+
+
 class MediaPackageOutputSettings(AWSProperty):
     """
     `MediaPackageOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html>`__
     """
 
-    props: PropsDictType = {}
+    props: PropsDictType = {
+        "MediaPackageV2DestinationSettings": (MediaPackageV2DestinationSettings, False),
+    }
 
 
 class MsSmoothOutputSettings(AWSProperty):
@@ -1388,6 +1403,16 @@ class HlsGroupSettings(AWSProperty):
     }
 
 
+class MediaPackageV2GroupSettings(AWSProperty):
+    """
+    `MediaPackageV2GroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptionLanguageMappings": ([CaptionLanguageMapping], False),
+    }
+
+
 class MediaPackageGroupSettings(AWSProperty):
     """
     `MediaPackageGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html>`__
@@ -1395,6 +1420,7 @@ class MediaPackageGroupSettings(AWSProperty):
 
     props: PropsDictType = {
         "Destination": (OutputLocationRef, False),
+        "MediapackageV2GroupSettings": (MediaPackageV2GroupSettings, False),
     }
 
 

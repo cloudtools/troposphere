@@ -107,6 +107,7 @@ class ConfigurationSet(AWSObject):
         "ReputationOptions": (ReputationOptions, False),
         "SendingOptions": (SendingOptions, False),
         "SuppressionOptions": (SuppressionOptions, False),
+        "Tags": (Tags, False),
         "TrackingOptions": (TrackingOptions, False),
         "VdmOptions": (VdmOptions, False),
     }
@@ -232,6 +233,7 @@ class DedicatedIpPool(AWSObject):
     props: PropsDictType = {
         "PoolName": (str, False),
         "ScalingMode": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -302,6 +304,7 @@ class EmailIdentity(AWSObject):
         "EmailIdentity": (str, True),
         "FeedbackAttributes": (FeedbackAttributes, False),
         "MailFromAttributes": (MailFromAttributes, False),
+        "Tags": (Tags, False),
     }
 
 

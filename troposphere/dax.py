@@ -33,6 +33,7 @@ class Cluster(AWSObject):
         "ClusterName": (str, False),
         "Description": (str, False),
         "IAMRoleARN": (str, True),
+        "NetworkType": (str, False),
         "NodeType": (str, True),
         "NotificationTopicARN": (str, False),
         "ParameterGroupName": (str, False),

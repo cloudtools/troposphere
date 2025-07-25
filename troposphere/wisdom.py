@@ -744,6 +744,18 @@ class GroupingConfiguration(AWSProperty):
     }
 
 
+class MessageTemplateAttachment(AWSProperty):
+    """
+    `MessageTemplateAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattachment.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentId": (str, False),
+        "AttachmentName": (str, True),
+        "S3PresignedUrl": (str, True),
+    }
+
+
 class AgentAttributes(AWSProperty):
     """
     `AgentAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-agentattributes.html>`__
@@ -872,6 +884,7 @@ class MessageTemplate(AWSObject):
         "GroupingConfiguration": (GroupingConfiguration, False),
         "KnowledgeBaseArn": (str, True),
         "Language": (str, False),
+        "MessageTemplateAttachments": ([MessageTemplateAttachment], False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }
