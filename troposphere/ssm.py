@@ -389,6 +389,7 @@ class PatchBaseline(AWSObject):
         "ApprovedPatches": ([str], False),
         "ApprovedPatchesComplianceLevel": (compliance_level, False),
         "ApprovedPatchesEnableNonSecurity": (boolean, False),
+        "AvailableSecurityUpdatesComplianceStatus": (str, False),
         "DefaultBaseline": (boolean, False),
         "Description": (str, False),
         "GlobalFilters": (PatchFilterGroup, False),

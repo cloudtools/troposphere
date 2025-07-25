@@ -2689,6 +2689,7 @@ class TrafficMirrorSession(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "NetworkInterfaceId": (str, True),
+        "OwnerId": (str, False),
         "PacketLength": (integer, False),
         "SessionNumber": (integer, True),
         "Tags": (Tags, False),

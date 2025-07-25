@@ -119,6 +119,7 @@ class CdcSpecification(AWSProperty):
 
     props: PropsDictType = {
         "Status": (str, True),
+        "Tags": (Tags, False),
         "ViewType": (str, False),
     }
 
