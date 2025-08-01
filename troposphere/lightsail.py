@@ -398,6 +398,34 @@ class Distribution(AWSObject):
     }
 
 
+class DomainEntry(AWSProperty):
+    """
+    `DomainEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-domain-domainentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
+        "IsAlias": (boolean, False),
+        "Name": (str, True),
+        "Target": (str, True),
+        "Type": (str, True),
+    }
+
+
+class Domain(AWSObject):
+    """
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-domain.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Domain"
+
+    props: PropsDictType = {
+        "DomainEntries": ([DomainEntry], False),
+        "DomainName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DiskProperty(AWSProperty):
     """
     `DiskProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html>`__

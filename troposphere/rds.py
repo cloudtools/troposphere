@@ -206,6 +206,19 @@ class DBInstanceRole(AWSProperty):
     }
 
 
+class DBInstanceStatusInfo(AWSProperty):
+    """
+    `DBInstanceStatusInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Normal": (boolean, False),
+        "Status": (str, False),
+        "StatusType": (str, False),
+    }
+
+
 class Endpoint(AWSProperty):
     """
     `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
@@ -310,6 +323,7 @@ class DBInstance(AWSObject):
         "SourceDBInstanceIdentifier": (str, False),
         "SourceDbiResourceId": (str, False),
         "SourceRegion": (str, False),
+        "StatusInfos": ([DBInstanceStatusInfo], False),
         "StorageEncrypted": (boolean, False),
         "StorageThroughput": (integer, False),
         "StorageType": (str, False),

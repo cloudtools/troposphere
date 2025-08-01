@@ -170,7 +170,7 @@ class ClusterLifeCycleConfig(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -195,6 +195,48 @@ class ClusterInstanceGroup(AWSProperty):
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),
         "ThreadsPerCore": (integer, False),
+        "TrainingPlanArn": (str, False),
+    }
+
+
+class FSxLustreConfig(AWSProperty):
+    """
+    `FSxLustreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-fsxlustreconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "PerUnitStorageThroughput": (integer, True),
+        "SizeInGiB": (integer, True),
+    }
+
+
+class EnvironmentConfig(AWSProperty):
+    """
+    `EnvironmentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-environmentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FSxLustreConfig": (FSxLustreConfig, False),
+    }
+
+
+class ClusterRestrictedInstanceGroup(AWSProperty):
+    """
+    `ClusterRestrictedInstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentCount": (integer, False),
+        "EnvironmentConfig": (EnvironmentConfig, True),
+        "ExecutionRole": (str, True),
+        "InstanceCount": (integer, True),
+        "InstanceGroupName": (str, True),
+        "InstanceStorageConfigs": ([ClusterInstanceStorageConfig], False),
+        "InstanceType": (str, True),
+        "OnStartDeepHealthChecks": ([str], False),
+        "OverrideVpcConfig": (VpcConfig, False),
+        "ThreadsPerCore": (integer, False),
+        "TrainingPlanArn": (str, False),
     }
 
 
@@ -227,9 +269,10 @@ class Cluster(AWSObject):
 
     props: PropsDictType = {
         "ClusterName": (str, False),
-        "InstanceGroups": ([ClusterInstanceGroup], True),
+        "InstanceGroups": ([ClusterInstanceGroup], False),
         "NodeRecovery": (str, False),
         "Orchestrator": (Orchestrator, False),
+        "RestrictedInstanceGroups": ([ClusterRestrictedInstanceGroup], False),
         "Tags": (Tags, False),
         "VpcConfig": (VpcConfig, False),
     }
@@ -382,12 +425,12 @@ class DataQualityJobInput(AWSProperty):
 
 class S3Output(AWSProperty):
     """
-    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html>`__
+    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-s3output.html>`__
     """
 
     props: PropsDictType = {
-        "LocalPath": (str, True),
-        "S3UploadMode": (str, False),
+        "LocalPath": (str, False),
+        "S3UploadMode": (str, True),
         "S3Uri": (str, True),
     }
 
@@ -415,7 +458,7 @@ class MonitoringOutputConfig(AWSProperty):
 
 class ClusterConfig(AWSProperty):
     """
-    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html>`__
+    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-clusterconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -438,7 +481,7 @@ class MonitoringResources(AWSProperty):
 
 class NetworkConfig(AWSProperty):
     """
-    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`__
+    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-networkconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -450,7 +493,7 @@ class NetworkConfig(AWSProperty):
 
 class StoppingCondition(AWSProperty):
     """
-    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html>`__
+    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-stoppingcondition.html>`__
     """
 
     props: PropsDictType = {
@@ -2958,6 +3001,174 @@ class Pipeline(AWSObject):
         "PipelineDisplayName": (str, False),
         "PipelineName": (str, True),
         "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AppSpecification(AWSProperty):
+    """
+    `AppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-appspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerArguments": ([str], False),
+        "ContainerEntrypoint": ([str], False),
+        "ImageUri": (str, True),
+    }
+
+
+class ExperimentConfig(AWSProperty):
+    """
+    `ExperimentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-experimentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExperimentName": (str, False),
+        "RunName": (str, False),
+        "TrialComponentDisplayName": (str, False),
+        "TrialName": (str, False),
+    }
+
+
+class AthenaDatasetDefinition(AWSProperty):
+    """
+    `AthenaDatasetDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-athenadatasetdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Catalog": (str, True),
+        "Database": (str, True),
+        "KmsKeyId": (str, False),
+        "OutputCompression": (str, False),
+        "OutputFormat": (str, True),
+        "OutputS3Uri": (str, True),
+        "QueryString": (str, True),
+        "WorkGroup": (str, False),
+    }
+
+
+class RedshiftDatasetDefinition(AWSProperty):
+    """
+    `RedshiftDatasetDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-redshiftdatasetdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterId": (str, True),
+        "ClusterRoleArn": (str, True),
+        "Database": (str, True),
+        "DbUser": (str, True),
+        "KmsKeyId": (str, False),
+        "OutputCompression": (str, False),
+        "OutputFormat": (str, True),
+        "OutputS3Uri": (str, True),
+        "QueryString": (str, True),
+    }
+
+
+class DatasetDefinition(AWSProperty):
+    """
+    `DatasetDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-datasetdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "AthenaDatasetDefinition": (AthenaDatasetDefinition, False),
+        "DataDistributionType": (str, False),
+        "InputMode": (str, False),
+        "LocalPath": (str, False),
+        "RedshiftDatasetDefinition": (RedshiftDatasetDefinition, False),
+    }
+
+
+class S3Input(AWSProperty):
+    """
+    `S3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-s3input.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocalPath": (str, False),
+        "S3CompressionType": (str, False),
+        "S3DataDistributionType": (str, False),
+        "S3DataType": (str, True),
+        "S3InputMode": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class ProcessingInputsObject(AWSProperty):
+    """
+    `ProcessingInputsObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-processinginputsobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppManaged": (boolean, False),
+        "DatasetDefinition": (DatasetDefinition, False),
+        "InputName": (str, True),
+        "S3Input": (S3Input, False),
+    }
+
+
+class FeatureStoreOutput(AWSProperty):
+    """
+    `FeatureStoreOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-featurestoreoutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "FeatureGroupName": (str, True),
+    }
+
+
+class ProcessingOutputsObject(AWSProperty):
+    """
+    `ProcessingOutputsObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-processingoutputsobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppManaged": (boolean, False),
+        "FeatureStoreOutput": (FeatureStoreOutput, False),
+        "OutputName": (str, True),
+        "S3Output": (S3Output, False),
+    }
+
+
+class ProcessingOutputConfig(AWSProperty):
+    """
+    `ProcessingOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-processingoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "Outputs": ([ProcessingOutputsObject], True),
+    }
+
+
+class ProcessingResources(AWSProperty):
+    """
+    `ProcessingResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-processingresources.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterConfig": (ClusterConfig, True),
+    }
+
+
+class ProcessingJob(AWSObject):
+    """
+    `ProcessingJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-processingjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ProcessingJob"
+
+    props: PropsDictType = {
+        "AppSpecification": (AppSpecification, True),
+        "Environment": (dict, False),
+        "ExperimentConfig": (ExperimentConfig, False),
+        "NetworkConfig": (NetworkConfig, False),
+        "ProcessingInputs": ([ProcessingInputsObject], False),
+        "ProcessingJobName": (str, False),
+        "ProcessingOutputConfig": (ProcessingOutputConfig, False),
+        "ProcessingResources": (ProcessingResources, True),
+        "RoleArn": (str, True),
+        "StoppingCondition": (StoppingCondition, False),
         "Tags": (Tags, False),
     }
 

@@ -102,6 +102,7 @@ class Destination(AWSObject):
         "DestinationName": (str, True),
         "DestinationPolicy": (str, False),
         "RoleArn": (str, True),
+        "Tags": (Tags, False),
         "TargetArn": (str, True),
     }
 
@@ -175,6 +176,7 @@ class LogGroup(AWSObject):
         "KmsKeyId": (str, False),
         "LogGroupClass": (str, False),
         "LogGroupName": (str, False),
+        "ResourcePolicyDocument": (dict, False),
         "RetentionInDays": (validate_loggroup_retention_in_days, False),
         "Tags": (Tags, False),
     }

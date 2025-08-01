@@ -877,3 +877,30 @@ class SchedulingPolicy(AWSObject):
         "Name": (str, False),
         "Tags": (dict, False),
     }
+
+
+class CapacityLimit(AWSProperty):
+    """
+    `CapacityLimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-serviceenvironment-capacitylimit.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityUnit": (str, False),
+        "MaxCapacity": (integer, False),
+    }
+
+
+class ServiceEnvironment(AWSObject):
+    """
+    `ServiceEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-serviceenvironment.html>`__
+    """
+
+    resource_type = "AWS::Batch::ServiceEnvironment"
+
+    props: PropsDictType = {
+        "CapacityLimits": ([CapacityLimit], True),
+        "ServiceEnvironmentName": (str, False),
+        "ServiceEnvironmentType": (str, True),
+        "State": (str, False),
+        "Tags": (dict, False),
+    }

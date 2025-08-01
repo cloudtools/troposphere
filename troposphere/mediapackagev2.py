@@ -17,6 +17,7 @@ class InputSwitchConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "MQCSInputSwitching": (boolean, False),
+        "PreferredInput": (integer, False),
     }
 
 
@@ -383,6 +384,17 @@ class OriginEndpoint(AWSObject):
     }
 
 
+class CdnAuthConfiguration(AWSProperty):
+    """
+    `CdnAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpointpolicy-cdnauthconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CdnIdentifierSecretArns": ([str], True),
+        "SecretsRoleArn": (str, True),
+    }
+
+
 class OriginEndpointPolicy(AWSObject):
     """
     `OriginEndpointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html>`__
@@ -391,6 +403,7 @@ class OriginEndpointPolicy(AWSObject):
     resource_type = "AWS::MediaPackageV2::OriginEndpointPolicy"
 
     props: PropsDictType = {
+        "CdnAuthConfiguration": (CdnAuthConfiguration, False),
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
         "OriginEndpointName": (str, True),

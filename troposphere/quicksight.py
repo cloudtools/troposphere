@@ -8507,6 +8507,16 @@ class Theme(AWSObject):
     }
 
 
+class CustomInstructions(AWSProperty):
+    """
+    `CustomInstructions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-custominstructions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomInstructionsString": (str, True),
+    }
+
+
 class DataAggregation(AWSProperty):
     """
     `DataAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html>`__
@@ -8874,6 +8884,7 @@ class Topic(AWSObject):
     props: PropsDictType = {
         "AwsAccountId": (str, False),
         "ConfigOptions": (TopicConfigOptions, False),
+        "CustomInstructions": (CustomInstructions, False),
         "DataSets": ([DatasetMetadata], False),
         "Description": (str, False),
         "FolderArns": ([str], False),
