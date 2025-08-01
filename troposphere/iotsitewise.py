@@ -314,6 +314,77 @@ class AssetModel(AWSObject):
     }
 
 
+class AnomalyDetectionComputationModelConfiguration(AWSProperty):
+    """
+    `AnomalyDetectionComputationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-anomalydetectioncomputationmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputProperties": (str, True),
+        "ResultProperty": (str, True),
+    }
+
+
+class ComputationModelConfiguration(AWSProperty):
+    """
+    `ComputationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-computationmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnomalyDetection": (AnomalyDetectionComputationModelConfiguration, False),
+    }
+
+
+class AssetModelPropertyBindingValue(AWSProperty):
+    """
+    `AssetModelPropertyBindingValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-assetmodelpropertybindingvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssetModelId": (str, True),
+        "PropertyId": (str, True),
+    }
+
+
+class AssetPropertyBindingValue(AWSProperty):
+    """
+    `AssetPropertyBindingValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-assetpropertybindingvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssetId": (str, True),
+        "PropertyId": (str, True),
+    }
+
+
+class ComputationModelDataBindingValue(AWSProperty):
+    """
+    `ComputationModelDataBindingValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-computationmodel-computationmodeldatabindingvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssetModelProperty": (AssetModelPropertyBindingValue, False),
+        "AssetProperty": (AssetPropertyBindingValue, False),
+        "List": ([object], False),
+    }
+
+
+class ComputationModel(AWSObject):
+    """
+    `ComputationModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-computationmodel.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::ComputationModel"
+
+    props: PropsDictType = {
+        "ComputationModelConfiguration": (ComputationModelConfiguration, True),
+        "ComputationModelDataBinding": (dict, True),
+        "ComputationModelDescription": (str, False),
+        "ComputationModelName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Dashboard(AWSObject):
     """
     `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html>`__

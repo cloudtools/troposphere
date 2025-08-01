@@ -126,6 +126,7 @@ class AccessPoint(AWSObject):
         "Name": (str, False),
         "Policy": (policytypes, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
+        "Tags": (Tags, False),
         "VpcConfiguration": (VpcConfiguration, False),
     }
 

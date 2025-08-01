@@ -169,6 +169,17 @@ class ImageScanningConfiguration(AWSProperty):
     }
 
 
+class ImageTagMutabilityExclusionFilter(AWSProperty):
+    """
+    `ImageTagMutabilityExclusionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-imagetagmutabilityexclusionfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageTagMutabilityExclusionFilterType": (str, True),
+        "ImageTagMutabilityExclusionFilterValue": (str, True),
+    }
+
+
 class LifecyclePolicy(AWSProperty):
     """
     `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html>`__
@@ -192,6 +203,10 @@ class Repository(AWSObject):
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTagMutability": (str, False),
+        "ImageTagMutabilityExclusionFilters": (
+            [ImageTagMutabilityExclusionFilter],
+            False,
+        ),
         "LifecyclePolicy": (LifecyclePolicy, False),
         "RepositoryName": (str, False),
         "RepositoryPolicyText": (policytypes, False),
@@ -212,6 +227,10 @@ class RepositoryCreationTemplate(AWSObject):
         "Description": (str, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageTagMutability": (str, False),
+        "ImageTagMutabilityExclusionFilters": (
+            [ImageTagMutabilityExclusionFilter],
+            False,
+        ),
         "LifecyclePolicy": (str, False),
         "Prefix": (str, True),
         "RepositoryPolicy": (str, False),
