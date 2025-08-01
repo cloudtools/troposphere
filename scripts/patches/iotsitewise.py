@@ -21,4 +21,9 @@ patches = [
         "path": "/PropertyTypes/AWS::IoTSiteWise::AccessPolicy.AccessPolicyResource/Properties/Project/Type",
         "value": "ProjectProperty",
     },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::IoTSiteWise::ComputationModel.ComputationModelDataBindingValue/Properties/List/ItemType",
+        "value": "object",
+    },
 ]
