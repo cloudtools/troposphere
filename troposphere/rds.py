@@ -159,6 +159,7 @@ class DBCluster(AWSObject):
         "ServerlessV2ScalingConfiguration": (ServerlessV2ScalingConfiguration, False),
         "SnapshotIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
+        "SourceDbClusterResourceId": (str, False),
         "SourceRegion": (str, False),
         "StorageEncrypted": (boolean, False),
         "StorageType": (str, False),
@@ -203,19 +204,6 @@ class DBInstanceRole(AWSProperty):
     props: PropsDictType = {
         "FeatureName": (str, True),
         "RoleArn": (str, True),
-    }
-
-
-class DBInstanceStatusInfo(AWSProperty):
-    """
-    `DBInstanceStatusInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html>`__
-    """
-
-    props: PropsDictType = {
-        "Message": (str, False),
-        "Normal": (boolean, False),
-        "Status": (str, False),
-        "StatusType": (str, False),
     }
 
 
@@ -323,7 +311,6 @@ class DBInstance(AWSObject):
         "SourceDBInstanceIdentifier": (str, False),
         "SourceDbiResourceId": (str, False),
         "SourceRegion": (str, False),
-        "StatusInfos": ([DBInstanceStatusInfo], False),
         "StorageEncrypted": (boolean, False),
         "StorageThroughput": (integer, False),
         "StorageType": (str, False),
@@ -623,6 +610,19 @@ class OptionGroup(AWSObject):
         "OptionGroupDescription": (str, True),
         "OptionGroupName": (str, False),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class DBInstanceStatusInfo(AWSProperty):
+    """
+    `DBInstanceStatusInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Normal": (boolean, False),
+        "Status": (str, False),
+        "StatusType": (str, False),
     }
 
 

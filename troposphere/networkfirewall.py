@@ -11,6 +11,16 @@ from .validators import boolean, integer
 from .validators.networkfirewall import validate_rule_group_type
 
 
+class AvailabilityZoneMapping(AWSProperty):
+    """
+    `AvailabilityZoneMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-availabilityzonemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, True),
+    }
+
+
 class SubnetMapping(AWSProperty):
     """
     `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-vpcendpointassociation-subnetmapping.html>`__
@@ -30,6 +40,8 @@ class Firewall(AWSObject):
     resource_type = "AWS::NetworkFirewall::Firewall"
 
     props: PropsDictType = {
+        "AvailabilityZoneChangeProtection": (boolean, False),
+        "AvailabilityZoneMappings": ([AvailabilityZoneMapping], False),
         "DeleteProtection": (boolean, False),
         "Description": (str, False),
         "EnabledAnalysisTypes": ([str], False),
@@ -37,9 +49,10 @@ class Firewall(AWSObject):
         "FirewallPolicyArn": (str, True),
         "FirewallPolicyChangeProtection": (boolean, False),
         "SubnetChangeProtection": (boolean, False),
-        "SubnetMappings": ([SubnetMapping], True),
+        "SubnetMappings": ([SubnetMapping], False),
         "Tags": (Tags, False),
-        "VpcId": (str, True),
+        "TransitGatewayId": (str, False),
+        "VpcId": (str, False),
     }
 
 
@@ -142,6 +155,7 @@ class StatefulRuleGroupReference(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DeepThreatInspection": (boolean, False),
         "Override": (StatefulRuleGroupOverride, False),
         "Priority": (integer, False),
         "ResourceArn": (str, True),
@@ -436,6 +450,16 @@ class RuleGroupProperty(AWSProperty):
     }
 
 
+class SummaryConfiguration(AWSProperty):
+    """
+    `SummaryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-summaryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuleOptions": ([str], False),
+    }
+
+
 class RuleGroup(AWSObject):
     """
     `RuleGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html>`__
@@ -448,6 +472,7 @@ class RuleGroup(AWSObject):
         "Description": (str, False),
         "RuleGroup": (RuleGroupProperty, False),
         "RuleGroupName": (str, True),
+        "SummaryConfiguration": (SummaryConfiguration, False),
         "Tags": (Tags, False),
         "Type": (validate_rule_group_type, True),
     }

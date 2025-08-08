@@ -311,6 +311,17 @@ class ProjectSourceVersion(AWSProperty):
     }
 
 
+class PullRequestBuildPolicy(AWSProperty):
+    """
+    `PullRequestBuildPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-pullrequestbuildpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApproverRoles": ([str], False),
+        "RequiresCommentApproval": (str, True),
+    }
+
+
 class ScopeConfiguration(AWSProperty):
     """
     `ScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html>`__
@@ -331,6 +342,7 @@ class ProjectTriggers(AWSProperty):
     props: PropsDictType = {
         "BuildType": (str, False),
         "FilterGroups": (list, False),
+        "PullRequestBuildPolicy": (PullRequestBuildPolicy, False),
         "ScopeConfiguration": (ScopeConfiguration, False),
         "Webhook": (boolean, False),
     }

@@ -306,6 +306,7 @@ class Cluster(AWSObject):
         "AccessConfig": (AccessConfig, False),
         "BootstrapSelfManagedAddons": (boolean, False),
         "ComputeConfig": (ComputeConfig, False),
+        "DeletionProtection": (boolean, False),
         "EncryptionConfig": ([EncryptionConfig], False),
         "Force": (boolean, False),
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
