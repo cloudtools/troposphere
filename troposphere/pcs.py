@@ -16,6 +16,7 @@ class Networking(AWSProperty):
     """
 
     props: PropsDictType = {
+        "NetworkType": (str, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),
     }
@@ -188,6 +189,7 @@ class Endpoint(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Ipv6Address": (str, False),
         "Port": (str, True),
         "PrivateIpAddress": (str, True),
         "PublicIpAddress": (str, False),

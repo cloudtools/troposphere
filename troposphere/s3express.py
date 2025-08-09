@@ -58,6 +58,7 @@ class AccessPoint(AWSObject):
         "Policy": (dict, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
         "Scope": (Scope, False),
+        "Tags": (Tags, False),
         "VpcConfiguration": (VpcConfiguration, False),
     }
 

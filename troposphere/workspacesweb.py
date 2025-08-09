@@ -171,10 +171,63 @@ class Portal(AWSObject):
         "IpAccessSettingsArn": (str, False),
         "MaxConcurrentSessions": (double, False),
         "NetworkSettingsArn": (str, False),
+        "SessionLoggerArn": (str, False),
         "Tags": (Tags, False),
         "TrustStoreArn": (str, False),
         "UserAccessLoggingSettingsArn": (str, False),
         "UserSettingsArn": (str, False),
+    }
+
+
+class EventFilter(AWSProperty):
+    """
+    `EventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-sessionlogger-eventfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "All": (dict, False),
+        "Include": ([str], False),
+    }
+
+
+class S3LogConfiguration(AWSProperty):
+    """
+    `S3LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-sessionlogger-s3logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "BucketOwner": (str, False),
+        "FolderStructure": (str, True),
+        "KeyPrefix": (str, False),
+        "LogFileFormat": (str, True),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-sessionlogger-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (S3LogConfiguration, False),
+    }
+
+
+class SessionLogger(AWSObject):
+    """
+    `SessionLogger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-sessionlogger.html>`__
+    """
+
+    resource_type = "AWS::WorkSpacesWeb::SessionLogger"
+
+    props: PropsDictType = {
+        "AdditionalEncryptionContext": (dict, False),
+        "CustomerManagedKey": (str, False),
+        "DisplayName": (str, False),
+        "EventFilter": (EventFilter, True),
+        "LogConfiguration": (LogConfiguration, True),
+        "Tags": (Tags, False),
     }
 
 

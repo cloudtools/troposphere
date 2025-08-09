@@ -295,6 +295,29 @@ class AssetModelHierarchy(AWSProperty):
     }
 
 
+class EnforcedAssetModelInterfacePropertyMapping(AWSProperty):
+    """
+    `EnforcedAssetModelInterfacePropertyMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-enforcedassetmodelinterfacepropertymapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssetModelPropertyExternalId": (str, False),
+        "AssetModelPropertyLogicalId": (str, False),
+        "InterfaceAssetModelPropertyExternalId": (str, True),
+    }
+
+
+class EnforcedAssetModelInterfaceRelationship(AWSProperty):
+    """
+    `EnforcedAssetModelInterfaceRelationship <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-enforcedassetmodelinterfacerelationship.html>`__
+    """
+
+    props: PropsDictType = {
+        "InterfaceAssetModelId": (str, False),
+        "PropertyMappings": ([EnforcedAssetModelInterfacePropertyMapping], False),
+    }
+
+
 class AssetModel(AWSObject):
     """
     `AssetModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html>`__
@@ -310,6 +333,10 @@ class AssetModel(AWSObject):
         "AssetModelName": (str, True),
         "AssetModelProperties": ([AssetModelProperty], False),
         "AssetModelType": (str, False),
+        "EnforcedAssetModelInterfaceRelationships": (
+            [EnforcedAssetModelInterfaceRelationship],
+            False,
+        ),
         "Tags": (Tags, False),
     }
 

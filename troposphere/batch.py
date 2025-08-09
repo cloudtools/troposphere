@@ -824,6 +824,17 @@ class JobStateTimeLimitAction(AWSProperty):
     }
 
 
+class ServiceEnvironmentOrder(AWSProperty):
+    """
+    `ServiceEnvironmentOrder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-serviceenvironmentorder.html>`__
+    """
+
+    props: PropsDictType = {
+        "Order": (integer, True),
+        "ServiceEnvironment": (str, True),
+    }
+
+
 class JobQueue(AWSObject):
     """
     `JobQueue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html>`__
@@ -832,11 +843,13 @@ class JobQueue(AWSObject):
     resource_type = "AWS::Batch::JobQueue"
 
     props: PropsDictType = {
-        "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
+        "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], False),
         "JobQueueName": (str, False),
+        "JobQueueType": (str, False),
         "JobStateTimeLimitActions": ([JobStateTimeLimitAction], False),
         "Priority": (integer, True),
         "SchedulingPolicyArn": (str, False),
+        "ServiceEnvironmentOrder": ([ServiceEnvironmentOrder], False),
         "State": (validate_queue_state, False),
         "Tags": (dict, False),
     }

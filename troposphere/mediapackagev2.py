@@ -328,6 +328,7 @@ class Encryption(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CmafExcludeSegmentDrmMetadata": (boolean, False),
         "ConstantInitializationVector": (str, False),
         "EncryptionMethod": (EncryptionMethod, True),
         "KeyRotationIntervalSeconds": (integer, False),
