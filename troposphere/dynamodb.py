@@ -169,6 +169,7 @@ class ContributorInsightsSpecification(AWSProperty):
 
     props: PropsDictType = {
         "Enabled": (boolean, True),
+        "Mode": (str, False),
     }
 
 

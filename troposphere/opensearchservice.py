@@ -62,6 +62,18 @@ class Application(AWSObject):
     }
 
 
+class IAMFederationOptions(AWSProperty):
+    """
+    `IAMFederationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-iamfederationoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "RolesKey": (str, False),
+        "SubjectKey": (str, False),
+    }
+
+
 class JWTOptions(AWSProperty):
     """
     `JWTOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html>`__
@@ -123,6 +135,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
         "AnonymousAuthDisableDate": (str, False),
         "AnonymousAuthEnabled": (boolean, False),
         "Enabled": (boolean, False),
+        "IAMFederationOptions": (IAMFederationOptions, False),
         "InternalUserDatabaseEnabled": (boolean, False),
         "JWTOptions": (JWTOptions, False),
         "MasterUserOptions": (MasterUserOptions, False),

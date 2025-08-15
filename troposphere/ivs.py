@@ -109,8 +109,8 @@ class PlaybackRestrictionPolicy(AWSObject):
     resource_type = "AWS::IVS::PlaybackRestrictionPolicy"
 
     props: PropsDictType = {
-        "AllowedCountries": ([str], True),
-        "AllowedOrigins": ([str], True),
+        "AllowedCountries": ([str], False),
+        "AllowedOrigins": ([str], False),
         "EnableStrictOriginEnforcement": (boolean, False),
         "Name": (str, False),
         "Tags": (Tags, False),
@@ -162,16 +162,25 @@ class RenditionConfiguration(AWSProperty):
     }
 
 
-class ThumbnailConfiguration(AWSProperty):
+class ParticipantThumbnailConfiguration(AWSProperty):
     """
-    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html>`__
+    `ParticipantThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantthumbnailconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "RecordingMode": (str, False),
-        "Resolution": (str, False),
         "Storage": ([str], False),
         "TargetIntervalSeconds": (integer, False),
+    }
+
+
+class ThumbnailConfiguration(AWSProperty):
+    """
+    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-thumbnailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParticipantThumbnailConfiguration": (ParticipantThumbnailConfiguration, False),
     }
 
 
@@ -192,14 +201,40 @@ class RecordingConfiguration(AWSObject):
     }
 
 
+class ParticipantRecordingHlsConfiguration(AWSProperty):
+    """
+    `ParticipantRecordingHlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantrecordinghlsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetSegmentDurationSeconds": (integer, False),
+    }
+
+
+class HlsConfiguration(AWSProperty):
+    """
+    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-hlsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParticipantRecordingHlsConfiguration": (
+            ParticipantRecordingHlsConfiguration,
+            False,
+        ),
+    }
+
+
 class AutoParticipantRecordingConfiguration(AWSProperty):
     """
     `AutoParticipantRecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "HlsConfiguration": (HlsConfiguration, False),
         "MediaTypes": ([str], False),
+        "RecordingReconnectWindowSeconds": (integer, False),
         "StorageConfigurationArn": (str, True),
+        "ThumbnailConfiguration": (ThumbnailConfiguration, False),
     }
 
 

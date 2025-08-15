@@ -93,6 +93,137 @@ class CisScanConfiguration(AWSObject):
     }
 
 
+class CreateGitLabSelfManagedIntegrationDetail(AWSProperty):
+    """
+    `CreateGitLabSelfManagedIntegrationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-creategitlabselfmanagedintegrationdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "accessToken": (str, True),
+        "instanceUrl": (str, True),
+    }
+
+
+class CreateDetails(AWSProperty):
+    """
+    `CreateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-createdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "gitlabSelfManaged": (CreateGitLabSelfManagedIntegrationDetail, True),
+    }
+
+
+class UpdateGitHubIntegrationDetail(AWSProperty):
+    """
+    `UpdateGitHubIntegrationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-updategithubintegrationdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "code": (str, True),
+        "installationId": (str, True),
+    }
+
+
+class UpdateGitLabSelfManagedIntegrationDetail(AWSProperty):
+    """
+    `UpdateGitLabSelfManagedIntegrationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-updategitlabselfmanagedintegrationdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "authCode": (str, True),
+    }
+
+
+class UpdateDetails(AWSProperty):
+    """
+    `UpdateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityintegration-updatedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "github": (UpdateGitHubIntegrationDetail, False),
+        "gitlabSelfManaged": (UpdateGitLabSelfManagedIntegrationDetail, False),
+    }
+
+
+class CodeSecurityIntegration(AWSObject):
+    """
+    `CodeSecurityIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityintegration.html>`__
+    """
+
+    resource_type = "AWS::InspectorV2::CodeSecurityIntegration"
+
+    props: PropsDictType = {
+        "CreateIntegrationDetails": (CreateDetails, False),
+        "Name": (str, False),
+        "Tags": (dict, False),
+        "Type": (str, False),
+        "UpdateIntegrationDetails": (UpdateDetails, False),
+    }
+
+
+class ContinuousIntegrationScanConfiguration(AWSProperty):
+    """
+    `ContinuousIntegrationScanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-continuousintegrationscanconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "supportedEvents": ([str], True),
+    }
+
+
+class PeriodicScanConfiguration(AWSProperty):
+    """
+    `PeriodicScanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-periodicscanconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "frequency": (str, False),
+        "frequencyExpression": (str, False),
+    }
+
+
+class CodeSecurityScanConfigurationProperty(AWSProperty):
+    """
+    `CodeSecurityScanConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-codesecurityscanconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "continuousIntegrationScanConfiguration": (
+            ContinuousIntegrationScanConfiguration,
+            False,
+        ),
+        "periodicScanConfiguration": (PeriodicScanConfiguration, False),
+        "ruleSetCategories": ([str], True),
+    }
+
+
+class ScopeSettings(AWSProperty):
+    """
+    `ScopeSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-codesecurityscanconfiguration-scopesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "projectSelectionScope": (str, False),
+    }
+
+
+class CodeSecurityScanConfiguration(AWSObject):
+    """
+    `CodeSecurityScanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-codesecurityscanconfiguration.html>`__
+    """
+
+    resource_type = "AWS::InspectorV2::CodeSecurityScanConfiguration"
+
+    props: PropsDictType = {
+        "Configuration": (CodeSecurityScanConfigurationProperty, False),
+        "Level": (str, False),
+        "Name": (str, False),
+        "ScopeSettings": (ScopeSettings, False),
+        "Tags": (dict, False),
+    }
+
+
 class DateFilter(AWSProperty):
     """
     `DateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-datefilter.html>`__

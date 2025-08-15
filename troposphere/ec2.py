@@ -1256,6 +1256,19 @@ class InternetGateway(AWSObject):
     }
 
 
+class IpPoolRouteTableAssociation(AWSObject):
+    """
+    `IpPoolRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ippoolroutetableassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::IpPoolRouteTableAssociation"
+
+    props: PropsDictType = {
+        "PublicIpv4Pool": (str, True),
+        "RouteTableId": (str, True),
+    }
+
+
 class KeyPair(AWSObject):
     """
     `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html>`__
