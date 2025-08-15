@@ -7,6 +7,27 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean, integer
+
+
+class ContactHandling(AWSProperty):
+    """
+    `ContactHandling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-contacthandling.html>`__
+    """
+
+    props: PropsDictType = {
+        "Scope": (str, True),
+    }
+
+
+class ApplicationConfig(AWSProperty):
+    """
+    `ApplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContactHandling": (ContactHandling, False),
+    }
 
 
 class ExternalUrlConfig(AWSProperty):
@@ -30,6 +51,17 @@ class ApplicationSourceConfig(AWSProperty):
     }
 
 
+class IframeConfig(AWSProperty):
+    """
+    `IframeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-iframeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Allow": ([str], False),
+        "Sandbox": ([str], False),
+    }
+
+
 class Application(AWSObject):
     """
     `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html>`__
@@ -38,8 +70,12 @@ class Application(AWSObject):
     resource_type = "AWS::AppIntegrations::Application"
 
     props: PropsDictType = {
+        "ApplicationConfig": (ApplicationConfig, False),
         "ApplicationSourceConfig": (ApplicationSourceConfig, True),
         "Description": (str, True),
+        "IframeConfig": (IframeConfig, False),
+        "InitializationTimeout": (integer, False),
+        "IsService": (boolean, False),
         "Name": (str, True),
         "Namespace": (str, True),
         "Permissions": ([str], False),

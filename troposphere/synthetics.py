@@ -32,12 +32,24 @@ class ArtifactConfig(AWSProperty):
     }
 
 
+class Dependency(AWSProperty):
+    """
+    `Dependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Reference": (str, True),
+        "Type": (str, False),
+    }
+
+
 class Code(AWSProperty):
     """
     `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html>`__
     """
 
     props: PropsDictType = {
+        "Dependencies": ([Dependency], False),
         "Handler": (str, True),
         "S3Bucket": (str, False),
         "S3Key": (str, False),

@@ -852,6 +852,7 @@ class UserPhoneConfig(AWSProperty):
         "AfterContactWorkTimeLimit": (integer, False),
         "AutoAccept": (boolean, False),
         "DeskPhoneNumber": (str, False),
+        "PersistentConnection": (boolean, False),
         "PhoneType": (str, True),
     }
 

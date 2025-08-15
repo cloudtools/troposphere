@@ -186,6 +186,16 @@ class ServiceManagedEc2InstanceMarketOptions(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    """
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-vpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceConfigurationArns": ([str], False),
+    }
+
+
 class ServiceManagedEc2FleetConfiguration(AWSProperty):
     """
     `ServiceManagedEc2FleetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html>`__
@@ -195,6 +205,7 @@ class ServiceManagedEc2FleetConfiguration(AWSProperty):
         "InstanceCapabilities": (ServiceManagedEc2InstanceCapabilities, True),
         "InstanceMarketOptions": (ServiceManagedEc2InstanceMarketOptions, True),
         "StorageProfileId": (str, False),
+        "VpcConfiguration": (VpcConfiguration, False),
     }
 
 
@@ -296,6 +307,7 @@ class Monitor(AWSObject):
         "IdentityCenterInstanceArn": (str, True),
         "RoleArn": (str, True),
         "Subdomain": (str, True),
+        "Tags": (Tags, False),
     }
 
 

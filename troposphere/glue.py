@@ -1117,13 +1117,25 @@ class OrphanFileDeletionConfiguration(AWSProperty):
     }
 
 
+class IcebergRetentionConfiguration(AWSProperty):
+    """
+    `IcebergRetentionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergretentionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CleanExpiredFiles": (boolean, False),
+        "NumberOfSnapshotsToRetain": (integer, False),
+        "SnapshotRetentionPeriodInDays": (integer, False),
+    }
+
+
 class RetentionConfiguration(AWSProperty):
     """
     `RetentionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "IcebergConfiguration": (IcebergConfiguration, False),
+        "IcebergConfiguration": (IcebergRetentionConfiguration, False),
     }
 
 

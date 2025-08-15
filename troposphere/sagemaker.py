@@ -187,6 +187,7 @@ class ClusterInstanceGroup(AWSProperty):
     props: PropsDictType = {
         "CurrentCount": (integer, False),
         "ExecutionRole": (str, True),
+        "ImageId": (str, False),
         "InstanceCount": (integer, True),
         "InstanceGroupName": (str, True),
         "InstanceStorageConfigs": ([ClusterInstanceStorageConfig], False),
@@ -270,6 +271,7 @@ class Cluster(AWSObject):
     props: PropsDictType = {
         "ClusterName": (str, False),
         "InstanceGroups": ([ClusterInstanceGroup], False),
+        "NodeProvisioningMode": (str, False),
         "NodeRecovery": (str, False),
         "Orchestrator": (Orchestrator, False),
         "RestrictedInstanceGroups": ([ClusterRestrictedInstanceGroup], False),
@@ -789,7 +791,6 @@ class UnifiedStudioSettings(AWSProperty):
         "EnvironmentId": (str, False),
         "ProjectId": (str, False),
         "ProjectS3Path": (str, False),
-        "SingleSignOnApplicationArn": (str, False),
         "StudioWebPortalAccess": (str, False),
     }
 

@@ -7435,7 +7435,7 @@ class CastColumnTypeOperation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnName": (str, True),
+        "ColumnName": (str, False),
         "Format": (str, False),
         "NewColumnType": (str, True),
         "SubType": (str, False),
@@ -7470,7 +7470,7 @@ class FilterOperation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ConditionExpression": (str, True),
+        "ConditionExpression": (str, False),
     }
 
 
@@ -7505,7 +7505,7 @@ class ProjectOperation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ProjectedColumns": ([str], True),
+        "ProjectedColumns": ([str], False),
     }
 
 
@@ -7515,7 +7515,7 @@ class RenameColumnOperation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnName": (str, True),
+        "ColumnName": (str, False),
         "NewColumnName": (str, False),
     }
 
@@ -7598,7 +7598,7 @@ class UniqueKey(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnNames": ([str], True),
+        "ColumnNames": ([str], False),
     }
 
 
@@ -7709,7 +7709,7 @@ class RowLevelPermissionTagRule(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnName": (str, True),
+        "ColumnName": (str, False),
         "MatchAllValue": (str, False),
         "TagKey": (str, True),
         "TagMultiValueDelimiter": (str, False),
