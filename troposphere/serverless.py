@@ -21,6 +21,7 @@ from .awslambda import (
     ProvisionedConcurrencyConfiguration,
     ProvisionedPollerConfig,
     RuntimeManagementConfig,
+    SchemaRegistryConfig,
     SnapStart,
     SourceAccessConfiguration,
     VPCConfig,
@@ -728,11 +729,14 @@ class MSKEvent(AWSObject):
     resource_type = "MSK"
 
     props: PropsDictType = {
+        "BatchSize": (int, False),
         "ConsumerGroupId": (str, False),
         "DestinationConfig": (DestinationConfig, False),
         "FilterCriteria": (FilterCriteria, False),
+        "KmsKeyArn": (str, False),
         "MaximumBatchingWindowInSeconds": (integer, False),
         "ProvisionedPollerConfig": (ProvisionedPollerConfig, False),
+        "SchemaRegistryConfig": (SchemaRegistryConfig, False),
         "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
         "StartingPosition": (str, True),
         "StartingPositionTimestamp": (double, False),
