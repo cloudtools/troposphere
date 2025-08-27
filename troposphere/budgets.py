@@ -131,6 +131,7 @@ class BudgetData(AWSProperty):
 
     props: PropsDictType = {
         "AutoAdjustData": (AutoAdjustData, False),
+        "BillingViewArn": (str, False),
         "BudgetLimit": (Spend, False),
         "BudgetName": (str, False),
         "BudgetType": (str, True),

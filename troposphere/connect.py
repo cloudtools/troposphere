@@ -347,7 +347,7 @@ class PredefinedAttribute(AWSObject):
     props: PropsDictType = {
         "InstanceArn": (str, True),
         "Name": (str, True),
-        "Values": (Values, True),
+        "Values": (Values, False),
     }
 
 

@@ -100,7 +100,7 @@ class CFNFeatureConfiguration(AWSProperty):
 
 class TagItem(AWSProperty):
     """
-    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-threatintelset-tagitem.html>`__
+    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-trustedentityset-tagitem.html>`__
     """
 
     props: PropsDictType = {
@@ -305,12 +305,48 @@ class PublishingDestination(AWSObject):
     }
 
 
+class ThreatEntitySet(AWSObject):
+    """
+    `ThreatEntitySet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatentityset.html>`__
+    """
+
+    resource_type = "AWS::GuardDuty::ThreatEntitySet"
+
+    props: PropsDictType = {
+        "Activate": (boolean, False),
+        "DetectorId": (str, False),
+        "ExpectedBucketOwner": (str, False),
+        "Format": (str, True),
+        "Location": (str, True),
+        "Name": (str, False),
+        "Tags": ([TagItem], False),
+    }
+
+
 class ThreatIntelSet(AWSObject):
     """
     `ThreatIntelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html>`__
     """
 
     resource_type = "AWS::GuardDuty::ThreatIntelSet"
+
+    props: PropsDictType = {
+        "Activate": (boolean, False),
+        "DetectorId": (str, False),
+        "ExpectedBucketOwner": (str, False),
+        "Format": (str, True),
+        "Location": (str, True),
+        "Name": (str, False),
+        "Tags": ([TagItem], False),
+    }
+
+
+class TrustedEntitySet(AWSObject):
+    """
+    `TrustedEntitySet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-trustedentityset.html>`__
+    """
+
+    resource_type = "AWS::GuardDuty::TrustedEntitySet"
 
     props: PropsDictType = {
         "Activate": (boolean, False),

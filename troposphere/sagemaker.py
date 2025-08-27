@@ -168,6 +168,98 @@ class ClusterLifeCycleConfig(AWSProperty):
     }
 
 
+class Alarm(AWSProperty):
+    """
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-alarm.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmName": (str, True),
+    }
+
+
+class AutoRollbackConfig(AWSProperty):
+    """
+    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alarms": ([Alarm], True),
+    }
+
+
+class CapacitySize(AWSProperty):
+    """
+    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class TrafficRoutingConfig(AWSProperty):
+    """
+    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CanarySize": (CapacitySize, False),
+        "LinearStepSize": (CapacitySize, False),
+        "Type": (str, True),
+        "WaitIntervalInSeconds": (integer, False),
+    }
+
+
+class BlueGreenUpdatePolicy(AWSProperty):
+    """
+    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumExecutionTimeoutInSeconds": (integer, False),
+        "TerminationWaitInSeconds": (integer, False),
+        "TrafficRoutingConfiguration": (TrafficRoutingConfig, True),
+    }
+
+
+class RollingUpdatePolicy(AWSProperty):
+    """
+    `RollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumBatchSize": (CapacitySize, True),
+        "MaximumExecutionTimeoutInSeconds": (integer, False),
+        "RollbackMaximumBatchSize": (CapacitySize, False),
+        "WaitIntervalInSeconds": (integer, True),
+    }
+
+
+class DeploymentConfig(AWSProperty):
+    """
+    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoRollbackConfiguration": (AutoRollbackConfig, False),
+        "BlueGreenUpdatePolicy": (BlueGreenUpdatePolicy, False),
+        "RollingUpdatePolicy": (RollingUpdatePolicy, False),
+    }
+
+
+class ScheduledUpdateConfig(AWSProperty):
+    """
+    `ScheduledUpdateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-scheduledupdateconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeploymentConfig": (DeploymentConfig, False),
+        "ScheduleExpression": (str, True),
+    }
+
+
 class VpcConfig(AWSProperty):
     """
     `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-vpcconfig.html>`__
@@ -195,6 +287,7 @@ class ClusterInstanceGroup(AWSProperty):
         "LifeCycleConfig": (ClusterLifeCycleConfig, True),
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),
+        "ScheduledUpdateConfig": (ScheduledUpdateConfig, False),
         "ThreadsPerCore": (integer, False),
         "TrainingPlanArn": (str, False),
     }
@@ -917,87 +1010,6 @@ class Domain(AWSObject):
     }
 
 
-class Alarm(AWSProperty):
-    """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-alarm.html>`__
-    """
-
-    props: PropsDictType = {
-        "AlarmName": (str, True),
-    }
-
-
-class AutoRollbackConfig(AWSProperty):
-    """
-    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "Alarms": ([Alarm], True),
-    }
-
-
-class CapacitySize(AWSProperty):
-    """
-    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html>`__
-    """
-
-    props: PropsDictType = {
-        "Type": (str, True),
-        "Value": (integer, True),
-    }
-
-
-class TrafficRoutingConfig(AWSProperty):
-    """
-    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "CanarySize": (CapacitySize, False),
-        "LinearStepSize": (CapacitySize, False),
-        "Type": (str, True),
-        "WaitIntervalInSeconds": (integer, False),
-    }
-
-
-class BlueGreenUpdatePolicy(AWSProperty):
-    """
-    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`__
-    """
-
-    props: PropsDictType = {
-        "MaximumExecutionTimeoutInSeconds": (integer, False),
-        "TerminationWaitInSeconds": (integer, False),
-        "TrafficRoutingConfiguration": (TrafficRoutingConfig, True),
-    }
-
-
-class RollingUpdatePolicy(AWSProperty):
-    """
-    `RollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>`__
-    """
-
-    props: PropsDictType = {
-        "MaximumBatchSize": (CapacitySize, True),
-        "MaximumExecutionTimeoutInSeconds": (integer, False),
-        "RollbackMaximumBatchSize": (CapacitySize, False),
-        "WaitIntervalInSeconds": (integer, True),
-    }
-
-
-class DeploymentConfig(AWSProperty):
-    """
-    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AutoRollbackConfiguration": (AutoRollbackConfig, False),
-        "BlueGreenUpdatePolicy": (BlueGreenUpdatePolicy, False),
-        "RollingUpdatePolicy": (RollingUpdatePolicy, False),
-    }
-
-
 class VariantProperty(AWSProperty):
     """
     `VariantProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html>`__
@@ -1187,6 +1199,17 @@ class ExplainerConfig(AWSProperty):
     }
 
 
+class CapacityReservationConfig(AWSProperty):
+    """
+    `CapacityReservationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-capacityreservationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationPreference": (str, False),
+        "MlReservationArn": (str, False),
+    }
+
+
 class ManagedInstanceScaling(AWSProperty):
     """
     `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
@@ -1227,6 +1250,7 @@ class ProductionVariant(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CapacityReservationConfig": (CapacityReservationConfig, False),
         "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
         "EnableSSMAccess": (boolean, False),
         "InferenceAmiVersion": (str, False),
@@ -3524,6 +3548,27 @@ class AdditionalModelDataSource(AWSProperty):
     props: PropsDictType = {
         "ChannelName": (str, True),
         "S3DataSource": (S3DataSource, True),
+    }
+
+
+class AlarmDetails(AWSProperty):
+    """
+    `AlarmDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-alarmdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmName": (str, True),
+    }
+
+
+class CapacitySizeConfig(AWSProperty):
+    """
+    `CapacitySizeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-capacitysizeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
     }
 
 

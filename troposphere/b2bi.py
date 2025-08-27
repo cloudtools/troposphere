@@ -269,6 +269,66 @@ class X12SplitOptions(AWSProperty):
     }
 
 
+class X12CodeListValidationRule(AWSProperty):
+    """
+    `X12CodeListValidationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12codelistvalidationrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodesToAdd": ([str], False),
+        "CodesToRemove": ([str], False),
+        "ElementId": (str, True),
+    }
+
+
+class X12ElementLengthValidationRule(AWSProperty):
+    """
+    `X12ElementLengthValidationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12elementlengthvalidationrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "ElementId": (str, True),
+        "MaxLength": (double, True),
+        "MinLength": (double, True),
+    }
+
+
+class X12ElementRequirementValidationRule(AWSProperty):
+    """
+    `X12ElementRequirementValidationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12elementrequirementvalidationrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "ElementPosition": (str, True),
+        "Requirement": (str, True),
+    }
+
+
+class X12ValidationRule(AWSProperty):
+    """
+    `X12ValidationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12validationrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeListValidationRule": (X12CodeListValidationRule, False),
+        "ElementLengthValidationRule": (X12ElementLengthValidationRule, False),
+        "ElementRequirementValidationRule": (
+            X12ElementRequirementValidationRule,
+            False,
+        ),
+    }
+
+
+class X12ValidationOptions(AWSProperty):
+    """
+    `X12ValidationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12validationoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValidationRules": ([X12ValidationRule], False),
+    }
+
+
 class X12AdvancedOptions(AWSProperty):
     """
     `X12AdvancedOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12advancedoptions.html>`__
@@ -276,6 +336,7 @@ class X12AdvancedOptions(AWSProperty):
 
     props: PropsDictType = {
         "SplitOptions": (X12SplitOptions, False),
+        "ValidationOptions": (X12ValidationOptions, False),
     }
 
 
@@ -328,6 +389,7 @@ class OutputConversion(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdvancedOptions": (AdvancedOptions, False),
         "FormatOptions": (FormatOptions, False),
         "ToFormat": (str, True),
     }
