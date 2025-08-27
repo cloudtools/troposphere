@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import integer
 
 
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::APS::ResourcePolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (str, True),
+        "WorkspaceArn": (str, True),
+    }
+
+
 class RuleGroupsNamespace(AWSObject):
     """
     `RuleGroupsNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html>`__

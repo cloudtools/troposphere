@@ -3327,6 +3327,7 @@ class VPNConnection(AWSObject):
         "LocalIpv4NetworkCidr": (str, False),
         "LocalIpv6NetworkCidr": (str, False),
         "OutsideIpAddressType": (str, False),
+        "PreSharedKeyStorage": (str, False),
         "RemoteIpv4NetworkCidr": (str, False),
         "RemoteIpv6NetworkCidr": (str, False),
         "StaticRoutesOnly": (boolean, False),

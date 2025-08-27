@@ -723,6 +723,238 @@ class Owner(AWSObject):
     }
 
 
+class AddToProjectMemberPoolPolicyGrantDetail(AWSProperty):
+    """
+    `AddToProjectMemberPoolPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-addtoprojectmemberpoolpolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class CreateAssetTypePolicyGrantDetail(AWSProperty):
+    """
+    `CreateAssetTypePolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createassettypepolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class CreateDomainUnitPolicyGrantDetail(AWSProperty):
+    """
+    `CreateDomainUnitPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createdomainunitpolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class CreateEnvironmentProfilePolicyGrantDetail(AWSProperty):
+    """
+    `CreateEnvironmentProfilePolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createenvironmentprofilepolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainUnitId": (str, False),
+    }
+
+
+class CreateFormTypePolicyGrantDetail(AWSProperty):
+    """
+    `CreateFormTypePolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createformtypepolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class CreateGlossaryPolicyGrantDetail(AWSProperty):
+    """
+    `CreateGlossaryPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createglossarypolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class CreateProjectFromProjectProfilePolicyGrantDetail(AWSProperty):
+    """
+    `CreateProjectFromProjectProfilePolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createprojectfromprojectprofilepolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+        "ProjectProfiles": ([str], False),
+    }
+
+
+class CreateProjectPolicyGrantDetail(AWSProperty):
+    """
+    `CreateProjectPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-createprojectpolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class OverrideDomainUnitOwnersPolicyGrantDetail(AWSProperty):
+    """
+    `OverrideDomainUnitOwnersPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-overridedomainunitownerspolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class OverrideProjectOwnersPolicyGrantDetail(AWSProperty):
+    """
+    `OverrideProjectOwnersPolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-overrideprojectownerspolicygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class PolicyGrantDetail(AWSProperty):
+    """
+    `PolicyGrantDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-policygrantdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddToProjectMemberPool": (AddToProjectMemberPoolPolicyGrantDetail, False),
+        "CreateAssetType": (CreateAssetTypePolicyGrantDetail, False),
+        "CreateDomainUnit": (CreateDomainUnitPolicyGrantDetail, False),
+        "CreateEnvironment": (dict, False),
+        "CreateEnvironmentFromBlueprint": (dict, False),
+        "CreateEnvironmentProfile": (CreateEnvironmentProfilePolicyGrantDetail, False),
+        "CreateFormType": (CreateFormTypePolicyGrantDetail, False),
+        "CreateGlossary": (CreateGlossaryPolicyGrantDetail, False),
+        "CreateProject": (CreateProjectPolicyGrantDetail, False),
+        "CreateProjectFromProjectProfile": (
+            CreateProjectFromProjectProfilePolicyGrantDetail,
+            False,
+        ),
+        "DelegateCreateEnvironmentProfile": (dict, False),
+        "OverrideDomainUnitOwners": (OverrideDomainUnitOwnersPolicyGrantDetail, False),
+        "OverrideProjectOwners": (OverrideProjectOwnersPolicyGrantDetail, False),
+    }
+
+
+class DomainUnitGrantFilter(AWSProperty):
+    """
+    `DomainUnitGrantFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-domainunitgrantfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllDomainUnitsGrantFilter": (dict, True),
+    }
+
+
+class DomainUnitPolicyGrantPrincipal(AWSProperty):
+    """
+    `DomainUnitPolicyGrantPrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-domainunitpolicygrantprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainUnitDesignation": (str, False),
+        "DomainUnitGrantFilter": (DomainUnitGrantFilter, False),
+        "DomainUnitIdentifier": (str, False),
+    }
+
+
+class GroupPolicyGrantPrincipal(AWSProperty):
+    """
+    `GroupPolicyGrantPrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-grouppolicygrantprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupIdentifier": (str, True),
+    }
+
+
+class DomainUnitFilterForProject(AWSProperty):
+    """
+    `DomainUnitFilterForProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-domainunitfilterforproject.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainUnit": (str, True),
+        "IncludeChildDomainUnits": (boolean, False),
+    }
+
+
+class ProjectGrantFilter(AWSProperty):
+    """
+    `ProjectGrantFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-projectgrantfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainUnitFilter": (DomainUnitFilterForProject, True),
+    }
+
+
+class ProjectPolicyGrantPrincipal(AWSProperty):
+    """
+    `ProjectPolicyGrantPrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-projectpolicygrantprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProjectDesignation": (str, False),
+        "ProjectGrantFilter": (ProjectGrantFilter, False),
+        "ProjectIdentifier": (str, False),
+    }
+
+
+class UserPolicyGrantPrincipal(AWSProperty):
+    """
+    `UserPolicyGrantPrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-userpolicygrantprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllUsersGrantFilter": (dict, False),
+        "UserIdentifier": (str, False),
+    }
+
+
+class PolicyGrantPrincipal(AWSProperty):
+    """
+    `PolicyGrantPrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-policygrantprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainUnit": (DomainUnitPolicyGrantPrincipal, False),
+        "Group": (GroupPolicyGrantPrincipal, False),
+        "Project": (ProjectPolicyGrantPrincipal, False),
+        "User": (UserPolicyGrantPrincipal, False),
+    }
+
+
+class PolicyGrant(AWSObject):
+    """
+    `PolicyGrant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html>`__
+    """
+
+    resource_type = "AWS::DataZone::PolicyGrant"
+
+    props: PropsDictType = {
+        "Detail": (PolicyGrantDetail, False),
+        "DomainIdentifier": (str, True),
+        "EntityIdentifier": (str, True),
+        "EntityType": (str, True),
+        "PolicyType": (str, True),
+        "Principal": (PolicyGrantPrincipal, False),
+    }
+
+
 class EnvironmentConfigurationUserParameter(AWSProperty):
     """
     `EnvironmentConfigurationUserParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-environmentconfigurationuserparameter.html>`__

@@ -46,6 +46,17 @@ class ApplicationCodeConfiguration(AWSProperty):
     }
 
 
+class ApplicationEncryptionConfiguration(AWSProperty):
+    """
+    `ApplicationEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyId": (str, False),
+        "KeyType": (str, True),
+    }
+
+
 class ApplicationSnapshotConfiguration(AWSProperty):
     """
     `ApplicationSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html>`__
@@ -385,6 +396,10 @@ class ApplicationConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ApplicationCodeConfiguration": (ApplicationCodeConfiguration, False),
+        "ApplicationEncryptionConfiguration": (
+            ApplicationEncryptionConfiguration,
+            False,
+        ),
         "ApplicationSnapshotConfiguration": (ApplicationSnapshotConfiguration, False),
         "ApplicationSystemRollbackConfiguration": (
             ApplicationSystemRollbackConfiguration,

@@ -409,6 +409,20 @@ class DomainConfiguration(AWSObject):
     }
 
 
+class EncryptionConfiguration(AWSObject):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-encryptionconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IoT::EncryptionConfiguration"
+
+    props: PropsDictType = {
+        "EncryptionType": (str, True),
+        "KmsAccessRoleArn": (str, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
 class AggregationType(AWSProperty):
     """
     `AggregationType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html>`__
@@ -1636,6 +1650,18 @@ class TopicRuleDestination(AWSObject):
         "HttpUrlProperties": (HttpUrlDestinationSummary, False),
         "Status": (str, False),
         "VpcProperties": (VpcDestinationProperties, False),
+    }
+
+
+class ConfigurationDetails(AWSProperty):
+    """
+    `ConfigurationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-encryptionconfiguration-configurationdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationStatus": (str, False),
+        "ErrorCode": (str, False),
+        "ErrorMessage": (str, False),
     }
 
 

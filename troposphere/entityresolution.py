@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
+class IdMappingIncrementalRunConfig(AWSProperty):
+    """
+    `IdMappingIncrementalRunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingincrementalrunconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncrementalRunType": (str, True),
+    }
+
+
 class Rule(AWSProperty):
     """
     `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rule.html>`__
@@ -100,6 +110,7 @@ class IdMappingWorkflow(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "IdMappingIncrementalRunConfig": (IdMappingIncrementalRunConfig, False),
         "IdMappingTechniques": (IdMappingTechniques, True),
         "InputSourceConfig": ([IdMappingWorkflowInputSource], True),
         "OutputSourceConfig": ([IdMappingWorkflowOutputSource], False),

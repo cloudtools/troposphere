@@ -442,5 +442,5 @@ class Webhook(AWSObject):
         "RegisterWithThirdParty": (boolean, False),
         "TargetAction": (str, True),
         "TargetPipeline": (str, True),
-        "TargetPipelineVersion": (integer, True),
+        "TargetPipelineVersion": (integer, False),
     }
