@@ -1,3 +1,39 @@
+4.9.4 (2025*08*29)
+-------------------------------
+* Updates from spec version 203.0.0 (#2316)
+* Updates from spec version 204.0.0 (#2317)
+* Add mypy to requirements-dev.txt
+* mypy: use correct type for props in BaseAWSObject
+* pyright: use explicit types for Final annotations
+* Remove duplicate Cors from serverless.py
+* mypy: add type annotation in autoscaling Tags
+* Fix waf_action_type validator type annotation
+* Fix code gen to ignore object in PropsDictType
+* Upgrade pyright version and add mypy tooling
+* Remove Python 3.8 from actions
+* Add AWS::AIOps
+* Add AWS::DSQL
+* Add AWS::EVS
+* Add AWS::MPA
+* Add AWS::Notifications
+* Add AWS::NotificationsContacts
+* Add AWS::ODB
+* Add AWS::SSMGuiConnect
+* Add AWS::WorkspacesInstances
+* Update resources_aws.md with new services
+* Run isort on newly added files
+* Updates from spec version 205.0.0 (#2318)
+* Updates from spec version 206.0.0 (#2319)
+* Updates from spec version 207.0.0 (#2320)
+* Fix recursive definition in AWS::IoTSiteWise
+* Updates from spec version 208.0.0 (#2321)
+* Updates from spec version 209.0.0 (#2322)
+* Updates from spec version 210.0.0 (#2323)
+* Update properties in Serverless MSKEvent (#2325)
+* Tweak previous commit BatchSize type to pass tests
+* Updates from spec version 211.0.0 (#2326)
+* Updates from spec version 212.0.0 (#2327)
+
 4.9.3 (2025*06*19)
 -------------------------------
 * Updates from spec version 196.0.0 (#2301)
