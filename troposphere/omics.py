@@ -139,6 +139,30 @@ class VariantStore(AWSObject):
     }
 
 
+class SourceReference(AWSProperty):
+    """
+    `SourceReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-sourcereference.html>`__
+    """
+
+    props: PropsDictType = {
+        "type": (str, False),
+        "value": (str, False),
+    }
+
+
+class DefinitionRepository(AWSProperty):
+    """
+    `DefinitionRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-definitionrepository.html>`__
+    """
+
+    props: PropsDictType = {
+        "connectionArn": (str, False),
+        "excludeFilePatterns": ([str], False),
+        "fullRepositoryId": (str, False),
+        "sourceReference": (SourceReference, False),
+    }
+
+
 class WorkflowParameter(AWSProperty):
     """
     `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-workflowparameter.html>`__
@@ -159,15 +183,21 @@ class Workflow(AWSObject):
 
     props: PropsDictType = {
         "Accelerators": (str, False),
+        "DefinitionRepository": (DefinitionRepository, False),
         "DefinitionUri": (str, False),
         "Description": (str, False),
         "Engine": (str, False),
         "Main": (str, False),
         "Name": (str, False),
         "ParameterTemplate": (dict, False),
+        "ParameterTemplatePath": (str, False),
         "StorageCapacity": (double, False),
         "StorageType": (str, False),
         "Tags": (dict, False),
+        "WorkflowBucketOwnerId": (str, False),
+        "readmeMarkdown": (str, False),
+        "readmePath": (str, False),
+        "readmeUri": (str, False),
     }
 
 

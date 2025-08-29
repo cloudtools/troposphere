@@ -271,6 +271,17 @@ class DeploymentController(AWSProperty):
     }
 
 
+class ForceNewDeployment(AWSProperty):
+    """
+    `ForceNewDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-forcenewdeployment.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableForceNewDeployment": (boolean, True),
+        "ForceNewDeploymentNonce": (str, False),
+    }
+
+
 class AdvancedConfiguration(AWSProperty):
     """
     `AdvancedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-advancedconfiguration.html>`__
@@ -553,6 +564,7 @@ class Service(AWSObject):
         "DesiredCount": (integer, False),
         "EnableECSManagedTags": (boolean, False),
         "EnableExecuteCommand": (boolean, False),
+        "ForceNewDeployment": (ForceNewDeployment, False),
         "HealthCheckGracePeriodSeconds": (integer, False),
         "LaunchType": (launch_type_validator, False),
         "LoadBalancers": ([LoadBalancer], False),

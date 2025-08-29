@@ -237,7 +237,7 @@ class ClientVpnEndpoint(AWSObject):
 
     props: PropsDictType = {
         "AuthenticationOptions": ([ClientAuthenticationRequest], True),
-        "ClientCidrBlock": (str, True),
+        "ClientCidrBlock": (str, False),
         "ClientConnectOptions": (ClientConnectOptions, False),
         "ClientLoginBannerOptions": (ClientLoginBannerOptions, False),
         "ClientRouteEnforcementOptions": (ClientRouteEnforcementOptions, False),
