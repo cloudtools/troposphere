@@ -327,6 +327,17 @@ class PhoneNumber(AWSObject):
     }
 
 
+class AttributeConfiguration(AWSProperty):
+    """
+    `AttributeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-attributeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableValueValidationOnAssociation": (boolean, False),
+        "IsReadOnly": (boolean, False),
+    }
+
+
 class Values(AWSProperty):
     """
     `Values <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-values.html>`__
@@ -345,8 +356,10 @@ class PredefinedAttribute(AWSObject):
     resource_type = "AWS::Connect::PredefinedAttribute"
 
     props: PropsDictType = {
+        "AttributeConfiguration": (AttributeConfiguration, False),
         "InstanceArn": (str, True),
         "Name": (str, True),
+        "Purposes": ([str], False),
         "Values": (Values, False),
     }
 

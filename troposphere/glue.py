@@ -285,6 +285,8 @@ class DynamoDBTarget(AWSProperty):
 
     props: PropsDictType = {
         "Path": (str, False),
+        "ScanAll": (boolean, False),
+        "ScanRate": (double, False),
     }
 
 
