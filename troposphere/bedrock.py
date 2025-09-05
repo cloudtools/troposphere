@@ -307,6 +307,95 @@ class ApplicationInferenceProfile(AWSObject):
     }
 
 
+class PolicyDefinitionRule(AWSProperty):
+    """
+    `PolicyDefinitionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-automatedreasoningpolicy-policydefinitionrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlternateExpression": (str, False),
+        "Expression": (str, True),
+        "Id": (str, True),
+    }
+
+
+class PolicyDefinitionTypeValue(AWSProperty):
+    """
+    `PolicyDefinitionTypeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-automatedreasoningpolicy-policydefinitiontypevalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Value": (str, True),
+    }
+
+
+class PolicyDefinitionType(AWSProperty):
+    """
+    `PolicyDefinitionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-automatedreasoningpolicy-policydefinitiontype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Values": ([PolicyDefinitionTypeValue], True),
+    }
+
+
+class PolicyDefinitionVariable(AWSProperty):
+    """
+    `PolicyDefinitionVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-automatedreasoningpolicy-policydefinitionvariable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, True),
+        "Name": (str, True),
+        "Type": (str, True),
+    }
+
+
+class PolicyDefinition(AWSProperty):
+    """
+    `PolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-automatedreasoningpolicy-policydefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Rules": ([PolicyDefinitionRule], False),
+        "Types": ([PolicyDefinitionType], False),
+        "Variables": ([PolicyDefinitionVariable], False),
+        "Version": (str, False),
+    }
+
+
+class AutomatedReasoningPolicy(AWSObject):
+    """
+    `AutomatedReasoningPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-automatedreasoningpolicy.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::AutomatedReasoningPolicy"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "PolicyDefinition": (PolicyDefinition, False),
+        "Tags": (Tags, False),
+    }
+
+
+class AutomatedReasoningPolicyVersion(AWSObject):
+    """
+    `AutomatedReasoningPolicyVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-automatedreasoningpolicyversion.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::AutomatedReasoningPolicyVersion"
+
+    props: PropsDictType = {
+        "LastUpdatedDefinitionHash": (str, False),
+        "PolicyArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Blueprint(AWSObject):
     """
     `Blueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-blueprint.html>`__
