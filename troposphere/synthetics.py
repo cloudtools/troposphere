@@ -32,6 +32,16 @@ class ArtifactConfig(AWSProperty):
     }
 
 
+class BrowserConfig(AWSProperty):
+    """
+    `BrowserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-browserconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BrowserType": (str, True),
+    }
+
+
 class Dependency(AWSProperty):
     """
     `Dependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html>`__
@@ -127,6 +137,7 @@ class VisualReference(AWSProperty):
     props: PropsDictType = {
         "BaseCanaryRunId": (str, True),
         "BaseScreenshots": ([BaseScreenshot], False),
+        "BrowserType": (str, False),
     }
 
 
@@ -140,6 +151,7 @@ class Canary(AWSObject):
     props: PropsDictType = {
         "ArtifactConfig": (ArtifactConfig, False),
         "ArtifactS3Location": (str, True),
+        "BrowserConfigs": ([BrowserConfig], False),
         "Code": (Code, True),
         "DryRunAndUpdate": (boolean, False),
         "ExecutionRoleArn": (str, True),
@@ -154,7 +166,7 @@ class Canary(AWSObject):
         "SuccessRetentionPeriod": (integer, False),
         "Tags": (Tags, False),
         "VPCConfig": (VPCConfig, False),
-        "VisualReference": (VisualReference, False),
+        "VisualReferences": ([VisualReference], False),
     }
 
 

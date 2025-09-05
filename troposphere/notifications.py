@@ -93,6 +93,19 @@ class NotificationHub(AWSObject):
     }
 
 
+class OrganizationalUnitAssociation(AWSObject):
+    """
+    `OrganizationalUnitAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-organizationalunitassociation.html>`__
+    """
+
+    resource_type = "AWS::Notifications::OrganizationalUnitAssociation"
+
+    props: PropsDictType = {
+        "NotificationConfigurationArn": (str, True),
+        "OrganizationalUnitId": (str, True),
+    }
+
+
 class EventRuleStatusSummary(AWSProperty):
     """
     `EventRuleStatusSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-notifications-eventrule-eventrulestatussummary.html>`__
