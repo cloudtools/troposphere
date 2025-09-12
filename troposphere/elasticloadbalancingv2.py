@@ -402,6 +402,7 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props: PropsDictType = {
+        "EnableCapacityReservationProvisionStabilize": (boolean, False),
         "EnablePrefixForIpv6SourceNat": (str, False),
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": (str, False),
         "IpAddressType": (str, False),

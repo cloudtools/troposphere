@@ -141,7 +141,7 @@ class VariantStore(AWSObject):
 
 class SourceReference(AWSProperty):
     """
-    `SourceReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-sourcereference.html>`__
+    `SourceReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-sourcereference.html>`__
     """
 
     props: PropsDictType = {
@@ -152,7 +152,7 @@ class SourceReference(AWSProperty):
 
 class DefinitionRepository(AWSProperty):
     """
-    `DefinitionRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-definitionrepository.html>`__
+    `DefinitionRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-definitionrepository.html>`__
     """
 
     props: PropsDictType = {
@@ -210,15 +210,20 @@ class WorkflowVersion(AWSObject):
 
     props: PropsDictType = {
         "Accelerators": (str, False),
+        "DefinitionRepository": (DefinitionRepository, False),
         "DefinitionUri": (str, False),
         "Description": (str, False),
         "Engine": (str, False),
         "Main": (str, False),
         "ParameterTemplate": (dict, False),
+        "ParameterTemplatePath": (str, False),
         "StorageCapacity": (double, False),
         "StorageType": (str, False),
         "Tags": (dict, False),
         "VersionName": (str, True),
         "WorkflowBucketOwnerId": (str, False),
         "WorkflowId": (str, True),
+        "readmeMarkdown": (str, False),
+        "readmePath": (str, False),
+        "readmeUri": (str, False),
     }

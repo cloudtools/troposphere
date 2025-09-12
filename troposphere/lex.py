@@ -1143,6 +1143,16 @@ class DataPrivacy(AWSProperty):
     }
 
 
+class ErrorLogSettings(AWSProperty):
+    """
+    `ErrorLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-errorlogsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
 class Replication(AWSProperty):
     """
     `Replication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-replication.html>`__
@@ -1321,6 +1331,7 @@ class Bot(AWSObject):
         "BotTags": (Tags, False),
         "DataPrivacy": (DataPrivacy, True),
         "Description": (str, False),
+        "ErrorLogSettings": (ErrorLogSettings, False),
         "IdleSessionTTLInSeconds": (integer, True),
         "Name": (str, True),
         "Replication": (Replication, False),

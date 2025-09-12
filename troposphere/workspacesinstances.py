@@ -84,6 +84,28 @@ class BlockDeviceMapping(AWSProperty):
     }
 
 
+class CapacityReservationTarget(AWSProperty):
+    """
+    `CapacityReservationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-capacityreservationtarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationId": (str, False),
+        "CapacityReservationResourceGroupArn": (str, False),
+    }
+
+
+class CapacityReservationSpecification(AWSProperty):
+    """
+    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-capacityreservationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationPreference": (str, False),
+        "CapacityReservationTarget": (CapacityReservationTarget, False),
+    }
+
+
 class CpuOptionsRequest(AWSProperty):
     """
     `CpuOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-cpuoptionsrequest.html>`__
@@ -131,6 +153,7 @@ class IamInstanceProfileSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Arn": (str, False),
         "Name": (str, False),
     }
 
@@ -142,6 +165,30 @@ class InstanceMaintenanceOptionsRequest(AWSProperty):
 
     props: PropsDictType = {
         "AutoRecovery": (str, False),
+    }
+
+
+class SpotMarketOptions(AWSProperty):
+    """
+    `SpotMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-spotmarketoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceInterruptionBehavior": (str, False),
+        "MaxPrice": (str, False),
+        "SpotInstanceType": (str, False),
+        "ValidUntilUtc": (str, False),
+    }
+
+
+class InstanceMarketOptionsRequest(AWSProperty):
+    """
+    `InstanceMarketOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemarketoptionsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "MarketType": (str, False),
+        "SpotOptions": (SpotMarketOptions, False),
     }
 
 
@@ -182,6 +229,16 @@ class InstanceNetworkPerformanceOptionsRequest(AWSProperty):
     }
 
 
+class LicenseConfigurationRequest(AWSProperty):
+    """
+    `LicenseConfigurationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-licenseconfigurationrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "LicenseConfigurationArn": (str, False),
+    }
+
+
 class Placement(AWSProperty):
     """
     `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-placement.html>`__
@@ -189,7 +246,9 @@ class Placement(AWSProperty):
 
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
+        "GroupId": (str, False),
         "GroupName": (str, False),
+        "PartitionNumber": (integer, False),
         "Tenancy": (str, False),
     }
 
@@ -223,16 +282,21 @@ class ManagedInstance(AWSProperty):
 
     props: PropsDictType = {
         "BlockDeviceMappings": ([BlockDeviceMapping], False),
+        "CapacityReservationSpecification": (CapacityReservationSpecification, False),
         "CpuOptions": (CpuOptionsRequest, False),
         "CreditSpecification": (CreditSpecificationRequest, False),
         "DisableApiStop": (boolean, False),
         "EbsOptimized": (boolean, False),
+        "EnablePrimaryIpv6": (boolean, False),
         "EnclaveOptions": (EnclaveOptionsRequest, False),
         "HibernationOptions": (HibernationOptionsRequest, False),
         "IamInstanceProfile": (IamInstanceProfileSpecification, False),
         "ImageId": (str, True),
+        "InstanceMarketOptions": (InstanceMarketOptionsRequest, False),
         "InstanceType": (str, True),
+        "Ipv6AddressCount": (integer, False),
         "KeyName": (str, False),
+        "LicenseSpecifications": ([LicenseConfigurationRequest], False),
         "MaintenanceOptions": (InstanceMaintenanceOptionsRequest, False),
         "MetadataOptions": (InstanceMetadataOptionsRequest, False),
         "Monitoring": (RunInstancesMonitoringEnabled, False),
@@ -240,6 +304,7 @@ class ManagedInstance(AWSProperty):
         "NetworkPerformanceOptions": (InstanceNetworkPerformanceOptionsRequest, False),
         "Placement": (Placement, False),
         "PrivateDnsNameOptions": (PrivateDnsNameOptionsRequest, False),
+        "SubnetId": (str, False),
         "TagSpecifications": ([TagSpecification], False),
         "UserData": (str, False),
     }

@@ -7009,6 +7009,16 @@ class DataPointTooltipOption(AWSProperty):
     }
 
 
+class DataQAEnabledOption(AWSProperty):
+    """
+    `DataQAEnabledOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dataqaenabledoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
 class ExportToCSVOption(AWSProperty):
     """
     `ExportToCSVOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html>`__
@@ -7069,6 +7079,7 @@ class DashboardPublishOptions(AWSProperty):
         "DataPointDrillUpDownOption": (DataPointDrillUpDownOption, False),
         "DataPointMenuLabelOption": (DataPointMenuLabelOption, False),
         "DataPointTooltipOption": (DataPointTooltipOption, False),
+        "DataQAEnabledOption": (DataQAEnabledOption, False),
         "ExportToCSVOption": (ExportToCSVOption, False),
         "ExportWithHiddenFieldsOption": (ExportWithHiddenFieldsOption, False),
         "SheetControlsOption": (SheetControlsOption, False),

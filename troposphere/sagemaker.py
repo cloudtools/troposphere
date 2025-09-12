@@ -137,12 +137,25 @@ class AppImageConfig(AWSObject):
     }
 
 
+class ClusterAutoScalingConfig(AWSProperty):
+    """
+    `ClusterAutoScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterautoscalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoScalerType": (str, False),
+        "Mode": (str, True),
+    }
+
+
 class ClusterEbsVolumeConfig(AWSProperty):
     """
     `ClusterEbsVolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>`__
     """
 
     props: PropsDictType = {
+        "RootVolume": (boolean, False),
+        "VolumeKmsKeyId": (str, False),
         "VolumeSizeInGB": (integer, False),
     }
 
@@ -362,7 +375,9 @@ class Cluster(AWSObject):
     resource_type = "AWS::SageMaker::Cluster"
 
     props: PropsDictType = {
+        "AutoScaling": (ClusterAutoScalingConfig, False),
         "ClusterName": (str, False),
+        "ClusterRole": (str, False),
         "InstanceGroups": ([ClusterInstanceGroup], False),
         "NodeProvisioningMode": (str, False),
         "NodeRecovery": (str, False),
