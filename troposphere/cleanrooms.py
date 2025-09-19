@@ -107,6 +107,16 @@ class AnalysisSourceMetadata(AWSProperty):
     }
 
 
+class ErrorMessageConfiguration(AWSProperty):
+    """
+    `ErrorMessageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-errormessageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+    }
+
+
 class AnalysisTemplate(AWSObject):
     """
     `AnalysisTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html>`__
@@ -117,6 +127,7 @@ class AnalysisTemplate(AWSObject):
     props: PropsDictType = {
         "AnalysisParameters": ([AnalysisParameter], False),
         "Description": (str, False),
+        "ErrorMessageConfiguration": (ErrorMessageConfiguration, False),
         "Format": (str, True),
         "MembershipIdentifier": (str, True),
         "Name": (str, True),
@@ -236,6 +247,7 @@ class Collaboration(AWSObject):
 
     props: PropsDictType = {
         "AnalyticsEngine": (str, False),
+        "AutoApprovedChangeTypes": ([str], False),
         "CreatorDisplayName": (str, True),
         "CreatorMLMemberAbilities": (MLMemberAbilities, False),
         "CreatorMemberAbilities": ([str], False),

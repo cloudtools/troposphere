@@ -517,6 +517,16 @@ class RoutingProfileQueueReference(AWSProperty):
     }
 
 
+class RoutingProfileManualAssignmentQueueConfig(AWSProperty):
+    """
+    `RoutingProfileManualAssignmentQueueConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilemanualassignmentqueueconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueueReference": (RoutingProfileQueueReference, True),
+    }
+
+
 class RoutingProfileQueueConfig(AWSProperty):
     """
     `RoutingProfileQueueConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>`__
@@ -541,6 +551,10 @@ class RoutingProfile(AWSObject):
         "DefaultOutboundQueueArn": (str, True),
         "Description": (str, True),
         "InstanceArn": (str, True),
+        "ManualAssignmentQueueConfigs": (
+            [RoutingProfileManualAssignmentQueueConfig],
+            False,
+        ),
         "MediaConcurrencies": ([MediaConcurrency], True),
         "Name": (str, True),
         "QueueConfigs": ([RoutingProfileQueueConfig], False),

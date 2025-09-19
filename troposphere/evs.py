@@ -54,6 +54,8 @@ class InitialVlans(AWSProperty):
         "ExpansionVlan1": (InitialVlanInfo, True),
         "ExpansionVlan2": (InitialVlanInfo, True),
         "Hcx": (InitialVlanInfo, True),
+        "HcxNetworkAclId": (str, False),
+        "IsHcxPublic": (boolean, False),
         "NsxUpLink": (InitialVlanInfo, True),
         "VMotion": (InitialVlanInfo, True),
         "VSan": (InitialVlanInfo, True),

@@ -12,14 +12,17 @@ from .validators import boolean, double, integer
 
 class MaintenanceWindow(AWSProperty):
     """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudautonomousvmcluster-maintenancewindow.html>`__
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudexadatainfrastructure-maintenancewindow.html>`__
     """
 
     props: PropsDictType = {
+        "CustomActionTimeoutInMins": (integer, False),
         "DaysOfWeek": ([str], False),
         "HoursOfDay": ([integer], False),
+        "IsCustomActionTimeoutEnabled": (boolean, False),
         "LeadTimeInWeeks": (integer, False),
         "Months": ([str], False),
+        "PatchingMode": (str, False),
         "Preference": (str, False),
         "WeeksOfMonth": ([integer], False),
     }
@@ -76,6 +79,7 @@ class CloudExadataInfrastructure(AWSObject):
         "CustomerContactsToSendToOCI": ([CustomerContact], False),
         "DatabaseServerType": (str, False),
         "DisplayName": (str, False),
+        "MaintenanceWindow": (MaintenanceWindow, False),
         "Shape": (str, False),
         "StorageCount": (integer, False),
         "StorageServerType": (str, False),
@@ -95,6 +99,31 @@ class DataCollectionOptions(AWSProperty):
     }
 
 
+class DbNode(AWSProperty):
+    """
+    `DbNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudvmcluster-dbnode.html>`__
+    """
+
+    props: PropsDictType = {
+        "BackupIpId": (str, False),
+        "BackupVnic2Id": (str, False),
+        "CpuCoreCount": (integer, False),
+        "DbNodeArn": (str, False),
+        "DbNodeId": (str, False),
+        "DbNodeStorageSizeInGBs": (integer, False),
+        "DbServerId": (str, True),
+        "DbSystemId": (str, False),
+        "HostIpId": (str, False),
+        "Hostname": (str, False),
+        "MemorySizeInGBs": (integer, False),
+        "Ocid": (str, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+        "Vnic2Id": (str, False),
+        "VnicId": (str, False),
+    }
+
+
 class CloudVmCluster(AWSObject):
     """
     `CloudVmCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html>`__
@@ -109,6 +138,7 @@ class CloudVmCluster(AWSObject):
         "DataCollectionOptions": (DataCollectionOptions, False),
         "DataStorageSizeInTBs": (double, False),
         "DbNodeStorageSizeInGBs": (integer, False),
+        "DbNodes": ([DbNode], False),
         "DbServers": ([str], False),
         "DisplayName": (str, False),
         "GiVersion": (str, False),
@@ -138,8 +168,89 @@ class OdbNetwork(AWSObject):
         "AvailabilityZoneId": (str, False),
         "BackupSubnetCidr": (str, False),
         "ClientSubnetCidr": (str, False),
+        "CustomDomainName": (str, False),
         "DefaultDnsPrefix": (str, False),
         "DeleteAssociatedResources": (boolean, False),
         "DisplayName": (str, False),
+        "S3Access": (str, False),
+        "S3PolicyDocument": (str, False),
         "Tags": (Tags, False),
+        "ZeroEtlAccess": (str, False),
+    }
+
+
+class OdbPeeringConnection(AWSObject):
+    """
+    `OdbPeeringConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html>`__
+    """
+
+    resource_type = "AWS::ODB::OdbPeeringConnection"
+
+    props: PropsDictType = {
+        "DisplayName": (str, False),
+        "OdbNetworkId": (str, False),
+        "PeerNetworkId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ManagedS3BackupAccess(AWSProperty):
+    """
+    `ManagedS3BackupAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-manageds3backupaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv4Addresses": ([str], False),
+        "Status": (str, False),
+    }
+
+
+class S3Access(AWSProperty):
+    """
+    `S3Access <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-s3access.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainName": (str, False),
+        "Ipv4Addresses": ([str], False),
+        "S3PolicyDocument": (str, False),
+        "Status": (str, False),
+    }
+
+
+class ServiceNetworkEndpoint(AWSProperty):
+    """
+    `ServiceNetworkEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-servicenetworkendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcEndpointId": (str, False),
+        "VpcEndpointType": (str, False),
+    }
+
+
+class ZeroEtlAccess(AWSProperty):
+    """
+    `ZeroEtlAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-zeroetlaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+        "Status": (str, False),
+    }
+
+
+class ManagedServices(AWSProperty):
+    """
+    `ManagedServices <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManagedS3BackupAccess": (ManagedS3BackupAccess, False),
+        "ManagedServicesIpv4Cidrs": ([str], False),
+        "ResourceGatewayArn": (str, False),
+        "S3Access": (S3Access, False),
+        "ServiceNetworkArn": (str, False),
+        "ServiceNetworkEndpoint": (ServiceNetworkEndpoint, False),
+        "ZeroEtlAccess": (ZeroEtlAccess, False),
     }

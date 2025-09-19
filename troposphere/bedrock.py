@@ -1971,6 +1971,17 @@ class FlowVersion(AWSObject):
     }
 
 
+class AutomatedReasoningPolicyConfig(AWSProperty):
+    """
+    `AutomatedReasoningPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-automatedreasoningpolicyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfidenceThreshold": (double, False),
+        "Policies": ([str], True),
+    }
+
+
 class ContentFilterConfig(AWSProperty):
     """
     `ContentFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html>`__
@@ -2171,6 +2182,7 @@ class Guardrail(AWSObject):
     resource_type = "AWS::Bedrock::Guardrail"
 
     props: PropsDictType = {
+        "AutomatedReasoningPolicyConfig": (AutomatedReasoningPolicyConfig, False),
         "BlockedInputMessaging": (str, True),
         "BlockedOutputsMessaging": (str, True),
         "ContentPolicyConfig": (ContentPolicyConfig, False),
