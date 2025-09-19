@@ -80,7 +80,7 @@ class Method(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Engine": (str, True),
+        "Engine": (str, False),
         "Name": (str, True),
         "Parameters": (Parameters, False),
         "SpaceType": (str, False),
@@ -142,6 +142,17 @@ class LifecyclePolicy(AWSObject):
     }
 
 
+class IamFederationConfigOptions(AWSProperty):
+    """
+    `IamFederationConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamfederationconfigoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupAttribute": (str, False),
+        "UserAttribute": (str, False),
+    }
+
+
 class IamIdentityCenterConfigOptions(AWSProperty):
     """
     `IamIdentityCenterConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html>`__
@@ -180,6 +191,7 @@ class SecurityConfig(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "IamFederationOptions": (IamFederationConfigOptions, False),
         "IamIdentityCenterOptions": (IamIdentityCenterConfigOptions, False),
         "Name": (str, False),
         "SamlOptions": (SamlConfigOptions, False),

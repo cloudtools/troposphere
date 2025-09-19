@@ -79,6 +79,58 @@ class ScrapeConfiguration(AWSProperty):
     }
 
 
+class ComponentConfig(AWSProperty):
+    """
+    `ComponentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-componentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Options": (dict, False),
+    }
+
+
+class ScraperComponent(AWSProperty):
+    """
+    `ScraperComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapercomponent.html>`__
+    """
+
+    props: PropsDictType = {
+        "Config": (ComponentConfig, False),
+        "Type": (str, True),
+    }
+
+
+class CloudWatchLogDestination(AWSProperty):
+    """
+    `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-cloudwatchlogdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupArn": (str, True),
+    }
+
+
+class ScraperLoggingDestination(AWSProperty):
+    """
+    `ScraperLoggingDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scraperloggingdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogDestination, False),
+    }
+
+
+class ScraperLoggingConfiguration(AWSProperty):
+    """
+    `ScraperLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scraperloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoggingDestination": (ScraperLoggingDestination, True),
+        "ScraperComponents": ([ScraperComponent], True),
+    }
+
+
 class EksConfiguration(AWSProperty):
     """
     `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html>`__
@@ -113,6 +165,7 @@ class Scraper(AWSObject):
         "Destination": (Destination, True),
         "RoleConfiguration": (RoleConfiguration, False),
         "ScrapeConfiguration": (ScrapeConfiguration, True),
+        "ScraperLoggingConfiguration": (ScraperLoggingConfiguration, False),
         "Source": (Source, True),
         "Tags": (Tags, False),
     }
@@ -125,16 +178,6 @@ class LoggingConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "LogGroupArn": (str, False),
-    }
-
-
-class CloudWatchLogDestination(AWSProperty):
-    """
-    `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-cloudwatchlogdestination.html>`__
-    """
-
-    props: PropsDictType = {
-        "LogGroupArn": (str, True),
     }
 
 

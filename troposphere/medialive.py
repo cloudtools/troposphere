@@ -410,6 +410,7 @@ class BurnInDestinationSettings(AWSProperty):
         "ShadowOpacity": (integer, False),
         "ShadowXOffset": (integer, False),
         "ShadowYOffset": (integer, False),
+        "SubtitleRows": (str, False),
         "TeletextGridControl": (str, False),
         "XPosition": (integer, False),
         "YPosition": (integer, False),
@@ -436,6 +437,7 @@ class DvbSubDestinationSettings(AWSProperty):
         "ShadowOpacity": (integer, False),
         "ShadowXOffset": (integer, False),
         "ShadowYOffset": (integer, False),
+        "SubtitleRows": (str, False),
         "TeletextGridControl": (str, False),
         "XPosition": (integer, False),
         "YPosition": (integer, False),
@@ -1170,6 +1172,16 @@ class ArchiveGroupSettings(AWSProperty):
     }
 
 
+class AdditionalDestinations(AWSProperty):
+    """
+    `AdditionalDestinations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-additionaldestinations.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (OutputLocationRef, False),
+    }
+
+
 class CmafIngestCaptionLanguageMapping(AWSProperty):
     """
     `CmafIngestCaptionLanguageMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestcaptionlanguagemapping.html>`__
@@ -1187,6 +1199,7 @@ class CmafIngestGroupSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdditionalDestinations": ([AdditionalDestinations], False),
         "CaptionLanguageMappings": ([CmafIngestCaptionLanguageMapping], False),
         "Destination": (OutputLocationRef, False),
         "Id3Behavior": (str, False),
