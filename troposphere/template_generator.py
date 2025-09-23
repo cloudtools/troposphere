@@ -24,15 +24,20 @@ from troposphere import GenericHelperFn  # covers ref, fn::, etc
 from troposphere import Parameter  # AWSDeclarations
 from troposphere import (
     AWSHelperFn,
+    Cidr,
     Export,
+    GetAZs,
     Output,
     Ref,
+    Split,
     Tags,
     Template,
     autoscaling,
     cloudformation,
 )
 from troposphere.policies import CreationPolicy, UpdatePolicy
+
+AWS_LIST_RETURN_FUNCTIONS = (Cidr, GetAZs, Split)
 
 
 class TemplateGenerator(Template):
@@ -221,7 +226,17 @@ class TemplateGenerator(Template):
                 # a list of 1 type means we must provide a list of such objects
                 if isinstance(args, str) or not isinstance(args, Sequence):
                     args = [args]
-                return [self._create_instance(cls[0], v) for v in args]
+
+                result = [self._create_instance(cls[0], v) for v in args]
+
+                # AWS functions that return lists should not be wrapped
+                # in another list
+                if len(result) == 1 and isinstance(
+                    result[0], AWS_LIST_RETURN_FUNCTIONS
+                ):
+                    return result[0]
+
+                return result
 
         if isinstance(cls, Sequence) or cls not in self.inspect_members.union(
             self._custom_members

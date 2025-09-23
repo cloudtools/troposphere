@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from troposphere import AWSObject, Template
+from troposphere import AWSObject, Cidr, GetAZs, Split, Template
 from troposphere.template_generator import (
     ResourceTypeNotDefined,
     ResourceTypeNotFound,
@@ -117,6 +117,34 @@ class TestTemplateGenerator(unittest.TestCase):
         name = d["Outputs"]["TestOutput"]["Export"]["Name"]
         self.assertIn("Fn::Sub", name)
 
+    def test_list_functions(self):
+        """
+        Ensures that list functions are handled properly..
+        """
+        template = Template()
+        template.add_resource(
+            MyListResource(
+                "foo",
+                AZs=GetAZs(""),
+                Cidr=Cidr("192.168.0.0/24", "6", "5"),
+                Split=Split(",", "a,b,c"),
+            )
+        )
+        generated = TemplateGenerator(
+            json.loads(template.to_json()), CustomMembers=[MyListResource]
+        )
+
+        # validated that the templates are equal to each other
+        self.assertDictEqual(template.to_dict(), generated.to_dict())
+
+        # Further validate the list types are correct
+        generated_azs = generated.resources["foo"].properties["AZs"]
+        assert isinstance(generated_azs, GetAZs)
+        generated_cidr = generated.resources["foo"].properties["Cidr"]
+        assert isinstance(generated_cidr, Cidr)
+        generated_split = generated.resources["foo"].properties["Split"]
+        assert isinstance(generated_split, Split)
+
 
 class MyCustomResource(AWSObject):
     resource_type = "Custom::Resource"
@@ -132,6 +160,16 @@ class MyMacroResource(AWSObject):
 
     props = {
         "Foo": (str, True),
+    }
+
+
+class MyListResource(AWSObject):
+    resource_type = "Some::Special::Resource"
+
+    props = {
+        "AZs": ([str], True),
+        "Cidr": ([str], True),
+        "Split": ([str], True),
     }
 
 
