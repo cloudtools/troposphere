@@ -6909,6 +6909,7 @@ class Capabilities(AWSProperty):
 
     props: PropsDictType = {
         "AddOrRunAnomalyDetectionForAnalyses": (str, False),
+        "Analysis": (str, False),
         "CreateAndUpdateDashboardEmailReports": (str, False),
         "CreateAndUpdateDataSources": (str, False),
         "CreateAndUpdateDatasets": (str, False),
@@ -6916,6 +6917,7 @@ class Capabilities(AWSProperty):
         "CreateAndUpdateThresholdAlerts": (str, False),
         "CreateSPICEDataset": (str, False),
         "CreateSharedFolders": (str, False),
+        "Dashboard": (str, False),
         "ExportToCsv": (str, False),
         "ExportToCsvInScheduledReports": (str, False),
         "ExportToExcel": (str, False),
@@ -7019,6 +7021,26 @@ class DataQAEnabledOption(AWSProperty):
     }
 
 
+class DataStoriesSharingOption(AWSProperty):
+    """
+    `DataStoriesSharingOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datastoriessharingoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
+class ExecutiveSummaryOption(AWSProperty):
+    """
+    `ExecutiveSummaryOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-executivesummaryoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
 class ExportToCSVOption(AWSProperty):
     """
     `ExportToCSVOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html>`__
@@ -7080,6 +7102,8 @@ class DashboardPublishOptions(AWSProperty):
         "DataPointMenuLabelOption": (DataPointMenuLabelOption, False),
         "DataPointTooltipOption": (DataPointTooltipOption, False),
         "DataQAEnabledOption": (DataQAEnabledOption, False),
+        "DataStoriesSharingOption": (DataStoriesSharingOption, False),
+        "ExecutiveSummaryOption": (ExecutiveSummaryOption, False),
         "ExportToCSVOption": (ExportToCSVOption, False),
         "ExportWithHiddenFieldsOption": (ExportWithHiddenFieldsOption, False),
         "SheetControlsOption": (SheetControlsOption, False),

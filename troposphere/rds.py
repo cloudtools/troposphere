@@ -139,6 +139,7 @@ class DBCluster(AWSObject):
         "Iops": (integer, False),
         "KmsKeyId": (str, False),
         "ManageMasterUserPassword": (boolean, False),
+        "MasterUserAuthenticationType": (str, False),
         "MasterUserPassword": (str, False),
         "MasterUserSecret": (MasterUserSecret, False),
         "MasterUsername": (str, False),
@@ -286,6 +287,7 @@ class DBInstance(AWSObject):
         "KmsKeyId": (str, False),
         "LicenseModel": (validate_license_model, False),
         "ManageMasterUserPassword": (boolean, False),
+        "MasterUserAuthenticationType": (str, False),
         "MasterUserPassword": (str, False),
         "MasterUserSecret": (MasterUserSecret, False),
         "MasterUsername": (str, False),
@@ -363,14 +365,17 @@ class DBProxy(AWSObject):
     resource_type = "AWS::RDS::DBProxy"
 
     props: PropsDictType = {
-        "Auth": ([AuthFormat], True),
+        "Auth": ([AuthFormat], False),
         "DBProxyName": (str, True),
         "DebugLogging": (boolean, False),
+        "DefaultAuthScheme": (str, False),
+        "EndpointNetworkType": (str, False),
         "EngineFamily": (str, True),
         "IdleClientTimeout": (integer, False),
         "RequireTLS": (boolean, False),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
+        "TargetConnectionNetworkType": (str, False),
         "VpcSecurityGroupIds": ([str], False),
         "VpcSubnetIds": ([str], True),
     }
@@ -386,6 +391,7 @@ class DBProxyEndpoint(AWSObject):
     props: PropsDictType = {
         "DBProxyEndpointName": (str, True),
         "DBProxyName": (str, True),
+        "EndpointNetworkType": (str, False),
         "Tags": (Tags, False),
         "TargetRole": (str, False),
         "VpcSecurityGroupIds": ([str], False),

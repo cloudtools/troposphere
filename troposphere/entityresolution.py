@@ -73,6 +73,7 @@ class IdMappingTechniques(AWSProperty):
 
     props: PropsDictType = {
         "IdMappingType": (str, False),
+        "NormalizationVersion": (str, False),
         "ProviderProperties": (ProviderProperties, False),
         "RuleBasedProperties": (IdMappingRuleBasedProperties, False),
     }

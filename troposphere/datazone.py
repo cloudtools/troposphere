@@ -663,6 +663,33 @@ class EnvironmentProfile(AWSObject):
     }
 
 
+class Model(AWSProperty):
+    """
+    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-formtype-model.html>`__
+    """
+
+    props: PropsDictType = {
+        "Smithy": (str, False),
+    }
+
+
+class FormType(AWSObject):
+    """
+    `FormType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-formtype.html>`__
+    """
+
+    resource_type = "AWS::DataZone::FormType"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainIdentifier": (str, True),
+        "Model": (Model, True),
+        "Name": (str, True),
+        "OwningProjectIdentifier": (str, True),
+        "Status": (str, False),
+    }
+
+
 class GroupProfile(AWSObject):
     """
     `GroupProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html>`__

@@ -563,6 +563,7 @@ class Permission(AWSObject):
         "EventSourceToken": (str, False),
         "FunctionName": (str, True),
         "FunctionUrlAuthType": (str, False),
+        "InvokedViaFunctionUrl": (boolean, False),
         "Principal": (str, True),
         "PrincipalOrgID": (str, False),
         "SourceAccount": (str, False),
