@@ -178,7 +178,6 @@
 - [AWS::OpenSearchServerless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.html)
 - [AWS::OpenSearchService](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchService.html)
 - [AWS::OpsWorks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html)
-- [AWS::OpsWorksCM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorksCM.html)
 - [AWS::Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Organizations.html)
 - [AWS::PCAConnectorAD](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PCAConnectorAD.html)
 - [AWS::PCAConnectorSCEP](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PCAConnectorSCEP.html)
