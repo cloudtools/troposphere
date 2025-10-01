@@ -91,6 +91,7 @@ def validate_engine(engine):
         "oracle-se2",
         "oracle-se",
         "oracle-ee",
+        "oracle-ee-cdb",
         "sqlserver-ee",
         "sqlserver-se",
         "sqlserver-ex",
