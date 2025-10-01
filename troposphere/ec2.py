@@ -2006,6 +2006,7 @@ class NetworkInterfaceAttachment(AWSObject):
     props: PropsDictType = {
         "DeleteOnTermination": (boolean, False),
         "DeviceIndex": (validate_int_to_str, True),
+        "EnaQueueCount": (integer, False),
         "EnaSrdSpecification": (EnaSrdSpecification, False),
         "InstanceId": (str, True),
         "NetworkInterfaceId": (str, True),

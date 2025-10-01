@@ -139,6 +139,41 @@ class VariantStore(AWSObject):
     }
 
 
+class ImageMapping(AWSProperty):
+    """
+    `ImageMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-imagemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationImage": (str, False),
+        "SourceImage": (str, False),
+    }
+
+
+class RegistryMapping(AWSProperty):
+    """
+    `RegistryMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-registrymapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "EcrAccountId": (str, False),
+        "EcrRepositoryPrefix": (str, False),
+        "UpstreamRegistryUrl": (str, False),
+        "UpstreamRepositoryPrefix": (str, False),
+    }
+
+
+class ContainerRegistryMap(AWSProperty):
+    """
+    `ContainerRegistryMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-containerregistrymap.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageMappings": ([ImageMapping], False),
+        "RegistryMappings": ([RegistryMapping], False),
+    }
+
+
 class SourceReference(AWSProperty):
     """
     `SourceReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflowversion-sourcereference.html>`__
@@ -183,6 +218,8 @@ class Workflow(AWSObject):
 
     props: PropsDictType = {
         "Accelerators": (str, False),
+        "ContainerRegistryMap": (ContainerRegistryMap, False),
+        "ContainerRegistryMapUri": (str, False),
         "DefinitionRepository": (DefinitionRepository, False),
         "DefinitionUri": (str, False),
         "Description": (str, False),
@@ -210,6 +247,8 @@ class WorkflowVersion(AWSObject):
 
     props: PropsDictType = {
         "Accelerators": (str, False),
+        "ContainerRegistryMap": (ContainerRegistryMap, False),
+        "ContainerRegistryMapUri": (str, False),
         "DefinitionRepository": (DefinitionRepository, False),
         "DefinitionUri": (str, False),
         "Description": (str, False),

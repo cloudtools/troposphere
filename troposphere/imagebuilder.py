@@ -355,6 +355,7 @@ class Schedule(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoDisablePolicy": (dict, False),
         "PipelineExecutionStartCondition": (
             schedule_pipelineexecutionstartcondition,
             False,

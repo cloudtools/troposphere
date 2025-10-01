@@ -120,7 +120,7 @@ class LocationCapacity(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DesiredEC2Instances": (integer, True),
+        "DesiredEC2Instances": (integer, False),
         "MaxSize": (integer, True),
         "MinSize": (integer, True),
     }

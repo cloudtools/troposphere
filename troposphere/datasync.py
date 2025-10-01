@@ -39,7 +39,7 @@ class AzureBlobSasConfiguration(AWSProperty):
 
 class CmkSecretConfig(AWSProperty):
     """
-    `CmkSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-cmksecretconfig.html>`__
+    `CmkSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-cmksecretconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -50,7 +50,7 @@ class CmkSecretConfig(AWSProperty):
 
 class CustomSecretConfig(AWSProperty):
     """
-    `CustomSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html>`__
+    `CustomSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-customsecretconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -369,6 +369,8 @@ class LocationSMB(AWSObject):
     props: PropsDictType = {
         "AgentArns": ([str], True),
         "AuthenticationType": (str, False),
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "DnsIpAddresses": ([str], False),
         "Domain": (str, False),
         "KerberosKeytab": (str, False),
@@ -578,7 +580,7 @@ class Task(AWSObject):
 
 class ManagedSecretConfig(AWSProperty):
     """
-    `ManagedSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-managedsecretconfig.html>`__
+    `ManagedSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-managedsecretconfig.html>`__
     """
 
     props: PropsDictType = {
