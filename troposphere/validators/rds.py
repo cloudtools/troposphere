@@ -84,28 +84,33 @@ def validate_engine(engine):
     Property: DBCluster.Engine
     """
 
-    VALID_DB_ENGINES = (
-        "MySQL",
-        "mysql",
-        "oracle-se1",
-        "oracle-se2",
-        "oracle-se",
-        "oracle-ee",
-        "sqlserver-ee",
-        "sqlserver-se",
-        "sqlserver-ex",
-        "sqlserver-web",
-        "postgres",
-        "aurora",
+    VALID_DB_ENGINES = {
         "aurora-mysql",
         "aurora-postgresql",
-        "mariadb",
         "custom-oracle-ee",
         "custom-oracle-ee-cdb",
         "custom-sqlserver-ee",
         "custom-sqlserver-se",
         "custom-sqlserver-web",
-    )
+        "db2-ae",
+        "db2-se",
+        "mariadb",
+        "mysql",
+        "oracle-ee",
+        "oracle-ee-cdb",
+        "oracle-se2",
+        "oracle-se2-cdb",
+        "postgres",
+        "sqlserver-ee",
+        "sqlserver-se",
+        "sqlserver-ex",
+        "sqlserver-web",
+        # Old engines from previous versions of troposphere
+        "aurora",
+        "MySQL",
+        "oracle-se",
+        "oracle-se1",
+    }
 
     if engine not in VALID_DB_ENGINES:
         raise ValueError(
