@@ -1744,6 +1744,40 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(AWSObject):
     }
 
 
+class LocalGatewayVirtualInterface(AWSObject):
+    """
+    `LocalGatewayVirtualInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayvirtualinterface.html>`__
+    """
+
+    resource_type = "AWS::EC2::LocalGatewayVirtualInterface"
+
+    props: PropsDictType = {
+        "LocalAddress": (str, True),
+        "LocalGatewayVirtualInterfaceGroupId": (str, True),
+        "OutpostLagId": (str, True),
+        "PeerAddress": (str, True),
+        "PeerBgpAsn": (integer, False),
+        "PeerBgpAsnExtended": (integer, False),
+        "Tags": (Tags, False),
+        "Vlan": (integer, True),
+    }
+
+
+class LocalGatewayVirtualInterfaceGroup(AWSObject):
+    """
+    `LocalGatewayVirtualInterfaceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayvirtualinterfacegroup.html>`__
+    """
+
+    resource_type = "AWS::EC2::LocalGatewayVirtualInterfaceGroup"
+
+    props: PropsDictType = {
+        "LocalBgpAsn": (integer, False),
+        "LocalBgpAsnExtended": (integer, False),
+        "LocalGatewayId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class NatGateway(AWSObject):
     """
     `NatGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html>`__

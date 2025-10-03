@@ -20,6 +20,30 @@ class Discovery(AWSObject):
     props: PropsDictType = {}
 
 
+class GroupingAttributeDefinition(AWSProperty):
+    """
+    `GroupingAttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-groupingconfiguration-groupingattributedefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultGroupingValue": (str, False),
+        "GroupingName": (str, True),
+        "GroupingSourceKeys": ([str], True),
+    }
+
+
+class GroupingConfiguration(AWSObject):
+    """
+    `GroupingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-groupingconfiguration.html>`__
+    """
+
+    resource_type = "AWS::ApplicationSignals::GroupingConfiguration"
+
+    props: PropsDictType = {
+        "GroupingAttributeDefinitions": ([GroupingAttributeDefinition], True),
+    }
+
+
 class BurnRateConfiguration(AWSProperty):
     """
     `BurnRateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>`__

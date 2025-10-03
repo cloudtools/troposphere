@@ -523,6 +523,47 @@ class OverrideConfiguration(AWSProperty):
     }
 
 
+class ChannelLabelingConfiguration(AWSProperty):
+    """
+    `ChannelLabelingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-channellabelingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class SpeakerLabelingConfiguration(AWSProperty):
+    """
+    `SpeakerLabelingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-speakerlabelingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class TranscriptConfiguration(AWSProperty):
+    """
+    `TranscriptConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-transcriptconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelLabeling": (ChannelLabelingConfiguration, False),
+        "SpeakerLabeling": (SpeakerLabelingConfiguration, False),
+    }
+
+
+class AudioExtractionCategoryTypeConfiguration(AWSProperty):
+    """
+    `AudioExtractionCategoryTypeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategorytypeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Transcript": (TranscriptConfiguration, False),
+    }
+
+
 class AudioExtractionCategory(AWSProperty):
     """
     `AudioExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html>`__
@@ -530,6 +571,7 @@ class AudioExtractionCategory(AWSProperty):
 
     props: PropsDictType = {
         "State": (str, True),
+        "TypeConfiguration": (AudioExtractionCategoryTypeConfiguration, False),
         "Types": ([str], False),
     }
 
