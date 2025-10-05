@@ -271,6 +271,16 @@ class DistributionConfiguration(AWSObject):
     }
 
 
+class ImageLoggingConfiguration(AWSProperty):
+    """
+    `ImageLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imageloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupName": (str, False),
+    }
+
+
 class EcrConfiguration(AWSProperty):
     """
     `EcrConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-ecrconfiguration.html>`__
@@ -344,8 +354,30 @@ class Image(AWSObject):
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, False),
+        "LoggingConfiguration": (ImageLoggingConfiguration, False),
         "Tags": (dict, False),
         "Workflows": ([WorkflowConfiguration], False),
+    }
+
+
+class PipelineLoggingConfiguration(AWSProperty):
+    """
+    `PipelineLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-pipelineloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageLogGroupName": (str, False),
+        "PipelineLogGroupName": (str, False),
+    }
+
+
+class AutoDisablePolicy(AWSProperty):
+    """
+    `AutoDisablePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-autodisablepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureCount": (integer, True),
     }
 
 
@@ -355,7 +387,7 @@ class Schedule(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AutoDisablePolicy": (dict, False),
+        "AutoDisablePolicy": (AutoDisablePolicy, False),
         "PipelineExecutionStartCondition": (
             schedule_pipelineexecutionstartcondition,
             False,
@@ -381,6 +413,7 @@ class ImagePipeline(AWSObject):
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, True),
+        "LoggingConfiguration": (PipelineLoggingConfiguration, False),
         "Name": (str, True),
         "Schedule": (Schedule, False),
         "Status": (imagepipeline_status, False),
@@ -430,6 +463,7 @@ class ImageRecipe(AWSObject):
 
     props: PropsDictType = {
         "AdditionalInstanceConfiguration": (AdditionalInstanceConfiguration, False),
+        "AmiTags": (dict, False),
         "BlockDeviceMappings": ([InstanceBlockDeviceMapping], False),
         "Components": ([ComponentConfiguration], True),
         "Description": (str, False),

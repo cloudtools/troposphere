@@ -44,7 +44,7 @@ class LdapServerMetadata(AWSProperty):
         "RoleName": (str, False),
         "RoleSearchMatching": (str, True),
         "RoleSearchSubtree": (boolean, False),
-        "ServiceAccountPassword": (str, True),
+        "ServiceAccountPassword": (str, False),
         "ServiceAccountUsername": (str, True),
         "UserBase": (str, True),
         "UserRoleName": (str, False),
@@ -117,7 +117,7 @@ class Broker(AWSObject):
         "StorageType": (str, False),
         "SubnetIds": ([str], False),
         "Tags": (validate_tags_or_list, False),
-        "Users": ([User], True),
+        "Users": ([User], False),
     }
 
 
