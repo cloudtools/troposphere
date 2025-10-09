@@ -7061,6 +7061,16 @@ class ExportWithHiddenFieldsOption(AWSProperty):
     }
 
 
+class QuickSuiteActionsOption(AWSProperty):
+    """
+    `QuickSuiteActionsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-quicksuiteactionsoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
 class SheetControlsOption(AWSProperty):
     """
     `SheetControlsOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html>`__
@@ -7106,6 +7116,7 @@ class DashboardPublishOptions(AWSProperty):
         "ExecutiveSummaryOption": (ExecutiveSummaryOption, False),
         "ExportToCSVOption": (ExportToCSVOption, False),
         "ExportWithHiddenFieldsOption": (ExportWithHiddenFieldsOption, False),
+        "QuickSuiteActionsOption": (QuickSuiteActionsOption, False),
         "SheetControlsOption": (SheetControlsOption, False),
         "SheetLayoutElementMaximizationOption": (
             SheetLayoutElementMaximizationOption,

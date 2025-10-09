@@ -146,7 +146,9 @@ class EventSubscription(AWSObject):
     props: PropsDictType = {
         "Enabled": (boolean, False),
         "EventCategories": ([str], False),
-        "SnsTopicArn": (str, False),
+        "SnsTopicArn": (str, True),
         "SourceIds": ([str], False),
         "SourceType": (str, False),
+        "SubscriptionName": (str, False),
+        "Tags": (Tags, False),
     }

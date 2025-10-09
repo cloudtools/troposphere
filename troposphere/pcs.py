@@ -35,7 +35,7 @@ class Scheduler(AWSProperty):
 
 class SlurmCustomSetting(AWSProperty):
     """
-    `SlurmCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmcustomsetting.html>`__
+    `SlurmCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-queue-slurmcustomsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -46,7 +46,7 @@ class SlurmCustomSetting(AWSProperty):
 
 class SlurmConfiguration(AWSProperty):
     """
-    `SlurmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-slurmconfiguration.html>`__
+    `SlurmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-queue-slurmconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -157,6 +157,7 @@ class Queue(AWSObject):
         "ClusterId": (str, True),
         "ComputeNodeGroupConfigurations": ([ComputeNodeGroupConfiguration], False),
         "Name": (str, False),
+        "SlurmConfiguration": (SlurmConfiguration, False),
         "Tags": (dict, False),
     }
 
