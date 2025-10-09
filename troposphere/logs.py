@@ -69,6 +69,7 @@ class DeliveryDestination(AWSObject):
 
     props: PropsDictType = {
         "DeliveryDestinationPolicy": (DestinationPolicy, False),
+        "DeliveryDestinationType": (str, False),
         "DestinationResourceArn": (str, False),
         "Name": (str, True),
         "OutputFormat": (str, False),
@@ -230,6 +231,8 @@ class MetricFilter(AWSObject):
 
     props: PropsDictType = {
         "ApplyOnTransformedLogs": (boolean, False),
+        "EmitSystemFieldDimensions": ([str], False),
+        "FieldSelectionCriteria": (str, False),
         "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
@@ -276,6 +279,8 @@ class SubscriptionFilter(AWSObject):
         "ApplyOnTransformedLogs": (boolean, False),
         "DestinationArn": (str, True),
         "Distribution": (str, False),
+        "EmitSystemFields": ([str], False),
+        "FieldSelectionCriteria": (str, False),
         "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),

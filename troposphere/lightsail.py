@@ -294,6 +294,20 @@ class Disk(AWSObject):
     }
 
 
+class DiskSnapshot(AWSObject):
+    """
+    `DiskSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disksnapshot.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::DiskSnapshot"
+
+    props: PropsDictType = {
+        "DiskName": (str, True),
+        "DiskSnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class CacheBehavior(AWSProperty):
     """
     `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehavior.html>`__
