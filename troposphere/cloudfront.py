@@ -37,6 +37,7 @@ class AnycastIpList(AWSObject):
     resource_type = "AWS::CloudFront::AnycastIpList"
 
     props: PropsDictType = {
+        "IpAddressType": (str, False),
         "IpCount": (integer, True),
         "Name": (str, True),
         "Tags": (validate_tags_items_array, False),
@@ -1378,6 +1379,7 @@ class AnycastIpListProperty(AWSProperty):
         "AnycastIps": ([str], True),
         "Arn": (str, True),
         "Id": (str, True),
+        "IpAddressType": (str, False),
         "IpCount": (integer, True),
         "LastModifiedTime": (str, True),
         "Name": (str, True),

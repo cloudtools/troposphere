@@ -39,6 +39,21 @@ class ConfigurationManager(AWSObject):
     }
 
 
+class LifecycleAutomation(AWSObject):
+    """
+    `LifecycleAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmquicksetup-lifecycleautomation.html>`__
+    """
+
+    resource_type = "AWS::SSMQuickSetup::LifecycleAutomation"
+
+    props: PropsDictType = {
+        "AutomationDocument": (str, True),
+        "AutomationParameters": (dict, True),
+        "ResourceKey": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class StatusSummary(AWSProperty):
     """
     `StatusSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmquicksetup-configurationmanager-statussummary.html>`__

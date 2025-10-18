@@ -1795,6 +1795,7 @@ class NatGateway(AWSObject):
         "SecondaryPrivateIpAddresses": ([str], False),
         "SubnetId": (str, False),
         "Tags": (validate_tags_or_list, False),
+        "VpcId": (str, False),
     }
 
 
