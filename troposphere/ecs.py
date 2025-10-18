@@ -371,7 +371,7 @@ class ClusterCapacityProviderAssociations(AWSObject):
     resource_type = "AWS::ECS::ClusterCapacityProviderAssociations"
 
     props: PropsDictType = {
-        "CapacityProviders": ([str], True),
+        "CapacityProviders": ([str], False),
         "Cluster": (str, True),
         "DefaultCapacityProviderStrategy": ([CapacityProviderStrategy], True),
     }
@@ -435,8 +435,10 @@ class DeploymentConfiguration(AWSProperty):
     props: PropsDictType = {
         "Alarms": (DeploymentAlarms, False),
         "BakeTimeInMinutes": (integer, False),
+        "CanaryConfiguration": (dict, False),
         "DeploymentCircuitBreaker": (DeploymentCircuitBreaker, False),
         "LifecycleHooks": ([DeploymentLifecycleHook], False),
+        "LinearConfiguration": (dict, False),
         "MaximumPercent": (integer, False),
         "MinimumHealthyPercent": (integer, False),
         "Strategy": (str, False),

@@ -1423,6 +1423,15 @@ class MediaPackageV2GroupSettings(AWSProperty):
 
     props: PropsDictType = {
         "CaptionLanguageMappings": ([CaptionLanguageMapping], False),
+        "Id3Behavior": (str, False),
+        "KlvBehavior": (str, False),
+        "NielsenId3Behavior": (str, False),
+        "Scte35Type": (str, False),
+        "SegmentLength": (integer, False),
+        "SegmentLengthUnits": (str, False),
+        "TimedMetadataId3Frame": (str, False),
+        "TimedMetadataId3Period": (integer, False),
+        "TimedMetadataPassthrough": (str, False),
     }
 
 

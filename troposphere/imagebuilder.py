@@ -688,3 +688,16 @@ class Workflow(AWSObject):
         "Uri": (str, False),
         "Version": (str, True),
     }
+
+
+class LatestVersion(AWSProperty):
+    """
+    `LatestVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-workflow-latestversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Major": (str, False),
+        "Minor": (str, False),
+        "Patch": (str, False),
+    }

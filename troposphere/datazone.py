@@ -1096,7 +1096,7 @@ class EnvironmentConfiguration(AWSProperty):
         "DeploymentOrder": (double, False),
         "Description": (str, False),
         "EnvironmentBlueprintId": (str, True),
-        "Id": (str, False),
+        "EnvironmentConfigurationId": (str, False),
         "Name": (str, True),
     }
 
