@@ -59,8 +59,9 @@ class Code(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BlueprintTypes": ([str], False),
         "Dependencies": ([Dependency], False),
-        "Handler": (str, True),
+        "Handler": (str, False),
         "S3Bucket": (str, False),
         "S3Key": (str, False),
         "S3ObjectVersion": (str, False),

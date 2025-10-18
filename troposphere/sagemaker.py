@@ -911,6 +911,7 @@ class DomainSettings(AWSProperty):
     props: PropsDictType = {
         "DockerSettings": (DockerSettings, False),
         "ExecutionRoleIdentityConfig": (str, False),
+        "IpAddressType": (str, False),
         "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
         "SecurityGroupIds": ([str], False),
         "UnifiedStudioSettings": (UnifiedStudioSettings, False),

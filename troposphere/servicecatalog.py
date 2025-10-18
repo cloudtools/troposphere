@@ -355,6 +355,6 @@ class TagOptionAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalog::TagOptionAssociation"
 
     props: PropsDictType = {
-        "ResourceId": (str, True),
-        "TagOptionId": (str, True),
+        "ResourceId": (str, False),
+        "TagOptionId": (str, False),
     }

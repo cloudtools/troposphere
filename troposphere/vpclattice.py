@@ -150,6 +150,7 @@ class ResourceGateway(AWSObject):
 
     props: PropsDictType = {
         "IpAddressType": (str, False),
+        "Ipv4AddressesPerEni": (integer, False),
         "Name": (str, True),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
