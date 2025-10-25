@@ -286,6 +286,19 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
     }
 
 
+class MssManifestConfiguration(AWSProperty):
+    """
+    `MssManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-mssmanifestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterConfiguration": (FilterConfiguration, False),
+        "ManifestLayout": (str, False),
+        "ManifestName": (str, True),
+        "ManifestWindowSeconds": (integer, False),
+    }
+
+
 class EncryptionMethod(AWSProperty):
     """
     `EncryptionMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryptionmethod.html>`__
@@ -293,6 +306,7 @@ class EncryptionMethod(AWSProperty):
 
     props: PropsDictType = {
         "CmafEncryptionMethod": (str, False),
+        "IsmEncryptionMethod": (str, False),
         "TsEncryptionMethod": (str, False),
     }
 
@@ -378,6 +392,7 @@ class OriginEndpoint(AWSObject):
         "ForceEndpointErrorConfiguration": (ForceEndpointErrorConfiguration, False),
         "HlsManifests": ([HlsManifestConfiguration], False),
         "LowLatencyHlsManifests": ([LowLatencyHlsManifestConfiguration], False),
+        "MssManifests": ([MssManifestConfiguration], False),
         "OriginEndpointName": (str, True),
         "Segment": (Segment, False),
         "StartoverWindowSeconds": (integer, False),

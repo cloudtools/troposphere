@@ -106,6 +106,325 @@ class EmailAddress(AWSObject):
     }
 
 
+class AutoEvaluationConfiguration(AWSProperty):
+    """
+    `AutoEvaluationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
+class EvaluationFormItemEnablementSource(AWSProperty):
+    """
+    `EvaluationFormItemEnablementSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "RefId": (str, False),
+        "Type": (str, True),
+    }
+
+
+class EvaluationFormItemEnablementSourceValue(AWSProperty):
+    """
+    `EvaluationFormItemEnablementSourceValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsourcevalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "RefId": (str, False),
+        "Type": (str, False),
+    }
+
+
+class EvaluationFormItemEnablementExpression(AWSProperty):
+    """
+    `EvaluationFormItemEnablementExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comparator": (str, True),
+        "Source": (EvaluationFormItemEnablementSource, True),
+        "Values": ([EvaluationFormItemEnablementSourceValue], True),
+    }
+
+
+class EvaluationFormItemEnablementConditionOperand(AWSProperty):
+    """
+    `EvaluationFormItemEnablementConditionOperand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconditionoperand.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (EvaluationFormItemEnablementExpression, False),
+    }
+
+
+class EvaluationFormItemEnablementCondition(AWSProperty):
+    """
+    `EvaluationFormItemEnablementCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operands": ([EvaluationFormItemEnablementConditionOperand], True),
+        "Operator": (str, False),
+    }
+
+
+class EvaluationFormItemEnablementConfiguration(AWSProperty):
+    """
+    `EvaluationFormItemEnablementConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "Condition": (EvaluationFormItemEnablementCondition, True),
+        "DefaultAction": (str, False),
+    }
+
+
+class EvaluationFormQuestionAutomationAnswerSource(AWSProperty):
+    """
+    `EvaluationFormQuestionAutomationAnswerSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceType": (str, True),
+    }
+
+
+class NumericQuestionPropertyValueAutomation(AWSProperty):
+    """
+    `NumericQuestionPropertyValueAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-numericquestionpropertyvalueautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Label": (str, True),
+    }
+
+
+class EvaluationFormNumericQuestionAutomation(AWSProperty):
+    """
+    `EvaluationFormNumericQuestionAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
+        "PropertyValue": (NumericQuestionPropertyValueAutomation, False),
+    }
+
+
+class AutomaticFailConfiguration(AWSProperty):
+    """
+    `AutomaticFailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-automaticfailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetSection": (str, False),
+    }
+
+
+class EvaluationFormNumericQuestionOption(AWSProperty):
+    """
+    `EvaluationFormNumericQuestionOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutomaticFail": (boolean, False),
+        "AutomaticFailConfiguration": (AutomaticFailConfiguration, False),
+        "MaxValue": (integer, True),
+        "MinValue": (integer, True),
+        "Score": (integer, False),
+    }
+
+
+class EvaluationFormNumericQuestionProperties(AWSProperty):
+    """
+    `EvaluationFormNumericQuestionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automation": (EvaluationFormNumericQuestionAutomation, False),
+        "MaxValue": (integer, True),
+        "MinValue": (integer, True),
+        "Options": ([EvaluationFormNumericQuestionOption], False),
+    }
+
+
+class SingleSelectQuestionRuleCategoryAutomation(AWSProperty):
+    """
+    `SingleSelectQuestionRuleCategoryAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-singleselectquestionrulecategoryautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (str, True),
+        "Condition": (str, True),
+        "OptionRefId": (str, True),
+    }
+
+
+class EvaluationFormSingleSelectQuestionAutomationOption(AWSProperty):
+    """
+    `EvaluationFormSingleSelectQuestionAutomationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomationoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuleCategory": (SingleSelectQuestionRuleCategoryAutomation, True),
+    }
+
+
+class EvaluationFormSingleSelectQuestionAutomation(AWSProperty):
+    """
+    `EvaluationFormSingleSelectQuestionAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
+        "DefaultOptionRefId": (str, False),
+        "Options": ([EvaluationFormSingleSelectQuestionAutomationOption], True),
+    }
+
+
+class EvaluationFormSingleSelectQuestionOption(AWSProperty):
+    """
+    `EvaluationFormSingleSelectQuestionOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutomaticFail": (boolean, False),
+        "AutomaticFailConfiguration": (AutomaticFailConfiguration, False),
+        "RefId": (str, True),
+        "Score": (integer, False),
+        "Text": (str, True),
+    }
+
+
+class EvaluationFormSingleSelectQuestionProperties(AWSProperty):
+    """
+    `EvaluationFormSingleSelectQuestionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automation": (EvaluationFormSingleSelectQuestionAutomation, False),
+        "DisplayAs": (str, False),
+        "Options": ([EvaluationFormSingleSelectQuestionOption], True),
+    }
+
+
+class EvaluationFormTextQuestionAutomation(AWSProperty):
+    """
+    `EvaluationFormTextQuestionAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
+    }
+
+
+class EvaluationFormTextQuestionProperties(AWSProperty):
+    """
+    `EvaluationFormTextQuestionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automation": (EvaluationFormTextQuestionAutomation, False),
+    }
+
+
+class EvaluationFormQuestionTypeProperties(AWSProperty):
+    """
+    `EvaluationFormQuestionTypeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Numeric": (EvaluationFormNumericQuestionProperties, False),
+        "SingleSelect": (EvaluationFormSingleSelectQuestionProperties, False),
+        "Text": (EvaluationFormTextQuestionProperties, False),
+    }
+
+
+class EvaluationFormQuestion(AWSProperty):
+    """
+    `EvaluationFormQuestion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enablement": (EvaluationFormItemEnablementConfiguration, False),
+        "Instructions": (str, False),
+        "NotApplicableEnabled": (boolean, False),
+        "QuestionType": (str, True),
+        "QuestionTypeProperties": (EvaluationFormQuestionTypeProperties, False),
+        "RefId": (str, True),
+        "Title": (str, True),
+        "Weight": (double, False),
+    }
+
+
+class EvaluationFormItem(AWSProperty):
+    """
+    `EvaluationFormItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Question": (EvaluationFormQuestion, False),
+        "Section": (object, False),  # type: ignore
+    }
+
+
+class EvaluationFormSection(AWSProperty):
+    """
+    `EvaluationFormSection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Instructions": (str, False),
+        "Items": ([EvaluationFormItem], False),
+        "RefId": (str, True),
+        "Title": (str, True),
+        "Weight": (double, False),
+    }
+
+
+class EvaluationFormBaseItem(AWSProperty):
+    """
+    `EvaluationFormBaseItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Section": (EvaluationFormSection, True),
+    }
+
+
+class ScoringStrategy(AWSProperty):
+    """
+    `ScoringStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+        "Status": (str, True),
+    }
+
+
+class EvaluationForm(AWSObject):
+    """
+    `EvaluationForm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html>`__
+    """
+
+    resource_type = "AWS::Connect::EvaluationForm"
+
+    props: PropsDictType = {
+        "AutoEvaluationConfiguration": (AutoEvaluationConfiguration, False),
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Items": ([EvaluationFormBaseItem], True),
+        "ScoringStrategy": (ScoringStrategy, False),
+        "Status": (str, True),
+        "Tags": (Tags, False),
+        "Title": (str, True),
+    }
+
+
 class HoursOfOperationTimeSlice(AWSProperty):
     """
     `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
@@ -1048,16 +1367,6 @@ class ViewVersion(AWSObject):
         "VersionDescription": (str, False),
         "ViewArn": (str, True),
         "ViewContentSha256": (str, False),
-    }
-
-
-class AutoEvaluationConfiguration(AWSProperty):
-    """
-    `AutoEvaluationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, False),
     }
 
 

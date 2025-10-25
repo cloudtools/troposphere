@@ -140,6 +140,7 @@ class OntapConfiguration(AWSProperty):
         "DeploymentType": (str, True),
         "DiskIopsConfiguration": (DiskIopsConfiguration, False),
         "EndpointIpAddressRange": (str, False),
+        "EndpointIpv6AddressRange": (str, False),
         "FsxAdminPassword": (str, False),
         "HAPairs": (integer, False),
         "PreferredSubnetId": (str, False),

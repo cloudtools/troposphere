@@ -7,7 +7,82 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, double, integer
+
+
+class IgnoreNearExpected(AWSProperty):
+    """
+    `IgnoreNearExpected <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-ignorenearexpected.html>`__
+    """
+
+    props: PropsDictType = {
+        "Amount": (double, False),
+        "Ratio": (double, False),
+    }
+
+
+class RandomCutForestConfiguration(AWSProperty):
+    """
+    `RandomCutForestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-randomcutforestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IgnoreNearExpectedFromAbove": (IgnoreNearExpected, False),
+        "IgnoreNearExpectedFromBelow": (IgnoreNearExpected, False),
+        "Query": (str, True),
+        "SampleSize": (integer, False),
+        "ShingleSize": (integer, False),
+    }
+
+
+class AnomalyDetectorConfiguration(AWSProperty):
+    """
+    `AnomalyDetectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-anomalydetectorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RandomCutForest": (RandomCutForestConfiguration, True),
+    }
+
+
+class Label(AWSProperty):
+    """
+    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-label.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class MissingDataAction(AWSProperty):
+    """
+    `MissingDataAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-anomalydetector-missingdataaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "MarkAsAnomaly": (boolean, False),
+        "Skip": (boolean, False),
+    }
+
+
+class AnomalyDetector(AWSObject):
+    """
+    `AnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-anomalydetector.html>`__
+    """
+
+    resource_type = "AWS::APS::AnomalyDetector"
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "Configuration": (AnomalyDetectorConfiguration, True),
+        "EvaluationIntervalInSeconds": (integer, False),
+        "Labels": ([Label], False),
+        "MissingDataAction": (MissingDataAction, False),
+        "Tags": (Tags, False),
+        "Workspace": (str, True),
+    }
 
 
 class ResourcePolicy(AWSObject):
@@ -209,17 +284,6 @@ class QueryLoggingConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Destinations": ([LoggingDestination], True),
-    }
-
-
-class Label(AWSProperty):
-    """
-    `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-label.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": (str, True),
     }
 
 

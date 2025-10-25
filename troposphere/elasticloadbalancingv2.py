@@ -223,6 +223,7 @@ class HostHeaderConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "RegexValues": ([str], False),
         "Values": ([str], False),
     }
 
@@ -234,6 +235,7 @@ class HttpHeaderConfig(AWSProperty):
 
     props: PropsDictType = {
         "HttpHeaderName": (str, False),
+        "RegexValues": ([str], False),
         "Values": ([str], False),
     }
 
@@ -254,6 +256,7 @@ class PathPatternConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "RegexValues": ([str], False),
         "Values": ([str], False),
     }
 
@@ -301,6 +304,7 @@ class Condition(AWSProperty):
         "HttpRequestMethodConfig": (HttpRequestMethodConfig, False),
         "PathPatternConfig": (PathPatternConfig, False),
         "QueryStringConfig": (QueryStringConfig, False),
+        "RegexValues": ([str], False),
         "SourceIpConfig": (SourceIpConfig, False),
         "Values": ([str], False),
     }
@@ -344,6 +348,39 @@ class ListenerRuleAction(AWSProperty):
     }
 
 
+class RewriteConfig(AWSProperty):
+    """
+    `RewriteConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rewriteconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Regex": (str, True),
+        "Replace": (str, True),
+    }
+
+
+class RewriteConfigObject(AWSProperty):
+    """
+    `RewriteConfigObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rewriteconfigobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "Rewrites": ([RewriteConfig], True),
+    }
+
+
+class Transform(AWSProperty):
+    """
+    `Transform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-transform.html>`__
+    """
+
+    props: PropsDictType = {
+        "HostHeaderRewriteConfig": (RewriteConfigObject, False),
+        "Type": (str, True),
+        "UrlRewriteConfig": (RewriteConfigObject, False),
+    }
+
+
 class ListenerRule(AWSObject):
     """
     `ListenerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html>`__
@@ -356,6 +393,7 @@ class ListenerRule(AWSObject):
         "Conditions": ([Condition], True),
         "ListenerArn": (str, False),
         "Priority": (integer, True),
+        "Transforms": ([Transform], False),
     }
 
 

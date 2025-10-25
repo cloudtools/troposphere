@@ -294,18 +294,6 @@ class EventBus(AWSObject):
     }
 
 
-class Condition(AWSProperty):
-    """
-    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, False),
-        "Type": (str, False),
-        "Value": (str, False),
-    }
-
-
 class EventBusPolicy(AWSObject):
     """
     `EventBusPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html>`__
@@ -314,10 +302,7 @@ class EventBusPolicy(AWSObject):
     resource_type = "AWS::Events::EventBusPolicy"
 
     props: PropsDictType = {
-        "Action": (str, False),
-        "Condition": (Condition, False),
         "EventBusName": (str, False),
-        "Principal": (str, False),
         "Statement": (dict, False),
         "StatementId": (str, True),
     }

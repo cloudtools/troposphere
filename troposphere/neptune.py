@@ -101,6 +101,7 @@ class DBInstance(AWSObject):
         "DBParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
         "PreferredMaintenanceWindow": (str, False),
+        "PubliclyAccessible": (boolean, False),
         "Tags": (Tags, False),
     }
 
