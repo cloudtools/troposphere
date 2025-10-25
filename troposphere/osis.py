@@ -51,6 +51,16 @@ class LogPublishingOptions(AWSProperty):
     }
 
 
+class ResourcePolicy(AWSProperty):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-resourcepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Policy": (dict, True),
+    }
+
+
 class VpcAttachmentOptions(AWSProperty):
     """
     `VpcAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html>`__
@@ -90,6 +100,8 @@ class Pipeline(AWSObject):
         "MinUnits": (integer, True),
         "PipelineConfigurationBody": (str, True),
         "PipelineName": (str, True),
+        "PipelineRoleArn": (str, False),
+        "ResourcePolicy": (ResourcePolicy, False),
         "Tags": (Tags, False),
         "VpcOptions": (VpcOptions, False),
     }

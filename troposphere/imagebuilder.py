@@ -281,6 +281,17 @@ class ImageLoggingConfiguration(AWSProperty):
     }
 
 
+class ImagePipelineExecutionSettings(AWSProperty):
+    """
+    `ImagePipelineExecutionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagepipelineexecutionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeploymentId": (str, False),
+        "OnUpdate": (boolean, False),
+    }
+
+
 class EcrConfiguration(AWSProperty):
     """
     `EcrConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-ecrconfiguration.html>`__
@@ -350,6 +361,7 @@ class Image(AWSObject):
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
         "ExecutionRole": (str, False),
+        "ImagePipelineExecutionSettings": (ImagePipelineExecutionSettings, False),
         "ImageRecipeArn": (str, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),

@@ -367,6 +367,17 @@ class Orchestrator(AWSProperty):
     }
 
 
+class TieredStorageConfig(AWSProperty):
+    """
+    `TieredStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-tieredstorageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceMemoryAllocationPercentage": (integer, False),
+        "Mode": (str, True),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html>`__
@@ -384,6 +395,7 @@ class Cluster(AWSObject):
         "Orchestrator": (Orchestrator, False),
         "RestrictedInstanceGroups": ([ClusterRestrictedInstanceGroup], False),
         "Tags": (Tags, False),
+        "TieredStorageConfig": (TieredStorageConfig, False),
         "VpcConfig": (VpcConfig, False),
     }
 
