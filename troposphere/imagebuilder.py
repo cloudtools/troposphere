@@ -271,6 +271,16 @@ class DistributionConfiguration(AWSObject):
     }
 
 
+class DeletionSettings(AWSProperty):
+    """
+    `DeletionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-deletionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionRole": (str, True),
+    }
+
+
 class ImageLoggingConfiguration(AWSProperty):
     """
     `ImageLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imageloggingconfiguration.html>`__
@@ -358,6 +368,7 @@ class Image(AWSObject):
 
     props: PropsDictType = {
         "ContainerRecipeArn": (str, False),
+        "DeletionSettings": (DeletionSettings, False),
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
         "ExecutionRole": (str, False),

@@ -391,6 +391,17 @@ class PrimaryTaskSet(AWSObject):
     }
 
 
+class CanaryConfiguration(AWSProperty):
+    """
+    `CanaryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-canaryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CanaryBakeTimeInMinutes": (integer, False),
+        "CanaryPercent": (double, False),
+    }
+
+
 class DeploymentAlarms(AWSProperty):
     """
     `DeploymentAlarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html>`__
@@ -427,6 +438,17 @@ class DeploymentLifecycleHook(AWSProperty):
     }
 
 
+class LinearConfiguration(AWSProperty):
+    """
+    `LinearConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-linearconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "StepBakeTimeInMinutes": (integer, False),
+        "StepPercent": (double, False),
+    }
+
+
 class DeploymentConfiguration(AWSProperty):
     """
     `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html>`__
@@ -435,10 +457,10 @@ class DeploymentConfiguration(AWSProperty):
     props: PropsDictType = {
         "Alarms": (DeploymentAlarms, False),
         "BakeTimeInMinutes": (integer, False),
-        "CanaryConfiguration": (dict, False),
+        "CanaryConfiguration": (CanaryConfiguration, False),
         "DeploymentCircuitBreaker": (DeploymentCircuitBreaker, False),
         "LifecycleHooks": ([DeploymentLifecycleHook], False),
-        "LinearConfiguration": (dict, False),
+        "LinearConfiguration": (LinearConfiguration, False),
         "MaximumPercent": (integer, False),
         "MinimumHealthyPercent": (integer, False),
         "Strategy": (str, False),
@@ -560,6 +582,17 @@ class LogConfiguration(AWSProperty):
     }
 
 
+class ServiceConnectAccessLogConfiguration(AWSProperty):
+    """
+    `ServiceConnectAccessLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectaccesslogconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Format": (str, True),
+        "IncludeQueryParameters": (str, False),
+    }
+
+
 class ServiceConnectTestTrafficRulesHeaderValue(AWSProperty):
     """
     `ServiceConnectTestTrafficRulesHeaderValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheadervalue.html>`__
@@ -657,6 +690,7 @@ class ServiceConnectConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AccessLogConfiguration": (ServiceConnectAccessLogConfiguration, False),
         "Enabled": (boolean, True),
         "LogConfiguration": (LogConfiguration, False),
         "Namespace": (str, False),

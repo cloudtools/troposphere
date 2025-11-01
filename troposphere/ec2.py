@@ -38,6 +38,22 @@ from .validators.ec2 import (
 )
 
 
+class CapacityManagerDataExport(AWSObject):
+    """
+    `CapacityManagerDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacitymanagerdataexport.html>`__
+    """
+
+    resource_type = "AWS::EC2::CapacityManagerDataExport"
+
+    props: PropsDictType = {
+        "OutputFormat": (str, True),
+        "S3BucketName": (str, True),
+        "S3BucketPrefix": (str, False),
+        "Schedule": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class TagSpecifications(AWSProperty):
     """
     `TagSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html>`__

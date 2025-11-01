@@ -90,6 +90,16 @@ class ContactFlowVersion(AWSObject):
     }
 
 
+class AliasConfiguration(AWSProperty):
+    """
+    `AliasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-emailaddress-aliasconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailAddressArn": (str, True),
+    }
+
+
 class EmailAddress(AWSObject):
     """
     `EmailAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html>`__
@@ -98,6 +108,7 @@ class EmailAddress(AWSObject):
     resource_type = "AWS::Connect::EmailAddress"
 
     props: PropsDictType = {
+        "AliasConfigurations": ([AliasConfiguration], False),
         "Description": (str, False),
         "DisplayName": (str, False),
         "EmailAddress": (str, True),

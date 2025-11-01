@@ -479,6 +479,7 @@ class VpcOriginConfig(AWSProperty):
     props: PropsDictType = {
         "OriginKeepaliveTimeout": (integer, False),
         "OriginReadTimeout": (integer, False),
+        "OwnerAccountId": (str, False),
         "VpcOriginId": (str, True),
     }
 
