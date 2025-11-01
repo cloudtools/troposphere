@@ -179,6 +179,7 @@ class FirewallPolicyProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EnableTLSSessionHolding": (boolean, False),
         "PolicyVariables": (PolicyVariables, False),
         "StatefulDefaultActions": ([str], False),
         "StatefulEngineOptions": (StatefulEngineOptions, False),

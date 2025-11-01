@@ -741,6 +741,16 @@ class NodeProperties(AWSProperty):
     }
 
 
+class ResourceRetentionPolicy(AWSProperty):
+    """
+    `ResourceRetentionPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourceretentionpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "SkipDeregisterOnUpdate": (boolean, False),
+    }
+
+
 class EvaluateOnExit(AWSProperty):
     """
     `EvaluateOnExit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html>`__
@@ -792,6 +802,7 @@ class JobDefinition(AWSObject):
         "Parameters": (dict, False),
         "PlatformCapabilities": ([str], False),
         "PropagateTags": (boolean, False),
+        "ResourceRetentionPolicy": (ResourceRetentionPolicy, False),
         "RetryStrategy": (RetryStrategy, False),
         "SchedulingPriority": (integer, False),
         "Tags": (dict, False),

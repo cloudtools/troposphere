@@ -110,6 +110,28 @@ class PredictiveConfig(AWSProperty):
     }
 
 
+class TimeoutConfig(AWSProperty):
+    """
+    `TimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timeoutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class PreviewConfig(AWSProperty):
+    """
+    `PreviewConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-previewconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentActions": ([str], False),
+        "BandwidthAllocation": (double, True),
+        "TimeoutConfig": (TimeoutConfig, True),
+    }
+
+
 class ProgressiveConfig(AWSProperty):
     """
     `ProgressiveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html>`__
@@ -128,6 +150,7 @@ class TelephonyOutboundMode(AWSProperty):
     props: PropsDictType = {
         "AgentlessConfig": (dict, False),
         "PredictiveConfig": (PredictiveConfig, False),
+        "PreviewConfig": (PreviewConfig, False),
         "ProgressiveConfig": (ProgressiveConfig, False),
     }
 

@@ -242,6 +242,17 @@ class RedshiftPropertiesInput(AWSProperty):
     }
 
 
+class S3PropertiesInput(AWSProperty):
+    """
+    `S3PropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-s3propertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3AccessGrantLocationId": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
 class SparkEmrPropertiesInput(AWSProperty):
     """
     `SparkEmrPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html>`__
@@ -296,6 +307,7 @@ class ConnectionPropertiesInput(AWSProperty):
         "HyperPodProperties": (HyperPodPropertiesInput, False),
         "IamProperties": (IamPropertiesInput, False),
         "RedshiftProperties": (RedshiftPropertiesInput, False),
+        "S3Properties": (S3PropertiesInput, False),
         "SparkEmrProperties": (SparkEmrPropertiesInput, False),
         "SparkGlueProperties": (SparkGluePropertiesInput, False),
     }
@@ -312,8 +324,10 @@ class Connection(AWSObject):
         "AwsLocation": (AwsLocation, False),
         "Description": (str, False),
         "DomainIdentifier": (str, True),
-        "EnvironmentIdentifier": (str, True),
+        "EnableTrustedIdentityPropagation": (boolean, False),
+        "EnvironmentIdentifier": (str, False),
         "Name": (str, True),
+        "ProjectIdentifier": (str, False),
         "Props": (ConnectionPropertiesInput, False),
     }
 

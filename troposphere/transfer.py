@@ -85,6 +85,27 @@ class As2Config(AWSProperty):
     }
 
 
+class ConnectorVpcLatticeEgressConfig(AWSProperty):
+    """
+    `ConnectorVpcLatticeEgressConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectorvpclatticeegressconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "PortNumber": (integer, False),
+        "ResourceConfigurationArn": (str, True),
+    }
+
+
+class ConnectorEgressConfig(AWSProperty):
+    """
+    `ConnectorEgressConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectoregressconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcLattice": (ConnectorVpcLatticeEgressConfig, True),
+    }
+
+
 class SftpConfig(AWSProperty):
     """
     `SftpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html>`__
@@ -107,11 +128,13 @@ class Connector(AWSObject):
     props: PropsDictType = {
         "AccessRole": (str, True),
         "As2Config": (As2Config, False),
+        "EgressConfig": (ConnectorEgressConfig, False),
+        "EgressType": (str, False),
         "LoggingRole": (str, False),
         "SecurityPolicyName": (str, False),
         "SftpConfig": (SftpConfig, False),
         "Tags": (Tags, False),
-        "Url": (str, True),
+        "Url": (str, False),
     }
 
 
