@@ -494,7 +494,7 @@ class CodeGenerator:
             # Output imports for commonly used validators
             if self._walk_for_type("Boolean"):
                 code.append("from .validators import boolean")
-            if self._walk_for_type("Integer"):
+            if self._walk_for_type("Integer") or self._walk_for_type("Long"):
                 code.append("from .validators import integer")
             if self._walk_for_type("Double"):
                 code.append("from .validators import double")
