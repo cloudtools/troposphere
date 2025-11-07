@@ -10,6 +10,27 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
+class AndroidApp(AWSProperty):
+    """
+    `AndroidApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-androidapp.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateFingerprint": (str, True),
+        "Package": (str, True),
+    }
+
+
+class AppleApp(AWSProperty):
+    """
+    `AppleApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-appleapp.html>`__
+    """
+
+    props: PropsDictType = {
+        "BundleId": (str, True),
+    }
+
+
 class ApiKeyRestrictions(AWSProperty):
     """
     `ApiKeyRestrictions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html>`__
@@ -17,6 +38,8 @@ class ApiKeyRestrictions(AWSProperty):
 
     props: PropsDictType = {
         "AllowActions": ([str], True),
+        "AllowAndroidApps": ([AndroidApp], False),
+        "AllowAppleApps": ([AppleApp], False),
         "AllowReferers": ([str], False),
         "AllowResources": ([str], True),
     }

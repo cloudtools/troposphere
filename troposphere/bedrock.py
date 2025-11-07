@@ -376,6 +376,8 @@ class AutomatedReasoningPolicy(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "ForceDelete": (boolean, False),
+        "KmsKeyId": (str, False),
         "Name": (str, True),
         "PolicyDefinition": (PolicyDefinition, False),
         "Tags": (Tags, False),

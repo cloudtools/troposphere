@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 
 
 class FreeFormLayoutScreenCanvasSizeOptions(AWSProperty):
@@ -7236,6 +7236,599 @@ class ColumnLevelPermissionRule(AWSProperty):
     }
 
 
+class DestinationTableSource(AWSProperty):
+    """
+    `DestinationTableSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-destinationtablesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "TransformOperationId": (str, True),
+    }
+
+
+class DestinationTable(AWSProperty):
+    """
+    `DestinationTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-destinationtable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "Source": (DestinationTableSource, True),
+    }
+
+
+class InputColumn(AWSProperty):
+    """
+    `InputColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
+        "Name": (str, True),
+        "SubType": (str, False),
+        "Type": (str, True),
+    }
+
+
+class ParentDataSet(AWSProperty):
+    """
+    `ParentDataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-parentdataset.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSetArn": (str, True),
+        "InputColumns": ([InputColumn], True),
+    }
+
+
+class SourceTable(AWSProperty):
+    """
+    `SourceTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sourcetable.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSet": (ParentDataSet, False),
+        "PhysicalTableId": (str, False),
+    }
+
+
+class DataPrepListAggregationFunction(AWSProperty):
+    """
+    `DataPrepListAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datapreplistaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Distinct": (boolean, True),
+        "InputColumnName": (str, False),
+        "Separator": (str, True),
+    }
+
+
+class DataPrepPercentileAggregationFunction(AWSProperty):
+    """
+    `DataPrepPercentileAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datapreppercentileaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputColumnName": (str, False),
+        "PercentileValue": (double, True),
+    }
+
+
+class DataPrepSimpleAggregationFunction(AWSProperty):
+    """
+    `DataPrepSimpleAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepsimpleaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionType": (str, True),
+        "InputColumnName": (str, False),
+    }
+
+
+class DataPrepAggregationFunction(AWSProperty):
+    """
+    `DataPrepAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ListAggregation": (DataPrepListAggregationFunction, False),
+        "PercentileAggregation": (DataPrepPercentileAggregationFunction, False),
+        "SimpleAggregation": (DataPrepSimpleAggregationFunction, False),
+    }
+
+
+class Aggregation(AWSProperty):
+    """
+    `Aggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-aggregation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregationFunction": (DataPrepAggregationFunction, True),
+        "NewColumnId": (str, True),
+        "NewColumnName": (str, True),
+    }
+
+
+class DataSetColumnIdMapping(AWSProperty):
+    """
+    `DataSetColumnIdMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetcolumnidmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceColumnId": (str, True),
+        "TargetColumnId": (str, True),
+    }
+
+
+class TransformOperationSource(AWSProperty):
+    """
+    `TransformOperationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperationsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnIdMappings": ([DataSetColumnIdMapping], False),
+        "TransformOperationId": (str, True),
+    }
+
+
+class AggregateOperation(AWSProperty):
+    """
+    `AggregateOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-aggregateoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregations": ([Aggregation], True),
+        "Alias": (str, True),
+        "GroupByColumnNames": ([str], False),
+        "Source": (TransformOperationSource, True),
+    }
+
+
+class AppendedColumn(AWSProperty):
+    """
+    `AppendedColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-appendedcolumn.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "NewColumnId": (str, True),
+    }
+
+
+class AppendOperation(AWSProperty):
+    """
+    `AppendOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-appendoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "AppendedColumns": ([AppendedColumn], True),
+        "FirstSource": (TransformOperationSource, False),
+        "SecondSource": (TransformOperationSource, False),
+    }
+
+
+class CastColumnTypeOperation(AWSProperty):
+    """
+    `CastColumnTypeOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "Format": (str, False),
+        "NewColumnType": (str, True),
+        "SubType": (str, False),
+    }
+
+
+class CastColumnTypesOperation(AWSProperty):
+    """
+    `CastColumnTypesOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypesoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "CastColumnTypeOperations": ([CastColumnTypeOperation], True),
+        "Source": (TransformOperationSource, True),
+    }
+
+
+class CalculatedColumn(AWSProperty):
+    """
+    `CalculatedColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnId": (str, True),
+        "ColumnName": (str, True),
+        "Expression": (str, True),
+    }
+
+
+class CreateColumnsOperation(AWSProperty):
+    """
+    `CreateColumnsOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, False),
+        "Columns": ([CalculatedColumn], True),
+        "Source": (TransformOperationSource, False),
+    }
+
+
+class DataSetDateFilterValue(AWSProperty):
+    """
+    `DataSetDateFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatefiltervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValue": (str, False),
+    }
+
+
+class DataSetDateComparisonFilterCondition(AWSProperty):
+    """
+    `DataSetDateComparisonFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatecomparisonfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Value": (DataSetDateFilterValue, False),
+    }
+
+
+class DataSetDateRangeFilterCondition(AWSProperty):
+    """
+    `DataSetDateRangeFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdaterangefiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeMaximum": (boolean, False),
+        "IncludeMinimum": (boolean, False),
+        "RangeMaximum": (DataSetDateFilterValue, False),
+        "RangeMinimum": (DataSetDateFilterValue, False),
+    }
+
+
+class DataSetDateFilterCondition(AWSProperty):
+    """
+    `DataSetDateFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatefiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, False),
+        "ComparisonFilterCondition": (DataSetDateComparisonFilterCondition, False),
+        "RangeFilterCondition": (DataSetDateRangeFilterCondition, False),
+    }
+
+
+class DataSetNumericFilterValue(AWSProperty):
+    """
+    `DataSetNumericFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericfiltervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValue": (double, False),
+    }
+
+
+class DataSetNumericComparisonFilterCondition(AWSProperty):
+    """
+    `DataSetNumericComparisonFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericcomparisonfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Value": (DataSetNumericFilterValue, False),
+    }
+
+
+class DataSetNumericRangeFilterCondition(AWSProperty):
+    """
+    `DataSetNumericRangeFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericrangefiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeMaximum": (boolean, False),
+        "IncludeMinimum": (boolean, False),
+        "RangeMaximum": (DataSetNumericFilterValue, False),
+        "RangeMinimum": (DataSetNumericFilterValue, False),
+    }
+
+
+class DataSetNumericFilterCondition(AWSProperty):
+    """
+    `DataSetNumericFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, False),
+        "ComparisonFilterCondition": (DataSetNumericComparisonFilterCondition, False),
+        "RangeFilterCondition": (DataSetNumericRangeFilterCondition, False),
+    }
+
+
+class DataSetStringFilterValue(AWSProperty):
+    """
+    `DataSetStringFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringfiltervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValue": (str, False),
+    }
+
+
+class DataSetStringComparisonFilterCondition(AWSProperty):
+    """
+    `DataSetStringComparisonFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringcomparisonfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Value": (DataSetStringFilterValue, False),
+    }
+
+
+class DataSetStringListFilterValue(AWSProperty):
+    """
+    `DataSetStringListFilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringlistfiltervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValues": ([str], False),
+    }
+
+
+class DataSetStringListFilterCondition(AWSProperty):
+    """
+    `DataSetStringListFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringlistfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Values": (DataSetStringListFilterValue, False),
+    }
+
+
+class DataSetStringFilterCondition(AWSProperty):
+    """
+    `DataSetStringFilterCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringfiltercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, False),
+        "ComparisonFilterCondition": (DataSetStringComparisonFilterCondition, False),
+        "ListFilterCondition": (DataSetStringListFilterCondition, False),
+    }
+
+
+class FilterOperation(AWSProperty):
+    """
+    `FilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionExpression": (str, False),
+        "DateFilterCondition": (DataSetDateFilterCondition, False),
+        "NumericFilterCondition": (DataSetNumericFilterCondition, False),
+        "StringFilterCondition": (DataSetStringFilterCondition, False),
+    }
+
+
+class FiltersOperation(AWSProperty):
+    """
+    `FiltersOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filtersoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "FilterOperations": ([FilterOperation], True),
+        "Source": (TransformOperationSource, True),
+    }
+
+
+class ImportTableOperationSource(AWSProperty):
+    """
+    `ImportTableOperationSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-importtableoperationsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnIdMappings": ([DataSetColumnIdMapping], False),
+        "SourceTableId": (str, True),
+    }
+
+
+class ImportTableOperation(AWSProperty):
+    """
+    `ImportTableOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-importtableoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "Source": (ImportTableOperationSource, True),
+    }
+
+
+class OutputColumnNameOverride(AWSProperty):
+    """
+    `OutputColumnNameOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumnnameoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutputColumnName": (str, True),
+        "SourceColumnName": (str, False),
+    }
+
+
+class JoinOperandProperties(AWSProperty):
+    """
+    `JoinOperandProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinoperandproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutputColumnNameOverrides": ([OutputColumnNameOverride], True),
+    }
+
+
+class JoinOperation(AWSProperty):
+    """
+    `JoinOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "LeftOperand": (TransformOperationSource, True),
+        "LeftOperandProperties": (JoinOperandProperties, False),
+        "OnClause": (str, True),
+        "RightOperand": (TransformOperationSource, True),
+        "RightOperandProperties": (JoinOperandProperties, False),
+        "Type": (str, True),
+    }
+
+
+class PivotedLabel(AWSProperty):
+    """
+    `PivotedLabel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotedlabel.html>`__
+    """
+
+    props: PropsDictType = {
+        "LabelName": (str, True),
+        "NewColumnId": (str, True),
+        "NewColumnName": (str, True),
+    }
+
+
+class PivotConfiguration(AWSProperty):
+    """
+    `PivotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LabelColumnName": (str, False),
+        "PivotedLabels": ([PivotedLabel], True),
+    }
+
+
+class ValueColumnConfiguration(AWSProperty):
+    """
+    `ValueColumnConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-valuecolumnconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregationFunction": (DataPrepAggregationFunction, False),
+    }
+
+
+class PivotOperation(AWSProperty):
+    """
+    `PivotOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "GroupByColumnNames": ([str], False),
+        "PivotConfiguration": (PivotConfiguration, True),
+        "Source": (TransformOperationSource, True),
+        "ValueColumnConfiguration": (ValueColumnConfiguration, True),
+    }
+
+
+class ProjectOperation(AWSProperty):
+    """
+    `ProjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, False),
+        "ProjectedColumns": ([str], False),
+        "Source": (TransformOperationSource, False),
+    }
+
+
+class RenameColumnOperation(AWSProperty):
+    """
+    `RenameColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "NewColumnName": (str, True),
+    }
+
+
+class RenameColumnsOperation(AWSProperty):
+    """
+    `RenameColumnsOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnsoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "RenameColumnOperations": ([RenameColumnOperation], True),
+        "Source": (TransformOperationSource, True),
+    }
+
+
+class ColumnToUnpivot(AWSProperty):
+    """
+    `ColumnToUnpivot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntounpivot.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, False),
+        "NewValue": (str, False),
+    }
+
+
+class UnpivotOperation(AWSProperty):
+    """
+    `UnpivotOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-unpivotoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "ColumnsToUnpivot": ([ColumnToUnpivot], True),
+        "Source": (TransformOperationSource, True),
+        "UnpivotedLabelColumnId": (str, True),
+        "UnpivotedLabelColumnName": (str, True),
+        "UnpivotedValueColumnId": (str, True),
+        "UnpivotedValueColumnName": (str, True),
+    }
+
+
+class TransformStep(AWSProperty):
+    """
+    `TransformStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformstep.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregateStep": (AggregateOperation, False),
+        "AppendStep": (AppendOperation, False),
+        "CastColumnTypesStep": (CastColumnTypesOperation, False),
+        "CreateColumnsStep": (CreateColumnsOperation, False),
+        "FiltersStep": (FiltersOperation, False),
+        "ImportTableStep": (ImportTableOperation, False),
+        "JoinStep": (JoinOperation, False),
+        "PivotStep": (PivotOperation, False),
+        "ProjectStep": (ProjectOperation, False),
+        "RenameColumnsStep": (RenameColumnsOperation, False),
+        "UnpivotStep": (UnpivotOperation, False),
+    }
+
+
+class DataPrepConfiguration(AWSProperty):
+    """
+    `DataPrepConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationTableMap": (dict, True),
+        "SourceTableMap": (dict, True),
+        "TransformStepMap": (dict, True),
+    }
+
+
 class LookbackWindow(AWSProperty):
     """
     `LookbackWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html>`__
@@ -7363,7 +7956,7 @@ class IntegerDatasetParameterDefaultValues(AWSProperty):
     """
 
     props: PropsDictType = {
-        "StaticValues": ([double], False),
+        "StaticValues": ([integer], False),
     }
 
 
@@ -7438,213 +8031,13 @@ class IngestionWaitPolicy(AWSProperty):
     }
 
 
-class JoinKeyProperties(AWSProperty):
-    """
-    `JoinKeyProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html>`__
-    """
-
-    props: PropsDictType = {
-        "UniqueKey": (boolean, False),
-    }
-
-
-class JoinInstruction(AWSProperty):
-    """
-    `JoinInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html>`__
-    """
-
-    props: PropsDictType = {
-        "LeftJoinKeyProperties": (JoinKeyProperties, False),
-        "LeftOperand": (str, True),
-        "OnClause": (str, True),
-        "RightJoinKeyProperties": (JoinKeyProperties, False),
-        "RightOperand": (str, True),
-        "Type": (str, True),
-    }
-
-
-class LogicalTableSource(AWSProperty):
-    """
-    `LogicalTableSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html>`__
-    """
-
-    props: PropsDictType = {
-        "DataSetArn": (str, False),
-        "JoinInstruction": (JoinInstruction, False),
-        "PhysicalTableId": (str, False),
-    }
-
-
-class CastColumnTypeOperation(AWSProperty):
-    """
-    `CastColumnTypeOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnName": (str, False),
-        "Format": (str, False),
-        "NewColumnType": (str, True),
-        "SubType": (str, False),
-    }
-
-
-class CalculatedColumn(AWSProperty):
-    """
-    `CalculatedColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnId": (str, True),
-        "ColumnName": (str, True),
-        "Expression": (str, True),
-    }
-
-
-class CreateColumnsOperation(AWSProperty):
-    """
-    `CreateColumnsOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "Columns": ([CalculatedColumn], False),
-    }
-
-
-class FilterOperation(AWSProperty):
-    """
-    `FilterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ConditionExpression": (str, False),
-    }
-
-
-class NewDefaultValues(AWSProperty):
-    """
-    `NewDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html>`__
-    """
-
-    props: PropsDictType = {
-        "DateTimeStaticValues": ([str], False),
-        "DecimalStaticValues": ([double], False),
-        "IntegerStaticValues": ([double], False),
-        "StringStaticValues": ([str], False),
-    }
-
-
-class OverrideDatasetParameterOperation(AWSProperty):
-    """
-    `OverrideDatasetParameterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "NewDefaultValues": (NewDefaultValues, False),
-        "NewParameterName": (str, False),
-        "ParameterName": (str, True),
-    }
-
-
-class ProjectOperation(AWSProperty):
-    """
-    `ProjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ProjectedColumns": ([str], False),
-    }
-
-
-class RenameColumnOperation(AWSProperty):
-    """
-    `RenameColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnName": (str, False),
-        "NewColumnName": (str, False),
-    }
-
-
-class ColumnDescription(AWSProperty):
-    """
-    `ColumnDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html>`__
-    """
-
-    props: PropsDictType = {
-        "Text": (str, False),
-    }
-
-
-class ColumnTag(AWSProperty):
-    """
-    `ColumnTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnDescription": (ColumnDescription, False),
-        "ColumnGeographicRole": (str, False),
-    }
-
-
-class TagColumnOperation(AWSProperty):
-    """
-    `TagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnName": (str, True),
-        "Tags": ([ColumnTag], True),
-    }
-
-
-class UntagColumnOperation(AWSProperty):
-    """
-    `UntagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ColumnName": (str, True),
-        "TagNames": ([str], True),
-    }
-
-
-class TransformOperation(AWSProperty):
-    """
-    `TransformOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "CastColumnTypeOperation": (CastColumnTypeOperation, False),
-        "CreateColumnsOperation": (CreateColumnsOperation, False),
-        "FilterOperation": (FilterOperation, False),
-        "OverrideDatasetParameterOperation": (OverrideDatasetParameterOperation, False),
-        "ProjectOperation": (ProjectOperation, False),
-        "RenameColumnOperation": (RenameColumnOperation, False),
-        "TagColumnOperation": (TagColumnOperation, False),
-        "UntagColumnOperation": (UntagColumnOperation, False),
-    }
-
-
-class LogicalTable(AWSProperty):
-    """
-    `LogicalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html>`__
-    """
-
-    props: PropsDictType = {
-        "Alias": (str, True),
-        "DataTransforms": ([TransformOperation], False),
-        "Source": (LogicalTableSource, False),
-    }
-
-
 class UniqueKey(AWSProperty):
     """
     `UniqueKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html>`__
     """
 
     props: PropsDictType = {
-        "ColumnNames": ([str], False),
+        "ColumnNames": ([str], True),
     }
 
 
@@ -7658,25 +8051,13 @@ class PerformanceConfiguration(AWSProperty):
     }
 
 
-class InputColumn(AWSProperty):
-    """
-    `InputColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "SubType": (str, False),
-        "Type": (str, True),
-    }
-
-
 class CustomSql(AWSProperty):
     """
     `CustomSql <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html>`__
     """
 
     props: PropsDictType = {
-        "Columns": ([InputColumn], False),
+        "Columns": ([InputColumn], True),
         "DataSourceArn": (str, True),
         "Name": (str, True),
         "SqlQuery": (str, True),
@@ -7691,7 +8072,7 @@ class RelationalTable(AWSProperty):
     props: PropsDictType = {
         "Catalog": (str, False),
         "DataSourceArn": (str, True),
-        "InputColumns": ([InputColumn], False),
+        "InputColumns": ([InputColumn], True),
         "Name": (str, True),
         "Schema": (str, False),
     }
@@ -7718,8 +8099,31 @@ class S3Source(AWSProperty):
 
     props: PropsDictType = {
         "DataSourceArn": (str, True),
-        "InputColumns": ([InputColumn], False),
+        "InputColumns": ([InputColumn], True),
         "UploadSettings": (UploadSettings, False),
+    }
+
+
+class TablePathElement(AWSProperty):
+    """
+    `TablePathElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tablepathelement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
+        "Name": (str, False),
+    }
+
+
+class SaaSTable(AWSProperty):
+    """
+    `SaaSTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-saastable.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSourceArn": (str, True),
+        "InputColumns": ([InputColumn], True),
+        "TablePath": ([TablePathElement], True),
     }
 
 
@@ -7732,6 +8136,7 @@ class PhysicalTable(AWSProperty):
         "CustomSql": (CustomSql, False),
         "RelationalTable": (RelationalTable, False),
         "S3Source": (S3Source, False),
+        "SaaSTable": (SaaSTable, False),
     }
 
 
@@ -7755,7 +8160,7 @@ class RowLevelPermissionTagRule(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnName": (str, False),
+        "ColumnName": (str, True),
         "MatchAllValue": (str, False),
         "TagKey": (str, True),
         "TagMultiValueDelimiter": (str, False),
@@ -7774,6 +8179,39 @@ class RowLevelPermissionTagConfiguration(AWSProperty):
     }
 
 
+class RowLevelPermissionConfiguration(AWSProperty):
+    """
+    `RowLevelPermissionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RowLevelPermissionDataSet": (RowLevelPermissionDataSet, False),
+        "TagConfiguration": (RowLevelPermissionTagConfiguration, False),
+    }
+
+
+class SemanticTable(AWSProperty):
+    """
+    `SemanticTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "DestinationTableId": (str, True),
+        "RowLevelPermissionConfiguration": (RowLevelPermissionConfiguration, False),
+    }
+
+
+class SemanticModelConfiguration(AWSProperty):
+    """
+    `SemanticModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TableMap": (dict, False),
+    }
+
+
 class DataSet(AWSObject):
     """
     `DataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html>`__
@@ -7785,6 +8223,7 @@ class DataSet(AWSObject):
         "AwsAccountId": (str, False),
         "ColumnGroups": ([ColumnGroup], False),
         "ColumnLevelPermissionRules": ([ColumnLevelPermissionRule], False),
+        "DataPrepConfiguration": (DataPrepConfiguration, False),
         "DataSetId": (str, False),
         "DataSetRefreshProperties": (DataSetRefreshProperties, False),
         "DataSetUsageConfiguration": (DataSetUsageConfiguration, False),
@@ -7793,16 +8232,11 @@ class DataSet(AWSObject):
         "FolderArns": ([str], False),
         "ImportMode": (str, False),
         "IngestionWaitPolicy": (IngestionWaitPolicy, False),
-        "LogicalTableMap": (dict, False),
         "Name": (str, False),
         "PerformanceConfiguration": (PerformanceConfiguration, False),
         "Permissions": ([ResourcePermission], False),
         "PhysicalTableMap": (dict, False),
-        "RowLevelPermissionDataSet": (RowLevelPermissionDataSet, False),
-        "RowLevelPermissionTagConfiguration": (
-            RowLevelPermissionTagConfiguration,
-            False,
-        ),
+        "SemanticModelConfiguration": (SemanticModelConfiguration, False),
         "Tags": (Tags, False),
         "UseAs": (str, False),
     }

@@ -950,6 +950,40 @@ class MailManagerTrafficPolicy(AWSObject):
     }
 
 
+class RouteDetailsItems(AWSProperty):
+    """
+    `RouteDetailsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-multiregionendpoint-routedetailsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, True),
+    }
+
+
+class Details(AWSProperty):
+    """
+    `Details <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-multiregionendpoint-details.html>`__
+    """
+
+    props: PropsDictType = {
+        "RouteDetails": ([RouteDetailsItems], True),
+    }
+
+
+class MultiRegionEndpoint(AWSObject):
+    """
+    `MultiRegionEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-multiregionendpoint.html>`__
+    """
+
+    resource_type = "AWS::SES::MultiRegionEndpoint"
+
+    props: PropsDictType = {
+        "Details": (Details, True),
+        "EndpointName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class IpFilter(AWSProperty):
     """
     `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html>`__
