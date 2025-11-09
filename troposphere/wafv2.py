@@ -1067,6 +1067,27 @@ class RuleGroup(AWSObject):
     }
 
 
+class ApplicationAttribute(AWSProperty):
+    """
+    `ApplicationAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-applicationattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class ApplicationConfig(AWSProperty):
+    """
+    `ApplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-applicationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attributes": ([ApplicationAttribute], True),
+    }
+
+
 class RequestBodyAssociatedResourceTypeConfig(AWSProperty):
     """
     `RequestBodyAssociatedResourceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html>`__
@@ -1179,6 +1200,7 @@ class WebACL(AWSObject):
     resource_type = "AWS::WAFv2::WebACL"
 
     props: PropsDictType = {
+        "ApplicationConfig": (ApplicationConfig, False),
         "AssociationConfig": (AssociationConfig, False),
         "CaptchaConfig": (CaptchaConfig, False),
         "ChallengeConfig": (ChallengeConfig, False),

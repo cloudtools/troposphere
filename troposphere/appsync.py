@@ -463,9 +463,9 @@ class LogConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CloudWatchLogsRoleArn": (str, False),
+        "CloudWatchLogsRoleArn": (str, True),
         "ExcludeVerboseContent": (boolean, False),
-        "FieldLogLevel": (str, False),
+        "FieldLogLevel": (str, True),
     }
 
 

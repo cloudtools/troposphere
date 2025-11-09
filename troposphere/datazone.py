@@ -23,6 +23,18 @@ class AwsLocation(AWSProperty):
     }
 
 
+class AmazonQPropertiesInput(AWSProperty):
+    """
+    `AmazonQPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-amazonqpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthMode": (str, False),
+        "IsEnabled": (boolean, False),
+        "ProfileArn": (str, False),
+    }
+
+
 class AthenaPropertiesInput(AWSProperty):
     """
     `AthenaPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-athenapropertiesinput.html>`__
@@ -302,6 +314,7 @@ class ConnectionPropertiesInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AmazonQProperties": (AmazonQPropertiesInput, False),
         "AthenaProperties": (AthenaPropertiesInput, False),
         "GlueProperties": (GluePropertiesInput, False),
         "HyperPodProperties": (HyperPodPropertiesInput, False),
@@ -329,6 +342,7 @@ class Connection(AWSObject):
         "Name": (str, True),
         "ProjectIdentifier": (str, False),
         "Props": (ConnectionPropertiesInput, False),
+        "Scope": (str, False),
     }
 
 

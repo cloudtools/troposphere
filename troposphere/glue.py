@@ -587,6 +587,44 @@ class DevEndpoint(AWSObject):
     }
 
 
+class SourceProcessingProperties(AWSProperty):
+    """
+    `SourceProcessingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-sourceprocessingproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoleArn": (str, True),
+    }
+
+
+class TargetProcessingProperties(AWSProperty):
+    """
+    `TargetProcessingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-targetprocessingproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "EventBusArn": (str, False),
+        "KmsArn": (str, False),
+        "RoleArn": (str, True),
+    }
+
+
+class IntegrationResourceProperty(AWSObject):
+    """
+    `IntegrationResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-integrationresourceproperty.html>`__
+    """
+
+    resource_type = "AWS::Glue::IntegrationResourceProperty"
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+        "SourceProcessingProperties": (SourceProcessingProperties, False),
+        "Tags": (Tags, False),
+        "TargetProcessingProperties": (TargetProcessingProperties, False),
+    }
+
+
 class ConnectionsList(AWSProperty):
     """
     `ConnectionsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html>`__
