@@ -8,6 +8,7 @@
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
+from .validators.rekognition import Point  # noqa: F401
 from .validators.rekognition import validate_PolygonRegionsOfInterest
 
 

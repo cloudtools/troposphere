@@ -4,11 +4,25 @@
 # See LICENSE file for full license.
 
 
+from .. import AWSProperty, PropsDictType
+from . import double
+
+
+class Point(AWSProperty):
+    """
+    Export:
+    """
+
+    props: PropsDictType = {
+        "X": (double, True),
+        "Y": (double, True),
+    }
+
+
 def validate_PolygonRegionsOfInterest(polygons):
     """
     Property: StreamProcessor.PolygonRegionsOfInterest
     """
-    from ..rekognition import Point
 
     if not isinstance(polygons, list):
         raise TypeError("PolygonRegionsOfInterest must be a list")
