@@ -22,7 +22,7 @@ def validate_document_content(x):
             return False
 
     def check_yaml(x):
-        import yaml
+        import yaml.composer
 
         try:
             yaml.safe_load(x)
