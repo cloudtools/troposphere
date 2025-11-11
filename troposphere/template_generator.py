@@ -277,7 +277,7 @@ class TemplateGenerator(Template):
                 return cls(args)
 
             except TypeError as ex:
-                if "__init__() takes exactly" not in ex.message:
+                if "__init__() takes exactly" not in ex.args[0]:
                     raise
                 # special AWSHelperFn typically take lowercased parameters,
                 # but templates use uppercase. for this reason we cannot
