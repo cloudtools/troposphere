@@ -5,7 +5,7 @@
 from __future__ import annotations
 
 import json
-from re import compile
+import re
 from typing import (
     TYPE_CHECKING,
     Any,
@@ -74,7 +74,7 @@ def integer_range(
 
 
 def integer_list_item(
-    allowed_values: List[float],
+    allowed_values: List[int],
 ) -> Callable[[Any], Union[str, bytes, SupportsInt, SupportsIndex]]:
     def integer_list_item_checker(
         x: Any,
@@ -140,11 +140,11 @@ def s3_bucket_name(b: str) -> str:
 
     # IP addresses not allowed
 
-    ip_re = compile(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$")
+    ip_re = re.compile(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$")
     if ip_re.match(b):
         raise ValueError("%s is not a valid s3 bucket name" % b)
 
-    s3_bucket_name_re = compile(r"^[a-z\d][a-z\d\.-]{1,61}[a-z\d]$")
+    s3_bucket_name_re = re.compile(r"^[a-z\d][a-z\d\.-]{1,61}[a-z\d]$")
     if s3_bucket_name_re.match(b):
         return b
     else:
@@ -152,7 +152,7 @@ def s3_bucket_name(b: str) -> str:
 
 
 def elb_name(b: str) -> str:
-    elb_name_re = compile(
+    elb_name_re = re.compile(
         r"^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1})?$"
     )  # noqa
     if elb_name_re.match(b):
