@@ -9,7 +9,7 @@ def get_events(conn, stackname):
     """Get the events in batches and return in chronological order"""
     next = None
     event_list = []
-    while 1:
+    while True:
         events = conn.describe_stack_events(stackname, next)
         event_list.append(events)
         if events.next_token is None:
@@ -31,7 +31,7 @@ def tail(conn, stack_name, log_func=_tail_print, sleep_time=5, include_initial=T
         seen.add(e.event_id)
 
     # Now keep looping through and dump the new events
-    while 1:
+    while True:
         events = get_events(conn, stack_name)
         for e in events:
             if e.event_id not in seen:
