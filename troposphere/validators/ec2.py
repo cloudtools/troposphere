@@ -188,7 +188,7 @@ def validate_clientvpnendpoint_vpnport(vpnport):
     if vpnport not in VALID_CLIENTVPNENDPOINT_VPNPORT:
         raise ValueError(
             "ClientVpnEndpoint VpnPort must be one of: %s"
-            % ", ".join(VALID_CLIENTVPNENDPOINT_VPNPORT)
+            % ", ".join(map(str, VALID_CLIENTVPNENDPOINT_VPNPORT))
         )
     return vpnport
 

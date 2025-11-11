@@ -143,6 +143,12 @@ class TestEC2(unittest.TestCase):
                 PreSharedKey="0SAD_FEA_SDF", TunnelInsideCidr="192.168.16.0/30"
             )
 
+    def test_vpn_port_validator(self):
+        for port in (443, 1194):
+            vec2.validate_clientvpnendpoint_vpnport(port)
+        with self.assertRaises(ValueError):
+            vec2.validate_clientvpnendpoint_vpnport(22)
+
     def test_validate_placement_strategy(self):
         for s in ("cluster", "spread", "partition"):
             vec2.validate_placement_strategy(s)
