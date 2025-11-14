@@ -71,6 +71,7 @@ class LandingZone(AWSObject):
 
     props: PropsDictType = {
         "Manifest": (dict, True),
+        "RemediationTypes": ([str], False),
         "Tags": (Tags, False),
         "Version": (str, True),
     }

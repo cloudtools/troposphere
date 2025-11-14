@@ -119,7 +119,7 @@ class ContainerRecipe(AWSObject):
     resource_type = "AWS::ImageBuilder::ContainerRecipe"
 
     props: PropsDictType = {
-        "Components": ([ContainerComponentConfiguration], True),
+        "Components": ([ContainerComponentConfiguration], False),
         "ContainerType": (str, True),
         "Description": (str, False),
         "DockerfileTemplateData": (str, False),
@@ -488,7 +488,7 @@ class ImageRecipe(AWSObject):
         "AdditionalInstanceConfiguration": (AdditionalInstanceConfiguration, False),
         "AmiTags": (dict, False),
         "BlockDeviceMappings": ([InstanceBlockDeviceMapping], False),
-        "Components": ([ComponentConfiguration], True),
+        "Components": ([ComponentConfiguration], False),
         "Description": (str, False),
         "Name": (str, True),
         "ParentImage": (str, True),

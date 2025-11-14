@@ -274,6 +274,7 @@ class LogicallyAirGappedBackupVault(AWSObject):
         "BackupVaultTags": (dict, False),
         "MaxRetentionDays": (integer, True),
         "MinRetentionDays": (integer, True),
+        "MpaApprovalTeamArn": (str, False),
         "Notifications": (NotificationObjectType, False),
     }
 

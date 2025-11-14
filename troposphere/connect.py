@@ -1075,6 +1075,54 @@ class Application(AWSProperty):
     }
 
 
+class PrimaryAttributeValue(AWSProperty):
+    """
+    `PrimaryAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributevalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessType": (str, True),
+        "AttributeName": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class PrimaryAttributeAccessControlConfigurationItem(AWSProperty):
+    """
+    `PrimaryAttributeAccessControlConfigurationItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrimaryAttributeValues": ([PrimaryAttributeValue], True),
+    }
+
+
+class DataTableAccessControlConfiguration(AWSProperty):
+    """
+    `DataTableAccessControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-datatableaccesscontrolconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrimaryAttributeAccessControlConfiguration": (
+            PrimaryAttributeAccessControlConfigurationItem,
+            False,
+        ),
+    }
+
+
+class GranularAccessControlConfiguration(AWSProperty):
+    """
+    `GranularAccessControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-granularaccesscontrolconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataTableAccessControlConfiguration": (
+            DataTableAccessControlConfiguration,
+            False,
+        ),
+    }
+
+
 class SecurityProfile(AWSObject):
     """
     `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html>`__
@@ -1087,6 +1135,10 @@ class SecurityProfile(AWSObject):
         "AllowedAccessControlTags": (Tags, False),
         "Applications": ([Application], False),
         "Description": (str, False),
+        "GranularAccessControlConfiguration": (
+            GranularAccessControlConfiguration,
+            False,
+        ),
         "HierarchyRestrictedResources": ([str], False),
         "InstanceArn": (str, True),
         "Permissions": ([str], False),
