@@ -34,6 +34,7 @@ class Project(AWSObject):
 
     props: PropsDictType = {
         "ProjectName": (str, True),
+        "Tags": (Tags, False),
     }
 
 

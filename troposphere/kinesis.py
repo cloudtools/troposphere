@@ -54,12 +54,14 @@ class Stream(AWSObject):
 
     props: PropsDictType = {
         "DesiredShardLevelMetrics": ([str], False),
+        "MaxRecordSizeInKiB": (integer, False),
         "Name": (str, False),
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, False),
         "StreamEncryption": (StreamEncryption, False),
         "StreamModeDetails": (StreamModeDetails, False),
         "Tags": (validate_tags_or_list, False),
+        "WarmThroughputMiBps": (integer, False),
     }
 
 
@@ -74,4 +76,15 @@ class StreamConsumer(AWSObject):
         "ConsumerName": (str, True),
         "StreamARN": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class WarmThroughputObject(AWSProperty):
+    """
+    `WarmThroughputObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-warmthroughputobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentMiBps": (integer, False),
+        "TargetMiBps": (integer, False),
     }
