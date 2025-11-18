@@ -10,6 +10,18 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import double
 
 
+class WebContentFilteringPolicy(AWSProperty):
+    """
+    `WebContentFilteringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-browsersettings-webcontentfilteringpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedUrls": ([str], False),
+        "BlockedCategories": ([str], False),
+        "BlockedUrls": ([str], False),
+    }
+
+
 class BrowserSettings(AWSObject):
     """
     `BrowserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html>`__
@@ -22,6 +34,7 @@ class BrowserSettings(AWSObject):
         "BrowserPolicy": (str, False),
         "CustomerManagedKey": (str, False),
         "Tags": (Tags, False),
+        "WebContentFilteringPolicy": (WebContentFilteringPolicy, False),
     }
 
 

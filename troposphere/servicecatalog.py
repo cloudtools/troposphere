@@ -24,17 +24,6 @@ class AcceptedPortfolioShare(AWSObject):
     }
 
 
-class Info(AWSProperty):
-    """
-    `Info <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-info.html>`__
-    """
-
-    props: PropsDictType = {
-        "ImportFromPhysicalId": (str, False),
-        "LoadTemplateFromURL": (str, False),
-    }
-
-
 class ProvisioningArtifactProperties(AWSProperty):
     """
     `ProvisioningArtifactProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html>`__
@@ -43,7 +32,7 @@ class ProvisioningArtifactProperties(AWSProperty):
     props: PropsDictType = {
         "Description": (str, False),
         "DisableTemplateValidation": (boolean, False),
-        "Info": (Info, True),
+        "Info": (dict, True),
         "Name": (str, False),
         "Type": (str, False),
     }
@@ -64,7 +53,7 @@ class CodeStarParameters(AWSProperty):
 
 class ConnectionParameters(AWSProperty):
     """
-    `ConnectionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-connectionparameters.html>`__
+    `ConnectionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html>`__
     """
 
     props: PropsDictType = {

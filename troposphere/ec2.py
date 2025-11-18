@@ -980,6 +980,17 @@ class IPAMResourceDiscoveryAssociation(AWSObject):
     }
 
 
+class IpamScopeExternalAuthorityConfiguration(AWSProperty):
+    """
+    `IpamScopeExternalAuthorityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamscope-ipamscopeexternalauthorityconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExternalResourceIdentifier": (str, True),
+        "IpamScopeExternalAuthorityType": (str, True),
+    }
+
+
 class IPAMScope(AWSObject):
     """
     `IPAMScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamscope.html>`__
@@ -989,6 +1000,10 @@ class IPAMScope(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "ExternalAuthorityConfiguration": (
+            IpamScopeExternalAuthorityConfiguration,
+            False,
+        ),
         "IpamId": (str, True),
         "Tags": (Tags, False),
     }
@@ -2780,6 +2795,7 @@ class TransitGateway(AWSObject):
         "DefaultRouteTablePropagation": (str, False),
         "Description": (str, False),
         "DnsSupport": (str, False),
+        "EncryptionSupport": (str, False),
         "MulticastSupport": (str, False),
         "PropagationDefaultRouteTableId": (str, False),
         "SecurityGroupReferencingSupport": (str, False),
@@ -3713,7 +3729,8 @@ class Volume(AWSObject):
 
     props: PropsDictType = {
         "AutoEnableIO": (boolean, False),
-        "AvailabilityZone": (str, True),
+        "AvailabilityZone": (str, False),
+        "AvailabilityZoneId": (str, False),
         "Encrypted": (boolean, False),
         "Iops": (integer, False),
         "KmsKeyId": (str, False),
@@ -3721,6 +3738,7 @@ class Volume(AWSObject):
         "OutpostArn": (str, False),
         "Size": (integer, False),
         "SnapshotId": (str, False),
+        "SourceVolumeId": (str, False),
         "Tags": (validate_tags_or_list, False),
         "Throughput": (integer, False),
         "VolumeInitializationRate": (integer, False),
