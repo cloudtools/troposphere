@@ -543,6 +543,7 @@ class TargetGroup(AWSObject):
         "Protocol": (str, False),
         "ProtocolVersion": (str, False),
         "Tags": (validate_tags_or_list, False),
+        "TargetControlPort": (integer, False),
         "TargetGroupAttributes": ([TargetGroupAttribute], False),
         "TargetType": (validate_target_type, False),
         "Targets": ([TargetDescription], False),

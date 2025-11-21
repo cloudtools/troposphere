@@ -357,6 +357,16 @@ class OpenMonitoring(AWSProperty):
     }
 
 
+class Rebalancing(AWSProperty):
+    """
+    `Rebalancing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-rebalancing.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html>`__
@@ -369,13 +379,13 @@ class Cluster(AWSObject):
         "ClientAuthentication": (ClientAuthentication, False),
         "ClusterName": (str, True),
         "ConfigurationInfo": (ConfigurationInfo, False),
-        "CurrentVersion": (str, False),
         "EncryptionInfo": (EncryptionInfo, False),
         "EnhancedMonitoring": (str, False),
         "KafkaVersion": (str, True),
         "LoggingInfo": (LoggingInfo, False),
         "NumberOfBrokerNodes": (integer, True),
         "OpenMonitoring": (OpenMonitoring, False),
+        "Rebalancing": (Rebalancing, False),
         "StorageMode": (str, False),
         "Tags": (dict, False),
     }

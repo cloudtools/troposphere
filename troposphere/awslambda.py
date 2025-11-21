@@ -450,6 +450,16 @@ class SnapStart(AWSProperty):
     }
 
 
+class TenancyConfig(AWSProperty):
+    """
+    `TenancyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tenancyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TenantIsolationMode": (str, True),
+    }
+
+
 class TracingConfig(AWSProperty):
     """
     `TracingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html>`__
@@ -503,6 +513,7 @@ class Function(AWSObject):
         "RuntimeManagementConfig": (RuntimeManagementConfig, False),
         "SnapStart": (SnapStart, False),
         "Tags": (Tags, False),
+        "TenancyConfig": (TenancyConfig, False),
         "Timeout": (integer, False),
         "TracingConfig": (TracingConfig, False),
         "VpcConfig": (VPCConfig, False),

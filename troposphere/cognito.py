@@ -222,6 +222,23 @@ class ManagedLoginBranding(AWSObject):
     }
 
 
+class Terms(AWSObject):
+    """
+    `Terms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-terms.html>`__
+    """
+
+    resource_type = "AWS::Cognito::Terms"
+
+    props: PropsDictType = {
+        "ClientId": (str, False),
+        "Enforcement": (str, True),
+        "Links": (dict, True),
+        "TermsName": (str, True),
+        "TermsSource": (str, True),
+        "UserPoolId": (str, True),
+    }
+
+
 class RecoveryOption(AWSProperty):
     """
     `RecoveryOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-recoveryoption.html>`__

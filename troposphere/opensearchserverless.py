@@ -25,6 +25,17 @@ class AccessPolicy(AWSObject):
     }
 
 
+class EncryptionConfig(AWSProperty):
+    """
+    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSOwnedKey": (boolean, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
 class Collection(AWSObject):
     """
     `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html>`__
@@ -33,7 +44,9 @@ class Collection(AWSObject):
     resource_type = "AWS::OpenSearchServerless::Collection"
 
     props: PropsDictType = {
+        "CollectionGroupName": (str, False),
         "Description": (str, False),
+        "EncryptionConfig": (EncryptionConfig, False),
         "Name": (str, True),
         "StandbyReplicas": (str, False),
         "Tags": (Tags, False),

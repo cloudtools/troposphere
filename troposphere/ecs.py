@@ -57,6 +57,16 @@ class AutoScalingGroupProvider(AWSProperty):
     }
 
 
+class InfrastructureOptimization(AWSProperty):
+    """
+    `InfrastructureOptimization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-infrastructureoptimization.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScaleInAfter": (integer, False),
+    }
+
+
 class AcceleratorCountRequest(AWSProperty):
     """
     `AcceleratorCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-acceleratorcountrequest.html>`__
@@ -230,6 +240,7 @@ class ManagedInstancesProvider(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfrastructureOptimization": (InfrastructureOptimization, False),
         "InfrastructureRoleArn": (str, True),
         "InstanceLaunchTemplate": (InstanceLaunchTemplate, True),
         "PropagateTags": (str, False),

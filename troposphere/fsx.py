@@ -253,6 +253,7 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "DnsIps": ([str], False),
+        "DomainJoinServiceAccountSecret": (str, False),
         "DomainName": (str, False),
         "FileSystemAdministratorsGroup": (str, False),
         "OrganizationalUnitDistinguishedName": (str, False),

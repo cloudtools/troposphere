@@ -99,6 +99,28 @@ class CalculatedAttributeDefinition(AWSObject):
     }
 
 
+class Readiness(AWSProperty):
+    """
+    `Readiness <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-readiness.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "ProgressPercentage": (integer, False),
+    }
+
+
+class DataStore(AWSProperty):
+    """
+    `DataStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-datastore.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "Readiness": (Readiness, False),
+    }
+
+
 class ConflictResolution(AWSProperty):
     """
     `ConflictResolution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-conflictresolution.html>`__
@@ -226,6 +248,7 @@ class Domain(AWSObject):
     resource_type = "AWS::CustomerProfiles::Domain"
 
     props: PropsDictType = {
+        "DataStore": (DataStore, False),
         "DeadLetterQueueUrl": (str, False),
         "DefaultEncryptionKey": (str, False),
         "DefaultExpirationDays": (integer, True),
@@ -824,15 +847,4 @@ class DomainStats(AWSProperty):
         "ObjectCount": (double, False),
         "ProfileCount": (double, False),
         "TotalSize": (double, False),
-    }
-
-
-class Readiness(AWSProperty):
-    """
-    `Readiness <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-readiness.html>`__
-    """
-
-    props: PropsDictType = {
-        "Message": (str, False),
-        "ProgressPercentage": (integer, False),
     }

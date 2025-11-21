@@ -146,6 +146,44 @@ class CloudFrontOriginAccessIdentity(AWSObject):
     }
 
 
+class KeyValueStoreAssociation(AWSProperty):
+    """
+    `KeyValueStoreAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyValueStoreARN": (str, True),
+    }
+
+
+class ConnectionFunctionConfig(AWSProperty):
+    """
+    `ConnectionFunctionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-connectionfunction-connectionfunctionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comment": (str, True),
+        "KeyValueStoreAssociations": ([KeyValueStoreAssociation], False),
+        "Runtime": (str, True),
+    }
+
+
+class ConnectionFunction(AWSObject):
+    """
+    `ConnectionFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectionfunction.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::ConnectionFunction"
+
+    props: PropsDictType = {
+        "AutoPublish": (boolean, False),
+        "ConnectionFunctionCode": (str, True),
+        "ConnectionFunctionConfig": (ConnectionFunctionConfig, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ConnectionGroup(AWSObject):
     """
     `ConnectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html>`__
@@ -779,16 +817,6 @@ class DistributionTenant(AWSObject):
         "Name": (str, True),
         "Parameters": ([Parameter], False),
         "Tags": (Tags, False),
-    }
-
-
-class KeyValueStoreAssociation(AWSProperty):
-    """
-    `KeyValueStoreAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html>`__
-    """
-
-    props: PropsDictType = {
-        "KeyValueStoreARN": (str, True),
     }
 
 

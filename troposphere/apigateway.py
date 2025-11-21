@@ -286,6 +286,7 @@ class DomainName(AWSObject):
     props: PropsDictType = {
         "CertificateArn": (str, False),
         "DomainName": (str, False),
+        "EndpointAccessMode": (str, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
         "OwnershipVerificationCertificateArn": (str, False),
@@ -321,6 +322,7 @@ class DomainNameV2(AWSObject):
     props: PropsDictType = {
         "CertificateArn": (str, False),
         "DomainName": (str, False),
+        "EndpointAccessMode": (str, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "Policy": (dict, False),
         "RoutingMode": (str, False),
@@ -373,9 +375,11 @@ class Integration(AWSProperty):
         "Credentials": (str, False),
         "IntegrationHttpMethod": (str, False),
         "IntegrationResponses": ([IntegrationResponse], False),
+        "IntegrationTarget": (str, False),
         "PassthroughBehavior": (str, False),
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
+        "ResponseTransferMode": (str, False),
         "TimeoutInMillis": (validate_timeout_in_millis, False),
         "Type": (str, True),
         "Uri": (str, False),
@@ -494,6 +498,7 @@ class RestApi(AWSObject):
         "CloneFrom": (str, False),
         "Description": (str, False),
         "DisableExecuteApiEndpoint": (boolean, False),
+        "EndpointAccessMode": (str, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (boolean, False),
         "MinimumCompressionSize": (integer, False),
@@ -501,6 +506,7 @@ class RestApi(AWSObject):
         "Name": (str, False),
         "Parameters": (dict, False),
         "Policy": (dict, False),
+        "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
     }
 

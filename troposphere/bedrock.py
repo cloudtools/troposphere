@@ -437,6 +437,18 @@ class CustomOutputConfiguration(AWSProperty):
     }
 
 
+class AudioLanguageConfiguration(AWSProperty):
+    """
+    `AudioLanguageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiolanguageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GenerativeOutputLanguage": (str, False),
+        "IdentifyMultipleLanguages": (boolean, False),
+        "InputLanguages": ([str], False),
+    }
+
+
 class ModalityProcessingConfiguration(AWSProperty):
     """
     `ModalityProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html>`__
@@ -453,6 +465,7 @@ class AudioOverrideConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "LanguageConfiguration": (AudioLanguageConfiguration, False),
         "ModalityProcessing": (ModalityProcessingConfiguration, False),
     }
 

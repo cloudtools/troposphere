@@ -199,6 +199,16 @@ class AnalyticsConfiguration(AWSProperty):
     }
 
 
+class BlockedEncryptionTypes(AWSProperty):
+    """
+    `BlockedEncryptionTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-blockedencryptiontypes.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": ([str], False),
+    }
+
+
 class ServerSideEncryptionByDefault(AWSProperty):
     """
     `ServerSideEncryptionByDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html>`__
@@ -216,6 +226,7 @@ class ServerSideEncryptionRule(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BlockedEncryptionTypes": (BlockedEncryptionTypes, False),
         "BucketKeyEnabled": (boolean, False),
         "ServerSideEncryptionByDefault": (ServerSideEncryptionByDefault, False),
     }

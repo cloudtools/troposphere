@@ -62,6 +62,26 @@ class Application(AWSObject):
     }
 
 
+class S3VectorsEngine(AWSProperty):
+    """
+    `S3VectorsEngine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-s3vectorsengine.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class AIMLOptions(AWSProperty):
+    """
+    `AIMLOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-aimloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3VectorsEngine": (S3VectorsEngine, False),
+    }
+
+
 class IAMFederationOptions(AWSProperty):
     """
     `IAMFederationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-iamfederationoptions.html>`__
@@ -367,6 +387,7 @@ class Domain(AWSObject):
     resource_type = "AWS::OpenSearchService::Domain"
 
     props: PropsDictType = {
+        "AIMLOptions": (AIMLOptions, False),
         "AccessPolicies": (dict, False),
         "AdvancedOptions": (dict, False),
         "AdvancedSecurityOptions": (AdvancedSecurityOptionsInput, False),

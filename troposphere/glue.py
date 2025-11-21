@@ -587,6 +587,38 @@ class DevEndpoint(AWSObject):
     }
 
 
+class IntegrationConfig(AWSProperty):
+    """
+    `IntegrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integration-integrationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContinuousSync": (boolean, False),
+        "RefreshInterval": (str, False),
+        "SourceProperties": (dict, False),
+    }
+
+
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-integration.html>`__
+    """
+
+    resource_type = "AWS::Glue::Integration"
+
+    props: PropsDictType = {
+        "AdditionalEncryptionContext": (dict, False),
+        "DataFilter": (str, False),
+        "Description": (str, False),
+        "IntegrationConfig": (IntegrationConfig, False),
+        "IntegrationName": (str, True),
+        "KmsKeyId": (str, False),
+        "SourceArn": (str, True),
+        "Tags": (Tags, False),
+        "TargetArn": (str, True),
+    }
+
+
 class SourceProcessingProperties(AWSProperty):
     """
     `SourceProcessingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integrationresourceproperty-sourceprocessingproperties.html>`__

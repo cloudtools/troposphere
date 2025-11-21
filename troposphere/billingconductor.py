@@ -17,7 +17,8 @@ class AccountGrouping(AWSProperty):
 
     props: PropsDictType = {
         "AutoAssociate": (boolean, False),
-        "LinkedAccountIds": ([str], True),
+        "LinkedAccountIds": ([str], False),
+        "ResponsibilityTransferArn": (str, False),
     }
 
 
@@ -43,7 +44,7 @@ class BillingGroup(AWSObject):
         "ComputationPreference": (ComputationPreference, True),
         "Description": (str, False),
         "Name": (str, True),
-        "PrimaryAccountId": (str, True),
+        "PrimaryAccountId": (str, False),
         "Tags": (Tags, False),
     }
 

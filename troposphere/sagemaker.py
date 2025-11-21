@@ -2993,8 +2993,10 @@ class PartnerApp(AWSObject):
     resource_type = "AWS::SageMaker::PartnerApp"
 
     props: PropsDictType = {
+        "AppVersion": (str, False),
         "ApplicationConfig": (PartnerAppConfig, False),
         "AuthType": (str, True),
+        "EnableAutoMinorVersionUpgrade": (boolean, False),
         "EnableIamSessionBasedIdentity": (boolean, False),
         "ExecutionRoleArn": (str, True),
         "KmsKeyId": (str, False),
