@@ -218,13 +218,25 @@ class EksConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    """
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-vpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
+    }
+
+
 class Source(AWSProperty):
     """
     `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html>`__
     """
 
     props: PropsDictType = {
-        "EksConfiguration": (EksConfiguration, True),
+        "EksConfiguration": (EksConfiguration, False),
+        "VpcConfiguration": (VpcConfiguration, False),
     }
 
 

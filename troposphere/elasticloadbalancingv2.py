@@ -112,6 +112,30 @@ class ForwardConfig(AWSProperty):
     }
 
 
+class JwtValidationActionAdditionalClaim(AWSProperty):
+    """
+    `JwtValidationActionAdditionalClaim <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-jwtvalidationactionadditionalclaim.html>`__
+    """
+
+    props: PropsDictType = {
+        "Format": (str, True),
+        "Name": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class JwtValidationConfig(AWSProperty):
+    """
+    `JwtValidationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-jwtvalidationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalClaims": ([JwtValidationActionAdditionalClaim], False),
+        "Issuer": (str, True),
+        "JwksEndpoint": (str, True),
+    }
+
+
 class RedirectConfig(AWSProperty):
     """
     `RedirectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html>`__
@@ -140,6 +164,7 @@ class Action(AWSProperty):
         "AuthenticateOidcConfig": (AuthenticateOidcConfig, False),
         "FixedResponseConfig": (FixedResponseConfig, False),
         "ForwardConfig": (ForwardConfig, False),
+        "JwtValidationConfig": (JwtValidationConfig, False),
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
         "TargetGroupArn": (str, False),
@@ -341,6 +366,7 @@ class ListenerRuleAction(AWSProperty):
         "AuthenticateOidcConfig": (ListenerRuleAuthenticateOidcConfig, False),
         "FixedResponseConfig": (FixedResponseConfig, False),
         "ForwardConfig": (ForwardConfig, False),
+        "JwtValidationConfig": (JwtValidationConfig, False),
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
         "TargetGroupArn": (str, False),
@@ -480,6 +506,7 @@ class TargetDescription(AWSProperty):
         "AvailabilityZone": (str, False),
         "Id": (str, True),
         "Port": (validate_network_port, False),
+        "QuicServerId": (str, False),
     }
 
 

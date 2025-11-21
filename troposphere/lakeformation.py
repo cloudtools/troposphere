@@ -76,6 +76,7 @@ class DataLakeSettings(AWSObject):
         "ExternalDataFilteringAllowList": ([], False),
         "MutationType": (str, False),
         "Parameters": (dict, False),
+        "ReadOnlyAdmins": ([], False),
         "TrustedResourceOwners": ([str], False),
     }
 

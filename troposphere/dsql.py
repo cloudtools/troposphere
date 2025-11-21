@@ -32,6 +32,7 @@ class Cluster(AWSObject):
         "DeletionProtectionEnabled": (boolean, False),
         "KmsEncryptionKey": (str, False),
         "MultiRegionProperties": (MultiRegionProperties, False),
+        "PolicyDocument": (str, False),
         "Tags": (Tags, False),
     }
 
