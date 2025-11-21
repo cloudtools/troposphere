@@ -131,6 +131,7 @@ class InsightSelector(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EventCategories": ([str], False),
         "InsightType": (str, False),
     }
 
@@ -175,6 +176,17 @@ class ResourcePolicy(AWSObject):
     }
 
 
+class AggregationConfiguration(AWSProperty):
+    """
+    `AggregationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-aggregationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventCategory": (str, True),
+        "Templates": ([str], True),
+    }
+
+
 class DataResource(AWSProperty):
     """
     `DataResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html>`__
@@ -208,6 +220,7 @@ class Trail(AWSObject):
 
     props: PropsDictType = {
         "AdvancedEventSelectors": ([AdvancedEventSelector], False),
+        "AggregationConfigurations": ([AggregationConfiguration], False),
         "CloudWatchLogsLogGroupArn": (str, False),
         "CloudWatchLogsRoleArn": (str, False),
         "EnableLogFileValidation": (boolean, False),

@@ -272,6 +272,7 @@ class LogicallyAirGappedBackupVault(AWSObject):
         "AccessPolicy": (dict, False),
         "BackupVaultName": (str, True),
         "BackupVaultTags": (dict, False),
+        "EncryptionKeyArn": (str, False),
         "MaxRetentionDays": (integer, True),
         "MinRetentionDays": (integer, True),
         "MpaApprovalTeamArn": (str, False),

@@ -114,6 +114,7 @@ class AppMonitor(AWSObject):
         "Domain": (str, False),
         "DomainList": ([str], False),
         "Name": (str, True),
+        "Platform": (str, False),
         "ResourcePolicy": (ResourcePolicy, False),
         "Tags": (Tags, False),
     }

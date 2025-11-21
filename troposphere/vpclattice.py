@@ -38,6 +38,19 @@ class AuthPolicy(AWSObject):
     }
 
 
+class DomainVerification(AWSObject):
+    """
+    `DomainVerification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-domainverification.html>`__
+    """
+
+    resource_type = "AWS::VpcLattice::DomainVerification"
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class FixedResponse(AWSProperty):
     """
     `FixedResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-rule-fixedresponse.html>`__
@@ -129,6 +142,9 @@ class ResourceConfiguration(AWSObject):
 
     props: PropsDictType = {
         "AllowAssociationToSharableServiceNetwork": (boolean, False),
+        "CustomDomainName": (str, False),
+        "DomainVerificationId": (str, False),
+        "GroupDomain": (str, False),
         "Name": (str, True),
         "PortRanges": ([str], False),
         "ProtocolType": (str, False),
@@ -330,6 +346,7 @@ class ServiceNetworkResourceAssociation(AWSObject):
     resource_type = "AWS::VpcLattice::ServiceNetworkResourceAssociation"
 
     props: PropsDictType = {
+        "PrivateDnsEnabled": (boolean, False),
         "ResourceConfigurationId": (str, False),
         "ServiceNetworkId": (str, False),
         "Tags": (Tags, False),
@@ -351,6 +368,17 @@ class ServiceNetworkServiceAssociation(AWSObject):
     }
 
 
+class DnsOptions(AWSProperty):
+    """
+    `DnsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetworkvpcassociation-dnsoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrivateDnsPreference": (str, False),
+        "PrivateDnsSpecifiedDomains": ([str], False),
+    }
+
+
 class ServiceNetworkVpcAssociation(AWSObject):
     """
     `ServiceNetworkVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html>`__
@@ -359,6 +387,8 @@ class ServiceNetworkVpcAssociation(AWSObject):
     resource_type = "AWS::VpcLattice::ServiceNetworkVpcAssociation"
 
     props: PropsDictType = {
+        "DnsOptions": (DnsOptions, False),
+        "PrivateDnsEnabled": (boolean, False),
         "SecurityGroupIds": ([str], False),
         "ServiceNetworkIdentifier": (str, False),
         "Tags": (Tags, False),
@@ -435,4 +465,15 @@ class TargetGroup(AWSObject):
         "Tags": (Tags, False),
         "Targets": ([Target], False),
         "Type": (str, True),
+    }
+
+
+class TxtMethodConfig(AWSProperty):
+    """
+    `TxtMethodConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-domainverification-txtmethodconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "name": (str, False),
+        "value": (str, False),
     }
