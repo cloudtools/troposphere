@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+from troposphere import * 
+from troposphere.ec2 import * 
+from SecurityGroupIngress import SecurityGroupIngress
+from SecurityGroupEgress import SecurityGroupEgress
+{{ imports }}
+
+
+class {{ class_name }}():
+
+    def __init__(self):
+
+        securityGroupIngress = SecurityGroupIngress()
+        {%- for rule in ingress_rules %}
+        {{ rule }}
+        {%- endfor %}
+        
+        securityGroupEgress = SecurityGroupEgress()
+        {%- for rule in egress_rules %}
+        {{ rule }}
+        {%- endfor %}
+
+        self.instance_type = {{ instance_type }}(
+        {%- for property in properties %}
+        {{ property }}
+        {%- endfor %}
+            SecurityGroupIngress=securityGroupIngress.toList(),
+            SecurityGroupEgress=securityGroupEgress.toList()
+        )
+
+    def addToTemplate(self, t):
+        {{ template_method }}(self.instance_type)
+        return t
