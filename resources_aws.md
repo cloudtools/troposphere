@@ -30,6 +30,7 @@
 - [AWS::BackupGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BackupGateway.html)
 - [AWS::Batch](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html)
 - [AWS::Bedrock](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Bedrock.html)
+- [AWS::BedrockAgentCore](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BedrockAgentCore.html)
 - [AWS::BillingConductor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BillingConductor.html)
 - [AWS::Budgets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html)
 - [AWS::CE](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CE.html)
