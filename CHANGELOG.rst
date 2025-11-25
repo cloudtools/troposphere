@@ -1,3 +1,34 @@
+4.9.5 (2025*11*24)
+-------------------------------
+* Updates from spec version 213.0.0 (#2328)
+* Updates from spec version 214.0.0 (#2329)
+* Updates from spec version 215.0.0 (#2330)
+* Handle AWS list functions in template generator (#2331)
+* Remove OpsWorksCM
+* Updates from spec version 216.0.0 (#2332)
+* Add new oracle-ee-cdb engine to the valid db engine on rds validator (#2335)
+* Updates from spec version 217.0.0 (#2336)
+* Updates from spec version 218.0.0 (#2337)
+* Updates from spec version 219.0.0 (#2338)
+* Fix recursion issue in AWS::Connect::EvaluationForm
+* Updates from spec version 220.0.0 (#2339)
+* Upgrade pyright to 1.1.407 for Python 3.14 support
+* Add Python 3.14
+* Emit correct import for Long type
+* Updates from spec version 221.0.0 (#2340)
+* Updates from spec version 221.0.0 (#2341)
+* rds: fix some issues highlighted by pyrefly
+* ssm: fix import issue highlighted by pyrefly
+* rekognition: add Point class (issue highlighted by pyrefly)
+* utils: use boolean in while loop
+* template_generator: use Python3 exception args
+* validators: work around a pyrefly issue with scoping
+* ec2: correctly map vpn error message
+* Updates from spec version 224.0.0 (#2342)
+* Updates from spec version 225.0.0 (#2343)
+* Add AWS::BedrockAgentCore
+* Add new AWS resources
+
 4.9.4 (2025*08*29)
 -------------------------------
 * Updates from spec version 203.0.0 (#2316)
