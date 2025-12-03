@@ -271,6 +271,45 @@ class TestRDS(unittest.TestCase):
         ):
             i.to_dict()
 
+        # Check startswith match for oracle and sqlserver engines
+        i = rds.DBInstance(
+            "Database2",
+            Engine="oracle-se2",
+            EngineVersion="15.3",
+            StorageType="gp3",
+            Iops=10000,
+            AllocatedStorage="10",
+            MasterUsername="test",
+            MasterUserPassword="test",
+        )
+        with self.assertRaisesRegex(
+            ValueError,
+            r"AllocatedStorage must be at least 200",
+        ):
+            i.to_dict()
+
+        i.AllocatedStorage = "200"
+        i.to_dict()
+
+        i = rds.DBInstance(
+            "Database2",
+            Engine="sqlserver-se",
+            EngineVersion="15.3",
+            StorageType="gp3",
+            Iops=1000,
+            AllocatedStorage="10",
+            MasterUsername="test",
+            MasterUserPassword="test",
+        )
+        with self.assertRaisesRegex(
+            ValueError,
+            r"AllocatedStorage must be at least 20",
+        ):
+            i.to_dict()
+
+        i.AllocatedStorage = "20"
+        i.to_dict()
+
     def test_io1_storage_type_and_iops(self):
         i = rds.DBInstance(
             "NoAZAndMultiAZ",

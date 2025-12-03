@@ -483,9 +483,9 @@ def validate_dbinstance(self) -> None:
         max_iops_to_allocated_storage_ratio = 500.0
         if engine in ["mariadb", "mysql", "postgres"]:
             min_storage_size = 400
-        elif engine in ["oracle"]:
+        elif engine.startswith("oracle"):
             min_storage_size = 200
-        elif engine in ["sqlserver"]:
+        elif engine.startswith("sqlserver"):
             min_storage_size = 20
             min_iops_to_allocated_storage_ratio = 0.5
         else:
