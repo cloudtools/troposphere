@@ -334,6 +334,7 @@ class AutoDeployment(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DependsOn": ([str], False),
         "Enabled": (boolean, False),
         "RetainStacksOnAccountRemoval": (boolean, False),
     }

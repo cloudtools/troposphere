@@ -169,6 +169,17 @@ class ReplicaSpecification(AWSProperty):
     }
 
 
+class WarmThroughput(AWSProperty):
+    """
+    `WarmThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-warmthroughput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReadUnitsPerSecond": (integer, False),
+        "WriteUnitsPerSecond": (integer, False),
+    }
+
+
 class Table(AWSObject):
     """
     `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html>`__
@@ -191,6 +202,7 @@ class Table(AWSObject):
         "ReplicaSpecifications": ([ReplicaSpecification], False),
         "TableName": (str, False),
         "Tags": (Tags, False),
+        "WarmThroughput": (WarmThroughput, False),
     }
 
 

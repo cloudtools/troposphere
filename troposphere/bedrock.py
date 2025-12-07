@@ -2726,6 +2726,18 @@ class RdsConfiguration(AWSProperty):
     }
 
 
+class S3VectorsConfiguration(AWSProperty):
+    """
+    `S3VectorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3vectorsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IndexArn": (str, False),
+        "IndexName": (str, False),
+        "VectorBucketArn": (str, False),
+    }
+
+
 class StorageConfiguration(AWSProperty):
     """
     `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html>`__
@@ -2741,6 +2753,7 @@ class StorageConfiguration(AWSProperty):
         "OpensearchServerlessConfiguration": (OpenSearchServerlessConfiguration, False),
         "PineconeConfiguration": (PineconeConfiguration, False),
         "RdsConfiguration": (RdsConfiguration, False),
+        "S3VectorsConfiguration": (S3VectorsConfiguration, False),
         "Type": (str, True),
     }
 

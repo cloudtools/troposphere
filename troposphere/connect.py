@@ -90,6 +90,72 @@ class ContactFlowVersion(AWSObject):
     }
 
 
+class DataTable(AWSObject):
+    """
+    `DataTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html>`__
+    """
+
+    resource_type = "AWS::Connect::DataTable"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InstanceArn": (str, False),
+        "Name": (str, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+        "TimeZone": (str, False),
+        "ValueLockLevel": (str, False),
+    }
+
+
+class Enum(AWSProperty):
+    """
+    `Enum <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-datatableattribute-enum.html>`__
+    """
+
+    props: PropsDictType = {
+        "Strict": (boolean, False),
+        "Values": ([str], False),
+    }
+
+
+class Validation(AWSProperty):
+    """
+    `Validation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-datatableattribute-validation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enum": (Enum, False),
+        "ExclusiveMaximum": (double, False),
+        "ExclusiveMinimum": (double, False),
+        "MaxLength": (integer, False),
+        "MaxValues": (integer, False),
+        "Maximum": (double, False),
+        "MinLength": (integer, False),
+        "MinValues": (integer, False),
+        "Minimum": (double, False),
+        "MultipleOf": (double, False),
+    }
+
+
+class DataTableAttribute(AWSObject):
+    """
+    `DataTableAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html>`__
+    """
+
+    resource_type = "AWS::Connect::DataTableAttribute"
+
+    props: PropsDictType = {
+        "DataTableArn": (str, False),
+        "Description": (str, False),
+        "InstanceArn": (str, False),
+        "Name": (str, False),
+        "Primary": (boolean, False),
+        "Validation": (Validation, False),
+        "ValueType": (str, False),
+    }
+
+
 class AliasConfiguration(AWSProperty):
     """
     `AliasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-emailaddress-aliasconfiguration.html>`__
@@ -194,6 +260,28 @@ class EvaluationFormItemEnablementConfiguration(AWSProperty):
     }
 
 
+class MultiSelectQuestionRuleCategoryAutomation(AWSProperty):
+    """
+    `MultiSelectQuestionRuleCategoryAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-multiselectquestionrulecategoryautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (str, True),
+        "Condition": (str, True),
+        "OptionRefIds": ([str], True),
+    }
+
+
+class EvaluationFormMultiSelectQuestionAutomationOption(AWSProperty):
+    """
+    `EvaluationFormMultiSelectQuestionAutomationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomationoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuleCategory": (MultiSelectQuestionRuleCategoryAutomation, True),
+    }
+
+
 class EvaluationFormQuestionAutomationAnswerSource(AWSProperty):
     """
     `EvaluationFormQuestionAutomationAnswerSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html>`__
@@ -201,6 +289,41 @@ class EvaluationFormQuestionAutomationAnswerSource(AWSProperty):
 
     props: PropsDictType = {
         "SourceType": (str, True),
+    }
+
+
+class EvaluationFormMultiSelectQuestionAutomation(AWSProperty):
+    """
+    `EvaluationFormMultiSelectQuestionAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
+        "DefaultOptionRefIds": ([str], False),
+        "Options": ([EvaluationFormMultiSelectQuestionAutomationOption], True),
+    }
+
+
+class EvaluationFormMultiSelectQuestionOption(AWSProperty):
+    """
+    `EvaluationFormMultiSelectQuestionOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "RefId": (str, True),
+        "Text": (str, True),
+    }
+
+
+class EvaluationFormMultiSelectQuestionProperties(AWSProperty):
+    """
+    `EvaluationFormMultiSelectQuestionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automation": (EvaluationFormMultiSelectQuestionAutomation, False),
+        "DisplayAs": (str, False),
+        "Options": ([EvaluationFormMultiSelectQuestionOption], True),
     }
 
 
@@ -348,6 +471,7 @@ class EvaluationFormQuestionTypeProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MultiSelect": (EvaluationFormMultiSelectQuestionProperties, False),
         "Numeric": (EvaluationFormNumericQuestionProperties, False),
         "SingleSelect": (EvaluationFormSingleSelectQuestionProperties, False),
         "Text": (EvaluationFormTextQuestionProperties, False),
@@ -406,6 +530,26 @@ class EvaluationFormBaseItem(AWSProperty):
     }
 
 
+class EvaluationFormLanguageConfiguration(AWSProperty):
+    """
+    `EvaluationFormLanguageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformlanguageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FormLanguage": (str, False),
+    }
+
+
+class EvaluationFormTargetConfiguration(AWSProperty):
+    """
+    `EvaluationFormTargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtargetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContactInteractionType": (str, True),
+    }
+
+
 class ScoringStrategy(AWSProperty):
     """
     `ScoringStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html>`__
@@ -429,9 +573,11 @@ class EvaluationForm(AWSObject):
         "Description": (str, False),
         "InstanceArn": (str, True),
         "Items": ([EvaluationFormBaseItem], True),
+        "LanguageConfiguration": (EvaluationFormLanguageConfiguration, False),
         "ScoringStrategy": (ScoringStrategy, False),
         "Status": (str, True),
         "Tags": (Tags, False),
+        "TargetConfiguration": (EvaluationFormTargetConfiguration, False),
         "Title": (str, True),
     }
 
@@ -1443,4 +1589,15 @@ class FieldValue(AWSProperty):
         "DoubleValue": (double, False),
         "EmptyValue": (dict, False),
         "StringValue": (str, False),
+    }
+
+
+class LockVersion(AWSProperty):
+    """
+    `LockVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-datatableattribute-lockversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, False),
+        "DataTable": (str, False),
     }

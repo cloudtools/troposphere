@@ -106,6 +106,32 @@ class CustomerContentEncryptionConfiguration(AWSProperty):
     }
 
 
+class Classification(AWSProperty):
+    """
+    `Classification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-classification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Properties": (dict, False),
+    }
+
+
+class EngineConfiguration(AWSProperty):
+    """
+    `EngineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalConfigs": (dict, False),
+        "Classifications": ([Classification], False),
+        "CoordinatorDpuSize": (integer, False),
+        "DefaultExecutorDpuSize": (integer, False),
+        "MaxConcurrentDpus": (integer, False),
+        "SparkProperties": (dict, False),
+    }
+
+
 class EngineVersion(AWSProperty):
     """
     `EngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html>`__
@@ -135,6 +161,54 @@ class ManagedQueryResultsConfiguration(AWSProperty):
     props: PropsDictType = {
         "Enabled": (boolean, False),
         "EncryptionConfiguration": (ManagedStorageEncryptionConfiguration, False),
+    }
+
+
+class CloudWatchLoggingConfiguration(AWSProperty):
+    """
+    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-cloudwatchloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "LogGroup": (str, False),
+        "LogStreamNamePrefix": (str, False),
+        "LogTypes": (dict, False),
+    }
+
+
+class ManagedLoggingConfiguration(AWSProperty):
+    """
+    `ManagedLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "KmsKey": (str, False),
+    }
+
+
+class S3LoggingConfiguration(AWSProperty):
+    """
+    `S3LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-s3loggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "KmsKey": (str, False),
+        "LogLocation": (str, False),
+    }
+
+
+class MonitoringConfiguration(AWSProperty):
+    """
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-monitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLoggingConfiguration": (CloudWatchLoggingConfiguration, False),
+        "ManagedLoggingConfiguration": (ManagedLoggingConfiguration, False),
+        "S3LoggingConfiguration": (S3LoggingConfiguration, False),
     }
 
 
@@ -185,9 +259,11 @@ class WorkGroupConfiguration(AWSProperty):
             False,
         ),
         "EnforceWorkGroupConfiguration": (boolean, False),
+        "EngineConfiguration": (EngineConfiguration, False),
         "EngineVersion": (EngineVersion, False),
         "ExecutionRole": (str, False),
         "ManagedQueryResultsConfiguration": (ManagedQueryResultsConfiguration, False),
+        "MonitoringConfiguration": (MonitoringConfiguration, False),
         "PublishCloudWatchMetricsEnabled": (boolean, False),
         "RequesterPaysEnabled": (boolean, False),
         "ResultConfiguration": (ResultConfiguration, False),

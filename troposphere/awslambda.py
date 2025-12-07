@@ -67,6 +67,80 @@ class Alias(AWSObject):
     }
 
 
+class CapacityProviderPermissionsConfig(AWSProperty):
+    """
+    `CapacityProviderPermissionsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderpermissionsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityProviderOperatorRoleArn": (str, True),
+    }
+
+
+class TargetTrackingScalingPolicy(AWSProperty):
+    """
+    `TargetTrackingScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-targettrackingscalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "PredefinedMetricType": (str, True),
+        "TargetValue": (double, True),
+    }
+
+
+class CapacityProviderScalingConfig(AWSProperty):
+    """
+    `CapacityProviderScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxVCpuCount": (integer, False),
+        "ScalingMode": (str, False),
+        "ScalingPolicies": ([TargetTrackingScalingPolicy], False),
+    }
+
+
+class CapacityProviderVpcConfig(AWSProperty):
+    """
+    `CapacityProviderVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidervpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
+    }
+
+
+class InstanceRequirements(AWSProperty):
+    """
+    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedInstanceTypes": ([str], False),
+        "Architectures": ([str], False),
+        "ExcludedInstanceTypes": ([str], False),
+    }
+
+
+class CapacityProvider(AWSObject):
+    """
+    `CapacityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html>`__
+    """
+
+    resource_type = "AWS::Lambda::CapacityProvider"
+
+    props: PropsDictType = {
+        "CapacityProviderName": (str, False),
+        "CapacityProviderScalingConfig": (CapacityProviderScalingConfig, False),
+        "InstanceRequirements": (InstanceRequirements, False),
+        "KmsKeyArn": (str, False),
+        "PermissionsConfig": (CapacityProviderPermissionsConfig, True),
+        "Tags": (Tags, False),
+        "VpcConfig": (CapacityProviderVpcConfig, True),
+    }
+
+
 class AllowedPublishers(AWSProperty):
     """
     `AllowedPublishers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html>`__
@@ -355,6 +429,31 @@ class EventSourceMapping(AWSObject):
     }
 
 
+class LambdaManagedInstancesCapacityProviderConfig(AWSProperty):
+    """
+    `LambdaManagedInstancesCapacityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-lambdamanagedinstancescapacityproviderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityProviderArn": (str, True),
+        "ExecutionEnvironmentMemoryGiBPerVCpu": (double, False),
+        "PerExecutionEnvironmentMaxConcurrency": (integer, False),
+    }
+
+
+class CapacityProviderConfig(AWSProperty):
+    """
+    `CapacityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-capacityproviderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaManagedInstancesCapacityProviderConfig": (
+            LambdaManagedInstancesCapacityProviderConfig,
+            True,
+        ),
+    }
+
+
 class Code(AWSProperty):
     """
     `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html>`__
@@ -380,6 +479,17 @@ class DeadLetterConfig(AWSProperty):
 
     props: PropsDictType = {
         "TargetArn": (str, False),
+    }
+
+
+class DurableConfig(AWSProperty):
+    """
+    `DurableConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionTimeout": (integer, True),
+        "RetentionPeriodInDays": (integer, False),
     }
 
 
@@ -411,6 +521,17 @@ class FileSystemConfig(AWSProperty):
     props: PropsDictType = {
         "Arn": (str, True),
         "LocalMountPath": (str, True),
+    }
+
+
+class FunctionScalingConfig(AWSProperty):
+    """
+    `FunctionScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-functionscalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxExecutionEnvironments": (integer, False),
+        "MinExecutionEnvironments": (integer, False),
     }
 
 
@@ -491,14 +612,17 @@ class Function(AWSObject):
 
     props: PropsDictType = {
         "Architectures": ([str], False),
+        "CapacityProviderConfig": (CapacityProviderConfig, False),
         "Code": (Code, True),
         "CodeSigningConfigArn": (str, False),
         "DeadLetterConfig": (DeadLetterConfig, False),
         "Description": (str, False),
+        "DurableConfig": (DurableConfig, False),
         "Environment": (Environment, False),
         "EphemeralStorage": (EphemeralStorage, False),
         "FileSystemConfigs": ([FileSystemConfig], False),
         "FunctionName": (str, False),
+        "FunctionScalingConfig": (FunctionScalingConfig, False),
         "Handler": (str, False),
         "ImageConfig": (ImageConfig, False),
         "KmsKeyArn": (str, False),
@@ -506,6 +630,7 @@ class Function(AWSObject):
         "LoggingConfig": (LoggingConfig, False),
         "MemorySize": (validate_memory_size, False),
         "PackageType": (validate_package_type, False),
+        "PublishToLatestPublished": (boolean, False),
         "RecursiveLoop": (str, False),
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
@@ -637,6 +762,7 @@ class Version(AWSObject):
         "CodeSha256": (str, False),
         "Description": (str, False),
         "FunctionName": (str, True),
+        "FunctionScalingConfig": (FunctionScalingConfig, False),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
         "RuntimePolicy": (RuntimePolicy, False),
     }

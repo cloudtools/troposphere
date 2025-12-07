@@ -76,6 +76,7 @@ class BackupRuleResourceType(AWSProperty):
         "ScheduleExpressionTimezone": (str, False),
         "StartWindowMinutes": (double, False),
         "TargetBackupVault": (str, True),
+        "TargetLogicallyAirGappedBackupVaultArn": (str, False),
     }
 
 

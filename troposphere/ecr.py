@@ -57,6 +57,18 @@ class PullThroughCacheRule(AWSObject):
     }
 
 
+class PullTimeUpdateExclusion(AWSObject):
+    """
+    `PullTimeUpdateExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pulltimeupdateexclusion.html>`__
+    """
+
+    resource_type = "AWS::ECR::PullTimeUpdateExclusion"
+
+    props: PropsDictType = {
+        "PrincipalArn": (str, True),
+    }
+
+
 class RegistryPolicy(AWSObject):
     """
     `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html>`__
@@ -71,7 +83,7 @@ class RegistryPolicy(AWSObject):
 
 class RepositoryFilter(AWSProperty):
     """
-    `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>`__
+    `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-signingconfiguration-repositoryfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -235,4 +247,27 @@ class RepositoryCreationTemplate(AWSObject):
         "Prefix": (str, True),
         "RepositoryPolicy": (str, False),
         "ResourceTags": (Tags, False),
+    }
+
+
+class Rule(AWSProperty):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-signingconfiguration-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "RepositoryFilters": ([RepositoryFilter], False),
+        "SigningProfileArn": (str, True),
+    }
+
+
+class SigningConfiguration(AWSObject):
+    """
+    `SigningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-signingconfiguration.html>`__
+    """
+
+    resource_type = "AWS::ECR::SigningConfiguration"
+
+    props: PropsDictType = {
+        "Rules": ([Rule], True),
     }
