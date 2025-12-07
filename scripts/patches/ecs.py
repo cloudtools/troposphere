@@ -92,4 +92,9 @@ patches = [
         "path": "/PropertyTypes/AWS::ECS::TaskDefinition.Volume/Properties/Host/Type",
         "value": "Host",
     },
+    # Likely a temporary removal awaiting spec updates from AWS
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::ECS::ExpressGatewayService.ExpressGatewayServiceConfiguration",
+    },
 ]

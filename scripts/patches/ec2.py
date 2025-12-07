@@ -438,5 +438,10 @@ patches = (
             "op": "remove",
             "path": "/PropertyTypes/AWS::EC2::NetworkInsightsAnalysis.AdditionalDetail",
         },
+        # Likely a temporary removal awaiting spec updates from AWS
+        {
+            "op": "remove",
+            "path": "/PropertyTypes/AWS::EC2::VPCEncryptionControl.ResourceExclusions",
+        },
     ]
 )
