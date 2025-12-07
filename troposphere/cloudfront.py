@@ -381,6 +381,16 @@ class CacheBehavior(AWSProperty):
     }
 
 
+class ConnectionFunctionAssociation(AWSProperty):
+    """
+    `ConnectionFunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionfunctionassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+    }
+
+
 class CustomErrorResponse(AWSProperty):
     """
     `CustomErrorResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html>`__
@@ -687,6 +697,29 @@ class ViewerCertificate(AWSProperty):
     }
 
 
+class TrustStoreConfig(AWSProperty):
+    """
+    `TrustStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-truststoreconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdvertiseTrustStoreCaNames": (boolean, False),
+        "IgnoreCertificateExpiry": (boolean, False),
+        "TrustStoreId": (str, True),
+    }
+
+
+class ViewerMtlsConfig(AWSProperty):
+    """
+    `ViewerMtlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, False),
+        "TrustStoreConfig": (TrustStoreConfig, False),
+    }
+
+
 class DistributionConfig(AWSProperty):
     """
     `DistributionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html>`__
@@ -698,6 +731,7 @@ class DistributionConfig(AWSProperty):
         "CNAMEs": ([str], False),
         "CacheBehaviors": ([CacheBehavior], False),
         "Comment": (str, False),
+        "ConnectionFunctionAssociation": (ConnectionFunctionAssociation, False),
         "ConnectionMode": (str, False),
         "ContinuousDeploymentPolicyId": (str, False),
         "CustomErrorResponses": ([CustomErrorResponse], False),
@@ -716,6 +750,7 @@ class DistributionConfig(AWSProperty):
         "Staging": (boolean, False),
         "TenantConfig": (TenantConfig, False),
         "ViewerCertificate": (ViewerCertificate, False),
+        "ViewerMtlsConfig": (ViewerMtlsConfig, False),
         "WebACLId": (str, False),
     }
 
@@ -1368,6 +1403,43 @@ class StreamingDistribution(AWSObject):
     props: PropsDictType = {
         "StreamingDistributionConfig": (StreamingDistributionConfig, True),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class CaCertificatesBundleS3Location(AWSProperty):
+    """
+    `CaCertificatesBundleS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-truststore-cacertificatesbundles3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "Region": (str, True),
+        "Version": (str, False),
+    }
+
+
+class CaCertificatesBundleSource(AWSProperty):
+    """
+    `CaCertificatesBundleSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-truststore-cacertificatesbundlesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaCertificatesBundleS3Location": (CaCertificatesBundleS3Location, True),
+    }
+
+
+class TrustStore(AWSObject):
+    """
+    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::TrustStore"
+
+    props: PropsDictType = {
+        "CaCertificatesBundleSource": (CaCertificatesBundleSource, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 

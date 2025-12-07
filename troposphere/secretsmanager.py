@@ -29,6 +29,17 @@ class ResourcePolicy(AWSObject):
     }
 
 
+class ExternalSecretRotationMetadataItem(AWSProperty):
+    """
+    `ExternalSecretRotationMetadataItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-externalsecretrotationmetadataitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class HostedRotationLambda(AWSProperty):
     """
     `HostedRotationLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.html>`__
@@ -69,6 +80,8 @@ class RotationSchedule(AWSObject):
     resource_type = "AWS::SecretsManager::RotationSchedule"
 
     props: PropsDictType = {
+        "ExternalSecretRotationMetadata": ([ExternalSecretRotationMetadataItem], False),
+        "ExternalSecretRotationRoleArn": (str, False),
         "HostedRotationLambda": (HostedRotationLambda, False),
         "RotateImmediatelyOnUpdate": (boolean, False),
         "RotationLambdaARN": (str, False),
@@ -122,6 +135,7 @@ class Secret(AWSObject):
         "ReplicaRegions": ([ReplicaRegion], False),
         "SecretString": (str, False),
         "Tags": (validate_tags_or_list, False),
+        "Type": (str, False),
     }
 
 

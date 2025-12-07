@@ -207,3 +207,34 @@ class ErrorInfo(AWSProperty):
         "Code": (str, False),
         "Message": (str, False),
     }
+
+
+class JwtKey(AWSProperty):
+    """
+    `JwtKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtkey.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
+        "SecretVersion": (str, True),
+    }
+
+
+class JwtAuth(AWSProperty):
+    """
+    `JwtAuth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtauth.html>`__
+    """
+
+    props: PropsDictType = {
+        "JwtKey": (JwtKey, False),
+    }
+
+
+class SlurmRest(AWSProperty):
+    """
+    `SlurmRest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+    }

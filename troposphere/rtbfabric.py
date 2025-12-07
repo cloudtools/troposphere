@@ -12,7 +12,7 @@ from .validators import boolean, double, integer
 
 class ResponderErrorMaskingForHttpCode(AWSProperty):
     """
-    `ResponderErrorMaskingForHttpCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-respondererrormaskingforhttpcode.html>`__
+    `ResponderErrorMaskingForHttpCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-outboundexternallink-respondererrormaskingforhttpcode.html>`__
     """
 
     props: PropsDictType = {
@@ -25,7 +25,7 @@ class ResponderErrorMaskingForHttpCode(AWSProperty):
 
 class LinkAttributes(AWSProperty):
     """
-    `LinkAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linkattributes.html>`__
+    `LinkAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-outboundexternallink-linkattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -36,7 +36,7 @@ class LinkAttributes(AWSProperty):
 
 class LinkApplicationLogSampling(AWSProperty):
     """
-    `LinkApplicationLogSampling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linkapplicationlogsampling.html>`__
+    `LinkApplicationLogSampling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-outboundexternallink-linkapplicationlogsampling.html>`__
     """
 
     props: PropsDictType = {
@@ -47,7 +47,7 @@ class LinkApplicationLogSampling(AWSProperty):
 
 class ApplicationLogs(AWSProperty):
     """
-    `ApplicationLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-applicationlogs.html>`__
+    `ApplicationLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-outboundexternallink-applicationlogs.html>`__
     """
 
     props: PropsDictType = {
@@ -57,7 +57,7 @@ class ApplicationLogs(AWSProperty):
 
 class LinkLogSettings(AWSProperty):
     """
-    `LinkLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-linklogsettings.html>`__
+    `LinkLogSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-outboundexternallink-linklogsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -196,6 +196,22 @@ class Link(AWSObject):
         "LinkLogSettings": (LinkLogSettings, True),
         "ModuleConfigurationList": ([ModuleConfiguration], False),
         "PeerGatewayId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class OutboundExternalLink(AWSObject):
+    """
+    `OutboundExternalLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-outboundexternallink.html>`__
+    """
+
+    resource_type = "AWS::RTBFabric::OutboundExternalLink"
+
+    props: PropsDictType = {
+        "GatewayId": (str, True),
+        "LinkAttributes": (LinkAttributes, False),
+        "LinkLogSettings": (LinkLogSettings, True),
+        "PublicEndpoint": (str, True),
         "Tags": (Tags, False),
     }
 

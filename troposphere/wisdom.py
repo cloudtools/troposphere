@@ -96,6 +96,43 @@ class AnswerRecommendationAIAgentConfiguration(AWSProperty):
     }
 
 
+class EmailGenerativeAnswerAIAgentConfiguration(AWSProperty):
+    """
+    `EmailGenerativeAnswerAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailgenerativeansweraiagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssociationConfigurations": ([AssociationConfiguration], False),
+        "EmailGenerativeAnswerAIPromptId": (str, False),
+        "EmailQueryReformulationAIPromptId": (str, False),
+        "Locale": (str, False),
+    }
+
+
+class EmailOverviewAIAgentConfiguration(AWSProperty):
+    """
+    `EmailOverviewAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailoverviewaiagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailOverviewAIPromptId": (str, False),
+        "Locale": (str, False),
+    }
+
+
+class EmailResponseAIAgentConfiguration(AWSProperty):
+    """
+    `EmailResponseAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailresponseaiagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssociationConfigurations": ([AssociationConfiguration], False),
+        "EmailQueryReformulationAIPromptId": (str, False),
+        "EmailResponseAIPromptId": (str, False),
+        "Locale": (str, False),
+    }
+
+
 class ManualSearchAIAgentConfiguration(AWSProperty):
     """
     `ManualSearchAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html>`__
@@ -132,6 +169,12 @@ class AIAgentConfiguration(AWSProperty):
             AnswerRecommendationAIAgentConfiguration,
             False,
         ),
+        "EmailGenerativeAnswerAIAgentConfiguration": (
+            EmailGenerativeAnswerAIAgentConfiguration,
+            False,
+        ),
+        "EmailOverviewAIAgentConfiguration": (EmailOverviewAIAgentConfiguration, False),
+        "EmailResponseAIAgentConfiguration": (EmailResponseAIAgentConfiguration, False),
         "ManualSearchAIAgentConfiguration": (ManualSearchAIAgentConfiguration, False),
         "SelfServiceAIAgentConfiguration": (SelfServiceAIAgentConfiguration, False),
     }

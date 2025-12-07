@@ -1658,6 +1658,8 @@ class Av1Settings(AWSProperty):
         "QvbrQualityLevel": (integer, False),
         "RateControlMode": (str, False),
         "SceneChangeDetect": (str, False),
+        "SpatialAq": (str, False),
+        "TemporalAq": (str, False),
         "TimecodeBurninSettings": (TimecodeBurninSettings, False),
     }
 
@@ -1780,6 +1782,14 @@ class DolbyVision81Settings(AWSProperty):
     props: PropsDictType = {}
 
 
+class Hlg2020Settings(AWSProperty):
+    """
+    `Hlg2020Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlg2020settings.html>`__
+    """
+
+    props: PropsDictType = {}
+
+
 class H265ColorSpaceSettings(AWSProperty):
     """
     `H265ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html>`__
@@ -1789,6 +1799,7 @@ class H265ColorSpaceSettings(AWSProperty):
         "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
         "DolbyVision81Settings": (DolbyVision81Settings, False),
         "Hdr10Settings": (Hdr10Settings, False),
+        "Hlg2020Settings": (Hlg2020Settings, False),
         "Rec601Settings": (Rec601Settings, False),
         "Rec709Settings": (Rec709Settings, False),
     }
@@ -2683,6 +2694,28 @@ class MulticastSettingsCreateRequest(AWSProperty):
     }
 
 
+class RouterDestinationSettings(AWSProperty):
+    """
+    `RouterDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-routerdestinationsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZoneName": (str, False),
+    }
+
+
+class RouterSettings(AWSProperty):
+    """
+    `RouterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-routersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destinations": ([RouterDestinationSettings], False),
+        "EncryptionType": (str, False),
+        "SecretArn": (str, False),
+    }
+
+
 class InputSdpLocation(AWSProperty):
     """
     `InputSdpLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsdplocation.html>`__
@@ -2777,6 +2810,7 @@ class Input(AWSObject):
         "MulticastSettings": (MulticastSettingsCreateRequest, False),
         "Name": (str, False),
         "RoleArn": (str, False),
+        "RouterSettings": (RouterSettings, False),
         "SdiSources": ([str], False),
         "Smpte2110ReceiverGroupSettings": (Smpte2110ReceiverGroupSettings, False),
         "Sources": ([InputSourceRequest], False),
@@ -3103,6 +3137,16 @@ class MulticastSettingsUpdateRequest(AWSProperty):
 
     props: PropsDictType = {
         "Sources": ([MulticastSourceUpdateRequest], False),
+    }
+
+
+class SpecialRouterSettings(AWSProperty):
+    """
+    `SpecialRouterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-specialroutersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "RouterArn": (str, False),
     }
 
 

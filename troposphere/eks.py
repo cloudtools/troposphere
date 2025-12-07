@@ -99,6 +99,92 @@ class Addon(AWSObject):
     }
 
 
+class SsoIdentity(AWSProperty):
+    """
+    `SsoIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-ssoidentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "Type": (str, True),
+    }
+
+
+class ArgoCdRoleMapping(AWSProperty):
+    """
+    `ArgoCdRoleMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocdrolemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identities": ([SsoIdentity], True),
+        "Role": (str, True),
+    }
+
+
+class AwsIdc(AWSProperty):
+    """
+    `AwsIdc <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-awsidc.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdcInstanceArn": (str, True),
+        "IdcManagedApplicationArn": (str, False),
+        "IdcRegion": (str, False),
+    }
+
+
+class NetworkAccess(AWSProperty):
+    """
+    `NetworkAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-networkaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpceIds": ([str], False),
+    }
+
+
+class ArgoCd(AWSProperty):
+    """
+    `ArgoCd <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocd.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsIdc": (AwsIdc, True),
+        "Namespace": (str, False),
+        "NetworkAccess": (NetworkAccess, False),
+        "RbacRoleMappings": ([ArgoCdRoleMapping], False),
+        "ServerUrl": (str, False),
+    }
+
+
+class CapabilityConfiguration(AWSProperty):
+    """
+    `CapabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-capabilityconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArgoCd": (ArgoCd, False),
+    }
+
+
+class Capability(AWSObject):
+    """
+    `Capability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-capability.html>`__
+    """
+
+    resource_type = "AWS::EKS::Capability"
+
+    props: PropsDictType = {
+        "CapabilityName": (str, True),
+        "ClusterName": (str, True),
+        "Configuration": (CapabilityConfiguration, False),
+        "DeletePropagationPolicy": (str, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+        "Type": (str, True),
+    }
+
+
 class AccessConfig(AWSProperty):
     """
     `AccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-accessconfig.html>`__
@@ -119,6 +205,16 @@ class ComputeConfig(AWSProperty):
         "Enabled": (boolean, False),
         "NodePools": ([str], False),
         "NodeRoleArn": (str, False),
+    }
+
+
+class ControlPlaneScalingConfig(AWSProperty):
+    """
+    `ControlPlaneScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplanescalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Tier": (str, False),
     }
 
 
@@ -317,6 +413,7 @@ class Cluster(AWSObject):
         "AccessConfig": (AccessConfig, False),
         "BootstrapSelfManagedAddons": (boolean, False),
         "ComputeConfig": (ComputeConfig, False),
+        "ControlPlaneScalingConfig": (ControlPlaneScalingConfig, False),
         "DeletionProtection": (boolean, False),
         "EncryptionConfig": ([EncryptionConfig], False),
         "Force": (boolean, False),

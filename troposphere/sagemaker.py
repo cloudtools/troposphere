@@ -148,6 +148,17 @@ class ClusterAutoScalingConfig(AWSProperty):
     }
 
 
+class ClusterCapacityRequirements(AWSProperty):
+    """
+    `ClusterCapacityRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clustercapacityrequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnDemand": (dict, False),
+        "Spot": (dict, False),
+    }
+
+
 class ClusterEbsVolumeConfig(AWSProperty):
     """
     `ClusterEbsVolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>`__
@@ -167,6 +178,29 @@ class ClusterInstanceStorageConfig(AWSProperty):
 
     props: PropsDictType = {
         "EbsVolumeConfig": (ClusterEbsVolumeConfig, False),
+    }
+
+
+class ClusterKubernetesTaint(AWSProperty):
+    """
+    `ClusterKubernetesTaint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetestaint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Effect": (str, True),
+        "Key": (str, True),
+        "Value": (str, False),
+    }
+
+
+class ClusterKubernetesConfig(AWSProperty):
+    """
+    `ClusterKubernetesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetesconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Labels": (dict, False),
+        "Taints": ([ClusterKubernetesTaint], False),
     }
 
 
@@ -290,6 +324,7 @@ class ClusterInstanceGroup(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CapacityRequirements": (ClusterCapacityRequirements, False),
         "CurrentCount": (integer, False),
         "ExecutionRole": (str, True),
         "ImageId": (str, False),
@@ -297,6 +332,7 @@ class ClusterInstanceGroup(AWSProperty):
         "InstanceGroupName": (str, True),
         "InstanceStorageConfigs": ([ClusterInstanceStorageConfig], False),
         "InstanceType": (str, True),
+        "KubernetesConfig": (ClusterKubernetesConfig, False),
         "LifeCycleConfig": (ClusterLifeCycleConfig, True),
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),

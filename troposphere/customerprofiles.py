@@ -821,7 +821,8 @@ class SegmentDefinition(AWSObject):
         "DisplayName": (str, True),
         "DomainName": (str, True),
         "SegmentDefinitionName": (str, True),
-        "SegmentGroups": (SegmentGroup, True),
+        "SegmentGroups": (SegmentGroup, False),
+        "SegmentSqlQuery": (str, False),
         "Tags": (Tags, False),
     }
 

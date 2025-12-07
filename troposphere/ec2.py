@@ -2914,6 +2914,43 @@ class TransitGatewayConnectPeer(AWSObject):
     }
 
 
+class TransitGatewayMeteringPolicy(AWSObject):
+    """
+    `TransitGatewayMeteringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicy.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayMeteringPolicy"
+
+    props: PropsDictType = {
+        "MiddleboxAttachmentIds": ([str], False),
+        "Tags": (Tags, False),
+        "TransitGatewayId": (str, True),
+    }
+
+
+class TransitGatewayMeteringPolicyEntry(AWSObject):
+    """
+    `TransitGatewayMeteringPolicyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymeteringpolicyentry.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayMeteringPolicyEntry"
+
+    props: PropsDictType = {
+        "DestinationCidrBlock": (str, False),
+        "DestinationPortRange": (str, False),
+        "DestinationTransitGatewayAttachmentId": (str, False),
+        "DestinationTransitGatewayAttachmentType": (str, False),
+        "MeteredAccount": (str, True),
+        "PolicyRuleNumber": (integer, True),
+        "Protocol": (str, False),
+        "SourceCidrBlock": (str, False),
+        "SourcePortRange": (str, False),
+        "SourceTransitGatewayAttachmentId": (str, False),
+        "SourceTransitGatewayAttachmentType": (str, False),
+        "TransitGatewayMeteringPolicyId": (str, True),
+    }
+
+
 class MulticastDomainOptions(AWSProperty):
     """
     `MulticastDomainOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaymulticastdomain-options.html>`__
@@ -3146,6 +3183,28 @@ class VPCDHCPOptionsAssociation(AWSObject):
     props: PropsDictType = {
         "DhcpOptionsId": (str, True),
         "VpcId": (str, True),
+    }
+
+
+class VPCEncryptionControl(AWSObject):
+    """
+    `VPCEncryptionControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcencryptioncontrol.html>`__
+    """
+
+    resource_type = "AWS::EC2::VPCEncryptionControl"
+
+    props: PropsDictType = {
+        "EgressOnlyInternetGatewayExclusionInput": (str, False),
+        "ElasticFileSystemExclusionInput": (str, False),
+        "InternetGatewayExclusionInput": (str, False),
+        "LambdaExclusionInput": (str, False),
+        "Mode": (str, False),
+        "NatGatewayExclusionInput": (str, False),
+        "Tags": (Tags, False),
+        "VirtualPrivateGatewayExclusionInput": (str, False),
+        "VpcId": (str, False),
+        "VpcLatticeExclusionInput": (str, False),
+        "VpcPeeringExclusionInput": (str, False),
     }
 
 
@@ -3956,4 +4015,15 @@ class VolumeProperty(AWSProperty):
     props: PropsDictType = {
         "Device": (str, True),
         "VolumeId": (str, True),
+    }
+
+
+class VpcEncryptionControlExclusion(AWSProperty):
+    """
+    `VpcEncryptionControlExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcencryptioncontrol-vpcencryptioncontrolexclusion.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "StateMessage": (str, False),
     }

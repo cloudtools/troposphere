@@ -914,6 +914,7 @@ class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
     props: PropsDictType = {
+        "AbacStatus": (str, False),
         "AccelerateConfiguration": (AccelerateConfiguration, False),
         "AccessControl": (str, False),
         "AnalyticsConfigurations": ([AnalyticsConfiguration], False),
@@ -1023,6 +1024,16 @@ class AdvancedDataProtectionMetrics(AWSProperty):
     }
 
 
+class AdvancedPerformanceMetrics(AWSProperty):
+    """
+    `AdvancedPerformanceMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedperformancemetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsEnabled": (boolean, False),
+    }
+
+
 class DetailedStatusCodesMetrics(AWSProperty):
     """
     `DetailedStatusCodesMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-detailedstatuscodesmetrics.html>`__
@@ -1075,6 +1086,7 @@ class BucketLevel(AWSProperty):
         "ActivityMetrics": (ActivityMetrics, False),
         "AdvancedCostOptimizationMetrics": (AdvancedCostOptimizationMetrics, False),
         "AdvancedDataProtectionMetrics": (AdvancedDataProtectionMetrics, False),
+        "AdvancedPerformanceMetrics": (AdvancedPerformanceMetrics, False),
         "DetailedStatusCodesMetrics": (DetailedStatusCodesMetrics, False),
         "PrefixLevel": (PrefixLevel, False),
     }
@@ -1110,6 +1122,7 @@ class AccountLevel(AWSProperty):
         "ActivityMetrics": (ActivityMetrics, False),
         "AdvancedCostOptimizationMetrics": (AdvancedCostOptimizationMetrics, False),
         "AdvancedDataProtectionMetrics": (AdvancedDataProtectionMetrics, False),
+        "AdvancedPerformanceMetrics": (AdvancedPerformanceMetrics, False),
         "BucketLevel": (BucketLevel, True),
         "DetailedStatusCodesMetrics": (DetailedStatusCodesMetrics, False),
         "StorageLensGroupLevel": (StorageLensGroupLevel, False),
@@ -1183,6 +1196,17 @@ class S3BucketDestination(AWSProperty):
     }
 
 
+class StorageLensTableDestination(AWSProperty):
+    """
+    `StorageLensTableDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelenstabledestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "Encryption": (Encryption, False),
+        "IsEnabled": (boolean, True),
+    }
+
+
 class StorageLensDataExport(AWSProperty):
     """
     `StorageLensDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html>`__
@@ -1191,6 +1215,18 @@ class StorageLensDataExport(AWSProperty):
     props: PropsDictType = {
         "CloudWatchMetrics": (CloudWatchMetrics, False),
         "S3BucketDestination": (S3BucketDestination, False),
+        "StorageLensTableDestination": (StorageLensTableDestination, False),
+    }
+
+
+class StorageLensExpandedPrefixesDataExport(AWSProperty):
+    """
+    `StorageLensExpandedPrefixesDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensexpandedprefixesdataexport.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3BucketDestination": (S3BucketDestination, False),
+        "StorageLensTableDestination": (StorageLensTableDestination, False),
     }
 
 
@@ -1204,9 +1240,11 @@ class StorageLensConfiguration(AWSProperty):
         "AwsOrg": (AwsOrg, False),
         "DataExport": (StorageLensDataExport, False),
         "Exclude": (BucketsAndRegions, False),
+        "ExpandedPrefixesDataExport": (StorageLensExpandedPrefixesDataExport, False),
         "Id": (str, True),
         "Include": (BucketsAndRegions, False),
         "IsEnabled": (boolean, True),
+        "PrefixDelimiter": (str, False),
         "StorageLensArn": (str, False),
     }
 
