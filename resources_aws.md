@@ -75,6 +75,7 @@
 - [AWS::DataZone](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataZone.html)
 - [AWS::Deadline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Deadline.html)
 - [AWS::Detective](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Detective.html)
+- [AWS::DevOpsAgent](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DevOpsAgent.html)
 - [AWS::DevOpsGuru](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DevOpsGuru.html)
 - [AWS::DirectoryService](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DirectoryService.html)
 - [AWS::DocDB](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DocDB.html)
