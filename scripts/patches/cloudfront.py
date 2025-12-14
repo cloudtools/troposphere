@@ -110,4 +110,8 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::CloudFront::AnycastIpList.Tags",
     },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::CloudFront::AnycastIpList.AnycastIpList",
+    },
 ]

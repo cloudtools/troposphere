@@ -97,4 +97,8 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::ECS::ExpressGatewayService.ExpressGatewayServiceConfiguration",
     },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::ECS::ExpressGatewayService.ECSManagedResourceArns",
+    },
 ]
