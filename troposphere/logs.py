@@ -493,6 +493,7 @@ class ParseToOCSF(AWSProperty):
 
     props: PropsDictType = {
         "EventSource": (str, True),
+        "MappingVersion": (str, False),
         "OcsfVersion": (str, True),
         "Source": (str, False),
     }

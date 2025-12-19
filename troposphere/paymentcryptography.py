@@ -67,5 +67,17 @@ class Key(AWSObject):
         "Exportable": (boolean, True),
         "KeyAttributes": (KeyAttributes, True),
         "KeyCheckValueAlgorithm": (str, False),
+        "ReplicationRegions": ([str], False),
         "Tags": (Tags, False),
+    }
+
+
+class ReplicationStatusType(AWSProperty):
+    """
+    `ReplicationStatusType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+        "StatusMessage": (str, False),
     }

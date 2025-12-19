@@ -248,5 +248,6 @@ class Association(AWSObject):
     props: PropsDictType = {
         "AgentSpaceId": (str, True),
         "Configuration": (ServiceConfiguration, True),
+        "LinkedAssociationIds": ([str], False),
         "ServiceId": (str, True),
     }

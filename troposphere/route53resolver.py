@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, integer
 from .validators.route53resolver import validate_ruletype
 
 
@@ -146,8 +146,10 @@ class ResolverEndpoint(AWSObject):
         "PreferredInstanceType": (str, False),
         "Protocols": ([str], False),
         "ResolverEndpointType": (str, False),
+        "RniEnhancedMetricsEnabled": (boolean, False),
         "SecurityGroupIds": ([str], True),
         "Tags": (Tags, False),
+        "TargetNameServerMetricsEnabled": (boolean, False),
     }
 
 

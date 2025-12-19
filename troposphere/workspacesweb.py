@@ -270,6 +270,53 @@ class UserAccessLoggingSettings(AWSObject):
     }
 
 
+class ImageMetadata(AWSProperty):
+    """
+    `ImageMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-imagemetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileExtension": (str, True),
+        "LastUploadTimestamp": (str, True),
+        "MimeType": (str, True),
+    }
+
+
+class LocalizedBrandingStrings(AWSProperty):
+    """
+    `LocalizedBrandingStrings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-localizedbrandingstrings.html>`__
+    """
+
+    props: PropsDictType = {
+        "BrowserTabTitle": (str, True),
+        "ContactButtonText": (str, False),
+        "ContactLink": (str, False),
+        "LoadingText": (str, False),
+        "LoginButtonText": (str, False),
+        "LoginDescription": (str, False),
+        "LoginTitle": (str, False),
+        "WelcomeText": (str, True),
+    }
+
+
+class BrandingConfiguration(AWSProperty):
+    """
+    `BrandingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-brandingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColorTheme": (str, False),
+        "Favicon": (str, False),
+        "FaviconMetadata": (ImageMetadata, False),
+        "LocalizedStrings": (dict, False),
+        "Logo": (str, False),
+        "LogoMetadata": (ImageMetadata, False),
+        "TermsOfService": (str, False),
+        "Wallpaper": (str, False),
+        "WallpaperMetadata": (ImageMetadata, False),
+    }
+
+
 class CookieSpecification(AWSProperty):
     """
     `CookieSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiespecification.html>`__
@@ -315,6 +362,7 @@ class UserSettings(AWSObject):
 
     props: PropsDictType = {
         "AdditionalEncryptionContext": (dict, False),
+        "BrandingConfiguration": (BrandingConfiguration, False),
         "CookieSynchronizationConfiguration": (
             CookieSynchronizationConfiguration,
             False,
@@ -330,4 +378,5 @@ class UserSettings(AWSObject):
         "Tags": (Tags, False),
         "ToolbarConfiguration": (ToolbarConfiguration, False),
         "UploadAllowed": (str, True),
+        "WebAuthnAllowed": (str, False),
     }

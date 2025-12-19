@@ -9407,6 +9407,29 @@ class DashboardError(AWSProperty):
     }
 
 
+class GridLayoutElementBackgroundStyle(AWSProperty):
+    """
+    `GridLayoutElementBackgroundStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelementbackgroundstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, False),
+        "Visibility": (str, False),
+    }
+
+
+class GridLayoutElementBorderStyle(AWSProperty):
+    """
+    `GridLayoutElementBorderStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelementborderstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, False),
+        "Visibility": (str, False),
+        "Width": (str, False),
+    }
+
+
 class NetworkInterface(AWSProperty):
     """
     `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-networkinterface.html>`__

@@ -334,6 +334,49 @@ class S3AccessPoint(AWSProperty):
     }
 
 
+class OntapUnixFileSystemUser(AWSProperty):
+    """
+    `OntapUnixFileSystemUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-ontapunixfilesystemuser.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class OntapWindowsFileSystemUser(AWSProperty):
+    """
+    `OntapWindowsFileSystemUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-ontapwindowsfilesystemuser.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class OntapFileSystemIdentity(AWSProperty):
+    """
+    `OntapFileSystemIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-ontapfilesystemidentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "UnixUser": (OntapUnixFileSystemUser, False),
+        "WindowsUser": (OntapWindowsFileSystemUser, False),
+    }
+
+
+class S3AccessPointOntapConfiguration(AWSProperty):
+    """
+    `S3AccessPointOntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemIdentity": (OntapFileSystemIdentity, True),
+        "VolumeId": (str, True),
+    }
+
+
 class FileSystemGID(AWSProperty):
     """
     `FileSystemGID <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-filesystemgid.html>`__
@@ -387,7 +430,8 @@ class S3AccessPointAttachment(AWSObject):
 
     props: PropsDictType = {
         "Name": (str, True),
-        "OpenZFSConfiguration": (S3AccessPointOpenZFSConfiguration, True),
+        "OntapConfiguration": (S3AccessPointOntapConfiguration, False),
+        "OpenZFSConfiguration": (S3AccessPointOpenZFSConfiguration, False),
         "S3AccessPoint": (S3AccessPoint, False),
         "Type": (str, True),
     }

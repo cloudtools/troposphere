@@ -1185,6 +1185,30 @@ class Template(AWSObject):
     }
 
 
+class ResourceAssociation(AWSProperty):
+    """
+    `ResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-tenant-resourceassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+    }
+
+
+class Tenant(AWSObject):
+    """
+    `Tenant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html>`__
+    """
+
+    resource_type = "AWS::SES::Tenant"
+
+    props: PropsDictType = {
+        "ResourceAssociations": ([ResourceAssociation], False),
+        "Tags": (Tags, False),
+        "TenantName": (str, True),
+    }
+
+
 class DashboardAttributes(AWSProperty):
     """
     `DashboardAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-dashboardattributes.html>`__

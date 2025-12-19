@@ -88,8 +88,9 @@ class LineItemFilter(AWSProperty):
 
     props: PropsDictType = {
         "Attribute": (str, True),
+        "AttributeValues": ([str], False),
         "MatchOption": (str, True),
-        "Values": ([str], True),
+        "Values": ([str], False),
     }
 
 

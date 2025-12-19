@@ -226,6 +226,7 @@ class InstanceLaunchTemplate(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CapacityOptionType": (str, False),
         "Ec2InstanceProfileArn": (str, True),
         "InstanceRequirements": (InstanceRequirementsRequest, False),
         "Monitoring": (str, False),
@@ -1362,6 +1363,17 @@ class TaskSet(AWSObject):
     }
 
 
+class AutoScalingArns(AWSProperty):
+    """
+    `AutoScalingArns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-autoscalingarns.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationAutoScalingPolicies": ([str], False),
+        "ScalableTarget": (str, False),
+    }
+
+
 class ExpressGatewayServiceStatus(AWSProperty):
     """
     `ExpressGatewayServiceStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayservicestatus.html>`__
@@ -1369,6 +1381,21 @@ class ExpressGatewayServiceStatus(AWSProperty):
 
     props: PropsDictType = {
         "StatusCode": (str, False),
+    }
+
+
+class IngressPathArns(AWSProperty):
+    """
+    `IngressPathArns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-ingresspatharns.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "ListenerArn": (str, False),
+        "ListenerRuleArn": (str, False),
+        "LoadBalancerArn": (str, False),
+        "LoadBalancerSecurityGroups": ([str], False),
+        "TargetGroupArns": ([str], False),
     }
 
 

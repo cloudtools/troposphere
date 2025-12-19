@@ -29,6 +29,17 @@ from .validators.cloudfront import (
 )
 
 
+class IpamCidrConfig(AWSProperty):
+    """
+    `IpamCidrConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, True),
+        "IpamPoolArn": (str, True),
+    }
+
+
 class AnycastIpList(AWSObject):
     """
     `AnycastIpList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html>`__
@@ -39,6 +50,7 @@ class AnycastIpList(AWSObject):
     props: PropsDictType = {
         "IpAddressType": (str, False),
         "IpCount": (integer, True),
+        "IpamCidrConfigs": ([IpamCidrConfig], False),
         "Name": (str, True),
         "Tags": (validate_tags_items_array, False),
     }
@@ -1471,23 +1483,6 @@ class VpcOrigin(AWSObject):
     }
 
 
-class AnycastIpListProperty(AWSProperty):
-    """
-    `AnycastIpListProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html>`__
-    """
-
-    props: PropsDictType = {
-        "AnycastIps": ([str], True),
-        "Arn": (str, True),
-        "Id": (str, True),
-        "IpAddressType": (str, False),
-        "IpCount": (integer, True),
-        "LastModifiedTime": (str, True),
-        "Name": (str, True),
-        "Status": (str, True),
-    }
-
-
 class DomainResult(AWSProperty):
     """
     `DomainResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-domainresult.html>`__
@@ -1495,5 +1490,18 @@ class DomainResult(AWSProperty):
 
     props: PropsDictType = {
         "Domain": (str, False),
+        "Status": (str, False),
+    }
+
+
+class IpamCidrConfigResult(AWSProperty):
+    """
+    `IpamCidrConfigResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfigresult.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnycastIp": (str, False),
+        "Cidr": (str, False),
+        "IpamPoolArn": (str, False),
         "Status": (str, False),
     }

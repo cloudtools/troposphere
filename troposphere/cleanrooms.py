@@ -117,6 +117,50 @@ class ErrorMessageConfiguration(AWSProperty):
     }
 
 
+class SyntheticDataColumnProperties(AWSProperty):
+    """
+    `SyntheticDataColumnProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-syntheticdatacolumnproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "ColumnType": (str, True),
+        "IsPredictiveValue": (boolean, True),
+    }
+
+
+class ColumnClassificationDetails(AWSProperty):
+    """
+    `ColumnClassificationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-columnclassificationdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnMapping": ([SyntheticDataColumnProperties], True),
+    }
+
+
+class MLSyntheticDataParameters(AWSProperty):
+    """
+    `MLSyntheticDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-mlsyntheticdataparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnClassification": (ColumnClassificationDetails, True),
+        "Epsilon": (double, True),
+        "MaxMembershipInferenceAttackScore": (double, True),
+    }
+
+
+class SyntheticDataParameters(AWSProperty):
+    """
+    `SyntheticDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-syntheticdataparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "MlSyntheticDataParameters": (MLSyntheticDataParameters, True),
+    }
+
+
 class AnalysisTemplate(AWSObject):
     """
     `AnalysisTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html>`__
@@ -134,6 +178,7 @@ class AnalysisTemplate(AWSObject):
         "Schema": (AnalysisSchema, False),
         "Source": (AnalysisSource, True),
         "SourceMetadata": (AnalysisSourceMetadata, False),
+        "SyntheticDataParameters": (SyntheticDataParameters, False),
         "Tags": (Tags, False),
     }
 
@@ -191,6 +236,16 @@ class ModelTrainingPaymentConfig(AWSProperty):
     }
 
 
+class SyntheticDataGenerationPaymentConfig(AWSProperty):
+    """
+    `SyntheticDataGenerationPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-syntheticdatagenerationpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
 class MLPaymentConfig(AWSProperty):
     """
     `MLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html>`__
@@ -199,6 +254,7 @@ class MLPaymentConfig(AWSProperty):
     props: PropsDictType = {
         "ModelInference": (ModelInferencePaymentConfig, False),
         "ModelTraining": (ModelTrainingPaymentConfig, False),
+        "SyntheticDataGeneration": (SyntheticDataGenerationPaymentConfig, False),
     }
 
 
@@ -659,6 +715,16 @@ class MembershipModelTrainingPaymentConfig(AWSProperty):
     }
 
 
+class MembershipSyntheticDataGenerationPaymentConfig(AWSProperty):
+    """
+    `MembershipSyntheticDataGenerationPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipsyntheticdatagenerationpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
 class MembershipMLPaymentConfig(AWSProperty):
     """
     `MembershipMLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html>`__
@@ -667,6 +733,10 @@ class MembershipMLPaymentConfig(AWSProperty):
     props: PropsDictType = {
         "ModelInference": (MembershipModelInferencePaymentConfig, False),
         "ModelTraining": (MembershipModelTrainingPaymentConfig, False),
+        "SyntheticDataGeneration": (
+            MembershipSyntheticDataGenerationPaymentConfig,
+            False,
+        ),
     }
 
 

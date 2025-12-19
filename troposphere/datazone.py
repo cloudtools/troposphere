@@ -185,6 +185,16 @@ class IamPropertiesInput(AWSProperty):
     }
 
 
+class MlflowPropertiesInput(AWSProperty):
+    """
+    `MlflowPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-mlflowpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrackingServerArn": (str, False),
+    }
+
+
 class UsernamePassword(AWSProperty):
     """
     `UsernamePassword <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-usernamepassword.html>`__
@@ -275,6 +285,7 @@ class SparkEmrPropertiesInput(AWSProperty):
         "InstanceProfileArn": (str, False),
         "JavaVirtualEnv": (str, False),
         "LogUri": (str, False),
+        "ManagedEndpointArn": (str, False),
         "PythonVirtualEnv": (str, False),
         "RuntimeRole": (str, False),
         "TrustedCertificatesS3Uri": (str, False),
@@ -319,6 +330,7 @@ class ConnectionPropertiesInput(AWSProperty):
         "GlueProperties": (GluePropertiesInput, False),
         "HyperPodProperties": (HyperPodPropertiesInput, False),
         "IamProperties": (IamPropertiesInput, False),
+        "MlflowProperties": (MlflowPropertiesInput, False),
         "RedshiftProperties": (RedshiftPropertiesInput, False),
         "S3Properties": (S3PropertiesInput, False),
         "SparkEmrProperties": (SparkEmrPropertiesInput, False),

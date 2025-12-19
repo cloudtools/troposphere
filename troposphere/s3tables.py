@@ -78,6 +78,16 @@ class SnapshotManagement(AWSProperty):
     }
 
 
+class StorageClassConfiguration(AWSProperty):
+    """
+    `StorageClassConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-storageclassconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "StorageClass": (str, False),
+    }
+
+
 class Table(AWSObject):
     """
     `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-table.html>`__
@@ -91,6 +101,7 @@ class Table(AWSObject):
         "Namespace": (str, True),
         "OpenTableFormat": (str, True),
         "SnapshotManagement": (SnapshotManagement, False),
+        "StorageClassConfiguration": (StorageClassConfiguration, False),
         "TableBucketARN": (str, True),
         "TableName": (str, True),
         "Tags": (Tags, False),
@@ -141,6 +152,7 @@ class TableBucket(AWSObject):
     props: PropsDictType = {
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "MetricsConfiguration": (MetricsConfiguration, False),
+        "StorageClassConfiguration": (StorageClassConfiguration, False),
         "TableBucketName": (str, True),
         "Tags": (Tags, False),
         "UnreferencedFileRemoval": (UnreferencedFileRemoval, False),

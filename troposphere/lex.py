@@ -96,13 +96,27 @@ class BuildtimeSettings(AWSProperty):
     }
 
 
+class IntentDisambiguationSettings(AWSProperty):
+    """
+    `IntentDisambiguationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentdisambiguationsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomDisambiguationMessage": (str, False),
+        "Enabled": (boolean, True),
+        "MaxDisambiguationIntents": (integer, False),
+    }
+
+
 class NluImprovementSpecification(AWSProperty):
     """
     `NluImprovementSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html>`__
     """
 
     props: PropsDictType = {
+        "AssistedNluMode": (str, False),
         "Enabled": (boolean, True),
+        "IntentDisambiguationSettings": (IntentDisambiguationSettings, False),
     }
 
 
@@ -914,7 +928,8 @@ class Specifications(AWSProperty):
     """
 
     props: PropsDictType = {
-        "SlotTypeId": (str, True),
+        "SlotTypeId": (str, False),
+        "SlotTypeName": (str, False),
         "ValueElicitationSetting": (SubSlotValueElicitationSetting, True),
     }
 
@@ -966,6 +981,7 @@ class Intent(AWSProperty):
         "BedrockAgentIntentConfiguration": (BedrockAgentIntentConfiguration, False),
         "Description": (str, False),
         "DialogCodeHook": (DialogCodeHookSetting, False),
+        "DisplayName": (str, False),
         "FulfillmentCodeHook": (FulfillmentCodeHookSetting, False),
         "InitialResponseSetting": (InitialResponseSetting, False),
         "InputContexts": ([InputContext], False),
@@ -990,7 +1006,8 @@ class SubSlotTypeComposition(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
-        "SlotTypeId": (str, True),
+        "SlotTypeId": (str, False),
+        "SlotTypeName": (str, False),
     }
 
 
@@ -1105,6 +1122,27 @@ class SlotType(AWSProperty):
     }
 
 
+class SpeechFoundationModel(AWSProperty):
+    """
+    `SpeechFoundationModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechfoundationmodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelArn": (str, True),
+        "VoiceId": (str, False),
+    }
+
+
+class UnifiedSpeechSettings(AWSProperty):
+    """
+    `UnifiedSpeechSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-unifiedspeechsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "SpeechFoundationModel": (SpeechFoundationModel, True),
+    }
+
+
 class VoiceSettings(AWSProperty):
     """
     `VoiceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html>`__
@@ -1129,6 +1167,8 @@ class BotLocale(AWSProperty):
         "LocaleId": (str, True),
         "NluConfidenceThreshold": (double, True),
         "SlotTypes": ([SlotType], False),
+        "SpeechDetectionSensitivity": (str, False),
+        "UnifiedSpeechSettings": (UnifiedSpeechSettings, False),
         "VoiceSettings": (VoiceSettings, False),
     }
 

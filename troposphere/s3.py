@@ -84,8 +84,8 @@ class AccessGrantsLocation(AWSObject):
     resource_type = "AWS::S3::AccessGrantsLocation"
 
     props: PropsDictType = {
-        "IamRoleArn": (str, False),
-        "LocationScope": (str, False),
+        "IamRoleArn": (str, True),
+        "LocationScope": (str, True),
         "Tags": (Tags, False),
     }
 
