@@ -334,6 +334,7 @@ class ClusterInstanceGroup(AWSProperty):
         "InstanceType": (str, True),
         "KubernetesConfig": (ClusterKubernetesConfig, False),
         "LifeCycleConfig": (ClusterLifeCycleConfig, True),
+        "MinInstanceCount": (integer, False),
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),
         "ScheduledUpdateConfig": (ScheduledUpdateConfig, False),

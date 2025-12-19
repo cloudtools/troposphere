@@ -61,6 +61,7 @@ class ConnectAttachment(AWSObject):
             False,
         ),
         "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "TransportAttachmentId": (str, True),
     }
@@ -106,6 +107,20 @@ class CoreNetwork(AWSObject):
         "GlobalNetworkId": (str, True),
         "PolicyDocument": (dict, False),
         "Tags": (Tags, False),
+    }
+
+
+class CoreNetworkPrefixListAssociation(AWSObject):
+    """
+    `CoreNetworkPrefixListAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetworkprefixlistassociation.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::CoreNetworkPrefixListAssociation"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, True),
+        "PrefixListAlias": (str, True),
+        "PrefixListArn": (str, True),
     }
 
 
@@ -184,6 +199,7 @@ class DirectConnectGatewayAttachment(AWSObject):
             False,
         ),
         "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -276,6 +292,7 @@ class SiteToSiteVpnAttachment(AWSObject):
             False,
         ),
         "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "VpnConnectionArn": (str, True),
     }
@@ -323,6 +340,7 @@ class TransitGatewayRouteTableAttachment(AWSObject):
             False,
         ),
         "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "TransitGatewayRouteTableArn": (str, True),
     }
@@ -356,6 +374,7 @@ class VpcAttachment(AWSObject):
             False,
         ),
         "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "RoutingPolicyLabel": (str, False),
         "SubnetArns": ([str], True),
         "Tags": (Tags, False),
         "VpcArn": (str, True),

@@ -132,6 +132,48 @@ class AuthorizerConfiguration(AWSProperty):
     }
 
 
+class LambdaInterceptorConfiguration(AWSProperty):
+    """
+    `LambdaInterceptorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-lambdainterceptorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+    }
+
+
+class InterceptorConfiguration(AWSProperty):
+    """
+    `InterceptorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Lambda": (LambdaInterceptorConfiguration, True),
+    }
+
+
+class InterceptorInputConfiguration(AWSProperty):
+    """
+    `InterceptorInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorinputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PassRequestHeaders": (boolean, True),
+    }
+
+
+class GatewayInterceptorConfiguration(AWSProperty):
+    """
+    `GatewayInterceptorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayinterceptorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputConfiguration": (InterceptorInputConfiguration, False),
+        "InterceptionPoints": ([str], True),
+        "Interceptor": (InterceptorConfiguration, True),
+    }
+
+
 class MCPGatewayConfiguration(AWSProperty):
     """
     `MCPGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html>`__
@@ -166,6 +208,7 @@ class Gateway(AWSObject):
         "AuthorizerType": (str, True),
         "Description": (str, False),
         "ExceptionLevel": (str, False),
+        "InterceptorConfigurations": ([GatewayInterceptorConfiguration], False),
         "KmsKeyArn": (str, False),
         "Name": (str, True),
         "ProtocolConfiguration": (GatewayProtocolConfiguration, False),
@@ -195,6 +238,8 @@ class OAuthCredentialProvider(AWSProperty):
 
     props: PropsDictType = {
         "CustomParameters": (dict, False),
+        "DefaultReturnUrl": (str, False),
+        "GrantType": (str, False),
         "ProviderArn": (str, True),
         "Scopes": ([str], True),
     }

@@ -97,6 +97,7 @@ class TelephonyOutboundConfig(AWSProperty):
         "AnswerMachineDetectionConfig": (AnswerMachineDetectionConfig, False),
         "ConnectContactFlowId": (str, True),
         "ConnectSourcePhoneNumber": (str, False),
+        "RingTimeout": (integer, False),
     }
 
 
@@ -168,6 +169,39 @@ class TelephonyChannelSubtypeConfig(AWSProperty):
     }
 
 
+class WhatsAppOutboundConfig(AWSProperty):
+    """
+    `WhatsAppOutboundConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappoutboundconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectSourcePhoneNumberArn": (str, True),
+        "WisdomTemplateArn": (str, True),
+    }
+
+
+class WhatsAppOutboundMode(AWSProperty):
+    """
+    `WhatsAppOutboundMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappoutboundmode.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentlessConfig": (dict, False),
+    }
+
+
+class WhatsAppChannelSubtypeConfig(AWSProperty):
+    """
+    `WhatsAppChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappchannelsubtypeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Capacity": (double, False),
+        "DefaultOutboundConfig": (WhatsAppOutboundConfig, True),
+        "OutboundMode": (WhatsAppOutboundMode, True),
+    }
+
+
 class ChannelSubtypeConfig(AWSProperty):
     """
     `ChannelSubtypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html>`__
@@ -177,6 +211,7 @@ class ChannelSubtypeConfig(AWSProperty):
         "Email": (EmailChannelSubtypeConfig, False),
         "Sms": (SmsChannelSubtypeConfig, False),
         "Telephony": (TelephonyChannelSubtypeConfig, False),
+        "WhatsApp": (WhatsAppChannelSubtypeConfig, False),
     }
 
 
@@ -299,6 +334,7 @@ class CommunicationTimeConfig(AWSProperty):
         "LocalTimeZoneConfig": (LocalTimeZoneConfig, True),
         "Sms": (TimeWindow, False),
         "Telephony": (TimeWindow, False),
+        "WhatsApp": (TimeWindow, False),
     }
 
 
@@ -343,7 +379,7 @@ class Campaign(AWSObject):
     resource_type = "AWS::ConnectCampaignsV2::Campaign"
 
     props: PropsDictType = {
-        "ChannelSubtypeConfig": (ChannelSubtypeConfig, True),
+        "ChannelSubtypeConfig": (ChannelSubtypeConfig, False),
         "CommunicationLimitsOverride": (CommunicationLimitsConfig, False),
         "CommunicationTimeConfig": (CommunicationTimeConfig, False),
         "ConnectCampaignFlowArn": (str, False),
@@ -352,4 +388,5 @@ class Campaign(AWSObject):
         "Schedule": (Schedule, False),
         "Source": (Source, False),
         "Tags": (Tags, False),
+        "Type": (str, False),
     }

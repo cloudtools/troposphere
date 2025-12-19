@@ -526,6 +526,19 @@ class LaunchTemplateSpecification(AWSProperty):
     }
 
 
+class NodeRepairConfigOverrides(AWSProperty):
+    """
+    `NodeRepairConfigOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfigoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "MinRepairWaitTimeMins": (integer, False),
+        "NodeMonitoringCondition": (str, False),
+        "NodeUnhealthyReason": (str, False),
+        "RepairAction": (str, False),
+    }
+
+
 class NodeRepairConfig(AWSProperty):
     """
     `NodeRepairConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html>`__
@@ -533,6 +546,11 @@ class NodeRepairConfig(AWSProperty):
 
     props: PropsDictType = {
         "Enabled": (boolean, False),
+        "MaxParallelNodesRepairedCount": (integer, False),
+        "MaxParallelNodesRepairedPercentage": (integer, False),
+        "MaxUnhealthyNodeThresholdCount": (integer, False),
+        "MaxUnhealthyNodeThresholdPercentage": (integer, False),
+        "NodeRepairConfigOverrides": ([NodeRepairConfigOverrides], False),
     }
 
 

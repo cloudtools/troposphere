@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-vectorbucket-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+        "SseType": (str, False),
+    }
+
+
 class MetadataConfiguration(AWSProperty):
     """
     `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-index-metadataconfiguration.html>`__
@@ -31,21 +42,11 @@ class Index(AWSObject):
         "DataType": (str, True),
         "Dimension": (integer, True),
         "DistanceMetric": (str, True),
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "IndexName": (str, False),
         "MetadataConfiguration": (MetadataConfiguration, False),
         "VectorBucketArn": (str, False),
         "VectorBucketName": (str, False),
-    }
-
-
-class EncryptionConfiguration(AWSProperty):
-    """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-vectorbucket-encryptionconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "KmsKeyArn": (str, False),
-        "SseType": (str, False),
     }
 
 

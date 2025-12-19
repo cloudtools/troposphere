@@ -186,106 +186,141 @@ class Config(AWSObject):
 
 class SocketAddress(AWSProperty):
     """
-    `SocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html>`__
+    `SocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-socketaddress.html>`__
     """
 
     props: PropsDictType = {
-        "Name": (str, False),
-        "Port": (integer, False),
+        "Name": (str, True),
+        "Port": (integer, True),
     }
 
 
 class ConnectionDetails(AWSProperty):
     """
-    `ConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>`__
+    `ConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-connectiondetails.html>`__
     """
 
     props: PropsDictType = {
         "Mtu": (integer, False),
-        "SocketAddress": (SocketAddress, False),
+        "SocketAddress": (SocketAddress, True),
     }
 
 
 class IntegerRange(AWSProperty):
     """
-    `IntegerRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html>`__
+    `IntegerRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-integerrange.html>`__
     """
 
     props: PropsDictType = {
-        "Maximum": (integer, False),
-        "Minimum": (integer, False),
+        "Maximum": (integer, True),
+        "Minimum": (integer, True),
     }
 
 
 class RangedSocketAddress(AWSProperty):
     """
-    `RangedSocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html>`__
+    `RangedSocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-rangedsocketaddress.html>`__
     """
 
     props: PropsDictType = {
-        "Name": (str, False),
-        "PortRange": (IntegerRange, False),
+        "Name": (str, True),
+        "PortRange": (IntegerRange, True),
     }
 
 
 class RangedConnectionDetails(AWSProperty):
     """
-    `RangedConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html>`__
+    `RangedConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-rangedconnectiondetails.html>`__
     """
 
     props: PropsDictType = {
         "Mtu": (integer, False),
-        "SocketAddress": (RangedSocketAddress, False),
+        "SocketAddress": (RangedSocketAddress, True),
     }
 
 
-class AwsGroundStationAgentEndpoint(AWSProperty):
+class DownlinkConnectionDetails(AWSProperty):
     """
-    `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
+    `DownlinkConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-downlinkconnectiondetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentIpAndPortAddress": (RangedConnectionDetails, True),
+        "EgressAddressAndPort": (ConnectionDetails, True),
+    }
+
+
+class DownlinkDataflowDetails(AWSProperty):
+    """
+    `DownlinkDataflowDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-downlinkdataflowdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentConnectionDetails": (DownlinkConnectionDetails, True),
+    }
+
+
+class DownlinkAwsGroundStationAgentEndpointDetails(AWSProperty):
+    """
+    `DownlinkAwsGroundStationAgentEndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-downlinkawsgroundstationagentendpointdetails.html>`__
     """
 
     props: PropsDictType = {
         "AgentStatus": (str, False),
         "AuditResults": (str, False),
-        "EgressAddress": (ConnectionDetails, False),
-        "IngressAddress": (RangedConnectionDetails, False),
-        "Name": (str, False),
+        "DataflowDetails": (DownlinkDataflowDetails, True),
+        "Name": (str, True),
     }
 
 
-class DataflowEndpoint(AWSProperty):
+class UplinkConnectionDetails(AWSProperty):
     """
-    `DataflowEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html>`__
+    `UplinkConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-uplinkconnectiondetails.html>`__
     """
 
     props: PropsDictType = {
-        "Address": (SocketAddress, False),
-        "Mtu": (integer, False),
-        "Name": (str, False),
+        "AgentIpAndPortAddress": (RangedConnectionDetails, True),
+        "IngressAddressAndPort": (ConnectionDetails, True),
     }
 
 
-class SecurityDetails(AWSProperty):
+class UplinkDataflowDetails(AWSProperty):
     """
-    `SecurityDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html>`__
+    `UplinkDataflowDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-uplinkdataflowdetails.html>`__
     """
 
     props: PropsDictType = {
-        "RoleArn": (str, False),
-        "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
+        "AgentConnectionDetails": (UplinkConnectionDetails, True),
+    }
+
+
+class UplinkAwsGroundStationAgentEndpointDetails(AWSProperty):
+    """
+    `UplinkAwsGroundStationAgentEndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-uplinkawsgroundstationagentendpointdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentStatus": (str, False),
+        "AuditResults": (str, False),
+        "DataflowDetails": (UplinkDataflowDetails, True),
+        "Name": (str, True),
     }
 
 
 class EndpointDetails(AWSProperty):
     """
-    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html>`__
+    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-endpointdetails.html>`__
     """
 
     props: PropsDictType = {
-        "AwsGroundStationAgentEndpoint": (AwsGroundStationAgentEndpoint, False),
-        "Endpoint": (DataflowEndpoint, False),
-        "SecurityDetails": (SecurityDetails, False),
+        "DownlinkAwsGroundStationAgentEndpoint": (
+            DownlinkAwsGroundStationAgentEndpointDetails,
+            False,
+        ),
+        "UplinkAwsGroundStationAgentEndpoint": (
+            UplinkAwsGroundStationAgentEndpointDetails,
+            False,
+        ),
     }
 
 
@@ -300,6 +335,60 @@ class DataflowEndpointGroup(AWSObject):
         "ContactPostPassDurationSeconds": (integer, False),
         "ContactPrePassDurationSeconds": (integer, False),
         "EndpointDetails": ([EndpointDetails], True),
+        "Tags": (Tags, False),
+    }
+
+
+class DownlinkAwsGroundStationAgentEndpoint(AWSProperty):
+    """
+    `DownlinkAwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-downlinkawsgroundstationagentendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataflowDetails": (DownlinkDataflowDetails, True),
+        "Name": (str, True),
+    }
+
+
+class UplinkAwsGroundStationAgentEndpoint(AWSProperty):
+    """
+    `UplinkAwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-uplinkawsgroundstationagentendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataflowDetails": (UplinkDataflowDetails, True),
+        "Name": (str, True),
+    }
+
+
+class CreateEndpointDetails(AWSProperty):
+    """
+    `CreateEndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroupv2-createendpointdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "DownlinkAwsGroundStationAgentEndpoint": (
+            DownlinkAwsGroundStationAgentEndpoint,
+            False,
+        ),
+        "UplinkAwsGroundStationAgentEndpoint": (
+            UplinkAwsGroundStationAgentEndpoint,
+            False,
+        ),
+    }
+
+
+class DataflowEndpointGroupV2(AWSObject):
+    """
+    `DataflowEndpointGroupV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroupv2.html>`__
+    """
+
+    resource_type = "AWS::GroundStation::DataflowEndpointGroupV2"
+
+    props: PropsDictType = {
+        "ContactPostPassDurationSeconds": (integer, False),
+        "ContactPrePassDurationSeconds": (integer, False),
+        "Endpoints": ([CreateEndpointDetails], False),
         "Tags": (Tags, False),
     }
 
@@ -344,4 +433,42 @@ class MissionProfile(AWSObject):
         "StreamsKmsRole": (str, False),
         "Tags": (Tags, False),
         "TrackingConfigArn": (str, True),
+    }
+
+
+class AwsGroundStationAgentEndpoint(AWSProperty):
+    """
+    `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentStatus": (str, False),
+        "AuditResults": (str, False),
+        "EgressAddress": (ConnectionDetails, False),
+        "IngressAddress": (RangedConnectionDetails, False),
+        "Name": (str, False),
+    }
+
+
+class DataflowEndpoint(AWSProperty):
+    """
+    `DataflowEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (SocketAddress, False),
+        "Mtu": (integer, False),
+        "Name": (str, False),
+    }
+
+
+class SecurityDetails(AWSProperty):
+    """
+    `SecurityDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoleArn": (str, False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
     }

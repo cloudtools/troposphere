@@ -587,6 +587,20 @@ class DevEndpoint(AWSObject):
     }
 
 
+class IdentityCenterConfiguration(AWSObject):
+    """
+    `IdentityCenterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-identitycenterconfiguration.html>`__
+    """
+
+    resource_type = "AWS::Glue::IdentityCenterConfiguration"
+
+    props: PropsDictType = {
+        "InstanceArn": (str, True),
+        "Scopes": ([str], False),
+        "UserBackgroundSessionsEnabled": (boolean, False),
+    }
+
+
 class IntegrationConfig(AWSProperty):
     """
     `IntegrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-integration-integrationconfig.html>`__

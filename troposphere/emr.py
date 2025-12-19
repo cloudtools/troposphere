@@ -561,8 +561,10 @@ class Step(AWSObject):
 
     props: PropsDictType = {
         "ActionOnFailure": (action_on_failure_validator, True),
+        "EncryptionKeyArn": (str, False),
         "HadoopJarStep": (HadoopJarStepConfig, True),
         "JobFlowId": (str, True),
+        "LogUri": (str, False),
         "Name": (str, True),
     }
 

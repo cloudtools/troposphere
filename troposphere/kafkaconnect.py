@@ -223,6 +223,7 @@ class Connector(AWSObject):
         "KafkaClusterEncryptionInTransit": (KafkaClusterEncryptionInTransit, True),
         "KafkaConnectVersion": (str, True),
         "LogDelivery": (LogDelivery, False),
+        "NetworkType": (str, False),
         "Plugins": ([Plugin], True),
         "ServiceExecutionRoleArn": (str, True),
         "Tags": (Tags, False),

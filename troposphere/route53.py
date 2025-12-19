@@ -107,6 +107,16 @@ class HostedZoneConfiguration(AWSProperty):
     }
 
 
+class HostedZoneFeatures(AWSProperty):
+    """
+    `HostedZoneFeatures <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonefeatures.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableAcceleratedRecovery": (boolean, False),
+    }
+
+
 class HostedZoneVPCs(AWSProperty):
     """
     `HostedZoneVPCs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html>`__
@@ -137,6 +147,7 @@ class HostedZone(AWSObject):
 
     props: PropsDictType = {
         "HostedZoneConfig": (HostedZoneConfiguration, False),
+        "HostedZoneFeatures": (HostedZoneFeatures, False),
         "HostedZoneTags": (Tags, False),
         "Name": (str, False),
         "QueryLoggingConfig": (QueryLoggingConfig, False),

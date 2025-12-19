@@ -101,6 +101,7 @@ class ConnectivityInfo(AWSProperty):
     """
 
     props: PropsDictType = {
+        "NetworkType": (str, False),
         "PublicAccess": (PublicAccess, False),
         "VpcConnectivity": (VpcConnectivity, False),
     }

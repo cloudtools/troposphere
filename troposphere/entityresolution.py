@@ -211,6 +211,17 @@ class InputSource(AWSProperty):
     }
 
 
+class CustomerProfilesIntegrationConfig(AWSProperty):
+    """
+    `CustomerProfilesIntegrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-customerprofilesintegrationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainArn": (str, True),
+        "ObjectTypeArn": (str, True),
+    }
+
+
 class OutputAttribute(AWSProperty):
     """
     `OutputAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputattribute.html>`__
@@ -229,9 +240,10 @@ class OutputSource(AWSProperty):
 
     props: PropsDictType = {
         "ApplyNormalization": (boolean, False),
+        "CustomerProfilesIntegrationConfig": (CustomerProfilesIntegrationConfig, False),
         "KMSArn": (str, False),
         "Output": ([OutputAttribute], True),
-        "OutputS3Path": (str, True),
+        "OutputS3Path": (str, False),
     }
 
 
