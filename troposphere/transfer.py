@@ -165,25 +165,17 @@ class Profile(AWSObject):
     }
 
 
-class Vpc(AWSProperty):
-    """
-    `Vpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
-        "VpcId": (str, False),
-    }
-
-
 class EndpointDetails(AWSProperty):
     """
-    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-endpointdetails.html>`__
+    `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html>`__
     """
 
     props: PropsDictType = {
-        "Vpc": (Vpc, False),
+        "AddressAllocationIds": ([str], False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "VpcEndpointId": (str, False),
+        "VpcId": (str, False),
     }
 
 
@@ -331,6 +323,28 @@ class WebAppCustomization(AWSProperty):
     }
 
 
+class Vpc(AWSProperty):
+    """
+    `Vpc <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "VpcId": (str, False),
+    }
+
+
+class WebAppEndpointDetails(AWSProperty):
+    """
+    `WebAppEndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-endpointdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Vpc": (Vpc, False),
+    }
+
+
 class WebAppIdentityProviderDetails(AWSProperty):
     """
     `WebAppIdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-identityproviderdetails.html>`__
@@ -362,7 +376,7 @@ class WebApp(AWSObject):
 
     props: PropsDictType = {
         "AccessEndpoint": (str, False),
-        "EndpointDetails": (EndpointDetails, False),
+        "EndpointDetails": (WebAppEndpointDetails, False),
         "IdentityProviderDetails": (WebAppIdentityProviderDetails, True),
         "Tags": (Tags, False),
         "WebAppCustomization": (WebAppCustomization, False),
