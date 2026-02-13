@@ -199,7 +199,7 @@ class BlueGreenDeploymentConfiguration(AWSProperty):
 
 class GitHubLocation(AWSProperty):
     """
-    `GitHubLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-githublocation.html>`__
+    `GitHubLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-githublocation.html>`__
     """
 
     props: PropsDictType = {
@@ -210,7 +210,7 @@ class GitHubLocation(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -224,7 +224,7 @@ class S3Location(AWSProperty):
 
 class Revision(AWSProperty):
     """
-    `Revision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>`__
+    `Revision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-revisionlocation.html>`__
     """
 
     props: PropsDictType = {

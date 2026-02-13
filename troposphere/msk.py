@@ -571,6 +571,22 @@ class ServerlessCluster(AWSObject):
     }
 
 
+class Topic(AWSObject):
+    """
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-topic.html>`__
+    """
+
+    resource_type = "AWS::MSK::Topic"
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "Configs": (str, False),
+        "PartitionCount": (integer, True),
+        "ReplicationFactor": (integer, True),
+        "TopicName": (str, True),
+    }
+
+
 class VpcConnection(AWSObject):
     """
     `VpcConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html>`__

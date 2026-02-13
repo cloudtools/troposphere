@@ -34,12 +34,37 @@ class Compaction(AWSProperty):
     }
 
 
+class IcebergPartitionField(AWSProperty):
+    """
+    `IcebergPartitionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergpartitionfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldId": (integer, False),
+        "Name": (str, True),
+        "SourceId": (integer, True),
+        "Transform": (str, True),
+    }
+
+
+class IcebergPartitionSpec(AWSProperty):
+    """
+    `IcebergPartitionSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergpartitionspec.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([IcebergPartitionField], True),
+        "SpecId": (integer, False),
+    }
+
+
 class SchemaField(AWSProperty):
     """
     `SchemaField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html>`__
     """
 
     props: PropsDictType = {
+        "Id": (integer, False),
         "Name": (str, True),
         "Required": (boolean, False),
         "Type": (str, True),
@@ -56,13 +81,40 @@ class IcebergSchema(AWSProperty):
     }
 
 
+class IcebergSortField(AWSProperty):
+    """
+    `IcebergSortField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergsortfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "Direction": (str, True),
+        "NullOrder": (str, True),
+        "SourceId": (integer, True),
+        "Transform": (str, True),
+    }
+
+
+class IcebergSortOrder(AWSProperty):
+    """
+    `IcebergSortOrder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergsortorder.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([IcebergSortField], True),
+        "OrderId": (integer, False),
+    }
+
+
 class IcebergMetadata(AWSProperty):
     """
     `IcebergMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html>`__
     """
 
     props: PropsDictType = {
+        "IcebergPartitionSpec": (IcebergPartitionSpec, False),
         "IcebergSchema": (IcebergSchema, True),
+        "IcebergSortOrder": (IcebergSortOrder, False),
+        "TableProperties": (dict, False),
     }
 
 

@@ -133,6 +133,38 @@ class S3RecordingConfig(AWSProperty):
     }
 
 
+class KinesisDataStreamData(AWSProperty):
+    """
+    `KinesisDataStreamData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-kinesisdatastreamdata.html>`__
+    """
+
+    props: PropsDictType = {
+        "KinesisDataStreamArn": (str, True),
+        "KinesisRoleArn": (str, True),
+    }
+
+
+class TelemetrySinkData(AWSProperty):
+    """
+    `TelemetrySinkData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-telemetrysinkdata.html>`__
+    """
+
+    props: PropsDictType = {
+        "KinesisDataStreamData": (KinesisDataStreamData, True),
+    }
+
+
+class TelemetrySinkConfig(AWSProperty):
+    """
+    `TelemetrySinkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-telemetrysinkconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TelemetrySinkData": (TelemetrySinkData, True),
+        "TelemetrySinkType": (str, True),
+    }
+
+
 class TrackingConfig(AWSProperty):
     """
     `TrackingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html>`__
@@ -165,6 +197,7 @@ class ConfigData(AWSProperty):
         "AntennaUplinkConfig": (AntennaUplinkConfig, False),
         "DataflowEndpointConfig": (DataflowEndpointConfig, False),
         "S3RecordingConfig": (S3RecordingConfig, False),
+        "TelemetrySinkConfig": (TelemetrySinkConfig, False),
         "TrackingConfig": (TrackingConfig, False),
         "UplinkEchoConfig": (UplinkEchoConfig, False),
     }
@@ -432,6 +465,7 @@ class MissionProfile(AWSObject):
         "StreamsKmsKey": (StreamsKmsKey, False),
         "StreamsKmsRole": (str, False),
         "Tags": (Tags, False),
+        "TelemetrySinkConfigArn": (str, False),
         "TrackingConfigArn": (str, True),
     }
 

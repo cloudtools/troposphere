@@ -642,6 +642,7 @@ class PodIdentityAssociation(AWSObject):
         "ClusterName": (str, True),
         "DisableSessionTags": (boolean, False),
         "Namespace": (str, True),
+        "Policy": (str, False),
         "RoleArn": (str, True),
         "ServiceAccount": (str, True),
         "Tags": (Tags, False),

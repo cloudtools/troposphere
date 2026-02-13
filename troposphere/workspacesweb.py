@@ -184,6 +184,7 @@ class Portal(AWSObject):
         "IpAccessSettingsArn": (str, False),
         "MaxConcurrentSessions": (double, False),
         "NetworkSettingsArn": (str, False),
+        "PortalCustomDomain": (str, False),
         "SessionLoggerArn": (str, False),
         "Tags": (Tags, False),
         "TrustStoreArn": (str, False),

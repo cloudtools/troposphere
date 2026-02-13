@@ -266,6 +266,24 @@ class ContactList(AWSObject):
     }
 
 
+class CustomVerificationEmailTemplate(AWSObject):
+    """
+    `CustomVerificationEmailTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-customverificationemailtemplate.html>`__
+    """
+
+    resource_type = "AWS::SES::CustomVerificationEmailTemplate"
+
+    props: PropsDictType = {
+        "FailureRedirectionURL": (str, True),
+        "FromEmailAddress": (str, True),
+        "SuccessRedirectionURL": (str, True),
+        "Tags": (Tags, False),
+        "TemplateContent": (str, True),
+        "TemplateName": (str, True),
+        "TemplateSubject": (str, True),
+    }
+
+
 class DedicatedIpPool(AWSObject):
     """
     `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html>`__
