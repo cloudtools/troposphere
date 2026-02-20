@@ -1665,6 +1665,7 @@ class Av1Settings(AWSProperty):
 
     props: PropsDictType = {
         "AfdSignaling": (str, False),
+        "BitDepth": (str, False),
         "Bitrate": (integer, False),
         "BufSize": (integer, False),
         "ColorSpaceSettings": (Av1ColorSpaceSettings, False),
@@ -2475,7 +2476,9 @@ class SrtOutputDestinationSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConnectionMode": (str, False),
         "EncryptionPassphraseSecretArn": (str, False),
+        "ListenerPort": (integer, False),
         "StreamId": (str, False),
         "Url": (str, False),
     }
@@ -2520,6 +2523,7 @@ class Channel(AWSObject):
         "CdiInputSpecification": (CdiInputSpecification, False),
         "ChannelClass": (str, False),
         "ChannelEngineVersion": (ChannelEngineVersionRequest, False),
+        "ChannelSecurityGroups": ([str], False),
         "Destinations": ([OutputDestination], False),
         "DryRun": (boolean, False),
         "EncoderSettings": (EncoderSettings, False),
@@ -2845,6 +2849,29 @@ class SrtCallerSourceRequest(AWSProperty):
     }
 
 
+class SrtListenerDecryptionRequest(AWSProperty):
+    """
+    `SrtListenerDecryptionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtlistenerdecryptionrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Algorithm": (str, False),
+        "PassphraseSecretArn": (str, False),
+    }
+
+
+class SrtListenerSettingsRequest(AWSProperty):
+    """
+    `SrtListenerSettingsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtlistenersettingsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Decryption": (SrtListenerDecryptionRequest, False),
+        "MinimumLatency": (integer, False),
+        "StreamId": (str, False),
+    }
+
+
 class SrtSettingsRequest(AWSProperty):
     """
     `SrtSettingsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html>`__
@@ -2852,6 +2879,7 @@ class SrtSettingsRequest(AWSProperty):
 
     props: PropsDictType = {
         "SrtCallerSources": ([SrtCallerSourceRequest], False),
+        "SrtListenerSettings": (SrtListenerSettingsRequest, False),
     }
 
 

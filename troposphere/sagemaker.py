@@ -171,6 +171,29 @@ class ClusterEbsVolumeConfig(AWSProperty):
     }
 
 
+class ClusterFsxLustreConfig(AWSProperty):
+    """
+    `ClusterFsxLustreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterfsxlustreconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DnsName": (str, True),
+        "MountName": (str, True),
+        "MountPath": (str, False),
+    }
+
+
+class ClusterFsxOpenZfsConfig(AWSProperty):
+    """
+    `ClusterFsxOpenZfsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterfsxopenzfsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DnsName": (str, True),
+        "MountPath": (str, False),
+    }
+
+
 class ClusterInstanceStorageConfig(AWSProperty):
     """
     `ClusterInstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html>`__
@@ -178,6 +201,8 @@ class ClusterInstanceStorageConfig(AWSProperty):
 
     props: PropsDictType = {
         "EbsVolumeConfig": (ClusterEbsVolumeConfig, False),
+        "FsxLustreConfig": (ClusterFsxLustreConfig, False),
+        "FsxOpenZfsConfig": (ClusterFsxOpenZfsConfig, False),
     }
 
 
@@ -212,6 +237,17 @@ class ClusterLifeCycleConfig(AWSProperty):
     props: PropsDictType = {
         "OnCreate": (str, True),
         "SourceS3Uri": (str, True),
+    }
+
+
+class ClusterSlurmConfig(AWSProperty):
+    """
+    `ClusterSlurmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterslurmconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "NodeType": (str, True),
+        "PartitionNames": ([str], False),
     }
 
 
@@ -338,6 +374,7 @@ class ClusterInstanceGroup(AWSProperty):
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),
         "ScheduledUpdateConfig": (ScheduledUpdateConfig, False),
+        "SlurmConfig": (ClusterSlurmConfig, False),
         "ThreadsPerCore": (integer, False),
         "TrainingPlanArn": (str, False),
     }
@@ -394,13 +431,24 @@ class ClusterOrchestratorEksConfig(AWSProperty):
     }
 
 
+class ClusterOrchestratorSlurmConfig(AWSProperty):
+    """
+    `ClusterOrchestratorSlurmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratorslurmconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SlurmConfigStrategy": (str, False),
+    }
+
+
 class Orchestrator(AWSProperty):
     """
     `Orchestrator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html>`__
     """
 
     props: PropsDictType = {
-        "Eks": (ClusterOrchestratorEksConfig, True),
+        "Eks": (ClusterOrchestratorEksConfig, False),
+        "Slurm": (ClusterOrchestratorSlurmConfig, False),
     }
 
 
@@ -2708,7 +2756,6 @@ class ModelPackage(AWSObject):
         "Domain": (str, False),
         "DriftCheckBaselines": (DriftCheckBaselines, False),
         "InferenceSpecification": (InferenceSpecification, False),
-        "LastModifiedTime": (str, False),
         "MetadataProperties": (MetadataProperties, False),
         "ModelApprovalStatus": (str, False),
         "ModelCard": (ModelCardProperty, False),

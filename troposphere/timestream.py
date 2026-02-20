@@ -47,6 +47,35 @@ class LogDeliveryConfiguration(AWSProperty):
     }
 
 
+class InfluxDBCluster(AWSObject):
+    """
+    `InfluxDBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html>`__
+    """
+
+    resource_type = "AWS::Timestream::InfluxDBCluster"
+
+    props: PropsDictType = {
+        "AllocatedStorage": (integer, False),
+        "Bucket": (str, False),
+        "DbInstanceType": (str, False),
+        "DbParameterGroupIdentifier": (str, False),
+        "DbStorageType": (str, False),
+        "DeploymentType": (str, False),
+        "FailoverMode": (str, False),
+        "LogDeliveryConfiguration": (LogDeliveryConfiguration, False),
+        "Name": (str, False),
+        "NetworkType": (str, False),
+        "Organization": (str, False),
+        "Password": (str, False),
+        "Port": (integer, False),
+        "PubliclyAccessible": (boolean, False),
+        "Tags": (Tags, False),
+        "Username": (str, False),
+        "VpcSecurityGroupIds": ([str], False),
+        "VpcSubnetIds": ([str], False),
+    }
+
+
 class InfluxDBInstance(AWSObject):
     """
     `InfluxDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html>`__

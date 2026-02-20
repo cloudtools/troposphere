@@ -105,6 +105,56 @@ class Alarm(AWSObject):
         validate_alarm(self)
 
 
+class MuteTargets(AWSProperty):
+    """
+    `MuteTargets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarmmuterule-mutetargets.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmNames": ([str], True),
+    }
+
+
+class Schedule(AWSProperty):
+    """
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarmmuterule-schedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Duration": (str, True),
+        "Expression": (str, True),
+        "Timezone": (str, False),
+    }
+
+
+class Rule(AWSProperty):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarmmuterule-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Schedule": (Schedule, True),
+    }
+
+
+class AlarmMuteRule(AWSObject):
+    """
+    `AlarmMuteRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarmmuterule.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::AlarmMuteRule"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ExpireDate": (str, False),
+        "MuteTargets": (MuteTargets, False),
+        "Name": (str, False),
+        "Rule": (Rule, True),
+        "StartDate": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Range(AWSProperty):
     """
     `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html>`__

@@ -36,6 +36,7 @@ class AutoScaling(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MaxAutoscalingTaskCount": (integer, False),
         "MaxWorkerCount": (integer, True),
         "McuCount": (integer, True),
         "MinWorkerCount": (integer, True),

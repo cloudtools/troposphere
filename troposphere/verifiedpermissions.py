@@ -181,6 +181,28 @@ class DeletionProtection(AWSProperty):
     }
 
 
+class KmsEncryptionSettings(AWSProperty):
+    """
+    `KmsEncryptionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-kmsencryptionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionContext": (dict, False),
+        "Key": (str, True),
+    }
+
+
+class EncryptionSettings(AWSProperty):
+    """
+    `EncryptionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-encryptionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Default": (dict, False),
+        "KmsEncryptionSettings": (KmsEncryptionSettings, False),
+    }
+
+
 class SchemaDefinition(AWSProperty):
     """
     `SchemaDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html>`__
@@ -212,6 +234,7 @@ class PolicyStore(AWSObject):
     props: PropsDictType = {
         "DeletionProtection": (DeletionProtection, False),
         "Description": (str, False),
+        "EncryptionSettings": (EncryptionSettings, False),
         "Schema": (SchemaDefinition, False),
         "Tags": (Tags, False),
         "ValidationSettings": (ValidationSettings, True),
@@ -229,4 +252,26 @@ class PolicyTemplate(AWSObject):
         "Description": (str, False),
         "PolicyStoreId": (str, True),
         "Statement": (str, True),
+    }
+
+
+class KmsEncryptionState(AWSProperty):
+    """
+    `KmsEncryptionState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-kmsencryptionstate.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionContext": (dict, True),
+        "Key": (str, True),
+    }
+
+
+class EncryptionState(AWSProperty):
+    """
+    `EncryptionState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-encryptionstate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Default": (dict, False),
+        "KmsEncryptionState": (KmsEncryptionState, False),
     }

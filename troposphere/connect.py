@@ -906,6 +906,43 @@ class IntegrationAssociation(AWSObject):
     }
 
 
+class NotificationContent(AWSProperty):
+    """
+    `NotificationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-notification-notificationcontent.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeDE": (str, False),
+        "EnUS": (str, False),
+        "EsES": (str, False),
+        "FrFR": (str, False),
+        "IdID": (str, False),
+        "ItIT": (str, False),
+        "JaJP": (str, False),
+        "KoKR": (str, False),
+        "PtBR": (str, False),
+        "ZhCN": (str, False),
+        "ZhTW": (str, False),
+    }
+
+
+class Notification(AWSObject):
+    """
+    `Notification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-notification.html>`__
+    """
+
+    resource_type = "AWS::Connect::Notification"
+
+    props: PropsDictType = {
+        "Content": (NotificationContent, True),
+        "ExpiresAt": (str, False),
+        "InstanceArn": (str, True),
+        "Priority": (str, False),
+        "Recipients": ([str], False),
+        "Tags": (Tags, False),
+    }
+
+
 class PhoneNumber(AWSObject):
     """
     `PhoneNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html>`__

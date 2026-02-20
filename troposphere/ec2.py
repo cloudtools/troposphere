@@ -943,6 +943,52 @@ class IPAMPoolCidr(AWSObject):
     }
 
 
+class IpamPrefixListResolverRuleCondition(AWSProperty):
+    """
+    `IpamPrefixListResolverRuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamprefixlistresolver-ipamprefixlistresolverrulecondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+        "IpamPoolId": (str, False),
+        "Operation": (str, True),
+        "ResourceId": (str, False),
+        "ResourceOwner": (str, False),
+        "ResourceRegion": (str, False),
+        "ResourceTag": (Tag, False),
+    }
+
+
+class IpamPrefixListResolverRule(AWSProperty):
+    """
+    `IpamPrefixListResolverRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamprefixlistresolver-ipamprefixlistresolverrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Conditions": ([IpamPrefixListResolverRuleCondition], False),
+        "IpamScopeId": (str, False),
+        "ResourceType": (str, False),
+        "RuleType": (str, True),
+        "StaticCidr": (str, False),
+    }
+
+
+class IPAMPrefixListResolver(AWSObject):
+    """
+    `IPAMPrefixListResolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamprefixlistresolver.html>`__
+    """
+
+    resource_type = "AWS::EC2::IPAMPrefixListResolver"
+
+    props: PropsDictType = {
+        "AddressFamily": (str, True),
+        "Description": (str, False),
+        "IpamId": (str, False),
+        "Rules": ([IpamPrefixListResolverRule], False),
+        "Tags": (Tags, False),
+    }
+
+
 class IpamResourceDiscoveryOrganizationalUnitExclusion(AWSProperty):
     """
     `IpamResourceDiscoveryOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html>`__
@@ -3324,6 +3370,7 @@ class VPCPeeringConnection(AWSObject):
     resource_type = "AWS::EC2::VPCPeeringConnection"
 
     props: PropsDictType = {
+        "AssumeRoleRegion": (str, False),
         "PeerOwnerId": (str, False),
         "PeerRegion": (str, False),
         "PeerRoleArn": (str, False),

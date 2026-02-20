@@ -430,7 +430,7 @@ class ThousandSeparatorOptions(AWSProperty):
     props: PropsDictType = {
         "GroupingStyle": (str, False),
         "Symbol": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -676,7 +676,7 @@ class LabelOptions(AWSProperty):
     props: PropsDictType = {
         "CustomLabel": (str, False),
         "FontConfiguration": (FontConfiguration, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -687,7 +687,7 @@ class SheetControlInfoIconLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "InfoIconText": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -697,9 +697,9 @@ class DateTimePickerControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DateIconVisibility": (dict, False),
+        "DateIconVisibility": (str, False),
         "DateTimeFormat": (str, False),
-        "HelperTextVisibility": (dict, False),
+        "HelperTextVisibility": (str, False),
         "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
@@ -723,7 +723,7 @@ class ListControlSelectAllOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -768,7 +768,7 @@ class ListControlSearchOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -851,7 +851,7 @@ class TextControlPlaceholderOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -1618,7 +1618,7 @@ class FreeFormLayoutElementBackgroundStyle(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -1629,7 +1629,7 @@ class FreeFormLayoutElementBorderStyle(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -1639,7 +1639,7 @@ class LoadingAnimation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -1649,7 +1649,7 @@ class SheetElementConfigurationOverrides(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -1678,7 +1678,7 @@ class FreeFormLayoutElement(AWSProperty):
         "LoadingAnimation": (LoadingAnimation, False),
         "RenderingRules": ([SheetElementRenderingRule], False),
         "SelectedBorderStyle": (FreeFormLayoutElementBorderStyle, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
         "Width": (str, True),
         "XAxisLocation": (str, True),
         "YAxisLocation": (str, True),
@@ -2237,7 +2237,7 @@ class SheetImageTooltipConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "TooltipText": (SheetImageTooltipText, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2274,7 +2274,7 @@ class DateAxisOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "MissingDateVisibility": (dict, False),
+        "MissingDateVisibility": (str, False),
     }
 
 
@@ -2392,7 +2392,7 @@ class ScrollBarOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
         "VisibleRange": (VisibleRangeOptions, False),
     }
 
@@ -2403,10 +2403,10 @@ class AxisDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AxisLineVisibility": (dict, False),
+        "AxisLineVisibility": (str, False),
         "AxisOffset": (str, False),
         "DataOptions": (AxisDataOptions, False),
-        "GridLineVisibility": (dict, False),
+        "GridLineVisibility": (str, False),
         "ScrollbarOptions": (ScrollBarOptions, False),
         "TickLabelOptions": (AxisTickLabelOptions, False),
     }
@@ -2628,8 +2628,8 @@ class ChartAxisLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "AxisLabelOptions": ([AxisLabelOptions], False),
-        "SortIconVisibility": (dict, False),
-        "Visibility": (dict, False),
+        "SortIconVisibility": (str, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2652,7 +2652,7 @@ class DataPathLabelType(AWSProperty):
     props: PropsDictType = {
         "FieldId": (str, False),
         "FieldValue": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2663,7 +2663,7 @@ class FieldLabelType(AWSProperty):
 
     props: PropsDictType = {
         "FieldId": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2673,7 +2673,7 @@ class MaximumLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2683,7 +2683,7 @@ class MinimumLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2693,7 +2693,7 @@ class RangeEndsLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2717,16 +2717,16 @@ class DataLabelOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CategoryLabelVisibility": (dict, False),
+        "CategoryLabelVisibility": (str, False),
         "DataLabelTypes": ([DataLabelType], False),
         "LabelColor": (str, False),
         "LabelContent": (str, False),
         "LabelFontConfiguration": (FontConfiguration, False),
-        "MeasureLabelVisibility": (dict, False),
+        "MeasureLabelVisibility": (str, False),
         "Overlap": (str, False),
         "Position": (str, False),
-        "TotalsVisibility": (dict, False),
-        "Visibility": (dict, False),
+        "TotalsVisibility": (str, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2740,7 +2740,7 @@ class LegendOptions(AWSProperty):
         "Position": (str, False),
         "Title": (LabelOptions, False),
         "ValueFontConfiguration": (FontConfiguration, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
         "Width": (str, False),
     }
 
@@ -2848,7 +2848,7 @@ class PanelTitleOptions(AWSProperty):
     props: PropsDictType = {
         "FontConfiguration": (FontConfiguration, False),
         "HorizontalTextAlignment": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2859,13 +2859,13 @@ class PanelConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "BackgroundColor": (str, False),
-        "BackgroundVisibility": (dict, False),
+        "BackgroundVisibility": (str, False),
         "BorderColor": (str, False),
         "BorderStyle": (str, False),
         "BorderThickness": (str, False),
-        "BorderVisibility": (dict, False),
+        "BorderVisibility": (str, False),
         "GutterSpacing": (str, False),
-        "GutterVisibility": (dict, False),
+        "GutterVisibility": (str, False),
         "Title": (PanelTitleOptions, False),
     }
 
@@ -2905,7 +2905,7 @@ class ColumnTooltipItem(AWSProperty):
         "Column": (ColumnIdentifier, True),
         "Label": (str, False),
         "TooltipTarget": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2918,7 +2918,7 @@ class FieldTooltipItem(AWSProperty):
         "FieldId": (str, True),
         "Label": (str, False),
         "TooltipTarget": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -2939,7 +2939,7 @@ class FieldBasedTooltip(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AggregationVisibility": (dict, False),
+        "AggregationVisibility": (str, False),
         "TooltipFields": ([TooltipItem], False),
         "TooltipTitleType": (str, False),
     }
@@ -2953,7 +2953,7 @@ class TooltipOptions(AWSProperty):
     props: PropsDictType = {
         "FieldBasedTooltip": (FieldBasedTooltip, False),
         "SelectedTooltipType": (str, False),
-        "TooltipVisibility": (dict, False),
+        "TooltipVisibility": (str, False),
     }
 
 
@@ -3248,7 +3248,7 @@ class VisualSubtitleLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "FormatText": (LongFormatText, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -3270,7 +3270,7 @@ class VisualTitleLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "FormatText": (ShortFormatText, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -3327,8 +3327,8 @@ class BoxPlotOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AllDataPointsVisibility": (dict, False),
-        "OutlierVisibility": (dict, False),
+        "AllDataPointsVisibility": (str, False),
+        "OutlierVisibility": (str, False),
         "StyleOptions": (BoxPlotStyleOptions, False),
     }
 
@@ -3732,13 +3732,13 @@ class FunnelChartDataLabelOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CategoryLabelVisibility": (dict, False),
+        "CategoryLabelVisibility": (str, False),
         "LabelColor": (str, False),
         "LabelFontConfiguration": (FontConfiguration, False),
         "MeasureDataLabelStyle": (str, False),
-        "MeasureLabelVisibility": (dict, False),
+        "MeasureLabelVisibility": (str, False),
         "Position": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -4626,9 +4626,9 @@ class KPISparklineOptions(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "TooltipVisibility": (dict, False),
+        "TooltipVisibility": (str, False),
         "Type": (str, True),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -4658,7 +4658,7 @@ class ProgressBarOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -4668,7 +4668,7 @@ class SecondaryValueOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -4678,7 +4678,7 @@ class TrendArrowOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -5181,7 +5181,7 @@ class LineChartLineStyleSettings(AWSProperty):
     props: PropsDictType = {
         "LineInterpolation": (str, False),
         "LineStyle": (str, False),
-        "LineVisibility": (dict, False),
+        "LineVisibility": (str, False),
         "LineWidth": (str, False),
     }
 
@@ -5195,7 +5195,7 @@ class LineChartMarkerStyleSettings(AWSProperty):
         "MarkerColor": (str, False),
         "MarkerShape": (str, False),
         "MarkerSize": (str, False),
-        "MarkerVisibility": (dict, False),
+        "MarkerVisibility": (str, False),
     }
 
 
@@ -5378,7 +5378,7 @@ class DonutCenterOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "LabelVisibility": (dict, False),
+        "LabelVisibility": (str, False),
     }
 
 
@@ -5564,7 +5564,7 @@ class PivotTableFieldOption(AWSProperty):
     props: PropsDictType = {
         "CustomLabel": (str, False),
         "FieldId": (str, True),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -5609,7 +5609,7 @@ class PivotTableRowsLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "CustomLabel": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -5676,7 +5676,7 @@ class TableCellStyle(AWSProperty):
         "HorizontalTextAlignment": (str, False),
         "TextWrap": (str, False),
         "VerticalTextAlignment": (str, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -5687,9 +5687,9 @@ class PivotTableOptions(AWSProperty):
 
     props: PropsDictType = {
         "CellStyle": (TableCellStyle, False),
-        "CollapsedRowDimensionsVisibility": (dict, False),
+        "CollapsedRowDimensionsVisibility": (str, False),
         "ColumnHeaderStyle": (TableCellStyle, False),
-        "ColumnNamesVisibility": (dict, False),
+        "ColumnNamesVisibility": (str, False),
         "DefaultCellWidth": (str, False),
         "MetricPlacement": (str, False),
         "RowAlternateColorOptions": (RowAlternateColorOptions, False),
@@ -5697,8 +5697,8 @@ class PivotTableOptions(AWSProperty):
         "RowHeaderStyle": (TableCellStyle, False),
         "RowsLabelOptions": (PivotTableRowsLabelOptions, False),
         "RowsLayout": (str, False),
-        "SingleMetricVisibility": (dict, False),
-        "ToggleButtonsVisibility": (dict, False),
+        "SingleMetricVisibility": (str, False),
+        "ToggleButtonsVisibility": (str, False),
     }
 
 
@@ -5708,8 +5708,8 @@ class PivotTablePaginatedReportOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OverflowColumnHeaderVisibility": (dict, False),
-        "VerticalOverflowVisibility": (dict, False),
+        "OverflowColumnHeaderVisibility": (str, False),
+        "VerticalOverflowVisibility": (str, False),
     }
 
 
@@ -5790,7 +5790,7 @@ class PivotTotalOptions(AWSProperty):
         "ScrollStatus": (str, False),
         "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (dict, False),
+        "TotalsVisibility": (str, False),
         "ValueCellStyle": (TableCellStyle, False),
     }
 
@@ -5827,7 +5827,7 @@ class SubtotalOptions(AWSProperty):
         "MetricHeaderCellStyle": (TableCellStyle, False),
         "StyleTargets": ([TableStyleTarget], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (dict, False),
+        "TotalsVisibility": (str, False),
         "ValueCellStyle": (TableCellStyle, False),
     }
 
@@ -5997,7 +5997,7 @@ class RadarChartAreaStyleSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
     }
 
 
@@ -6030,7 +6030,7 @@ class RadarChartConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AlternateBandColorsVisibility": (dict, False),
+        "AlternateBandColorsVisibility": (str, False),
         "AlternateBandEvenColor": (str, False),
         "AlternateBandOddColor": (str, False),
         "AxesRangeScale": (str, False),
@@ -6341,7 +6341,7 @@ class TableFieldOption(AWSProperty):
         "CustomLabel": (str, False),
         "FieldId": (str, True),
         "URLStyling": (TableFieldURLConfiguration, False),
-        "Visibility": (dict, False),
+        "Visibility": (str, False),
         "Width": (str, False),
     }
 
@@ -6454,8 +6454,8 @@ class TablePaginatedReportOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OverflowColumnHeaderVisibility": (dict, False),
-        "VerticalOverflowVisibility": (dict, False),
+        "OverflowColumnHeaderVisibility": (str, False),
+        "VerticalOverflowVisibility": (str, False),
     }
 
 
@@ -6481,7 +6481,7 @@ class TotalOptions(AWSProperty):
         "ScrollStatus": (str, False),
         "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (dict, False),
+        "TotalsVisibility": (str, False),
     }
 
 

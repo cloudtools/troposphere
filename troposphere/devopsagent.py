@@ -10,6 +10,43 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean
 
 
+class IamAuthConfiguration(AWSProperty):
+    """
+    `IamAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-iamauthconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreatedAt": (str, False),
+        "OperatorAppRoleArn": (str, True),
+        "UpdatedAt": (str, False),
+    }
+
+
+class IdcAuthConfiguration(AWSProperty):
+    """
+    `IdcAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-idcauthconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreatedAt": (str, False),
+        "IdcApplicationArn": (str, False),
+        "IdcInstanceArn": (str, True),
+        "OperatorAppRoleArn": (str, True),
+        "UpdatedAt": (str, False),
+    }
+
+
+class OperatorApp(AWSProperty):
+    """
+    `OperatorApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iam": (IamAuthConfiguration, False),
+        "Idc": (IdcAuthConfiguration, False),
+    }
+
+
 class AgentSpace(AWSObject):
     """
     `AgentSpace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html>`__
@@ -20,6 +57,7 @@ class AgentSpace(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "Name": (str, True),
+        "OperatorApp": (OperatorApp, False),
     }
 
 
@@ -250,4 +288,294 @@ class Association(AWSObject):
         "Configuration": (ServiceConfiguration, True),
         "LinkedAssociationIds": ([str], False),
         "ServiceId": (str, True),
+    }
+
+
+class OAuthClientDetails(AWSProperty):
+    """
+    `OAuthClientDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-oauthclientdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientName": (str, False),
+        "ClientSecret": (str, True),
+        "ExchangeParameters": (dict, False),
+    }
+
+
+class DynatraceAuthorizationConfig(AWSProperty):
+    """
+    `DynatraceAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-dynatraceauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OAuthClientCredentials": (OAuthClientDetails, False),
+    }
+
+
+class DynatraceServiceDetails(AWSProperty):
+    """
+    `DynatraceServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-dynatraceservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountUrn": (str, True),
+        "AuthorizationConfig": (DynatraceAuthorizationConfig, False),
+    }
+
+
+class GitLabDetails(AWSProperty):
+    """
+    `GitLabDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-gitlabdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupId": (str, False),
+        "TargetUrl": (str, True),
+        "TokenType": (str, True),
+        "TokenValue": (str, True),
+    }
+
+
+class ApiKeyDetails(AWSProperty):
+    """
+    `ApiKeyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-apikeydetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyHeader": (str, True),
+        "ApiKeyName": (str, True),
+        "ApiKeyValue": (str, True),
+    }
+
+
+class MCPServerOAuthClientCredentialsConfig(AWSProperty):
+    """
+    `MCPServerOAuthClientCredentialsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserveroauthclientcredentialsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientName": (str, False),
+        "ClientSecret": (str, True),
+        "ExchangeParameters": (dict, False),
+        "ExchangeUrl": (str, True),
+        "Scopes": ([str], False),
+    }
+
+
+class MCPServerAuthorizationConfig(AWSProperty):
+    """
+    `MCPServerAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserverauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKey": (ApiKeyDetails, False),
+        "OAuthClientCredentials": (MCPServerOAuthClientCredentialsConfig, False),
+    }
+
+
+class MCPServerDetails(AWSProperty):
+    """
+    `MCPServerDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserverdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (MCPServerAuthorizationConfig, True),
+        "Description": (str, False),
+        "Endpoint": (str, True),
+        "Name": (str, True),
+    }
+
+
+class BearerTokenDetails(AWSProperty):
+    """
+    `BearerTokenDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-bearertokendetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationHeader": (str, False),
+        "TokenName": (str, True),
+        "TokenValue": (str, True),
+    }
+
+
+class MCPServerSplunkAuthorizationConfig(AWSProperty):
+    """
+    `MCPServerSplunkAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversplunkauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BearerToken": (BearerTokenDetails, True),
+    }
+
+
+class MCPServerSplunkDetails(AWSProperty):
+    """
+    `MCPServerSplunkDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversplunkdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (MCPServerSplunkAuthorizationConfig, True),
+        "Description": (str, False),
+        "Endpoint": (str, True),
+        "Name": (str, True),
+    }
+
+
+class NewRelicApiKeyConfig(AWSProperty):
+    """
+    `NewRelicApiKeyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-newrelicapikeyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+        "AlertPolicyIds": ([str], False),
+        "ApiKey": (str, True),
+        "ApplicationIds": ([str], False),
+        "EntityGuids": ([str], False),
+        "Region": (str, True),
+    }
+
+
+class NewRelicAuthorizationConfig(AWSProperty):
+    """
+    `NewRelicAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-newrelicauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKey": (NewRelicApiKeyConfig, True),
+    }
+
+
+class NewRelicServiceDetails(AWSProperty):
+    """
+    `NewRelicServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-newrelicservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (NewRelicAuthorizationConfig, True),
+    }
+
+
+class ServiceNowAuthorizationConfig(AWSProperty):
+    """
+    `ServiceNowAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicenowauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OAuthClientCredentials": (OAuthClientDetails, False),
+    }
+
+
+class ServiceNowServiceDetails(AWSProperty):
+    """
+    `ServiceNowServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicenowservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (ServiceNowAuthorizationConfig, False),
+        "InstanceUrl": (str, True),
+    }
+
+
+class ServiceDetails(AWSProperty):
+    """
+    `ServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dynatrace": (DynatraceServiceDetails, False),
+        "GitLab": (GitLabDetails, False),
+        "MCPServer": (MCPServerDetails, False),
+        "MCPServerNewRelic": (NewRelicServiceDetails, False),
+        "MCPServerSplunk": (MCPServerSplunkDetails, False),
+        "ServiceNow": (ServiceNowServiceDetails, False),
+    }
+
+
+class Service(AWSObject):
+    """
+    `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html>`__
+    """
+
+    resource_type = "AWS::DevOpsAgent::Service"
+
+    props: PropsDictType = {
+        "ServiceDetails": (ServiceDetails, False),
+        "ServiceType": (str, True),
+    }
+
+
+class RegisteredDynatraceDetails(AWSProperty):
+    """
+    `RegisteredDynatraceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registereddynatracedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountUrn": (str, True),
+    }
+
+
+class RegisteredGitLabServiceDetails(AWSProperty):
+    """
+    `RegisteredGitLabServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredgitlabservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupId": (str, False),
+        "TargetUrl": (str, True),
+        "TokenType": (str, True),
+    }
+
+
+class RegisteredMCPServerDetails(AWSProperty):
+    """
+    `RegisteredMCPServerDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserverdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyHeader": (str, False),
+        "AuthorizationMethod": (str, True),
+        "Description": (str, False),
+        "Endpoint": (str, True),
+        "Name": (str, True),
+    }
+
+
+class RegisteredNewRelicDetails(AWSProperty):
+    """
+    `RegisteredNewRelicDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registerednewrelicdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+        "Description": (str, False),
+        "Region": (str, True),
+    }
+
+
+class RegisteredServiceNowDetails(AWSProperty):
+    """
+    `RegisteredServiceNowDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredservicenowdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceUrl": (str, True),
+    }
+
+
+class AdditionalServiceDetails(AWSProperty):
+    """
+    `AdditionalServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dynatrace": (RegisteredDynatraceDetails, False),
+        "GitLab": (RegisteredGitLabServiceDetails, False),
+        "MCPServer": (RegisteredMCPServerDetails, False),
+        "MCPServerNewRelic": (RegisteredNewRelicDetails, False),
+        "MCPServerSplunk": (RegisteredMCPServerDetails, False),
+        "ServiceNow": (RegisteredServiceNowDetails, False),
     }
