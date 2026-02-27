@@ -67,6 +67,17 @@ class InfrastructureOptimization(AWSProperty):
     }
 
 
+class CapacityReservationRequest(AWSProperty):
+    """
+    `CapacityReservationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-capacityreservationrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReservationGroupArn": (str, False),
+        "ReservationPreference": (str, False),
+    }
+
+
 class AcceleratorCountRequest(AWSProperty):
     """
     `AcceleratorCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-acceleratorcountrequest.html>`__
@@ -227,6 +238,7 @@ class InstanceLaunchTemplate(AWSProperty):
 
     props: PropsDictType = {
         "CapacityOptionType": (str, False),
+        "CapacityReservations": (CapacityReservationRequest, False),
         "Ec2InstanceProfileArn": (str, True),
         "FipsEnabled": (boolean, False),
         "InstanceRequirements": (InstanceRequirementsRequest, False),

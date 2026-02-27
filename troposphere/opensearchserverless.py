@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class AccessPolicy(AWSObject):
@@ -51,6 +51,35 @@ class Collection(AWSObject):
         "StandbyReplicas": (str, False),
         "Tags": (Tags, False),
         "Type": (str, False),
+    }
+
+
+class CapacityLimits(AWSProperty):
+    """
+    `CapacityLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collectiongroup-capacitylimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxIndexingCapacityInOcu": (double, False),
+        "MaxSearchCapacityInOcu": (double, False),
+        "MinIndexingCapacityInOcu": (double, False),
+        "MinSearchCapacityInOcu": (double, False),
+    }
+
+
+class CollectionGroup(AWSObject):
+    """
+    `CollectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collectiongroup.html>`__
+    """
+
+    resource_type = "AWS::OpenSearchServerless::CollectionGroup"
+
+    props: PropsDictType = {
+        "CapacityLimits": (CapacityLimits, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "StandbyReplicas": (str, True),
+        "Tags": (Tags, False),
     }
 
 

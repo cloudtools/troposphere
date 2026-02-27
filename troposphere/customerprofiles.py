@@ -556,6 +556,7 @@ class Integration(AWSObject):
         "FlowDefinition": (FlowDefinition, False),
         "ObjectTypeName": (str, False),
         "ObjectTypeNames": ([ObjectTypeMapping], False),
+        "Scope": (str, False),
         "Tags": (Tags, False),
         "Uri": (str, False),
     }
@@ -624,6 +625,7 @@ class ObjectType(AWSObject):
         "MaxProfileObjectCount": (integer, False),
         "ObjectTypeName": (str, True),
         "SourceLastUpdatedTimestampFormat": (str, False),
+        "SourcePriority": (integer, False),
         "Tags": (Tags, False),
         "TemplateId": (str, False),
     }

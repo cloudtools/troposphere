@@ -118,6 +118,26 @@ class Domain(AWSObject):
     }
 
 
+class TextAttributes(AWSProperty):
+    """
+    `TextAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-field-textattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsMultiline": (boolean, True),
+    }
+
+
+class FieldAttributes(AWSProperty):
+    """
+    `FieldAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-field-fieldattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (TextAttributes, False),
+    }
+
+
 class Field(AWSObject):
     """
     `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-field.html>`__
@@ -126,6 +146,7 @@ class Field(AWSObject):
     resource_type = "AWS::Cases::Field"
 
     props: PropsDictType = {
+        "Attributes": (FieldAttributes, False),
         "Description": (str, False),
         "DomainId": (str, False),
         "Name": (str, True),

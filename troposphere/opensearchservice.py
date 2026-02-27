@@ -57,6 +57,7 @@ class Application(AWSObject):
         "DataSources": ([DataSource], False),
         "Endpoint": (str, False),
         "IamIdentityCenterOptions": (IamIdentityCenterOptions, False),
+        "KmsKeyArn": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }

@@ -16,6 +16,16 @@ from .validators.batch import (
 )
 
 
+class ComputeScalingPolicy(AWSProperty):
+    """
+    `ComputeScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computescalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MinScaleDownDelayMinutes": (integer, False),
+    }
+
+
 class Ec2ConfigurationObject(AWSProperty):
     """
     `Ec2ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html>`__
@@ -77,6 +87,7 @@ class ComputeResources(AWSProperty):
         "MaxvCpus": (integer, True),
         "MinvCpus": (integer, False),
         "PlacementGroup": (str, False),
+        "ScalingPolicy": (ComputeScalingPolicy, False),
         "SecurityGroupIds": ([str], False),
         "SpotIamFleetRole": (str, False),
         "Subnets": ([str], True),

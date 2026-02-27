@@ -54,6 +54,7 @@ class Connector(AWSObject):
         "CertificateAuthorityArn": (str, True),
         "MobileDeviceManagement": (MobileDeviceManagement, False),
         "Tags": (dict, False),
+        "VpcEndpointId": (str, False),
     }
 
 
