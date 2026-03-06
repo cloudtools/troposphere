@@ -10,6 +10,18 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class IamRole(AWSProperty):
+    """
+    `IamRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudvmcluster-iamrole.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsIntegration": (str, False),
+        "IamRoleArn": (str, False),
+        "Status": (str, False),
+    }
+
+
 class MaintenanceWindow(AWSProperty):
     """
     `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudexadatainfrastructure-maintenancewindow.html>`__
@@ -42,6 +54,7 @@ class CloudAutonomousVmCluster(AWSObject):
         "DbServers": ([str], False),
         "Description": (str, False),
         "DisplayName": (str, False),
+        "IamRoles": ([IamRole], False),
         "IsMtlsEnabledVmCluster": (boolean, False),
         "LicenseModel": (str, False),
         "MaintenanceWindow": (MaintenanceWindow, False),
@@ -143,6 +156,7 @@ class CloudVmCluster(AWSObject):
         "DisplayName": (str, False),
         "GiVersion": (str, False),
         "Hostname": (str, False),
+        "IamRoles": ([IamRole], False),
         "IsLocalBackupEnabled": (boolean, False),
         "IsSparseDiskgroupEnabled": (boolean, False),
         "LicenseModel": (str, False),
@@ -168,12 +182,17 @@ class OdbNetwork(AWSObject):
         "AvailabilityZoneId": (str, False),
         "BackupSubnetCidr": (str, False),
         "ClientSubnetCidr": (str, False),
+        "CrossRegionS3RestoreSources": ([str], False),
         "CustomDomainName": (str, False),
         "DefaultDnsPrefix": (str, False),
         "DeleteAssociatedResources": (boolean, False),
         "DisplayName": (str, False),
+        "KmsAccess": (str, False),
+        "KmsPolicyDocument": (str, False),
         "S3Access": (str, False),
         "S3PolicyDocument": (str, False),
+        "StsAccess": (str, False),
+        "StsPolicyDocument": (str, False),
         "Tags": (Tags, False),
         "ZeroEtlAccess": (str, False),
     }
@@ -191,7 +210,33 @@ class OdbPeeringConnection(AWSObject):
         "DisplayName": (str, False),
         "OdbNetworkId": (str, False),
         "PeerNetworkId": (str, False),
+        "PeerNetworkRouteTableIds": ([str], False),
         "Tags": (Tags, False),
+    }
+
+
+class CrossRegionS3RestoreSourcesAccess(AWSProperty):
+    """
+    `CrossRegionS3RestoreSourcesAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-crossregions3restoresourcesaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv4Addresses": ([str], False),
+        "Region": (str, False),
+        "Status": (str, False),
+    }
+
+
+class KmsAccess(AWSProperty):
+    """
+    `KmsAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-kmsaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainName": (str, False),
+        "Ipv4Addresses": ([str], False),
+        "KmsPolicyDocument": (str, False),
+        "Status": (str, False),
     }
 
 
@@ -230,6 +275,19 @@ class ServiceNetworkEndpoint(AWSProperty):
     }
 
 
+class StsAccess(AWSProperty):
+    """
+    `StsAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-stsaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainName": (str, False),
+        "Ipv4Addresses": ([str], False),
+        "Status": (str, False),
+        "StsPolicyDocument": (str, False),
+    }
+
+
 class ZeroEtlAccess(AWSProperty):
     """
     `ZeroEtlAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-zeroetlaccess.html>`__
@@ -247,11 +305,17 @@ class ManagedServices(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CrossRegionS3RestoreSourcesAccess": (
+            [CrossRegionS3RestoreSourcesAccess],
+            False,
+        ),
+        "KmsAccess": (KmsAccess, False),
         "ManagedS3BackupAccess": (ManagedS3BackupAccess, False),
         "ManagedServicesIpv4Cidrs": ([str], False),
         "ResourceGatewayArn": (str, False),
         "S3Access": (S3Access, False),
         "ServiceNetworkArn": (str, False),
         "ServiceNetworkEndpoint": (ServiceNetworkEndpoint, False),
+        "StsAccess": (StsAccess, False),
         "ZeroEtlAccess": (ZeroEtlAccess, False),
     }

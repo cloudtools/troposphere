@@ -89,6 +89,34 @@ class ContactFlowModule(AWSObject):
     }
 
 
+class ContactFlowModuleAlias(AWSObject):
+    """
+    `ContactFlowModuleAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodulealias.html>`__
+    """
+
+    resource_type = "AWS::Connect::ContactFlowModuleAlias"
+
+    props: PropsDictType = {
+        "ContactFlowModuleId": (str, True),
+        "ContactFlowModuleVersion": (integer, True),
+        "Description": (str, False),
+        "Name": (str, True),
+    }
+
+
+class ContactFlowModuleVersion(AWSObject):
+    """
+    `ContactFlowModuleVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmoduleversion.html>`__
+    """
+
+    resource_type = "AWS::Connect::ContactFlowModuleVersion"
+
+    props: PropsDictType = {
+        "ContactFlowModuleId": (str, True),
+        "Description": (str, False),
+    }
+
+
 class ContactFlowVersion(AWSObject):
     """
     `ContactFlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowversion.html>`__
@@ -1376,6 +1404,18 @@ class Application(AWSProperty):
     props: PropsDictType = {
         "ApplicationPermissions": ([str], True),
         "Namespace": (str, True),
+        "Type": (str, False),
+    }
+
+
+class FlowModule(AWSProperty):
+    """
+    `FlowModule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-flowmodule.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowModuleId": (str, True),
+        "Type": (str, True),
     }
 
 
@@ -1437,6 +1477,7 @@ class SecurityProfile(AWSObject):
     props: PropsDictType = {
         "AllowedAccessControlHierarchyGroupId": (str, False),
         "AllowedAccessControlTags": (Tags, False),
+        "AllowedFlowModules": ([FlowModule], False),
         "Applications": ([Application], False),
         "Description": (str, False),
         "GranularAccessControlConfiguration": (

@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class VpcConfig(AWSProperty):
@@ -83,6 +83,20 @@ class BrowserCustom(AWSObject):
     }
 
 
+class BrowserProfile(AWSObject):
+    """
+    `BrowserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browserprofile.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::BrowserProfile"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class CodeInterpreterNetworkConfiguration(AWSProperty):
     """
     `CodeInterpreterNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-codeinterpreternetworkconfiguration.html>`__
@@ -107,6 +121,112 @@ class CodeInterpreterCustom(AWSObject):
         "Name": (str, True),
         "NetworkConfiguration": (CodeInterpreterNetworkConfiguration, True),
         "Tags": (dict, False),
+    }
+
+
+class InferenceConfiguration(AWSProperty):
+    """
+    `InferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-inferenceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxTokens": (integer, False),
+        "Temperature": (double, False),
+        "TopP": (double, False),
+    }
+
+
+class BedrockEvaluatorModelConfig(AWSProperty):
+    """
+    `BedrockEvaluatorModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-bedrockevaluatormodelconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalModelRequestFields": (dict, False),
+        "InferenceConfig": (InferenceConfiguration, False),
+        "ModelId": (str, True),
+    }
+
+
+class EvaluatorModelConfig(AWSProperty):
+    """
+    `EvaluatorModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatormodelconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockEvaluatorModelConfig": (BedrockEvaluatorModelConfig, True),
+    }
+
+
+class CategoricalScaleDefinition(AWSProperty):
+    """
+    `CategoricalScaleDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-categoricalscaledefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": (str, True),
+        "Label": (str, True),
+    }
+
+
+class NumericalScaleDefinition(AWSProperty):
+    """
+    `NumericalScaleDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-numericalscaledefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": (str, True),
+        "Label": (str, True),
+        "Value": (double, True),
+    }
+
+
+class RatingScale(AWSProperty):
+    """
+    `RatingScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-ratingscale.html>`__
+    """
+
+    props: PropsDictType = {
+        "Categorical": ([CategoricalScaleDefinition], False),
+        "Numerical": ([NumericalScaleDefinition], False),
+    }
+
+
+class LlmAsAJudgeEvaluatorConfig(AWSProperty):
+    """
+    `LlmAsAJudgeEvaluatorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-llmasajudgeevaluatorconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Instructions": (str, True),
+        "ModelConfig": (EvaluatorModelConfig, True),
+        "RatingScale": (RatingScale, True),
+    }
+
+
+class EvaluatorConfig(AWSProperty):
+    """
+    `EvaluatorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LlmAsAJudge": (LlmAsAJudgeEvaluatorConfig, True),
+    }
+
+
+class Evaluator(AWSObject):
+    """
+    `Evaluator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-evaluator.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::Evaluator"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "EvaluatorConfig": (EvaluatorConfig, True),
+        "EvaluatorName": (str, True),
+        "Level": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -825,6 +945,162 @@ class Memory(AWSObject):
     }
 
 
+class CloudWatchLogsInputConfig(AWSProperty):
+    """
+    `CloudWatchLogsInputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupNames": ([str], True),
+        "ServiceNames": ([str], True),
+    }
+
+
+class DataSourceConfig(AWSProperty):
+    """
+    `DataSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-datasourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogsInputConfig, True),
+    }
+
+
+class EvaluatorReference(AWSProperty):
+    """
+    `EvaluatorReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-evaluatorreference.html>`__
+    """
+
+    props: PropsDictType = {
+        "EvaluatorId": (str, True),
+    }
+
+
+class FilterValue(AWSProperty):
+    """
+    `FilterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-filtervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanValue": (boolean, False),
+        "DoubleValue": (double, False),
+        "StringValue": (str, False),
+    }
+
+
+class Filter(AWSProperty):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Operator": (str, True),
+        "Value": (FilterValue, True),
+    }
+
+
+class SamplingConfig(AWSProperty):
+    """
+    `SamplingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-samplingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SamplingPercentage": (double, True),
+    }
+
+
+class SessionConfig(AWSProperty):
+    """
+    `SessionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-sessionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SessionTimeoutMinutes": (integer, True),
+    }
+
+
+class Rule(AWSProperty):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Filters": ([Filter], False),
+        "SamplingConfig": (SamplingConfig, True),
+        "SessionConfig": (SessionConfig, False),
+    }
+
+
+class OnlineEvaluationConfig(AWSObject):
+    """
+    `OnlineEvaluationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::OnlineEvaluationConfig"
+
+    props: PropsDictType = {
+        "DataSourceConfig": (DataSourceConfig, True),
+        "Description": (str, False),
+        "EvaluationExecutionRoleArn": (str, True),
+        "Evaluators": ([EvaluatorReference], True),
+        "OnlineEvaluationConfigName": (str, True),
+        "Rule": (Rule, True),
+        "Tags": (Tags, False),
+    }
+
+
+class CedarPolicy(AWSProperty):
+    """
+    `CedarPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-policy-cedarpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Statement": (str, True),
+    }
+
+
+class PolicyDefinition(AWSProperty):
+    """
+    `PolicyDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-policy-policydefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cedar": (CedarPolicy, True),
+    }
+
+
+class Policy(AWSObject):
+    """
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-policy.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::Policy"
+
+    props: PropsDictType = {
+        "Definition": (PolicyDefinition, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "PolicyEngineId": (str, True),
+        "ValidationMode": (str, False),
+    }
+
+
+class PolicyEngine(AWSObject):
+    """
+    `PolicyEngine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-policyengine.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::PolicyEngine"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "EncryptionKeyArn": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Code(AWSProperty):
     """
     `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-code.html>`__
@@ -949,6 +1225,26 @@ class WorkloadIdentity(AWSObject):
         "AllowedResourceOauth2ReturnUrls": ([str], False),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class CloudWatchOutputConfig(AWSProperty):
+    """
+    `CloudWatchOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupName": (str, False),
+    }
+
+
+class OutputConfig(AWSProperty):
+    """
+    `OutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-outputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchConfig": (CloudWatchOutputConfig, False),
     }
 
 

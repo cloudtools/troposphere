@@ -144,6 +144,16 @@ class NFS(AWSProperty):
     }
 
 
+class ManagedSecretConfig(AWSProperty):
+    """
+    `ManagedSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-managedsecretconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
+    }
+
+
 class SmbMountOptions(AWSProperty):
     """
     `SmbMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smbmountoptions.html>`__
@@ -160,9 +170,12 @@ class SMB(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "Domain": (str, False),
+        "ManagedSecretConfig": (ManagedSecretConfig, False),
         "MountOptions": (SmbMountOptions, True),
-        "Password": (str, True),
+        "Password": (str, False),
         "User": (str, True),
     }
 
@@ -228,6 +241,8 @@ class LocationFSxWindows(AWSObject):
     resource_type = "AWS::DataSync::LocationFSxWindows"
 
     props: PropsDictType = {
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "Domain": (str, False),
         "FsxFilesystemArn": (str, False),
         "Password": (str, False),
@@ -271,6 +286,8 @@ class LocationHDFS(AWSObject):
         "AgentArns": ([str], True),
         "AuthenticationType": (str, True),
         "BlockSize": (integer, False),
+        "CmkSecretConfig": (CmkSecretConfig, False),
+        "CustomSecretConfig": (CustomSecretConfig, False),
         "KerberosKeytab": (str, False),
         "KerberosKrb5Conf": (str, False),
         "KerberosPrincipal": (str, False),
@@ -575,16 +592,6 @@ class Task(AWSObject):
         "Tags": (Tags, False),
         "TaskMode": (str, False),
         "TaskReportConfig": (TaskReportConfig, False),
-    }
-
-
-class ManagedSecretConfig(AWSProperty):
-    """
-    `ManagedSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-managedsecretconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecretArn": (str, True),
     }
 
 
