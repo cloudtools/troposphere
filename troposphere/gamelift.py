@@ -146,6 +146,7 @@ class LocationConfiguration(AWSProperty):
     props: PropsDictType = {
         "Location": (str, True),
         "LocationCapacity": (LocationCapacity, False),
+        "PlayerGatewayStatus": (str, False),
         "StoppedActions": ([str], False),
     }
 
@@ -216,6 +217,7 @@ class ContainerFleet(AWSObject):
         "MetricGroups": ([str], False),
         "NewGameSessionProtectionPolicy": (str, False),
         "PerInstanceContainerGroupDefinitionName": (str, False),
+        "PlayerGatewayMode": (str, False),
         "ScalingPolicies": ([ScalingPolicy], False),
         "Tags": (Tags, False),
     }
@@ -369,6 +371,16 @@ class CertificateConfiguration(AWSProperty):
     }
 
 
+class PlayerGatewayConfiguration(AWSProperty):
+    """
+    `PlayerGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-playergatewayconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GameServerIpProtocolSupported": (str, False),
+    }
+
+
 class ResourceCreationLimitPolicy(AWSProperty):
     """
     `ResourceCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html>`__
@@ -429,6 +441,8 @@ class Fleet(AWSObject):
         "NewGameSessionProtectionPolicy": (str, False),
         "PeerVpcAwsAccountId": (str, False),
         "PeerVpcId": (str, False),
+        "PlayerGatewayConfiguration": (PlayerGatewayConfiguration, False),
+        "PlayerGatewayMode": (str, False),
         "ResourceCreationLimitPolicy": (ResourceCreationLimitPolicy, False),
         "RuntimeConfiguration": (RuntimeConfiguration, False),
         "ScalingPolicies": ([ScalingPolicy], False),

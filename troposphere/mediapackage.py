@@ -45,10 +45,10 @@ class IngestEndpoint(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Id": (str, True),
-        "Password": (str, True),
-        "Url": (str, True),
-        "Username": (str, True),
+        "Id": (str, False),
+        "Password": (str, False),
+        "Url": (str, False),
+        "Username": (str, False),
     }
 
 

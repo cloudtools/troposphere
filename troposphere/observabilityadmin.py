@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import double, integer
 
 
+class LogGroupNameConfiguration(AWSProperty):
+    """
+    `LogGroupNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-loggroupnameconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupNamePattern": (str, True),
+    }
+
+
 class LogsBackupConfiguration(AWSProperty):
     """
     `LogsBackupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsbackupconfiguration.html>`__
@@ -40,6 +50,7 @@ class DestinationLogsConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "BackupConfiguration": (LogsBackupConfiguration, False),
+        "LogGroupNameConfiguration": (LogGroupNameConfiguration, False),
         "LogsEncryptionConfiguration": (LogsEncryptionConfiguration, False),
     }
 

@@ -323,6 +323,32 @@ class ParallelExecutionBlockConfiguration(AWSProperty):
     }
 
 
+class RdsCreateCrossRegionReplicaConfiguration(AWSProperty):
+    """
+    `RdsCreateCrossRegionReplicaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdscreatecrossregionreplicaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "DbInstanceArnMap": (dict, True),
+        "ExternalId": (str, False),
+        "TimeoutMinutes": (double, False),
+    }
+
+
+class RdsPromoteReadReplicaConfiguration(AWSProperty):
+    """
+    `RdsPromoteReadReplicaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdspromotereadreplicaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "DbInstanceArnMap": (dict, True),
+        "ExternalId": (str, False),
+        "TimeoutMinutes": (double, False),
+    }
+
+
 class RegionSwitchPlanConfiguration(AWSProperty):
     """
     `RegionSwitchPlanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionswitchplanconfiguration.html>`__
@@ -376,6 +402,11 @@ class ExecutionBlockConfiguration(AWSProperty):
         "ExecutionApprovalConfig": (ExecutionApprovalConfiguration, False),
         "GlobalAuroraConfig": (GlobalAuroraConfiguration, False),
         "ParallelConfig": (ParallelExecutionBlockConfiguration, False),
+        "RdsCreateCrossRegionReadReplicaConfig": (
+            RdsCreateCrossRegionReplicaConfiguration,
+            False,
+        ),
+        "RdsPromoteReadReplicaConfig": (RdsPromoteReadReplicaConfiguration, False),
         "RegionSwitchPlanConfig": (RegionSwitchPlanConfiguration, False),
         "Route53HealthCheckConfig": (Route53HealthCheckConfiguration, False),
     }
