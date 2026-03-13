@@ -357,6 +357,18 @@ class S3TableIntegration(AWSObject):
     }
 
 
+class TelemetryEnrichment(AWSObject):
+    """
+    `TelemetryEnrichment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryenrichment.html>`__
+    """
+
+    resource_type = "AWS::ObservabilityAdmin::TelemetryEnrichment"
+
+    props: PropsDictType = {
+        "Scope": (str, False),
+    }
+
+
 class TelemetryPipelineConfiguration(AWSProperty):
     """
     `TelemetryPipelineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetrypipelines-telemetrypipelineconfiguration.html>`__

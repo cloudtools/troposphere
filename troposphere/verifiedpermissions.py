@@ -209,7 +209,6 @@ class SchemaDefinition(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CedarFormat": (str, False),
         "CedarJson": (str, False),
     }
 

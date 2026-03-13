@@ -50,6 +50,17 @@ class ResourcePolicy(AWSObject):
     }
 
 
+class SamplingRateBoost(AWSProperty):
+    """
+    `SamplingRateBoost <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrateboost.html>`__
+    """
+
+    props: PropsDictType = {
+        "CooldownWindowMinutes": (integer, True),
+        "MaxRate": (double, True),
+    }
+
+
 class SamplingRuleProperty(AWSProperty):
     """
     `SamplingRuleProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html>`__
@@ -65,6 +76,7 @@ class SamplingRuleProperty(AWSProperty):
         "ResourceARN": (str, True),
         "RuleARN": (str, False),
         "RuleName": (str, False),
+        "SamplingRateBoost": (SamplingRateBoost, False),
         "ServiceName": (str, True),
         "ServiceType": (str, True),
         "URLPath": (str, True),

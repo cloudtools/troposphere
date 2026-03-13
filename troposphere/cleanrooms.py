@@ -446,6 +446,7 @@ class AthenaTableReference(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CatalogName": (str, False),
         "DatabaseName": (str, True),
         "OutputLocation": (str, False),
         "Region": (str, False),

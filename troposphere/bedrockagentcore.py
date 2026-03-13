@@ -927,6 +927,48 @@ class MemoryStrategy(AWSProperty):
     }
 
 
+class ContentConfiguration(AWSProperty):
+    """
+    `ContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-contentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Level": (str, False),
+        "Type": (str, True),
+    }
+
+
+class KinesisResource(AWSProperty):
+    """
+    `KinesisResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-kinesisresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentConfigurations": ([ContentConfiguration], True),
+        "DataStreamArn": (str, True),
+    }
+
+
+class StreamDeliveryResource(AWSProperty):
+    """
+    `StreamDeliveryResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-streamdeliveryresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Kinesis": (KinesisResource, False),
+    }
+
+
+class StreamDeliveryResources(AWSProperty):
+    """
+    `StreamDeliveryResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-streamdeliveryresources.html>`__
+    """
+
+    props: PropsDictType = {
+        "Resources": ([StreamDeliveryResource], True),
+    }
+
+
 class Memory(AWSObject):
     """
     `Memory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html>`__
@@ -941,6 +983,7 @@ class Memory(AWSObject):
         "MemoryExecutionRoleArn": (str, False),
         "MemoryStrategies": ([MemoryStrategy], False),
         "Name": (str, True),
+        "StreamDeliveryResources": (StreamDeliveryResources, False),
         "Tags": (dict, False),
     }
 

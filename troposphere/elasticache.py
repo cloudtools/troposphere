@@ -198,7 +198,6 @@ class ReplicationGroup(AWSObject):
         "AutomaticFailoverEnabled": (boolean, False),
         "CacheNodeType": (str, False),
         "CacheParameterGroupName": (str, False),
-        "CacheSecurityGroupNames": ([str], False),
         "CacheSubnetGroupName": (str, False),
         "ClusterMode": (str, False),
         "DataTieringEnabled": (boolean, False),
@@ -393,4 +392,17 @@ class UserGroup(AWSObject):
         "Tags": (Tags, False),
         "UserGroupId": (str, True),
         "UserIds": ([str], True),
+    }
+
+
+class ReadEndPoint(AWSProperty):
+    """
+    `ReadEndPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-readendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Addresses": (str, False),
+        "AddressesList": ([str], False),
+        "Ports": (str, False),
+        "PortsList": ([str], False),
     }
