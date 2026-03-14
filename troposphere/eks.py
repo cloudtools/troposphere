@@ -343,7 +343,7 @@ class RemoteNetworkConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "RemoteNodeNetworks": ([RemoteNodeNetwork], True),
+        "RemoteNodeNetworks": ([RemoteNodeNetwork], False),
         "RemotePodNetworks": ([RemotePodNetwork], False),
     }
 

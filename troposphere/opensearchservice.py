@@ -253,6 +253,16 @@ class CognitoOptions(AWSProperty):
     }
 
 
+class DeploymentStrategyOptions(AWSProperty):
+    """
+    `DeploymentStrategyOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-deploymentstrategyoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeploymentStrategy": (str, False),
+    }
+
+
 class DomainEndpointOptions(AWSProperty):
     """
     `DomainEndpointOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html>`__
@@ -405,6 +415,7 @@ class Domain(AWSObject):
         "AdvancedSecurityOptions": (AdvancedSecurityOptionsInput, False),
         "ClusterConfig": (ClusterConfig, False),
         "CognitoOptions": (CognitoOptions, False),
+        "DeploymentStrategyOptions": (DeploymentStrategyOptions, False),
         "DomainEndpointOptions": (DomainEndpointOptions, False),
         "DomainName": (str, False),
         "EBSOptions": (EBSOptions, False),

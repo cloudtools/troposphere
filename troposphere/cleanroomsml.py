@@ -7,6 +7,212 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import double
+
+
+class MetricDefinition(AWSProperty):
+    """
+    `MetricDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithm-metricdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Regex": (str, True),
+    }
+
+
+class ContainerConfig(AWSProperty):
+    """
+    `ContainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithm-containerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arguments": ([str], False),
+        "Entrypoint": ([str], False),
+        "ImageUri": (str, True),
+        "MetricDefinitions": ([MetricDefinition], False),
+    }
+
+
+class InferenceContainerConfig(AWSProperty):
+    """
+    `InferenceContainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithm-inferencecontainerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageUri": (str, True),
+    }
+
+
+class ConfiguredModelAlgorithm(AWSObject):
+    """
+    `ConfiguredModelAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-configuredmodelalgorithm.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::ConfiguredModelAlgorithm"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InferenceContainerConfig": (InferenceContainerConfig, False),
+        "KmsKeyArn": (str, False),
+        "Name": (str, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+        "TrainingContainerConfig": (ContainerConfig, False),
+    }
+
+
+class TrainedModelExportsMaxSize(AWSProperty):
+    """
+    `TrainedModelExportsMaxSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelexportsmaxsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (double, True),
+    }
+
+
+class TrainedModelExportsConfigurationPolicy(AWSProperty):
+    """
+    `TrainedModelExportsConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelexportsconfigurationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilesToExport": ([str], True),
+        "MaxSize": (TrainedModelExportsMaxSize, True),
+    }
+
+
+class CustomEntityConfig(AWSProperty):
+    """
+    `CustomEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-customentityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomDataIdentifiers": ([str], True),
+    }
+
+
+class LogRedactionConfiguration(AWSProperty):
+    """
+    `LogRedactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-logredactionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomEntityConfig": (CustomEntityConfig, False),
+        "EntitiesToRedact": ([str], True),
+    }
+
+
+class LogsConfigurationPolicy(AWSProperty):
+    """
+    `LogsConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-logsconfigurationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedAccountIds": ([str], True),
+        "FilterPattern": (str, False),
+        "LogRedactionConfiguration": (LogRedactionConfiguration, False),
+        "LogType": (str, False),
+    }
+
+
+class TrainedModelInferenceMaxOutputSize(AWSProperty):
+    """
+    `TrainedModelInferenceMaxOutputSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelinferencemaxoutputsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (double, True),
+    }
+
+
+class TrainedModelInferenceJobsConfigurationPolicy(AWSProperty):
+    """
+    `TrainedModelInferenceJobsConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelinferencejobsconfigurationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerLogs": ([LogsConfigurationPolicy], False),
+        "MaxOutputSize": (TrainedModelInferenceMaxOutputSize, False),
+    }
+
+
+class MetricsConfigurationPolicy(AWSProperty):
+    """
+    `MetricsConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-metricsconfigurationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "NoiseLevel": (str, True),
+    }
+
+
+class TrainedModelArtifactMaxSize(AWSProperty):
+    """
+    `TrainedModelArtifactMaxSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelartifactmaxsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (double, True),
+    }
+
+
+class TrainedModelsConfigurationPolicy(AWSProperty):
+    """
+    `TrainedModelsConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-trainedmodelsconfigurationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerLogs": ([LogsConfigurationPolicy], False),
+        "ContainerMetrics": (MetricsConfigurationPolicy, False),
+        "MaxArtifactSize": (TrainedModelArtifactMaxSize, False),
+    }
+
+
+class PrivacyConfigurationPolicies(AWSProperty):
+    """
+    `PrivacyConfigurationPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-privacyconfigurationpolicies.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrainedModelExports": (TrainedModelExportsConfigurationPolicy, False),
+        "TrainedModelInferenceJobs": (
+            TrainedModelInferenceJobsConfigurationPolicy,
+            False,
+        ),
+        "TrainedModels": (TrainedModelsConfigurationPolicy, False),
+    }
+
+
+class PrivacyConfiguration(AWSProperty):
+    """
+    `PrivacyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredmodelalgorithmassociation-privacyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Policies": (PrivacyConfigurationPolicies, True),
+    }
+
+
+class ConfiguredModelAlgorithmAssociation(AWSObject):
+    """
+    `ConfiguredModelAlgorithmAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-configuredmodelalgorithmassociation.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation"
+
+    props: PropsDictType = {
+        "ConfiguredModelAlgorithmArn": (str, True),
+        "Description": (str, False),
+        "MembershipIdentifier": (str, True),
+        "Name": (str, True),
+        "PrivacyConfiguration": (PrivacyConfiguration, False),
+        "Tags": (Tags, False),
+    }
 
 
 class ColumnSchema(AWSProperty):

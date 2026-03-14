@@ -1042,6 +1042,16 @@ class Prompt(AWSObject):
     }
 
 
+class EmailAddressProperty(AWSProperty):
+    """
+    `EmailAddressProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-emailaddress.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailAddressArn": (str, True),
+    }
+
+
 class OutboundCallerConfig(AWSProperty):
     """
     `OutboundCallerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html>`__
@@ -1072,6 +1082,7 @@ class Queue(AWSObject):
     resource_type = "AWS::Connect::Queue"
 
     props: PropsDictType = {
+        "AdditionalEmailAddresses": ([EmailAddressProperty], False),
         "Description": (str, False),
         "HoursOfOperationArn": (str, True),
         "InstanceArn": (str, True),
