@@ -168,30 +168,6 @@ class InstanceMaintenanceOptionsRequest(AWSProperty):
     }
 
 
-class SpotMarketOptions(AWSProperty):
-    """
-    `SpotMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-spotmarketoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InstanceInterruptionBehavior": (str, False),
-        "MaxPrice": (str, False),
-        "SpotInstanceType": (str, False),
-        "ValidUntilUtc": (str, False),
-    }
-
-
-class InstanceMarketOptionsRequest(AWSProperty):
-    """
-    `InstanceMarketOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemarketoptionsrequest.html>`__
-    """
-
-    props: PropsDictType = {
-        "MarketType": (str, False),
-        "SpotOptions": (SpotMarketOptions, False),
-    }
-
-
 class InstanceMetadataOptionsRequest(AWSProperty):
     """
     `InstanceMetadataOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemetadataoptionsrequest.html>`__
@@ -292,7 +268,6 @@ class ManagedInstance(AWSProperty):
         "HibernationOptions": (HibernationOptionsRequest, False),
         "IamInstanceProfile": (IamInstanceProfileSpecification, False),
         "ImageId": (str, True),
-        "InstanceMarketOptions": (InstanceMarketOptionsRequest, False),
         "InstanceType": (str, True),
         "Ipv6AddressCount": (integer, False),
         "KeyName": (str, False),

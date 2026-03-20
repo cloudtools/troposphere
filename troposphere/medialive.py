@@ -1983,6 +1983,16 @@ class EncoderSettings(AWSProperty):
     }
 
 
+class InferenceSettings(AWSProperty):
+    """
+    `InferenceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inferencesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "FeedArn": (str, False),
+    }
+
+
 class AudioSilenceFailoverSettings(AWSProperty):
     """
     `AudioSilenceFailoverSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiosilencefailoversettings.html>`__
@@ -2527,6 +2537,7 @@ class Channel(AWSObject):
         "Destinations": ([OutputDestination], False),
         "DryRun": (boolean, False),
         "EncoderSettings": (EncoderSettings, False),
+        "InferenceSettings": (InferenceSettings, False),
         "InputAttachments": ([InputAttachment], False),
         "InputSpecification": (InputSpecification, False),
         "LinkedChannelSettings": (LinkedChannelSettings, False),
