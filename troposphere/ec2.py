@@ -989,6 +989,23 @@ class IPAMPrefixListResolver(AWSObject):
     }
 
 
+class IPAMPrefixListResolverTarget(AWSObject):
+    """
+    `IPAMPrefixListResolverTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamprefixlistresolvertarget.html>`__
+    """
+
+    resource_type = "AWS::EC2::IPAMPrefixListResolverTarget"
+
+    props: PropsDictType = {
+        "DesiredVersion": (integer, False),
+        "IpamPrefixListResolverId": (str, True),
+        "PrefixListId": (str, True),
+        "PrefixListRegion": (str, True),
+        "Tags": (Tags, False),
+        "TrackLatestVersion": (boolean, True),
+    }
+
+
 class IpamResourceDiscoveryOrganizationalUnitExclusion(AWSProperty):
     """
     `IpamResourceDiscoveryOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html>`__

@@ -18,6 +18,7 @@ class Farm(AWSObject):
     resource_type = "AWS::Deadline::Farm"
 
     props: PropsDictType = {
+        "CostScaleFactor": (double, False),
         "Description": (str, False),
         "DisplayName": (str, True),
         "KmsKeyArn": (str, False),

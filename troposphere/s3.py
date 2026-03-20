@@ -920,6 +920,8 @@ class Bucket(AWSObject):
         "AnalyticsConfigurations": ([AnalyticsConfiguration], False),
         "BucketEncryption": (BucketEncryption, False),
         "BucketName": (validate_s3_bucket_name, False),
+        "BucketNamePrefix": (str, False),
+        "BucketNamespace": (str, False),
         "CorsConfiguration": (CorsConfiguration, False),
         "IntelligentTieringConfigurations": ([IntelligentTieringConfiguration], False),
         "InventoryConfigurations": ([InventoryConfiguration], False),

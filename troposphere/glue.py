@@ -18,6 +18,98 @@ from .validators.glue import (
 )
 
 
+class DataLakeAccessProperties(AWSProperty):
+    """
+    `DataLakeAccessProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-datalakeaccessproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowFullTableExternalDataAccess": (str, False),
+        "CatalogType": (str, False),
+        "DataLakeAccess": (boolean, False),
+        "DataTransferRole": (str, False),
+        "KmsKey": (str, False),
+        "ManagedWorkgroupName": (str, False),
+        "ManagedWorkgroupStatus": (str, False),
+        "RedshiftDatabaseName": (str, False),
+    }
+
+
+class CatalogProperties(AWSProperty):
+    """
+    `CatalogProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-catalogproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomProperties": (dict, False),
+        "DataLakeAccessProperties": (DataLakeAccessProperties, False),
+    }
+
+
+class FederatedCatalog(AWSProperty):
+    """
+    `FederatedCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-federatedcatalog.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "Identifier": (str, False),
+    }
+
+
+class DataLakePrincipal(AWSProperty):
+    """
+    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataLakePrincipalIdentifier": (str, False),
+    }
+
+
+class PrincipalPermissions(AWSProperty):
+    """
+    `PrincipalPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-principalpermissions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Permissions": ([str], False),
+        "Principal": (DataLakePrincipal, False),
+    }
+
+
+class TargetRedshiftCatalog(AWSProperty):
+    """
+    `TargetRedshiftCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-targetredshiftcatalog.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogArn": (str, True),
+    }
+
+
+class Catalog(AWSObject):
+    """
+    `Catalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-catalog.html>`__
+    """
+
+    resource_type = "AWS::Glue::Catalog"
+
+    props: PropsDictType = {
+        "AllowFullTableExternalDataAccess": (str, False),
+        "CatalogProperties": (CatalogProperties, False),
+        "CreateDatabaseDefaultPermissions": ([PrincipalPermissions], False),
+        "CreateTableDefaultPermissions": ([PrincipalPermissions], False),
+        "Description": (str, False),
+        "FederatedCatalog": (FederatedCatalog, False),
+        "Name": (str, True),
+        "OverwriteChildResourcePermissionsWithDefault": (str, False),
+        "Parameters": (dict, False),
+        "Tags": (Tags, False),
+        "TargetRedshiftCatalog": (TargetRedshiftCatalog, False),
+    }
+
+
 class CsvClassifier(AWSProperty):
     """
     `CsvClassifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html>`__
@@ -507,16 +599,6 @@ class FederatedDatabase(AWSProperty):
     props: PropsDictType = {
         "ConnectionName": (str, False),
         "Identifier": (str, False),
-    }
-
-
-class DataLakePrincipal(AWSProperty):
-    """
-    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html>`__
-    """
-
-    props: PropsDictType = {
-        "DataLakePrincipalIdentifier": (str, False),
     }
 
 
