@@ -279,8 +279,7 @@
       "Key": "Name",
       "Value": "EMR Sample Cluster"
      }
-    ],
-    "VisibleToAllUsers": true
+    ]
    },
    "Type": "AWS::EMR::Cluster"
   },

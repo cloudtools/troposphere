@@ -249,7 +249,6 @@ cluster = template.add_resource(
             emr.Application(Name="Pig"),
             emr.Application(Name="Spark"),
         ],
-        VisibleToAllUsers="true",
         Tags=Tags(Name="EMR Sample Cluster"),
     )
 )

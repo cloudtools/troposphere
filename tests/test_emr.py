@@ -134,7 +134,6 @@ class TestEMR(unittest.TestCase):
             SecurityConfiguration=Ref(cluster_security_configuration),
             ServiceRole="EMRServiceRole",
             AutoScalingRole="EMR_AutoScaling_DefaultRole",
-            VisibleToAllUsers="true",
             Tags=Tags(Name="EMR Sample Cluster"),
         )
 
