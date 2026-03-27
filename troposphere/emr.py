@@ -29,7 +29,7 @@ from .validators.emr import (
 
 class Application(AWSProperty):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class Application(AWSProperty):
 
 class AutoTerminationPolicy(AWSProperty):
     """
-    `AutoTerminationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html>`__
+    `AutoTerminationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-autoterminationpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -52,7 +52,7 @@ class AutoTerminationPolicy(AWSProperty):
 
 class ScriptBootstrapActionConfig(AWSProperty):
     """
-    `ScriptBootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html>`__
+    `ScriptBootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-scriptbootstrapactionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -63,7 +63,7 @@ class ScriptBootstrapActionConfig(AWSProperty):
 
 class BootstrapActionConfig(AWSProperty):
     """
-    `BootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html>`__
+    `BootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -186,7 +186,7 @@ class VolumeSpecification(AWSProperty):
 
 class EbsBlockDeviceConfigs(AWSProperty):
     """
-    `EbsBlockDeviceConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html>`__
+    `EbsBlockDeviceConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ebsblockdeviceconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -225,7 +225,7 @@ class InstanceTypeConfig(AWSProperty):
 
 class InstanceFleetConfigProperty(AWSProperty):
     """
-    `InstanceFleetConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html>`__
+    `InstanceFleetConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancefleetconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -329,7 +329,7 @@ class AutoScalingPolicy(AWSProperty):
 
 class InstanceGroupConfigProperty(AWSProperty):
     """
-    `InstanceGroupConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html>`__
+    `InstanceGroupConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancegroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +347,7 @@ class InstanceGroupConfigProperty(AWSProperty):
 
 class PlacementType(AWSProperty):
     """
-    `PlacementType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html>`__
+    `PlacementType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-placementtype.html>`__
     """
 
     props: PropsDictType = {
@@ -357,7 +357,7 @@ class PlacementType(AWSProperty):
 
 class JobFlowInstancesConfig(AWSProperty):
     """
-    `JobFlowInstancesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html>`__
+    `JobFlowInstancesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -386,7 +386,7 @@ class JobFlowInstancesConfig(AWSProperty):
 
 class KerberosAttributes(AWSProperty):
     """
-    `KerberosAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html>`__
+    `KerberosAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-kerberosattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -400,7 +400,7 @@ class KerberosAttributes(AWSProperty):
 
 class ComputeLimits(AWSProperty):
     """
-    `ComputeLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-computelimits.html>`__
+    `ComputeLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-computelimits.html>`__
     """
 
     props: PropsDictType = {
@@ -414,7 +414,7 @@ class ComputeLimits(AWSProperty):
 
 class ManagedScalingPolicy(AWSProperty):
     """
-    `ManagedScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-managedscalingpolicy.html>`__
+    `ManagedScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-managedscalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -424,9 +424,33 @@ class ManagedScalingPolicy(AWSProperty):
     }
 
 
+class CloudWatchLogConfiguration(AWSProperty):
+    """
+    `CloudWatchLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-cloudwatchlogconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "EncryptionKeyArn": (str, False),
+        "LogGroupName": (str, False),
+        "LogStreamNamePrefix": (str, False),
+        "LogTypes": (dict, False),
+    }
+
+
+class MonitoringConfiguration(AWSProperty):
+    """
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-monitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogConfiguration": (CloudWatchLogConfiguration, False),
+    }
+
+
 class PlacementGroupConfig(AWSProperty):
     """
-    `PlacementGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementgroupconfig.html>`__
+    `PlacementGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-placementgroupconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -450,7 +474,7 @@ class HadoopJarStepConfig(AWSProperty):
 
 class StepConfig(AWSProperty):
     """
-    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html>`__
+    `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-stepconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -462,7 +486,7 @@ class StepConfig(AWSProperty):
 
 class Cluster(AWSObject):
     """
-    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html>`__
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html>`__
     """
 
     resource_type = "AWS::EMR::Cluster"
@@ -484,6 +508,7 @@ class Cluster(AWSObject):
         "LogEncryptionKmsKeyId": (str, False),
         "LogUri": (str, False),
         "ManagedScalingPolicy": (ManagedScalingPolicy, False),
+        "MonitoringConfiguration": (MonitoringConfiguration, False),
         "Name": (str, True),
         "OSReleaseLabel": (str, False),
         "PlacementGroupConfigs": ([PlacementGroupConfig], False),
@@ -494,7 +519,6 @@ class Cluster(AWSObject):
         "StepConcurrencyLevel": (integer, False),
         "Steps": ([StepConfig], False),
         "Tags": (Tags, False),
-        "VisibleToAllUsers": (boolean, False),
     }
 
 

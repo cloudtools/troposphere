@@ -620,6 +620,16 @@ class OnDemandOptionsRequest(AWSProperty):
     }
 
 
+class ReservedCapacityOptionsRequest(AWSProperty):
+    """
+    `ReservedCapacityOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-reservedcapacityoptionsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReservationTypes": ([str], False),
+    }
+
+
 class CapacityRebalance(AWSProperty):
     """
     `CapacityRebalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html>`__
@@ -685,6 +695,7 @@ class EC2Fleet(AWSObject):
         "LaunchTemplateConfigs": ([FleetLaunchTemplateConfigRequest], True),
         "OnDemandOptions": (OnDemandOptionsRequest, False),
         "ReplaceUnhealthyInstances": (boolean, False),
+        "ReservedCapacityOptions": (ReservedCapacityOptionsRequest, False),
         "SpotOptions": (SpotOptionsRequest, False),
         "TagSpecifications": ([TagSpecifications], False),
         "TargetCapacitySpecification": (TargetCapacitySpecificationRequest, True),
@@ -2699,6 +2710,19 @@ class SpotFleet(AWSObject):
     }
 
 
+class SqlHaStandbyDetectedInstance(AWSObject):
+    """
+    `SqlHaStandbyDetectedInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-sqlhastandbydetectedinstance.html>`__
+    """
+
+    resource_type = "AWS::EC2::SqlHaStandbyDetectedInstance"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "SqlServerCredentials": (str, False),
+    }
+
+
 class PrivateDnsNameOptionsOnLaunch(AWSProperty):
     """
     `PrivateDnsNameOptionsOnLaunch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-subnet-privatednsnameoptionsonlaunch.html>`__
@@ -4008,6 +4032,28 @@ class Ingress(AWSProperty):
         "SourceSecurityGroupName": (str, False),
         "SourceSecurityGroupOwnerId": (str, False),
         "ToPort": (integer, False),
+    }
+
+
+class InstanceConnectEndpointDnsNames(AWSProperty):
+    """
+    `InstanceConnectEndpointDnsNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instanceconnectendpoint-instanceconnectendpointdnsnames.html>`__
+    """
+
+    props: PropsDictType = {
+        "DnsName": (str, False),
+        "FipsDnsName": (str, False),
+    }
+
+
+class InstanceConnectEndpointPublicDnsNames(AWSProperty):
+    """
+    `InstanceConnectEndpointPublicDnsNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instanceconnectendpoint-instanceconnectendpointpublicdnsnames.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dualstack": (InstanceConnectEndpointDnsNames, False),
+        "Ipv4": (InstanceConnectEndpointDnsNames, False),
     }
 
 

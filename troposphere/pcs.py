@@ -184,6 +184,17 @@ class AuthKey(AWSProperty):
     }
 
 
+class CgroupCustomSetting(AWSProperty):
+    """
+    `CgroupCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-cgroupcustomsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParameterName": (str, True),
+        "ParameterValue": (str, True),
+    }
+
+
 class Endpoint(AWSProperty):
     """
     `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html>`__
@@ -237,4 +248,15 @@ class SlurmRest(AWSProperty):
 
     props: PropsDictType = {
         "Mode": (str, True),
+    }
+
+
+class SlurmdbdCustomSetting(AWSProperty):
+    """
+    `SlurmdbdCustomSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmdbdcustomsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParameterName": (str, True),
+        "ParameterValue": (str, True),
     }

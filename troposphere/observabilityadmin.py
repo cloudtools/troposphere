@@ -73,8 +73,9 @@ class SourceLogsConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataSourceSelectionCriteria": (str, False),
         "EncryptedLogGroupStrategy": (str, True),
-        "LogGroupSelectionCriteria": (str, True),
+        "LogGroupSelectionCriteria": (str, False),
     }
 
 

@@ -267,6 +267,16 @@ class Fleet(AWSObject):
     }
 
 
+class VolumeConfig(AWSProperty):
+    """
+    `VolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-volumeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "VolumeSizeInGb": (integer, False),
+    }
+
+
 class ImageBuilder(AWSObject):
     """
     `ImageBuilder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html>`__
@@ -286,6 +296,9 @@ class ImageBuilder(AWSObject):
         "ImageName": (str, False),
         "InstanceType": (str, True),
         "Name": (str, True),
+        "RootVolumeConfig": (VolumeConfig, False),
+        "SoftwaresToInstall": ([str], False),
+        "SoftwaresToUninstall": ([str], False),
         "Tags": (validate_tags_or_list, False),
         "VpcConfig": (VpcConfig, False),
     }

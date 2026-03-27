@@ -246,6 +246,17 @@ class AuditLogConfiguration(AWSProperty):
     }
 
 
+class FsrmConfiguration(AWSProperty):
+    """
+    `FsrmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-fsrmconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventLogDestination": (str, False),
+        "FsrmServiceEnabled": (boolean, True),
+    }
+
+
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     """
     `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
@@ -276,6 +287,7 @@ class WindowsConfiguration(AWSProperty):
         "DailyAutomaticBackupStartTime": (str, False),
         "DeploymentType": (str, False),
         "DiskIopsConfiguration": (DiskIopsConfiguration, False),
+        "FsrmConfiguration": (FsrmConfiguration, False),
         "PreferredSubnetId": (str, False),
         "SelfManagedActiveDirectoryConfiguration": (
             SelfManagedActiveDirectoryConfiguration,

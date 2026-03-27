@@ -241,6 +241,7 @@ class InstanceLaunchTemplate(AWSProperty):
         "CapacityReservations": (CapacityReservationRequest, False),
         "Ec2InstanceProfileArn": (str, True),
         "FipsEnabled": (boolean, False),
+        "InstanceMetadataTagsPropagation": (boolean, False),
         "InstanceRequirements": (InstanceRequirementsRequest, False),
         "Monitoring": (str, False),
         "NetworkConfiguration": (ManagedInstancesNetworkConfiguration, True),
