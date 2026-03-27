@@ -631,6 +631,54 @@ class ObjectType(AWSObject):
     }
 
 
+class EventParameters(AWSProperty):
+    """
+    `EventParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-eventparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventType": (str, True),
+        "EventValueThreshold": (double, False),
+    }
+
+
+class EventsConfig(AWSProperty):
+    """
+    `EventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-eventsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventParametersList": ([EventParameters], True),
+    }
+
+
+class RecommenderConfig(AWSProperty):
+    """
+    `RecommenderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-recommenderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventsConfig": (EventsConfig, False),
+    }
+
+
+class Recommender(AWSObject):
+    """
+    `Recommender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-recommender.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::Recommender"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "RecommenderConfig": (RecommenderConfig, False),
+        "RecommenderName": (str, True),
+        "RecommenderRecipeName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class RangeOverride(AWSProperty):
     """
     `RangeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-rangeoverride.html>`__
@@ -850,4 +898,44 @@ class DomainStats(AWSProperty):
         "ObjectCount": (double, False),
         "ProfileCount": (double, False),
         "TotalSize": (double, False),
+    }
+
+
+class Metrics(AWSProperty):
+    """
+    `Metrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-metrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "coverage": (double, False),
+        "freshness": (double, False),
+        "hit": (double, False),
+        "popularity": (double, False),
+        "recall": (double, False),
+        "similarity": (double, False),
+    }
+
+
+class RecommenderUpdate(AWSProperty):
+    """
+    `RecommenderUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-recommenderupdate.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreationDateTime": (str, False),
+        "FailureReason": (str, False),
+        "LastUpdatedDateTime": (str, False),
+        "RecommenderConfig": (RecommenderConfig, False),
+        "Status": (str, False),
+    }
+
+
+class TrainingMetrics(AWSProperty):
+    """
+    `TrainingMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommender-trainingmetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metrics": (Metrics, False),
+        "Time": (str, False),
     }

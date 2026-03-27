@@ -393,6 +393,7 @@ class AutoScalingGroup(AWSObject):
     props: PropsDictType = {
         "AutoScalingGroupName": (str, False),
         "AvailabilityZoneDistribution": (AvailabilityZoneDistribution, False),
+        "AvailabilityZoneIds": ([str], False),
         "AvailabilityZoneImpairmentPolicy": (AvailabilityZoneImpairmentPolicy, False),
         "AvailabilityZones": ([str], False),
         "CapacityRebalance": (boolean, False),

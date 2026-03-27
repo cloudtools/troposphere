@@ -330,6 +330,17 @@ class GatewayInterceptorConfiguration(AWSProperty):
     }
 
 
+class GatewayPolicyEngineConfiguration(AWSProperty):
+    """
+    `GatewayPolicyEngineConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewaypolicyengineconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+        "Mode": (str, True),
+    }
+
+
 class MCPGatewayConfiguration(AWSProperty):
     """
     `MCPGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html>`__
@@ -367,6 +378,7 @@ class Gateway(AWSObject):
         "InterceptorConfigurations": ([GatewayInterceptorConfiguration], False),
         "KmsKeyArn": (str, False),
         "Name": (str, True),
+        "PolicyEngineConfiguration": (GatewayPolicyEngineConfiguration, False),
         "ProtocolConfiguration": (GatewayProtocolConfiguration, False),
         "ProtocolType": (str, True),
         "RoleArn": (str, True),
@@ -1087,6 +1099,7 @@ class OnlineEvaluationConfig(AWSObject):
         "Description": (str, False),
         "EvaluationExecutionRoleArn": (str, True),
         "Evaluators": ([EvaluatorReference], True),
+        "ExecutionStatus": (str, False),
         "OnlineEvaluationConfigName": (str, True),
         "Rule": (Rule, True),
         "Tags": (Tags, False),

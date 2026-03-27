@@ -215,6 +215,7 @@ class FastRestoreRule(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AvailabilityZoneIds": ([str], False),
         "AvailabilityZones": ([str], False),
         "Count": (integer, False),
         "Interval": (integer, False),

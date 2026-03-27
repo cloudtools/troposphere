@@ -172,6 +172,7 @@ class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props: PropsDictType = {
+        "BearerTokenAuthenticationEnabled": (boolean, False),
         "DataProtectionPolicy": (dict, False),
         "DeletionProtectionEnabled": (boolean, False),
         "FieldIndexPolicies": (Tags, False),

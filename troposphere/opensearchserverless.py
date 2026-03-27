@@ -36,6 +36,16 @@ class EncryptionConfig(AWSProperty):
     }
 
 
+class VectorOptions(AWSProperty):
+    """
+    `VectorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-vectoroptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServerlessVectorAcceleration": (str, False),
+    }
+
+
 class Collection(AWSObject):
     """
     `Collection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html>`__
@@ -51,6 +61,7 @@ class Collection(AWSObject):
         "StandbyReplicas": (str, False),
         "Tags": (Tags, False),
         "Type": (str, False),
+        "VectorOptions": (VectorOptions, False),
     }
 
 
@@ -268,4 +279,15 @@ class VpcEndpoint(AWSObject):
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
         "VpcId": (str, True),
+    }
+
+
+class FipsEndpoints(AWSProperty):
+    """
+    `FipsEndpoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-fipsendpoints.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectionEndpoint": (str, False),
+        "DashboardEndpoint": (str, False),
     }
