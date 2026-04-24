@@ -30,6 +30,7 @@ class Graph(AWSObject):
     props: PropsDictType = {
         "DeletionProtection": (boolean, False),
         "GraphName": (str, False),
+        "KmsKeyIdentifier": (str, False),
         "ProvisionedMemory": (integer, True),
         "PublicConnectivity": (boolean, False),
         "ReplicaCount": (integer, False),

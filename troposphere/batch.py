@@ -32,6 +32,7 @@ class Ec2ConfigurationObject(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BatchImageStatus": (str, False),
         "ImageIdOverride": (str, False),
         "ImageKubernetesVersion": (str, False),
         "ImageType": (str, True),

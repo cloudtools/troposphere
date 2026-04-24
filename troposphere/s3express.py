@@ -108,6 +108,35 @@ class BucketEncryption(AWSProperty):
     }
 
 
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketAccountId": (str, False),
+        "BucketArn": (str, True),
+        "Format": (str, True),
+        "Prefix": (str, False),
+    }
+
+
+class InventoryConfiguration(AWSProperty):
+    """
+    `InventoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-inventoryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (Destination, True),
+        "Enabled": (boolean, True),
+        "Id": (str, True),
+        "IncludedObjectVersions": (str, True),
+        "OptionalFields": ([str], False),
+        "Prefix": (str, False),
+        "ScheduleFrequency": (str, True),
+    }
+
+
 class AbortIncompleteMultipartUpload(AWSProperty):
     """
     `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html>`__
@@ -167,6 +196,7 @@ class DirectoryBucket(AWSObject):
         "BucketEncryption": (BucketEncryption, False),
         "BucketName": (str, False),
         "DataRedundancy": (str, True),
+        "InventoryConfigurations": ([InventoryConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "LocationName": (str, True),
         "MetricsConfigurations": ([MetricsConfiguration], False),

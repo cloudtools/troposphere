@@ -1192,18 +1192,6 @@ class CloudwatchAlarmAction(AWSProperty):
     }
 
 
-class CloudwatchLogsAction(AWSProperty):
-    """
-    `CloudwatchLogsAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "BatchMode": (boolean, False),
-        "LogGroupName": (str, True),
-        "RoleArn": (str, True),
-    }
-
-
 class CloudwatchMetricAction(AWSProperty):
     """
     `CloudwatchMetricAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html>`__
@@ -1278,22 +1266,9 @@ class FirehoseAction(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BatchMode": (boolean, False),
         "DeliveryStreamName": (str, True),
         "RoleArn": (str, True),
         "Separator": (str, False),
-    }
-
-
-class BatchConfig(AWSProperty):
-    """
-    `BatchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-batchconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "MaxBatchOpenMs": (integer, False),
-        "MaxBatchSize": (integer, False),
-        "MaxBatchSizeBytes": (integer, False),
     }
 
 
@@ -1337,9 +1312,7 @@ class HttpAction(AWSProperty):
 
     props: PropsDictType = {
         "Auth": (HttpAuthorization, False),
-        "BatchConfig": (BatchConfig, False),
         "ConfirmationUrl": (str, False),
-        "EnableBatching": (boolean, False),
         "Headers": ([HttpActionHeader], False),
         "Url": (str, True),
     }
@@ -1351,7 +1324,6 @@ class IotAnalyticsAction(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BatchMode": (boolean, False),
         "ChannelName": (str, True),
         "RoleArn": (str, True),
     }
@@ -1363,7 +1335,6 @@ class IotEventsAction(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BatchMode": (boolean, False),
         "InputName": (str, True),
         "MessageId": (str, False),
         "RoleArn": (str, True),
@@ -1431,32 +1402,6 @@ class IotSiteWiseAction(AWSProperty):
     }
 
 
-class KafkaActionHeader(AWSProperty):
-    """
-    `KafkaActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaactionheader.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
-    }
-
-
-class KafkaAction(AWSProperty):
-    """
-    `KafkaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "ClientProperties": (dict, True),
-        "DestinationArn": (str, True),
-        "Headers": ([KafkaActionHeader], False),
-        "Key": (str, False),
-        "Partition": (str, False),
-        "Topic": (str, True),
-    }
-
-
 class KinesisAction(AWSProperty):
     """
     `KinesisAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html>`__
@@ -1479,79 +1424,12 @@ class LambdaAction(AWSProperty):
     }
 
 
-class Timestamp(AWSProperty):
-    """
-    `Timestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html>`__
-    """
-
-    props: PropsDictType = {
-        "Unit": (str, False),
-        "Value": (str, True),
-    }
-
-
-class LocationAction(AWSProperty):
-    """
-    `LocationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "DeviceId": (str, True),
-        "Latitude": (str, True),
-        "Longitude": (str, True),
-        "RoleArn": (str, True),
-        "Timestamp": (Timestamp, False),
-        "TrackerName": (str, True),
-    }
-
-
-class OpenSearchAction(AWSProperty):
-    """
-    `OpenSearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "Endpoint": (str, True),
-        "Id": (str, True),
-        "Index": (str, True),
-        "RoleArn": (str, True),
-        "Type": (str, True),
-    }
-
-
-class UserProperty(AWSProperty):
-    """
-    `UserProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-userproperty.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
-    }
-
-
-class RepublishActionHeaders(AWSProperty):
-    """
-    `RepublishActionHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html>`__
-    """
-
-    props: PropsDictType = {
-        "ContentType": (str, False),
-        "CorrelationData": (str, False),
-        "MessageExpiry": (str, False),
-        "PayloadFormatIndicator": (str, False),
-        "ResponseTopic": (str, False),
-        "UserProperties": ([UserProperty], False),
-    }
-
-
 class RepublishAction(AWSProperty):
     """
     `RepublishAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html>`__
     """
 
     props: PropsDictType = {
-        "Headers": (RepublishActionHeaders, False),
         "Qos": (integer, False),
         "RoleArn": (str, True),
         "Topic": (str, True),
@@ -1565,7 +1443,6 @@ class S3Action(AWSProperty):
 
     props: PropsDictType = {
         "BucketName": (str, True),
-        "CannedAcl": (str, False),
         "Key": (str, True),
         "RoleArn": (str, True),
     }
@@ -1607,42 +1484,6 @@ class StepFunctionsAction(AWSProperty):
     }
 
 
-class TimestreamDimension(AWSProperty):
-    """
-    `TimestreamDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": (str, True),
-    }
-
-
-class TimestreamTimestamp(AWSProperty):
-    """
-    `TimestreamTimestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html>`__
-    """
-
-    props: PropsDictType = {
-        "Unit": (str, True),
-        "Value": (str, True),
-    }
-
-
-class TimestreamAction(AWSProperty):
-    """
-    `TimestreamAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "DatabaseName": (str, True),
-        "Dimensions": ([TimestreamDimension], True),
-        "RoleArn": (str, True),
-        "TableName": (str, True),
-        "Timestamp": (TimestreamTimestamp, False),
-    }
-
-
 class Action(AWSProperty):
     """
     `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html>`__
@@ -1650,7 +1491,6 @@ class Action(AWSProperty):
 
     props: PropsDictType = {
         "CloudwatchAlarm": (CloudwatchAlarmAction, False),
-        "CloudwatchLogs": (CloudwatchLogsAction, False),
         "CloudwatchMetric": (CloudwatchMetricAction, False),
         "DynamoDB": (DynamoDBAction, False),
         "DynamoDBv2": (DynamoDBv2Action, False),
@@ -1660,17 +1500,13 @@ class Action(AWSProperty):
         "IotAnalytics": (IotAnalyticsAction, False),
         "IotEvents": (IotEventsAction, False),
         "IotSiteWise": (IotSiteWiseAction, False),
-        "Kafka": (KafkaAction, False),
         "Kinesis": (KinesisAction, False),
         "Lambda": (LambdaAction, False),
-        "Location": (LocationAction, False),
-        "OpenSearch": (OpenSearchAction, False),
         "Republish": (RepublishAction, False),
         "S3": (S3Action, False),
         "Sns": (SnsAction, False),
         "Sqs": (SqsAction, False),
         "StepFunctions": (StepFunctionsAction, False),
-        "Timestream": (TimestreamAction, False),
     }
 
 
@@ -1684,7 +1520,7 @@ class TopicRulePayload(AWSProperty):
         "AwsIotSqlVersion": (str, False),
         "Description": (str, False),
         "ErrorAction": (Action, False),
-        "RuleDisabled": (boolean, False),
+        "RuleDisabled": (boolean, True),
         "Sql": (str, True),
     }
 
@@ -1698,7 +1534,6 @@ class TopicRule(AWSObject):
 
     props: PropsDictType = {
         "RuleName": (str, False),
-        "Tags": (Tags, False),
         "TopicRulePayload": (TopicRulePayload, True),
     }
 
