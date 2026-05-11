@@ -244,6 +244,18 @@ class ConnectionLogOptions(AWSProperty):
     }
 
 
+class TransitGatewayConfiguration(AWSProperty):
+    """
+    `TransitGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-transitgatewayconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZoneIds": ([str], False),
+        "AvailabilityZones": ([str], False),
+        "TransitGatewayId": (str, True),
+    }
+
+
 class ClientVpnEndpoint(AWSObject):
     """
     `ClientVpnEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html>`__
@@ -269,6 +281,7 @@ class ClientVpnEndpoint(AWSObject):
         "SplitTunnel": (boolean, False),
         "TagSpecifications": ([TagSpecifications], False),
         "TrafficIpAddressType": (str, False),
+        "TransitGatewayConfiguration": (TransitGatewayConfiguration, False),
         "TransportProtocol": (str, False),
         "VpcId": (str, False),
         "VpnPort": (validate_clientvpnendpoint_vpnport, False),
@@ -298,6 +311,8 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
     resource_type = "AWS::EC2::ClientVpnTargetNetworkAssociation"
 
     props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "AvailabilityZoneId": (str, False),
         "ClientVpnEndpointId": (str, True),
         "SubnetId": (str, False),
     }
@@ -368,6 +383,28 @@ class BlockDeviceMapping(AWSProperty):
         "Ebs": (EBSBlockDevice, False),
         "NoDevice": (dict, False),
         "VirtualName": (str, False),
+    }
+
+
+class IamInstanceProfileSpecification(AWSProperty):
+    """
+    `IamInstanceProfileSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+    }
+
+
+class InstanceMetadataOptionsRequest(AWSProperty):
+    """
+    `InstanceMetadataOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancemetadataoptionsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "HttpEndpoint": (str, False),
+        "HttpPutResponseHopLimit": (integer, False),
+        "HttpTokens": (str, False),
     }
 
 
@@ -535,6 +572,50 @@ class InstanceRequirementsRequest(AWSProperty):
     }
 
 
+class Ipv6AddressRequest(AWSProperty):
+    """
+    `Ipv6AddressRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ipv6addressrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv6Address": (str, False),
+    }
+
+
+class PrivateIpAddressSpecificationRequest(AWSProperty):
+    """
+    `PrivateIpAddressSpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-privateipaddressspecificationrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Primary": (boolean, False),
+        "PrivateIpAddress": (str, False),
+    }
+
+
+class NetworkInterfaceSpecificationRequest(AWSProperty):
+    """
+    `NetworkInterfaceSpecificationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkinterfacespecificationrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssociatePublicIpAddress": (boolean, False),
+        "DeleteOnTermination": (boolean, False),
+        "Description": (str, False),
+        "DeviceIndex": (integer, False),
+        "Groups": ([str], False),
+        "InterfaceType": (str, False),
+        "Ipv6AddressCount": (integer, False),
+        "Ipv6Addresses": ([Ipv6AddressRequest], False),
+        "NetworkCardIndex": (integer, False),
+        "NetworkInterfaceId": (str, False),
+        "PrivateIpAddress": (str, False),
+        "PrivateIpAddresses": ([PrivateIpAddressSpecificationRequest], False),
+        "SecondaryPrivateIpAddressCount": (integer, False),
+        "SubnetId": (str, False),
+    }
+
+
 class Placement(AWSProperty):
     """
     `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html>`__
@@ -562,9 +643,13 @@ class FleetLaunchTemplateOverridesRequest(AWSProperty):
         "AvailabilityZone": (str, False),
         "AvailabilityZoneId": (str, False),
         "BlockDeviceMappings": ([BlockDeviceMapping], False),
+        "IamInstanceProfile": (IamInstanceProfileSpecification, False),
         "InstanceRequirements": (InstanceRequirementsRequest, False),
         "InstanceType": (str, False),
+        "KeyName": (str, False),
         "MaxPrice": (str, False),
+        "MetadataOptions": (InstanceMetadataOptionsRequest, False),
+        "NetworkInterfaces": ([NetworkInterfaceSpecificationRequest], False),
         "Placement": (Placement, False),
         "Priority": (double, False),
         "SubnetId": (str, False),
@@ -580,6 +665,7 @@ class FleetLaunchTemplateSpecificationRequest(AWSProperty):
     props: PropsDictType = {
         "LaunchTemplateId": (str, False),
         "LaunchTemplateName": (str, False),
+        "LaunchTemplateSpecificationUserData": (str, False),
         "Version": (str, True),
     }
 
@@ -2459,16 +2545,6 @@ class SnapshotBlockPublicAccess(AWSObject):
     }
 
 
-class IamInstanceProfileSpecification(AWSProperty):
-    """
-    `IamInstanceProfileSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-iaminstanceprofilespecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "Arn": (str, False),
-    }
-
-
 class InstanceNetworkInterfaceSpecification(AWSProperty):
     """
     `InstanceNetworkInterfaceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancenetworkinterfacespecification.html>`__
@@ -4121,18 +4197,6 @@ class State(AWSProperty):
     props: PropsDictType = {
         "Code": (str, False),
         "Name": (str, False),
-    }
-
-
-class TransitGatewayConfiguration(AWSProperty):
-    """
-    `TransitGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-transitgatewayconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "AvailabilityZoneIds": ([str], False),
-        "AvailabilityZones": ([str], False),
-        "TransitGatewayId": (str, True),
     }
 
 

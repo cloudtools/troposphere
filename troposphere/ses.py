@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 
 
 class ArchivingOptions(AWSProperty):
@@ -433,6 +433,28 @@ class MailManagerArchive(AWSObject):
     }
 
 
+class TrustStore(AWSProperty):
+    """
+    `TrustStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-truststore.html>`__
+    """
+
+    props: PropsDictType = {
+        "CAContent": (str, True),
+        "CrlContent": (str, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
+class TlsAuthConfiguration(AWSProperty):
+    """
+    `TlsAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-tlsauthconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrustStore": (TrustStore, True),
+    }
+
+
 class IngressPointConfiguration(AWSProperty):
     """
     `IngressPointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html>`__
@@ -441,6 +463,7 @@ class IngressPointConfiguration(AWSProperty):
     props: PropsDictType = {
         "SecretArn": (str, False),
         "SmtpPassword": (str, False),
+        "TlsAuthConfiguration": (TlsAuthConfiguration, False),
     }
 
 
@@ -489,6 +512,7 @@ class MailManagerIngressPoint(AWSObject):
         "RuleSetId": (str, True),
         "StatusToUpdate": (str, False),
         "Tags": (Tags, False),
+        "TlsPolicy": (str, False),
         "TrafficPolicyId": (str, True),
         "Type": (str, True),
     }
@@ -543,6 +567,20 @@ class ArchiveAction(AWSProperty):
     }
 
 
+class BounceAction(AWSProperty):
+    """
+    `BounceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, True),
+        "Sender": (str, True),
+        "SmtpReplyCode": (str, True),
+        "StatusCode": (str, False),
+        "TopicArn": (str, False),
+    }
+
+
 class DeliverToMailboxAction(AWSProperty):
     """
     `DeliverToMailboxAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html>`__
@@ -564,6 +602,20 @@ class DeliverToQBusinessAction(AWSProperty):
         "ActionFailurePolicy": (str, False),
         "ApplicationId": (str, True),
         "IndexId": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
+class InvokeLambdaAction(AWSProperty):
+    """
+    `InvokeLambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-invokelambdaaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "FunctionArn": (str, True),
+        "InvocationType": (str, True),
+        "RetryTimeMinutes": (integer, False),
         "RoleArn": (str, True),
     }
 
@@ -637,9 +689,11 @@ class RuleAction(AWSProperty):
     props: PropsDictType = {
         "AddHeader": (AddHeaderAction, False),
         "Archive": (ArchiveAction, False),
+        "Bounce": (BounceAction, False),
         "DeliverToMailbox": (DeliverToMailboxAction, False),
         "DeliverToQBusiness": (DeliverToQBusinessAction, False),
         "Drop": (dict, False),
+        "InvokeLambda": (InvokeLambdaAction, False),
         "PublishToSns": (SnsAction, False),
         "Relay": (RelayAction, False),
         "ReplaceRecipient": (ReplaceRecipientAction, False),
@@ -756,6 +810,7 @@ class RuleStringToEvaluate(AWSProperty):
     props: PropsDictType = {
         "Analysis": (Analysis, False),
         "Attribute": (str, False),
+        "ClientCertificateAttribute": (str, False),
         "MimeHeaderAttribute": (str, False),
     }
 
@@ -1076,20 +1131,6 @@ class ReceiptFilter(AWSObject):
 
     props: PropsDictType = {
         "Filter": (Filter, True),
-    }
-
-
-class BounceAction(AWSProperty):
-    """
-    `BounceAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "Message": (str, True),
-        "Sender": (str, True),
-        "SmtpReplyCode": (str, True),
-        "StatusCode": (str, False),
-        "TopicArn": (str, False),
     }
 
 

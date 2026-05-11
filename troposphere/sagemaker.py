@@ -235,8 +235,9 @@ class ClusterLifeCycleConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OnCreate": (str, True),
-        "SourceS3Uri": (str, True),
+        "OnCreate": (str, False),
+        "OnInitComplete": (str, False),
+        "SourceS3Uri": (str, False),
     }
 
 
@@ -369,7 +370,7 @@ class ClusterInstanceGroup(AWSProperty):
         "InstanceStorageConfigs": ([ClusterInstanceStorageConfig], False),
         "InstanceType": (str, True),
         "KubernetesConfig": (ClusterKubernetesConfig, False),
-        "LifeCycleConfig": (ClusterLifeCycleConfig, True),
+        "LifeCycleConfig": (ClusterLifeCycleConfig, False),
         "MinInstanceCount": (integer, False),
         "OnStartDeepHealthChecks": ([str], False),
         "OverrideVpcConfig": (VpcConfig, False),

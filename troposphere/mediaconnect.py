@@ -797,6 +797,44 @@ class MediaConnectFlowRouterInputConfiguration(AWSProperty):
     }
 
 
+class MediaLiveTransitEncryptionKeyConfiguration(AWSProperty):
+    """
+    `MediaLiveTransitEncryptionKeyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automatic": (dict, False),
+        "SecretsManager": (SecretsManagerEncryptionKeyConfiguration, False),
+    }
+
+
+class MediaLiveTransitEncryption(AWSProperty):
+    """
+    `MediaLiveTransitEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionKeyConfiguration": (
+            MediaLiveTransitEncryptionKeyConfiguration,
+            True,
+        ),
+        "EncryptionKeyType": (str, False),
+    }
+
+
+class MediaLiveChannelRouterInputConfiguration(AWSProperty):
+    """
+    `MediaLiveChannelRouterInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-medialivechannelrouterinputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MediaLiveChannelArn": (str, False),
+        "MediaLiveChannelOutputName": (str, False),
+        "MediaLivePipelineId": (str, False),
+        "SourceTransitDecryption": (MediaLiveTransitEncryption, True),
+    }
+
+
 class MergeRouterInputProtocolConfiguration(AWSProperty):
     """
     `MergeRouterInputProtocolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-mergerouterinputprotocolconfiguration.html>`__
@@ -853,6 +891,7 @@ class RouterInputConfiguration(AWSProperty):
     props: PropsDictType = {
         "Failover": (FailoverRouterInputConfiguration, False),
         "MediaConnectFlow": (MediaConnectFlowRouterInputConfiguration, False),
+        "MediaLiveChannel": (MediaLiveChannelRouterInputConfiguration, False),
         "Merge": (MergeRouterInputConfiguration, False),
         "Standard": (StandardRouterInputConfiguration, False),
     }
@@ -970,31 +1009,6 @@ class MediaConnectFlowRouterOutputConfiguration(AWSProperty):
         "DestinationTransitEncryption": (FlowTransitEncryption, True),
         "FlowArn": (str, False),
         "FlowSourceArn": (str, False),
-    }
-
-
-class MediaLiveTransitEncryptionKeyConfiguration(AWSProperty):
-    """
-    `MediaLiveTransitEncryptionKeyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Automatic": (dict, False),
-        "SecretsManager": (SecretsManagerEncryptionKeyConfiguration, False),
-    }
-
-
-class MediaLiveTransitEncryption(AWSProperty):
-    """
-    `MediaLiveTransitEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryption.html>`__
-    """
-
-    props: PropsDictType = {
-        "EncryptionKeyConfiguration": (
-            MediaLiveTransitEncryptionKeyConfiguration,
-            True,
-        ),
-        "EncryptionKeyType": (str, False),
     }
 
 

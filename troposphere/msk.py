@@ -263,7 +263,7 @@ class EncryptionInfo(AWSProperty):
 
 class CloudWatchLogs(AWSProperty):
     """
-    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html>`__
+    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-cloudwatchlogs.html>`__
     """
 
     props: PropsDictType = {
@@ -274,7 +274,7 @@ class CloudWatchLogs(AWSProperty):
 
 class Firehose(AWSProperty):
     """
-    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-firehose.html>`__
+    `Firehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-firehose.html>`__
     """
 
     props: PropsDictType = {
@@ -285,7 +285,7 @@ class Firehose(AWSProperty):
 
 class S3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-s3.html>`__
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-s3.html>`__
     """
 
     props: PropsDictType = {
@@ -443,6 +443,38 @@ class AmazonMskCluster(AWSProperty):
     }
 
 
+class ApacheKafkaCluster(AWSProperty):
+    """
+    `ApacheKafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-apachekafkacluster.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApacheKafkaClusterId": (str, True),
+        "BootstrapBrokerString": (str, True),
+    }
+
+
+class KafkaClusterSaslScramAuthentication(AWSProperty):
+    """
+    `KafkaClusterSaslScramAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustersaslscramauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mechanism": (str, True),
+        "SecretArn": (str, True),
+    }
+
+
+class KafkaClusterClientAuthentication(AWSProperty):
+    """
+    `KafkaClusterClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "SaslScram": (KafkaClusterSaslScramAuthentication, True),
+    }
+
+
 class KafkaClusterClientVpcConfig(AWSProperty):
     """
     `KafkaClusterClientVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientvpcconfig.html>`__
@@ -454,14 +486,50 @@ class KafkaClusterClientVpcConfig(AWSProperty):
     }
 
 
+class KafkaClusterEncryptionInTransit(AWSProperty):
+    """
+    `KafkaClusterEncryptionInTransit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterencryptionintransit.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": (str, True),
+        "RootCaCertificate": (str, False),
+    }
+
+
 class KafkaCluster(AWSProperty):
     """
     `KafkaCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html>`__
     """
 
     props: PropsDictType = {
-        "AmazonMskCluster": (AmazonMskCluster, True),
-        "VpcConfig": (KafkaClusterClientVpcConfig, True),
+        "AmazonMskCluster": (AmazonMskCluster, False),
+        "ApacheKafkaCluster": (ApacheKafkaCluster, False),
+        "ClientAuthentication": (KafkaClusterClientAuthentication, False),
+        "EncryptionInTransit": (KafkaClusterEncryptionInTransit, False),
+        "VpcConfig": (KafkaClusterClientVpcConfig, False),
+    }
+
+
+class ReplicatorLogDelivery(AWSProperty):
+    """
+    `ReplicatorLogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicatorlogdelivery.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogs, False),
+        "Firehose": (Firehose, False),
+        "S3": (S3, False),
+    }
+
+
+class LogDelivery(AWSProperty):
+    """
+    `LogDelivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-logdelivery.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReplicatorLogDelivery": (ReplicatorLogDelivery, False),
     }
 
 
@@ -471,6 +539,7 @@ class ConsumerGroupReplication(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConsumerGroupOffsetSyncMode": (str, False),
         "ConsumerGroupsToExclude": ([str], False),
         "ConsumerGroupsToReplicate": ([str], True),
         "DetectAndCopyNewConsumerGroups": (boolean, False),
@@ -521,9 +590,11 @@ class ReplicationInfo(AWSProperty):
 
     props: PropsDictType = {
         "ConsumerGroupReplication": (ConsumerGroupReplication, True),
-        "SourceKafkaClusterArn": (str, True),
+        "SourceKafkaClusterArn": (str, False),
+        "SourceKafkaClusterId": (str, False),
         "TargetCompressionType": (str, True),
-        "TargetKafkaClusterArn": (str, True),
+        "TargetKafkaClusterArn": (str, False),
+        "TargetKafkaClusterId": (str, False),
         "TopicReplication": (TopicReplication, True),
     }
 
@@ -538,6 +609,7 @@ class Replicator(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "KafkaClusters": ([KafkaCluster], True),
+        "LogDelivery": (LogDelivery, False),
         "ReplicationInfoList": ([ReplicationInfo], True),
         "ReplicatorName": (str, True),
         "ServiceExecutionRoleArn": (str, True),

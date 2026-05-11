@@ -57,6 +57,16 @@ class AutoScalingGroupProvider(AWSProperty):
     }
 
 
+class AutoRepairConfiguration(AWSProperty):
+    """
+    `AutoRepairConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autorepairconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionsStatus": (str, False),
+    }
+
+
 class InfrastructureOptimization(AWSProperty):
     """
     `InfrastructureOptimization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-infrastructureoptimization.html>`__
@@ -266,6 +276,7 @@ class ManagedInstancesProvider(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoRepairConfiguration": (AutoRepairConfiguration, False),
         "InfrastructureOptimization": (InfrastructureOptimization, False),
         "InfrastructureRoleArn": (str, True),
         "InstanceLaunchTemplate": (InstanceLaunchTemplate, True),
