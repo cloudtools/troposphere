@@ -1,3 +1,25 @@
+4.10.2 (2026*05*16)
+-------------------
+* Updates from spec version 237.0.0 (#2352)
+* Updates from spec version 238.0.0 (#2353)
+* Updates from spec version 239.0.0 (#2354)
+* Updates from spec version 240.0.0 (#2355)
+* Updates from spec version 241.0.0 (#2356)
+* Spec 242.0.0 removed EMR::Cluster VisibleToAllUsers
+* Spec 242.0.0: backward compatibility for EMR::Cluster Configuration
+* Updates from spec version 242.0.0 (#2357)
+* Updates from spec version 243.0.0
+* Updates from spec version 244.0.0
+* Updates from spec version 245.0.0
+* Update black and isort
+* Switch tests.yml github action to using uv
+* Install correct requirements file
+* Remove EOL Python 3.9
+* Update github action versions
+* Update to peter-evans/create-pull-request@v8
+* Updates from spec version 246.0.0 (#2358)
+* Update package license metadata to SPDX
+
 4.10.1 (2026*02*16)
 -------------------------------
 * Updates from spec version 236.0.0 (#2348)
