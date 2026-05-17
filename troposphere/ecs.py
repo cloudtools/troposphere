@@ -957,9 +957,10 @@ class DeploymentLifecycleHook(AWSProperty):
 
     props: PropsDictType = {
         "HookDetails": (dict, False),
-        "HookTargetArn": (str, True),
+        "HookTargetArn": (str, False),
         "LifecycleStages": ([str], True),
-        "RoleArn": (str, True),
+        "RoleArn": (str, False),
+        "TimeoutConfiguration": (dict, False),
     }
 
 

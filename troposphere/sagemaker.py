@@ -1324,6 +1324,18 @@ class CapacityReservationConfig(AWSProperty):
     }
 
 
+class InstancePools(AWSProperty):
+    """
+    `InstancePools <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-instancepools.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceType": (str, True),
+        "ModelNameOverride": (str, False),
+        "Priority": (integer, True),
+    }
+
+
 class ManagedInstanceScaling(AWSProperty):
     """
     `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
@@ -1370,12 +1382,14 @@ class ProductionVariant(AWSProperty):
         "InferenceAmiVersion": (str, False),
         "InitialInstanceCount": (integer, False),
         "InitialVariantWeight": (double, False),
+        "InstancePools": ([InstancePools], False),
         "InstanceType": (str, False),
         "ManagedInstanceScaling": (ManagedInstanceScaling, False),
         "ModelDataDownloadTimeoutInSeconds": (integer, False),
         "ModelName": (str, False),
         "RoutingConfig": (RoutingConfig, False),
         "ServerlessConfig": (ServerlessConfig, False),
+        "VariantInstanceProvisionTimeoutInSeconds": (integer, False),
         "VariantName": (str, True),
         "VolumeSizeInGB": (integer, False),
     }

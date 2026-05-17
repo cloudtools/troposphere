@@ -79,6 +79,7 @@ class Queue(AWSObject):
     props: PropsDictType = {
         "ConcurrentJobs": (integer, False),
         "Description": (str, False),
+        "MaximumConcurrentFeeds": (integer, False),
         "Name": (str, False),
         "PricingPlan": (str, False),
         "Status": (str, False),

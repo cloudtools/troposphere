@@ -362,6 +362,19 @@ class EfsVolumeConfiguration(AWSProperty):
     }
 
 
+class S3FilesVolumeConfiguration(AWSProperty):
+    """
+    `S3FilesVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-s3filesvolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessPointArn": (str, False),
+        "FileSystemArn": (str, True),
+        "RootDirectory": (str, False),
+        "TransitEncryptionPort": (integer, False),
+    }
+
+
 class VolumesHost(AWSProperty):
     """
     `VolumesHost <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-host.html>`__
@@ -381,6 +394,7 @@ class Volumes(AWSProperty):
         "EfsVolumeConfiguration": (EfsVolumeConfiguration, False),
         "Host": (VolumesHost, False),
         "Name": (str, False),
+        "S3FilesVolumeConfiguration": (S3FilesVolumeConfiguration, False),
     }
 
 
@@ -459,6 +473,8 @@ class TaskContainerProperties(AWSProperty):
         "RepositoryCredentials": (RepositoryCredentials, False),
         "ResourceRequirements": ([ResourceRequirement], False),
         "Secrets": ([Secret], False),
+        "StartTimeout": (integer, False),
+        "StopTimeout": (integer, False),
         "Ulimits": ([Ulimit], False),
         "User": (str, False),
     }

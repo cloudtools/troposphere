@@ -24,6 +24,29 @@ class ApiKeyCredentialProvider(AWSObject):
     }
 
 
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Prefix": (str, True),
+        "VersionId": (str, False),
+    }
+
+
+class BrowserEnterprisePolicy(AWSProperty):
+    """
+    `BrowserEnterprisePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browserenterprisepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (S3Location, True),
+        "Type": (str, True),
+    }
+
+
 class VpcConfig(AWSProperty):
     """
     `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-vpcconfig.html>`__
@@ -56,15 +79,23 @@ class BrowserSigning(AWSProperty):
     }
 
 
-class S3Location(AWSProperty):
+class CertificateLocation(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3location.html>`__
+    `CertificateLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-certificatelocation.html>`__
     """
 
     props: PropsDictType = {
-        "Bucket": (str, True),
-        "Prefix": (str, True),
-        "VersionId": (str, False),
+        "SecretArn": (str, True),
+    }
+
+
+class Certificate(AWSProperty):
+    """
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-certificate.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateLocation": (CertificateLocation, True),
     }
 
 
@@ -88,7 +119,9 @@ class BrowserCustom(AWSObject):
 
     props: PropsDictType = {
         "BrowserSigning": (BrowserSigning, False),
+        "Certificates": ([Certificate], False),
         "Description": (str, False),
+        "EnterprisePolicies": ([BrowserEnterprisePolicy], False),
         "ExecutionRoleArn": (str, False),
         "Name": (str, True),
         "NetworkConfiguration": (BrowserNetworkConfiguration, True),
@@ -130,6 +163,7 @@ class CodeInterpreterCustom(AWSObject):
     resource_type = "AWS::BedrockAgentCore::CodeInterpreterCustom"
 
     props: PropsDictType = {
+        "Certificates": ([Certificate], False),
         "Description": (str, False),
         "ExecutionRoleArn": (str, False),
         "Name": (str, True),
@@ -261,6 +295,7 @@ class Evaluator(AWSObject):
         "Description": (str, False),
         "EvaluatorConfig": (EvaluatorConfig, True),
         "EvaluatorName": (str, True),
+        "KmsKeyArn": (str, False),
         "Level": (str, True),
         "Tags": (Tags, False),
     }
@@ -620,6 +655,7 @@ class McpServerTargetConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Endpoint": (str, True),
+        "ListingMode": (str, False),
     }
 
 
@@ -664,6 +700,17 @@ class GatewayTarget(AWSObject):
     }
 
 
+class IndexedKey(AWSProperty):
+    """
+    `IndexedKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-indexedkey.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Type": (str, True),
+    }
+
+
 class EpisodicOverrideConsolidationConfigurationInput(AWSProperty):
     """
     `EpisodicOverrideConsolidationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverrideconsolidationconfigurationinput.html>`__
@@ -686,6 +733,94 @@ class EpisodicOverrideExtractionConfigurationInput(AWSProperty):
     }
 
 
+class NumberValidation(AWSProperty):
+    """
+    `NumberValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-numbervalidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxValue": (double, False),
+        "MinValue": (double, False),
+    }
+
+
+class StringListValidation(AWSProperty):
+    """
+    `StringListValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-stringlistvalidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedValues": ([str], False),
+        "MaxItems": (integer, False),
+    }
+
+
+class StringValidation(AWSProperty):
+    """
+    `StringValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-stringvalidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedValues": ([str], True),
+    }
+
+
+class Validation(AWSProperty):
+    """
+    `Validation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-validation.html>`__
+    """
+
+    props: PropsDictType = {
+        "NumberValidation": (NumberValidation, False),
+        "StringListValidation": (StringListValidation, False),
+        "StringValidation": (StringValidation, False),
+    }
+
+
+class LlmExtractionConfig(AWSProperty):
+    """
+    `LlmExtractionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-llmextractionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": (str, True),
+        "LlmExtractionInstruction": (str, False),
+        "Validation": (Validation, False),
+    }
+
+
+class ExtractionConfig(AWSProperty):
+    """
+    `ExtractionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-extractionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LlmExtractionConfig": (LlmExtractionConfig, False),
+    }
+
+
+class MetadataSchemaEntry(AWSProperty):
+    """
+    `MetadataSchemaEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadataschemaentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExtractionConfig": (ExtractionConfig, False),
+        "Key": (str, True),
+        "Type": (str, False),
+    }
+
+
+class MemoryRecordSchema(AWSProperty):
+    """
+    `MemoryRecordSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memoryrecordschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetadataSchema": ([MetadataSchemaEntry], False),
+    }
+
+
 class EpisodicOverrideReflectionConfigurationInput(AWSProperty):
     """
     `EpisodicOverrideReflectionConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput.html>`__
@@ -693,6 +828,7 @@ class EpisodicOverrideReflectionConfigurationInput(AWSProperty):
 
     props: PropsDictType = {
         "AppendToPrompt": (str, True),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "ModelId": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -886,6 +1022,7 @@ class CustomMemoryStrategy(AWSProperty):
         "Configuration": (CustomConfigurationInput, False),
         "CreatedAt": (str, False),
         "Description": (str, False),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "Name": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -902,6 +1039,7 @@ class EpisodicReflectionConfigurationInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
     }
@@ -915,6 +1053,7 @@ class EpisodicMemoryStrategy(AWSProperty):
     props: PropsDictType = {
         "CreatedAt": (str, False),
         "Description": (str, False),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "Name": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -934,6 +1073,7 @@ class SemanticMemoryStrategy(AWSProperty):
     props: PropsDictType = {
         "CreatedAt": (str, False),
         "Description": (str, False),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "Name": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -952,6 +1092,7 @@ class SummaryMemoryStrategy(AWSProperty):
     props: PropsDictType = {
         "CreatedAt": (str, False),
         "Description": (str, False),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "Name": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -970,6 +1111,7 @@ class UserPreferenceMemoryStrategy(AWSProperty):
     props: PropsDictType = {
         "CreatedAt": (str, False),
         "Description": (str, False),
+        "MemoryRecordSchema": (MemoryRecordSchema, False),
         "Name": (str, True),
         "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
@@ -1047,6 +1189,7 @@ class Memory(AWSObject):
         "Description": (str, False),
         "EncryptionKeyArn": (str, False),
         "EventExpiryDuration": (integer, True),
+        "IndexedKeys": ([IndexedKey], False),
         "MemoryExecutionRoleArn": (str, False),
         "MemoryStrategies": ([MemoryStrategy], False),
         "Name": (str, True),
@@ -1090,15 +1233,38 @@ class Oauth2Discovery(AWSProperty):
     }
 
 
+class TokenExchangeGrantTypeConfig(AWSProperty):
+    """
+    `TokenExchangeGrantTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-tokenexchangegranttypeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActorTokenContent": (str, True),
+        "ActorTokenScopes": ([str], False),
+    }
+
+
+class OnBehalfOfTokenExchangeConfig(AWSProperty):
+    """
+    `OnBehalfOfTokenExchangeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-onbehalfoftokenexchangeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "GrantType": (str, True),
+        "TokenExchangeGrantTypeConfig": (TokenExchangeGrantTypeConfig, False),
+    }
+
+
 class CustomOauth2ProviderConfigInput(AWSProperty):
     """
     `CustomOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html>`__
     """
 
     props: PropsDictType = {
-        "ClientId": (str, True),
-        "ClientSecret": (str, True),
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
         "OauthDiscovery": (Oauth2Discovery, True),
+        "OnBehalfOfTokenExchangeConfig": (OnBehalfOfTokenExchangeConfig, False),
     }
 
 
@@ -1559,6 +1725,7 @@ class Oauth2ProviderConfigOutput(AWSProperty):
     props: PropsDictType = {
         "ClientId": (str, False),
         "OauthDiscovery": (Oauth2Discovery, False),
+        "OnBehalfOfTokenExchangeConfig": (OnBehalfOfTokenExchangeConfig, False),
     }
 
 

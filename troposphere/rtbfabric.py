@@ -232,6 +232,23 @@ class RequesterGateway(AWSObject):
     }
 
 
+class HealthCheckConfig(AWSProperty):
+    """
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-healthcheckconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HealthyThresholdCount": (integer, False),
+        "IntervalSeconds": (integer, False),
+        "Path": (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, False),
+        "StatusCodeMatcher": (str, False),
+        "TimeoutMs": (integer, False),
+        "UnhealthyThresholdCount": (integer, False),
+    }
+
+
 class AutoScalingGroupsConfiguration(AWSProperty):
     """
     `AutoScalingGroupsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html>`__
@@ -239,6 +256,7 @@ class AutoScalingGroupsConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AutoScalingGroupNameList": ([str], True),
+        "HealthCheckConfig": (HealthCheckConfig, False),
         "RoleArn": (str, True),
     }
 

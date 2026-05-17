@@ -368,6 +368,16 @@ class Rebalancing(AWSProperty):
     }
 
 
+class ZookeeperAccess(AWSProperty):
+    """
+    `ZookeeperAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-zookeeperaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html>`__
@@ -389,6 +399,7 @@ class Cluster(AWSObject):
         "Rebalancing": (Rebalancing, False),
         "StorageMode": (str, False),
         "Tags": (dict, False),
+        "ZookeeperAccess": (ZookeeperAccess, False),
     }
 
 

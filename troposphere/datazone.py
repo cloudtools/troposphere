@@ -23,6 +23,17 @@ class AwsLocation(AWSProperty):
     }
 
 
+class ConnectionConfiguration(AWSProperty):
+    """
+    `ConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, False),
+        "Properties": (dict, False),
+    }
+
+
 class AmazonQPropertiesInput(AWSProperty):
     """
     `AmazonQPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-amazonqpropertiesinput.html>`__
@@ -185,6 +196,16 @@ class IamPropertiesInput(AWSProperty):
     }
 
 
+class LakehousePropertiesInput(AWSProperty):
+    """
+    `LakehousePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-lakehousepropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlueLineageSyncEnabled": (boolean, False),
+    }
+
+
 class MlflowPropertiesInput(AWSProperty):
     """
     `MlflowPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-mlflowpropertiesinput.html>`__
@@ -270,6 +291,7 @@ class S3PropertiesInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "RegisterS3AccessGrantLocation": (boolean, False),
         "S3AccessGrantLocationId": (str, False),
         "S3Uri": (str, True),
     }
@@ -340,6 +362,7 @@ class ConnectionPropertiesInput(AWSProperty):
         "GlueProperties": (GluePropertiesInput, False),
         "HyperPodProperties": (HyperPodPropertiesInput, False),
         "IamProperties": (IamPropertiesInput, False),
+        "LakehouseProperties": (LakehousePropertiesInput, False),
         "MlflowProperties": (MlflowPropertiesInput, False),
         "RedshiftProperties": (RedshiftPropertiesInput, False),
         "S3Properties": (S3PropertiesInput, False),
@@ -359,6 +382,7 @@ class Connection(AWSObject):
 
     props: PropsDictType = {
         "AwsLocation": (AwsLocation, False),
+        "Configurations": ([ConnectionConfiguration], False),
         "Description": (str, False),
         "DomainIdentifier": (str, True),
         "EnableTrustedIdentityPropagation": (boolean, False),
@@ -561,7 +585,7 @@ class Domain(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "DomainExecutionRole": (str, True),
+        "DomainExecutionRole": (str, False),
         "DomainVersion": (str, False),
         "KmsKeyIdentifier": (str, False),
         "Name": (str, True),
@@ -755,7 +779,9 @@ class GroupProfile(AWSObject):
 
     props: PropsDictType = {
         "DomainIdentifier": (str, True),
-        "GroupIdentifier": (str, True),
+        "GroupIdentifier": (str, False),
+        "GroupType": (str, False),
+        "RolePrincipalArn": (str, False),
         "Status": (str, False),
     }
 
@@ -1050,6 +1076,28 @@ class EnvironmentConfigurationUserParameter(AWSProperty):
     }
 
 
+class Member(AWSProperty):
+    """
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-member.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupIdentifier": (str, False),
+        "UserIdentifier": (str, False),
+    }
+
+
+class ProjectMembershipAssignment(AWSProperty):
+    """
+    `ProjectMembershipAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-projectmembershipassignment.html>`__
+    """
+
+    props: PropsDictType = {
+        "Designation": (str, True),
+        "Member": (Member, True),
+    }
+
+
 class ResourceTag(AWSProperty):
     """
     `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-resourcetag.html>`__
@@ -1073,22 +1121,14 @@ class Project(AWSObject):
         "DomainIdentifier": (str, True),
         "DomainUnitId": (str, False),
         "GlossaryTerms": ([str], False),
+        "MembershipAssignments": ([ProjectMembershipAssignment], False),
         "Name": (str, True),
+        "ProjectCategory": (str, False),
+        "ProjectExecutionRole": (str, False),
         "ProjectProfileId": (str, False),
         "ProjectProfileVersion": (str, False),
         "ResourceTags": ([ResourceTag], False),
         "UserParameters": ([EnvironmentConfigurationUserParameter], False),
-    }
-
-
-class Member(AWSProperty):
-    """
-    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-member.html>`__
-    """
-
-    props: PropsDictType = {
-        "GroupIdentifier": (str, False),
-        "UserIdentifier": (str, False),
     }
 
 
@@ -1242,6 +1282,7 @@ class UserProfile(AWSObject):
 
     props: PropsDictType = {
         "DomainIdentifier": (str, True),
+        "SessionName": (str, False),
         "Status": (str, False),
         "UserIdentifier": (str, True),
         "UserType": (str, False),
@@ -1255,6 +1296,8 @@ class IamUserProfileDetails(AWSProperty):
 
     props: PropsDictType = {
         "Arn": (str, False),
+        "GroupProfileId": (str, False),
+        "SessionName": (str, False),
     }
 
 
