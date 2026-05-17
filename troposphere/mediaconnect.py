@@ -651,6 +651,7 @@ class FlowVpcInterface(AWSObject):
         "RoleArn": (str, True),
         "SecurityGroupIds": ([str], True),
         "SubnetId": (str, True),
+        "Tags": (Tags, False),
     }
 
 

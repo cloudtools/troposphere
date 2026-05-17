@@ -104,6 +104,7 @@ class InteractiveConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "LivyEndpointEnabled": (boolean, False),
+        "SessionEnabled": (boolean, False),
         "StudioEnabled": (boolean, False),
     }
 

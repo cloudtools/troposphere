@@ -180,7 +180,7 @@ class MetricsConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AccessPointArn": (str, False),
-        "Id": (str, False),
+        "Id": (str, True),
         "Prefix": (str, False),
     }
 

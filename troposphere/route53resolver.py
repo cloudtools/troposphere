@@ -26,6 +26,40 @@ class FirewallDomainList(AWSObject):
     }
 
 
+class FirewallAdvancedContentCategoryConfig(AWSProperty):
+    """
+    `FirewallAdvancedContentCategoryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewalladvancedcontentcategoryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (str, True),
+    }
+
+
+class FirewallAdvancedThreatCategoryConfig(AWSProperty):
+    """
+    `FirewallAdvancedThreatCategoryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewalladvancedthreatcategoryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (str, True),
+    }
+
+
+class FirewallRuleType(AWSProperty):
+    """
+    `FirewallRuleType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirewallAdvancedContentCategory": (
+            FirewallAdvancedContentCategoryConfig,
+            False,
+        ),
+        "FirewallAdvancedThreatCategory": (FirewallAdvancedThreatCategoryConfig, False),
+    }
+
+
 class FirewallRule(AWSProperty):
     """
     `FirewallRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html>`__
@@ -41,6 +75,7 @@ class FirewallRule(AWSProperty):
         "DnsThreatProtection": (str, False),
         "FirewallDomainListId": (str, False),
         "FirewallDomainRedirectionAction": (str, False),
+        "FirewallRuleType": (FirewallRuleType, False),
         "FirewallThreatProtectionId": (str, False),
         "Priority": (integer, True),
         "Qtype": (str, False),
@@ -140,7 +175,9 @@ class ResolverEndpoint(AWSObject):
 
     props: PropsDictType = {
         "Direction": (str, True),
+        "Dns64Enabled": (boolean, False),
         "IpAddresses": ([IpAddressRequest], True),
+        "Ipv6InternetAccessEnabled": (boolean, False),
         "Name": (str, False),
         "OutpostArn": (str, False),
         "PreferredInstanceType": (str, False),

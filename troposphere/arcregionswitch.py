@@ -313,6 +313,41 @@ class GlobalAuroraConfiguration(AWSProperty):
     }
 
 
+class EventSourceMapping(AWSProperty):
+    """
+    `EventSourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-eventsourcemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+        "CrossAccountRole": (str, False),
+        "ExternalId": (str, False),
+    }
+
+
+class LambdaEventSourceMappingUngraceful(AWSProperty):
+    """
+    `LambdaEventSourceMappingUngraceful <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdaeventsourcemappingungraceful.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, False),
+    }
+
+
+class LambdaEventSourceMappingConfiguration(AWSProperty):
+    """
+    `LambdaEventSourceMappingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdaeventsourcemappingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "RegionEventSourceMappings": (dict, True),
+        "TimeoutMinutes": (double, False),
+        "Ungraceful": (LambdaEventSourceMappingUngraceful, False),
+    }
+
+
 class ParallelExecutionBlockConfiguration(AWSProperty):
     """
     `ParallelExecutionBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-parallelexecutionblockconfiguration.html>`__
@@ -401,6 +436,10 @@ class ExecutionBlockConfiguration(AWSProperty):
         "EksResourceScalingConfig": (EksResourceScalingConfiguration, False),
         "ExecutionApprovalConfig": (ExecutionApprovalConfiguration, False),
         "GlobalAuroraConfig": (GlobalAuroraConfiguration, False),
+        "LambdaEventSourceMappingConfig": (
+            LambdaEventSourceMappingConfiguration,
+            False,
+        ),
         "ParallelConfig": (ParallelExecutionBlockConfiguration, False),
         "RdsCreateCrossRegionReadReplicaConfig": (
             RdsCreateCrossRegionReplicaConfiguration,

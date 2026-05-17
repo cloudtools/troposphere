@@ -62,7 +62,7 @@ class LogDeliveryConfigurationRequest(AWSProperty):
 
 class CacheCluster(AWSObject):
     """
-    `CacheCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html>`__
+    `CacheCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html>`__
     """
 
     resource_type = "AWS::ElastiCache::CacheCluster"
@@ -72,7 +72,6 @@ class CacheCluster(AWSObject):
         "AutoMinorVersionUpgrade": (boolean, False),
         "CacheNodeType": (str, True),
         "CacheParameterGroupName": (str, False),
-        "CacheSecurityGroupNames": ([str], False),
         "CacheSubnetGroupName": (str, False),
         "ClusterName": (str, False),
         "Engine": (str, True),

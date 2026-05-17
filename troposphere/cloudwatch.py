@@ -286,6 +286,7 @@ class Dashboard(AWSObject):
     props: PropsDictType = {
         "DashboardBody": (dict_or_string, True),
         "DashboardName": (str, False),
+        "Tags": (Tags, False),
     }
 
     def validate(self):
@@ -359,3 +360,13 @@ class MetricStream(AWSObject):
         "StatisticsConfigurations": ([MetricStreamStatisticsConfiguration], False),
         "Tags": (Tags, False),
     }
+
+
+class OTelEnrichment(AWSObject):
+    """
+    `OTelEnrichment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-otelenrichment.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::OTelEnrichment"
+
+    props: PropsDictType = {}

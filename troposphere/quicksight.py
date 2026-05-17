@@ -8496,6 +8496,58 @@ class PhysicalTable(AWSProperty):
     }
 
 
+class UploadedDocumentMetadata(AWSProperty):
+    """
+    `UploadedDocumentMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadeddocumentmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
+class InlineCustomInstruction(AWSProperty):
+    """
+    `InlineCustomInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inlinecustominstruction.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstructionText": (str, True),
+        "UploadedDocumentMetadata": (UploadedDocumentMetadata, False),
+    }
+
+
+class CustomInstruction(AWSProperty):
+    """
+    `CustomInstruction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-custominstruction.html>`__
+    """
+
+    props: PropsDictType = {
+        "InlineCustomInstruction": (InlineCustomInstruction, False),
+    }
+
+
+class DataSetSemanticDescription(AWSProperty):
+    """
+    `DataSetSemanticDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetsemanticdescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, True),
+    }
+
+
+class DataSetSemanticMetadata(AWSProperty):
+    """
+    `DataSetSemanticMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetsemanticmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomInstructions": ([CustomInstruction], False),
+        "Description": (DataSetSemanticDescription, False),
+    }
+
+
 class RowLevelPermissionDataSet(AWSProperty):
     """
     `RowLevelPermissionDataSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html>`__
@@ -8546,6 +8598,69 @@ class RowLevelPermissionConfiguration(AWSProperty):
     }
 
 
+class AdditionalNotes(AWSProperty):
+    """
+    `AdditionalNotes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-additionalnotes.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, False),
+    }
+
+
+class ColumnDescription(AWSProperty):
+    """
+    `ColumnDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, False),
+    }
+
+
+class ColumnSemanticType(AWSProperty):
+    """
+    `ColumnSemanticType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnsemantictype.html>`__
+    """
+
+    props: PropsDictType = {
+        "GeographicalRole": (str, False),
+    }
+
+
+class ColumnSemanticProperty(AWSProperty):
+    """
+    `ColumnSemanticProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnsemanticproperty.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalNotes": (AdditionalNotes, False),
+        "Description": (ColumnDescription, False),
+        "SemanticType": (ColumnSemanticType, False),
+    }
+
+
+class SharedColumnSemanticMetadata(AWSProperty):
+    """
+    `SharedColumnSemanticMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sharedcolumnsemanticmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnNames": ([str], False),
+        "ColumnProperties": ([ColumnSemanticProperty], True),
+    }
+
+
+class TableSemanticMetadata(AWSProperty):
+    """
+    `TableSemanticMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tablesemanticmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnMetadata": ([SharedColumnSemanticMetadata], False),
+    }
+
+
 class SemanticTable(AWSProperty):
     """
     `SemanticTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html>`__
@@ -8555,6 +8670,7 @@ class SemanticTable(AWSProperty):
         "Alias": (str, True),
         "DestinationTableId": (str, True),
         "RowLevelPermissionConfiguration": (RowLevelPermissionConfiguration, False),
+        "SemanticMetadata": (TableSemanticMetadata, False),
     }
 
 
@@ -8564,6 +8680,7 @@ class SemanticModelConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "SemanticMetadata": ([DataSetSemanticMetadata], False),
         "TableMap": (dict, False),
     }
 

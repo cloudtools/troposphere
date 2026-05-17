@@ -34,6 +34,7 @@ class CustomDBEngineVersion(AWSObject):
     resource_type = "AWS::RDS::CustomDBEngineVersion"
 
     props: PropsDictType = {
+        "DatabaseInstallationFiles": ([str], False),
         "DatabaseInstallationFilesS3BucketName": (str, False),
         "DatabaseInstallationFilesS3Prefix": (str, False),
         "Description": (str, False),

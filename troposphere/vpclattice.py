@@ -168,6 +168,7 @@ class ResourceGateway(AWSObject):
         "IpAddressType": (str, False),
         "Ipv4AddressesPerEni": (integer, False),
         "Name": (str, True),
+        "ResourceConfigDnsResolution": (str, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),

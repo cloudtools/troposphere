@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double, integer
+from .validators import boolean, double, integer
 
 
 class LogGroupNameConfiguration(AWSProperty):
@@ -298,7 +298,10 @@ class TelemetryRuleProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AllRegions": (boolean, False),
+        "AllowFieldUpdates": (boolean, False),
         "DestinationConfiguration": (TelemetryDestinationConfiguration, False),
+        "Regions": ([str], False),
         "ResourceType": (str, True),
         "SelectionCriteria": (str, False),
         "TelemetrySourceTypes": ([str], False),
@@ -405,6 +408,18 @@ class TelemetryRule(AWSObject):
         "Rule": (TelemetryRuleProperty, True),
         "RuleName": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class RegionStatus(AWSProperty):
+    """
+    `RegionStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-regionstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, False),
+        "RuleArn": (str, False),
+        "Status": (str, False),
     }
 
 

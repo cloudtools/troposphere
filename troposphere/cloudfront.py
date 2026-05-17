@@ -393,6 +393,16 @@ class CacheBehavior(AWSProperty):
     }
 
 
+class CacheTagConfig(AWSProperty):
+    """
+    `CacheTagConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachetagconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HeaderName": (str, True),
+    }
+
+
 class ConnectionFunctionAssociation(AWSProperty):
     """
     `ConnectionFunctionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionfunctionassociation.html>`__
@@ -753,6 +763,7 @@ class DistributionConfig(AWSProperty):
         "AnycastIpListId": (str, False),
         "CNAMEs": ([str], False),
         "CacheBehaviors": ([CacheBehavior], False),
+        "CacheTagConfig": (CacheTagConfig, False),
         "Comment": (str, False),
         "ConnectionFunctionAssociation": (ConnectionFunctionAssociation, False),
         "ConnectionMode": (str, False),
@@ -913,6 +924,7 @@ class Function(AWSObject):
         "FunctionConfig": (FunctionConfig, True),
         "FunctionMetadata": (FunctionMetadata, False),
         "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -1464,6 +1476,7 @@ class TrustStore(AWSObject):
         "CaCertificatesBundleSource": (CaCertificatesBundleSource, False),
         "Name": (str, True),
         "Tags": (Tags, False),
+        "UseClientCertificateOCSPEndpoint": (boolean, False),
     }
 
 

@@ -376,7 +376,7 @@ class EvaluationFormMultiSelectQuestionAutomation(AWSProperty):
     props: PropsDictType = {
         "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
         "DefaultOptionRefIds": ([str], False),
-        "Options": ([EvaluationFormMultiSelectQuestionAutomationOption], True),
+        "Options": ([EvaluationFormMultiSelectQuestionAutomationOption], False),
     }
 
 
@@ -491,7 +491,7 @@ class EvaluationFormSingleSelectQuestionAutomation(AWSProperty):
     props: PropsDictType = {
         "AnswerSource": (EvaluationFormQuestionAutomationAnswerSource, False),
         "DefaultOptionRefId": (str, False),
-        "Options": ([EvaluationFormSingleSelectQuestionAutomationOption], True),
+        "Options": ([EvaluationFormSingleSelectQuestionAutomationOption], False),
     }
 
 

@@ -555,6 +555,7 @@ class UserPool(AWSObject):
         "UsernameAttributes": ([str], False),
         "UsernameConfiguration": (UsernameConfiguration, False),
         "VerificationMessageTemplate": (VerificationMessageTemplate, False),
+        "WebAuthnFactorConfiguration": (str, False),
         "WebAuthnRelyingPartyID": (str, False),
         "WebAuthnUserVerification": (str, False),
     }
