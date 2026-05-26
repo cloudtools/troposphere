@@ -7,6 +7,7 @@ from troposphere import (
     AWSProperty,
     Cidr,
     GenericHelperFn,
+    GetStackOutput,
     If,
     Join,
     NoValue,
@@ -530,6 +531,95 @@ class TestSub(unittest.TestCase):
             "Fn::Sub": [
                 "foo ${AWS::Region} ${sub1} ${sub2} ${sub3}",
                 {"sub1": "uno", "sub2": "dos", "sub3": "tres"},
+            ]
+        }
+        self.assertEqual(expected, actual)
+
+
+class TestGetStackOutput(unittest.TestCase):
+    def test_required_only(self):
+        raw = GetStackOutput("ProducerStack", "VpcId")
+        actual = raw.to_dict()
+        expected = {
+            "Fn::GetStackOutput": {
+                "StackName": "ProducerStack",
+                "OutputName": "VpcId",
+            }
+        }
+        self.assertEqual(expected, actual)
+
+    def test_with_region(self):
+        raw = GetStackOutput("ProducerStack", "VpcId", Region="us-west-2")
+        actual = raw.to_dict()
+        expected = {
+            "Fn::GetStackOutput": {
+                "StackName": "ProducerStack",
+                "OutputName": "VpcId",
+                "Region": "us-west-2",
+            }
+        }
+        self.assertEqual(expected, actual)
+
+    def test_with_role_arn(self):
+        raw = GetStackOutput(
+            "ProducerStack",
+            "VpcId",
+            RoleArn="arn:aws:iam::111111111111:role/GetStackOutputRole",
+        )
+        actual = raw.to_dict()
+        expected = {
+            "Fn::GetStackOutput": {
+                "StackName": "ProducerStack",
+                "OutputName": "VpcId",
+                "RoleArn": "arn:aws:iam::111111111111:role/GetStackOutputRole",
+            }
+        }
+        self.assertEqual(expected, actual)
+
+    def test_cross_account_cross_region(self):
+        raw = GetStackOutput(
+            "ProducerStack",
+            "VpcId",
+            Region="us-west-2",
+            RoleArn="arn:aws:iam::111111111111:role/GetStackOutputRole",
+        )
+        actual = raw.to_dict()
+        expected = {
+            "Fn::GetStackOutput": {
+                "StackName": "ProducerStack",
+                "OutputName": "VpcId",
+                "Region": "us-west-2",
+                "RoleArn": "arn:aws:iam::111111111111:role/GetStackOutputRole",
+            }
+        }
+        self.assertEqual(expected, actual)
+
+    def test_accepts_nested_intrinsics(self):
+        raw = GetStackOutput(Ref("SourceStackName"), "SubnetId")
+        actual = raw.to_dict()
+        expected = {
+            "Fn::GetStackOutput": {
+                "StackName": {"Ref": "SourceStackName"},
+                "OutputName": "SubnetId",
+            }
+        }
+        self.assertEqual(expected, actual)
+
+    def test_usable_inside_join(self):
+        raw = Join("-", [GetStackOutput("ProducerStack", "VpcId"), "suffix"])
+        actual = raw.to_dict()
+        expected = {
+            "Fn::Join": [
+                "-",
+                [
+                    {
+                        "Fn::GetStackOutput": {
+                            "StackName": "ProducerStack",
+                            "OutputName": "VpcId",
+                        }
+                    },
+                    "suffix",
+                ],
             ]
         }
         self.assertEqual(expected, actual)

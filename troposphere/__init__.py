@@ -691,6 +691,25 @@ class ImportValue(AWSHelperFn):
         self.data = {"Fn::ImportValue": data}
 
 
+class GetStackOutput(AWSHelperFn):
+    def __init__(
+        self,
+        StackName: object,  # noqa: N803
+        OutputName: object,  # noqa: N803
+        Region: Optional[object] = None,  # noqa: N803
+        RoleArn: Optional[object] = None,  # noqa: N803
+    ) -> None:
+        params: Dict[str, Any] = {
+            "StackName": StackName,
+            "OutputName": OutputName,
+        }
+        if Region is not None:
+            params["Region"] = Region
+        if RoleArn is not None:
+            params["RoleArn"] = RoleArn
+        self.data = {"Fn::GetStackOutput": params}
+
+
 class Tag(AWSHelperFn):
     def __init__(self, k: object, v: object) -> None:
         self.data = {

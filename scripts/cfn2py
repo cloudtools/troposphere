@@ -53,7 +53,7 @@ def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print('from troposphere import Base64, Select, FindInMap, GetAtt')
+    print('from troposphere import Base64, Select, FindInMap, GetAtt, GetStackOutput')
     print('from troposphere import GetAZs, Join, Output, If, And, Not')
     print('from troposphere import Or, Equals, Condition')
     print('from troposphere import Parameter, Ref, Tags, Template, Export')
@@ -283,6 +283,14 @@ def handle_no_objects(name, values):
     return name + "(" + ", ".join(map(output_value, values)) + ")"
 
 
+def handle_kwargs_dict(name, values):
+    """Handle intrinsic functions whose argument is a dict of named kwargs"""
+    d = values[0]
+    return name + "(" + ", ".join(
+        "{}={}".format(k, output_value(v)) for k, v in d.items()
+    ) + ")"
+
+
 def handle_one_object(name, values):
     """Handle intrinsic functions which have a single named resource"""
     ret = name + "("
@@ -311,6 +319,7 @@ function_map = {
     'Fn::Select': ("Select", handle_one_object),
     'Ref': ("Ref", handle_one_object),
     'Condition': ("Condition", handle_one_object),
+    'Fn::GetStackOutput': ("GetStackOutput", handle_kwargs_dict),
 }
 
 
