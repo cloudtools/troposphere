@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+
+from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output
+from troposphere import Parameter, Ref, Tags, Template
+from troposphere.cloudformation import Init
+from troposphere.cloudfront import Distribution, DistributionConfig
+from troposphere.cloudfront import Origin, DefaultCacheBehavior
+from troposphere.ec2 import PortRange
+from troposphere.ec2 import SecurityGroupIngress
+from troposphere.ec2 import NetworkInterface
+from troposphere.s3 import Bucket, WebsiteConfiguration
+from troposphere.ec2 import SecurityGroup
+from troposphere.ec2 import Subnet
+from troposphere.route53 import RecordSetGroup
+from troposphere.sns import TopicPolicy
+from troposphere.sns import Topic, Subscription
+from troposphere.ec2 import SubnetRouteTableAssociation
+from troposphere.ec2 import Instance, NetworkInterfaceProperty, PrivateIpAddressSpecification
+from troposphere.ec2 import EIP
+from troposphere.ec2 import VPC
+from troposphere.sqs import Queue, RedrivePolicy
+from troposphere.s3 import BucketPolicy
+from troposphere.ec2 import SubnetNetworkAclAssociation
+from troposphere.ec2 import SecurityGroupEgress
+from troposphere.ec2 import Volume
+from troposphere.rds import DBSubnetGroup
+from troposphere.route53 import HostedZone
+from troposphere.ec2 import EIPAssociation
+from troposphere.sqs import QueuePolicy
+from troposphere.ec2 import NetworkInterfaceAttachment
+from troposphere.ec2 import VPCPeeringConnection
+from troposphere.ec2 import InternetGateway
+from troposphere.ec2 import Route
+from troposphere.ec2 import DHCPOptions
+from troposphere.ec2 import RouteTable
+from troposphere.elasticache import SubnetGroup
+from troposphere.elasticache import CacheCluster
+from troposphere.autoscaling import AutoScalingGroup
+from troposphere.ec2 import VPCGatewayAttachment
+from troposphere.ec2 import VPCDHCPOptionsAssociation
+from troposphere.autoscaling import LaunchConfiguration
+from troposphere.ec2 import NetworkAcl
+from troposphere.ec2 import VPNGateway
+from troposphere.rds import DBInstance
+from troposphere.ec2 import NetworkAclEntry
+from ...BaseObject import BaseObject
+{{ imports }}
+
+
+class {{ class_name }}(BaseObject):
+
+    def __init__(self):
+
+        {{ extra_params }} 
+        
+        self.instance_type = {{ instance_type }}(
+        {%- for property in properties %}
+        {{ property }}
+        {%- endfor %}
+        )
+
+    def addToTemplate(self, t):
+        {{ template_method }}(self.instance_type)
+        return t
+
