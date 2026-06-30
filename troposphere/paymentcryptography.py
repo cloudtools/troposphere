@@ -67,6 +67,7 @@ class Key(AWSObject):
         "Exportable": (boolean, True),
         "KeyAttributes": (KeyAttributes, True),
         "KeyCheckValueAlgorithm": (str, False),
+        "Policy": (str, False),
         "ReplicationRegions": ([str], False),
         "Tags": (Tags, False),
     }

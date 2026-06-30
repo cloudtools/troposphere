@@ -47,7 +47,7 @@ class GraphSnapshot(AWSObject):
     resource_type = "AWS::NeptuneGraph::GraphSnapshot"
 
     props: PropsDictType = {
-        "GraphIdentifier": (str, False),
+        "GraphIdentifier": (str, True),
         "SnapshotName": (str, True),
         "Tags": (Tags, False),
     }

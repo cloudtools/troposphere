@@ -167,6 +167,7 @@ class Policy(AWSObject):
 
     props: PropsDictType = {
         "Definition": (PolicyDefinition, True),
+        "Name": (str, False),
         "PolicyStoreId": (str, True),
     }
 
@@ -240,6 +241,19 @@ class PolicyStore(AWSObject):
     }
 
 
+class PolicyStoreAlias(AWSObject):
+    """
+    `PolicyStoreAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystorealias.html>`__
+    """
+
+    resource_type = "AWS::VerifiedPermissions::PolicyStoreAlias"
+
+    props: PropsDictType = {
+        "AliasName": (str, True),
+        "PolicyStoreId": (str, True),
+    }
+
+
 class PolicyTemplate(AWSObject):
     """
     `PolicyTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html>`__
@@ -249,6 +263,7 @@ class PolicyTemplate(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "Name": (str, False),
         "PolicyStoreId": (str, True),
         "Statement": (str, True),
     }

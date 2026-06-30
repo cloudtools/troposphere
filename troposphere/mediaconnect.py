@@ -596,6 +596,7 @@ class FlowOutput(AWSObject):
         "MediaStreamOutputConfigurations": ([MediaStreamOutputConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
+        "NdiOutputTimecodeSource": (str, False),
         "NdiProgramName": (str, False),
         "NdiSpeedHqQuality": (integer, False),
         "OutputStatus": (str, False),

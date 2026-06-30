@@ -642,6 +642,27 @@ class CustomDomainConfigType(AWSProperty):
     }
 
 
+class FailoverType(AWSProperty):
+    """
+    `FailoverType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-failovertype.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrimaryRoute53HealthCheckId": (str, True),
+        "SecondaryRegion": (str, True),
+    }
+
+
+class RoutingType(AWSProperty):
+    """
+    `RoutingType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-routingtype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Failover": (FailoverType, False),
+    }
+
+
 class UserPoolDomain(AWSObject):
     """
     `UserPoolDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html>`__
@@ -653,6 +674,7 @@ class UserPoolDomain(AWSObject):
         "CustomDomainConfig": (CustomDomainConfigType, False),
         "Domain": (str, True),
         "ManagedLoginVersion": (integer, False),
+        "Routing": (RoutingType, False),
         "UserPoolId": (str, True),
     }
 

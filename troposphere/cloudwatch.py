@@ -309,6 +309,58 @@ class InsightRule(AWSObject):
     }
 
 
+class ScheduleConfiguration(AWSProperty):
+    """
+    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTimeOffset": (integer, False),
+        "ScheduleExpression": (str, True),
+        "StartTimeOffset": (integer, False),
+    }
+
+
+class ScheduledQueryConfiguration(AWSProperty):
+    """
+    `ScheduledQueryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregationExpression": (str, True),
+        "LogGroupIdentifiers": ([str], True),
+        "QueryString": (str, True),
+        "ScheduleConfiguration": (ScheduleConfiguration, True),
+        "ScheduledQueryRoleARN": (str, True),
+    }
+
+
+class LogAlarm(AWSObject):
+    """
+    `LogAlarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::LogAlarm"
+
+    props: PropsDictType = {
+        "ActionLogLineCount": (integer, False),
+        "ActionLogLineRoleArn": (str, False),
+        "ActionsEnabled": (boolean, False),
+        "AlarmActions": ([str], False),
+        "AlarmDescription": (str, False),
+        "AlarmName": (str, False),
+        "ComparisonOperator": (str, True),
+        "InsufficientDataActions": ([str], False),
+        "OKActions": ([str], False),
+        "QueryResultsToAlarm": (integer, True),
+        "QueryResultsToEvaluate": (integer, True),
+        "ScheduledQueryConfiguration": (ScheduledQueryConfiguration, True),
+        "Tags": (Tags, False),
+        "Threshold": (double, True),
+        "TreatMissingData": (str, False),
+    }
+
+
 class MetricStreamFilter(AWSProperty):
     """
     `MetricStreamFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html>`__

@@ -66,7 +66,7 @@ class ExternalInvocationConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Enabled": (boolean, True),
+        "Enabled": (boolean, False),
     }
 
 
@@ -931,6 +931,7 @@ class IntegrationAssociation(AWSObject):
         "InstanceId": (str, True),
         "IntegrationArn": (str, True),
         "IntegrationType": (str, True),
+        "Tags": (Tags, False),
     }
 
 

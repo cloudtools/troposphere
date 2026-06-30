@@ -11,6 +11,20 @@ from .validators import boolean, double, integer
 from .validators.lex import policytypes
 
 
+class AudioFillerSettings(AWSProperty):
+    """
+    `AudioFillerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiofillersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioType": (str, False),
+        "Enabled": (boolean, True),
+        "MinimumPlayDurationInMilliseconds": (integer, False),
+        "ResponseDeliveryDelayInMilliseconds": (integer, False),
+        "StartDelayInMilliseconds": (integer, False),
+    }
+
+
 class CustomVocabularyItem(AWSProperty):
     """
     `CustomVocabularyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html>`__
@@ -1192,6 +1206,7 @@ class BotLocale(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AudioFillerSettings": (AudioFillerSettings, False),
         "CustomVocabulary": (CustomVocabulary, False),
         "Description": (str, False),
         "GenerativeAISettings": (GenerativeAISettings, False),

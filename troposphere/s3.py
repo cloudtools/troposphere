@@ -436,6 +436,20 @@ class MetadataTableEncryptionConfiguration(AWSProperty):
     }
 
 
+class AnnotationTableConfiguration(AWSProperty):
+    """
+    `AnnotationTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-annotationtableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationState": (str, True),
+        "EncryptionConfiguration": (MetadataTableEncryptionConfiguration, False),
+        "Role": (str, False),
+        "TableArn": (str, False),
+        "TableName": (str, False),
+    }
+
+
 class InventoryTableConfiguration(AWSProperty):
     """
     `InventoryTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventorytableconfiguration.html>`__
@@ -491,6 +505,7 @@ class MetadataConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AnnotationTableConfiguration": (AnnotationTableConfiguration, False),
         "Destination": (MetadataDestination, False),
         "InventoryTableConfiguration": (InventoryTableConfiguration, False),
         "JournalTableConfiguration": (JournalTableConfiguration, True),

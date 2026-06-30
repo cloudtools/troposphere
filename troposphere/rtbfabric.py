@@ -200,6 +200,48 @@ class Link(AWSObject):
     }
 
 
+class QueryStringKeyValuePair(AWSProperty):
+    """
+    `QueryStringKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-linkroutingrule-querystringkeyvaluepair.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class RuleCondition(AWSProperty):
+    """
+    `RuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-linkroutingrule-rulecondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "HostHeader": (str, False),
+        "HostHeaderWildcard": (str, False),
+        "PathExact": (str, False),
+        "PathPrefix": (str, False),
+        "QueryStringEquals": (QueryStringKeyValuePair, False),
+        "QueryStringExists": (str, False),
+    }
+
+
+class LinkRoutingRule(AWSObject):
+    """
+    `LinkRoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-linkroutingrule.html>`__
+    """
+
+    resource_type = "AWS::RTBFabric::LinkRoutingRule"
+
+    props: PropsDictType = {
+        "Conditions": (RuleCondition, True),
+        "GatewayId": (str, True),
+        "LinkId": (str, True),
+        "Priority": (integer, True),
+        "Tags": (Tags, False),
+    }
+
+
 class OutboundExternalLink(AWSObject):
     """
     `OutboundExternalLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-outboundexternallink.html>`__
@@ -229,6 +271,16 @@ class RequesterGateway(AWSObject):
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
         "VpcId": (str, True),
+    }
+
+
+class ListenerConfig(AWSProperty):
+    """
+    `ListenerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-listenerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Protocols": ([str], True),
     }
 
 
@@ -305,8 +357,11 @@ class ResponderGateway(AWSObject):
     resource_type = "AWS::RTBFabric::ResponderGateway"
 
     props: PropsDictType = {
+        "AcmCertificateArn": (str, False),
         "Description": (str, False),
         "DomainName": (str, False),
+        "GatewayType": (str, False),
+        "ListenerConfig": (ListenerConfig, False),
         "ManagedEndpointConfiguration": (ManagedEndpointConfiguration, False),
         "Port": (integer, True),
         "Protocol": (str, True),

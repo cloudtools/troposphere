@@ -177,6 +177,8 @@ class AudioNormalizationSettings(AWSProperty):
     props: PropsDictType = {
         "Algorithm": (str, False),
         "AlgorithmControl": (str, False),
+        "PeakCalculation": (str, False),
+        "PeakLimiterThreshold": (double, False),
         "TargetLkfs": (double, False),
     }
 
@@ -971,6 +973,49 @@ class HlsOutputSettings(AWSProperty):
     }
 
 
+class MediaConnectRouterContainerSettings(AWSProperty):
+    """
+    `MediaConnectRouterContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectroutercontainersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "M2tsSettings": (M2tsSettings, False),
+    }
+
+
+class MediaConnectRouterOutputConnectionMap(AWSProperty):
+    """
+    `MediaConnectRouterOutputConnectionMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputconnectionmap.html>`__
+    """
+
+    props: PropsDictType = {
+        "Pipeline0": (str, False),
+        "Pipeline1": (str, False),
+    }
+
+
+class OutputLocationRef(AWSProperty):
+    """
+    `OutputLocationRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationRefId": (str, False),
+    }
+
+
+class MediaConnectRouterOutputSettings(AWSProperty):
+    """
+    `MediaConnectRouterOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectedRouterInputs": (MediaConnectRouterOutputConnectionMap, False),
+        "ContainerSettings": (MediaConnectRouterContainerSettings, False),
+        "Destination": (OutputLocationRef, False),
+    }
+
+
 class MediaPackageV2DestinationSettings(AWSProperty):
     """
     `MediaPackageV2DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2destinationsettings.html>`__
@@ -1035,16 +1080,6 @@ class MultiplexContainerSettings(AWSProperty):
 
     props: PropsDictType = {
         "MultiplexM2tsSettings": (MultiplexM2tsSettings, False),
-    }
-
-
-class OutputLocationRef(AWSProperty):
-    """
-    `OutputLocationRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlocationref.html>`__
-    """
-
-    props: PropsDictType = {
-        "DestinationRefId": (str, False),
     }
 
 
@@ -1131,6 +1166,7 @@ class OutputSettings(AWSProperty):
         "CmafIngestOutputSettings": (CmafIngestOutputSettings, False),
         "FrameCaptureOutputSettings": (FrameCaptureOutputSettings, False),
         "HlsOutputSettings": (HlsOutputSettings, False),
+        "MediaConnectRouterOutputSettings": (MediaConnectRouterOutputSettings, False),
         "MediaPackageOutputSettings": (MediaPackageOutputSettings, False),
         "MsSmoothOutputSettings": (MsSmoothOutputSettings, False),
         "MultiplexOutputSettings": (MultiplexOutputSettings, False),
@@ -1430,6 +1466,16 @@ class HlsGroupSettings(AWSProperty):
     }
 
 
+class MediaConnectRouterGroupSettings(AWSProperty):
+    """
+    `MediaConnectRouterGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectroutergroupsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZones": ([str], False),
+    }
+
+
 class MediaPackageAdditionalDestinations(AWSProperty):
     """
     `MediaPackageAdditionalDestinations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageadditionaldestinations.html>`__
@@ -1556,6 +1602,7 @@ class OutputGroupSettings(AWSProperty):
         "CmafIngestGroupSettings": (CmafIngestGroupSettings, False),
         "FrameCaptureGroupSettings": (FrameCaptureGroupSettings, False),
         "HlsGroupSettings": (HlsGroupSettings, False),
+        "MediaConnectRouterGroupSettings": (MediaConnectRouterGroupSettings, False),
         "MediaPackageGroupSettings": (MediaPackageGroupSettings, False),
         "MsSmoothGroupSettings": (MsSmoothGroupSettings, False),
         "MultiplexGroupSettings": (MultiplexGroupSettings, False),
@@ -1984,12 +2031,24 @@ class EncoderSettings(AWSProperty):
     }
 
 
+class AudioFeedInput(AWSProperty):
+    """
+    `AudioFeedInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiofeedinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioSelectorName": (str, False),
+        "FeedInput": (str, False),
+    }
+
+
 class InferenceSettings(AWSProperty):
     """
     `InferenceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inferencesettings.html>`__
     """
 
     props: PropsDictType = {
+        "AudioFeedInputs": ([AudioFeedInput], False),
         "FeedArn": (str, False),
     }
 
@@ -2083,16 +2142,6 @@ class AudioLanguageSelection(AWSProperty):
     }
 
 
-class AudioPidSelection(AWSProperty):
-    """
-    `AudioPidSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html>`__
-    """
-
-    props: PropsDictType = {
-        "Pid": (integer, False),
-    }
-
-
 class AudioDolbyEDecode(AWSProperty):
     """
     `AudioDolbyEDecode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html>`__
@@ -2103,12 +2152,49 @@ class AudioDolbyEDecode(AWSProperty):
     }
 
 
+class AudioPreMixerSettings(AWSProperty):
+    """
+    `AudioPreMixerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopremixersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioNormalizationSettings": (AudioNormalizationSettings, False),
+        "Channels": (integer, False),
+        "GainDb": (double, False),
+        "RemixSettings": (RemixSettings, False),
+    }
+
+
+class AudioPid(AWSProperty):
+    """
+    `AudioPid <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopid.html>`__
+    """
+
+    props: PropsDictType = {
+        "DolbyEDecode": (AudioDolbyEDecode, False),
+        "Pid": (integer, False),
+        "PremixSettings": (AudioPreMixerSettings, False),
+    }
+
+
+class AudioPidSelection(AWSProperty):
+    """
+    `AudioPidSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Pid": (integer, False),
+        "Pids": ([AudioPid], False),
+    }
+
+
 class AudioTrack(AWSProperty):
     """
     `AudioTrack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html>`__
     """
 
     props: PropsDictType = {
+        "PremixSettings": (AudioPreMixerSettings, False),
         "Track": (integer, False),
     }
 
@@ -2212,6 +2298,17 @@ class Scte27SourceSettings(AWSProperty):
     }
 
 
+class SmartSubtitleSourceSettings(AWSProperty):
+    """
+    `SmartSubtitleSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smartsubtitlesourcesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptionSynchronizationMode": (str, False),
+        "InferenceFeedOutput": (str, False),
+    }
+
+
 class CaptionRectangle(AWSProperty):
     """
     `CaptionRectangle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionrectangle.html>`__
@@ -2248,6 +2345,7 @@ class CaptionSelectorSettings(AWSProperty):
         "EmbeddedSourceSettings": (EmbeddedSourceSettings, False),
         "Scte20SourceSettings": (Scte20SourceSettings, False),
         "Scte27SourceSettings": (Scte27SourceSettings, False),
+        "SmartSubtitleSourceSettings": (SmartSubtitleSourceSettings, False),
         "TeletextSourceSettings": (TeletextSourceSettings, False),
     }
 
@@ -2443,6 +2541,17 @@ class MaintenanceCreateSettings(AWSProperty):
     }
 
 
+class MediaConnectRouterOutputDestinationSettings(AWSProperty):
+    """
+    `MediaConnectRouterOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputdestinationsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": (str, False),
+        "SecretArn": (str, False),
+    }
+
+
 class MediaPackageOutputDestinationSettings(AWSProperty):
     """
     `MediaPackageOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html>`__
@@ -2503,6 +2612,10 @@ class OutputDestination(AWSProperty):
     props: PropsDictType = {
         "Id": (str, False),
         "LogicalInterfaceNames": ([str], False),
+        "MediaConnectRouterSettings": (
+            [MediaConnectRouterOutputDestinationSettings],
+            False,
+        ),
         "MediaPackageSettings": ([MediaPackageOutputDestinationSettings], False),
         "MultiplexSettings": (MultiplexProgramChannelDestinationSettings, False),
         "Settings": ([OutputDestinationSettings], False),
@@ -3126,6 +3239,47 @@ class Network(AWSObject):
         "IpPools": ([IpPool], True),
         "Name": (str, True),
         "Routes": ([Route], False),
+        "Tags": (Tags, False),
+    }
+
+
+class NodeInterfaceMapping(AWSProperty):
+    """
+    `NodeInterfaceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-node-nodeinterfacemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogicalInterfaceName": (str, False),
+        "NetworkInterfaceMode": (str, False),
+        "PhysicalInterfaceName": (str, False),
+    }
+
+
+class SdiSourceMapping(AWSProperty):
+    """
+    `SdiSourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-node-sdisourcemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "CardNumber": (integer, False),
+        "ChannelNumber": (integer, False),
+        "SdiSource": (str, False),
+    }
+
+
+class Node(AWSObject):
+    """
+    `Node <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-node.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::Node"
+
+    props: PropsDictType = {
+        "ClusterId": (str, True),
+        "Name": (str, False),
+        "NodeInterfaceMappings": ([NodeInterfaceMapping], False),
+        "Role": (str, False),
+        "SdiSourceMappings": ([SdiSourceMapping], False),
         "Tags": (Tags, False),
     }
 

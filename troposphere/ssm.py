@@ -62,6 +62,7 @@ class Association(AWSObject):
 
     props: PropsDictType = {
         "ApplyOnlyAtCronInterval": (boolean, False),
+        "AssociationDispatchAssumeRole": (str, False),
         "AssociationName": (str, False),
         "AutomationTargetParameterName": (str, False),
         "CalendarNames": ([str], False),
@@ -76,6 +77,7 @@ class Association(AWSObject):
         "ScheduleExpression": (str, False),
         "ScheduleOffset": (integer, False),
         "SyncCompliance": (str, False),
+        "Tags": (Tags, False),
         "Targets": ([Targets], False),
         "WaitForSuccessTimeoutSeconds": (integer, False),
     }

@@ -57,8 +57,8 @@ class ServicePrincipalName(AWSObject):
     resource_type = "AWS::PCAConnectorAD::ServicePrincipalName"
 
     props: PropsDictType = {
-        "ConnectorArn": (str, False),
-        "DirectoryRegistrationArn": (str, False),
+        "ConnectorArn": (str, True),
+        "DirectoryRegistrationArn": (str, True),
     }
 
 
@@ -501,6 +501,6 @@ class TemplateGroupAccessControlEntry(AWSObject):
     props: PropsDictType = {
         "AccessRights": (AccessRights, True),
         "GroupDisplayName": (str, True),
-        "GroupSecurityIdentifier": (str, False),
-        "TemplateArn": (str, False),
+        "GroupSecurityIdentifier": (str, True),
+        "TemplateArn": (str, True),
     }

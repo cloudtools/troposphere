@@ -302,6 +302,17 @@ class ControlPlanePlacement(AWSProperty):
 
     props: PropsDictType = {
         "GroupName": (str, False),
+        "SpreadLevel": (str, False),
+    }
+
+
+class EtcdPlacement(AWSProperty):
+    """
+    `EtcdPlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-etcdplacement.html>`__
+    """
+
+    props: PropsDictType = {
+        "SpreadLevel": (str, False),
     }
 
 
@@ -313,6 +324,8 @@ class OutpostConfig(AWSProperty):
     props: PropsDictType = {
         "ControlPlaneInstanceType": (str, True),
         "ControlPlanePlacement": (ControlPlanePlacement, False),
+        "EtcdInstanceType": (str, False),
+        "EtcdPlacement": (EtcdPlacement, False),
         "OutpostArns": ([str], True),
     }
 
@@ -354,6 +367,7 @@ class ResourcesVpcConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ControlPlaneEgressMode": (str, False),
         "EndpointPrivateAccess": (boolean, False),
         "EndpointPublicAccess": (boolean, False),
         "PublicAccessCidrs": ([str], False),

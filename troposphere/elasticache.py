@@ -200,6 +200,7 @@ class ReplicationGroup(AWSObject):
         "CacheSubnetGroupName": (str, False),
         "ClusterMode": (str, False),
         "DataTieringEnabled": (boolean, False),
+        "Durability": (str, False),
         "Engine": (str, False),
         "EngineVersion": (str, False),
         "GlobalReplicationGroupId": (str, False),

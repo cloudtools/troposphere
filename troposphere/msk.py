@@ -465,6 +465,16 @@ class ApacheKafkaCluster(AWSProperty):
     }
 
 
+class KafkaClusterMtlsAuthentication(AWSProperty):
+    """
+    `KafkaClusterMtlsAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustermtlsauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
+    }
+
+
 class KafkaClusterSaslScramAuthentication(AWSProperty):
     """
     `KafkaClusterSaslScramAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustersaslscramauthentication.html>`__
@@ -482,7 +492,8 @@ class KafkaClusterClientAuthentication(AWSProperty):
     """
 
     props: PropsDictType = {
-        "SaslScram": (KafkaClusterSaslScramAuthentication, True),
+        "MTLS": (KafkaClusterMtlsAuthentication, False),
+        "SaslScram": (KafkaClusterSaslScramAuthentication, False),
     }
 
 

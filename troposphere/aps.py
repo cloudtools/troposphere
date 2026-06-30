@@ -327,7 +327,9 @@ class WorkspaceConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "LimitsPerLabelSets": ([LimitsPerLabelSet], False),
+        "OutOfOrderTimeWindowInSeconds": (integer, False),
         "RetentionPeriodInDays": (integer, False),
+        "RuleQueryOffsetInSeconds": (integer, False),
     }
 
 

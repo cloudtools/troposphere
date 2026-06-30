@@ -134,6 +134,38 @@ class Goal(AWSProperty):
     }
 
 
+class CompositeSliComponent(AWSProperty):
+    """
+    `CompositeSliComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-compositeslicomponent.html>`__
+    """
+
+    props: PropsDictType = {
+        "OperationName": (str, True),
+    }
+
+
+class SelectionConfig(AWSProperty):
+    """
+    `SelectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-selectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Pattern": (str, False),
+        "Type": (str, True),
+    }
+
+
+class CompositeSliConfig(AWSProperty):
+    """
+    `CompositeSliConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-compositesliconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompositeSliComponents": ([CompositeSliComponent], False),
+        "SelectionConfig": (SelectionConfig, True),
+    }
+
+
 class DependencyConfig(AWSProperty):
     """
     `DependencyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html>`__
@@ -195,6 +227,17 @@ class MetricDataQuery(AWSProperty):
     }
 
 
+class MetricSource(AWSProperty):
+    """
+    `MetricSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricSourceAttributes": (dict, False),
+        "MetricSourceKeyAttributes": (dict, True),
+    }
+
+
 class MonitoredRequestCountMetric(AWSProperty):
     """
     `MonitoredRequestCountMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html>`__
@@ -212,8 +255,11 @@ class RequestBasedSliMetric(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CompositeSliConfig": (CompositeSliConfig, False),
         "DependencyConfig": (DependencyConfig, False),
         "KeyAttributes": (dict, False),
+        "MetricName": (str, False),
+        "MetricSource": (MetricSource, False),
         "MetricType": (str, False),
         "MonitoredRequestCountMetric": (MonitoredRequestCountMetric, False),
         "OperationName": (str, False),
@@ -239,9 +285,12 @@ class SliMetric(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CompositeSliConfig": (CompositeSliConfig, False),
         "DependencyConfig": (DependencyConfig, False),
         "KeyAttributes": (dict, False),
         "MetricDataQueries": ([MetricDataQuery], False),
+        "MetricName": (str, False),
+        "MetricSource": (MetricSource, False),
         "MetricType": (str, False),
         "OperationName": (str, False),
         "PeriodSeconds": (integer, False),

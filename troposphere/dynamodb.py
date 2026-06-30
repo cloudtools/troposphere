@@ -354,6 +354,19 @@ class GlobalTable(AWSObject):
     }
 
 
+class Stream(AWSObject):
+    """
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-stream.html>`__
+    """
+
+    resource_type = "AWS::DynamoDB::Stream"
+
+    props: PropsDictType = {
+        "StreamViewType": (str, False),
+        "TableName": (str, False),
+    }
+
+
 class OnDemandThroughput(AWSProperty):
     """
     `OnDemandThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ondemandthroughput.html>`__
@@ -482,3 +495,14 @@ class Table(AWSObject):
 
     def validate(self):
         validate_table(self)
+
+
+class KeySchemaItems(AWSProperty):
+    """
+    `KeySchemaItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-stream-keyschemaitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeName": (str, True),
+        "KeyType": (str, True),
+    }

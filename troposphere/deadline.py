@@ -137,6 +137,20 @@ class CustomerManagedFleetConfiguration(AWSProperty):
     }
 
 
+class PersistentVolumeConfiguration(AWSProperty):
+    """
+    `PersistentVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-persistentvolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iops": (integer, False),
+        "LastUsedTtlHours": (integer, False),
+        "MountPath": (str, True),
+        "SizeGiB": (integer, False),
+        "ThroughputMiB": (integer, False),
+    }
+
+
 class ServiceManagedEc2AutoScalingConfiguration(AWSProperty):
     """
     `ServiceManagedEc2AutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2autoscalingconfiguration.html>`__
@@ -231,6 +245,7 @@ class ServiceManagedEc2FleetConfiguration(AWSProperty):
         "AutoScalingConfiguration": (ServiceManagedEc2AutoScalingConfiguration, False),
         "InstanceCapabilities": (ServiceManagedEc2InstanceCapabilities, True),
         "InstanceMarketOptions": (ServiceManagedEc2InstanceMarketOptions, True),
+        "PersistentVolumeConfiguration": (PersistentVolumeConfiguration, False),
         "StorageProfileId": (str, False),
         "VpcConfiguration": (VpcConfiguration, False),
     }

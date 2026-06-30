@@ -811,7 +811,9 @@ class DaemonTaskDefinition(AWSObject):
         "Cpu": (str, False),
         "ExecutionRoleArn": (str, False),
         "Family": (str, False),
+        "IpcMode": (str, False),
         "Memory": (str, False),
+        "PidMode": (str, False),
         "Tags": (Tags, False),
         "TaskRoleArn": (str, False),
         "Volumes": ([Volume], False),
@@ -950,6 +952,17 @@ class DeploymentCircuitBreaker(AWSProperty):
     }
 
 
+class HookTimeoutConfig(AWSProperty):
+    """
+    `HookTimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-hooktimeoutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, False),
+        "TimeoutInMinutes": (integer, False),
+    }
+
+
 class DeploymentLifecycleHook(AWSProperty):
     """
     `DeploymentLifecycleHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html>`__
@@ -960,7 +973,8 @@ class DeploymentLifecycleHook(AWSProperty):
         "HookTargetArn": (str, False),
         "LifecycleStages": ([str], True),
         "RoleArn": (str, False),
-        "TimeoutConfiguration": (dict, False),
+        "TargetType": (str, False),
+        "TimeoutConfiguration": (HookTimeoutConfig, False),
     }
 
 
@@ -1038,6 +1052,27 @@ class LoadBalancer(AWSProperty):
         "ContainerPort": (validate_network_port, False),
         "LoadBalancerName": (str, False),
         "TargetGroupArn": (str, False),
+    }
+
+
+class MetricConfiguration(AWSProperty):
+    """
+    `MetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-metricconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricNames": ([str], True),
+        "ResolutionSeconds": (integer, True),
+    }
+
+
+class MonitoringConfiguration(AWSProperty):
+    """
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-monitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricConfigurations": ([MetricConfiguration], True),
     }
 
 
@@ -1289,6 +1324,7 @@ class Service(AWSObject):
         "HealthCheckGracePeriodSeconds": (integer, False),
         "LaunchType": (launch_type_validator, False),
         "LoadBalancers": ([LoadBalancer], False),
+        "Monitoring": (MonitoringConfiguration, False),
         "NetworkConfiguration": (NetworkConfiguration, False),
         "PlacementConstraints": ([PlacementConstraint], False),
         "PlacementStrategies": ([PlacementStrategy], False),
