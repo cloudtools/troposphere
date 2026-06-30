@@ -381,6 +381,7 @@ def validate_placement_spread_level(spread_level):
         )
     return spread_level
 
+
 def validate_launchtemplate_cpuoptions_nestedvirtualization(value):
     """
     Validate NestedVirtualization for CpuOptions.
