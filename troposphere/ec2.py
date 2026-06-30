@@ -32,6 +32,7 @@ from .validators.ec2 import (
     validate_subnet,
     validate_tags_or_list,
     validate_vpn_connection,
+    validate_launchtemplate_cpuoptions_nestedvirtualization,
     vpc_endpoint_type,
     vpn_pre_shared_key,
     vpn_tunnel_inside_cidr,
@@ -1182,6 +1183,7 @@ class CpuOptions(AWSProperty):
     props: PropsDictType = {
         "AmdSevSnp": (str, False),
         "CoreCount": (integer, False),
+        "NestedVirtualization": (validate_launchtemplate_cpuoptions_nestedvirtualization, False),
         "ThreadsPerCore": (integer, False),
     }
 

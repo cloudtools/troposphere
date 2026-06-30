@@ -380,3 +380,19 @@ def validate_placement_spread_level(spread_level):
             % ", ".join(VALID_PLACEMENT_SPREAD_LEVEL)
         )
     return spread_level
+
+def validate_launchtemplate_cpuoptions_nestedvirtualization(value):
+    """
+    Validate NestedVirtualization for CpuOptions.
+    Property: CpuOptions.NestedVirtualization
+    """
+
+    VALID_NESTED_VIRTUALIZATION_OPTIONS = ("disabled", "enabled")
+
+    if value not in VALID_NESTED_VIRTUALIZATION_OPTIONS:
+        raise ValueError(
+            "CpuOptions.NestedVirtualization must be one of: {}".format(
+                ", ".join(VALID_NESTED_VIRTUALIZATION_OPTIONS)
+            )
+        )
+    return value
