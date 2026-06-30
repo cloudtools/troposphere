@@ -543,27 +543,10 @@ class CodeGenerator:
                 file=sys.stderr,
             )
 
-        # Now let's look for dependencies between properties to output in
-        # the correct order
-        from functools import cmp_to_key
-
-        def cmp(a, b):
-            if a[0] in b[1]:
-                return -1
-            if b[0] in a[1]:
-                return 1
-            if a == b:
-                return 0
-            elif a < b:
-                return -1
-            else:
-                return 1
-
-        unseen_tuple = [(x, self._get_type_list(self.properties[x])) for x in unseen]
-        unseen = [x[0] for x in sorted(unseen_tuple, key=cmp_to_key(cmp))]
-
         for property_name in unseen:
-            n = Node(property_name, self.properties[property_name], "", "")
+            n = self._build_tree(
+                property_name, self.properties[property_name], "", None
+            )
             code += self._generate_tree(n, seen)
 
         return "\n".join(code)
