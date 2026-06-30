@@ -440,6 +440,7 @@ class Webhook(AWSObject):
         "Filters": ([WebhookFilterRule], True),
         "Name": (str, False),
         "RegisterWithThirdParty": (boolean, False),
+        "Tags": (Tags, False),
         "TargetAction": (str, True),
         "TargetPipeline": (str, True),
         "TargetPipelineVersion": (integer, False),

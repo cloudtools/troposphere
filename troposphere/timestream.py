@@ -76,6 +76,17 @@ class InfluxDBCluster(AWSObject):
     }
 
 
+class MaintenanceSchedule(AWSProperty):
+    """
+    `MaintenanceSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-maintenanceschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "PreferredMaintenanceWindow": (str, True),
+        "Timezone": (str, True),
+    }
+
+
 class InfluxDBInstance(AWSObject):
     """
     `InfluxDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html>`__
@@ -91,6 +102,7 @@ class InfluxDBInstance(AWSObject):
         "DbStorageType": (str, False),
         "DeploymentType": (str, False),
         "LogDeliveryConfiguration": (LogDeliveryConfiguration, False),
+        "MaintenanceSchedule": (MaintenanceSchedule, False),
         "Name": (str, False),
         "NetworkType": (str, False),
         "Organization": (str, False),

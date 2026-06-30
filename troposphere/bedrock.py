@@ -968,6 +968,71 @@ class ConfluenceDataSourceConfiguration(AWSProperty):
     }
 
 
+class DeletionProtectionConfiguration(AWSProperty):
+    """
+    `DeletionProtectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-deletionprotectionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeletionProtectionStatus": (str, True),
+        "DeletionProtectionThreshold": (integer, False),
+    }
+
+
+class AudioExtractionConfiguration(AWSProperty):
+    """
+    `AudioExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-audioextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioExtractionStatus": (str, True),
+    }
+
+
+class ImageExtractionConfiguration(AWSProperty):
+    """
+    `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-imageextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageExtractionStatus": (str, True),
+    }
+
+
+class VideoExtractionConfiguration(AWSProperty):
+    """
+    `VideoExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-videoextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VideoExtractionStatus": (str, True),
+    }
+
+
+class MediaExtractionConfiguration(AWSProperty):
+    """
+    `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-mediaextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioExtractionConfiguration": (AudioExtractionConfiguration, False),
+        "ImageExtractionConfiguration": (ImageExtractionConfiguration, False),
+        "VideoExtractionConfiguration": (VideoExtractionConfiguration, False),
+    }
+
+
+class ManagedKnowledgeBaseConnectorConfiguration(AWSProperty):
+    """
+    `ManagedKnowledgeBaseConnectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-managedknowledgebaseconnectorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectorParameters": (dict, False),
+        "DeletionProtectionConfiguration": (DeletionProtectionConfiguration, False),
+        "MediaExtractionConfiguration": (MediaExtractionConfiguration, False),
+    }
+
+
 class S3DataSourceConfiguration(AWSProperty):
     """
     `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3datasourceconfiguration.html>`__
@@ -1123,6 +1188,10 @@ class DataSourceConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ConfluenceConfiguration": (ConfluenceDataSourceConfiguration, False),
+        "ManagedKnowledgeBaseConnectorConfiguration": (
+            ManagedKnowledgeBaseConnectorConfiguration,
+            False,
+        ),
         "S3Configuration": (S3DataSourceConfiguration, False),
         "SalesforceConfiguration": (SalesforceDataSourceConfiguration, False),
         "SharePointConfiguration": (SharePointDataSourceConfiguration, False),
@@ -2406,6 +2475,98 @@ class KendraKnowledgeBaseConfiguration(AWSProperty):
     }
 
 
+class AudioSegmentationConfiguration(AWSProperty):
+    """
+    `AudioSegmentationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audiosegmentationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FixedLengthDuration": (integer, True),
+    }
+
+
+class AudioConfiguration(AWSProperty):
+    """
+    `AudioConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audioconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SegmentationConfiguration": (AudioSegmentationConfiguration, True),
+    }
+
+
+class VideoSegmentationConfiguration(AWSProperty):
+    """
+    `VideoSegmentationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videosegmentationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FixedLengthDuration": (integer, True),
+    }
+
+
+class VideoConfiguration(AWSProperty):
+    """
+    `VideoConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videoconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SegmentationConfiguration": (VideoSegmentationConfiguration, True),
+    }
+
+
+class BedrockEmbeddingModelConfiguration(AWSProperty):
+    """
+    `BedrockEmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audio": ([AudioConfiguration], False),
+        "Dimensions": (integer, False),
+        "EmbeddingDataType": (str, False),
+        "Video": ([VideoConfiguration], False),
+    }
+
+
+class EmbeddingModelConfiguration(AWSProperty):
+    """
+    `EmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockEmbeddingModelConfiguration": (
+            BedrockEmbeddingModelConfiguration,
+            False,
+        ),
+    }
+
+
+class ManagedKnowledgeBaseServerSideEncryptionConfiguration(AWSProperty):
+    """
+    `ManagedKnowledgeBaseServerSideEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseserversideencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+    }
+
+
+class ManagedKnowledgeBaseConfiguration(AWSProperty):
+    """
+    `ManagedKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmbeddingModelArn": (str, True),
+        "EmbeddingModelConfiguration": (EmbeddingModelConfiguration, False),
+        "EmbeddingModelType": (str, False),
+        "ServerSideEncryptionConfiguration": (
+            ManagedKnowledgeBaseServerSideEncryptionConfiguration,
+            False,
+        ),
+    }
+
+
 class CuratedQuery(AWSProperty):
     """
     `CuratedQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-curatedquery.html>`__
@@ -2582,72 +2743,6 @@ class SqlKnowledgeBaseConfiguration(AWSProperty):
     }
 
 
-class AudioSegmentationConfiguration(AWSProperty):
-    """
-    `AudioSegmentationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audiosegmentationconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "FixedLengthDuration": (integer, True),
-    }
-
-
-class AudioConfiguration(AWSProperty):
-    """
-    `AudioConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audioconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "SegmentationConfiguration": (AudioSegmentationConfiguration, True),
-    }
-
-
-class VideoSegmentationConfiguration(AWSProperty):
-    """
-    `VideoSegmentationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videosegmentationconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "FixedLengthDuration": (integer, True),
-    }
-
-
-class VideoConfiguration(AWSProperty):
-    """
-    `VideoConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videoconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "SegmentationConfiguration": (VideoSegmentationConfiguration, True),
-    }
-
-
-class BedrockEmbeddingModelConfiguration(AWSProperty):
-    """
-    `BedrockEmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Audio": ([AudioConfiguration], False),
-        "Dimensions": (integer, False),
-        "EmbeddingDataType": (str, False),
-        "Video": ([VideoConfiguration], False),
-    }
-
-
-class EmbeddingModelConfiguration(AWSProperty):
-    """
-    `EmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "BedrockEmbeddingModelConfiguration": (
-            BedrockEmbeddingModelConfiguration,
-            False,
-        ),
-    }
-
-
 class KnowledgeBaseS3Location(AWSProperty):
     """
     `KnowledgeBaseS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
@@ -2701,6 +2796,7 @@ class KnowledgeBaseConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "KendraKnowledgeBaseConfiguration": (KendraKnowledgeBaseConfiguration, False),
+        "ManagedKnowledgeBaseConfiguration": (ManagedKnowledgeBaseConfiguration, False),
         "SqlKnowledgeBaseConfiguration": (SqlKnowledgeBaseConfiguration, False),
         "Type": (str, True),
         "VectorKnowledgeBaseConfiguration": (VectorKnowledgeBaseConfiguration, False),

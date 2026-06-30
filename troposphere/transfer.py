@@ -330,6 +330,7 @@ class Vpc(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IpAddressType": (str, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),
         "VpcId": (str, False),

@@ -52,8 +52,10 @@ class DBCluster(AWSObject):
         "DeletionProtection": (boolean, False),
         "EnableCloudwatchLogsExports": ([str], False),
         "EngineVersion": (str, False),
+        "GlobalClusterIdentifier": (str, False),
         "IamAuthEnabled": (boolean, False),
         "KmsKeyId": (str, False),
+        "NetworkType": (str, False),
         "PreferredBackupWindow": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "RestoreToTime": (str, False),
@@ -151,5 +153,23 @@ class EventSubscription(AWSObject):
         "SourceIds": ([str], False),
         "SourceType": (str, False),
         "SubscriptionName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class GlobalCluster(AWSObject):
+    """
+    `GlobalCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-globalcluster.html>`__
+    """
+
+    resource_type = "AWS::Neptune::GlobalCluster"
+
+    props: PropsDictType = {
+        "DeletionProtection": (boolean, False),
+        "Engine": (str, False),
+        "EngineVersion": (str, False),
+        "GlobalClusterIdentifier": (str, False),
+        "SourceDBClusterIdentifier": (str, False),
+        "StorageEncrypted": (boolean, False),
         "Tags": (Tags, False),
     }

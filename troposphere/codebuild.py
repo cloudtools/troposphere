@@ -25,6 +25,18 @@ from .validators.codebuild import (
 )
 
 
+class Build(AWSObject):
+    """
+    `Build <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-build.html>`__
+    """
+
+    resource_type = "AWS::CodeBuild::Build"
+
+    props: PropsDictType = {
+        "ProjectName": (str, False),
+    }
+
+
 class ComputeConfiguration(AWSProperty):
     """
     `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html>`__

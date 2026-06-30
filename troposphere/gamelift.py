@@ -257,6 +257,16 @@ class ContainerMountPoint(AWSProperty):
     }
 
 
+class LinuxCapabilities(AWSProperty):
+    """
+    `LinuxCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-linuxcapabilities.html>`__
+    """
+
+    props: PropsDictType = {
+        "Include": ([str], False),
+    }
+
+
 class ContainerPortRange(AWSProperty):
     """
     `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
@@ -289,6 +299,7 @@ class GameServerContainerDefinition(AWSProperty):
         "DependsOn": ([ContainerDependency], False),
         "EnvironmentOverride": ([ContainerEnvironment], False),
         "ImageUri": (str, True),
+        "LinuxCapabilities": (LinuxCapabilities, False),
         "MountPoints": ([ContainerMountPoint], False),
         "PortConfiguration": (PortConfiguration, False),
         "ResolvedImageDigest": (str, False),
@@ -322,6 +333,7 @@ class SupportContainerDefinition(AWSProperty):
         "Essential": (boolean, False),
         "HealthCheck": (ContainerHealthCheck, False),
         "ImageUri": (str, True),
+        "LinuxCapabilities": (LinuxCapabilities, False),
         "MemoryHardLimitMebibytes": (integer, False),
         "MountPoints": ([ContainerMountPoint], False),
         "PortConfiguration": (PortConfiguration, False),

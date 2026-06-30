@@ -259,6 +259,16 @@ class RuleBasedProperties(AWSProperty):
     }
 
 
+class MatchingConfig(AWSProperty):
+    """
+    `MatchingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-matchingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableTransitiveMatching": (boolean, False),
+    }
+
+
 class RuleCondition(AWSProperty):
     """
     `RuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulecondition.html>`__
@@ -276,6 +286,7 @@ class RuleConditionProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MatchingConfig": (MatchingConfig, False),
         "Rules": ([RuleCondition], True),
     }
 

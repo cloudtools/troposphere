@@ -55,6 +55,26 @@ class DestinationLogsConfiguration(AWSProperty):
     }
 
 
+class MetricsBackupConfiguration(AWSProperty):
+    """
+    `MetricsBackupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-metricsbackupconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, True),
+    }
+
+
+class DestinationMetricsConfiguration(AWSProperty):
+    """
+    `DestinationMetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationmetricsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BackupConfiguration": (MetricsBackupConfiguration, False),
+    }
+
+
 class CentralizationRuleDestination(AWSProperty):
     """
     `CentralizationRuleDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html>`__
@@ -63,6 +83,7 @@ class CentralizationRuleDestination(AWSProperty):
     props: PropsDictType = {
         "Account": (str, False),
         "DestinationLogsConfiguration": (DestinationLogsConfiguration, False),
+        "DestinationMetricsConfiguration": (DestinationMetricsConfiguration, False),
         "Region": (str, True),
     }
 
@@ -79,6 +100,16 @@ class SourceLogsConfiguration(AWSProperty):
     }
 
 
+class SourceMetricsConfiguration(AWSProperty):
+    """
+    `SourceMetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcemetricsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricsSelectionCriteria": (str, False),
+    }
+
+
 class CentralizationRuleSource(AWSProperty):
     """
     `CentralizationRuleSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrulesource.html>`__
@@ -88,6 +119,7 @@ class CentralizationRuleSource(AWSProperty):
         "Regions": ([str], True),
         "Scope": (str, False),
         "SourceLogsConfiguration": (SourceLogsConfiguration, False),
+        "SourceMetricsConfiguration": (SourceMetricsConfiguration, False),
     }
 
 
@@ -369,7 +401,7 @@ class TelemetryEnrichment(AWSObject):
     resource_type = "AWS::ObservabilityAdmin::TelemetryEnrichment"
 
     props: PropsDictType = {
-        "Scope": (str, False),
+        "Scope": (str, True),
     }
 
 

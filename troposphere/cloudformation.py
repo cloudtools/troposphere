@@ -314,16 +314,26 @@ class ResourceVersion(AWSObject):
 
 class Stack(AWSObject):
     """
-    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html>`__
+    `Stack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html>`__
     """
 
     resource_type = "AWS::CloudFormation::Stack"
 
     props: PropsDictType = {
+        "Capabilities": ([str], False),
+        "Description": (str, False),
+        "DisableRollback": (boolean, False),
+        "EnableTerminationProtection": (boolean, False),
         "NotificationARNs": ([str], False),
         "Parameters": (dict, False),
+        "RoleARN": (str, False),
+        "StackName": (str, True),
+        "StackPolicyBody": (dict, False),
+        "StackPolicyURL": (str, False),
+        "StackStatusReason": (str, False),
         "Tags": (Tags, False),
-        "TemplateURL": (str, True),
+        "TemplateBody": (dict, False),
+        "TemplateURL": (str, False),
         "TimeoutInMinutes": (integer, False),
     }
 
@@ -474,3 +484,16 @@ class WaitConditionHandle(AWSObject):
     resource_type = "AWS::CloudFormation::WaitConditionHandle"
 
     props: PropsDictType = {}
+
+
+class Output(AWSProperty):
+    """
+    `Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stack-output.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ExportName": (str, False),
+        "OutputKey": (str, False),
+        "OutputValue": (str, False),
+    }

@@ -92,6 +92,36 @@ class ArcRoutingControlConfiguration(AWSProperty):
     }
 
 
+class AuroraProvisionedScalingConfiguration(AWSProperty):
+    """
+    `AuroraProvisionedScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-auroraprovisionedscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "ExternalId": (str, False),
+        "GlobalClusterIdentifier": (str, True),
+        "InstanceArns": (dict, True),
+        "RegionDatabaseClusterArns": (dict, True),
+        "TimeoutMinutes": (double, False),
+    }
+
+
+class AuroraServerlessScalingConfiguration(AWSProperty):
+    """
+    `AuroraServerlessScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-auroraserverlessscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "ExternalId": (str, False),
+        "GlobalClusterIdentifier": (str, True),
+        "RegionDatabaseClusterArns": (dict, True),
+        "TargetPercent": (double, False),
+        "TimeoutMinutes": (double, False),
+    }
+
+
 class LambdaUngraceful(AWSProperty):
     """
     `LambdaUngraceful <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdaungraceful.html>`__
@@ -348,6 +378,32 @@ class LambdaEventSourceMappingConfiguration(AWSProperty):
     }
 
 
+class NeptuneUngraceful(AWSProperty):
+    """
+    `NeptuneUngraceful <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-neptuneungraceful.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ungraceful": (str, False),
+    }
+
+
+class NeptuneGlobalDatabaseConfiguration(AWSProperty):
+    """
+    `NeptuneGlobalDatabaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-neptuneglobaldatabaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (dict, True),
+        "CrossAccountRole": (str, False),
+        "ExternalId": (str, False),
+        "GlobalClusterIdentifier": (str, True),
+        "RegionDatabaseClusterArns": (dict, True),
+        "TimeoutMinutes": (double, False),
+        "Ungraceful": (NeptuneUngraceful, False),
+    }
+
+
 class ParallelExecutionBlockConfiguration(AWSProperty):
     """
     `ParallelExecutionBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-parallelexecutionblockconfiguration.html>`__
@@ -429,6 +485,11 @@ class ExecutionBlockConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ArcRoutingControlConfig": (ArcRoutingControlConfiguration, False),
+        "AuroraProvisionedScalingConfig": (
+            AuroraProvisionedScalingConfiguration,
+            False,
+        ),
+        "AuroraServerlessScalingConfig": (AuroraServerlessScalingConfiguration, False),
         "CustomActionLambdaConfig": (CustomActionLambdaConfiguration, False),
         "DocumentDbConfig": (DocumentDbConfiguration, False),
         "Ec2AsgCapacityIncreaseConfig": (Ec2AsgCapacityIncreaseConfiguration, False),
@@ -440,6 +501,7 @@ class ExecutionBlockConfiguration(AWSProperty):
             LambdaEventSourceMappingConfiguration,
             False,
         ),
+        "NeptuneGlobalDatabaseConfig": (NeptuneGlobalDatabaseConfiguration, False),
         "ParallelConfig": (ParallelExecutionBlockConfiguration, False),
         "RdsCreateCrossRegionReadReplicaConfig": (
             RdsCreateCrossRegionReplicaConfiguration,

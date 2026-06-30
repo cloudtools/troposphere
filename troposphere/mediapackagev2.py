@@ -77,6 +77,16 @@ class ChannelPolicy(AWSObject):
     }
 
 
+class DashAvailabilityStartTimeConfiguration(AWSProperty):
+    """
+    `DashAvailabilityStartTimeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashavailabilitystarttimeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FixedAvailabilityStartTime": (str, True),
+    }
+
+
 class DashBaseUrl(AWSProperty):
     """
     `DashBaseUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashbaseurl.html>`__
@@ -191,6 +201,7 @@ class ScteDash(AWSProperty):
 
     props: PropsDictType = {
         "AdMarkerDash": (str, False),
+        "ScteInManifests": (str, False),
     }
 
 
@@ -200,6 +211,11 @@ class DashManifestConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AudioTimelinePattern": (str, False),
+        "AvailabilityStartTimeConfiguration": (
+            DashAvailabilityStartTimeConfiguration,
+            False,
+        ),
         "BaseUrls": ([DashBaseUrl], False),
         "Compactness": (str, False),
         "DrmSignaling": (str, False),
@@ -216,6 +232,7 @@ class DashManifestConfiguration(AWSProperty):
         "SegmentTemplateFormat": (str, False),
         "SubtitleConfiguration": (DashSubtitleConfiguration, False),
         "SuggestedPresentationDelaySeconds": (integer, False),
+        "UriPathType": (str, False),
         "UtcTiming": (DashUtcTiming, False),
     }
 
@@ -237,6 +254,7 @@ class ScteHls(AWSProperty):
 
     props: PropsDictType = {
         "AdMarkerHls": (str, False),
+        "ScteInManifests": (str, False),
     }
 
 
@@ -264,6 +282,7 @@ class HlsManifestConfiguration(AWSProperty):
         "ProgramDateTimeIntervalSeconds": (integer, False),
         "ScteHls": (ScteHls, False),
         "StartTag": (StartTag, False),
+        "UriPathType": (str, False),
         "Url": (str, False),
         "UrlEncodeChildManifest": (boolean, False),
     }
@@ -282,6 +301,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
         "ProgramDateTimeIntervalSeconds": (integer, False),
         "ScteHls": (ScteHls, False),
         "StartTag": (StartTag, False),
+        "UriPathType": (str, False),
         "Url": (str, False),
         "UrlEncodeChildManifest": (boolean, False),
     }
@@ -358,6 +378,7 @@ class Scte(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomAdTypes": ([str], False),
         "ScteFilter": ([str], False),
         "ScteInSegments": (str, False),
     }
@@ -400,6 +421,7 @@ class OriginEndpoint(AWSObject):
         "Segment": (Segment, False),
         "StartoverWindowSeconds": (integer, False),
         "Tags": (Tags, False),
+        "UriSeparator": (str, False),
     }
 
 

@@ -20,6 +20,21 @@ class DataSource(AWSProperty):
     }
 
 
+class DataDeletionJob(AWSObject):
+    """
+    `DataDeletionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datadeletionjob.html>`__
+    """
+
+    resource_type = "AWS::Personalize::DataDeletionJob"
+
+    props: PropsDictType = {
+        "DataSource": (DataSource, False),
+        "DatasetGroupArn": (str, False),
+        "JobName": (str, False),
+        "RoleArn": (str, False),
+    }
+
+
 class DatasetImportJob(AWSProperty):
     """
     `DatasetImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html>`__

@@ -864,6 +864,17 @@ class DestinationOptions(AWSProperty):
     }
 
 
+class TagFieldSpecification(AWSProperty):
+    """
+    `TagFieldSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-tagfieldspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceType": (str, True),
+        "TagKeys": ([str], True),
+    }
+
+
 class FlowLog(AWSObject):
     """
     `FlowLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html>`__
@@ -882,6 +893,7 @@ class FlowLog(AWSObject):
         "MaxAggregationInterval": (integer, False),
         "ResourceId": (str, True),
         "ResourceType": (str, True),
+        "TagFieldSpecifications": ([TagFieldSpecification], False),
         "Tags": (Tags, False),
         "TrafficType": (str, False),
     }
@@ -1182,6 +1194,7 @@ class CpuOptions(AWSProperty):
     props: PropsDictType = {
         "AmdSevSnp": (str, False),
         "CoreCount": (integer, False),
+        "NestedVirtualization": (str, False),
         "ThreadsPerCore": (integer, False),
     }
 
@@ -2349,6 +2362,7 @@ class Route(AWSObject):
         "LocalGatewayId": (str, False),
         "NatGatewayId": (str, False),
         "NetworkInterfaceId": (str, False),
+        "OdbNetworkArn": (str, False),
         "RouteTableId": (str, True),
         "TransitGatewayId": (str, False),
         "VpcEndpointId": (str, False),

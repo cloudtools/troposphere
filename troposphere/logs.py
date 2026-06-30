@@ -85,6 +85,7 @@ class DeliverySource(AWSObject):
     resource_type = "AWS::Logs::DeliverySource"
 
     props: PropsDictType = {
+        "DeliverySourceConfiguration": (dict, False),
         "LogType": (str, False),
         "Name": (str, True),
         "ResourceArn": (str, False),

@@ -308,6 +308,7 @@ class PlaybackConfiguration(AWSObject):
         "CdnConfiguration": (CdnConfiguration, False),
         "ConfigurationAliases": (dict, False),
         "DashConfiguration": (DashConfiguration, False),
+        "FunctionMapping": (dict, False),
         "HlsConfiguration": (HlsConfiguration, False),
         "InsertionMode": (str, False),
         "LivePreRollConfiguration": (LivePreRollConfiguration, False),

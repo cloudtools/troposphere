@@ -505,6 +505,41 @@ class MCPServerDetails(AWSProperty):
     }
 
 
+class BearerTokenDetails(AWSProperty):
+    """
+    `BearerTokenDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-bearertokendetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationHeader": (str, False),
+        "TokenName": (str, True),
+        "TokenValue": (str, True),
+    }
+
+
+class MCPServerGrafanaAuthorizationConfig(AWSProperty):
+    """
+    `MCPServerGrafanaAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpservergrafanaauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BearerToken": (BearerTokenDetails, True),
+    }
+
+
+class MCPServerGrafanaDetails(AWSProperty):
+    """
+    `MCPServerGrafanaDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpservergrafanadetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (MCPServerGrafanaAuthorizationConfig, True),
+        "Description": (str, False),
+        "Endpoint": (str, True),
+        "Name": (str, True),
+    }
+
+
 class MCPServerSigV4AuthorizationConfig(AWSProperty):
     """
     `MCPServerSigV4AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html>`__
@@ -528,18 +563,6 @@ class MCPServerSigV4Details(AWSProperty):
         "Description": (str, False),
         "Endpoint": (str, True),
         "Name": (str, True),
-    }
-
-
-class BearerTokenDetails(AWSProperty):
-    """
-    `BearerTokenDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-bearertokendetails.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthorizationHeader": (str, False),
-        "TokenName": (str, True),
-        "TokenValue": (str, True),
     }
 
 
@@ -653,6 +676,7 @@ class ServiceDetails(AWSProperty):
         "Dynatrace": (DynatraceServiceDetails, False),
         "GitLab": (GitLabDetails, False),
         "MCPServer": (MCPServerDetails, False),
+        "MCPServerGrafana": (MCPServerGrafanaDetails, False),
         "MCPServerNewRelic": (NewRelicServiceDetails, False),
         "MCPServerSigV4": (MCPServerSigV4Details, False),
         "MCPServerSplunk": (MCPServerSplunkDetails, False),
@@ -725,6 +749,19 @@ class RegisteredMCPServerDetails(AWSProperty):
     }
 
 
+class RegisteredMCPServerGrafanaDetails(AWSProperty):
+    """
+    `RegisteredMCPServerGrafanaDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpservergrafanadetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationMethod": (str, True),
+        "Description": (str, False),
+        "Endpoint": (str, True),
+        "Name": (str, False),
+    }
+
+
 class RegisteredMCPServerSigV4Details(AWSProperty):
     """
     `RegisteredMCPServerSigV4Details <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html>`__
@@ -783,6 +820,7 @@ class AdditionalServiceDetails(AWSProperty):
         "Dynatrace": (RegisteredDynatraceDetails, False),
         "GitLab": (RegisteredGitLabServiceDetails, False),
         "MCPServer": (RegisteredMCPServerDetails, False),
+        "MCPServerGrafana": (RegisteredMCPServerGrafanaDetails, False),
         "MCPServerNewRelic": (RegisteredNewRelicDetails, False),
         "MCPServerSigV4": (RegisteredMCPServerSigV4Details, False),
         "MCPServerSplunk": (RegisteredMCPServerDetails, False),

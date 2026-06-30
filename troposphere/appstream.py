@@ -317,6 +317,28 @@ class ApplicationSettings(AWSProperty):
     }
 
 
+class UrlRedirectionConfig(AWSProperty):
+    """
+    `UrlRedirectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-urlredirectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedUrls": ([str], False),
+        "DeniedUrls": ([str], False),
+        "Enabled": (boolean, True),
+    }
+
+
+class ContentRedirection(AWSProperty):
+    """
+    `ContentRedirection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-contentredirection.html>`__
+    """
+
+    props: PropsDictType = {
+        "HostToClient": (UrlRedirectionConfig, False),
+    }
+
+
 class StorageConnector(AWSProperty):
     """
     `StorageConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html>`__
@@ -362,6 +384,7 @@ class Stack(AWSObject):
         "AccessEndpoints": ([AccessEndpoint], False),
         "ApplicationSettings": (ApplicationSettings, False),
         "AttributesToDelete": ([str], False),
+        "ContentRedirection": (ContentRedirection, False),
         "DeleteStorageConnectors": (boolean, False),
         "Description": (str, False),
         "DisplayName": (str, False),

@@ -113,6 +113,7 @@ class Broker(AWSObject):
         "Logs": (LogsConfiguration, False),
         "MaintenanceWindowStartTime": (MaintenanceWindow, False),
         "PubliclyAccessible": (boolean, True),
+        "ResourceShareArns": ([str], False),
         "SecurityGroups": ([str], False),
         "StorageType": (str, False),
         "SubnetIds": ([str], False),

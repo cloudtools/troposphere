@@ -256,6 +256,7 @@ class LocalTimeZoneConfig(AWSProperty):
     props: PropsDictType = {
         "DefaultTimeZone": (str, False),
         "LocalTimeZoneDetection": ([str], False),
+        "LocalTimeZoneDetectionScope": (str, False),
     }
 
 

@@ -55,6 +55,7 @@ class Collection(AWSObject):
 
     props: PropsDictType = {
         "CollectionGroupName": (str, False),
+        "DeletionProtection": (str, False),
         "Description": (str, False),
         "EncryptionConfig": (EncryptionConfig, False),
         "Name": (str, True),
@@ -88,9 +89,24 @@ class CollectionGroup(AWSObject):
     props: PropsDictType = {
         "CapacityLimits": (CapacityLimits, False),
         "Description": (str, False),
+        "Generation": (str, False),
         "Name": (str, True),
         "StandbyReplicas": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class CollectionIndex(AWSObject):
+    """
+    `CollectionIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collectionindex.html>`__
+    """
+
+    resource_type = "AWS::OpenSearchServerless::CollectionIndex"
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "IndexName": (str, True),
+        "IndexSchema": (str, False),
     }
 
 
