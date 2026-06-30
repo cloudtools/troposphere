@@ -20,6 +20,7 @@ from .validators.ec2 import (
     validate_clientvpnendpoint_vpnport,
     validate_elasticinferenceaccelerator_type,
     validate_int_to_str,
+    validate_launchtemplate_cpuoptions_nestedvirtualization,
     validate_network_acl_entry,
     validate_network_port,
     validate_networkaclentry_rulenumber,
@@ -1194,7 +1195,10 @@ class CpuOptions(AWSProperty):
     props: PropsDictType = {
         "AmdSevSnp": (str, False),
         "CoreCount": (integer, False),
-        "NestedVirtualization": (str, False),
+        "NestedVirtualization": (
+            validate_launchtemplate_cpuoptions_nestedvirtualization,
+            False,
+        ),
         "ThreadsPerCore": (integer, False),
     }
 
