@@ -309,6 +309,7 @@ class Service(AWSObject):
         "CertificateArn": (str, False),
         "CustomDomainName": (str, False),
         "DnsEntry": (DnsEntry, False),
+        "IdleTimeoutSeconds": (integer, False),
         "Name": (str, False),
         "Tags": (Tags, False),
     }

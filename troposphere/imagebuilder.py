@@ -434,6 +434,7 @@ class ImagePipeline(AWSObject):
         "ExecutionRole": (str, False),
         "ImageRecipeArn": (str, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
+        "ImageTags": (dict, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, True),
         "LoggingConfiguration": (PipelineLoggingConfiguration, False),
@@ -487,6 +488,7 @@ class ImageRecipe(AWSObject):
     props: PropsDictType = {
         "AdditionalInstanceConfiguration": (AdditionalInstanceConfiguration, False),
         "AmiTags": (dict, False),
+        "AmiWatermarks": ([str], False),
         "BlockDeviceMappings": ([InstanceBlockDeviceMapping], False),
         "Components": ([ComponentConfiguration], False),
         "Description": (str, False),

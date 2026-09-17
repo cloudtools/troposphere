@@ -459,6 +459,29 @@ class ConfigurationPolicy(AWSObject):
     }
 
 
+class AzureScopeConfiguration(AWSProperty):
+    """
+    `AzureScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-azurescopeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScopeType": (str, True),
+        "ScopeValues": ([str], False),
+    }
+
+
+class AzureProviderConfiguration(AWSProperty):
+    """
+    `AzureProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-azureproviderconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSConfigConnectorArn": (str, True),
+        "AzureRegions": ([str], True),
+        "ScopeConfiguration": (AzureScopeConfiguration, True),
+    }
+
+
 class JiraCloudProviderConfiguration(AWSProperty):
     """
     `JiraCloudProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloudproviderconfiguration.html>`__
@@ -486,8 +509,24 @@ class Provider(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Azure": (AzureProviderConfiguration, False),
         "JiraCloud": (JiraCloudProviderConfiguration, False),
         "ServiceNow": (ServiceNowProviderConfiguration, False),
+    }
+
+
+class Connector(AWSObject):
+    """
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connector.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::Connector"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Provider": (Provider, True),
+        "Tags": (dict, False),
     }
 
 
@@ -768,4 +807,15 @@ class Standard(AWSObject):
     props: PropsDictType = {
         "DisabledStandardsControls": ([StandardsControl], False),
         "StandardsArn": (str, True),
+    }
+
+
+class HealthIssue(AWSProperty):
+    """
+    `HealthIssue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-healthissue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, True),
+        "Message": (str, True),
     }

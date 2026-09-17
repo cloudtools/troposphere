@@ -90,6 +90,7 @@ class Endpoint(AWSObject):
         "ExecutionRoleArn": (str, True),
         "Name": (str, False),
         "ReleaseLabel": (str, True),
+        "SessionIdleTimeoutInMinutes": (integer, False),
         "Tags": (Tags, False),
         "Type": (str, True),
         "VirtualClusterId": (str, True),
@@ -299,6 +300,7 @@ class VirtualCluster(AWSObject):
         "ContainerProvider": (ContainerProvider, True),
         "Name": (str, True),
         "SecurityConfigurationId": (str, False),
+        "SessionEnabled": (boolean, False),
         "Tags": (Tags, False),
     }
 

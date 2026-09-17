@@ -1408,7 +1408,6 @@ class Endpoint(AWSObject):
     props: PropsDictType = {
         "DeploymentConfig": (DeploymentConfig, False),
         "EndpointConfigName": (str, True),
-        "EndpointName": (str, False),
         "ExcludeRetainedVariantProperties": ([VariantProperty], False),
         "RetainAllVariantProperties": (boolean, False),
         "RetainDeploymentConfig": (boolean, False),

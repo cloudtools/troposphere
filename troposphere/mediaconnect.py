@@ -703,6 +703,61 @@ class MaintenanceConfiguration(AWSProperty):
     }
 
 
+class BlackFramesConfiguration(AWSProperty):
+    """
+    `BlackFramesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-blackframesconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "ThresholdSeconds": (integer, True),
+    }
+
+
+class FrozenFramesConfiguration(AWSProperty):
+    """
+    `FrozenFramesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-frozenframesconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "ThresholdSeconds": (integer, True),
+    }
+
+
+class SilentAudioConfiguration(AWSProperty):
+    """
+    `SilentAudioConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-silentaudioconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "ThresholdSeconds": (integer, True),
+    }
+
+
+class ContentQualityAnalysisFeatureConfiguration(AWSProperty):
+    """
+    `ContentQualityAnalysisFeatureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-contentqualityanalysisfeatureconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlackFrames": (BlackFramesConfiguration, False),
+        "FrozenFrames": (FrozenFramesConfiguration, False),
+        "SilentAudio": (SilentAudioConfiguration, False),
+    }
+
+
+class RouterContentQualityAnalysisConfiguration(AWSProperty):
+    """
+    `RouterContentQualityAnalysisConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routercontentqualityanalysisconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentLevel": (ContentQualityAnalysisFeatureConfiguration, True),
+    }
+
+
 class RistRouterInputConfiguration(AWSProperty):
     """
     `RistRouterInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-ristrouterinputconfiguration.html>`__
@@ -934,6 +989,10 @@ class RouterInput(AWSObject):
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
         "Configuration": (RouterInputConfiguration, True),
+        "ContentQualityAnalysisConfiguration": (
+            RouterContentQualityAnalysisConfiguration,
+            False,
+        ),
         "MaintenanceConfiguration": (MaintenanceConfiguration, False),
         "MaximumBitrate": (integer, True),
         "Name": (str, True),

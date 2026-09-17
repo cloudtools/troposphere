@@ -297,7 +297,7 @@ class DeviceConfiguration(AWSProperty):
 
 class EmailConfiguration(AWSProperty):
     """
-    `EmailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html>`__
+    `EmailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-emailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -309,9 +309,30 @@ class EmailConfiguration(AWSProperty):
     }
 
 
+class IssuerConfiguration(AWSProperty):
+    """
+    `IssuerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-issuerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+    }
+
+
+class KeyConfiguration(AWSProperty):
+    """
+    `KeyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-keyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyType": (str, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
 class CustomEmailSender(AWSProperty):
     """
-    `CustomEmailSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customemailsender.html>`__
+    `CustomEmailSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-customemailsender.html>`__
     """
 
     props: PropsDictType = {
@@ -322,7 +343,7 @@ class CustomEmailSender(AWSProperty):
 
 class CustomSMSSender(AWSProperty):
     """
-    `CustomSMSSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html>`__
+    `CustomSMSSender <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-customsmssender.html>`__
     """
 
     props: PropsDictType = {
@@ -333,7 +354,7 @@ class CustomSMSSender(AWSProperty):
 
 class InboundFederation(AWSProperty):
     """
-    `InboundFederation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-inboundfederation.html>`__
+    `InboundFederation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-inboundfederation.html>`__
     """
 
     props: PropsDictType = {
@@ -344,7 +365,7 @@ class InboundFederation(AWSProperty):
 
 class PreTokenGenerationConfig(AWSProperty):
     """
-    `PreTokenGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html>`__
+    `PreTokenGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-pretokengenerationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -355,7 +376,7 @@ class PreTokenGenerationConfig(AWSProperty):
 
 class LambdaConfig(AWSProperty):
     """
-    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html>`__
+    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-lambdaconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -454,7 +475,7 @@ class SchemaAttribute(AWSProperty):
 
 class SmsConfiguration(AWSProperty):
     """
-    `SmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html>`__
+    `SmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-smsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -540,6 +561,8 @@ class UserPool(AWSObject):
         "EmailVerificationMessage": (str, False),
         "EmailVerificationSubject": (str, False),
         "EnabledMfas": ([str], False),
+        "IssuerConfiguration": (IssuerConfiguration, False),
+        "KeyConfiguration": (KeyConfiguration, False),
         "LambdaConfig": (LambdaConfig, False),
         "MfaConfiguration": (str, False),
         "Policies": (Policies, False),
@@ -709,6 +732,37 @@ class UserPoolIdentityProvider(AWSObject):
         "ProviderName": (str, True),
         "ProviderType": (str, True),
         "UserPoolId": (str, True),
+    }
+
+
+class UserPoolRegionalConfigurationAttachment(AWSObject):
+    """
+    `UserPoolRegionalConfigurationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolregionalconfigurationattachment.html>`__
+    """
+
+    resource_type = "AWS::Cognito::UserPoolRegionalConfigurationAttachment"
+
+    props: PropsDictType = {
+        "EmailConfiguration": (EmailConfiguration, False),
+        "LambdaConfig": (LambdaConfig, False),
+        "SmsConfiguration": (SmsConfiguration, False),
+        "Status": (str, False),
+        "UserPoolId": (str, True),
+        "UserPoolTags": (dict, False),
+    }
+
+
+class UserPoolReplica(AWSObject):
+    """
+    `UserPoolReplica <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolreplica.html>`__
+    """
+
+    resource_type = "AWS::Cognito::UserPoolReplica"
+
+    props: PropsDictType = {
+        "RegionName": (str, True),
+        "UserPoolId": (str, True),
+        "UserPoolTagsAtCreate": (dict, False),
     }
 
 

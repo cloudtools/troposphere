@@ -2557,7 +2557,7 @@ class ManagedKnowledgeBaseConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EmbeddingModelArn": (str, True),
+        "EmbeddingModelArn": (str, False),
         "EmbeddingModelConfiguration": (EmbeddingModelConfiguration, False),
         "EmbeddingModelType": (str, False),
         "ServerSideEncryptionConfiguration": (

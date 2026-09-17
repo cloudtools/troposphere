@@ -376,6 +376,16 @@ class ResourcesVpcConfig(AWSProperty):
     }
 
 
+class RollbackConfig(AWSProperty):
+    """
+    `RollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-rollbackconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TimeoutMinutes": (integer, False),
+    }
+
+
 class BlockStorage(AWSProperty):
     """
     `BlockStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html>`__
@@ -438,6 +448,7 @@ class Cluster(AWSObject):
         "RemoteNetworkConfig": (RemoteNetworkConfig, False),
         "ResourcesVpcConfig": (ResourcesVpcConfig, True),
         "RoleArn": (str, True),
+        "RollbackConfig": (RollbackConfig, False),
         "StorageConfig": (StorageConfig, False),
         "Tags": (Tags, False),
         "UpgradePolicy": (UpgradePolicy, False),

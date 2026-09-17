@@ -336,6 +336,42 @@ class EvaluationFormItemEnablementConfiguration(AWSProperty):
     }
 
 
+class EvaluationFormScoreThreshold(AWSProperty):
+    """
+    `EvaluationFormScoreThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxScorePercentage": (double, False),
+        "MinScorePercentage": (double, False),
+        "PerformanceCategory": (str, True),
+    }
+
+
+class QuestionPointsConfiguration(AWSProperty):
+    """
+    `QuestionPointsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionpointsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsBonus": (boolean, False),
+        "MaxPointValue": (integer, False),
+        "MinPointValue": (integer, False),
+    }
+
+
+class EvaluationFormQuestionScoringConfiguration(AWSProperty):
+    """
+    `EvaluationFormQuestionScoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionscoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsExcludedFromScoring": (boolean, False),
+        "PointsConfiguration": (QuestionPointsConfiguration, False),
+        "ScoreThresholds": ([EvaluationFormScoreThreshold], False),
+    }
+
+
 class MultiSelectQuestionRuleCategoryAutomation(AWSProperty):
     """
     `MultiSelectQuestionRuleCategoryAutomation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-multiselectquestionrulecategoryautomation.html>`__
@@ -380,13 +416,38 @@ class EvaluationFormMultiSelectQuestionAutomation(AWSProperty):
     }
 
 
+class AutomaticFailConfiguration(AWSProperty):
+    """
+    `AutomaticFailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-automaticfailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetSection": (str, False),
+    }
+
+
+class QuestionOptionPointsConfiguration(AWSProperty):
+    """
+    `QuestionOptionPointsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionoptionpointsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsBonus": (boolean, False),
+        "PointValue": (integer, True),
+    }
+
+
 class EvaluationFormMultiSelectQuestionOption(AWSProperty):
     """
     `EvaluationFormMultiSelectQuestionOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html>`__
     """
 
     props: PropsDictType = {
+        "AutomaticFail": (boolean, False),
+        "AutomaticFailConfiguration": (AutomaticFailConfiguration, False),
+        "PointsConfiguration": (QuestionOptionPointsConfiguration, False),
         "RefId": (str, True),
+        "Score": (integer, False),
         "Text": (str, True),
     }
 
@@ -424,16 +485,6 @@ class EvaluationFormNumericQuestionAutomation(AWSProperty):
     }
 
 
-class AutomaticFailConfiguration(AWSProperty):
-    """
-    `AutomaticFailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-automaticfailconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "TargetSection": (str, False),
-    }
-
-
 class EvaluationFormNumericQuestionOption(AWSProperty):
     """
     `EvaluationFormNumericQuestionOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html>`__
@@ -444,6 +495,7 @@ class EvaluationFormNumericQuestionOption(AWSProperty):
         "AutomaticFailConfiguration": (AutomaticFailConfiguration, False),
         "MaxValue": (integer, True),
         "MinValue": (integer, True),
+        "PointsConfiguration": (QuestionOptionPointsConfiguration, False),
         "Score": (integer, False),
     }
 
@@ -503,6 +555,7 @@ class EvaluationFormSingleSelectQuestionOption(AWSProperty):
     props: PropsDictType = {
         "AutomaticFail": (boolean, False),
         "AutomaticFailConfiguration": (AutomaticFailConfiguration, False),
+        "PointsConfiguration": (QuestionOptionPointsConfiguration, False),
         "RefId": (str, True),
         "Score": (integer, False),
         "Text": (str, True),
@@ -566,6 +619,7 @@ class EvaluationFormQuestion(AWSProperty):
         "QuestionType": (str, True),
         "QuestionTypeProperties": (EvaluationFormQuestionTypeProperties, False),
         "RefId": (str, True),
+        "ScoringConfiguration": (EvaluationFormQuestionScoringConfiguration, False),
         "Title": (str, True),
         "Weight": (double, False),
     }
@@ -589,8 +643,10 @@ class EvaluationFormSection(AWSProperty):
 
     props: PropsDictType = {
         "Instructions": (str, False),
+        "IsExcludedFromScoring": (boolean, False),
         "Items": ([EvaluationFormItem], False),
         "RefId": (str, True),
+        "ScoreThresholds": ([EvaluationFormScoreThreshold], False),
         "Title": (str, True),
         "Weight": (double, False),
     }
@@ -665,6 +721,7 @@ class ScoringStrategy(AWSProperty):
 
     props: PropsDictType = {
         "Mode": (str, True),
+        "ScoreThresholds": ([EvaluationFormScoreThreshold], False),
         "Status": (str, True),
     }
 
@@ -1236,6 +1293,41 @@ class RoutingProfile(AWSObject):
     }
 
 
+class SlaTargetFieldValue(AWSProperty):
+    """
+    `SlaTargetFieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-slatargetfieldvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "StringValue": (str, False),
+    }
+
+
+class CaseSlaConfiguration(AWSProperty):
+    """
+    `CaseSlaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-caseslaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldId": (str, False),
+        "Name": (str, True),
+        "TargetFieldValues": ([SlaTargetFieldValue], False),
+        "TargetSlaMinutes": (double, True),
+        "Type": (str, True),
+    }
+
+
+class AssignSlaAction(AWSProperty):
+    """
+    `AssignSlaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assignslaaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaseSlaConfiguration": (CaseSlaConfiguration, True),
+        "SlaAssignmentType": (str, True),
+    }
+
+
 class FieldIdentifier(AWSProperty):
     """
     `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
@@ -1300,6 +1392,7 @@ class SendNotificationAction(AWSProperty):
         "Content": (str, True),
         "ContentType": (str, True),
         "DeliveryMethod": (str, True),
+        "Exclusion": (NotificationRecipientType, False),
         "Recipient": (NotificationRecipientType, True),
         "Subject": (str, False),
     }
@@ -1356,6 +1449,7 @@ class Actions(AWSProperty):
 
     props: PropsDictType = {
         "AssignContactCategoryActions": (Tags, False),
+        "AssignSlaActions": ([AssignSlaAction], False),
         "CreateCaseActions": ([CreateCaseAction], False),
         "EndAssociatedTasksActions": (Tags, False),
         "EventBridgeActions": ([EventBridgeAction], False),
@@ -1580,6 +1674,59 @@ class TaskTemplate(AWSObject):
     }
 
 
+class ChatEntryPointParameters(AWSProperty):
+    """
+    `ChatEntryPointParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-testcase-chatentrypointparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowId": (str, False),
+    }
+
+
+class VoiceCallEntryPointParameters(AWSProperty):
+    """
+    `VoiceCallEntryPointParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-testcase-voicecallentrypointparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationPhoneNumber": (str, False),
+        "FlowId": (str, False),
+        "SourcePhoneNumber": (str, False),
+    }
+
+
+class EntryPoint(AWSProperty):
+    """
+    `EntryPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-testcase-entrypoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChatEntryPointParameters": (ChatEntryPointParameters, False),
+        "Type": (str, False),
+        "VoiceCallEntryPointParameters": (VoiceCallEntryPointParameters, False),
+    }
+
+
+class TestCase(AWSObject):
+    """
+    `TestCase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-testcase.html>`__
+    """
+
+    resource_type = "AWS::Connect::TestCase"
+
+    props: PropsDictType = {
+        "Content": (str, True),
+        "Description": (str, False),
+        "EntryPoint": (EntryPoint, False),
+        "InitializationData": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class TrafficDistributionGroup(AWSObject):
     """
     `TrafficDistributionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html>`__
@@ -1601,6 +1748,7 @@ class AfterContactWorkConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AfterContactWorkMode": (str, False),
         "AfterContactWorkTimeLimit": (integer, False),
     }
 

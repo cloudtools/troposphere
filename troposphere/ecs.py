@@ -891,15 +891,16 @@ class ExpressGatewayService(AWSObject):
     props: PropsDictType = {
         "Cluster": (str, False),
         "Cpu": (str, False),
-        "ExecutionRoleArn": (str, True),
+        "ExecutionRoleArn": (str, False),
         "HealthCheckPath": (str, False),
         "InfrastructureRoleArn": (str, True),
         "Memory": (str, False),
         "NetworkConfiguration": (ExpressGatewayServiceNetworkConfiguration, False),
-        "PrimaryContainer": (ExpressGatewayContainer, True),
+        "PrimaryContainer": (ExpressGatewayContainer, False),
         "ScalingTarget": (ExpressGatewayScalingTarget, False),
         "ServiceName": (str, False),
         "Tags": (Tags, False),
+        "TaskDefinitionArn": (str, False),
         "TaskRoleArn": (str, False),
     }
 
@@ -941,6 +942,17 @@ class DeploymentAlarms(AWSProperty):
     }
 
 
+class ThresholdConfiguration(AWSProperty):
+    """
+    `ThresholdConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-thresholdconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
+    }
+
+
 class DeploymentCircuitBreaker(AWSProperty):
     """
     `DeploymentCircuitBreaker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html>`__
@@ -948,7 +960,9 @@ class DeploymentCircuitBreaker(AWSProperty):
 
     props: PropsDictType = {
         "Enable": (boolean, True),
+        "ResetOnHealthyTask": (boolean, False),
         "Rollback": (boolean, True),
+        "ThresholdConfiguration": (ThresholdConfiguration, False),
     }
 
 

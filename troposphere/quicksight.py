@@ -9146,6 +9146,33 @@ class DataSource(AWSObject):
     }
 
 
+class Permission(AWSProperty):
+    """
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-flow-permission.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([str], True),
+        "Principal": (str, True),
+    }
+
+
+class Flow(AWSObject):
+    """
+    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-flow.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Flow"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, True),
+        "Description": (str, False),
+        "FlowDefinition": (dict, True),
+        "Name": (str, True),
+        "Permissions": ([Permission], False),
+    }
+
+
 class Folder(AWSObject):
     """
     `Folder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html>`__
@@ -9161,6 +9188,41 @@ class Folder(AWSObject):
         "ParentFolderArn": (str, False),
         "Permissions": ([ResourcePermission], False),
         "SharingModel": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class IdentityProviderVpcConnectionProperties(AWSProperty):
+    """
+    `IdentityProviderVpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-oauthclientapplication-identityprovidervpcconnectionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcConnectionArn": (str, True),
+    }
+
+
+class OAuthClientApplication(AWSObject):
+    """
+    `OAuthClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-oauthclientapplication.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::OAuthClientApplication"
+
+    props: PropsDictType = {
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "DataSourceType": (str, False),
+        "IdentityProviderVpcConnectionProperties": (
+            IdentityProviderVpcConnectionProperties,
+            False,
+        ),
+        "Name": (str, True),
+        "OAuthAuthorizationEndpointUrl": (str, False),
+        "OAuthClientApplicationId": (str, True),
+        "OAuthClientAuthenticationType": (str, True),
+        "OAuthScopes": (str, False),
+        "OAuthTokenEndpointUrl": (str, True),
         "Tags": (Tags, False),
     }
 
@@ -9946,6 +10008,17 @@ class NetworkInterface(AWSProperty):
         "NetworkInterfaceId": (str, False),
         "Status": (str, False),
         "SubnetId": (str, False),
+    }
+
+
+class StepAliasMapping(AWSProperty):
+    """
+    `StepAliasMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-flow-stepaliasmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "StepAlias": (str, True),
+        "StepId": (str, True),
     }
 
 

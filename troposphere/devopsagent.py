@@ -547,8 +547,9 @@ class MCPServerSigV4AuthorizationConfig(AWSProperty):
 
     props: PropsDictType = {
         "CustomHeaders": (dict, False),
+        "McpRoleArn": (str, False),
         "Region": (str, True),
-        "RoleArn": (str, True),
+        "RoleArn": (str, False),
         "Service": (str, True),
     }
 
@@ -771,6 +772,7 @@ class RegisteredMCPServerSigV4Details(AWSProperty):
         "CustomHeaders": (dict, False),
         "Description": (str, False),
         "Endpoint": (str, True),
+        "McpRoleArn": (str, False),
         "Name": (str, True),
         "Region": (str, True),
         "RoleArn": (str, True),

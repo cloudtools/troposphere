@@ -259,6 +259,36 @@ class Domain(AWSObject):
     }
 
 
+class DomainObjectTypeField(AWSProperty):
+    """
+    `DomainObjectTypeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domainobjecttype-domainobjecttypefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentType": (str, False),
+        "FeatureType": (str, False),
+        "Source": (str, True),
+        "Target": (str, True),
+    }
+
+
+class DomainObjectType(AWSObject):
+    """
+    `DomainObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domainobjecttype.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::DomainObjectType"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "EncryptionKey": (str, False),
+        "Fields": (dict, True),
+        "ObjectTypeName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class EventStream(AWSObject):
     """
     `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventstream.html>`__

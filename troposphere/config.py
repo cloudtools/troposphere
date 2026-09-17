@@ -273,6 +273,40 @@ class ConformancePack(AWSObject):
     }
 
 
+class AzureConnectorConfiguration(AWSProperty):
+    """
+    `AzureConnectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-connector-azureconnectorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientIdentifier": (str, True),
+        "TenantIdentifier": (str, True),
+    }
+
+
+class ConnectorConfiguration(AWSProperty):
+    """
+    `ConnectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-connector-connectorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Azure": (AzureConnectorConfiguration, False),
+    }
+
+
+class Connector(AWSObject):
+    """
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-connector.html>`__
+    """
+
+    resource_type = "AWS::Config::Connector"
+
+    props: PropsDictType = {
+        "ConnectorConfiguration": (ConnectorConfiguration, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ConfigSnapshotDeliveryProperties(AWSProperty):
     """
     `ConfigSnapshotDeliveryProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html>`__
@@ -446,35 +480,4 @@ class StoredQuery(AWSObject):
         "QueryExpression": (str, True),
         "QueryName": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class ResourceValue(AWSProperty):
-    """
-    `ResourceValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html>`__
-    """
-
-    props: PropsDictType = {
-        "Value": (str, False),
-    }
-
-
-class StaticValue(AWSProperty):
-    """
-    `StaticValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html>`__
-    """
-
-    props: PropsDictType = {
-        "Values": ([str], False),
-    }
-
-
-class RemediationParameterValue(AWSProperty):
-    """
-    `RemediationParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html>`__
-    """
-
-    props: PropsDictType = {
-        "ResourceValue": (ResourceValue, False),
-        "StaticValue": (StaticValue, False),
     }

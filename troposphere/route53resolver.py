@@ -46,6 +46,16 @@ class FirewallAdvancedThreatCategoryConfig(AWSProperty):
     }
 
 
+class PartnerThreatProtectionConfig(AWSProperty):
+    """
+    `PartnerThreatProtectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-partnerthreatprotectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Partner": (str, True),
+    }
+
+
 class FirewallRuleType(AWSProperty):
     """
     `FirewallRuleType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html>`__
@@ -57,6 +67,7 @@ class FirewallRuleType(AWSProperty):
             False,
         ),
         "FirewallAdvancedThreatCategory": (FirewallAdvancedThreatCategoryConfig, False),
+        "PartnerThreatProtection": (PartnerThreatProtectionConfig, False),
     }
 
 
@@ -79,6 +90,7 @@ class FirewallRule(AWSProperty):
         "FirewallThreatProtectionId": (str, False),
         "Priority": (integer, True),
         "Qtype": (str, False),
+        "Status": (str, False),
     }
 
 

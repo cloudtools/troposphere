@@ -110,6 +110,29 @@ class CollectionIndex(AWSObject):
     }
 
 
+class AnalyzerItems(AWSProperty):
+    """
+    `AnalyzerItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-analyzeritems.html>`__
+    """
+
+    props: PropsDictType = {
+        "CharFilter": ([str], False),
+        "Filter": ([str], False),
+        "Tokenizer": (str, False),
+        "Type": (str, False),
+    }
+
+
+class Analysis(AWSProperty):
+    """
+    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-analysis.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analyzer": (dict, False),
+    }
+
+
 class IndexProperty(AWSProperty):
     """
     `IndexProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-index.html>`__
@@ -128,6 +151,7 @@ class IndexSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Analysis": (Analysis, False),
         "Index": (IndexProperty, False),
     }
 
@@ -162,10 +186,13 @@ class PropertyMapping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Analyzer": (str, False),
+        "CompressionLevel": (str, False),
         "Dimension": (integer, False),
         "Index": (boolean, False),
         "Method": (Method, False),
         "Properties": (dict, False),
+        "SpaceType": (str, False),
         "Type": (str, True),
         "Value": (str, False),
     }

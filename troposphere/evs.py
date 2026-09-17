@@ -112,18 +112,18 @@ class Environment(AWSObject):
     resource_type = "AWS::EVS::Environment"
 
     props: PropsDictType = {
-        "ConnectivityInfo": (ConnectivityInfo, True),
+        "ConnectivityInfo": (ConnectivityInfo, False),
         "EnvironmentName": (str, False),
         "Hosts": ([HostInfoForCreate], False),
         "InitialVlans": (InitialVlans, False),
         "KmsKeyId": (str, False),
-        "LicenseInfo": (LicenseInfo, True),
+        "LicenseInfo": (LicenseInfo, False),
         "ServiceAccessSecurityGroups": (ServiceAccessSecurityGroups, False),
         "ServiceAccessSubnetId": (str, True),
-        "SiteId": (str, True),
+        "SiteId": (str, False),
         "Tags": (Tags, False),
         "TermsAccepted": (boolean, True),
-        "VcfHostnames": (VcfHostnames, True),
+        "VcfHostnames": (VcfHostnames, False),
         "VcfVersion": (str, True),
         "VpcId": (str, True),
     }
