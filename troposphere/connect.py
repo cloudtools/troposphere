@@ -130,6 +130,20 @@ class ContactFlowVersion(AWSObject):
     }
 
 
+class DataLakeAssociation(AWSObject):
+    """
+    `DataLakeAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datalakeassociation.html>`__
+    """
+
+    resource_type = "AWS::Connect::DataLakeAssociation"
+
+    props: PropsDictType = {
+        "DataSetId": (str, True),
+        "InstanceId": (str, True),
+        "TargetAccountId": (str, False),
+    }
+
+
 class DataTable(AWSObject):
     """
     `DataTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html>`__
@@ -139,12 +153,12 @@ class DataTable(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "InstanceArn": (str, False),
-        "Name": (str, False),
-        "Status": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "Status": (str, True),
         "Tags": (Tags, False),
-        "TimeZone": (str, False),
-        "ValueLockLevel": (str, False),
+        "TimeZone": (str, True),
+        "ValueLockLevel": (str, True),
     }
 
 
@@ -186,13 +200,13 @@ class DataTableAttribute(AWSObject):
     resource_type = "AWS::Connect::DataTableAttribute"
 
     props: PropsDictType = {
-        "DataTableArn": (str, False),
+        "DataTableArn": (str, True),
         "Description": (str, False),
-        "InstanceArn": (str, False),
-        "Name": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
         "Primary": (boolean, False),
         "Validation": (Validation, False),
-        "ValueType": (str, False),
+        "ValueType": (str, True),
     }
 
 
@@ -226,9 +240,9 @@ class DataTableRecord(AWSObject):
     resource_type = "AWS::Connect::DataTableRecord"
 
     props: PropsDictType = {
-        "DataTableArn": (str, False),
-        "DataTableRecord": (DataTableRecordProperty, False),
-        "InstanceArn": (str, False),
+        "DataTableArn": (str, True),
+        "DataTableRecord": (DataTableRecordProperty, True),
+        "InstanceArn": (str, True),
     }
 
 
@@ -1508,8 +1522,8 @@ class Application(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ApplicationPermissions": ([str], True),
-        "Namespace": (str, True),
+        "ApplicationPermissions": ([str], False),
+        "Namespace": (str, False),
         "Type": (str, False),
     }
 
@@ -1520,8 +1534,8 @@ class FlowModule(AWSProperty):
     """
 
     props: PropsDictType = {
-        "FlowModuleId": (str, True),
-        "Type": (str, True),
+        "FlowModuleId": (str, False),
+        "Type": (str, False),
     }
 
 
@@ -1531,9 +1545,9 @@ class PrimaryAttributeValue(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AccessType": (str, True),
-        "AttributeName": (str, True),
-        "Values": ([str], True),
+        "AccessType": (str, False),
+        "AttributeName": (str, False),
+        "Values": ([str], False),
     }
 
 
@@ -1543,7 +1557,7 @@ class PrimaryAttributeAccessControlConfigurationItem(AWSProperty):
     """
 
     props: PropsDictType = {
-        "PrimaryAttributeValues": ([PrimaryAttributeValue], True),
+        "PrimaryAttributeValues": ([PrimaryAttributeValue], False),
     }
 
 

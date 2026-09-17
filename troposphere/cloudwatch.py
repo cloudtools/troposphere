@@ -317,7 +317,7 @@ class ScheduleConfiguration(AWSProperty):
     props: PropsDictType = {
         "EndTimeOffset": (integer, False),
         "ScheduleExpression": (str, True),
-        "StartTimeOffset": (integer, False),
+        "StartTimeOffset": (integer, True),
     }
 
 
@@ -328,10 +328,11 @@ class ScheduledQueryConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AggregationExpression": (str, True),
-        "LogGroupIdentifiers": ([str], True),
+        "LogGroupIdentifiers": ([str], False),
         "QueryString": (str, True),
         "ScheduleConfiguration": (ScheduleConfiguration, True),
         "ScheduledQueryRoleARN": (str, True),
+        "Tags": (Tags, False),
     }
 
 

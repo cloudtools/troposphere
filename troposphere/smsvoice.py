@@ -210,6 +210,19 @@ class ProtectConfiguration(AWSObject):
     }
 
 
+class Registration(AWSObject):
+    """
+    `Registration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-registration.html>`__
+    """
+
+    resource_type = "AWS::SMSVOICE::Registration"
+
+    props: PropsDictType = {
+        "RegistrationType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ResourcePolicy(AWSObject):
     """
     `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-resourcepolicy.html>`__

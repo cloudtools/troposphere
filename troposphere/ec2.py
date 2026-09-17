@@ -3225,6 +3225,32 @@ class TransitGatewayPeeringAttachment(AWSObject):
     }
 
 
+class TransitGatewayPolicyTable(AWSObject):
+    """
+    `TransitGatewayPolicyTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypolicytable.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayPolicyTable"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+        "TransitGatewayId": (str, True),
+    }
+
+
+class TransitGatewayPolicyTableAssociation(AWSObject):
+    """
+    `TransitGatewayPolicyTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypolicytableassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayPolicyTableAssociation"
+
+    props: PropsDictType = {
+        "TransitGatewayAttachmentId": (str, True),
+        "TransitGatewayPolicyTableId": (str, True),
+    }
+
+
 class TransitGatewayRoute(AWSObject):
     """
     `TransitGatewayRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html>`__
@@ -3297,6 +3323,57 @@ class TransitGatewayVpcAttachment(AWSObject):
     }
 
 
+class VpcEncryptionControlExclusion(AWSProperty):
+    """
+    `VpcEncryptionControlExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcencryptioncontrol-vpcencryptioncontrolexclusion.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "StateMessage": (str, False),
+    }
+
+
+class VpcEncryptionControlExclusions(AWSProperty):
+    """
+    `VpcEncryptionControlExclusions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrolexclusions.html>`__
+    """
+
+    props: PropsDictType = {
+        "EgressOnlyInternetGateway": (VpcEncryptionControlExclusion, False),
+        "ElasticFileSystem": (VpcEncryptionControlExclusion, False),
+        "InternetGateway": (VpcEncryptionControlExclusion, False),
+        "Lambda": (VpcEncryptionControlExclusion, False),
+        "NatGateway": (VpcEncryptionControlExclusion, False),
+        "VirtualPrivateGateway": (VpcEncryptionControlExclusion, False),
+        "VpcLattice": (VpcEncryptionControlExclusion, False),
+        "VpcPeering": (VpcEncryptionControlExclusion, False),
+    }
+
+
+class VpcEncryptionControl(AWSProperty):
+    """
+    `VpcEncryptionControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html>`__
+    """
+
+    props: PropsDictType = {
+        "EgressOnlyInternetGatewayExclusion": (str, False),
+        "ElasticFileSystemExclusion": (str, False),
+        "InternetGatewayExclusion": (str, False),
+        "LambdaExclusion": (str, False),
+        "Mode": (str, False),
+        "NatGatewayExclusion": (str, False),
+        "ResourceExclusions": (VpcEncryptionControlExclusions, False),
+        "State": (str, False),
+        "StateMessage": (str, False),
+        "VirtualPrivateGatewayExclusion": (str, False),
+        "VpcEncryptionControlId": (str, False),
+        "VpcId": (str, False),
+        "VpcLatticeExclusion": (str, False),
+        "VpcPeeringExclusion": (str, False),
+    }
+
+
 class VPC(AWSObject):
     """
     `VPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html>`__
@@ -3312,6 +3389,7 @@ class VPC(AWSObject):
         "Ipv4IpamPoolId": (str, False),
         "Ipv4NetmaskLength": (integer, False),
         "Tags": (validate_tags_or_list, False),
+        "VpcEncryptionControl": (VpcEncryptionControl, False),
     }
 
 
@@ -4242,15 +4320,4 @@ class VolumeProperty(AWSProperty):
     props: PropsDictType = {
         "Device": (str, True),
         "VolumeId": (str, True),
-    }
-
-
-class VpcEncryptionControlExclusion(AWSProperty):
-    """
-    `VpcEncryptionControlExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcencryptioncontrol-vpcencryptioncontrolexclusion.html>`__
-    """
-
-    props: PropsDictType = {
-        "State": (str, False),
-        "StateMessage": (str, False),
     }

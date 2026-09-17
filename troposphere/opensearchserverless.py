@@ -188,6 +188,7 @@ class PropertyMapping(AWSProperty):
     props: PropsDictType = {
         "Analyzer": (str, False),
         "CompressionLevel": (str, False),
+        "DataType": (str, False),
         "Dimension": (integer, False),
         "Index": (boolean, False),
         "Method": (Method, False),

@@ -267,6 +267,7 @@ class ConformancePack(AWSObject):
         "ConformancePackName": (str, True),
         "DeliveryS3Bucket": (str, False),
         "DeliveryS3KeyPrefix": (str, False),
+        "Tags": (Tags, False),
         "TemplateBody": (str, False),
         "TemplateS3Uri": (str, False),
         "TemplateSSMDocumentDetails": (TemplateSSMDocumentDetails, False),
@@ -421,6 +422,7 @@ class OrganizationConformancePack(AWSObject):
         "DeliveryS3KeyPrefix": (str, False),
         "ExcludedAccounts": ([str], False),
         "OrganizationConformancePackName": (str, True),
+        "Tags": (Tags, False),
         "TemplateBody": (str, False),
         "TemplateS3Uri": (str, False),
     }

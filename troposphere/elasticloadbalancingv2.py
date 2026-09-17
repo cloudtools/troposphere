@@ -226,6 +226,7 @@ class Listener(AWSObject):
         "Port": (validate_network_port, False),
         "Protocol": (str, False),
         "SslPolicy": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -313,6 +314,7 @@ class SourceIpConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IpAddressType": (str, False),
         "Values": ([str], False),
     }
 
@@ -419,6 +421,7 @@ class ListenerRule(AWSObject):
         "Conditions": ([Condition], True),
         "ListenerArn": (str, False),
         "Priority": (integer, True),
+        "Tags": (Tags, False),
         "Transforms": ([Transform], False),
     }
 

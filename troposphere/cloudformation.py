@@ -36,6 +36,30 @@ class CustomResource(AWSObject):
     }
 
 
+class TemplateConfiguration(AWSProperty):
+    """
+    `TemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-generatedtemplate-templateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeletionPolicy": (str, False),
+        "UpdateReplacePolicy": (str, False),
+    }
+
+
+class GeneratedTemplate(AWSObject):
+    """
+    `GeneratedTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-generatedtemplate.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::GeneratedTemplate"
+
+    props: PropsDictType = {
+        "GeneratedTemplateName": (str, True),
+        "TemplateConfiguration": (TemplateConfiguration, False),
+    }
+
+
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-s3location.html>`__
@@ -201,10 +225,12 @@ class LambdaHook(AWSObject):
 
     props: PropsDictType = {
         "Alias": (str, True),
+        "AutoUpdate": (boolean, False),
         "ExecutionRole": (str, True),
         "FailureMode": (str, True),
         "HookStatus": (str, True),
         "LambdaFunction": (str, True),
+        "LoggingConfig": (LoggingConfig, False),
         "StackFilters": (StackFilters, False),
         "TargetFilters": (TargetFilters, False),
         "TargetOperations": ([str], True),
@@ -294,6 +320,28 @@ class ResourceDefaultVersion(AWSObject):
         "TypeName": (str, False),
         "TypeVersionArn": (str, False),
         "VersionId": (str, False),
+    }
+
+
+class ScanFilter(AWSProperty):
+    """
+    `ScanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourcescan-scanfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Types": ([str], False),
+    }
+
+
+class ResourceScan(AWSObject):
+    """
+    `ResourceScan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcescan.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::ResourceScan"
+
+    props: PropsDictType = {
+        "ScanFilters": ([ScanFilter], False),
     }
 
 
@@ -474,3 +522,16 @@ class WaitConditionHandle(AWSObject):
     resource_type = "AWS::CloudFormation::WaitConditionHandle"
 
     props: PropsDictType = {}
+
+
+class TemplateProgress(AWSProperty):
+    """
+    `TemplateProgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-generatedtemplate-templateprogress.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourcesFailed": (integer, False),
+        "ResourcesPending": (integer, False),
+        "ResourcesProcessing": (integer, False),
+        "ResourcesSucceeded": (integer, False),
+    }

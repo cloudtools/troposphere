@@ -16,6 +16,26 @@ from .validators.imagebuilder import (
 )
 
 
+class AllImageBuildVersions(AWSObject):
+    """
+    `AllImageBuildVersions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-allimagebuildversions.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::AllImageBuildVersions"
+
+    props: PropsDictType = {}
+
+
+class AllWorkflowBuildVersions(AWSObject):
+    """
+    `AllWorkflowBuildVersions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-allworkflowbuildversions.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::AllWorkflowBuildVersions"
+
+    props: PropsDictType = {}
+
+
 class Component(AWSObject):
     """
     `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html>`__
@@ -416,6 +436,7 @@ class Schedule(AWSProperty):
             False,
         ),
         "ScheduleExpression": (str, False),
+        "Timezone": (str, False),
     }
 
 
@@ -715,6 +736,28 @@ class Workflow(AWSObject):
     }
 
 
+class WorkflowExecution(AWSObject):
+    """
+    `WorkflowExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflowexecution.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::WorkflowExecution"
+
+    props: PropsDictType = {
+        "ImageBuildVersionArn": (str, False),
+    }
+
+
+class WorkflowStepExecution(AWSObject):
+    """
+    `WorkflowStepExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflowstepexecution.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::WorkflowStepExecution"
+
+    props: PropsDictType = {}
+
+
 class LatestVersion(AWSProperty):
     """
     `LatestVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-workflow-latestversion.html>`__
@@ -725,4 +768,38 @@ class LatestVersion(AWSProperty):
         "Major": (str, False),
         "Minor": (str, False),
         "Patch": (str, False),
+    }
+
+
+class ParametersItems(AWSProperty):
+    """
+    `ParametersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-allworkflowbuildversions-parametersitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": ([str], False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Type": (str, True),
+    }
+
+
+class State(AWSProperty):
+    """
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-allimagebuildversions-state.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-allworkflowbuildversions-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
     }

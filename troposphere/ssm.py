@@ -302,6 +302,24 @@ class MaintenanceWindowTask(AWSObject):
     }
 
 
+class OpsItem(AWSObject):
+    """
+    `OpsItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-opsitem.html>`__
+    """
+
+    resource_type = "AWS::SSM::OpsItem"
+
+    props: PropsDictType = {
+        "Category": (str, False),
+        "Description": (str, True),
+        "Priority": (integer, False),
+        "Severity": (str, False),
+        "Source": (str, True),
+        "Tags": (Tags, False),
+        "Title": (str, True),
+    }
+
+
 class Parameter(AWSObject):
     """
     `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html>`__
@@ -473,4 +491,17 @@ class ResourcePolicy(AWSObject):
     props: PropsDictType = {
         "Policy": (dict, True),
         "ResourceArn": (str, True),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-session.html>`__
+    """
+
+    resource_type = "AWS::SSM::Session"
+
+    props: PropsDictType = {
+        "Reason": (str, False),
+        "Target": (str, False),
     }

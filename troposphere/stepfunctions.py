@@ -36,6 +36,18 @@ class Activity(AWSObject):
     }
 
 
+class MapRun(AWSObject):
+    """
+    `MapRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-maprun.html>`__
+    """
+
+    resource_type = "AWS::StepFunctions::MapRun"
+
+    props: PropsDictType = {
+        "ExecutionArn": (str, False),
+    }
+
+
 class CloudWatchLogsLogGroup(AWSProperty):
     """
     `CloudWatchLogsLogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html>`__
@@ -164,4 +176,42 @@ class StateMachineVersion(AWSObject):
         "Description": (str, False),
         "StateMachineArn": (str, True),
         "StateMachineRevisionId": (str, False),
+    }
+
+
+class MapRunExecutionCounts(AWSProperty):
+    """
+    `MapRunExecutionCounts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-maprun-maprunexecutioncounts.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aborted": (integer, False),
+        "Failed": (integer, False),
+        "FailuresNotRedrivable": (integer, False),
+        "Pending": (integer, False),
+        "PendingRedrive": (integer, False),
+        "ResultsWritten": (integer, False),
+        "Running": (integer, False),
+        "Succeeded": (integer, False),
+        "TimedOut": (integer, False),
+        "Total": (integer, False),
+    }
+
+
+class MapRunItemCounts(AWSProperty):
+    """
+    `MapRunItemCounts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-maprun-maprunitemcounts.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aborted": (integer, False),
+        "Failed": (integer, False),
+        "FailuresNotRedrivable": (integer, False),
+        "Pending": (integer, False),
+        "PendingRedrive": (integer, False),
+        "ResultsWritten": (integer, False),
+        "Running": (integer, False),
+        "Succeeded": (integer, False),
+        "TimedOut": (integer, False),
+        "Total": (integer, False),
     }

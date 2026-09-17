@@ -89,6 +89,34 @@ class Channel(AWSObject):
     }
 
 
+class S3Destination(AWSProperty):
+    """
+    `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-harvestjob-s3destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "ManifestKey": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
+class HarvestJob(AWSObject):
+    """
+    `HarvestJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-harvestjob.html>`__
+    """
+
+    resource_type = "AWS::MediaPackage::HarvestJob"
+
+    props: PropsDictType = {
+        "EndTime": (str, True),
+        "Id": (str, True),
+        "OriginEndpointId": (str, True),
+        "S3Destination": (S3Destination, True),
+        "StartTime": (str, True),
+    }
+
+
 class Authorization(AWSProperty):
     """
     `Authorization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html>`__

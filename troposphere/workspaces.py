@@ -56,6 +56,32 @@ class Workspace(AWSObject):
     }
 
 
+class IpRuleItem(AWSProperty):
+    """
+    `IpRuleItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspaceipgroup-ipruleitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "IpRule": (str, True),
+        "RuleDesc": (str, False),
+    }
+
+
+class WorkspaceIpGroup(AWSObject):
+    """
+    `WorkspaceIpGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspaceipgroup.html>`__
+    """
+
+    resource_type = "AWS::WorkSpaces::WorkspaceIpGroup"
+
+    props: PropsDictType = {
+        "GroupDesc": (str, False),
+        "GroupName": (str, True),
+        "Tags": (Tags, False),
+        "UserRules": ([IpRuleItem], False),
+    }
+
+
 class ApplicationSettings(AWSProperty):
     """
     `ApplicationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-applicationsettings.html>`__

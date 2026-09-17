@@ -1489,6 +1489,7 @@ class VpcOriginEndpointConfig(AWSProperty):
         "Arn": (str, True),
         "HTTPPort": (integer, False),
         "HTTPSPort": (integer, False),
+        "IpAddressType": (str, False),
         "Name": (str, True),
         "OriginProtocolPolicy": (str, False),
         "OriginSSLProtocols": ([str], False),

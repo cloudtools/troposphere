@@ -297,6 +297,7 @@ class ResolutionTechniques(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EnableRealTimeMatching": (boolean, False),
         "ProviderProperties": (ProviderProperties, False),
         "ResolutionType": (str, False),
         "RuleBasedProperties": (RuleBasedProperties, False),

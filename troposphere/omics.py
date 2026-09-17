@@ -107,6 +107,32 @@ class Configuration(AWSObject):
     }
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-reference-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Reference(AWSObject):
+    """
+    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-reference.html>`__
+    """
+
+    resource_type = "AWS::Omics::Reference"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, False),
+        "ReferenceStoreId": (str, False),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class ReferenceStore(AWSObject):
     """
     `ReferenceStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html>`__

@@ -104,3 +104,27 @@ class Export(AWSObject):
         "Export": (ExportProperty, True),
         "Tags": ([ResourceTag], False),
     }
+
+
+class Table(AWSObject):
+    """
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmdataexports-table.html>`__
+    """
+
+    resource_type = "AWS::BCMDataExports::Table"
+
+    props: PropsDictType = {
+        "TableName": (str, True),
+    }
+
+
+class Column(AWSProperty):
+    """
+    `Column <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-table-column.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, False),
+        "Type": (str, False),
+    }

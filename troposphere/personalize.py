@@ -65,6 +65,18 @@ class DatasetGroup(AWSObject):
     }
 
 
+class Recipe(AWSObject):
+    """
+    `Recipe <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-recipe.html>`__
+    """
+
+    resource_type = "AWS::Personalize::Recipe"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
 class Schema(AWSObject):
     """
     `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html>`__

@@ -25,6 +25,22 @@ class Domain(AWSObject):
     }
 
 
+class Package(AWSObject):
+    """
+    `Package <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-package.html>`__
+    """
+
+    resource_type = "AWS::CodeArtifact::Package"
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "Format": (str, True),
+        "Name": (str, True),
+        "Namespace": (str, False),
+        "Repository": (str, True),
+    }
+
+
 class RestrictionType(AWSProperty):
     """
     `RestrictionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeartifact-packagegroup-restrictiontype.html>`__

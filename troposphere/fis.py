@@ -182,6 +182,18 @@ class ExperimentTemplate(AWSObject):
     }
 
 
+class SafetyLever(AWSObject):
+    """
+    `SafetyLever <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-safetylever.html>`__
+    """
+
+    resource_type = "AWS::FIS::SafetyLever"
+
+    props: PropsDictType = {
+        "Id": (str, False),
+    }
+
+
 class TargetAccountConfiguration(AWSObject):
     """
     `TargetAccountConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-targetaccountconfiguration.html>`__

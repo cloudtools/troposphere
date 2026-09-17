@@ -92,6 +92,54 @@ class InstanceConfig(AWSProperty):
     }
 
 
+class ScriptSource(AWSProperty):
+    """
+    `ScriptSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-scriptsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Checksum": (str, False),
+        "S3VersionId": (str, False),
+        "ScriptLocation": (str, True),
+    }
+
+
+class NodeLifecycleScript(AWSProperty):
+    """
+    `NodeLifecycleScript <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-nodelifecyclescript.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arguments": ([str], False),
+        "ExecutionPolicy": (str, False),
+        "Name": (str, True),
+        "OnError": (str, False),
+        "ScriptSource": (ScriptSource, True),
+    }
+
+
+class NodeLifecycleStages(AWSProperty):
+    """
+    `NodeLifecycleStages <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-nodelifecyclestages.html>`__
+    """
+
+    props: PropsDictType = {
+        "NodeBootstrapped": ([NodeLifecycleScript], False),
+        "NodeReady": ([NodeLifecycleScript], False),
+    }
+
+
+class NodeLifecycleActions(AWSProperty):
+    """
+    `NodeLifecycleActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-nodelifecycleactions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScriptCachingPolicy": (str, False),
+        "Stages": (NodeLifecycleStages, True),
+    }
+
+
 class ScalingConfiguration(AWSProperty):
     """
     `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-scalingconfiguration.html>`__
@@ -127,6 +175,7 @@ class ComputeNodeGroup(AWSObject):
         "IamInstanceProfileArn": (str, True),
         "InstanceConfigs": ([InstanceConfig], True),
         "Name": (str, False),
+        "NodeLifecycleActions": (NodeLifecycleActions, False),
         "PurchaseOption": (str, False),
         "ScalingConfiguration": (ScalingConfiguration, True),
         "SlurmConfiguration": (SlurmConfiguration, False),

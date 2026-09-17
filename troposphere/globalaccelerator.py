@@ -25,6 +25,9 @@ class Accelerator(AWSObject):
 
     props: PropsDictType = {
         "Enabled": (boolean, False),
+        "FlowLogsEnabled": (boolean, False),
+        "FlowLogsS3Bucket": (str, False),
+        "FlowLogsS3Prefix": (str, False),
         "IpAddressType": (accelerator_ipaddresstype, False),
         "IpAddresses": ([str], False),
         "Name": (str, True),

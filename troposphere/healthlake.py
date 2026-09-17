@@ -10,6 +10,66 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class ExistingVersionedProfileSource(AWSProperty):
+    """
+    `ExistingVersionedProfileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-datatransformationprofile-existingversionedprofilesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProfileId": (str, True),
+        "Version": (integer, True),
+    }
+
+
+class ProfileMappingSource(AWSProperty):
+    """
+    `ProfileMappingSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-datatransformationprofile-profilemappingsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProfileMapping": (dict, True),
+    }
+
+
+class StarterProfileSource(AWSProperty):
+    """
+    `StarterProfileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-datatransformationprofile-starterprofilesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "StarterProfileName": (str, True),
+    }
+
+
+class Source(AWSProperty):
+    """
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-datatransformationprofile-source.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExistingVersionedProfileId": (ExistingVersionedProfileSource, False),
+        "ProfileMapping": (ProfileMappingSource, False),
+        "StarterProfile": (StarterProfileSource, False),
+    }
+
+
+class DataTransformationProfile(AWSObject):
+    """
+    `DataTransformationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-datatransformationprofile.html>`__
+    """
+
+    resource_type = "AWS::HealthLake::DataTransformationProfile"
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "ProfileDescription": (str, False),
+        "ProfileName": (str, True),
+        "Source": (Source, False),
+        "SourceFormat": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class IdentityProviderConfiguration(AWSProperty):
     """
     `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>`__

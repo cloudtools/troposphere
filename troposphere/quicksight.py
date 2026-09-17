@@ -9192,6 +9192,102 @@ class Folder(AWSObject):
     }
 
 
+class AccessControlConfiguration(AWSProperty):
+    """
+    `AccessControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-accesscontrolconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsACLEnabled": (boolean, False),
+    }
+
+
+class KbTemplateConfiguration(AWSProperty):
+    """
+    `KbTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-kbtemplateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Template": (dict, False),
+    }
+
+
+class KnowledgeBaseConfiguration(AWSProperty):
+    """
+    `KnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-knowledgebaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TemplateConfiguration": (KbTemplateConfiguration, False),
+    }
+
+
+class AudioExtractionConfiguration(AWSProperty):
+    """
+    `AudioExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-audioextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioExtractionStatus": (str, True),
+    }
+
+
+class ImageExtractionConfiguration(AWSProperty):
+    """
+    `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-imageextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageExtractionStatus": (str, True),
+    }
+
+
+class VideoExtractionConfiguration(AWSProperty):
+    """
+    `VideoExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-videoextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VideoExtractionStatus": (str, True),
+        "VideoExtractionType": (str, False),
+    }
+
+
+class MediaExtractionConfiguration(AWSProperty):
+    """
+    `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-knowledgebase-mediaextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioExtractionConfiguration": (AudioExtractionConfiguration, False),
+        "ImageExtractionConfiguration": (ImageExtractionConfiguration, False),
+        "VideoExtractionConfiguration": (VideoExtractionConfiguration, False),
+    }
+
+
+class KnowledgeBase(AWSObject):
+    """
+    `KnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-knowledgebase.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::KnowledgeBase"
+
+    props: PropsDictType = {
+        "AccessControlConfiguration": (AccessControlConfiguration, False),
+        "AwsAccountId": (str, True),
+        "DataSourceArn": (str, True),
+        "Description": (str, False),
+        "IsEmailNotificationOptedForIngestionFailures": (boolean, False),
+        "KnowledgeBaseConfiguration": (KnowledgeBaseConfiguration, True),
+        "KnowledgeBaseId": (str, True),
+        "MediaExtractionConfiguration": (MediaExtractionConfiguration, False),
+        "Name": (str, True),
+        "Permissions": ([ResourcePermission], False),
+        "PrimaryOwnerArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class IdentityProviderVpcConnectionProperties(AWSProperty):
     """
     `IdentityProviderVpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-oauthclientapplication-identityprovidervpcconnectionproperties.html>`__

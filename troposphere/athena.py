@@ -96,16 +96,6 @@ class PreparedStatement(AWSObject):
     }
 
 
-class CustomerContentEncryptionConfiguration(AWSProperty):
-    """
-    `CustomerContentEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "KmsKey": (str, True),
-    }
-
-
 class Classification(AWSProperty):
     """
     `Classification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-classification.html>`__
@@ -129,6 +119,30 @@ class EngineConfiguration(AWSProperty):
         "DefaultExecutorDpuSize": (integer, False),
         "MaxConcurrentDpus": (integer, False),
         "SparkProperties": (dict, False),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-session.html>`__
+    """
+
+    resource_type = "AWS::Athena::Session"
+
+    props: PropsDictType = {
+        "EngineConfiguration": (EngineConfiguration, True),
+        "ExecutionRole": (str, False),
+        "WorkGroup": (str, True),
+    }
+
+
+class CustomerContentEncryptionConfiguration(AWSProperty):
+    """
+    `CustomerContentEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKey": (str, True),
     }
 
 

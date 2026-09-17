@@ -18,6 +18,21 @@ from .validators.glue import (
 )
 
 
+class Blueprint(AWSObject):
+    """
+    `Blueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-blueprint.html>`__
+    """
+
+    resource_type = "AWS::Glue::Blueprint"
+
+    props: PropsDictType = {
+        "BlueprintLocation": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DataLakeAccessProperties(AWSProperty):
     """
     `DataLakeAccessProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-catalog-datalakeaccessproperties.html>`__
@@ -1383,6 +1398,28 @@ class Table(AWSObject):
     }
 
 
+class IcebergCompactionConfiguration(AWSProperty):
+    """
+    `IcebergCompactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergcompactionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeleteFileThreshold": (integer, False),
+        "MinInputFiles": (integer, False),
+        "Strategy": (str, False),
+    }
+
+
+class CompactionConfiguration(AWSProperty):
+    """
+    `CompactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-compactionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IcebergConfiguration": (IcebergCompactionConfiguration, False),
+    }
+
+
 class IcebergConfiguration(AWSProperty):
     """
     `IcebergConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration-icebergconfiguration.html>`__
@@ -1442,6 +1479,7 @@ class TableOptimizerConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CompactionConfiguration": (CompactionConfiguration, False),
         "Enabled": (boolean, True),
         "OrphanFileDeletionConfiguration": (OrphanFileDeletionConfiguration, False),
         "RetentionConfiguration": (RetentionConfiguration, False),
@@ -1574,6 +1612,35 @@ class UsageProfile(AWSObject):
         "Description": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ResourceUri(AWSProperty):
+    """
+    `ResourceUri <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-userdefinedfunction-resourceuri.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceType": (str, False),
+        "Uri": (str, False),
+    }
+
+
+class UserDefinedFunction(AWSObject):
+    """
+    `UserDefinedFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-userdefinedfunction.html>`__
+    """
+
+    resource_type = "AWS::Glue::UserDefinedFunction"
+
+    props: PropsDictType = {
+        "ClassName": (str, False),
+        "DatabaseName": (str, True),
+        "FunctionName": (str, True),
+        "FunctionType": (str, False),
+        "OwnerName": (str, False),
+        "OwnerType": (str, False),
+        "ResourceUris": ([ResourceUri], False),
     }
 
 

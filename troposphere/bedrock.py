@@ -1445,6 +1445,16 @@ class DataSource(AWSObject):
     }
 
 
+class DefaultPromptRouter(AWSObject):
+    """
+    `DefaultPromptRouter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-defaultpromptrouter.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::DefaultPromptRouter"
+
+    props: PropsDictType = {}
+
+
 class ModelEnforcement(AWSProperty):
     """
     `ModelEnforcement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-enforcedguardrailconfiguration-modelenforcement.html>`__
@@ -3004,6 +3014,29 @@ class KnowledgeBase(AWSObject):
     }
 
 
+class KnowledgeBasePolicy(AWSObject):
+    """
+    `KnowledgeBasePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebasepolicy.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::KnowledgeBasePolicy"
+
+    props: PropsDictType = {
+        "KnowledgeBaseId": (str, True),
+        "PolicyDocument": (dict, True),
+    }
+
+
+class ModelInvocationJob(AWSObject):
+    """
+    `ModelInvocationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-modelinvocationjob.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::ModelInvocationJob"
+
+    props: PropsDictType = {}
+
+
 class PromptAgentResource(AWSProperty):
     """
     `PromptAgentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptagentresource.html>`__
@@ -3136,4 +3169,58 @@ class InferenceProfileModel(AWSProperty):
 
     props: PropsDictType = {
         "ModelArn": (str, False),
+    }
+
+
+class ModelInvocationJobS3InputDataConfig(AWSProperty):
+    """
+    `ModelInvocationJobS3InputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-modelinvocationjobs3inputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3BucketOwner": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class ModelInvocationJobInputDataConfig(AWSProperty):
+    """
+    `ModelInvocationJobInputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-modelinvocationjobinputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3InputDataConfig": (ModelInvocationJobS3InputDataConfig, True),
+    }
+
+
+class ModelInvocationJobS3OutputDataConfig(AWSProperty):
+    """
+    `ModelInvocationJobS3OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-modelinvocationjobs3outputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3BucketOwner": (str, False),
+        "S3EncryptionKeyId": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class ModelInvocationJobOutputDataConfig(AWSProperty):
+    """
+    `ModelInvocationJobOutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-modelinvocationjoboutputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3OutputDataConfig": (ModelInvocationJobS3OutputDataConfig, True),
+    }
+
+
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
     }

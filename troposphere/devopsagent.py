@@ -358,6 +358,7 @@ class ServiceManagedMode(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DnsResolution": (str, False),
         "HostAddress": (str, True),
         "IpAddressType": (str, False),
         "Ipv4AddressesPerEni": (integer, False),
@@ -466,6 +467,18 @@ class ApiKeyDetails(AWSProperty):
     }
 
 
+class BearerTokenDetails(AWSProperty):
+    """
+    `BearerTokenDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-bearertokendetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationHeader": (str, False),
+        "TokenName": (str, True),
+        "TokenValue": (str, True),
+    }
+
+
 class MCPServerOAuthClientCredentialsConfig(AWSProperty):
     """
     `MCPServerOAuthClientCredentialsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserveroauthclientcredentialsconfig.html>`__
@@ -488,6 +501,7 @@ class MCPServerAuthorizationConfig(AWSProperty):
 
     props: PropsDictType = {
         "ApiKey": (ApiKeyDetails, False),
+        "BearerToken": (BearerTokenDetails, False),
         "OAuthClientCredentials": (MCPServerOAuthClientCredentialsConfig, False),
     }
 
@@ -502,18 +516,6 @@ class MCPServerDetails(AWSProperty):
         "Description": (str, False),
         "Endpoint": (str, True),
         "Name": (str, True),
-    }
-
-
-class BearerTokenDetails(AWSProperty):
-    """
-    `BearerTokenDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-bearertokendetails.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthorizationHeader": (str, False),
-        "TokenName": (str, True),
-        "TokenValue": (str, True),
     }
 
 

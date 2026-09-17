@@ -10,6 +10,30 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, double, integer
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-coredevice-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Component(AWSObject):
+    """
+    `Component <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-component.html>`__
+    """
+
+    resource_type = "AWS::GreengrassV2::Component"
+
+    props: PropsDictType = {
+        "ComponentName": (str, False),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class ComponentDependencyRequirement(AWSProperty):
     """
     `ComponentDependencyRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html>`__
@@ -138,6 +162,18 @@ class ComponentVersion(AWSObject):
         "InlineRecipe": (str, False),
         "LambdaFunction": (LambdaFunctionRecipeSource, False),
         "Tags": (dict, False),
+    }
+
+
+class CoreDevice(AWSObject):
+    """
+    `CoreDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-coredevice.html>`__
+    """
+
+    resource_type = "AWS::GreengrassV2::CoreDevice"
+
+    props: PropsDictType = {
+        "CoreDeviceThingName": (str, False),
     }
 
 

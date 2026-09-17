@@ -662,6 +662,7 @@ class CustomDomainConfigType(AWSProperty):
 
     props: PropsDictType = {
         "CertificateArn": (str, False),
+        "SecurityPolicy": (str, False),
     }
 
 

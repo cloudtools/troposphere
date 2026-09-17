@@ -104,3 +104,40 @@ class Assessment(AWSObject):
         "Status": (str, False),
         "Tags": (Tags, False),
     }
+
+
+class ControlSetControl(AWSProperty):
+    """
+    `ControlSetControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessmentframework-controlsetcontrol.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+    }
+
+
+class ControlSet(AWSProperty):
+    """
+    `ControlSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessmentframework-controlset.html>`__
+    """
+
+    props: PropsDictType = {
+        "Controls": ([ControlSetControl], True),
+        "Name": (str, True),
+    }
+
+
+class AssessmentFramework(AWSObject):
+    """
+    `AssessmentFramework <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessmentframework.html>`__
+    """
+
+    resource_type = "AWS::AuditManager::AssessmentFramework"
+
+    props: PropsDictType = {
+        "ComplianceType": (str, False),
+        "ControlSets": ([ControlSet], True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }

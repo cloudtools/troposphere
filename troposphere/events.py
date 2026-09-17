@@ -308,6 +308,32 @@ class EventBusPolicy(AWSObject):
     }
 
 
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-replay-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+    }
+
+
+class Replay(AWSObject):
+    """
+    `Replay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-replay.html>`__
+    """
+
+    resource_type = "AWS::Events::Replay"
+
+    props: PropsDictType = {
+        "Destination": (Destination, True),
+        "EventEndTime": (str, True),
+        "EventSourceArn": (str, True),
+        "EventStartTime": (str, True),
+        "ReplayName": (str, True),
+    }
+
+
 class AppSyncParameters(AWSProperty):
     """
     `AppSyncParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html>`__

@@ -115,6 +115,7 @@ class Broker(AWSObject):
         "PubliclyAccessible": (boolean, True),
         "ResourceShareArns": ([str], False),
         "SecurityGroups": ([str], False),
+        "StorageSize": (integer, False),
         "StorageType": (str, False),
         "SubnetIds": ([str], False),
         "Tags": (validate_tags_or_list, False),
