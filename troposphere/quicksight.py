@@ -184,6 +184,77 @@ class ActionConnector(AWSObject):
     }
 
 
+class AgentTag(AWSProperty):
+    """
+    `AgentTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-agent-agenttag.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class CustomPromptInputParameters(AWSProperty):
+    """
+    `CustomPromptInputParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-agent-custompromptinputparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomInstructions": (str, False),
+        "Identity": (str, False),
+        "OutputStyle": (str, False),
+        "ResponseLength": (str, False),
+        "Tone": (str, False),
+    }
+
+
+class CustomPromptProfile(AWSProperty):
+    """
+    `CustomPromptProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-agent-custompromptprofile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelProfileId": (str, True),
+        "QbsAwsAccountId": (str, True),
+        "SubscriptionId": (str, True),
+    }
+
+
+class CustomPromptInput(AWSProperty):
+    """
+    `CustomPromptInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-agent-custompromptinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExistingPrompt": (CustomPromptProfile, False),
+        "NewPrompt": (CustomPromptInputParameters, False),
+    }
+
+
+class Agent(AWSObject):
+    """
+    `Agent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-agent.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Agent"
+
+    props: PropsDictType = {
+        "ActionConnectors": ([str], False),
+        "AgentId": (str, True),
+        "AgentLifecycle": (str, False),
+        "AwsAccountId": (str, True),
+        "CustomPromptInput": (CustomPromptInput, False),
+        "Description": (str, False),
+        "IconId": (str, False),
+        "Name": (str, True),
+        "Spaces": ([str], False),
+        "StarterPrompts": ([str], False),
+        "Tags": ([AgentTag], False),
+        "WelcomeMessage": (str, False),
+    }
+
+
 class FreeFormLayoutScreenCanvasSizeOptions(AWSProperty):
     """
     `FreeFormLayoutScreenCanvasSizeOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutscreencanvassizeoptions.html>`__
@@ -10055,6 +10126,24 @@ class VPCConnection(AWSObject):
         "SubnetIds": ([str], False),
         "Tags": (Tags, False),
         "VPCConnectionId": (str, False),
+    }
+
+
+class CustomPromptInterface(AWSProperty):
+    """
+    `CustomPromptInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-agent-custompromptinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomInstructions": (str, False),
+        "Identity": (str, False),
+        "ModelProfileId": (str, False),
+        "OutputStyle": (str, False),
+        "PromptSummary": (str, False),
+        "QbsAwsAccountId": (str, False),
+        "ResponseLength": (str, False),
+        "SubscriptionId": (str, False),
+        "Tone": (str, False),
     }
 
 

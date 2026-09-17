@@ -287,6 +287,55 @@ class Framework(AWSObject):
     }
 
 
+class DateRange(AWSProperty):
+    """
+    `DateRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-legalhold-daterange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromDate": (str, True),
+        "ToDate": (str, True),
+    }
+
+
+class RecoveryPointSelection(AWSProperty):
+    """
+    `RecoveryPointSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-legalhold-recoverypointselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateRange": (DateRange, False),
+        "ResourceIdentifiers": ([str], False),
+        "VaultNames": ([str], False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-legalhold-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class LegalHold(AWSObject):
+    """
+    `LegalHold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-legalhold.html>`__
+    """
+
+    resource_type = "AWS::Backup::LegalHold"
+
+    props: PropsDictType = {
+        "Description": (str, True),
+        "RecoveryPointSelection": (RecoveryPointSelection, True),
+        "Tags": ([TagsItems], False),
+        "Title": (str, True),
+    }
+
+
 class LogicallyAirGappedBackupVault(AWSObject):
     """
     `LogicallyAirGappedBackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html>`__
