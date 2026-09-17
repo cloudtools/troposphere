@@ -18,24 +18,6 @@ from .validators.dynamodb import (
 )
 
 
-class Export(AWSObject):
-    """
-    `Export <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-export.html>`__
-    """
-
-    resource_type = "AWS::DynamoDB::Export"
-
-    props: PropsDictType = {
-        "ExportFormat": (str, False),
-        "ExportType": (str, False),
-        "S3Bucket": (str, True),
-        "S3BucketOwner": (str, False),
-        "S3Prefix": (str, False),
-        "S3SseAlgorithm": (str, False),
-        "TableArn": (str, True),
-    }
-
-
 class AttributeDefinition(AWSProperty):
     """
     `AttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html>`__
@@ -288,7 +270,7 @@ class ReplicaStreamSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ResourcePolicy": (ResourcePolicy, True),
+        "ResourcePolicy": (ResourcePolicy, False),
     }
 
 

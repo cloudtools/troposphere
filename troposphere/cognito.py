@@ -473,12 +473,29 @@ class SchemaAttribute(AWSProperty):
     }
 
 
+class EumsSmsConfiguration(AWSProperty):
+    """
+    `EumsSmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-eumssmsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CallerArn": (str, True),
+        "ConfigurationSetName": (str, False),
+        "ExternalId": (str, False),
+        "InEntityId": (str, False),
+        "InTemplateId": (str, False),
+        "OriginationIdentity": (str, False),
+        "Region": (str, False),
+    }
+
+
 class SmsConfiguration(AWSProperty):
     """
     `SmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolregionalconfigurationattachment-smsconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "EumsSms": (EumsSmsConfiguration, False),
         "ExternalId": (str, False),
         "SnsCallerArn": (str, False),
         "SnsRegion": (str, False),

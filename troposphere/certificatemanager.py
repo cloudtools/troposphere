@@ -160,7 +160,7 @@ class DomainValidationOption(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DomainName": (str, True),
+        "DomainName": (str, False),
         "HostedZoneId": (str, False),
         "ValidationDomain": (str, False),
     }

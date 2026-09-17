@@ -72,6 +72,17 @@ class SamlConfiguration(AWSProperty):
     }
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class VpcConfiguration(AWSProperty):
     """
     `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-vpcconfiguration.html>`__
@@ -107,5 +118,6 @@ class Workspace(AWSObject):
         "RoleArn": (str, False),
         "SamlConfiguration": (SamlConfiguration, False),
         "StackSetName": (str, False),
+        "Tags": ([TagsItems], False),
         "VpcConfiguration": (VpcConfiguration, False),
     }

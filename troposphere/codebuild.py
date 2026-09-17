@@ -487,18 +487,6 @@ class ReportGroup(AWSObject):
     }
 
 
-class Sandbox(AWSObject):
-    """
-    `Sandbox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sandbox.html>`__
-    """
-
-    resource_type = "AWS::CodeBuild::Sandbox"
-
-    props: PropsDictType = {
-        "ProjectName": (str, False),
-    }
-
-
 class SourceCredential(AWSObject):
     """
     `SourceCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.html>`__

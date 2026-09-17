@@ -9445,6 +9445,35 @@ class RefreshSchedule(AWSObject):
     }
 
 
+class SpaceResource(AWSProperty):
+    """
+    `SpaceResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-space-spaceresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+        "ResourceType": (str, True),
+    }
+
+
+class Space(AWSObject):
+    """
+    `Space <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-space.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Space"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Permissions": ([ResourcePermission], False),
+        "Resources": ([SpaceResource], False),
+        "SpaceId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class TemplateSourceAnalysis(AWSProperty):
     """
     `TemplateSourceAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html>`__

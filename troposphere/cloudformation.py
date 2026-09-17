@@ -323,28 +323,6 @@ class ResourceDefaultVersion(AWSObject):
     }
 
 
-class ScanFilter(AWSProperty):
-    """
-    `ScanFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourcescan-scanfilter.html>`__
-    """
-
-    props: PropsDictType = {
-        "Types": ([str], False),
-    }
-
-
-class ResourceScan(AWSObject):
-    """
-    `ResourceScan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcescan.html>`__
-    """
-
-    resource_type = "AWS::CloudFormation::ResourceScan"
-
-    props: PropsDictType = {
-        "ScanFilters": ([ScanFilter], False),
-    }
-
-
 class ResourceVersion(AWSObject):
     """
     `ResourceVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html>`__

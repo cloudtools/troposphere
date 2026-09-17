@@ -1168,6 +1168,16 @@ class Queue(AWSObject):
     }
 
 
+class FlowQuickConnectConfig(AWSProperty):
+    """
+    `FlowQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-flowquickconnectconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContactFlowArn": (str, True),
+    }
+
+
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
     `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
@@ -1206,6 +1216,7 @@ class QuickConnectConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "FlowConfig": (FlowQuickConnectConfig, False),
         "PhoneConfig": (PhoneNumberQuickConnectConfig, False),
         "QueueConfig": (QueueQuickConnectConfig, False),
         "QuickConnectType": (str, True),

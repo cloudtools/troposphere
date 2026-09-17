@@ -37,16 +37,6 @@ class ApiKeyCredentialProvider(AWSObject):
     }
 
 
-class Browser(AWSObject):
-    """
-    `Browser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browser.html>`__
-    """
-
-    resource_type = "AWS::BedrockAgentCore::Browser"
-
-    props: PropsDictType = {}
-
-
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3location.html>`__
@@ -165,16 +155,6 @@ class BrowserProfile(AWSObject):
         "Name": (str, True),
         "Tags": (dict, False),
     }
-
-
-class CodeInterpreter(AWSObject):
-    """
-    `CodeInterpreter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpreter.html>`__
-    """
-
-    resource_type = "AWS::BedrockAgentCore::CodeInterpreter"
-
-    props: PropsDictType = {}
 
 
 class CodeInterpreterNetworkConfiguration(AWSProperty):
@@ -2686,16 +2666,6 @@ class RuntimeEndpoint(AWSObject):
     }
 
 
-class TokenVault(AWSObject):
-    """
-    `TokenVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-tokenvault.html>`__
-    """
-
-    resource_type = "AWS::BedrockAgentCore::TokenVault"
-
-    props: PropsDictType = {}
-
-
 class WorkloadIdentity(AWSObject):
     """
     `WorkloadIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-workloadidentity.html>`__
@@ -2784,17 +2754,6 @@ class CoinbaseCdpConfigurationOutput(AWSProperty):
         "WalletSecretArn": (SecretInfo, False),
         "WalletSecretJsonKey": (str, False),
         "WalletSecretSource": (str, False),
-    }
-
-
-class KmsConfiguration(AWSProperty):
-    """
-    `KmsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-tokenvault-kmsconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "KeyType": (str, True),
-        "KmsKeyArn": (str, False),
     }
 
 

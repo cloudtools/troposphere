@@ -39,6 +39,27 @@ class EvaluationCriteria(AWSProperty):
     }
 
 
+class WallClockWindow(AWSProperty):
+    """
+    `WallClockWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-wallclockwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "Timezone": (str, False),
+    }
+
+
+class EvaluationWindow(AWSProperty):
+    """
+    `EvaluationWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-evaluationwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "SlidingWindow": (dict, False),
+        "WallClockWindow": (WallClockWindow, False),
+    }
+
+
 class MetricDimension(AWSProperty):
     """
     `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html>`__
@@ -110,6 +131,7 @@ class Alarm(AWSObject):
         "EvaluationCriteria": (EvaluationCriteria, False),
         "EvaluationInterval": (integer, False),
         "EvaluationPeriods": (integer, False),
+        "EvaluationWindow": (EvaluationWindow, False),
         "ExtendedStatistic": (str, False),
         "InsufficientDataActions": ([str], False),
         "MetricName": (str, False),

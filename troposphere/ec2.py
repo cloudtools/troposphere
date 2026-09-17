@@ -2313,6 +2313,7 @@ class PlacementGroup(AWSObject):
     resource_type = "AWS::EC2::PlacementGroup"
 
     props: PropsDictType = {
+        "ParentGroupId": (str, False),
         "PartitionCount": (integer, False),
         "SpreadLevel": (validate_placement_spread_level, False),
         "Strategy": (validate_placement_strategy, False),
@@ -3247,6 +3248,35 @@ class TransitGatewayPolicyTableAssociation(AWSObject):
 
     props: PropsDictType = {
         "TransitGatewayAttachmentId": (str, True),
+        "TransitGatewayPolicyTableId": (str, True),
+    }
+
+
+class TransitGatewayPolicyRule(AWSProperty):
+    """
+    `TransitGatewayPolicyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypolicytableentry-transitgatewaypolicyrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationCidrBlock": (str, False),
+        "DestinationPortRange": (str, False),
+        "Protocol": (str, False),
+        "SourceCidrBlock": (str, False),
+        "SourcePortRange": (str, False),
+    }
+
+
+class TransitGatewayPolicyTableEntry(AWSObject):
+    """
+    `TransitGatewayPolicyTableEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypolicytableentry.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayPolicyTableEntry"
+
+    props: PropsDictType = {
+        "PolicyRule": (TransitGatewayPolicyRule, True),
+        "PolicyRuleNumber": (str, True),
+        "TargetRouteTableId": (str, True),
         "TransitGatewayPolicyTableId": (str, True),
     }
 

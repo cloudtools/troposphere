@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double, integer
+from .validators import boolean, integer
 
 
 class ACL(AWSObject):
@@ -96,16 +96,6 @@ class MultiRegionCluster(AWSObject):
     }
 
 
-class MultiRegionParameterGroup(AWSObject):
-    """
-    `MultiRegionParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregionparametergroup.html>`__
-    """
-
-    resource_type = "AWS::MemoryDB::MultiRegionParameterGroup"
-
-    props: PropsDictType = {}
-
-
 class ParameterGroup(AWSObject):
     """
     `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html>`__
@@ -120,16 +110,6 @@ class ParameterGroup(AWSObject):
         "Parameters": (dict, False),
         "Tags": (Tags, False),
     }
-
-
-class ReservedNode(AWSObject):
-    """
-    `ReservedNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-reservednode.html>`__
-    """
-
-    resource_type = "AWS::MemoryDB::ReservedNode"
-
-    props: PropsDictType = {}
 
 
 class SubnetGroup(AWSObject):
@@ -170,15 +150,4 @@ class User(AWSObject):
         "AuthenticationMode": (AuthenticationMode, False),
         "Tags": (Tags, False),
         "UserName": (str, True),
-    }
-
-
-class RecurringCharge(AWSProperty):
-    """
-    `RecurringCharge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-reservednode-recurringcharge.html>`__
-    """
-
-    props: PropsDictType = {
-        "RecurringChargeAmount": (double, False),
-        "RecurringChargeFrequency": (str, False),
     }

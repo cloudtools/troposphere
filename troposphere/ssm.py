@@ -492,16 +492,3 @@ class ResourcePolicy(AWSObject):
         "Policy": (dict, True),
         "ResourceArn": (str, True),
     }
-
-
-class Session(AWSObject):
-    """
-    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-session.html>`__
-    """
-
-    resource_type = "AWS::SSM::Session"
-
-    props: PropsDictType = {
-        "Reason": (str, False),
-        "Target": (str, False),
-    }
