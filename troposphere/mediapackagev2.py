@@ -45,6 +45,7 @@ class Channel(AWSObject):
         "InputSwitchConfiguration": (InputSwitchConfiguration, False),
         "InputType": (str, False),
         "OutputHeaderConfiguration": (OutputHeaderConfiguration, False),
+        "OutputLockingMode": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -74,6 +75,100 @@ class ChannelPolicy(AWSObject):
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
         "Policy": (dict, True),
+    }
+
+
+class S3DestinationConfig(AWSProperty):
+    """
+    `S3DestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-s3destinationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "DestinationPath": (str, True),
+    }
+
+
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Destination": (S3DestinationConfig, True),
+    }
+
+
+class HarvestedDashManifest(AWSProperty):
+    """
+    `HarvestedDashManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-harvesteddashmanifest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManifestName": (str, True),
+    }
+
+
+class HarvestedHlsManifest(AWSProperty):
+    """
+    `HarvestedHlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-harvestedhlsmanifest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManifestName": (str, True),
+    }
+
+
+class HarvestedLowLatencyHlsManifest(AWSProperty):
+    """
+    `HarvestedLowLatencyHlsManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-harvestedlowlatencyhlsmanifest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManifestName": (str, True),
+    }
+
+
+class HarvestedManifests(AWSProperty):
+    """
+    `HarvestedManifests <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-harvestedmanifests.html>`__
+    """
+
+    props: PropsDictType = {
+        "DashManifests": ([HarvestedDashManifest], False),
+        "HlsManifests": ([HarvestedHlsManifest], False),
+        "LowLatencyHlsManifests": ([HarvestedLowLatencyHlsManifest], False),
+    }
+
+
+class HarvesterScheduleConfiguration(AWSProperty):
+    """
+    `HarvesterScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-harvestjob-harvesterscheduleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, True),
+        "StartTime": (str, True),
+    }
+
+
+class HarvestJob(AWSObject):
+    """
+    `HarvestJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-harvestjob.html>`__
+    """
+
+    resource_type = "AWS::MediaPackageV2::HarvestJob"
+
+    props: PropsDictType = {
+        "ChannelGroupName": (str, True),
+        "ChannelName": (str, True),
+        "Description": (str, False),
+        "Destination": (Destination, True),
+        "HarvestJobName": (str, False),
+        "HarvestedManifests": (HarvestedManifests, True),
+        "OriginEndpointName": (str, True),
+        "ScheduleConfiguration": (HarvesterScheduleConfiguration, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -392,6 +487,7 @@ class Segment(AWSProperty):
     props: PropsDictType = {
         "Encryption": (Encryption, False),
         "IncludeIframeOnlyStreams": (boolean, False),
+        "OutputTimestampMode": (str, False),
         "Scte": (Scte, False),
         "SegmentDurationSeconds": (integer, False),
         "SegmentName": (str, False),

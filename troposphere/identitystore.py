@@ -9,6 +9,30 @@
 from . import AWSObject, AWSProperty, PropsDictType
 
 
+class MemberId(AWSProperty):
+    """
+    `MemberId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html>`__
+    """
+
+    props: PropsDictType = {
+        "UserId": (str, True),
+    }
+
+
+class AllGroupMemberships(AWSObject):
+    """
+    `AllGroupMemberships <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-allgroupmemberships.html>`__
+    """
+
+    resource_type = "AWS::IdentityStore::AllGroupMemberships"
+
+    props: PropsDictType = {
+        "GroupId": (str, False),
+        "IdentityStoreId": (str, False),
+        "MemberId": (MemberId, False),
+    }
+
+
 class Group(AWSObject):
     """
     `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html>`__
@@ -20,16 +44,6 @@ class Group(AWSObject):
         "Description": (str, False),
         "DisplayName": (str, True),
         "IdentityStoreId": (str, True),
-    }
-
-
-class MemberId(AWSProperty):
-    """
-    `MemberId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-groupmembership-memberid.html>`__
-    """
-
-    props: PropsDictType = {
-        "UserId": (str, True),
     }
 
 

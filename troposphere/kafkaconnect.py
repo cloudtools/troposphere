@@ -232,6 +232,16 @@ class Connector(AWSObject):
     }
 
 
+class ConnectorOperation(AWSObject):
+    """
+    `ConnectorOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connectoroperation.html>`__
+    """
+
+    resource_type = "AWS::KafkaConnect::ConnectorOperation"
+
+    props: PropsDictType = {}
+
+
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html>`__
@@ -285,6 +295,38 @@ class WorkerConfiguration(AWSObject):
     }
 
 
+class ProvisionedCapacityDescription(AWSProperty):
+    """
+    `ProvisionedCapacityDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connectoroperation-provisionedcapacitydescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "McuCount": (integer, False),
+        "WorkerCount": (integer, False),
+    }
+
+
+class CapacityDescription(AWSProperty):
+    """
+    `CapacityDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connectoroperation-capacitydescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProvisionedCapacity": (ProvisionedCapacityDescription, False),
+    }
+
+
+class ConnectorOperationStep(AWSProperty):
+    """
+    `ConnectorOperationStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connectoroperation-connectoroperationstep.html>`__
+    """
+
+    props: PropsDictType = {
+        "StepState": (str, False),
+        "StepType": (str, False),
+    }
+
+
 class CustomPluginFileDescription(AWSProperty):
     """
     `CustomPluginFileDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html>`__
@@ -293,4 +335,14 @@ class CustomPluginFileDescription(AWSProperty):
     props: PropsDictType = {
         "FileMd5": (str, False),
         "FileSize": (integer, False),
+    }
+
+
+class WorkerSetting(AWSProperty):
+    """
+    `WorkerSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connectoroperation-workersetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Capacity": (CapacityDescription, False),
     }

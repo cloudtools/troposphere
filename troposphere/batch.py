@@ -70,6 +70,100 @@ class LaunchTemplateSpecification(AWSProperty):
         validate_launch_template_specification(self)
 
 
+class InfrastructureOptimization(AWSProperty):
+    """
+    `InfrastructureOptimization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-infrastructureoptimization.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScaleInAfter": (integer, False),
+    }
+
+
+class CapacityReservations(AWSProperty):
+    """
+    `CapacityReservations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-capacityreservations.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReservationGroupArn": (str, False),
+        "ReservationPreference": (str, False),
+    }
+
+
+class InstanceRequirements(AWSProperty):
+    """
+    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-instancerequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedInstanceTypes": ([str], False),
+    }
+
+
+class ManagedInstancesLocalStorageConfiguration(AWSProperty):
+    """
+    `ManagedInstancesLocalStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-managedinstanceslocalstorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UseLocalStorage": (boolean, False),
+    }
+
+
+class ManagedInstancesNetworkConfiguration(AWSProperty):
+    """
+    `ManagedInstancesNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-managedinstancesnetworkconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroups": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
+class ManagedInstancesStorageConfiguration(AWSProperty):
+    """
+    `ManagedInstancesStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-managedinstancesstorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "StorageSizeGiB": (integer, False),
+    }
+
+
+class InstanceLaunchTemplate(AWSProperty):
+    """
+    `InstanceLaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-instancelaunchtemplate.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityOptionType": (str, False),
+        "CapacityReservations": (CapacityReservations, False),
+        "Ec2InstanceProfileArn": (str, True),
+        "FipsEnabled": (boolean, False),
+        "InstanceMetadataTagsPropagation": (boolean, False),
+        "InstanceRequirements": (InstanceRequirements, False),
+        "LocalStorageConfiguration": (ManagedInstancesLocalStorageConfiguration, False),
+        "Monitoring": (str, False),
+        "NetworkConfiguration": (ManagedInstancesNetworkConfiguration, True),
+        "StorageConfiguration": (ManagedInstancesStorageConfiguration, False),
+    }
+
+
+class ManagedInstancesProvider(AWSProperty):
+    """
+    `ManagedInstancesProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-managedinstancesprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfrastructureOptimization": (InfrastructureOptimization, False),
+        "InfrastructureRoleArn": (str, True),
+        "InstanceLaunchTemplate": (InstanceLaunchTemplate, True),
+        "PropagateTags": (str, False),
+    }
+
+
 class ComputeResources(AWSProperty):
     """
     `ComputeResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html>`__
@@ -78,6 +172,7 @@ class ComputeResources(AWSProperty):
     props: PropsDictType = {
         "AllocationStrategy": (validate_allocation_strategy, False),
         "BidPercentage": (integer, False),
+        "CapacityTags": (dict, False),
         "DesiredvCpus": (integer, False),
         "Ec2Configuration": ([Ec2ConfigurationObject], False),
         "Ec2KeyPair": (str, False),
@@ -85,13 +180,14 @@ class ComputeResources(AWSProperty):
         "InstanceRole": (str, False),
         "InstanceTypes": ([str], False),
         "LaunchTemplate": (LaunchTemplateSpecification, False),
+        "ManagedInstancesProvider": (ManagedInstancesProvider, False),
         "MaxvCpus": (integer, True),
         "MinvCpus": (integer, False),
         "PlacementGroup": (str, False),
         "ScalingPolicy": (ComputeScalingPolicy, False),
         "SecurityGroupIds": ([str], False),
         "SpotIamFleetRole": (str, False),
-        "Subnets": ([str], True),
+        "Subnets": ([str], False),
         "Tags": (dict, False),
         "Type": (str, True),
         "UpdateToLatestImageVersion": (boolean, False),
@@ -492,6 +588,7 @@ class EcsTaskProperties(AWSProperty):
         "ExecutionRoleArn": (str, False),
         "IpcMode": (str, False),
         "NetworkConfiguration": (NetworkConfiguration, False),
+        "NetworkMode": (str, False),
         "PidMode": (str, False),
         "PlatformVersion": (str, False),
         "RuntimePlatform": (RuntimePlatform, False),

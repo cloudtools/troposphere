@@ -399,6 +399,7 @@ class SoftwareUpdateOptions(AWSProperty):
 
     props: PropsDictType = {
         "AutoSoftwareUpdateEnabled": (boolean, False),
+        "UseLatestServiceSoftwareForBlueGreen": (boolean, False),
     }
 
 

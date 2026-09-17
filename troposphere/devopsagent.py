@@ -64,6 +64,35 @@ class AgentSpace(AWSObject):
     }
 
 
+class AssetFile(AWSProperty):
+    """
+    `AssetFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-asset-assetfile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentBytes": (str, False),
+        "ContentText": (str, False),
+        "Metadata": (dict, False),
+        "Path": (str, True),
+    }
+
+
+class Asset(AWSObject):
+    """
+    `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-asset.html>`__
+    """
+
+    resource_type = "AWS::DevOpsAgent::Asset"
+
+    props: PropsDictType = {
+        "AgentSpaceId": (str, True),
+        "AssetType": (str, True),
+        "Files": ([AssetFile], False),
+        "Metadata": (dict, False),
+        "Zip": (str, False),
+    }
+
+
 class AWSResource(AWSProperty):
     """
     `AWSResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsresource.html>`__
@@ -696,10 +725,49 @@ class Service(AWSObject):
     resource_type = "AWS::DevOpsAgent::Service"
 
     props: PropsDictType = {
+        "ExchangeUrlPrivateConnectionName": (str, False),
         "KmsKeyArn": (str, False),
+        "PrivateConnectionName": (str, False),
         "ServiceDetails": (ServiceDetails, False),
         "ServiceType": (str, True),
         "Tags": (Tags, False),
+        "TargetUrlPrivateConnectionName": (str, False),
+    }
+
+
+class Schedule(AWSProperty):
+    """
+    `Schedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-trigger-schedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, True),
+    }
+
+
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-trigger-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Schedule": (Schedule, True),
+    }
+
+
+class Trigger(AWSObject):
+    """
+    `Trigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-trigger.html>`__
+    """
+
+    resource_type = "AWS::DevOpsAgent::Trigger"
+
+    props: PropsDictType = {
+        "Action": (dict, True),
+        "AgentSpaceId": (str, True),
+        "Condition": (Condition, True),
+        "Status": (str, False),
+        "Type": (str, True),
     }
 
 

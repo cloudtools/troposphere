@@ -9,6 +9,33 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class InputDataConfig(AWSProperty):
+    """
+    `InputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-sentimentdetectionjob-inputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputFormat": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class DocumentClassificationJob(AWSObject):
+    """
+    `DocumentClassificationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassificationjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::DocumentClassificationJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "DocumentClassifierArn": (str, True),
+        "InputDataConfig": (InputDataConfig, True),
+        "JobName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class AugmentedManifestsListItem(AWSProperty):
     """
     `AugmentedManifestsListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html>`__
@@ -106,6 +133,22 @@ class DocumentClassifier(AWSObject):
     }
 
 
+class EntitiesDetectionJob(AWSObject):
+    """
+    `EntitiesDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-entitiesdetectionjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::EntitiesDetectionJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "InputDataConfig": (InputDataConfig, True),
+        "JobName": (str, False),
+        "LanguageCode": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DataSecurityConfig(AWSProperty):
     """
     `DataSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>`__
@@ -178,4 +221,46 @@ class Flywheel(AWSObject):
         "ModelType": (str, False),
         "Tags": (Tags, False),
         "TaskConfig": (TaskConfig, False),
+    }
+
+
+class FlywheelDataset(AWSObject):
+    """
+    `FlywheelDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-flywheeldataset.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::FlywheelDataset"
+
+    props: PropsDictType = {
+        "DatasetName": (str, True),
+        "DatasetType": (str, False),
+        "Description": (str, False),
+        "FlywheelArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class SentimentDetectionJob(AWSObject):
+    """
+    `SentimentDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-sentimentdetectionjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::SentimentDetectionJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "InputDataConfig": (InputDataConfig, True),
+        "JobName": (str, False),
+        "LanguageCode": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class OutputDataConfig(AWSProperty):
+    """
+    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entitiesdetectionjob-outputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
     }

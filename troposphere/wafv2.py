@@ -546,6 +546,17 @@ class FieldToMatch(AWSProperty):
     }
 
 
+class PreParseTextTransformation(AWSProperty):
+    """
+    `PreParseTextTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-preparsetexttransformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Priority": (integer, True),
+        "Type": (str, True),
+    }
+
+
 class TextTransformation(AWSProperty):
     """
     `TextTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html>`__
@@ -565,6 +576,7 @@ class ByteMatchStatement(AWSProperty):
     props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
         "PositionalConstraint": (validate_positional_constraint, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "SearchString": (str, False),
         "SearchStringBase64": (str, False),
         "TextTransformations": ([TextTransformation], True),
@@ -993,6 +1005,7 @@ class RegexMatchStatement(AWSProperty):
 
     props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "RegexString": (str, True),
         "TextTransformations": ([TextTransformation], True),
     }
@@ -1006,6 +1019,7 @@ class RegexPatternSetReferenceStatement(AWSProperty):
     props: PropsDictType = {
         "Arn": (str, True),
         "FieldToMatch": (FieldToMatch, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "TextTransformations": ([TextTransformation], True),
     }
 
@@ -1030,6 +1044,7 @@ class SizeConstraintStatement(AWSProperty):
     props: PropsDictType = {
         "ComparisonOperator": (validate_comparison_operator, True),
         "FieldToMatch": (FieldToMatch, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "Size": (double, True),
         "TextTransformations": ([TextTransformation], True),
     }
@@ -1042,6 +1057,7 @@ class SqliMatchStatement(AWSProperty):
 
     props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "SensitivityLevel": (str, False),
         "TextTransformations": ([TextTransformation], True),
     }
@@ -1054,6 +1070,7 @@ class XssMatchStatement(AWSProperty):
 
     props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
+        "PreParseTextTransformations": ([PreParseTextTransformation], False),
         "TextTransformations": ([TextTransformation], True),
     }
 

@@ -40,6 +40,20 @@ class Keyspace(AWSObject):
     }
 
 
+class Stream(AWSObject):
+    """
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-stream.html>`__
+    """
+
+    resource_type = "AWS::Cassandra::Stream"
+
+    props: PropsDictType = {
+        "KeyspaceName": (str, False),
+        "StreamViewType": (str, False),
+        "TableName": (str, False),
+    }
+
+
 class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     """
     `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html>`__

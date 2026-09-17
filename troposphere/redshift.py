@@ -166,6 +166,16 @@ class ClusterSubnetGroup(AWSObject):
     }
 
 
+class DataShare(AWSObject):
+    """
+    `DataShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-datashare.html>`__
+    """
+
+    resource_type = "AWS::Redshift::DataShare"
+
+    props: PropsDictType = {}
+
+
 class EndpointAccess(AWSObject):
     """
     `EndpointAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html>`__
@@ -295,6 +305,34 @@ class ScheduledAction(AWSObject):
         "ScheduledActionName": (str, True),
         "StartTime": (str, False),
         "TargetAction": (ScheduledActionType, False),
+    }
+
+
+class SnapshotSchedule(AWSObject):
+    """
+    `SnapshotSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-snapshotschedule.html>`__
+    """
+
+    resource_type = "AWS::Redshift::SnapshotSchedule"
+
+    props: PropsDictType = {
+        "ScheduleDefinitions": ([str], True),
+        "ScheduleDescription": (str, False),
+        "ScheduleIdentifier": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DataShareAssociation(AWSProperty):
+    """
+    `DataShareAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-datashare-datashareassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConsumerIdentifier": (str, False),
+        "CreatedDate": (str, False),
+        "Status": (str, False),
+        "StatusChangeDate": (str, False),
     }
 
 

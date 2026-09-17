@@ -163,6 +163,7 @@ class CapabilityConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Ack": (dict, False),
         "ArgoCd": (ArgoCd, False),
     }
 
@@ -236,6 +237,93 @@ class EncryptionConfig(AWSProperty):
     props: PropsDictType = {
         "Provider": (Provider, False),
         "Resources": ([str], False),
+    }
+
+
+class ServiceNodePortRange(AWSProperty):
+    """
+    `ServiceNodePortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-servicenodeportrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxPort": (integer, False),
+        "MinPort": (integer, False),
+    }
+
+
+class KubeApiServerConfig(AWSProperty):
+    """
+    `KubeApiServerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubeapiserverconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventTtl": (str, False),
+        "ServiceNodePortRange": (ServiceNodePortRange, False),
+    }
+
+
+class HorizontalPodAutoscalerControllerConfig(AWSProperty):
+    """
+    `HorizontalPodAutoscalerControllerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-horizontalpodautoscalercontrollerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HorizontalPodAutoscalerSyncPeriod": (str, False),
+    }
+
+
+class KubeControllerManagerConfig(AWSProperty):
+    """
+    `KubeControllerManagerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubecontrollermanagerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HorizontalPodAutoscalerControllerConfig": (
+            HorizontalPodAutoscalerControllerConfig,
+            False,
+        ),
+    }
+
+
+class ResourceWeight(AWSProperty):
+    """
+    `ResourceWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourceweight.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Weight": (integer, False),
+    }
+
+
+class ScoringStrategy(AWSProperty):
+    """
+    `ScoringStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-scoringstrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Resources": ([ResourceWeight], False),
+        "Type": (str, False),
+    }
+
+
+class NodeResourcesFitConfig(AWSProperty):
+    """
+    `NodeResourcesFitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-noderesourcesfitconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScoringStrategy": (ScoringStrategy, False),
+    }
+
+
+class KubeSchedulerConfig(AWSProperty):
+    """
+    `KubeSchedulerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubeschedulerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "NodeResourcesFit": (NodeResourcesFitConfig, False),
     }
 
 
@@ -441,6 +529,9 @@ class Cluster(AWSObject):
         "DeletionProtection": (boolean, False),
         "EncryptionConfig": ([EncryptionConfig], False),
         "Force": (boolean, False),
+        "KubeApiServerConfig": (KubeApiServerConfig, False),
+        "KubeControllerManagerConfig": (KubeControllerManagerConfig, False),
+        "KubeSchedulerConfig": (KubeSchedulerConfig, False),
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
         "Logging": (Logging, False),
         "Name": (str, False),

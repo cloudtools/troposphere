@@ -227,7 +227,7 @@ class HyperParameterTuningJobObjective(AWSProperty):
 
 class MetricDefinition(AWSProperty):
     """
-    `MetricDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-algorithm-metricdefinition.html>`__
+    `MetricDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-metricdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -397,6 +397,200 @@ class AppImageConfig(AWSObject):
         "CodeEditorAppImageConfig": (CodeEditorAppImageConfig, False),
         "JupyterLabAppImageConfig": (JupyterLabAppImageConfig, False),
         "KernelGatewayImageConfig": (KernelGatewayImageConfig, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ArtifactSourceType(AWSProperty):
+    """
+    `ArtifactSourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-artifact-artifactsourcetype.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceIdType": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ArtifactSource(AWSProperty):
+    """
+    `ArtifactSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-artifact-artifactsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceTypes": ([ArtifactSourceType], False),
+        "SourceUri": (str, True),
+    }
+
+
+class Artifact(AWSObject):
+    """
+    `Artifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-artifact.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::Artifact"
+
+    props: PropsDictType = {
+        "ArtifactName": (str, False),
+        "ArtifactType": (str, True),
+        "MetadataProperties": (MetadataProperties, False),
+        "Properties": (dict, False),
+        "Source": (ArtifactSource, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AutoMLS3DataSource(AWSProperty):
+    """
+    `AutoMLS3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automls3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataType": (str, True),
+        "S3Uri": (str, True),
+    }
+
+
+class AutoMLDataSource(AWSProperty):
+    """
+    `AutoMLDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (AutoMLS3DataSource, True),
+    }
+
+
+class AutoMLChannel(AWSProperty):
+    """
+    `AutoMLChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlchannel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelType": (str, False),
+        "CompressionType": (str, False),
+        "ContentType": (str, False),
+        "DataSource": (AutoMLDataSource, False),
+        "TargetAttributeName": (str, True),
+    }
+
+
+class AutoMLAlgorithmConfig(AWSProperty):
+    """
+    `AutoMLAlgorithmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlalgorithmconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoMLAlgorithms": ([str], True),
+    }
+
+
+class AutoMLCandidateGenerationConfig(AWSProperty):
+    """
+    `AutoMLCandidateGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlcandidategenerationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmsConfig": ([AutoMLAlgorithmConfig], False),
+        "FeatureSpecificationS3Uri": (str, False),
+    }
+
+
+class AutoMLDataSplitConfig(AWSProperty):
+    """
+    `AutoMLDataSplitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automldatasplitconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValidationFraction": (double, False),
+    }
+
+
+class AutoMLJobCompletionCriteria(AWSProperty):
+    """
+    `AutoMLJobCompletionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobcompletioncriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxAutoMLJobRuntimeInSeconds": (integer, False),
+        "MaxCandidates": (integer, False),
+        "MaxRuntimePerTrainingJobInSeconds": (integer, False),
+    }
+
+
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
+class AutoMLSecurityConfig(AWSProperty):
+    """
+    `AutoMLSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlsecurityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableInterContainerTrafficEncryption": (boolean, False),
+        "VolumeKmsKeyId": (str, False),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
+class AutoMLJobConfig(AWSProperty):
+    """
+    `AutoMLJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CandidateGenerationConfig": (AutoMLCandidateGenerationConfig, False),
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+        "DataSplitConfig": (AutoMLDataSplitConfig, False),
+        "Mode": (str, False),
+        "SecurityConfig": (AutoMLSecurityConfig, False),
+    }
+
+
+class AutoMLJobObjective(AWSProperty):
+    """
+    `AutoMLJobObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobobjective.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricName": (str, True),
+    }
+
+
+class AutoMLOutputDataConfig(AWSProperty):
+    """
+    `AutoMLOutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automloutputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class AutoMLJob(AWSObject):
+    """
+    `AutoMLJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-automljob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::AutoMLJob"
+
+    props: PropsDictType = {
+        "AutoMLJobConfig": (AutoMLJobConfig, False),
+        "AutoMLJobObjective": (AutoMLJobObjective, False),
+        "GenerateCandidateDefinitionsOnly": (boolean, False),
+        "InputDataConfig": ([AutoMLChannel], False),
+        "OutputDataConfig": (AutoMLOutputDataConfig, False),
+        "ProblemType": (str, False),
+        "RoleArn": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -647,17 +841,6 @@ class ScheduledUpdateConfig(AWSProperty):
     props: PropsDictType = {
         "DeploymentConfig": (DeploymentConfig, False),
         "ScheduleExpression": (str, True),
-    }
-
-
-class VpcConfig(AWSProperty):
-    """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-vpcconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], True),
-        "Subnets": ([str], True),
     }
 
 
@@ -1072,11 +1255,13 @@ class NetworkConfig(AWSProperty):
 
 class StoppingCondition(AWSProperty):
     """
-    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-stoppingcondition.html>`__
+    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-stoppingcondition.html>`__
     """
 
     props: PropsDictType = {
-        "MaxRuntimeInSeconds": (integer, True),
+        "MaxPendingTimeInSeconds": (integer, False),
+        "MaxRuntimeInSeconds": (integer, False),
+        "MaxWaitTimeInSeconds": (integer, False),
     }
 
 
@@ -1581,38 +1766,14 @@ class AsyncInferenceConfig(AWSProperty):
     }
 
 
-class CaptureContentTypeHeader(AWSProperty):
-    """
-    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>`__
-    """
-
-    props: PropsDictType = {
-        "CsvContentTypes": ([str], False),
-        "JsonContentTypes": ([str], False),
-    }
-
-
-class CaptureOption(AWSProperty):
-    """
-    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>`__
-    """
-
-    props: PropsDictType = {
-        "CaptureMode": (str, True),
-    }
-
-
 class DataCaptureConfig(AWSProperty):
     """
-    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>`__
+    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-datacaptureconfig.html>`__
     """
 
     props: PropsDictType = {
-        "CaptureContentTypeHeader": (CaptureContentTypeHeader, False),
-        "CaptureOptions": ([CaptureOption], True),
         "DestinationS3Uri": (str, True),
-        "EnableCapture": (boolean, False),
-        "InitialSamplingPercentage": (integer, True),
+        "GenerateInferenceId": (boolean, False),
         "KmsKeyId": (str, False),
     }
 
@@ -1815,35 +1976,6 @@ class Experiment(AWSObject):
     }
 
 
-class Status(AWSProperty):
-    """
-    `Status <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-experimenttrialcomponent-status.html>`__
-    """
-
-    props: PropsDictType = {
-        "Message": (str, False),
-        "PrimaryStatus": (str, False),
-    }
-
-
-class ExperimentTrialComponent(AWSObject):
-    """
-    `ExperimentTrialComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-experimenttrialcomponent.html>`__
-    """
-
-    resource_type = "AWS::SageMaker::ExperimentTrialComponent"
-
-    props: PropsDictType = {
-        "DisplayName": (str, False),
-        "EndTime": (str, False),
-        "MetadataProperties": (MetadataProperties, False),
-        "StartTime": (str, False),
-        "Status": (Status, False),
-        "Tags": ([TagsItems], False),
-        "TrialComponentName": (str, True),
-    }
-
-
 class FeatureDefinition(AWSProperty):
     """
     `FeatureDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html>`__
@@ -1971,6 +2103,30 @@ class Hub(AWSObject):
         "HubSearchKeywords": ([str], False),
         "S3StorageConfig": (S3StorageConfig, False),
         "Tags": (Tags, False),
+    }
+
+
+class UiTemplate(AWSProperty):
+    """
+    `UiTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-humantaskui-uitemplate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": (str, True),
+    }
+
+
+class HumanTaskUi(AWSObject):
+    """
+    `HumanTaskUi <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-humantaskui.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::HumanTaskUi"
+
+    props: PropsDictType = {
+        "HumanTaskUiName": (str, True),
+        "Tags": (Tags, False),
+        "UiTemplate": (UiTemplate, False),
     }
 
 
@@ -2151,6 +2307,17 @@ class InferenceComponent(AWSObject):
         "Specification": (InferenceComponentSpecification, True),
         "Tags": (Tags, False),
         "VariantName": (str, False),
+    }
+
+
+class CaptureContentTypeHeader(AWSProperty):
+    """
+    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "CsvContentTypes": ([str], False),
+        "JsonContentTypes": ([str], False),
     }
 
 
@@ -2719,15 +2886,25 @@ class SecurityConfig(AWSProperty):
     }
 
 
-class UserContext(AWSProperty):
+class IamIdentity(AWSProperty):
     """
-    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html>`__
+    `IamIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipelineexecution-iamidentity.html>`__
     """
 
     props: PropsDictType = {
-        "DomainId": (str, False),
-        "UserProfileArn": (str, False),
-        "UserProfileName": (str, False),
+        "Arn": (str, False),
+        "PrincipalId": (str, False),
+        "SourceIdentity": (str, False),
+    }
+
+
+class UserContext(AWSProperty):
+    """
+    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipelineexecution-usercontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "IamIdentity": (IamIdentity, False),
     }
 
 
@@ -2746,6 +2923,31 @@ class ModelCard(AWSObject):
         "ModelCardStatus": (str, True),
         "SecurityConfig": (SecurityConfig, False),
         "Tags": (Tags, False),
+    }
+
+
+class ModelCardExportOutputConfig(AWSProperty):
+    """
+    `ModelCardExportOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcardexportjob-modelcardexportoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3OutputPath": (str, True),
+    }
+
+
+class ModelCardExportJob(AWSObject):
+    """
+    `ModelCardExportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcardexportjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ModelCardExportJob"
+
+    props: PropsDictType = {
+        "ModelCardExportJobName": (str, True),
+        "ModelCardName": (str, True),
+        "ModelCardVersion": (integer, False),
+        "OutputConfig": (ModelCardExportOutputConfig, True),
     }
 
 
@@ -3024,7 +3226,7 @@ class SourceAlgorithmSpecification(AWSProperty):
 
 class S3DataSource(AWSProperty):
     """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-s3datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -3035,7 +3237,7 @@ class S3DataSource(AWSProperty):
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -3045,7 +3247,7 @@ class DataSource(AWSProperty):
 
 class TransformInput(AWSProperty):
     """
-    `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html>`__
+    `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-transforminput.html>`__
     """
 
     props: PropsDictType = {
@@ -3058,7 +3260,7 @@ class TransformInput(AWSProperty):
 
 class TransformOutput(AWSProperty):
     """
-    `TransformOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html>`__
+    `TransformOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-transformoutput.html>`__
     """
 
     props: PropsDictType = {
@@ -3071,7 +3273,7 @@ class TransformOutput(AWSProperty):
 
 class TransformResources(AWSProperty):
     """
-    `TransformResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformresources.html>`__
+    `TransformResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-transformresources.html>`__
     """
 
     props: PropsDictType = {
@@ -3370,6 +3572,21 @@ class MonitoringSchedule(AWSObject):
     }
 
 
+class MonitoringScheduleAlert(AWSObject):
+    """
+    `MonitoringScheduleAlert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedulealert.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::MonitoringScheduleAlert"
+
+    props: PropsDictType = {
+        "DatapointsToAlert": (integer, True),
+        "EvaluationPeriod": (integer, True),
+        "MonitoringAlertName": (str, True),
+        "MonitoringScheduleName": (str, True),
+    }
+
+
 class InstanceMetadataServiceConfiguration(AWSProperty):
     """
     `InstanceMetadataServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>`__
@@ -3480,7 +3697,7 @@ class PartnerApp(AWSObject):
 
 class ParallelismConfiguration(AWSProperty):
     """
-    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>`__
+    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipelineexecution-parallelismconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -3530,6 +3747,16 @@ class Pipeline(AWSObject):
     }
 
 
+class PipelineExecution(AWSObject):
+    """
+    `PipelineExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipelineexecution.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::PipelineExecution"
+
+    props: PropsDictType = {}
+
+
 class AppSpecification(AWSProperty):
     """
     `AppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-appspecification.html>`__
@@ -3544,12 +3771,11 @@ class AppSpecification(AWSProperty):
 
 class ExperimentConfig(AWSProperty):
     """
-    `ExperimentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-processingjob-experimentconfig.html>`__
+    `ExperimentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-experimentconfig.html>`__
     """
 
     props: PropsDictType = {
         "ExperimentName": (str, False),
-        "RunName": (str, False),
         "TrialComponentDisplayName": (str, False),
         "TrialName": (str, False),
     }
@@ -3963,6 +4189,312 @@ class StudioLifecycleConfig(AWSObject):
     }
 
 
+class TrainingRepositoryAuthConfig(AWSProperty):
+    """
+    `TrainingRepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingrepositoryauthconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrainingRepositoryCredentialsProviderArn": (str, True),
+    }
+
+
+class TrainingImageConfig(AWSProperty):
+    """
+    `TrainingImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingimageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrainingRepositoryAccessMode": (str, True),
+        "TrainingRepositoryAuthConfig": (TrainingRepositoryAuthConfig, False),
+    }
+
+
+class AlgorithmSpecification(AWSProperty):
+    """
+    `AlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-algorithmspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmName": (str, False),
+        "ContainerArguments": ([str], False),
+        "ContainerEntrypoint": ([str], False),
+        "EnableSageMakerMetricsTimeSeries": (boolean, False),
+        "MetricDefinitions": ([MetricDefinition], False),
+        "TrainingImage": (str, False),
+        "TrainingImageConfig": (TrainingImageConfig, False),
+        "TrainingInputMode": (str, True),
+    }
+
+
+class ShuffleConfig(AWSProperty):
+    """
+    `ShuffleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-shuffleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Seed": (integer, True),
+    }
+
+
+class Channel(AWSProperty):
+    """
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-channel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "CompressionType": (str, False),
+        "ContentType": (str, False),
+        "DataSource": (DataSource, True),
+        "InputMode": (str, False),
+        "RecordWrapperType": (str, False),
+        "ShuffleConfig": (ShuffleConfig, False),
+    }
+
+
+class CheckpointConfig(AWSProperty):
+    """
+    `CheckpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-checkpointconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocalPath": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class CollectionConfiguration(AWSProperty):
+    """
+    `CollectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-collectionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectionName": (str, False),
+        "CollectionParameters": (dict, False),
+    }
+
+
+class DebugHookConfig(AWSProperty):
+    """
+    `DebugHookConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-debughookconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectionConfigurations": ([CollectionConfiguration], False),
+        "HookParameters": (dict, False),
+        "LocalPath": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class DebugRuleConfiguration(AWSProperty):
+    """
+    `DebugRuleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-debugruleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceType": (str, False),
+        "LocalPath": (str, False),
+        "RuleConfigurationName": (str, True),
+        "RuleEvaluatorImage": (str, True),
+        "RuleParameters": (dict, False),
+        "S3OutputPath": (str, False),
+        "VolumeSizeInGB": (integer, False),
+    }
+
+
+class InfraCheckConfig(AWSProperty):
+    """
+    `InfraCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-infracheckconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableInfraCheck": (boolean, False),
+    }
+
+
+class OutputDataConfig(AWSProperty):
+    """
+    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-outputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionType": (str, False),
+        "KmsKeyId": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class ProfilerConfig(AWSProperty):
+    """
+    `ProfilerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-profilerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisableProfiler": (boolean, False),
+        "ProfilingIntervalInMilliseconds": (integer, False),
+        "ProfilingParameters": (dict, False),
+        "S3OutputPath": (str, False),
+    }
+
+
+class ProfilerRuleConfiguration(AWSProperty):
+    """
+    `ProfilerRuleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-profilerruleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceType": (str, False),
+        "LocalPath": (str, False),
+        "RuleConfigurationName": (str, True),
+        "RuleEvaluatorImage": (str, True),
+        "RuleParameters": (dict, False),
+        "S3OutputPath": (str, False),
+        "VolumeSizeInGB": (integer, False),
+    }
+
+
+class RemoteDebugConfig(AWSProperty):
+    """
+    `RemoteDebugConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-remotedebugconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableRemoteDebug": (boolean, False),
+    }
+
+
+class InstanceGroup(AWSProperty):
+    """
+    `InstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-instancegroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "InstanceGroupName": (str, True),
+        "InstanceType": (str, True),
+    }
+
+
+class ResourceConfig(AWSProperty):
+    """
+    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-resourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, False),
+        "InstanceGroups": ([InstanceGroup], False),
+        "InstanceType": (str, False),
+        "KeepAlivePeriodInSeconds": (integer, False),
+        "VolumeKmsKeyId": (str, False),
+        "VolumeSizeInGB": (integer, False),
+    }
+
+
+class RetryStrategy(AWSProperty):
+    """
+    `RetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-retrystrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumRetryAttempts": (integer, True),
+    }
+
+
+class TensorBoardOutputConfig(AWSProperty):
+    """
+    `TensorBoardOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-tensorboardoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocalPath": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class TrainingJob(AWSObject):
+    """
+    `TrainingJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-trainingjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::TrainingJob"
+
+    props: PropsDictType = {
+        "AlgorithmSpecification": (AlgorithmSpecification, True),
+        "CheckpointConfig": (CheckpointConfig, False),
+        "DebugHookConfig": (DebugHookConfig, False),
+        "DebugRuleConfigurations": ([DebugRuleConfiguration], False),
+        "EnableInterContainerTrafficEncryption": (boolean, False),
+        "EnableManagedSpotTraining": (boolean, False),
+        "EnableNetworkIsolation": (boolean, False),
+        "Environment": (dict, False),
+        "ExperimentConfig": (ExperimentConfig, False),
+        "HyperParameters": (dict, False),
+        "InfraCheckConfig": (InfraCheckConfig, False),
+        "InputDataConfig": ([Channel], False),
+        "OutputDataConfig": (OutputDataConfig, True),
+        "ProfilerConfig": (ProfilerConfig, False),
+        "ProfilerRuleConfigurations": ([ProfilerRuleConfiguration], False),
+        "RemoteDebugConfig": (RemoteDebugConfig, False),
+        "ResourceConfig": (ResourceConfig, True),
+        "RetryStrategy": (RetryStrategy, False),
+        "RoleArn": (str, True),
+        "StoppingCondition": (StoppingCondition, True),
+        "Tags": (Tags, False),
+        "TensorBoardOutputConfig": (TensorBoardOutputConfig, False),
+        "TrainingJobName": (str, True),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
+class DataProcessing(AWSProperty):
+    """
+    `DataProcessing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-dataprocessing.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputFilter": (str, False),
+        "JoinSource": (str, False),
+        "OutputFilter": (str, False),
+    }
+
+
+class ModelClientConfig(AWSProperty):
+    """
+    `ModelClientConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-modelclientconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InvocationsMaxRetries": (integer, False),
+        "InvocationsTimeoutInSeconds": (integer, False),
+    }
+
+
+class TransformJob(AWSObject):
+    """
+    `TransformJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-transformjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::TransformJob"
+
+    props: PropsDictType = {
+        "BatchStrategy": (str, False),
+        "DataCaptureConfig": (DataCaptureConfig, False),
+        "DataProcessing": (DataProcessing, False),
+        "Environment": (dict, False),
+        "ExperimentConfig": (ExperimentConfig, False),
+        "MaxConcurrentTransforms": (integer, False),
+        "MaxPayloadInMB": (integer, False),
+        "ModelClientConfig": (ModelClientConfig, False),
+        "ModelName": (str, True),
+        "Tags": ([TagsItems], False),
+        "TransformInput": (TransformInput, True),
+        "TransformOutput": (TransformOutput, True),
+        "TransformResources": (TransformResources, True),
+    }
+
+
 class TrialComponentArtifact(AWSProperty):
     """
     `TrialComponentArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trialcomponent-trialcomponentartifact.html>`__
@@ -4029,6 +4561,76 @@ class UserProfile(AWSObject):
         "Tags": (Tags, False),
         "UserProfileName": (str, True),
         "UserSettings": (UserSettings, False),
+    }
+
+
+class CognitoConfig(AWSProperty):
+    """
+    `CognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workforce-cognitoconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "UserPool": (str, True),
+    }
+
+
+class OidcConfig(AWSProperty):
+    """
+    `OidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workforce-oidcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthenticationRequestExtraParams": (dict, False),
+        "AuthorizationEndpoint": (str, True),
+        "ClientId": (str, True),
+        "ClientSecret": (str, False),
+        "Issuer": (str, True),
+        "JwksUri": (str, True),
+        "LogoutEndpoint": (str, True),
+        "Scope": (str, False),
+        "TokenEndpoint": (str, True),
+        "UserInfoEndpoint": (str, True),
+    }
+
+
+class SourceIpConfig(AWSProperty):
+    """
+    `SourceIpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workforce-sourceipconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidrs": ([str], True),
+    }
+
+
+class WorkforceVpcConfigRequest(AWSProperty):
+    """
+    `WorkforceVpcConfigRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workforce-workforcevpcconfigrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], False),
+        "Subnets": ([str], False),
+        "VpcId": (str, False),
+    }
+
+
+class Workforce(AWSObject):
+    """
+    `Workforce <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workforce.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::Workforce"
+
+    props: PropsDictType = {
+        "CognitoConfig": (CognitoConfig, False),
+        "IpAddressType": (str, False),
+        "OidcConfig": (OidcConfig, False),
+        "SourceIpConfig": (SourceIpConfig, False),
+        "Tags": (Tags, False),
+        "WorkforceName": (str, True),
+        "WorkforceVpcConfig": (WorkforceVpcConfigRequest, False),
     }
 
 
@@ -4113,6 +4715,16 @@ class CapacitySizeConfig(AWSProperty):
     }
 
 
+class CaptureOption(AWSProperty):
+    """
+    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptureMode": (str, True),
+    }
+
+
 class Container(AWSProperty):
     """
     `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html>`__
@@ -4137,6 +4749,19 @@ class EndpointMetadata(AWSProperty):
     }
 
 
+class FileSystemDataSource(AWSProperty):
+    """
+    `FileSystemDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-filesystemdatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "DirectoryPath": (str, True),
+        "FileSystemAccessMode": (str, True),
+        "FileSystemId": (str, True),
+        "FileSystemType": (str, True),
+    }
+
+
 class HubAccessConfig(AWSProperty):
     """
     `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-hubaccessconfig.html>`__
@@ -4144,6 +4769,36 @@ class HubAccessConfig(AWSProperty):
 
     props: PropsDictType = {
         "HubContentArn": (str, True),
+    }
+
+
+class ModelCardExportArtifacts(AWSProperty):
+    """
+    `ModelCardExportArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcardexportjob-modelcardexportartifacts.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3ExportArtifacts": (str, True),
+    }
+
+
+class ModelDashboardIndicatorAction(AWSProperty):
+    """
+    `ModelDashboardIndicatorAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedulealert-modeldashboardindicatoraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
+class MonitoringAlertActions(AWSProperty):
+    """
+    `MonitoringAlertActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedulealert-monitoringalertactions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelDashboardIndicator": (ModelDashboardIndicatorAction, False),
     }
 
 
@@ -4155,4 +4810,17 @@ class RSessionAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class SecondaryStatusTransition(AWSProperty):
+    """
+    `SecondaryStatusTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-secondarystatustransition.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, False),
+        "StartTime": (str, True),
+        "Status": (str, True),
+        "StatusMessage": (str, False),
     }

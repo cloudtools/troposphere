@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.synthetics import canary_runtime_version
 
 
@@ -70,6 +70,46 @@ class Code(AWSProperty):
     }
 
 
+class ReplicaReplicationStatus(AWSProperty):
+    """
+    `ReplicaReplicationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-replicareplicationstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+    }
+
+
+class VPCConfig(AWSProperty):
+    """
+    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv6AllowedForDualStack": (boolean, False),
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
+        "VpcId": (str, False),
+    }
+
+
+class Replica(AWSProperty):
+    """
+    `Replica <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-replica.html>`__
+    """
+
+    props: PropsDictType = {
+        "CanaryState": (str, False),
+        "KmsKeyArn": (str, False),
+        "LastModified": (double, False),
+        "Location": (str, True),
+        "ReplicationStatus": (ReplicaReplicationStatus, False),
+        "ResourcesToReplicateTags": ([str], False),
+        "Tags": (Tags, False),
+        "VpcConfig": (VPCConfig, False),
+    }
+
+
 class RunConfig(AWSProperty):
     """
     `RunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html>`__
@@ -103,19 +143,6 @@ class Schedule(AWSProperty):
         "DurationInSeconds": (str, False),
         "Expression": (str, True),
         "RetryConfig": (RetryConfig, False),
-    }
-
-
-class VPCConfig(AWSProperty):
-    """
-    `VPCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "Ipv6AllowedForDualStack": (boolean, False),
-        "SecurityGroupIds": ([str], True),
-        "SubnetIds": ([str], True),
-        "VpcId": (str, False),
     }
 
 
@@ -157,8 +184,10 @@ class Canary(AWSObject):
         "DryRunAndUpdate": (boolean, False),
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
+        "KmsKeyArn": (str, False),
         "Name": (str, True),
         "ProvisionedResourceCleanup": (str, False),
+        "Replicas": ([Replica], False),
         "ResourcesToReplicateTags": ([str], False),
         "RunConfig": (RunConfig, False),
         "RuntimeVersion": (canary_runtime_version, True),

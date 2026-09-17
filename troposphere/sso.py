@@ -63,6 +63,16 @@ class ApplicationAssignment(AWSObject):
     }
 
 
+class ApplicationProvider(AWSObject):
+    """
+    `ApplicationProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationprovider.html>`__
+    """
+
+    resource_type = "AWS::SSO::ApplicationProvider"
+
+    props: PropsDictType = {}
+
+
 class Assignment(AWSObject):
     """
     `Assignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html>`__
@@ -167,4 +177,37 @@ class PermissionSet(AWSObject):
         "RelayStateType": (str, False),
         "SessionDuration": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class DisplayData(AWSProperty):
+    """
+    `DisplayData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-applicationprovider-displaydata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "IconUrl": (str, False),
+    }
+
+
+class ResourceServerScopeDetails(AWSProperty):
+    """
+    `ResourceServerScopeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-applicationprovider-resourceserverscopedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "DetailedTitle": (str, False),
+        "LongDescription": (str, False),
+    }
+
+
+class ResourceServerConfig(AWSProperty):
+    """
+    `ResourceServerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-applicationprovider-resourceserverconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Scopes": (dict, False),
     }

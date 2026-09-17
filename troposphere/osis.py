@@ -107,6 +107,18 @@ class Pipeline(AWSObject):
     }
 
 
+class PipelineBlueprint(AWSObject):
+    """
+    `PipelineBlueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipelineblueprint.html>`__
+    """
+
+    resource_type = "AWS::OSIS::PipelineBlueprint"
+
+    props: PropsDictType = {
+        "BlueprintName": (str, False),
+    }
+
+
 class VpcEndpoint(AWSProperty):
     """
     `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcendpoint.html>`__

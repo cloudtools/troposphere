@@ -47,6 +47,17 @@ class LogDeliveryConfiguration(AWSProperty):
     }
 
 
+class MaintenanceSchedule(AWSProperty):
+    """
+    `MaintenanceSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-maintenanceschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "PreferredMaintenanceWindow": (str, True),
+        "Timezone": (str, True),
+    }
+
+
 class InfluxDBCluster(AWSObject):
     """
     `InfluxDBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html>`__
@@ -63,6 +74,7 @@ class InfluxDBCluster(AWSObject):
         "DeploymentType": (str, False),
         "FailoverMode": (str, False),
         "LogDeliveryConfiguration": (LogDeliveryConfiguration, False),
+        "MaintenanceSchedule": (MaintenanceSchedule, False),
         "Name": (str, False),
         "NetworkType": (str, False),
         "Organization": (str, False),
@@ -73,17 +85,6 @@ class InfluxDBCluster(AWSObject):
         "Username": (str, False),
         "VpcSecurityGroupIds": ([str], False),
         "VpcSubnetIds": ([str], False),
-    }
-
-
-class MaintenanceSchedule(AWSProperty):
-    """
-    `MaintenanceSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-maintenanceschedule.html>`__
-    """
-
-    props: PropsDictType = {
-        "PreferredMaintenanceWindow": (str, True),
-        "Timezone": (str, True),
     }
 
 

@@ -3284,6 +3284,16 @@ class Node(AWSObject):
     }
 
 
+class Offering(AWSObject):
+    """
+    `Offering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-offering.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::Offering"
+
+    props: PropsDictType = {}
+
+
 class SdiSource(AWSObject):
     """
     `SdiSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html>`__
@@ -3392,6 +3402,23 @@ class MulticastSettingsUpdateRequest(AWSProperty):
 
     props: PropsDictType = {
         "Sources": ([MulticastSourceUpdateRequest], False),
+    }
+
+
+class ReservationResourceSpecification(AWSProperty):
+    """
+    `ReservationResourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-offering-reservationresourcespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelClass": (str, False),
+        "Codec": (str, False),
+        "MaximumBitrate": (str, False),
+        "MaximumFramerate": (str, False),
+        "Resolution": (str, False),
+        "ResourceType": (str, False),
+        "SpecialFeature": (str, False),
+        "VideoQuality": (str, False),
     }
 
 

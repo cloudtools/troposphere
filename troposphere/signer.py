@@ -26,6 +26,18 @@ class ProfilePermission(AWSObject):
     }
 
 
+class SigningJob(AWSObject):
+    """
+    `SigningJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingjob.html>`__
+    """
+
+    resource_type = "AWS::Signer::SigningJob"
+
+    props: PropsDictType = {
+        "ProfileName": (str, True),
+    }
+
+
 class SignatureValidityPeriod(AWSProperty):
     """
     `SignatureValidityPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html>`__
@@ -48,4 +60,47 @@ class SigningProfile(AWSObject):
         "PlatformId": (str, True),
         "SignatureValidityPeriod": (SignatureValidityPeriod, False),
         "Tags": (Tags, False),
+    }
+
+
+class S3SignedObject(AWSProperty):
+    """
+    `S3SignedObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingjob-s3signedobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, False),
+        "Key": (str, False),
+    }
+
+
+class S3Source(AWSProperty):
+    """
+    `S3Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingjob-s3source.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "Key": (str, True),
+        "Version": (str, True),
+    }
+
+
+class SignedObject(AWSProperty):
+    """
+    `SignedObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingjob-signedobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (S3SignedObject, False),
+    }
+
+
+class Source(AWSProperty):
+    """
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingjob-source.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (S3Source, False),
     }

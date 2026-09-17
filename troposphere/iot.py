@@ -515,6 +515,18 @@ class FleetMetric(AWSObject):
     }
 
 
+class Index(AWSObject):
+    """
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-index.html>`__
+    """
+
+    resource_type = "AWS::IoT::Index"
+
+    props: PropsDictType = {
+        "IndexName": (str, False),
+    }
+
+
 class AbortCriteria(AWSProperty):
     """
     `AbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html>`__
@@ -593,17 +605,6 @@ class JobExecutionsRolloutConfig(AWSProperty):
     }
 
 
-class MaintenanceWindow(AWSProperty):
-    """
-    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html>`__
-    """
-
-    props: PropsDictType = {
-        "DurationInMinutes": (integer, False),
-        "StartTime": (str, False),
-    }
-
-
 class PresignedUrlConfig(AWSProperty):
     """
     `PresignedUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html>`__
@@ -615,6 +616,30 @@ class PresignedUrlConfig(AWSProperty):
     }
 
 
+class MaintenanceWindow(AWSProperty):
+    """
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInMinutes": (integer, False),
+        "StartTime": (str, False),
+    }
+
+
+class SchedulingConfig(AWSProperty):
+    """
+    `SchedulingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-job-schedulingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndBehavior": (str, False),
+        "EndTime": (str, False),
+        "MaintenanceWindows": ([MaintenanceWindow], False),
+        "StartTime": (str, False),
+    }
+
+
 class TimeoutConfig(AWSProperty):
     """
     `TimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html>`__
@@ -622,6 +647,33 @@ class TimeoutConfig(AWSProperty):
 
     props: PropsDictType = {
         "InProgressTimeoutInMinutes": (integer, True),
+    }
+
+
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-job.html>`__
+    """
+
+    resource_type = "AWS::IoT::Job"
+
+    props: PropsDictType = {
+        "AbortConfig": (AbortConfig, False),
+        "Description": (str, False),
+        "DestinationPackageVersions": ([str], False),
+        "Document": (str, False),
+        "DocumentParameters": (dict, False),
+        "DocumentSource": (str, False),
+        "JobExecutionsRetryConfig": (JobExecutionsRetryConfig, False),
+        "JobExecutionsRolloutConfig": (JobExecutionsRolloutConfig, False),
+        "JobId": (str, True),
+        "JobTemplateArn": (str, False),
+        "PresignedUrlConfig": (PresignedUrlConfig, False),
+        "SchedulingConfig": (SchedulingConfig, False),
+        "Tags": (Tags, False),
+        "TargetSelection": (str, False),
+        "Targets": ([str], True),
+        "TimeoutConfig": (TimeoutConfig, False),
     }
 
 

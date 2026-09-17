@@ -524,6 +524,18 @@ class S3(AWSProperty):
     }
 
 
+class AuthorizerLogs(AWSProperty):
+    """
+    `AuthorizerLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-authorizerlogs.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogs, False),
+        "Firehose": (Firehose, False),
+        "S3": (S3, False),
+    }
+
+
 class BrokerLogs(AWSProperty):
     """
     `BrokerLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokerlogs.html>`__
@@ -542,7 +554,8 @@ class LoggingInfo(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BrokerLogs": (BrokerLogs, True),
+        "AuthorizerLogs": (AuthorizerLogs, False),
+        "BrokerLogs": (BrokerLogs, False),
     }
 
 

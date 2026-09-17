@@ -99,9 +99,9 @@ class Filter(AWSProperty):
     }
 
 
-class ArchiveRule(AWSProperty):
+class ArchiveRuleProperty(AWSProperty):
     """
-    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
+    `ArchiveRuleProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
     """
 
     props: PropsDictType = {
@@ -120,7 +120,34 @@ class Analyzer(AWSObject):
     props: PropsDictType = {
         "AnalyzerConfiguration": (AnalyzerConfiguration, False),
         "AnalyzerName": (str, False),
-        "ArchiveRules": ([ArchiveRule], False),
+        "ArchiveRules": ([ArchiveRuleProperty], False),
         "Tags": (Tags, False),
         "Type": (str, True),
+    }
+
+
+class FilterItems(AWSProperty):
+    """
+    `FilterItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-archiverule-filteritems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Contains": ([str], False),
+        "Eq": ([str], False),
+        "Exists": (boolean, False),
+        "Neq": ([str], False),
+    }
+
+
+class ArchiveRule(AWSObject):
+    """
+    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-archiverule.html>`__
+    """
+
+    resource_type = "AWS::AccessAnalyzer::ArchiveRule"
+
+    props: PropsDictType = {
+        "AnalyzerName": (str, True),
+        "Filter": (dict, True),
+        "RuleName": (str, True),
     }

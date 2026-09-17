@@ -853,6 +853,35 @@ class EnclaveCertificateIamRoleAssociation(AWSObject):
     }
 
 
+class ExportToS3Task(AWSProperty):
+    """
+    `ExportToS3Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-exportinstancetask-exporttos3task.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerFormat": (str, False),
+        "DiskImageFormat": (str, False),
+        "S3Bucket": (str, False),
+        "S3Key": (str, False),
+    }
+
+
+class ExportInstanceTask(AWSObject):
+    """
+    `ExportInstanceTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-exportinstancetask.html>`__
+    """
+
+    resource_type = "AWS::EC2::ExportInstanceTask"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ExportToS3Task": (ExportToS3Task, False),
+        "InstanceId": (str, True),
+        "Tags": (Tags, False),
+        "TargetEnvironment": (str, True),
+    }
+
+
 class DestinationOptions(AWSProperty):
     """
     `DestinationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html>`__

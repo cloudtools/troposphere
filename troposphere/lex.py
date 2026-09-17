@@ -1221,6 +1221,20 @@ class BotLocale(AWSProperty):
     }
 
 
+class BotMember(AWSProperty):
+    """
+    `BotMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botmember.html>`__
+    """
+
+    props: PropsDictType = {
+        "BotMemberAliasId": (str, True),
+        "BotMemberAliasName": (str, True),
+        "BotMemberId": (str, True),
+        "BotMemberName": (str, True),
+        "BotMemberVersion": (str, True),
+    }
+
+
 class DataPrivacy(AWSProperty):
     """
     `DataPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html>`__
@@ -1416,7 +1430,9 @@ class Bot(AWSObject):
         "AutoBuildBotLocales": (boolean, False),
         "BotFileS3Location": (S3Location, False),
         "BotLocales": ([BotLocale], False),
+        "BotMembers": ([BotMember], False),
         "BotTags": (Tags, False),
+        "BotType": (str, False),
         "DataPrivacy": (DataPrivacy, True),
         "Description": (str, False),
         "ErrorLogSettings": (ErrorLogSettings, False),

@@ -151,6 +151,21 @@ class Connector(AWSObject):
     }
 
 
+class HostKey(AWSObject):
+    """
+    `HostKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-hostkey.html>`__
+    """
+
+    resource_type = "AWS::Transfer::HostKey"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "HostKeyBody": (str, False),
+        "ServerId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Profile(AWSObject):
     """
     `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-profile.html>`__

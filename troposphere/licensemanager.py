@@ -130,3 +130,108 @@ class License(AWSObject):
         "Tags": (Tags, False),
         "Validity": (ValidityDateFormat, True),
     }
+
+
+class MatchingRuleStatement(AWSProperty):
+    """
+    `MatchingRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-matchingrulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraint": (str, True),
+        "KeyToMatch": (str, True),
+        "ValueToMatch": ([str], True),
+    }
+
+
+class AndRuleStatement(AWSProperty):
+    """
+    `AndRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-andrulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchingRuleStatements": ([MatchingRuleStatement], False),
+    }
+
+
+class OrRuleStatement(AWSProperty):
+    """
+    `OrRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-orrulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchingRuleStatements": ([MatchingRuleStatement], False),
+    }
+
+
+class InstanceRuleStatement(AWSProperty):
+    """
+    `InstanceRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-instancerulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AndRuleStatement": (AndRuleStatement, False),
+        "MatchingRuleStatement": (MatchingRuleStatement, False),
+        "OrRuleStatement": (OrRuleStatement, False),
+    }
+
+
+class LicenseConfigurationRuleStatement(AWSProperty):
+    """
+    `LicenseConfigurationRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-licenseconfigurationrulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AndRuleStatement": (AndRuleStatement, False),
+        "MatchingRuleStatement": (MatchingRuleStatement, False),
+        "OrRuleStatement": (OrRuleStatement, False),
+    }
+
+
+class LicenseRuleStatement(AWSProperty):
+    """
+    `LicenseRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-licenserulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AndRuleStatement": (AndRuleStatement, False),
+        "MatchingRuleStatement": (MatchingRuleStatement, False),
+        "OrRuleStatement": (OrRuleStatement, False),
+    }
+
+
+class RuleStatement(AWSProperty):
+    """
+    `RuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-rulestatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceRuleStatement": (InstanceRuleStatement, False),
+        "LicenseConfigurationRuleStatement": (LicenseConfigurationRuleStatement, False),
+        "LicenseRuleStatement": (LicenseRuleStatement, False),
+    }
+
+
+class LicenseAssetRule(AWSProperty):
+    """
+    `LicenseAssetRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-licenseassetrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuleStatement": (RuleStatement, True),
+    }
+
+
+class LicenseAssetRuleSet(AWSObject):
+    """
+    `LicenseAssetRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-licenseassetruleset.html>`__
+    """
+
+    resource_type = "AWS::LicenseManager::LicenseAssetRuleSet"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Rules": ([LicenseAssetRule], True),
+        "Tags": (Tags, False),
+    }

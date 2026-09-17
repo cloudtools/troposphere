@@ -425,6 +425,16 @@ class ClusterCapacityProviderAssociations(AWSObject):
     }
 
 
+class ContainerInstance(AWSObject):
+    """
+    `ContainerInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-containerinstance.html>`__
+    """
+
+    resource_type = "AWS::ECS::ContainerInstance"
+
+    props: PropsDictType = {}
+
+
 class DaemonAlarmConfiguration(AWSProperty):
     """
     `DaemonAlarmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemon-daemonalarmconfiguration.html>`__
@@ -1356,6 +1366,16 @@ class Service(AWSObject):
     }
 
 
+class Task(AWSObject):
+    """
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-task.html>`__
+    """
+
+    resource_type = "AWS::ECS::Task"
+
+    props: PropsDictType = {}
+
+
 class Environment(AWSProperty):
     """
     `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-keyvaluepair.html>`__
@@ -1564,6 +1584,17 @@ class TaskSet(AWSObject):
     }
 
 
+class Attribute(AWSProperty):
+    """
+    `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-containerinstance-attribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, False),
+    }
+
+
 class AutoScalingArns(AWSProperty):
     """
     `AutoScalingArns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-autoscalingarns.html>`__
@@ -1618,4 +1649,42 @@ class IngressPathSummary(AWSProperty):
     props: PropsDictType = {
         "AccessType": (str, False),
         "Endpoint": (str, False),
+    }
+
+
+class Resource(AWSProperty):
+    """
+    `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-containerinstance-resource.html>`__
+    """
+
+    props: PropsDictType = {
+        "DoubleValue": (double, False),
+        "IntegerValue": (integer, False),
+        "LongValue": (double, False),
+        "Name": (str, False),
+        "StringSetValue": ([str], False),
+        "Type": (str, False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-task-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class VersionInfo(AWSProperty):
+    """
+    `VersionInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-containerinstance-versioninfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentHash": (str, False),
+        "AgentVersion": (str, False),
+        "DockerVersion": (str, False),
     }

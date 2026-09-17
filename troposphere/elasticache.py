@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.elasticache import (
     validate_cache_cluster,
     validate_network_port,
@@ -236,6 +236,16 @@ class ReplicationGroup(AWSObject):
         validate_replication_group(self)
 
 
+class ReservedCacheNode(AWSObject):
+    """
+    `ReservedCacheNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-reservedcachenode.html>`__
+    """
+
+    resource_type = "AWS::ElastiCache::ReservedCacheNode"
+
+    props: PropsDictType = {}
+
+
 class SecurityGroup(AWSObject):
     """
     `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html>`__
@@ -335,6 +345,21 @@ class ServerlessCache(AWSObject):
     }
 
 
+class ServerlessCacheSnapshot(AWSObject):
+    """
+    `ServerlessCacheSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscachesnapshot.html>`__
+    """
+
+    resource_type = "AWS::ElastiCache::ServerlessCacheSnapshot"
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "ServerlessCacheName": (str, True),
+        "ServerlessCacheSnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class SubnetGroup(AWSObject):
     """
     `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html>`__
@@ -405,4 +430,27 @@ class ReadEndPoint(AWSProperty):
         "AddressesList": ([str], False),
         "Ports": (str, False),
         "PortsList": ([str], False),
+    }
+
+
+class RecurringCharge(AWSProperty):
+    """
+    `RecurringCharge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-reservedcachenode-recurringcharge.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecurringChargeAmount": (double, False),
+        "RecurringChargeFrequency": (str, False),
+    }
+
+
+class ServerlessCacheConfiguration(AWSProperty):
+    """
+    `ServerlessCacheConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscachesnapshot-serverlesscacheconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Engine": (str, False),
+        "MajorEngineVersion": (str, False),
+        "ServerlessCacheName": (str, False),
     }

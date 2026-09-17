@@ -636,6 +636,18 @@ class OptionGroup(AWSObject):
     }
 
 
+class ReservedDBInstance(AWSObject):
+    """
+    `ReservedDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-reserveddbinstance.html>`__
+    """
+
+    resource_type = "AWS::RDS::ReservedDBInstance"
+
+    props: PropsDictType = {
+        "DBInstanceCount": (integer, False),
+    }
+
+
 class DBInstanceStatusInfo(AWSProperty):
     """
     `DBInstanceStatusInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html>`__
@@ -656,4 +668,15 @@ class ReadEndpoint(AWSProperty):
 
     props: PropsDictType = {
         "Address": (str, False),
+    }
+
+
+class RecurringCharge(AWSProperty):
+    """
+    `RecurringCharge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-reserveddbinstance-recurringcharge.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecurringChargeAmount": (double, False),
+        "RecurringChargeFrequency": (str, False),
     }

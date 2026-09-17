@@ -49,6 +49,18 @@ class Namespace(AWSObject):
     }
 
 
+class RecoveryPoint(AWSObject):
+    """
+    `RecoveryPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-recoverypoint.html>`__
+    """
+
+    resource_type = "AWS::RedshiftServerless::RecoveryPoint"
+
+    props: PropsDictType = {
+        "NamespaceName": (str, False),
+    }
+
+
 class Snapshot(AWSObject):
     """
     `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-snapshot.html>`__

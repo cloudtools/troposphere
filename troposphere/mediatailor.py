@@ -111,6 +111,75 @@ class ChannelPolicy(AWSObject):
     }
 
 
+class CustomOutputConfiguration(AWSProperty):
+    """
+    `CustomOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Output": (dict, False),
+        "Runtime": (str, True),
+    }
+
+
+class HttpRequestConfiguration(AWSProperty):
+    """
+    `HttpRequestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-httprequestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Body": (str, False),
+        "Headers": (dict, False),
+        "MethodType": (str, True),
+        "Output": (dict, False),
+        "RequestTimeoutMilliseconds": (integer, True),
+        "Runtime": (str, True),
+        "Url": (str, True),
+    }
+
+
+class FunctionRef(AWSProperty):
+    """
+    `FunctionRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-functionref.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionId": (str, False),
+        "RunCondition": (str, False),
+    }
+
+
+class SequentialExecutorConfiguration(AWSProperty):
+    """
+    `SequentialExecutorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-sequentialexecutorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionList": ([FunctionRef], True),
+        "Output": (dict, False),
+        "Runtime": (str, True),
+        "TimeoutMilliseconds": (integer, True),
+    }
+
+
+class Function(AWSObject):
+    """
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html>`__
+    """
+
+    resource_type = "AWS::MediaTailor::Function"
+
+    props: PropsDictType = {
+        "CustomOutputConfiguration": (CustomOutputConfiguration, False),
+        "Description": (str, False),
+        "FunctionId": (str, True),
+        "FunctionType": (str, True),
+        "HttpRequestConfiguration": (HttpRequestConfiguration, False),
+        "SequentialExecutorConfiguration": (SequentialExecutorConfiguration, False),
+        "Tags": (Tags, False),
+    }
+
+
 class HttpPackageConfiguration(AWSProperty):
     """
     `HttpPackageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-vodsource-httppackageconfiguration.html>`__
@@ -168,6 +237,31 @@ class AdDecisionServerConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "HttpRequest": (HttpRequest, True),
+    }
+
+
+class AdsPersonalizationConcurrency(AWSProperty):
+    """
+    `AdsPersonalizationConcurrency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adspersonalizationconcurrency.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableVodVastParallelization": (boolean, False),
+        "MaxConcurrentAdsRequests": (integer, False),
+    }
+
+
+class AdsPersonalizationTimeouts(AWSProperty):
+    """
+    `AdsPersonalizationTimeouts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adspersonalizationtimeouts.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdsRequestTimeoutMilliseconds": (integer, False),
+        "LiveMaximumAdsPersonalizationTimeMilliseconds": (integer, False),
+        "PrefetchAdsRequestTimeoutMilliseconds": (integer, False),
+        "PrefetchMaximumAdsPersonalizationTimeMilliseconds": (integer, False),
+        "VodMaximumAdsPersonalizationTimeMilliseconds": (integer, False),
     }
 
 
@@ -303,6 +397,8 @@ class PlaybackConfiguration(AWSObject):
         "AdConditioningConfiguration": (AdConditioningConfiguration, False),
         "AdDecisionServerConfiguration": (AdDecisionServerConfiguration, False),
         "AdDecisionServerUrl": (str, True),
+        "AdsPersonalizationConcurrency": (AdsPersonalizationConcurrency, False),
+        "AdsPersonalizationTimeouts": (AdsPersonalizationTimeouts, False),
         "AvailSuppression": (AvailSuppression, False),
         "Bumper": (Bumper, False),
         "CdnConfiguration": (CdnConfiguration, False),

@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class InternetEvent(AWSObject):
+    """
+    `InternetEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-internetevent.html>`__
+    """
+
+    resource_type = "AWS::InternetMonitor::InternetEvent"
+
+    props: PropsDictType = {}
+
+
 class LocalHealthEventsConfig(AWSProperty):
     """
     `LocalHealthEventsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-monitor-localhealtheventsconfig.html>`__
@@ -77,4 +87,21 @@ class Monitor(AWSObject):
         "Status": (str, False),
         "Tags": (Tags, False),
         "TrafficPercentageToMonitor": (integer, False),
+    }
+
+
+class ClientLocation(AWSProperty):
+    """
+    `ClientLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-internetmonitor-internetevent-clientlocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ASName": (str, True),
+        "ASNumber": (integer, True),
+        "City": (str, True),
+        "Country": (str, True),
+        "Latitude": (double, True),
+        "Longitude": (double, True),
+        "Metro": (str, False),
+        "Subdivision": (str, False),
     }

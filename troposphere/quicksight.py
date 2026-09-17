@@ -155,7 +155,7 @@ class AuthConfig(AWSProperty):
 
 class ResourcePermission(AWSProperty):
     """
-    `ResourcePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html>`__
+    `ResourcePermission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topicv2-resourcepermission.html>`__
     """
 
     props: PropsDictType = {
@@ -7003,12 +7003,12 @@ class AnalysisError(AWSProperty):
 
 class DataSetReference(AWSProperty):
     """
-    `DataSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html>`__
+    `DataSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topicv2-datasetreference.html>`__
     """
 
     props: PropsDictType = {
         "DataSetArn": (str, True),
-        "DataSetPlaceholder": (str, True),
+        "DataSetName": (str, False),
     }
 
 
@@ -7133,6 +7133,94 @@ class Analysis(AWSObject):
         "Tags": (Tags, False),
         "ThemeArn": (str, False),
         "ValidationStrategy": (ValidationStrategy, False),
+    }
+
+
+class ApplicableTo(AWSProperty):
+    """
+    `ApplicableTo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-approvalpolicy-applicableto.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupArns": ([str], False),
+        "Type": (dict, True),
+    }
+
+
+class ApprovalPolicy(AWSObject):
+    """
+    `ApprovalPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::ApprovalPolicy"
+
+    props: PropsDictType = {
+        "Actions": (Tags, True),
+        "ApplicableTo": (ApplicableTo, True),
+        "ApprovalGroups": ([str], True),
+        "AssetTypes": (Tags, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "PolicyId": (str, True),
+    }
+
+
+class AssetBundleExportJob(AWSObject):
+    """
+    `AssetBundleExportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-assetbundleexportjob.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::AssetBundleExportJob"
+
+    props: PropsDictType = {
+        "AssetBundleExportJobId": (str, True),
+        "AwsAccountId": (str, False),
+        "ExportFormat": (str, True),
+        "IncludeAllDependencies": (boolean, False),
+        "IncludeFolderMembers": (str, False),
+        "IncludeFolderMemberships": (boolean, False),
+        "IncludePermissions": (boolean, False),
+        "IncludeTags": (boolean, False),
+        "ResourceArns": ([str], True),
+    }
+
+
+class AssetBundleImportJobOverrideValidationStrategy(AWSProperty):
+    """
+    `AssetBundleImportJobOverrideValidationStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-assetbundleimportjob-assetbundleimportjoboverridevalidationstrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "StrictModeForAllResources": (boolean, False),
+    }
+
+
+class AssetBundleImportSourceDescription(AWSProperty):
+    """
+    `AssetBundleImportSourceDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-assetbundleimportjob-assetbundleimportsourcedescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, False),
+    }
+
+
+class AssetBundleImportJob(AWSObject):
+    """
+    `AssetBundleImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-assetbundleimportjob.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::AssetBundleImportJob"
+
+    props: PropsDictType = {
+        "AssetBundleImportJobId": (str, True),
+        "AssetBundleImportSource": (AssetBundleImportSourceDescription, False),
+        "AwsAccountId": (str, False),
+        "FailureAction": (str, False),
+        "OverrideValidationStrategy": (
+            AssetBundleImportJobOverrideValidationStrategy,
+            False,
+        ),
     }
 
 
@@ -7382,6 +7470,69 @@ class CustomPermissions(AWSObject):
         "AwsAccountId": (str, True),
         "Capabilities": (Capabilities, False),
         "CustomPermissionsName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class LabelActionMapping(AWSProperty):
+    """
+    `LabelActionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dlpsetting-labelactionmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "LabelId": (str, True),
+        "LabelName": (str, True),
+    }
+
+
+class MicrosoftPurviewCredentials(AWSProperty):
+    """
+    `MicrosoftPurviewCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dlpsetting-microsoftpurviewcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
+    }
+
+
+class MicrosoftPurviewProviderConfig(AWSProperty):
+    """
+    `MicrosoftPurviewProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dlpsetting-microsoftpurviewproviderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Credentials": (MicrosoftPurviewCredentials, True),
+        "LabelActionMappings": ([LabelActionMapping], True),
+        "UnmappedAction": (str, True),
+    }
+
+
+class ProviderConfig(AWSProperty):
+    """
+    `ProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dlpsetting-providerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MicrosoftPurview": (MicrosoftPurviewProviderConfig, True),
+    }
+
+
+class DLPSetting(AWSObject):
+    """
+    `DLPSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dlpsetting.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::DLPSetting"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, False),
+        "DlpSettingId": (str, True),
+        "Enabled": (boolean, True),
+        "Name": (str, True),
+        "ProviderConfig": (ProviderConfig, True),
+        "ProviderOutageAction": (str, True),
+        "ProviderType": (str, True),
         "Tags": (Tags, False),
     }
 
@@ -9752,7 +9903,7 @@ class Theme(AWSObject):
 
 class CustomInstructions(AWSProperty):
     """
-    `CustomInstructions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-custominstructions.html>`__
+    `CustomInstructions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topicv2-custominstructions.html>`__
     """
 
     props: PropsDictType = {
@@ -10135,6 +10286,49 @@ class Topic(AWSObject):
         "Tags": (Tags, False),
         "TopicId": (str, False),
         "UserExperienceVersion": (str, False),
+    }
+
+
+class DataSetRelationEndpoint(AWSProperty):
+    """
+    `DataSetRelationEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topicv2-datasetrelationendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnNames": ([str], True),
+        "DataSetArn": (str, True),
+    }
+
+
+class DataSetRelation(AWSProperty):
+    """
+    `DataSetRelation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topicv2-datasetrelation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Left": (DataSetRelationEndpoint, True),
+        "Right": (DataSetRelationEndpoint, True),
+    }
+
+
+class TopicV2(AWSObject):
+    """
+    `TopicV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topicv2.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::TopicV2"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, False),
+        "CustomInstructions": (CustomInstructions, False),
+        "DataSetRelations": ([DataSetRelation], False),
+        "DataSets": ([DataSetReference], False),
+        "Description": (str, False),
+        "FolderArns": ([str], False),
+        "Name": (str, False),
+        "Permissions": ([ResourcePermission], False),
+        "Tags": (Tags, False),
+        "TopicId": (str, False),
     }
 
 

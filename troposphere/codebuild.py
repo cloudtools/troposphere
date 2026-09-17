@@ -25,6 +25,30 @@ from .validators.codebuild import (
 )
 
 
+class Build(AWSObject):
+    """
+    `Build <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-build.html>`__
+    """
+
+    resource_type = "AWS::CodeBuild::Build"
+
+    props: PropsDictType = {
+        "ProjectName": (str, False),
+    }
+
+
+class BuildBatch(AWSObject):
+    """
+    `BuildBatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-buildbatch.html>`__
+    """
+
+    resource_type = "AWS::CodeBuild::BuildBatch"
+
+    props: PropsDictType = {
+        "ProjectName": (str, False),
+    }
+
+
 class ComputeConfiguration(AWSProperty):
     """
     `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html>`__
@@ -484,6 +508,18 @@ class ReportGroup(AWSObject):
         "Name": (str, False),
         "Tags": (Tags, False),
         "Type": (str, True),
+    }
+
+
+class Sandbox(AWSObject):
+    """
+    `Sandbox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sandbox.html>`__
+    """
+
+    resource_type = "AWS::CodeBuild::Sandbox"
+
+    props: PropsDictType = {
+        "ProjectName": (str, False),
     }
 
 

@@ -681,6 +681,26 @@ class Gateway(AWSObject):
     }
 
 
+class Offering(AWSObject):
+    """
+    `Offering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-offering.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::Offering"
+
+    props: PropsDictType = {}
+
+
+class Reservation(AWSObject):
+    """
+    `Reservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-reservation.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::Reservation"
+
+    props: PropsDictType = {}
+
+
 class PreferredDayTimeMaintenanceConfiguration(AWSProperty):
     """
     `PreferredDayTimeMaintenanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-preferreddaytimemaintenanceconfiguration.html>`__
@@ -1198,4 +1218,15 @@ class RouterOutput(AWSObject):
         "RoutingScope": (str, True),
         "Tags": (Tags, False),
         "Tier": (str, True),
+    }
+
+
+class ResourceSpecification(AWSProperty):
+    """
+    `ResourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-reservation-resourcespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReservedBitrate": (integer, False),
+        "ResourceType": (str, True),
     }

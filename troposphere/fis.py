@@ -10,6 +10,29 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class ExperimentOptions(AWSProperty):
+    """
+    `ExperimentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experiment-experimentoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionsMode": (str, False),
+    }
+
+
+class Experiment(AWSObject):
+    """
+    `Experiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experiment.html>`__
+    """
+
+    resource_type = "AWS::FIS::Experiment"
+
+    props: PropsDictType = {
+        "ExperimentOptions": (ExperimentOptions, False),
+        "ExperimentTemplateId": (str, False),
+    }
+
+
 class ExperimentTemplateAction(AWSProperty):
     """
     `ExperimentTemplateAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html>`__
@@ -179,6 +202,18 @@ class ExperimentTemplate(AWSObject):
         "StopConditions": ([ExperimentTemplateStopCondition], True),
         "Tags": (dict, False),
         "Targets": (dict, True),
+    }
+
+
+class SafetyLever(AWSObject):
+    """
+    `SafetyLever <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-safetylever.html>`__
+    """
+
+    resource_type = "AWS::FIS::SafetyLever"
+
+    props: PropsDictType = {
+        "Id": (str, False),
     }
 
 

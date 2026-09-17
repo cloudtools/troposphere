@@ -11,6 +11,19 @@ from .validators import boolean, integer
 from .validators.route53resolver import validate_ruletype
 
 
+class FirewallConfig(AWSObject):
+    """
+    `FirewallConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallconfig.html>`__
+    """
+
+    resource_type = "AWS::Route53Resolver::FirewallConfig"
+
+    props: PropsDictType = {
+        "FirewallFailOpen": (str, False),
+        "ResourceId": (str, False),
+    }
+
+
 class FirewallDomainList(AWSObject):
     """
     `FirewallDomainList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html>`__

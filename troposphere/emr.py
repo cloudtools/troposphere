@@ -539,6 +539,58 @@ class InstanceGroupConfig(AWSObject):
     }
 
 
+class ExecutionEngineConfig(AWSProperty):
+    """
+    `ExecutionEngineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-notebookexecution-executionengineconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "Type": (str, False),
+    }
+
+
+class NotebookS3Location(AWSProperty):
+    """
+    `NotebookS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-notebookexecution-notebooks3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "Key": (str, False),
+    }
+
+
+class OutputNotebookS3Location(AWSProperty):
+    """
+    `OutputNotebookS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-notebookexecution-outputnotebooks3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "Key": (str, False),
+    }
+
+
+class NotebookExecution(AWSObject):
+    """
+    `NotebookExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-notebookexecution.html>`__
+    """
+
+    resource_type = "AWS::EMR::NotebookExecution"
+
+    props: PropsDictType = {
+        "EnvironmentVariables": (dict, False),
+        "ExecutionEngine": (ExecutionEngineConfig, False),
+        "NotebookExecutionName": (str, False),
+        "NotebookParams": (str, False),
+        "NotebookS3Location": (NotebookS3Location, False),
+        "OutputNotebookFormat": (str, False),
+        "OutputNotebookS3Location": (OutputNotebookS3Location, False),
+        "Tags": (Tags, False),
+    }
+
+
 class SecurityConfiguration(AWSObject):
     """
     `SecurityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html>`__

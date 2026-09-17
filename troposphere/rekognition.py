@@ -25,6 +25,20 @@ class Collection(AWSObject):
     }
 
 
+class Dataset(AWSObject):
+    """
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-dataset.html>`__
+    """
+
+    resource_type = "AWS::Rekognition::Dataset"
+
+    props: PropsDictType = {
+        "DatasetType": (str, True),
+        "ProjectArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Project(AWSObject):
     """
     `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html>`__

@@ -192,6 +192,19 @@ class Domain(AWSObject):
     }
 
 
+class Jobs(AWSObject):
+    """
+    `Jobs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-jobs.html>`__
+    """
+
+    resource_type = "AWS::Amplify::Jobs"
+
+    props: PropsDictType = {
+        "AppId": (str, True),
+        "BranchName": (str, True),
+    }
+
+
 class Certificate(AWSProperty):
     """
     `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificate.html>`__

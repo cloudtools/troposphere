@@ -79,6 +79,66 @@ class GeofenceCollection(AWSObject):
     }
 
 
+class ValidateAddressActionOptions(AWSProperty):
+    """
+    `ValidateAddressActionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-job-validateaddressactionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalFeatures": ([str], False),
+    }
+
+
+class JobActionOptions(AWSProperty):
+    """
+    `JobActionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-job-jobactionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValidateAddress": (ValidateAddressActionOptions, False),
+    }
+
+
+class JobInputOptions(AWSProperty):
+    """
+    `JobInputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-job-jobinputoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Format": (str, True),
+        "Location": (str, True),
+    }
+
+
+class JobOutputOptions(AWSProperty):
+    """
+    `JobOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-job-joboutputoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Format": (str, True),
+        "Location": (str, True),
+    }
+
+
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-job.html>`__
+    """
+
+    resource_type = "AWS::Location::Job"
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "ActionOptions": (JobActionOptions, False),
+        "ExecutionRoleArn": (str, True),
+        "InputOptions": (JobInputOptions, True),
+        "Name": (str, False),
+        "OutputOptions": (JobOutputOptions, True),
+        "Tags": (Tags, False),
+    }
+
+
 class MapConfiguration(AWSProperty):
     """
     `MapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html>`__

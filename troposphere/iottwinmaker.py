@@ -259,6 +259,52 @@ class Entity(AWSObject):
     }
 
 
+class S3DestinationConfiguration(AWSProperty):
+    """
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-metadatatransferjob-s3destinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (str, True),
+    }
+
+
+class DestinationConfiguration(AWSProperty):
+    """
+    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-metadatatransferjob-destinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Configuration": (S3DestinationConfiguration, False),
+        "Type": (str, True),
+    }
+
+
+class SourceConfiguration(AWSProperty):
+    """
+    `SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-metadatatransferjob-sourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+    }
+
+
+class MetadataTransferJob(AWSObject):
+    """
+    `MetadataTransferJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-metadatatransferjob.html>`__
+    """
+
+    resource_type = "AWS::IoTTwinMaker::MetadataTransferJob"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Destination": (DestinationConfiguration, True),
+        "MetadataTransferJobId": (str, False),
+        "Sources": ([SourceConfiguration], True),
+    }
+
+
 class Scene(AWSObject):
     """
     `Scene <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html>`__
@@ -305,4 +351,14 @@ class Workspace(AWSObject):
         "S3Location": (str, True),
         "Tags": (dict, False),
         "WorkspaceId": (str, True),
+    }
+
+
+class MetadataTransferJobStatus(AWSProperty):
+    """
+    `MetadataTransferJobStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-metadatatransferjob-metadatatransferjobstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
     }
