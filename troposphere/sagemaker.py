@@ -3651,6 +3651,114 @@ class NotebookInstanceLifecycleConfig(AWSObject):
     }
 
 
+class ModelCompilationConfig(AWSProperty):
+    """
+    `ModelCompilationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-modelcompilationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Image": (str, False),
+        "OverrideEnvironment": (dict, False),
+    }
+
+
+class ModelQuantizationConfig(AWSProperty):
+    """
+    `ModelQuantizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-modelquantizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Image": (str, False),
+        "OverrideEnvironment": (dict, False),
+    }
+
+
+class ModelShardingConfig(AWSProperty):
+    """
+    `ModelShardingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-modelshardingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Image": (str, False),
+        "OverrideEnvironment": (dict, False),
+    }
+
+
+class OptimizationConfig(AWSProperty):
+    """
+    `OptimizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-optimizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelCompilationConfig": (ModelCompilationConfig, False),
+        "ModelQuantizationConfig": (ModelQuantizationConfig, False),
+        "ModelShardingConfig": (ModelShardingConfig, False),
+    }
+
+
+class OptimizationJobModelSourceS3(AWSProperty):
+    """
+    `OptimizationJobModelSourceS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-optimizationjobmodelsources3.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, False),
+    }
+
+
+class OptimizationJobModelSource(AWSProperty):
+    """
+    `OptimizationJobModelSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-optimizationjobmodelsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (OptimizationJobModelSourceS3, False),
+    }
+
+
+class OptimizationJobOutputConfig(AWSProperty):
+    """
+    `OptimizationJobOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-optimizationjoboutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "S3OutputLocation": (str, False),
+    }
+
+
+class OptimizationVpcConfig(AWSProperty):
+    """
+    `OptimizationVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-optimizationjob-optimizationvpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
+class OptimizationJob(AWSObject):
+    """
+    `OptimizationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-optimizationjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::OptimizationJob"
+
+    props: PropsDictType = {
+        "DeploymentInstanceType": (str, True),
+        "ModelSource": (OptimizationJobModelSource, True),
+        "OptimizationConfigs": ([OptimizationConfig], True),
+        "OptimizationEnvironment": (dict, False),
+        "OptimizationJobName": (str, True),
+        "OutputConfig": (OptimizationJobOutputConfig, True),
+        "RoleArn": (str, True),
+        "StoppingCondition": (StoppingCondition, True),
+        "Tags": (Tags, False),
+        "VpcConfig": (OptimizationVpcConfig, False),
+    }
+
+
 class PartnerAppConfig(AWSProperty):
     """
     `PartnerAppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html>`__

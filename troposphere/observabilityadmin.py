@@ -317,6 +317,7 @@ class TelemetryDestinationConfiguration(AWSProperty):
         "DestinationPattern": (str, False),
         "DestinationType": (str, False),
         "ELBLoadBalancerLoggingParameters": (ELBLoadBalancerLoggingParameters, False),
+        "KmsKeyArn": (str, False),
         "LogDeliveryParameters": (LogDeliveryParameters, False),
         "RetentionInDays": (integer, False),
         "VPCFlowLogParameters": (VPCFlowLogParameters, False),
