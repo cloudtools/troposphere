@@ -1069,13 +1069,13 @@ class SoftwarePackage(AWSObject):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-stream-s3location.html>`__
     """
 
     props: PropsDictType = {
-        "Bucket": (str, True),
-        "Key": (str, True),
-        "Version": (str, True),
+        "Bucket": (str, False),
+        "Key": (str, False),
+        "Version": (str, False),
     }
 
 
@@ -1115,6 +1115,33 @@ class SoftwarePackageVersion(AWSObject):
         "Sbom": (Sbom, False),
         "Tags": (Tags, False),
         "VersionName": (str, False),
+    }
+
+
+class StreamFile(AWSProperty):
+    """
+    `StreamFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-stream-streamfile.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileId": (integer, False),
+        "S3Location": (S3Location, False),
+    }
+
+
+class Stream(AWSObject):
+    """
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-stream.html>`__
+    """
+
+    resource_type = "AWS::IoT::Stream"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Files": ([StreamFile], True),
+        "RoleArn": (str, True),
+        "StreamId": (str, True),
+        "Tags": (Tags, False),
     }
 
 

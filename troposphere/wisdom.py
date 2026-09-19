@@ -1133,6 +1133,32 @@ class QuickResponse(AWSObject):
     }
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-session-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-session.html>`__
+    """
+
+    resource_type = "AWS::Wisdom::Session"
+
+    props: PropsDictType = {
+        "AssistantId": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class QuickResponseContents(AWSProperty):
     """
     `QuickResponseContents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-quickresponse-quickresponsecontents.html>`__

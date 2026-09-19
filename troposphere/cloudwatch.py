@@ -112,6 +112,17 @@ class MetricDataQuery(AWSProperty):
     }
 
 
+class WarmUpConfiguration(AWSProperty):
+    """
+    `WarmUpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-warmupconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnlyStartEvaluatingAfterWarmUpPeriodEnds": (boolean, False),
+        "WarmUpPeriodDurationInMinutes": (integer, False),
+    }
+
+
 class Alarm(AWSObject):
     """
     `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html>`__
@@ -145,6 +156,7 @@ class Alarm(AWSObject):
         "ThresholdMetricId": (str, False),
         "TreatMissingData": (validate_treat_missing_data, False),
         "Unit": (str, False),
+        "WarmUpConfiguration": (WarmUpConfiguration, False),
     }
 
     def validate(self):
@@ -381,6 +393,7 @@ class LogAlarm(AWSObject):
         "Tags": (Tags, False),
         "Threshold": (double, True),
         "TreatMissingData": (str, False),
+        "WarmUpConfiguration": (WarmUpConfiguration, False),
     }
 
 

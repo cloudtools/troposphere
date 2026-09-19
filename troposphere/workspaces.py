@@ -23,6 +23,16 @@ class ConnectionAlias(AWSObject):
     }
 
 
+class WorkSpaceApplication(AWSObject):
+    """
+    `WorkSpaceApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspaceapplication.html>`__
+    """
+
+    resource_type = "AWS::WorkSpaces::WorkSpaceApplication"
+
+    props: PropsDictType = {}
+
+
 class WorkspaceProperties(AWSProperty):
     """
     `WorkspaceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html>`__

@@ -186,6 +186,18 @@ class Capability(AWSObject):
     }
 
 
+class CertificateAuthority(AWSObject):
+    """
+    `CertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-certificateauthority.html>`__
+    """
+
+    resource_type = "AWS::EKS::CertificateAuthority"
+
+    props: PropsDictType = {
+        "ClusterName": (str, True),
+    }
+
+
 class AccessConfig(AWSProperty):
     """
     `AccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-accessconfig.html>`__
@@ -194,6 +206,28 @@ class AccessConfig(AWSProperty):
     props: PropsDictType = {
         "AuthenticationMode": (str, False),
         "BootstrapClusterCreatorAdminPermissions": (boolean, False),
+    }
+
+
+class ActiveCertificateAuthority(AWSProperty):
+    """
+    `ActiveCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-activecertificateauthority.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActivatedBy": (str, False),
+        "Id": (str, False),
+    }
+
+
+class CertificateAuthorityProperty(AWSProperty):
+    """
+    `CertificateAuthorityProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-certificateauthority.html>`__
+    """
+
+    props: PropsDictType = {
+        "Active": (ActiveCertificateAuthority, False),
+        "Data": (str, False),
     }
 
 
@@ -523,7 +557,9 @@ class Cluster(AWSObject):
 
     props: PropsDictType = {
         "AccessConfig": (AccessConfig, False),
+        "ActiveCertificateAuthorityId": (str, False),
         "BootstrapSelfManagedAddons": (boolean, False),
+        "CertificateAuthority": (CertificateAuthorityProperty, False),
         "ComputeConfig": (ComputeConfig, False),
         "ControlPlaneScalingConfig": (ControlPlaneScalingConfig, False),
         "DeletionProtection": (boolean, False),
@@ -778,4 +814,26 @@ class PodIdentityAssociation(AWSObject):
         "ServiceAccount": (str, True),
         "Tags": (Tags, False),
         "TargetRoleArn": (str, False),
+    }
+
+
+class ScheduledEvents(AWSProperty):
+    """
+    `ScheduledEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-certificateauthority-scheduledevents.html>`__
+    """
+
+    props: PropsDictType = {
+        "FinalAutoActivation": (str, False),
+        "FirstAutoActivation": (str, False),
+    }
+
+
+class Validity(AWSProperty):
+    """
+    `Validity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-certificateauthority-validity.html>`__
+    """
+
+    props: PropsDictType = {
+        "NotAfter": (str, False),
+        "NotBefore": (str, False),
     }

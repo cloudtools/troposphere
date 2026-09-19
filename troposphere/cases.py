@@ -10,6 +10,22 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
 
 
+class Case(AWSObject):
+    """
+    `Case <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-case.html>`__
+    """
+
+    resource_type = "AWS::Cases::Case"
+
+    props: PropsDictType = {
+        "CustomerId": (str, True),
+        "DomainId": (str, True),
+        "Tags": (Tags, False),
+        "TemplateId": (str, True),
+        "Title": (str, True),
+    }
+
+
 class OperandOne(AWSProperty):
     """
     `OperandOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-caserule-operandone.html>`__

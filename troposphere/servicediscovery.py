@@ -80,7 +80,7 @@ class PrivateDnsNamespace(AWSObject):
         "Name": (str, True),
         "Properties": (Properties, False),
         "Tags": (Tags, False),
-        "Vpc": (str, True),
+        "Vpc": (str, False),
     }
 
 

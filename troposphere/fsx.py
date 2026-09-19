@@ -76,6 +76,17 @@ class DataReadCacheConfiguration(AWSProperty):
     }
 
 
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (str, False),
+        "Level": (str, True),
+    }
+
+
 class MetadataConfiguration(AWSProperty):
     """
     `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
@@ -105,6 +116,7 @@ class LustreConfiguration(AWSProperty):
         "ExportPath": (str, False),
         "ImportPath": (str, False),
         "ImportedFileChunkSize": (integer, False),
+        "LogConfiguration": (LogConfiguration, False),
         "MetadataConfiguration": (MetadataConfiguration, False),
         "PerUnitStorageThroughput": (
             validate_lustreconfiguration_perunitstoragethroughput,

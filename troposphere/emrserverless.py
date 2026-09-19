@@ -121,75 +121,36 @@ class MaximumAllowedResources(AWSProperty):
     }
 
 
-class LogTypeMapKeyValuePair(AWSProperty):
-    """
-    `LogTypeMapKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": ([str], True),
-    }
-
-
-class CloudWatchLoggingConfiguration(AWSProperty):
-    """
-    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, False),
-        "EncryptionKeyArn": (str, False),
-        "LogGroupName": (str, False),
-        "LogStreamNamePrefix": (str, False),
-        "LogTypeMap": ([LogTypeMapKeyValuePair], False),
-    }
-
-
 class ManagedPersistenceMonitoringConfiguration(AWSProperty):
     """
-    `ManagedPersistenceMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html>`__
+    `ManagedPersistenceMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-managedpersistencemonitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "Enabled": (boolean, False),
-        "EncryptionKeyArn": (str, False),
-    }
-
-
-class PrometheusMonitoringConfiguration(AWSProperty):
-    """
-    `PrometheusMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "RemoteWriteUrl": (str, False),
     }
 
 
 class S3MonitoringConfiguration(AWSProperty):
     """
-    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-s3monitoringconfiguration.html>`__
+    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-s3monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "EncryptionKeyArn": (str, False),
         "LogUri": (str, False),
     }
 
 
 class MonitoringConfiguration(AWSProperty):
     """
-    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html>`__
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "CloudWatchLoggingConfiguration": (CloudWatchLoggingConfiguration, False),
         "ManagedPersistenceMonitoringConfiguration": (
             ManagedPersistenceMonitoringConfiguration,
             False,
         ),
-        "PrometheusMonitoringConfiguration": (PrometheusMonitoringConfiguration, False),
         "S3MonitoringConfiguration": (S3MonitoringConfiguration, False),
     }
 
@@ -251,4 +212,116 @@ class Application(AWSObject):
         "Tags": (Tags, False),
         "Type": (str, True),
         "WorkerTypeSpecifications": (dict, False),
+    }
+
+
+class Configuration(AWSProperty):
+    """
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, True),
+        "Configurations": ([object], False),
+        "Properties": (dict, False),
+    }
+
+
+class ConfigurationOverrides(AWSProperty):
+    """
+    `ConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-configurationoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationConfiguration": ([Configuration], False),
+        "MonitoringConfiguration": (MonitoringConfiguration, False),
+    }
+
+
+class Hive(AWSProperty):
+    """
+    `Hive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-hive.html>`__
+    """
+
+    props: PropsDictType = {
+        "InitQueryFile": (str, False),
+        "Parameters": (str, False),
+        "Query": (str, True),
+    }
+
+
+class SparkSubmit(AWSProperty):
+    """
+    `SparkSubmit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-sparksubmit.html>`__
+    """
+
+    props: PropsDictType = {
+        "EntryPoint": (str, True),
+        "EntryPointArguments": ([str], False),
+        "SparkSubmitParameters": (str, False),
+    }
+
+
+class JobDriver(AWSProperty):
+    """
+    `JobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-jobdriver.html>`__
+    """
+
+    props: PropsDictType = {
+        "Hive": (Hive, False),
+        "SparkSubmit": (SparkSubmit, False),
+    }
+
+
+class JobRun(AWSObject):
+    """
+    `JobRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-jobrun.html>`__
+    """
+
+    resource_type = "AWS::EMRServerless::JobRun"
+
+    props: PropsDictType = {
+        "ApplicationId": (str, False),
+        "ConfigurationOverrides": (ConfigurationOverrides, False),
+        "ExecutionRoleArn": (str, False),
+        "ExecutionTimeoutMinutes": (integer, False),
+        "JobDriver": (JobDriver, False),
+        "Mode": (str, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class LogTypeMapKeyValuePair(AWSProperty):
+    """
+    `LogTypeMapKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": ([str], True),
+    }
+
+
+class CloudWatchLoggingConfiguration(AWSProperty):
+    """
+    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionKeyArn": (str, False),
+        "LogGroupName": (str, False),
+        "LogStreamNamePrefix": (str, False),
+        "LogTypeMap": ([LogTypeMapKeyValuePair], False),
+    }
+
+
+class PrometheusMonitoringConfiguration(AWSProperty):
+    """
+    `PrometheusMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RemoteWriteUrl": (str, False),
     }

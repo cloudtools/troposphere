@@ -26,6 +26,20 @@ from .validators.rds import (
 )
 
 
+class ClusterSnapshot(AWSObject):
+    """
+    `ClusterSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-clustersnapshot.html>`__
+    """
+
+    resource_type = "AWS::RDS::ClusterSnapshot"
+
+    props: PropsDictType = {
+        "DBClusterIdentifier": (str, True),
+        "DBClusterSnapshotIdentifier": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class CustomDBEngineVersion(AWSObject):
     """
     `CustomDBEngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html>`__
@@ -507,6 +521,20 @@ class DBShardGroup(AWSObject):
         "MaxACU": (double, True),
         "MinACU": (double, False),
         "PubliclyAccessible": (boolean, False),
+        "Tags": (Tags, False),
+    }
+
+
+class DBSnapshot(AWSObject):
+    """
+    `DBSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsnapshot.html>`__
+    """
+
+    resource_type = "AWS::RDS::DBSnapshot"
+
+    props: PropsDictType = {
+        "DBInstanceIdentifier": (str, True),
+        "DBSnapshotIdentifier": (str, True),
         "Tags": (Tags, False),
     }
 

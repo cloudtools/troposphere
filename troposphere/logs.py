@@ -341,6 +341,18 @@ class ScheduledQuery(AWSObject):
     }
 
 
+class StorageTierPolicy(AWSObject):
+    """
+    `StorageTierPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-storagetierpolicy.html>`__
+    """
+
+    resource_type = "AWS::Logs::StorageTierPolicy"
+
+    props: PropsDictType = {
+        "StorageTier": (str, True),
+    }
+
+
 class SubscriptionFilter(AWSObject):
     """
     `SubscriptionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html>`__

@@ -770,7 +770,7 @@ class IntegrationResourceProperty(AWSObject):
 
 class ConnectionsList(AWSProperty):
     """
-    `ConnectionsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html>`__
+    `ConnectionsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-session-connectionslist.html>`__
     """
 
     props: PropsDictType = {
@@ -847,7 +847,7 @@ class Job(AWSObject):
 
 class GlueTables(AWSProperty):
     """
-    `GlueTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html>`__
+    `GlueTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-gluetables.html>`__
     """
 
     props: PropsDictType = {
@@ -870,7 +870,7 @@ class InputRecordTables(AWSProperty):
 
 class MLUserDataEncryption(AWSProperty):
     """
-    `MLUserDataEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html>`__
+    `MLUserDataEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-mluserdataencryption.html>`__
     """
 
     props: PropsDictType = {
@@ -892,7 +892,7 @@ class TransformEncryption(AWSProperty):
 
 class FindMatchesParameters(AWSProperty):
     """
-    `FindMatchesParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html>`__
+    `FindMatchesParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-findmatchesparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -1207,6 +1207,43 @@ class SecurityConfiguration(AWSObject):
     props: PropsDictType = {
         "EncryptionConfiguration": (EncryptionConfiguration, True),
         "Name": (str, True),
+    }
+
+
+class SessionCommand(AWSProperty):
+    """
+    `SessionCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-session-sessioncommand.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "PythonVersion": (str, False),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-session.html>`__
+    """
+
+    resource_type = "AWS::Glue::Session"
+
+    props: PropsDictType = {
+        "Command": (SessionCommand, True),
+        "Connections": (ConnectionsList, False),
+        "DefaultArguments": (dict, False),
+        "Description": (str, False),
+        "GlueVersion": (str, False),
+        "Id": (str, True),
+        "IdleTimeout": (integer, False),
+        "MaxCapacity": (double, False),
+        "NumberOfWorkers": (integer, False),
+        "RequestOrigin": (str, False),
+        "Role": (str, True),
+        "SecurityConfiguration": (str, False),
+        "Tags": (Tags, False),
+        "Timeout": (integer, False),
+        "WorkerType": (str, False),
     }
 
 

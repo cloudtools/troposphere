@@ -210,6 +210,18 @@ class CodeSigningConfig(AWSObject):
     }
 
 
+class DurableExecution(AWSObject):
+    """
+    `DurableExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-durableexecution.html>`__
+    """
+
+    resource_type = "AWS::Lambda::DurableExecution"
+
+    props: PropsDictType = {
+        "FunctionName": (str, False),
+    }
+
+
 class OnFailure(AWSProperty):
     """
     `OnFailure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onfailure.html>`__
@@ -911,6 +923,19 @@ class Permission(AWSObject):
         "PrincipalOrgID": (str, False),
         "SourceAccount": (str, False),
         "SourceArn": (str, False),
+    }
+
+
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::Lambda::ResourcePolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, True),
+        "ResourceArn": (str, True),
     }
 
 

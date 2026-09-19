@@ -20,6 +20,45 @@ class S3DataConfig(AWSProperty):
     }
 
 
+class BatchInferenceJobInput(AWSProperty):
+    """
+    `BatchInferenceJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-batchinferencejob-batchinferencejobinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (S3DataConfig, True),
+    }
+
+
+class BatchInferenceJobOutput(AWSProperty):
+    """
+    `BatchInferenceJobOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-batchinferencejob-batchinferencejoboutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataDestination": (S3DataConfig, True),
+    }
+
+
+class BatchInferenceJob(AWSObject):
+    """
+    `BatchInferenceJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-batchinferencejob.html>`__
+    """
+
+    resource_type = "AWS::Personalize::BatchInferenceJob"
+
+    props: PropsDictType = {
+        "BatchInferenceJobMode": (str, False),
+        "JobInput": (BatchInferenceJobInput, False),
+        "JobName": (str, False),
+        "JobOutput": (BatchInferenceJobOutput, False),
+        "NumResults": (integer, False),
+        "RoleArn": (str, False),
+        "SolutionVersionArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class BatchSegmentJobInput(AWSProperty):
     """
     `BatchSegmentJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-batchsegmentjob-batchsegmentjobinput.html>`__
@@ -110,6 +149,7 @@ class Dataset(AWSObject):
         "DatasetType": (str, True),
         "Name": (str, True),
         "SchemaArn": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -125,6 +165,7 @@ class DatasetGroup(AWSObject):
         "KmsKeyArn": (str, False),
         "Name": (str, True),
         "RoleArn": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -139,6 +180,55 @@ class EventTracker(AWSObject):
         "DatasetGroupArn": (str, True),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class MetricAttribute(AWSProperty):
+    """
+    `MetricAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-metricattribution-metricattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventType": (str, True),
+        "Expression": (str, True),
+        "MetricName": (str, True),
+    }
+
+
+class S3DataDestination(AWSProperty):
+    """
+    `S3DataDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-metricattribution-s3datadestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+        "Path": (str, True),
+    }
+
+
+class MetricsOutputConfig(AWSProperty):
+    """
+    `MetricsOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-metricattribution-metricsoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoleArn": (str, True),
+        "S3DataDestination": (S3DataDestination, False),
+    }
+
+
+class MetricAttribution(AWSObject):
+    """
+    `MetricAttribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-metricattribution.html>`__
+    """
+
+    resource_type = "AWS::Personalize::MetricAttribution"
+
+    props: PropsDictType = {
+        "DatasetGroupArn": (str, True),
+        "Metrics": ([MetricAttribute], True),
+        "MetricsOutputConfig": (MetricsOutputConfig, True),
+        "Name": (str, True),
     }
 
 
@@ -165,6 +255,7 @@ class Schema(AWSObject):
         "Domain": (str, False),
         "Name": (str, True),
         "Schema": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -290,4 +381,5 @@ class Solution(AWSObject):
         "PerformHPO": (boolean, False),
         "RecipeArn": (str, False),
         "SolutionConfig": (SolutionConfig, False),
+        "Tags": (Tags, False),
     }

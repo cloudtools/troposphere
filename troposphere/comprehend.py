@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 class InputDataConfig(AWSProperty):
     """
-    `InputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-sentimentdetectionjob-inputdataconfig.html>`__
+    `InputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-targetedsentimentdetectionjob-inputdataconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -130,6 +130,22 @@ class DocumentClassifier(AWSObject):
         "VersionName": (str, False),
         "VolumeKmsKeyId": (str, False),
         "VpcConfig": (VpcConfig, False),
+    }
+
+
+class DominantLanguageDetectionJob(AWSObject):
+    """
+    `DominantLanguageDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-dominantlanguagedetectionjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::DominantLanguageDetectionJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, False),
+        "InputDataConfig": (InputDataConfig, False),
+        "JobName": (str, False),
+        "Tags": (Tags, False),
+        "VolumeKmsKeyId": (str, False),
     }
 
 
@@ -256,11 +272,40 @@ class SentimentDetectionJob(AWSObject):
     }
 
 
-class OutputDataConfig(AWSProperty):
+class TagsItems(AWSProperty):
     """
-    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entitiesdetectionjob-outputdataconfig.html>`__
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-targetedsentimentdetectionjob-tagsitems.html>`__
     """
 
     props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TargetedSentimentDetectionJob(AWSObject):
+    """
+    `TargetedSentimentDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-targetedsentimentdetectionjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::TargetedSentimentDetectionJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "InputDataConfig": (InputDataConfig, True),
+        "JobName": (str, False),
+        "LanguageCode": (str, True),
+        "Tags": ([TagsItems], False),
+        "VolumeKmsKeyId": (str, False),
+    }
+
+
+class OutputDataConfig(AWSProperty):
+    """
+    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-targetedsentimentdetectionjob-outputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
         "S3Uri": (str, True),
     }

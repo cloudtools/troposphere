@@ -23,6 +23,43 @@ from .validators.cloudformation import Metadata  # noqa: F401
 from .validators.cloudformation import validate_int_to_str, validate_wait_condition
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-changeset-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ChangeSet(AWSObject):
+    """
+    `ChangeSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-changeset.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::ChangeSet"
+
+    props: PropsDictType = {
+        "Capabilities": ([str], False),
+        "ChangeSetName": (str, True),
+        "ChangeSetType": (str, False),
+        "DeploymentMode": (str, False),
+        "Description": (str, False),
+        "ImportExistingResources": (boolean, False),
+        "IncludeNestedStacks": (boolean, False),
+        "NotificationARNs": ([str], False),
+        "OnStackFailure": (str, False),
+        "RoleARN": (str, False),
+        "StackName": (str, True),
+        "Tags": ([TagsItems], False),
+        "TemplateBody": (str, False),
+        "TemplateURL": (str, False),
+        "UsePreviousTemplate": (boolean, False),
+    }
+
+
 class CustomResource(AWSObject):
     """
     `CustomResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html>`__

@@ -450,7 +450,7 @@ class ManifestConfig(AWSProperty):
 
 class Options(AWSProperty):
     """
-    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html>`__
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-taskexecution-options.html>`__
     """
 
     props: PropsDictType = {
@@ -592,6 +592,19 @@ class Task(AWSObject):
         "Tags": (Tags, False),
         "TaskMode": (str, False),
         "TaskReportConfig": (TaskReportConfig, False),
+    }
+
+
+class TaskExecution(AWSObject):
+    """
+    `TaskExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-taskexecution.html>`__
+    """
+
+    resource_type = "AWS::DataSync::TaskExecution"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+        "TaskArn": (str, False),
     }
 
 

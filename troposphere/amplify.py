@@ -205,6 +205,21 @@ class Jobs(AWSObject):
     }
 
 
+class Webhook(AWSObject):
+    """
+    `Webhook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-webhook.html>`__
+    """
+
+    resource_type = "AWS::Amplify::Webhook"
+
+    props: PropsDictType = {
+        "AppId": (str, False),
+        "BranchName": (str, True),
+        "Description": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Certificate(AWSProperty):
     """
     `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificate.html>`__

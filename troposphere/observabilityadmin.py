@@ -38,6 +38,7 @@ class LogsEncryptionConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "EncryptionConflictResolutionStrategy": (str, False),
+        "EncryptionScope": (str, False),
         "EncryptionStrategy": (str, True),
         "KmsKeyArn": (str, False),
     }

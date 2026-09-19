@@ -24,7 +24,7 @@ class EMREKSConfiguration(AWSProperty):
 
 class CloudWatchMonitoringConfiguration(AWSProperty):
     """
-    `CloudWatchMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-endpoint-cloudwatchmonitoringconfiguration.html>`__
+    `CloudWatchMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-cloudwatchmonitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -35,7 +35,7 @@ class CloudWatchMonitoringConfiguration(AWSProperty):
 
 class ContainerLogRotationConfiguration(AWSProperty):
     """
-    `ContainerLogRotationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-endpoint-containerlogrotationconfiguration.html>`__
+    `ContainerLogRotationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-containerlogrotationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -44,9 +44,20 @@ class ContainerLogRotationConfiguration(AWSProperty):
     }
 
 
+class ManagedLogs(AWSProperty):
+    """
+    `ManagedLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-managedlogs.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowAWSToRetainLogs": (str, False),
+        "EncryptionKeyArn": (str, False),
+    }
+
+
 class S3MonitoringConfiguration(AWSProperty):
     """
-    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-endpoint-s3monitoringconfiguration.html>`__
+    `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-s3monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -56,12 +67,13 @@ class S3MonitoringConfiguration(AWSProperty):
 
 class MonitoringConfiguration(AWSProperty):
     """
-    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-endpoint-monitoringconfiguration.html>`__
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "CloudWatchMonitoringConfiguration": (CloudWatchMonitoringConfiguration, False),
         "ContainerLogRotationConfiguration": (ContainerLogRotationConfiguration, False),
+        "ManagedLogs": (ManagedLogs, False),
         "PersistentAppUI": (str, False),
         "S3MonitoringConfiguration": (S3MonitoringConfiguration, False),
     }
@@ -94,6 +106,92 @@ class Endpoint(AWSObject):
         "Tags": (Tags, False),
         "Type": (str, True),
         "VirtualClusterId": (str, True),
+    }
+
+
+class SparkSqlJobDriver(AWSProperty):
+    """
+    `SparkSqlJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-sparksqljobdriver.html>`__
+    """
+
+    props: PropsDictType = {
+        "EntryPoint": (str, False),
+        "SparkSqlParameters": (str, False),
+    }
+
+
+class SparkSubmitJobDriver(AWSProperty):
+    """
+    `SparkSubmitJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-sparksubmitjobdriver.html>`__
+    """
+
+    props: PropsDictType = {
+        "EntryPoint": (str, True),
+        "EntryPointArguments": ([str], False),
+        "SparkSubmitParameters": (str, False),
+    }
+
+
+class JobDriver(AWSProperty):
+    """
+    `JobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-jobdriver.html>`__
+    """
+
+    props: PropsDictType = {
+        "SparkSqlJobDriver": (SparkSqlJobDriver, False),
+        "SparkSubmitJobDriver": (SparkSubmitJobDriver, False),
+    }
+
+
+class Configuration(AWSProperty):
+    """
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, True),
+        "Configurations": ([object], False),
+        "Properties": (dict, False),
+    }
+
+
+class JobRunConfigurationOverrides(AWSProperty):
+    """
+    `JobRunConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-configurationoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationConfiguration": ([Configuration], False),
+        "MonitoringConfiguration": (MonitoringConfiguration, False),
+    }
+
+
+class RetryPolicyConfiguration(AWSProperty):
+    """
+    `RetryPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-retrypolicyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxAttempts": (integer, True),
+    }
+
+
+class JobRun(AWSObject):
+    """
+    `JobRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-jobrun.html>`__
+    """
+
+    resource_type = "AWS::EMRContainers::JobRun"
+
+    props: PropsDictType = {
+        "ExecutionRoleArn": (str, False),
+        "JobDriver": (JobDriver, False),
+        "JobRunConfigurationOverrides": (JobRunConfigurationOverrides, False),
+        "Name": (str, False),
+        "ReleaseLabel": (str, False),
+        "RetryPolicyConfiguration": (RetryPolicyConfiguration, False),
+        "Tags": (Tags, False),
+        "VirtualClusterId": (str, False),
     }
 
 
@@ -313,4 +411,14 @@ class Certificate(AWSProperty):
     props: PropsDictType = {
         "CertificateArn": (str, False),
         "CertificateData": (str, False),
+    }
+
+
+class RetryPolicyExecution(AWSProperty):
+    """
+    `RetryPolicyExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-retrypolicyexecution.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentAttemptCount": (integer, True),
     }

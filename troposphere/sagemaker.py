@@ -216,7 +216,7 @@ class HyperParameterSpecification(AWSProperty):
 
 class HyperParameterTuningJobObjective(AWSProperty):
     """
-    `HyperParameterTuningJobObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-algorithm-hyperparametertuningjobobjective.html>`__
+    `HyperParameterTuningJobObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-hyperparametertuningjobobjective.html>`__
     """
 
     props: PropsDictType = {
@@ -1857,6 +1857,18 @@ class ExplainerConfig(AWSProperty):
     }
 
 
+class MetricsConfig(AWSProperty):
+    """
+    `MetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-metricsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableDetailedObservability": (boolean, False),
+        "EnableEnhancedMetrics": (boolean, False),
+        "MetricPublishFrequencyInSeconds": (integer, False),
+    }
+
+
 class CapacityReservationConfig(AWSProperty):
     """
     `CapacityReservationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-capacityreservationconfig.html>`__
@@ -1865,6 +1877,17 @@ class CapacityReservationConfig(AWSProperty):
     props: PropsDictType = {
         "CapacityReservationPreference": (str, False),
         "MlReservationArn": (str, False),
+    }
+
+
+class CoreDumpConfig(AWSProperty):
+    """
+    `CoreDumpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-coredumpconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationS3Uri": (str, True),
+        "KmsKeyId": (str, False),
     }
 
 
@@ -1880,6 +1903,18 @@ class InstancePools(AWSProperty):
     }
 
 
+class ScaleInPolicy(AWSProperty):
+    """
+    `ScaleInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling-scaleinpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "CooldownInMinutes": (integer, False),
+        "MaximumStepSize": (integer, False),
+        "Strategy": (str, True),
+    }
+
+
 class ManagedInstanceScaling(AWSProperty):
     """
     `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
@@ -1888,7 +1923,19 @@ class ManagedInstanceScaling(AWSProperty):
     props: PropsDictType = {
         "MaxInstanceCount": (integer, False),
         "MinInstanceCount": (integer, False),
+        "ScaleInPolicy": (ScaleInPolicy, False),
         "Status": (str, False),
+    }
+
+
+class PrefixAwareRoutingConfig(AWSProperty):
+    """
+    `PrefixAwareRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig-prefixawareroutingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConcurrencyThreshold": (integer, False),
+        "PrefixLength": (integer, False),
     }
 
 
@@ -1898,6 +1945,7 @@ class RoutingConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "PrefixAwareRoutingConfig": (PrefixAwareRoutingConfig, False),
         "RoutingStrategy": (str, False),
     }
 
@@ -1922,6 +1970,7 @@ class ProductionVariant(AWSProperty):
     props: PropsDictType = {
         "CapacityReservationConfig": (CapacityReservationConfig, False),
         "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
+        "CoreDumpConfig": (CoreDumpConfig, False),
         "EnableSSMAccess": (boolean, False),
         "InferenceAmiVersion": (str, False),
         "InitialInstanceCount": (integer, False),
@@ -1954,6 +2003,7 @@ class EndpointConfig(AWSObject):
         "ExecutionRoleArn": (str, False),
         "ExplainerConfig": (ExplainerConfig, False),
         "KmsKeyId": (str, False),
+        "MetricsConfig": (MetricsConfig, False),
         "ProductionVariants": ([ProductionVariant], True),
         "ShadowProductionVariants": ([ProductionVariant], False),
         "Tags": (Tags, False),
@@ -2106,6 +2156,20 @@ class Hub(AWSObject):
     }
 
 
+class HubContentVersion(AWSObject):
+    """
+    `HubContentVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-hubcontentversion.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::HubContentVersion"
+
+    props: PropsDictType = {
+        "HubContentName": (str, False),
+        "HubContentType": (str, False),
+        "HubName": (str, False),
+    }
+
+
 class UiTemplate(AWSProperty):
     """
     `UiTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-humantaskui-uitemplate.html>`__
@@ -2127,6 +2191,365 @@ class HumanTaskUi(AWSObject):
         "HumanTaskUiName": (str, True),
         "Tags": (Tags, False),
         "UiTemplate": (UiTemplate, False),
+    }
+
+
+class Autotune(AWSProperty):
+    """
+    `Autotune <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-autotune.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, False),
+    }
+
+
+class AutoParametersItems(AWSProperty):
+    """
+    `AutoParametersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-autoparametersitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "ValueHint": (str, True),
+    }
+
+
+class CategoricalParameterRangesItems(AWSProperty):
+    """
+    `CategoricalParameterRangesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-categoricalparameterrangesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class ContinuousParameterRangesItems(AWSProperty):
+    """
+    `ContinuousParameterRangesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-continuousparameterrangesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxValue": (str, True),
+        "MinValue": (str, True),
+        "Name": (str, True),
+        "ScalingType": (str, False),
+    }
+
+
+class IntegerParameterRangesItems(AWSProperty):
+    """
+    `IntegerParameterRangesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-integerparameterrangesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxValue": (str, True),
+        "MinValue": (str, True),
+        "Name": (str, True),
+        "ScalingType": (str, False),
+    }
+
+
+class ParameterRanges(AWSProperty):
+    """
+    `ParameterRanges <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-parameterranges.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoParameters": ([AutoParametersItems], False),
+        "CategoricalParameterRanges": ([CategoricalParameterRangesItems], False),
+        "ContinuousParameterRanges": ([ContinuousParameterRangesItems], False),
+        "IntegerParameterRanges": ([IntegerParameterRangesItems], False),
+    }
+
+
+class ResourceLimits(AWSProperty):
+    """
+    `ResourceLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-resourcelimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxNumberOfTrainingJobs": (integer, False),
+        "MaxParallelTrainingJobs": (integer, True),
+        "MaxRuntimeInSeconds": (integer, False),
+    }
+
+
+class HyperbandStrategyConfig(AWSProperty):
+    """
+    `HyperbandStrategyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-hyperbandstrategyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxResource": (integer, False),
+        "MinResource": (integer, False),
+    }
+
+
+class StrategyConfig(AWSProperty):
+    """
+    `StrategyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-strategyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HyperbandStrategyConfig": (HyperbandStrategyConfig, False),
+    }
+
+
+class BestObjectiveNotImproving(AWSProperty):
+    """
+    `BestObjectiveNotImproving <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-bestobjectivenotimproving.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxNumberOfTrainingJobsNotImproving": (integer, False),
+    }
+
+
+class ConvergenceDetected(AWSProperty):
+    """
+    `ConvergenceDetected <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-convergencedetected.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompleteOnConvergence": (str, False),
+    }
+
+
+class TuningJobCompletionCriteria(AWSProperty):
+    """
+    `TuningJobCompletionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-tuningjobcompletioncriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "BestObjectiveNotImproving": (BestObjectiveNotImproving, False),
+        "ConvergenceDetected": (ConvergenceDetected, False),
+        "TargetObjectiveMetricValue": (double, False),
+    }
+
+
+class HyperParameterTuningJobConfig(AWSProperty):
+    """
+    `HyperParameterTuningJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-hyperparametertuningjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HyperParameterTuningJobObjective": (HyperParameterTuningJobObjective, False),
+        "ParameterRanges": (ParameterRanges, False),
+        "RandomSeed": (integer, False),
+        "ResourceLimits": (ResourceLimits, True),
+        "Strategy": (str, True),
+        "StrategyConfig": (StrategyConfig, False),
+        "TrainingJobEarlyStoppingType": (str, False),
+        "TuningJobCompletionCriteria": (TuningJobCompletionCriteria, False),
+    }
+
+
+class ParentHyperParameterTuningJobsItems(AWSProperty):
+    """
+    `ParentHyperParameterTuningJobsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-parenthyperparametertuningjobsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "HyperParameterTuningJobName": (str, False),
+    }
+
+
+class HyperParameterTuningJobWarmStartConfig(AWSProperty):
+    """
+    `HyperParameterTuningJobWarmStartConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-hyperparametertuningjobwarmstartconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParentHyperParameterTuningJobs": ([ParentHyperParameterTuningJobsItems], True),
+        "WarmStartType": (str, True),
+    }
+
+
+class TrainingRepositoryAuthConfig(AWSProperty):
+    """
+    `TrainingRepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingrepositoryauthconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrainingRepositoryCredentialsProviderArn": (str, True),
+    }
+
+
+class TrainingImageConfig(AWSProperty):
+    """
+    `TrainingImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingimageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrainingRepositoryAccessMode": (str, True),
+        "TrainingRepositoryAuthConfig": (TrainingRepositoryAuthConfig, False),
+    }
+
+
+class AlgorithmSpecification(AWSProperty):
+    """
+    `AlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-algorithmspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmName": (str, False),
+        "ContainerArguments": ([str], False),
+        "ContainerEntrypoint": ([str], False),
+        "EnableSageMakerMetricsTimeSeries": (boolean, False),
+        "MetricDefinitions": ([MetricDefinition], False),
+        "TrainingImage": (str, False),
+        "TrainingImageConfig": (TrainingImageConfig, False),
+        "TrainingInputMode": (str, True),
+    }
+
+
+class CheckpointConfig(AWSProperty):
+    """
+    `CheckpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-checkpointconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocalPath": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class S3DataSource(AWSProperty):
+    """
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-s3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataType": (str, True),
+        "S3Uri": (str, True),
+    }
+
+
+class DataSource(AWSProperty):
+    """
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (S3DataSource, True),
+    }
+
+
+class InputDataConfigItems(AWSProperty):
+    """
+    `InputDataConfigItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-inputdataconfigitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "DataSource": (DataSource, True),
+    }
+
+
+class OutputDataConfig(AWSProperty):
+    """
+    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-outputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionType": (str, False),
+        "KmsKeyId": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class InstanceGroup(AWSProperty):
+    """
+    `InstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-instancegroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "InstanceGroupName": (str, True),
+        "InstanceType": (str, True),
+    }
+
+
+class ResourceConfig(AWSProperty):
+    """
+    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-resourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, False),
+        "InstanceGroups": ([InstanceGroup], False),
+        "InstanceType": (str, False),
+        "KeepAlivePeriodInSeconds": (integer, False),
+        "VolumeKmsKeyId": (str, False),
+        "VolumeSizeInGB": (integer, False),
+    }
+
+
+class RetryStrategy(AWSProperty):
+    """
+    `RetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-retrystrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumRetryAttempts": (integer, True),
+    }
+
+
+class TuningObjective(AWSProperty):
+    """
+    `TuningObjective <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-tuningobjective.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricName": (str, True),
+        "Type": (str, True),
+    }
+
+
+class TrainingJobDefinition(AWSProperty):
+    """
+    `TrainingJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-trainingjobdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmSpecification": (AlgorithmSpecification, True),
+        "CheckpointConfig": (CheckpointConfig, False),
+        "DefinitionName": (str, False),
+        "EnableInterContainerTrafficEncryption": (boolean, False),
+        "EnableManagedSpotTraining": (boolean, False),
+        "EnableNetworkIsolation": (boolean, False),
+        "Environment": (dict, False),
+        "HyperParameterRanges": (ParameterRanges, False),
+        "InputDataConfig": ([InputDataConfigItems], False),
+        "OutputDataConfig": (OutputDataConfig, True),
+        "ResourceConfig": (ResourceConfig, False),
+        "RetryStrategy": (RetryStrategy, False),
+        "RoleArn": (str, True),
+        "StaticHyperParameters": (dict, False),
+        "StoppingCondition": (StoppingCondition, True),
+        "TuningObjective": (TuningObjective, False),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
+class HyperParameterTuningJob(AWSObject):
+    """
+    `HyperParameterTuningJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-hyperparametertuningjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::HyperParameterTuningJob"
+
+    props: PropsDictType = {
+        "Autotune": (Autotune, False),
+        "HyperParameterTuningJobConfig": (HyperParameterTuningJobConfig, True),
+        "HyperParameterTuningJobName": (str, True),
+        "Tags": (Tags, False),
+        "TrainingJobDefinition": (TrainingJobDefinition, False),
+        "TrainingJobDefinitions": ([TrainingJobDefinition], False),
+        "WarmStartConfig": (HyperParameterTuningJobWarmStartConfig, False),
     }
 
 
@@ -3224,27 +3647,6 @@ class SourceAlgorithmSpecification(AWSProperty):
     }
 
 
-class S3DataSource(AWSProperty):
-    """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-s3datasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3DataType": (str, True),
-        "S3Uri": (str, True),
-    }
-
-
-class DataSource(AWSProperty):
-    """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-datasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3DataSource": (S3DataSource, True),
-    }
-
-
 class TransformInput(AWSProperty):
     """
     `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-transformjob-transforminput.html>`__
@@ -4297,44 +4699,6 @@ class StudioLifecycleConfig(AWSObject):
     }
 
 
-class TrainingRepositoryAuthConfig(AWSProperty):
-    """
-    `TrainingRepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingrepositoryauthconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "TrainingRepositoryCredentialsProviderArn": (str, True),
-    }
-
-
-class TrainingImageConfig(AWSProperty):
-    """
-    `TrainingImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-trainingimageconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "TrainingRepositoryAccessMode": (str, True),
-        "TrainingRepositoryAuthConfig": (TrainingRepositoryAuthConfig, False),
-    }
-
-
-class AlgorithmSpecification(AWSProperty):
-    """
-    `AlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-algorithmspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "AlgorithmName": (str, False),
-        "ContainerArguments": ([str], False),
-        "ContainerEntrypoint": ([str], False),
-        "EnableSageMakerMetricsTimeSeries": (boolean, False),
-        "MetricDefinitions": ([MetricDefinition], False),
-        "TrainingImage": (str, False),
-        "TrainingImageConfig": (TrainingImageConfig, False),
-        "TrainingInputMode": (str, True),
-    }
-
-
 class ShuffleConfig(AWSProperty):
     """
     `ShuffleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-shuffleconfig.html>`__
@@ -4358,17 +4722,6 @@ class Channel(AWSProperty):
         "InputMode": (str, False),
         "RecordWrapperType": (str, False),
         "ShuffleConfig": (ShuffleConfig, False),
-    }
-
-
-class CheckpointConfig(AWSProperty):
-    """
-    `CheckpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-checkpointconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "LocalPath": (str, False),
-        "S3Uri": (str, True),
     }
 
 
@@ -4422,18 +4775,6 @@ class InfraCheckConfig(AWSProperty):
     }
 
 
-class OutputDataConfig(AWSProperty):
-    """
-    `OutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-outputdataconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "CompressionType": (str, False),
-        "KmsKeyId": (str, False),
-        "S3OutputPath": (str, True),
-    }
-
-
 class ProfilerConfig(AWSProperty):
     """
     `ProfilerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-profilerconfig.html>`__
@@ -4470,43 +4811,6 @@ class RemoteDebugConfig(AWSProperty):
 
     props: PropsDictType = {
         "EnableRemoteDebug": (boolean, False),
-    }
-
-
-class InstanceGroup(AWSProperty):
-    """
-    `InstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-instancegroup.html>`__
-    """
-
-    props: PropsDictType = {
-        "InstanceCount": (integer, True),
-        "InstanceGroupName": (str, True),
-        "InstanceType": (str, True),
-    }
-
-
-class ResourceConfig(AWSProperty):
-    """
-    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-resourceconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "InstanceCount": (integer, False),
-        "InstanceGroups": ([InstanceGroup], False),
-        "InstanceType": (str, False),
-        "KeepAlivePeriodInSeconds": (integer, False),
-        "VolumeKmsKeyId": (str, False),
-        "VolumeSizeInGB": (integer, False),
-    }
-
-
-class RetryStrategy(AWSProperty):
-    """
-    `RetryStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-retrystrategy.html>`__
-    """
-
-    props: PropsDictType = {
-        "MaximumRetryAttempts": (integer, True),
     }
 
 
@@ -4880,6 +5184,51 @@ class HubAccessConfig(AWSProperty):
     }
 
 
+class InstanceGroupsItems(AWSProperty):
+    """
+    `InstanceGroupsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-instancegroupsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "InstanceGroupName": (str, True),
+        "InstanceType": (str, True),
+    }
+
+
+class PlacementSpecificationsItems(AWSProperty):
+    """
+    `PlacementSpecificationsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-placementspecificationsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "UltraServerId": (str, False),
+    }
+
+
+class InstancePlacementConfig(AWSProperty):
+    """
+    `InstancePlacementConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-instanceplacementconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableMultipleJobs": (boolean, False),
+        "PlacementSpecifications": ([PlacementSpecificationsItems], False),
+    }
+
+
+class MetricDefinitionsItems(AWSProperty):
+    """
+    `MetricDefinitionsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-metricdefinitionsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Regex": (str, True),
+    }
+
+
 class ModelCardExportArtifacts(AWSProperty):
     """
     `ModelCardExportArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcardexportjob-modelcardexportartifacts.html>`__
@@ -4910,6 +5259,18 @@ class MonitoringAlertActions(AWSProperty):
     }
 
 
+class ObjectiveStatusCounters(AWSProperty):
+    """
+    `ObjectiveStatusCounters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-objectivestatuscounters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Failed": (integer, False),
+        "Pending": (integer, False),
+        "Succeeded": (integer, False),
+    }
+
+
 class RSessionAppSettings(AWSProperty):
     """
     `RSessionAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>`__
@@ -4931,4 +5292,18 @@ class SecondaryStatusTransition(AWSProperty):
         "StartTime": (str, True),
         "Status": (str, True),
         "StatusMessage": (str, False),
+    }
+
+
+class TrainingJobStatusCounters(AWSProperty):
+    """
+    `TrainingJobStatusCounters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-hyperparametertuningjob-trainingjobstatuscounters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Completed": (integer, False),
+        "InProgress": (integer, False),
+        "NonRetryableError": (integer, False),
+        "RetryableError": (integer, False),
+        "Stopped": (integer, False),
     }

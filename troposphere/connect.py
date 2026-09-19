@@ -1006,6 +1006,95 @@ class IntegrationAssociation(AWSObject):
     }
 
 
+class MetricFilterBooleanCondition(AWSProperty):
+    """
+    `MetricFilterBooleanCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-metricfilterbooleancondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comparison": (str, True),
+    }
+
+
+class MetricFilterNumberCondition(AWSProperty):
+    """
+    `MetricFilterNumberCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-metricfilternumbercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comparison": (str, True),
+        "Values": ([double], True),
+    }
+
+
+class MetricFilterStringCondition(AWSProperty):
+    """
+    `MetricFilterStringCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-metricfilterstringcondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comparison": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class MetricFilter(AWSProperty):
+    """
+    `MetricFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-metricfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanCondition": (MetricFilterBooleanCondition, False),
+        "MetricFilterKey": (str, True),
+        "Negate": (boolean, False),
+        "NumberCondition": (MetricFilterNumberCondition, False),
+        "StringCondition": (MetricFilterStringCondition, False),
+    }
+
+
+class CalculationComponent(AWSProperty):
+    """
+    `CalculationComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-calculationcomponent.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "MetricFilters": ([MetricFilter], False),
+        "MetricId": (str, False),
+        "MetricName": (str, False),
+    }
+
+
+class MetricCalculation(AWSProperty):
+    """
+    `MetricCalculation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-metriccalculation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Calculation": (str, True),
+        "CalculationComponents": ([CalculationComponent], True),
+    }
+
+
+class Metric(AWSObject):
+    """
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html>`__
+    """
+
+    resource_type = "AWS::Connect::Metric"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "MetricCalculation": (MetricCalculation, False),
+        "Name": (str, False),
+        "PositiveTrendIndicator": (str, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+        "Unit": (str, False),
+    }
+
+
 class NotificationContent(AWSProperty):
     """
     `NotificationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-notification-notificationcontent.html>`__
@@ -2186,6 +2275,28 @@ class Workspace(AWSObject):
         "Theme": (WorkspaceTheme, False),
         "Title": (str, False),
         "Visibility": (str, False),
+    }
+
+
+class AvailableFilter(AWSProperty):
+    """
+    `AvailableFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-availablefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "Type": (str, True),
+    }
+
+
+class CreatedByInfo(AWSProperty):
+    """
+    `CreatedByInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-metric-createdbyinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSIdentityArn": (str, False),
+        "ConnectUserArn": (str, False),
     }
 
 

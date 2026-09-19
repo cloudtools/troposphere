@@ -2377,6 +2377,20 @@ class PrefixList(AWSObject):
     }
 
 
+class ReplaceRootVolumeTask(AWSObject):
+    """
+    `ReplaceRootVolumeTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-replacerootvolumetask.html>`__
+    """
+
+    resource_type = "AWS::EC2::ReplaceRootVolumeTask"
+
+    props: PropsDictType = {
+        "DeleteReplacedRootVolume": (boolean, False),
+        "InstanceId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Route(AWSObject):
     """
     `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html>`__
@@ -3588,6 +3602,19 @@ class VPCEndpointConnectionNotification(AWSObject):
     }
 
 
+class PrivateDnsNameConfiguration(AWSProperty):
+    """
+    `PrivateDnsNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpointservice-privatednsnameconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "State": (str, False),
+        "Type": (str, False),
+        "Value": (str, False),
+    }
+
+
 class VPCEndpointService(AWSObject):
     """
     `VPCEndpointService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html>`__
@@ -3601,6 +3628,8 @@ class VPCEndpointService(AWSObject):
         "GatewayLoadBalancerArns": ([str], False),
         "NetworkLoadBalancerArns": ([str], False),
         "PayerResponsibility": (str, False),
+        "PrivateDnsName": (str, False),
+        "PrivateDnsNameConfiguration": (PrivateDnsNameConfiguration, False),
         "SupportedIpAddressTypes": ([str], False),
         "SupportedRegions": ([str], False),
         "Tags": (Tags, False),
@@ -4181,6 +4210,16 @@ class VolumeAttachment(AWSObject):
         "InstanceId": (str, True),
         "VolumeId": (str, True),
     }
+
+
+class VpnConnectionDeviceType(AWSObject):
+    """
+    `VpnConnectionDeviceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectiondevicetype.html>`__
+    """
+
+    resource_type = "AWS::EC2::VpnConnectionDeviceType"
+
+    props: PropsDictType = {}
 
 
 class BlockPublicAccessStates(AWSProperty):

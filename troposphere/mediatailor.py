@@ -419,6 +419,122 @@ class PlaybackConfiguration(AWSObject):
     }
 
 
+class AvailMatchingCriteria(AWSProperty):
+    """
+    `AvailMatchingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-availmatchingcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "DynamicVariable": (str, True),
+        "Operator": (str, True),
+    }
+
+
+class PrefetchConsumption(AWSProperty):
+    """
+    `PrefetchConsumption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-prefetchconsumption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailMatchingCriteria": ([AvailMatchingCriteria], False),
+        "EndTime": (str, True),
+        "StartTime": (str, False),
+    }
+
+
+class TrafficShapingRetrievalWindow(AWSProperty):
+    """
+    `TrafficShapingRetrievalWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-trafficshapingretrievalwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetrievalWindowDurationSeconds": (integer, False),
+    }
+
+
+class TrafficShapingTpsConfiguration(AWSProperty):
+    """
+    `TrafficShapingTpsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-trafficshapingtpsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeakConcurrentUsers": (integer, False),
+        "PeakTps": (integer, False),
+    }
+
+
+class PrefetchRetrieval(AWSProperty):
+    """
+    `PrefetchRetrieval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-prefetchretrieval.html>`__
+    """
+
+    props: PropsDictType = {
+        "DynamicVariables": (dict, False),
+        "EndTime": (str, True),
+        "StartTime": (str, False),
+        "TrafficShapingRetrievalWindow": (TrafficShapingRetrievalWindow, False),
+        "TrafficShapingTpsConfiguration": (TrafficShapingTpsConfiguration, False),
+        "TrafficShapingType": (str, False),
+    }
+
+
+class RecurringConsumption(AWSProperty):
+    """
+    `RecurringConsumption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-recurringconsumption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailMatchingCriteria": ([AvailMatchingCriteria], False),
+        "RetrievedAdExpirationSeconds": (integer, False),
+    }
+
+
+class RecurringRetrieval(AWSProperty):
+    """
+    `RecurringRetrieval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-recurringretrieval.html>`__
+    """
+
+    props: PropsDictType = {
+        "DelayAfterAvailEndSeconds": (integer, False),
+        "DynamicVariables": (dict, False),
+        "TrafficShapingRetrievalWindow": (TrafficShapingRetrievalWindow, False),
+        "TrafficShapingTpsConfiguration": (TrafficShapingTpsConfiguration, False),
+        "TrafficShapingType": (str, False),
+    }
+
+
+class RecurringPrefetchConfiguration(AWSProperty):
+    """
+    `RecurringPrefetchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-prefetchschedule-recurringprefetchconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, True),
+        "RecurringConsumption": (RecurringConsumption, True),
+        "RecurringRetrieval": (RecurringRetrieval, True),
+        "StartTime": (str, False),
+    }
+
+
+class PrefetchSchedule(AWSObject):
+    """
+    `PrefetchSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-prefetchschedule.html>`__
+    """
+
+    resource_type = "AWS::MediaTailor::PrefetchSchedule"
+
+    props: PropsDictType = {
+        "Consumption": (PrefetchConsumption, False),
+        "Name": (str, True),
+        "PlaybackConfigurationName": (str, True),
+        "RecurringPrefetchConfiguration": (RecurringPrefetchConfiguration, False),
+        "Retrieval": (PrefetchRetrieval, False),
+        "ScheduleType": (str, False),
+        "StreamId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class SecretsManagerAccessTokenConfiguration(AWSProperty):
     """
     `SecretsManagerAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html>`__

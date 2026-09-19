@@ -193,6 +193,23 @@ class Run(AWSObject):
     }
 
 
+class RunCache(AWSObject):
+    """
+    `RunCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-runcache.html>`__
+    """
+
+    resource_type = "AWS::Omics::RunCache"
+
+    props: PropsDictType = {
+        "CacheBehavior": (str, False),
+        "CacheBucketOwnerId": (str, False),
+        "CacheS3Location": (str, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class RunGroup(AWSObject):
     """
     `RunGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html>`__

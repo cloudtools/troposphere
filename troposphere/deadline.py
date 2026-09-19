@@ -10,6 +10,68 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import double, integer
 
 
+class BudgetActionToAdd(AWSProperty):
+    """
+    `BudgetActionToAdd <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-budget-budgetactiontoadd.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ThresholdPercentage": (double, True),
+        "Type": (str, True),
+    }
+
+
+class FixedBudgetSchedule(AWSProperty):
+    """
+    `FixedBudgetSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-budget-fixedbudgetschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, True),
+        "StartTime": (str, True),
+    }
+
+
+class BudgetSchedule(AWSProperty):
+    """
+    `BudgetSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-budget-budgetschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fixed": (FixedBudgetSchedule, True),
+    }
+
+
+class UsageTrackingResource(AWSProperty):
+    """
+    `UsageTrackingResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-budget-usagetrackingresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueueId": (str, True),
+    }
+
+
+class Budget(AWSObject):
+    """
+    `Budget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-budget.html>`__
+    """
+
+    resource_type = "AWS::Deadline::Budget"
+
+    props: PropsDictType = {
+        "Actions": ([BudgetActionToAdd], True),
+        "ApproximateDollarLimit": (double, True),
+        "Description": (str, False),
+        "DisplayName": (str, True),
+        "FarmId": (str, True),
+        "Schedule": (BudgetSchedule, True),
+        "Tags": (Tags, False),
+        "UsageTrackingResource": (UsageTrackingResource, True),
+    }
+
+
 class Farm(AWSObject):
     """
     `Farm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html>`__
@@ -293,6 +355,24 @@ class Fleet(AWSObject):
     }
 
 
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-job.html>`__
+    """
+
+    resource_type = "AWS::Deadline::Job"
+
+    props: PropsDictType = {
+        "FarmId": (str, False),
+        "MaxFailedTasksCount": (integer, False),
+        "MaxRetriesPerTask": (integer, False),
+        "MaxWorkerCount": (integer, False),
+        "Priority": (integer, False),
+        "QueueId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class LicenseEndpoint(AWSObject):
     """
     `LicenseEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html>`__
@@ -547,6 +627,54 @@ class StorageProfile(AWSObject):
         "FarmId": (str, True),
         "FileSystemLocations": ([FileSystemLocation], False),
         "OsFamily": (str, True),
+    }
+
+
+class IpAddresses(AWSProperty):
+    """
+    `IpAddresses <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-ipaddresses.html>`__
+    """
+
+    props: PropsDictType = {
+        "IpV4Addresses": ([str], False),
+        "IpV6Addresses": ([str], False),
+    }
+
+
+class HostPropertiesRequest(AWSProperty):
+    """
+    `HostPropertiesRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-hostpropertiesrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "HostName": (str, False),
+        "IpAddresses": (IpAddresses, False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Worker(AWSObject):
+    """
+    `Worker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-worker.html>`__
+    """
+
+    resource_type = "AWS::Deadline::Worker"
+
+    props: PropsDictType = {
+        "FarmId": (str, True),
+        "FleetId": (str, True),
+        "HostProperties": (HostPropertiesRequest, False),
+        "Tags": ([TagsItems], False),
     }
 
 

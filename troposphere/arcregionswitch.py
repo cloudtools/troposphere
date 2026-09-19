@@ -440,6 +440,30 @@ class RdsPromoteReadReplicaConfiguration(AWSProperty):
     }
 
 
+class RdsUngraceful(AWSProperty):
+    """
+    `RdsUngraceful <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdsungraceful.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ungraceful": (str, False),
+    }
+
+
+class RdsSwitchoverReadReplicaConfiguration(AWSProperty):
+    """
+    `RdsSwitchoverReadReplicaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdsswitchoverreadreplicaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "DbInstanceArnMap": (dict, True),
+        "ExternalId": (str, False),
+        "TimeoutMinutes": (double, False),
+        "Ungraceful": (RdsUngraceful, False),
+    }
+
+
 class RegionSwitchPlanConfiguration(AWSProperty):
     """
     `RegionSwitchPlanConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionswitchplanconfiguration.html>`__
@@ -508,6 +532,10 @@ class ExecutionBlockConfiguration(AWSProperty):
             False,
         ),
         "RdsPromoteReadReplicaConfig": (RdsPromoteReadReplicaConfiguration, False),
+        "RdsSwitchoverReadReplicaConfig": (
+            RdsSwitchoverReadReplicaConfiguration,
+            False,
+        ),
         "RegionSwitchPlanConfig": (RegionSwitchPlanConfiguration, False),
         "Route53HealthCheckConfig": (Route53HealthCheckConfiguration, False),
     }

@@ -9510,6 +9510,32 @@ class KnowledgeBase(AWSObject):
     }
 
 
+class ProfileLimitValue(AWSProperty):
+    """
+    `ProfileLimitValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-limitsprofile-profilelimitvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxValue": (double, True),
+        "Unit": (str, True),
+    }
+
+
+class LimitsProfile(AWSObject):
+    """
+    `LimitsProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-limitsprofile.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::LimitsProfile"
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+        "Description": (str, False),
+        "ProfileName": (str, True),
+        "ResourceLimits": (dict, True),
+    }
+
+
 class IdentityProviderVpcConnectionProperties(AWSProperty):
     """
     `IdentityProviderVpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-oauthclientapplication-identityprovidervpcconnectionproperties.html>`__

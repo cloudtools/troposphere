@@ -602,6 +602,20 @@ class SourceApiAssociation(AWSObject):
     }
 
 
+class Type(AWSObject):
+    """
+    `Type <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-type.html>`__
+    """
+
+    resource_type = "AWS::AppSync::Type"
+
+    props: PropsDictType = {
+        "ApiId": (str, True),
+        "Definition": (str, True),
+        "Format": (str, True),
+    }
+
+
 class DnsMap(AWSProperty):
     """
     `DnsMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html>`__

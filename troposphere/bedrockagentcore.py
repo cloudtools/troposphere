@@ -1637,6 +1637,17 @@ class HarnessEnvironmentArtifact(AWSProperty):
     }
 
 
+class CapacityProviderVolumeConfiguration(AWSProperty):
+    """
+    `CapacityProviderVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-capacityprovidervolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MountPath": (str, True),
+        "VolumeName": (str, True),
+    }
+
+
 class EfsAccessPointConfiguration(AWSProperty):
     """
     `EfsAccessPointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-efsaccesspointconfiguration.html>`__
@@ -1675,6 +1686,7 @@ class FilesystemConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CapacityProviderVolume": (CapacityProviderVolumeConfiguration, False),
         "EfsAccessPoint": (EfsAccessPointConfiguration, False),
         "S3FilesAccessPoint": (S3FilesAccessPointConfiguration, False),
         "SessionStorage": (SessionStorageConfiguration, False),
@@ -2216,6 +2228,7 @@ class MetadataSchemaEntry(AWSProperty):
 
     props: PropsDictType = {
         "ExtractionConfig": (ExtractionConfig, False),
+        "ExtractionType": (str, False),
         "Key": (str, True),
         "Type": (str, False),
     }
@@ -3006,9 +3019,10 @@ class PaymentConnector(AWSObject):
     props: PropsDictType = {
         "ConnectorName": (str, True),
         "ConnectorType": (str, True),
-        "CredentialProviderConfigurations": ([CredentialsProviderConfiguration], True),
+        "CredentialProviderConfigurations": ([CredentialsProviderConfiguration], False),
         "Description": (str, False),
         "PaymentManagerId": (str, True),
+        "ProvisionMode": (str, False),
     }
 
 
@@ -3221,6 +3235,16 @@ class AgentRuntimeArtifact(AWSProperty):
     }
 
 
+class CapacityProviderConfiguration(AWSProperty):
+    """
+    `CapacityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-capacityproviderconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityProviderArn": (str, True),
+    }
+
+
 class RequestHeaderConfiguration(AWSProperty):
     """
     `RequestHeaderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-requestheaderconfiguration.html>`__
@@ -3242,11 +3266,12 @@ class Runtime(AWSObject):
         "AgentRuntimeArtifact": (AgentRuntimeArtifact, True),
         "AgentRuntimeName": (str, True),
         "AuthorizerConfiguration": (AuthorizerConfiguration, False),
+        "CapacityProviderConfiguration": (CapacityProviderConfiguration, False),
         "Description": (str, False),
         "EnvironmentVariables": (dict, False),
         "FilesystemConfigurations": ([FilesystemConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
-        "NetworkConfiguration": (NetworkConfiguration, True),
+        "NetworkConfiguration": (NetworkConfiguration, False),
         "ProtocolConfiguration": (str, False),
         "RequestHeaderConfiguration": (RequestHeaderConfiguration, False),
         "RoleArn": (str, True),
