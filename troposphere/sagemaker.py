@@ -924,12 +924,26 @@ class ClusterOrchestratorEksConfig(AWSProperty):
     }
 
 
+class ClusterAccountingDatabase(AWSProperty):
+    """
+    `ClusterAccountingDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusteraccountingdatabase.html>`__
+    """
+
+    props: PropsDictType = {
+        "Endpoint": (str, True),
+        "Name": (str, False),
+        "Port": (integer, False),
+        "SecretArn": (str, True),
+    }
+
+
 class ClusterOrchestratorSlurmConfig(AWSProperty):
     """
     `ClusterOrchestratorSlurmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratorslurmconfig.html>`__
     """
 
     props: PropsDictType = {
+        "AccountingDatabase": (ClusterAccountingDatabase, False),
         "SlurmConfigStrategy": (str, False),
     }
 
@@ -1713,6 +1727,7 @@ class Endpoint(AWSObject):
     props: PropsDictType = {
         "DeploymentConfig": (DeploymentConfig, False),
         "EndpointConfigName": (str, True),
+        "EndpointName": (str, False),
         "ExcludeRetainedVariantProperties": ([VariantProperty], False),
         "RetainAllVariantProperties": (boolean, False),
         "RetainDeploymentConfig": (boolean, False),
@@ -2636,6 +2651,17 @@ class InferenceComponentDeploymentConfig(AWSProperty):
     }
 
 
+class InferenceComponentPlacementStatus(AWSProperty):
+    """
+    `InferenceComponentPlacementStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentplacementstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentCopyCount": (integer, True),
+        "InstanceType": (str, True),
+    }
+
+
 class InferenceComponentRuntimeConfig(AWSProperty):
     """
     `InferenceComponentRuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html>`__
@@ -2645,6 +2671,7 @@ class InferenceComponentRuntimeConfig(AWSProperty):
         "CopyCount": (integer, False),
         "CurrentCopyCount": (integer, False),
         "DesiredCopyCount": (integer, False),
+        "PlacementStatus": ([InferenceComponentPlacementStatus], False),
     }
 
 
@@ -2658,6 +2685,27 @@ class InferenceComponentComputeResourceRequirements(AWSProperty):
         "MinMemoryRequiredInMb": (integer, False),
         "NumberOfAcceleratorDevicesRequired": (double, False),
         "NumberOfCpuCoresRequired": (double, False),
+    }
+
+
+class MetricsEndpoint(AWSProperty):
+    """
+    `MetricsEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-metricsendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricPublishFrequencyInSeconds": (integer, False),
+        "MetricsEndpointPath": (str, True),
+    }
+
+
+class ContainerMetricsConfig(AWSProperty):
+    """
+    `ContainerMetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-containermetricsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricsEndpoints": ([MetricsEndpoint], True),
     }
 
 
@@ -2680,9 +2728,42 @@ class InferenceComponentContainerSpecification(AWSProperty):
 
     props: PropsDictType = {
         "ArtifactUrl": (str, False),
+        "ContainerMetricsConfig": (ContainerMetricsConfig, False),
         "DeployedImage": (DeployedImage, False),
         "Environment": (dict, False),
         "Image": (str, False),
+    }
+
+
+class InferenceComponentDataCacheConfig(AWSProperty):
+    """
+    `InferenceComponentDataCacheConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentdatacacheconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableCaching": (boolean, True),
+    }
+
+
+class InferenceComponentAvailabilityZoneBalance(AWSProperty):
+    """
+    `InferenceComponentAvailabilityZoneBalance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentavailabilityzonebalance.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnforcementMode": (str, True),
+        "MaxImbalance": (integer, False),
+    }
+
+
+class InferenceComponentSchedulingConfig(AWSProperty):
+    """
+    `InferenceComponentSchedulingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentschedulingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZoneBalance": (InferenceComponentAvailabilityZoneBalance, True),
+        "PlacementStrategy": (str, True),
     }
 
 
@@ -2709,7 +2790,43 @@ class InferenceComponentSpecification(AWSProperty):
             False,
         ),
         "Container": (InferenceComponentContainerSpecification, False),
+        "CurrentDataCacheConfig": (InferenceComponentDataCacheConfig, False),
+        "DataCacheConfig": (InferenceComponentDataCacheConfig, False),
         "ModelName": (str, False),
+        "SchedulingConfig": (InferenceComponentSchedulingConfig, False),
+        "StartupParameters": (InferenceComponentStartupParameters, False),
+    }
+
+
+class InferenceComponentContainerSpecificationForInstanceType(AWSProperty):
+    """
+    `InferenceComponentContainerSpecificationForInstanceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecificationforinstancetype.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArtifactUrl": (str, False),
+        "ContainerMetricsConfig": (ContainerMetricsConfig, False),
+        "Environment": (dict, False),
+        "Image": (str, False),
+    }
+
+
+class InferenceComponentSpecificationForInstanceType(AWSProperty):
+    """
+    `InferenceComponentSpecificationForInstanceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecificationforinstancetype.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeResourceRequirements": (
+            InferenceComponentComputeResourceRequirements,
+            False,
+        ),
+        "Container": (InferenceComponentContainerSpecificationForInstanceType, False),
+        "CurrentDataCacheConfig": (InferenceComponentDataCacheConfig, False),
+        "DataCacheConfig": (InferenceComponentDataCacheConfig, False),
+        "InstanceType": (str, True),
+        "ModelName": (str, False),
+        "SchedulingConfig": (InferenceComponentSchedulingConfig, False),
         "StartupParameters": (InferenceComponentStartupParameters, False),
     }
 
@@ -2727,7 +2844,8 @@ class InferenceComponent(AWSObject):
         "EndpointName": (str, True),
         "InferenceComponentName": (str, False),
         "RuntimeConfig": (InferenceComponentRuntimeConfig, False),
-        "Specification": (InferenceComponentSpecification, True),
+        "Specification": (InferenceComponentSpecification, False),
+        "Specifications": ([InferenceComponentSpecificationForInstanceType], False),
         "Tags": (Tags, False),
         "VariantName": (str, False),
     }
@@ -4007,7 +4125,6 @@ class NotebookInstance(AWSObject):
     resource_type = "AWS::SageMaker::NotebookInstance"
 
     props: PropsDictType = {
-        "AcceleratorTypes": ([str], False),
         "AdditionalCodeRepositories": ([str], False),
         "DefaultCodeRepository": (str, False),
         "DirectInternetAccess": (str, False),

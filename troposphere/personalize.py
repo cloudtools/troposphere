@@ -12,10 +12,11 @@ from .validators import boolean, double, integer
 
 class S3DataConfig(AWSProperty):
     """
-    `S3DataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-batchsegmentjob-s3dataconfig.html>`__
+    `S3DataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-datasetexportjob-s3dataconfig.html>`__
     """
 
     props: PropsDictType = {
+        "KmsKeyArn": (str, False),
         "Path": (str, True),
     }
 
@@ -149,6 +150,33 @@ class Dataset(AWSObject):
         "DatasetType": (str, True),
         "Name": (str, True),
         "SchemaArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DatasetExportJobOutput(AWSProperty):
+    """
+    `DatasetExportJobOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-datasetexportjob-datasetexportjoboutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataDestination": (S3DataConfig, True),
+    }
+
+
+class DatasetExportJob(AWSObject):
+    """
+    `DatasetExportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetexportjob.html>`__
+    """
+
+    resource_type = "AWS::Personalize::DatasetExportJob"
+
+    props: PropsDictType = {
+        "DatasetArn": (str, True),
+        "IngestionMode": (str, False),
+        "JobName": (str, True),
+        "JobOutput": (DatasetExportJobOutput, True),
+        "RoleArn": (str, True),
         "Tags": (Tags, False),
     }
 

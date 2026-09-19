@@ -586,6 +586,16 @@ class Hub(AWSObject):
     }
 
 
+class NetworkScanning(AWSProperty):
+    """
+    `NetworkScanning <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-hubv2-networkscanning.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
 class HubV2(AWSObject):
     """
     `HubV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hubv2.html>`__
@@ -594,6 +604,7 @@ class HubV2(AWSObject):
     resource_type = "AWS::SecurityHub::HubV2"
 
     props: PropsDictType = {
+        "NetworkScanning": (NetworkScanning, False),
         "Tags": (dict, False),
     }
 

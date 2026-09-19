@@ -1627,6 +1627,20 @@ class HttpUrlDestinationSummary(AWSProperty):
     }
 
 
+class InfluxDBDestinationProperties(AWSProperty):
+    """
+    `InfluxDBDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-influxdbdestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Endpoint": (str, True),
+        "InfluxDBVersion": (str, True),
+        "SecretId": (str, True),
+        "SecretKey": (str, False),
+        "SecretType": (str, False),
+    }
+
+
 class VpcDestinationProperties(AWSProperty):
     """
     `VpcDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html>`__
@@ -1649,6 +1663,7 @@ class TopicRuleDestination(AWSObject):
 
     props: PropsDictType = {
         "HttpUrlProperties": (HttpUrlDestinationSummary, False),
+        "InfluxDBProperties": (InfluxDBDestinationProperties, False),
         "Status": (str, False),
         "VpcProperties": (VpcDestinationProperties, False),
     }

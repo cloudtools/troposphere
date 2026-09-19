@@ -1081,6 +1081,16 @@ class RouterNetworkInterface(AWSObject):
     }
 
 
+class FabricConfiguration(AWSProperty):
+    """
+    `FabricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-fabricconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecoveryLatencyMode": (str, True),
+    }
+
+
 class MediaConnectFlowRouterOutputConfiguration(AWSProperty):
     """
     `MediaConnectFlowRouterOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-mediaconnectflowrouteroutputconfiguration.html>`__
@@ -1211,6 +1221,7 @@ class RouterOutput(AWSObject):
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
         "Configuration": (RouterOutputConfiguration, True),
+        "FabricConfiguration": (FabricConfiguration, False),
         "MaintenanceConfiguration": (MaintenanceConfiguration, False),
         "MaximumBitrate": (integer, True),
         "Name": (str, True),

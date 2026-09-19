@@ -1251,6 +1251,27 @@ class MetadataConfiguration(AWSProperty):
     }
 
 
+class HttpConnectorSource(AWSProperty):
+    """
+    `HttpConnectorSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httpconnectorsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectorId": (str, True),
+    }
+
+
+class HttpConnectorTargetConfiguration(AWSProperty):
+    """
+    `HttpConnectorTargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httpconnectortargetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Parameters": (dict, False),
+        "Source": (HttpConnectorSource, True),
+    }
+
+
 class S3Configuration(AWSProperty):
     """
     `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-s3configuration.html>`__
@@ -1326,6 +1347,7 @@ class HttpTargetConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AgentcoreRuntime": (RuntimeTargetConfiguration, False),
+        "Connector": (HttpConnectorTargetConfiguration, False),
         "Passthrough": (PassthroughTargetConfiguration, False),
     }
 
@@ -3481,6 +3503,16 @@ class PaymentProviderConfigurationOutput(AWSProperty):
     props: PropsDictType = {
         "CoinbaseCdpConfiguration": (CoinbaseCdpConfigurationOutput, False),
         "StripePrivyConfiguration": (StripePrivyConfigurationOutput, False),
+    }
+
+
+class SystemManagedBlock(AWSProperty):
+    """
+    `SystemManagedBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewayrule-systemmanagedblock.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManagedBy": (str, True),
     }
 
 

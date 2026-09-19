@@ -191,6 +191,33 @@ class ExperimentDefinition(AWSObject):
     }
 
 
+class TreatmentOverrides(AWSProperty):
+    """
+    `TreatmentOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-experimentrun-treatmentoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "Inline": (dict, False),
+    }
+
+
+class ExperimentRun(AWSObject):
+    """
+    `ExperimentRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-experimentrun.html>`__
+    """
+
+    resource_type = "AWS::AppConfig::ExperimentRun"
+
+    props: PropsDictType = {
+        "ApplicationIdentifier": (str, True),
+        "Description": (str, False),
+        "ExperimentDefinitionIdentifier": (str, True),
+        "ExposurePercentage": (double, True),
+        "Tags": (Tags, False),
+        "TreatmentOverrides": (TreatmentOverrides, False),
+    }
+
+
 class Parameter(AWSProperty):
     """
     `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html>`__

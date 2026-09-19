@@ -1504,6 +1504,16 @@ class EnforcedGuardrailConfiguration(AWSObject):
     }
 
 
+class EvaluationJob(AWSObject):
+    """
+    `EvaluationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-evaluationjob.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::EvaluationJob"
+
+    props: PropsDictType = {}
+
+
 class FlowConditionalConnectionConfiguration(AWSProperty):
     """
     `FlowConditionalConnectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowconditionalconnectionconfiguration.html>`__
@@ -3272,6 +3282,70 @@ class AsyncInvokeOutputDataConfig(AWSProperty):
     }
 
 
+class EvaluationDatasetLocation(AWSProperty):
+    """
+    `EvaluationDatasetLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationdatasetlocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+    }
+
+
+class EvaluationDataset(AWSProperty):
+    """
+    `EvaluationDataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationdataset.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetLocation": (EvaluationDatasetLocation, False),
+        "Name": (str, True),
+    }
+
+
+class EvaluationDatasetMetricConfig(AWSProperty):
+    """
+    `EvaluationDatasetMetricConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationdatasetmetricconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dataset": (EvaluationDataset, True),
+        "MetricNames": ([str], True),
+        "TaskType": (str, True),
+    }
+
+
+class BedrockEvaluatorModel(AWSProperty):
+    """
+    `BedrockEvaluatorModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-bedrockevaluatormodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelIdentifier": (str, True),
+    }
+
+
+class EvaluatorModelConfig(AWSProperty):
+    """
+    `EvaluatorModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluatormodelconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockEvaluatorModels": ([BedrockEvaluatorModel], True),
+    }
+
+
+class AutomatedEvaluationConfig(AWSProperty):
+    """
+    `AutomatedEvaluationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-automatedevaluationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetMetricConfigs": ([EvaluationDatasetMetricConfig], True),
+        "EvaluatorModelConfig": (EvaluatorModelConfig, False),
+    }
+
+
 class CustomModelUnits(AWSProperty):
     """
     `CustomModelUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-importedmodel-custommodelunits.html>`__
@@ -3291,6 +3365,175 @@ class EntityTypeInfo(AWSProperty):
     props: PropsDictType = {
         "EntityMetadata": (str, False),
         "EntityType": (str, True),
+    }
+
+
+class EvaluationBedrockModel(AWSProperty):
+    """
+    `EvaluationBedrockModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationbedrockmodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "InferenceParams": (str, False),
+        "ModelIdentifier": (str, True),
+    }
+
+
+class HumanEvaluationCustomMetric(AWSProperty):
+    """
+    `HumanEvaluationCustomMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-humanevaluationcustommetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "RatingMethod": (str, True),
+    }
+
+
+class HumanWorkflowConfig(AWSProperty):
+    """
+    `HumanWorkflowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-humanworkflowconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowDefinitionArn": (str, True),
+        "Instructions": (str, False),
+    }
+
+
+class HumanEvaluationConfig(AWSProperty):
+    """
+    `HumanEvaluationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-humanevaluationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomMetrics": ([HumanEvaluationCustomMetric], False),
+        "DatasetMetricConfigs": ([EvaluationDatasetMetricConfig], True),
+        "HumanWorkflowConfig": (HumanWorkflowConfig, False),
+    }
+
+
+class EvaluationConfig(AWSProperty):
+    """
+    `EvaluationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Automated": (AutomatedEvaluationConfig, False),
+        "Human": (HumanEvaluationConfig, False),
+    }
+
+
+class EvaluationModelConfig(AWSProperty):
+    """
+    `EvaluationModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationmodelconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockModel": (EvaluationBedrockModel, False),
+    }
+
+
+class KnowledgeBaseVectorSearchConfiguration(AWSProperty):
+    """
+    `KnowledgeBaseVectorSearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-knowledgebasevectorsearchconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "NumberOfResults": (integer, False),
+    }
+
+
+class KnowledgeBaseRetrievalConfiguration(AWSProperty):
+    """
+    `KnowledgeBaseRetrievalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-knowledgebaseretrievalconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VectorSearchConfiguration": (KnowledgeBaseVectorSearchConfiguration, True),
+    }
+
+
+class KnowledgeBaseRetrieveAndGenerateConfiguration(AWSProperty):
+    """
+    `KnowledgeBaseRetrieveAndGenerateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-knowledgebaseretrieveandgenerateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KnowledgeBaseId": (str, True),
+        "ModelArn": (str, True),
+        "RetrievalConfiguration": (KnowledgeBaseRetrievalConfiguration, False),
+    }
+
+
+class RetrieveAndGenerateConfig(AWSProperty):
+    """
+    `RetrieveAndGenerateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-retrieveandgenerateconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KnowledgeBaseConfiguration": (
+            KnowledgeBaseRetrieveAndGenerateConfiguration,
+            True,
+        ),
+        "Type": (str, True),
+    }
+
+
+class RetrieveConfig(AWSProperty):
+    """
+    `RetrieveConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-retrieveconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KnowledgeBaseId": (str, True),
+        "KnowledgeBaseRetrievalConfiguration": (
+            KnowledgeBaseRetrievalConfiguration,
+            True,
+        ),
+    }
+
+
+class KnowledgeBaseConfig(AWSProperty):
+    """
+    `KnowledgeBaseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-knowledgebaseconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetrieveAndGenerateConfig": (RetrieveAndGenerateConfig, False),
+        "RetrieveConfig": (RetrieveConfig, False),
+    }
+
+
+class RAGConfig(AWSProperty):
+    """
+    `RAGConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-ragconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KnowledgeBaseConfig": (KnowledgeBaseConfig, False),
+    }
+
+
+class EvaluationInferenceConfig(AWSProperty):
+    """
+    `EvaluationInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationinferenceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Models": ([EvaluationModelConfig], False),
+        "RagConfigs": ([RAGConfig], False),
+    }
+
+
+class EvaluationOutputDataConfig(AWSProperty):
+    """
+    `EvaluationOutputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-evaluationjob-evaluationoutputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
     }
 
 

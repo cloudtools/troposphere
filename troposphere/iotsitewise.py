@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import integer
 
 
 class IamRole(AWSProperty):
@@ -535,6 +536,36 @@ class Gateway(AWSObject):
     }
 
 
+class ComputeNode(AWSProperty):
+    """
+    `ComputeNode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-pipeline-computenode.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeNodeName": (str, True),
+        "DependsOn": ([str], False),
+        "EnvironmentVariables": (dict, False),
+        "TaskName": (str, True),
+    }
+
+
+class Pipeline(AWSObject):
+    """
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-pipeline.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::Pipeline"
+
+    props: PropsDictType = {
+        "Computations": ([ComputeNode], True),
+        "Description": (str, False),
+        "EnvironmentVariables": (dict, False),
+        "PipelineName": (str, True),
+        "Tags": (Tags, False),
+        "WorkspaceName": (str, True),
+    }
+
+
 class Alarms(AWSProperty):
     """
     `Alarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html>`__
@@ -590,4 +621,72 @@ class Project(AWSObject):
         "ProjectDescription": (str, False),
         "ProjectName": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ContainerTaskConfiguration(AWSProperty):
+    """
+    `ContainerTaskConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], False),
+        "EcrUri": (str, True),
+        "EnvironmentVariables": (dict, False),
+        "ProcessingType": (str, True),
+        "ProcessingUnit": (str, True),
+        "TaskExecutionRole": (str, True),
+        "TimeoutSeconds": (integer, False),
+    }
+
+
+class TaskConfiguration(AWSProperty):
+    """
+    `TaskConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-taskconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerTaskConfiguration": (ContainerTaskConfiguration, True),
+    }
+
+
+class Task(AWSObject):
+    """
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-task.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::Task"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Tags": (Tags, False),
+        "TaskConfiguration": (TaskConfiguration, True),
+        "TaskName": (str, True),
+        "WorkspaceName": (str, True),
+    }
+
+
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-workspace-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": (str, True),
+    }
+
+
+class Workspace(AWSObject):
+    """
+    `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-workspace.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::Workspace"
+
+    props: PropsDictType = {
+        "EncryptionConfiguration": (EncryptionConfiguration, True),
+        "KmsKeyId": (str, False),
+        "Tags": (Tags, False),
+        "WorkspaceDescription": (str, False),
+        "WorkspaceName": (str, True),
     }

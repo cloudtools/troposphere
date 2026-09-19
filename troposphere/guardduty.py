@@ -155,8 +155,10 @@ class Condition(AWSProperty):
         "LessThanOrEqual": (integer, False),
         "Lt": (integer, False),
         "Lte": (integer, False),
+        "Matches": ([str], False),
         "Neq": ([str], False),
         "NotEquals": ([str], False),
+        "NotMatches": ([str], False),
     }
 
 

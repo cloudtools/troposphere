@@ -516,6 +516,7 @@ class OriginEndpoint(AWSObject):
         "OriginEndpointName": (str, True),
         "Segment": (Segment, False),
         "StartoverWindowSeconds": (integer, False),
+        "StreamNameOutputMode": (str, False),
         "Tags": (Tags, False),
         "UriSeparator": (str, False),
     }

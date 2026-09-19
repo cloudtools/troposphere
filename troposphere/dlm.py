@@ -16,6 +16,16 @@ from .validators.dlm import (
 )
 
 
+class CrossRegionCopyTarget(AWSProperty):
+    """
+    `CrossRegionCopyTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetRegion": (str, False),
+    }
+
+
 class Exclusions(AWSProperty):
     """
     `Exclusions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html>`__
@@ -23,8 +33,8 @@ class Exclusions(AWSProperty):
 
     props: PropsDictType = {
         "ExcludeBootVolumes": (boolean, False),
-        "ExcludeTags": ([], False),
-        "ExcludeVolumeTypes": ([], False),
+        "ExcludeTags": (Tags, False),
+        "ExcludeVolumeTypes": ([str], False),
     }
 
 
@@ -276,7 +286,7 @@ class PolicyDetails(AWSProperty):
         "Actions": ([Action], False),
         "CopyTags": (boolean, False),
         "CreateInterval": (integer, False),
-        "CrossRegionCopyTargets": ([], False),
+        "CrossRegionCopyTargets": ([CrossRegionCopyTarget], False),
         "EventSource": (EventSource, False),
         "Exclusions": (Exclusions, False),
         "ExtendDeletion": (boolean, False),
@@ -302,7 +312,7 @@ class LifecyclePolicy(AWSObject):
     props: PropsDictType = {
         "CopyTags": (boolean, False),
         "CreateInterval": (integer, False),
-        "CrossRegionCopyTargets": ([], False),
+        "CrossRegionCopyTargets": ([CrossRegionCopyTarget], False),
         "DefaultPolicy": (str, False),
         "Description": (str, False),
         "Exclusions": (Exclusions, False),
@@ -312,14 +322,4 @@ class LifecyclePolicy(AWSObject):
         "RetainInterval": (integer, False),
         "State": (validate_state, False),
         "Tags": (validate_tags_or_list, False),
-    }
-
-
-class CrossRegionCopyTarget(AWSProperty):
-    """
-    `CrossRegionCopyTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>`__
-    """
-
-    props: PropsDictType = {
-        "TargetRegion": (str, False),
     }

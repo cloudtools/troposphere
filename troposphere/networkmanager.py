@@ -20,30 +20,6 @@ class ConnectAttachmentOptions(AWSProperty):
     }
 
 
-class ProposedNetworkFunctionGroupChange(AWSProperty):
-    """
-    `ProposedNetworkFunctionGroupChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposednetworkfunctiongroupchange.html>`__
-    """
-
-    props: PropsDictType = {
-        "AttachmentPolicyRuleNumber": (integer, False),
-        "NetworkFunctionGroupName": (str, False),
-        "Tags": (Tags, False),
-    }
-
-
-class ProposedSegmentChange(AWSProperty):
-    """
-    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
-    """
-
-    props: PropsDictType = {
-        "AttachmentPolicyRuleNumber": (integer, False),
-        "SegmentName": (str, False),
-        "Tags": (Tags, False),
-    }
-
-
 class ConnectAttachment(AWSObject):
     """
     `ConnectAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html>`__
@@ -56,11 +32,6 @@ class ConnectAttachment(AWSObject):
         "EdgeLocation": (str, True),
         "NetworkFunctionGroupName": (str, False),
         "Options": (ConnectAttachmentOptions, True),
-        "ProposedNetworkFunctionGroupChange": (
-            ProposedNetworkFunctionGroupChange,
-            False,
-        ),
-        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "TransportAttachmentId": (str, True),
@@ -194,11 +165,6 @@ class DirectConnectGatewayAttachment(AWSObject):
         "CoreNetworkId": (str, True),
         "DirectConnectGatewayArn": (str, True),
         "EdgeLocations": ([str], True),
-        "ProposedNetworkFunctionGroupChange": (
-            ProposedNetworkFunctionGroupChange,
-            False,
-        ),
-        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
     }
@@ -287,11 +253,6 @@ class SiteToSiteVpnAttachment(AWSObject):
     props: PropsDictType = {
         "CoreNetworkId": (str, True),
         "NetworkFunctionGroupName": (str, False),
-        "ProposedNetworkFunctionGroupChange": (
-            ProposedNetworkFunctionGroupChange,
-            False,
-        ),
-        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "VpnConnectionArn": (str, True),
@@ -335,11 +296,6 @@ class TransitGatewayRouteTableAttachment(AWSObject):
     props: PropsDictType = {
         "NetworkFunctionGroupName": (str, False),
         "PeeringId": (str, True),
-        "ProposedNetworkFunctionGroupChange": (
-            ProposedNetworkFunctionGroupChange,
-            False,
-        ),
-        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "RoutingPolicyLabel": (str, False),
         "Tags": (Tags, False),
         "TransitGatewayRouteTableArn": (str, True),
@@ -369,11 +325,6 @@ class VpcAttachment(AWSObject):
     props: PropsDictType = {
         "CoreNetworkId": (str, True),
         "Options": (VpcOptions, False),
-        "ProposedNetworkFunctionGroupChange": (
-            ProposedNetworkFunctionGroupChange,
-            False,
-        ),
-        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "RoutingPolicyLabel": (str, False),
         "SubnetArns": ([str], True),
         "Tags": (Tags, False),
@@ -429,6 +380,30 @@ class CoreNetworkSegment(AWSProperty):
         "EdgeLocations": ([str], False),
         "Name": (str, False),
         "SharedSegments": ([str], False),
+    }
+
+
+class ProposedNetworkFunctionGroupChange(AWSProperty):
+    """
+    `ProposedNetworkFunctionGroupChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposednetworkfunctiongroupchange.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentPolicyRuleNumber": (integer, False),
+        "NetworkFunctionGroupName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ProposedSegmentChange(AWSProperty):
+    """
+    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentPolicyRuleNumber": (integer, False),
+        "SegmentName": (str, False),
+        "Tags": (Tags, False),
     }
 
 

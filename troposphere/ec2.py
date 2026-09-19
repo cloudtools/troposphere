@@ -39,6 +39,65 @@ from .validators.ec2 import (
 )
 
 
+class HealthCheckPathDestination(AWSProperty):
+    """
+    `HealthCheckPathDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-applicationstatuscheck-healthcheckpathdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupId": (str, False),
+        "SubnetId": (str, False),
+    }
+
+
+class HealthCheckPathSource(AWSProperty):
+    """
+    `HealthCheckPathSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-applicationstatuscheck-healthcheckpathsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupId": (str, False),
+        "SubnetId": (str, False),
+    }
+
+
+class HealthCheckPath(AWSProperty):
+    """
+    `HealthCheckPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-applicationstatuscheck-healthcheckpath.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destinations": ([HealthCheckPathDestination], False),
+        "Source": (HealthCheckPathSource, False),
+    }
+
+
+class ApplicationStatusCheck(AWSObject):
+    """
+    `ApplicationStatusCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-applicationstatuscheck.html>`__
+    """
+
+    resource_type = "AWS::EC2::ApplicationStatusCheck"
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "DeviceIndex": (integer, False),
+        "FailureThreshold": (integer, False),
+        "HealthCheckPaths": ([HealthCheckPath], False),
+        "InitializationGracePeriodSeconds": (integer, False),
+        "Interval": (integer, False),
+        "IpScope": (str, False),
+        "IpVersion": (str, False),
+        "Path": (str, False),
+        "Port": (integer, True),
+        "Protocol": (str, True),
+        "StatusCodeMatcher": (str, False),
+        "SuccessThreshold": (integer, False),
+        "Tags": (Tags, False),
+        "Timeout": (integer, False),
+    }
+
+
 class CapacityManagerDataExport(AWSObject):
     """
     `CapacityManagerDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacitymanagerdataexport.html>`__
@@ -707,13 +766,40 @@ class OnDemandOptionsRequest(AWSProperty):
     }
 
 
+class CapacityReservationTargetRequest(AWSProperty):
+    """
+    `CapacityReservationTargetRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationtargetrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationIds": ([str], False),
+        "CapacityReservationResourceGroupArns": ([str], False),
+    }
+
+
+class ReservedCapacityFallbackOptionsRequest(AWSProperty):
+    """
+    `ReservedCapacityFallbackOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-reservedcapacityfallbackoptionsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "MarketTypes": ([str], False),
+    }
+
+
 class ReservedCapacityOptionsRequest(AWSProperty):
     """
     `ReservedCapacityOptionsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-reservedcapacityoptionsrequest.html>`__
     """
 
     props: PropsDictType = {
+        "AllocationStrategy": (str, False),
+        "CapacityReservationTarget": (CapacityReservationTargetRequest, False),
         "ReservationTypes": ([str], False),
+        "ReservedCapacityFallbackOptions": (
+            ReservedCapacityFallbackOptionsRequest,
+            False,
+        ),
     }
 
 
@@ -4375,6 +4461,28 @@ class MountPoint(AWSProperty):
     props: PropsDictType = {
         "Device": (str, True),
         "VolumeId": (str, True),
+    }
+
+
+class StandbyAvailabilityZone(AWSProperty):
+    """
+    `StandbyAvailabilityZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-standbyavailabilityzone.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "AvailabilityZoneId": (str, False),
+    }
+
+
+class MultiAvailabilityZoneConfiguration(AWSProperty):
+    """
+    `MultiAvailabilityZoneConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-multiavailabilityzoneconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationType": (str, False),
+        "StandbyAvailabilityZones": ([StandbyAvailabilityZone], False),
     }
 
 

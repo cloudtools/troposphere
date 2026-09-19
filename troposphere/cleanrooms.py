@@ -360,6 +360,42 @@ class AnalysisRuleAggregation(AWSProperty):
     }
 
 
+class OutputColumnThreshold(AWSProperty):
+    """
+    `OutputColumnThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-outputcolumnthreshold.html>`__
+    """
+
+    props: PropsDictType = {
+        "MinimumIdentityCount": (integer, True),
+        "OutputColumnName": (str, True),
+    }
+
+
+class AggregationThreshold(AWSProperty):
+    """
+    `AggregationThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-aggregationthreshold.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedAggregateExpressionType": (str, True),
+        "IdentityColumns": ([str], True),
+        "MinimumIdentityCount": (integer, True),
+        "OutputColumnThresholds": ([OutputColumnThreshold], False),
+        "Type": (str, True),
+    }
+
+
+class ComparisonControls(AWSProperty):
+    """
+    `ComparisonControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-comparisoncontrols.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedColumnComparisonColumns": ([str], True),
+        "AllowedLiteralComparisonColumns": ([str], True),
+    }
+
+
 class DifferentialPrivacyColumn(AWSProperty):
     """
     `DifferentialPrivacyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-differentialprivacycolumn.html>`__
@@ -387,8 +423,10 @@ class AnalysisRuleCustom(AWSProperty):
 
     props: PropsDictType = {
         "AdditionalAnalyses": (str, False),
+        "AggregationThresholds": ([AggregationThreshold], False),
         "AllowedAnalyses": ([str], True),
         "AllowedAnalysisProviders": ([str], False),
+        "ComparisonControls": (ComparisonControls, False),
         "DifferentialPrivacy": (DifferentialPrivacy, False),
         "DisallowedOutputColumns": ([str], False),
     }
@@ -694,9 +732,11 @@ class IntermediateTableAnalysisRuleCustom(AWSProperty):
 
     props: PropsDictType = {
         "AdditionalAnalyses": (str, False),
+        "AggregationThresholds": ([AggregationThreshold], False),
         "AllowedAnalyses": ([str], True),
         "AllowedAnalysisProviders": ([str], False),
         "AllowedResultReceivers": ([str], False),
+        "ComparisonControls": (ComparisonControls, False),
         "DifferentialPrivacy": (DifferentialPrivacy, False),
         "DisallowedOutputColumns": ([str], False),
     }

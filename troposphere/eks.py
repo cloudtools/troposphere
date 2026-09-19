@@ -99,6 +99,17 @@ class Addon(AWSObject):
     }
 
 
+class Ack(AWSProperty):
+    """
+    `Ack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-ack.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisabledServices": ([str], False),
+        "EnableCrossNamespace": (boolean, False),
+    }
+
+
 class SsoIdentity(AWSProperty):
     """
     `SsoIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-ssoidentity.html>`__
@@ -163,7 +174,7 @@ class CapabilityConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Ack": (dict, False),
+        "Ack": (Ack, False),
         "ArgoCd": (ArgoCd, False),
     }
 
@@ -306,6 +317,16 @@ class HorizontalPodAutoscalerControllerConfig(AWSProperty):
     }
 
 
+class PodGcControllerConfig(AWSProperty):
+    """
+    `PodGcControllerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-podgccontrollerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TerminatedPodGcThreshold": (integer, False),
+    }
+
+
 class KubeControllerManagerConfig(AWSProperty):
     """
     `KubeControllerManagerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubecontrollermanagerconfig.html>`__
@@ -316,6 +337,7 @@ class KubeControllerManagerConfig(AWSProperty):
             HorizontalPodAutoscalerControllerConfig,
             False,
         ),
+        "PodGcControllerConfig": (PodGcControllerConfig, False),
     }
 
 

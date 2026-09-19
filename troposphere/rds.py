@@ -210,6 +210,8 @@ class AdditionalStorageVolume(AWSProperty):
         "AllocatedStorage": (str, False),
         "Iops": (integer, False),
         "MaxAllocatedStorage": (integer, False),
+        "StorageOperationPercentProgress": (integer, False),
+        "StorageOperationStatus": (str, False),
         "StorageThroughput": (integer, False),
         "StorageType": (str, False),
         "VolumeName": (str, False),

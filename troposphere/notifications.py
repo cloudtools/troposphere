@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean
 
 
 class ChannelAssociation(AWSObject):
@@ -47,6 +48,7 @@ class ManagedNotificationAccountContactAssociation(AWSObject):
 
     props: PropsDictType = {
         "ContactIdentifier": (str, True),
+        "IsSensitiveEventsSubscribed": (boolean, False),
         "ManagedNotificationConfigurationArn": (str, True),
     }
 
@@ -62,6 +64,7 @@ class ManagedNotificationAdditionalChannelAssociation(AWSObject):
 
     props: PropsDictType = {
         "ChannelArn": (str, True),
+        "IsSensitiveEventsSubscribed": (boolean, False),
         "ManagedNotificationConfigurationArn": (str, True),
     }
 

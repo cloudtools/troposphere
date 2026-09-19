@@ -18,19 +18,6 @@ from .validators.dynamodb import (
 )
 
 
-class Backup(AWSObject):
-    """
-    `Backup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-backup.html>`__
-    """
-
-    resource_type = "AWS::DynamoDB::Backup"
-
-    props: PropsDictType = {
-        "BackupName": (str, True),
-        "TableName": (str, True),
-    }
-
-
 class Export(AWSObject):
     """
     `Export <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-export.html>`__

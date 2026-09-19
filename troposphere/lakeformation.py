@@ -112,7 +112,6 @@ class TableResource(AWSProperty):
         "CatalogId": (str, True),
         "DatabaseName": (str, True),
         "Name": (str, False),
-        "TableWildcard": (dict, False),
     }
 
 
@@ -155,6 +154,16 @@ class Permissions(AWSObject):
         "Permissions": ([str], False),
         "PermissionsWithGrantOption": ([str], False),
         "Resource": (ResourceProperty, True),
+    }
+
+
+class CatalogResource(AWSProperty):
+    """
+    `CatalogResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-catalogresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
     }
 
 
@@ -223,7 +232,7 @@ class PrincipalResource(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Catalog": (dict, False),
+        "Catalog": (CatalogResource, False),
         "DataCellsFilter": (DataCellsFilterResource, False),
         "DataLocation": (DataLocationResource, False),
         "Database": (DatabaseResource, False),
@@ -311,7 +320,6 @@ class TagAssociationResource(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Catalog": (dict, False),
         "Database": (DatabaseResource, False),
         "Table": (TableResource, False),
         "TableWithColumns": (TagAssociationTableWithColumnsResource, False),
