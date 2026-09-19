@@ -112,6 +112,20 @@ class FindingsFilter(AWSObject):
     }
 
 
+class Member(AWSObject):
+    """
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-member.html>`__
+    """
+
+    resource_type = "AWS::Macie::Member"
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+        "Email": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Session(AWSObject):
     """
     `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html>`__

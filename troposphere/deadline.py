@@ -630,6 +630,31 @@ class StorageProfile(AWSObject):
     }
 
 
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Volume(AWSObject):
+    """
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-volume.html>`__
+    """
+
+    resource_type = "AWS::Deadline::Volume"
+
+    props: PropsDictType = {
+        "FarmId": (str, False),
+        "FleetId": (str, False),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class IpAddresses(AWSProperty):
     """
     `IpAddresses <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-ipaddresses.html>`__
@@ -649,17 +674,6 @@ class HostPropertiesRequest(AWSProperty):
     props: PropsDictType = {
         "HostName": (str, False),
         "IpAddresses": (IpAddresses, False),
-    }
-
-
-class TagsItems(AWSProperty):
-    """
-    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-worker-tagsitems.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
     }
 
 

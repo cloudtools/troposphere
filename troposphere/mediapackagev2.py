@@ -21,6 +21,17 @@ class InputSwitchConfiguration(AWSProperty):
     }
 
 
+class MultiviewConfiguration(AWSProperty):
+    """
+    `MultiviewConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-multiviewconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailableLayouts": ([str], True),
+        "AvailableSources": ([str], True),
+    }
+
+
 class OutputHeaderConfiguration(AWSProperty):
     """
     `OutputHeaderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-outputheaderconfiguration.html>`__
@@ -44,6 +55,7 @@ class Channel(AWSObject):
         "Description": (str, False),
         "InputSwitchConfiguration": (InputSwitchConfiguration, False),
         "InputType": (str, False),
+        "MultiviewConfiguration": (MultiviewConfiguration, False),
         "OutputHeaderConfiguration": (OutputHeaderConfiguration, False),
         "OutputLockingMode": (str, False),
         "Tags": (Tags, False),

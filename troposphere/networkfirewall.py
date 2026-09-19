@@ -11,6 +11,44 @@ from .validators import boolean, integer
 from .validators.networkfirewall import validate_rule_group_type
 
 
+class ContainerAttribute(AWSProperty):
+    """
+    `ContainerAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-containerassociation-containerattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ContainerMonitoringConfiguration(AWSProperty):
+    """
+    `ContainerMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-containerassociation-containermonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeFilters": ([ContainerAttribute], False),
+        "ClusterArn": (str, True),
+    }
+
+
+class ContainerAssociation(AWSObject):
+    """
+    `ContainerAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-containerassociation.html>`__
+    """
+
+    resource_type = "AWS::NetworkFirewall::ContainerAssociation"
+
+    props: PropsDictType = {
+        "ContainerAssociationName": (str, True),
+        "ContainerMonitoringConfigurations": ([ContainerMonitoringConfiguration], True),
+        "Description": (str, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
+    }
+
+
 class AvailabilityZoneMapping(AWSProperty):
     """
     `AvailabilityZoneMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-availabilityzonemapping.html>`__

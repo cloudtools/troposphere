@@ -33,3 +33,17 @@ class Cluster(AWSObject):
         "Tags": (Tags, False),
         "VpcSecurityGroupIds": ([str], False),
     }
+
+
+class ClusterSnapshot(AWSObject):
+    """
+    `ClusterSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-clustersnapshot.html>`__
+    """
+
+    resource_type = "AWS::DocDBElastic::ClusterSnapshot"
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "SnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }

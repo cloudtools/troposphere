@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import double, integer
 from .validators.resiliencehub import (
     validate_resiliencypolicy_policy,
     validate_resiliencypolicy_tier,
@@ -86,6 +86,20 @@ class App(AWSObject):
     }
 
 
+class AppAssessment(AWSObject):
+    """
+    `AppAssessment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-appassessment.html>`__
+    """
+
+    resource_type = "AWS::ResilienceHub::AppAssessment"
+
+    props: PropsDictType = {
+        "AppArn": (str, True),
+        "AssessmentName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class RecommendationTemplate(AWSObject):
     """
     `RecommendationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-recommendationtemplate.html>`__
@@ -140,6 +154,75 @@ class ResiliencyPolicy(AWSObject):
         "PolicyName": (str, True),
         "Tags": (dict, False),
         "Tier": (validate_resiliencypolicy_tier, True),
+    }
+
+
+class Cost(AWSProperty):
+    """
+    `Cost <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-appassessment-cost.html>`__
+    """
+
+    props: PropsDictType = {
+        "Amount": (double, True),
+        "Currency": (str, True),
+        "Frequency": (str, True),
+    }
+
+
+class DisruptionCompliance(AWSProperty):
+    """
+    `DisruptionCompliance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-appassessment-disruptioncompliance.html>`__
+    """
+
+    props: PropsDictType = {
+        "AchievableRpoInSecs": (double, False),
+        "AchievableRtoInSecs": (double, False),
+        "ComplianceStatus": (str, True),
+        "CurrentRpoInSecs": (double, False),
+        "CurrentRtoInSecs": (double, False),
+        "Message": (str, False),
+        "RpoDescription": (str, False),
+        "RpoReferenceId": (str, False),
+        "RtoDescription": (str, False),
+        "RtoReferenceId": (str, False),
+    }
+
+
+class ResiliencyPolicyProperty(AWSProperty):
+    """
+    `ResiliencyPolicyProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-appassessment-resiliencypolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataLocationConstraint": (str, False),
+        "Policy": (dict, False),
+        "PolicyArn": (str, False),
+        "PolicyName": (str, False),
+    }
+
+
+class ScoringComponentResiliencyScore(AWSProperty):
+    """
+    `ScoringComponentResiliencyScore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-appassessment-scoringcomponentresiliencyscore.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExcludedCount": (double, False),
+        "OutstandingCount": (double, False),
+        "PossibleScore": (double, False),
+        "Score": (double, False),
+    }
+
+
+class ResiliencyScore(AWSProperty):
+    """
+    `ResiliencyScore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-appassessment-resiliencyscore.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentScore": (dict, False),
+        "DisruptionScore": (dict, True),
+        "Score": (double, True),
     }
 
 

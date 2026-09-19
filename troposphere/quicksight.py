@@ -7474,6 +7474,20 @@ class CustomPermissions(AWSObject):
     }
 
 
+class Customization(AWSObject):
+    """
+    `Customization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-customization.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Customization"
+
+    props: PropsDictType = {
+        "DefaultTheme": (str, True),
+        "Namespace": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class LabelActionMapping(AWSProperty):
     """
     `LabelActionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dlpsetting-labelactionmapping.html>`__

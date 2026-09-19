@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
 from .validators.sns import policytypes
 
 
@@ -73,6 +73,7 @@ class Topic(AWSObject):
         "FifoThroughputScope": (str, False),
         "FifoTopic": (boolean, False),
         "KmsMasterKeyId": (str, False),
+        "MaximumMessageSize": (integer, False),
         "SignatureVersion": (str, False),
         "Subscription": ([Subscription], False),
         "Tags": (Tags, False),

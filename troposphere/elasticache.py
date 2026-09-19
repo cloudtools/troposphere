@@ -334,6 +334,7 @@ class ServerlessCache(AWSObject):
         "FinalSnapshotName": (str, False),
         "KmsKeyId": (str, False),
         "MajorEngineVersion": (str, False),
+        "NetworkType": (str, False),
         "ReaderEndpoint": (Endpoint, False),
         "SecurityGroupIds": ([str], False),
         "ServerlessCacheName": (str, True),

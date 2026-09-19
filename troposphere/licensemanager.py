@@ -132,6 +132,44 @@ class License(AWSObject):
     }
 
 
+class LicenseAssetGroupConfiguration(AWSProperty):
+    """
+    `LicenseAssetGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetgroup-licenseassetgroupconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UsageDimension": (str, False),
+    }
+
+
+class LicenseAssetGroupProperty(AWSProperty):
+    """
+    `LicenseAssetGroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetgroup-licenseassetgroupproperty.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "Value": (str, False),
+    }
+
+
+class LicenseAssetGroup(AWSObject):
+    """
+    `LicenseAssetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-licenseassetgroup.html>`__
+    """
+
+    resource_type = "AWS::LicenseManager::LicenseAssetGroup"
+
+    props: PropsDictType = {
+        "AssociatedLicenseAssetRulesetARNs": ([str], True),
+        "Description": (str, False),
+        "LicenseAssetGroupConfigurations": ([LicenseAssetGroupConfiguration], True),
+        "Name": (str, True),
+        "Properties": ([LicenseAssetGroupProperty], False),
+        "Tags": (Tags, False),
+    }
+
+
 class MatchingRuleStatement(AWSProperty):
     """
     `MatchingRuleStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseassetruleset-matchingrulestatement.html>`__

@@ -470,6 +470,16 @@ class MissionProfile(AWSObject):
     }
 
 
+class Satellite(AWSObject):
+    """
+    `Satellite <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-satellite.html>`__
+    """
+
+    resource_type = "AWS::GroundStation::Satellite"
+
+    props: PropsDictType = {}
+
+
 class AwsGroundStationAgentEndpoint(AWSProperty):
     """
     `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
@@ -493,6 +503,17 @@ class DataflowEndpoint(AWSProperty):
         "Address": (SocketAddress, False),
         "Mtu": (integer, False),
         "Name": (str, False),
+    }
+
+
+class EphemerisMetaData(AWSProperty):
+    """
+    `EphemerisMetaData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-satellite-ephemerismetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Epoch": (str, False),
+        "Source": (str, True),
     }
 
 

@@ -2614,6 +2614,7 @@ class BedrockEmbeddingModelConfiguration(AWSProperty):
         "Audio": ([AudioConfiguration], False),
         "Dimensions": (integer, False),
         "EmbeddingDataType": (str, False),
+        "ModelConfiguration": (dict, False),
         "Video": ([VideoConfiguration], False),
     }
 
@@ -2641,6 +2642,37 @@ class ManagedKnowledgeBaseServerSideEncryptionConfiguration(AWSProperty):
     }
 
 
+class KnowledgeBaseS3Location(AWSProperty):
+    """
+    `KnowledgeBaseS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "URI": (str, True),
+    }
+
+
+class SupplementalDataStorageLocation(AWSProperty):
+    """
+    `SupplementalDataStorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (KnowledgeBaseS3Location, False),
+        "SupplementalDataStorageLocationType": (str, True),
+    }
+
+
+class SupplementalDataStorageConfiguration(AWSProperty):
+    """
+    `SupplementalDataStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SupplementalDataStorageLocations": ([SupplementalDataStorageLocation], True),
+    }
+
+
 class ManagedKnowledgeBaseConfiguration(AWSProperty):
     """
     `ManagedKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html>`__
@@ -2652,6 +2684,10 @@ class ManagedKnowledgeBaseConfiguration(AWSProperty):
         "EmbeddingModelType": (str, False),
         "ServerSideEncryptionConfiguration": (
             ManagedKnowledgeBaseServerSideEncryptionConfiguration,
+            False,
+        ),
+        "SupplementalDataStorageConfiguration": (
+            SupplementalDataStorageConfiguration,
             False,
         ),
     }
@@ -2830,37 +2866,6 @@ class SqlKnowledgeBaseConfiguration(AWSProperty):
     props: PropsDictType = {
         "RedshiftConfiguration": (RedshiftConfiguration, False),
         "Type": (str, True),
-    }
-
-
-class KnowledgeBaseS3Location(AWSProperty):
-    """
-    `KnowledgeBaseS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
-    """
-
-    props: PropsDictType = {
-        "URI": (str, True),
-    }
-
-
-class SupplementalDataStorageLocation(AWSProperty):
-    """
-    `SupplementalDataStorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3Location": (KnowledgeBaseS3Location, False),
-        "SupplementalDataStorageLocationType": (str, True),
-    }
-
-
-class SupplementalDataStorageConfiguration(AWSProperty):
-    """
-    `SupplementalDataStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "SupplementalDataStorageLocations": ([SupplementalDataStorageLocation], True),
     }
 
 

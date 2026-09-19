@@ -110,6 +110,16 @@ class Listener(AWSObject):
     }
 
 
+class CidrResource(AWSProperty):
+    """
+    `CidrResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-cidrresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CidrRanges": ([str], True),
+    }
+
+
 class DnsResource(AWSProperty):
     """
     `DnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-dnsresource.html>`__
@@ -128,6 +138,7 @@ class ResourceConfigurationDefinition(AWSProperty):
 
     props: PropsDictType = {
         "ArnResource": (str, False),
+        "CidrResource": (CidrResource, False),
         "DnsResource": (DnsResource, False),
         "IpResource": (str, False),
     }
@@ -155,6 +166,16 @@ class ResourceConfiguration(AWSObject):
         "ResourceGatewayId": (str, False),
         "Tags": (Tags, False),
     }
+
+
+class ResourceEndpointAssociation(AWSObject):
+    """
+    `ResourceEndpointAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceendpointassociation.html>`__
+    """
+
+    resource_type = "AWS::VpcLattice::ResourceEndpointAssociation"
+
+    props: PropsDictType = {}
 
 
 class ResourceGateway(AWSObject):

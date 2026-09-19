@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class Action(AWSObject):
+    """
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-action.html>`__
+    """
+
+    resource_type = "AWS::FIS::Action"
+
+    props: PropsDictType = {}
+
+
 class ExperimentOptions(AWSProperty):
     """
     `ExperimentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experiment-experimentoptions.html>`__

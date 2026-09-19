@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class Database(AWSObject):
@@ -114,6 +114,218 @@ class InfluxDBInstance(AWSObject):
         "Username": (str, False),
         "VpcSecurityGroupIds": ([str], False),
         "VpcSubnetIds": ([str], False),
+    }
+
+
+class Duration(AWSProperty):
+    """
+    `Duration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-duration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationType": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class InfluxDBv2Parameters(AWSProperty):
+    """
+    `InfluxDBv2Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-influxdbv2parameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "FluxLogEnabled": (boolean, False),
+        "HttpIdleTimeout": (Duration, False),
+        "HttpReadHeaderTimeout": (Duration, False),
+        "HttpReadTimeout": (Duration, False),
+        "HttpWriteTimeout": (Duration, False),
+        "InfluxqlMaxSelectBuckets": (integer, False),
+        "InfluxqlMaxSelectPoint": (integer, False),
+        "InfluxqlMaxSelectSeries": (integer, False),
+        "LogLevel": (str, False),
+        "MetricsDisabled": (boolean, False),
+        "NoTasks": (boolean, False),
+        "PprofDisabled": (boolean, False),
+        "QueryConcurrency": (integer, False),
+        "QueryInitialMemoryBytes": (integer, False),
+        "QueryMaxMemoryBytes": (integer, False),
+        "QueryMemoryBytes": (integer, False),
+        "QueryQueueSize": (integer, False),
+        "SessionLength": (integer, False),
+        "SessionRenewDisabled": (boolean, False),
+        "StorageCacheMaxMemorySize": (integer, False),
+        "StorageCacheSnapshotMemorySize": (integer, False),
+        "StorageCacheSnapshotWriteColdDuration": (Duration, False),
+        "StorageCompactFullWriteColdDuration": (Duration, False),
+        "StorageCompactThroughputBurst": (integer, False),
+        "StorageMaxConcurrentCompactions": (integer, False),
+        "StorageMaxIndexLogFileSize": (integer, False),
+        "StorageNoValidateFieldSize": (boolean, False),
+        "StorageRetentionCheckInterval": (Duration, False),
+        "StorageSeriesFileMaxConcurrentSnapshotCompactions": (integer, False),
+        "StorageSeriesIdSetCacheSize": (integer, False),
+        "StorageWalMaxConcurrentWrites": (integer, False),
+        "StorageWalMaxWriteDelay": (Duration, False),
+        "TracingType": (str, False),
+        "UiDisabled": (boolean, False),
+    }
+
+
+class PercentOrAbsoluteLong(AWSProperty):
+    """
+    `PercentOrAbsoluteLong <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-percentorabsolutelong.html>`__
+    """
+
+    props: PropsDictType = {
+        "Absolute": (integer, False),
+        "Percent": (str, False),
+    }
+
+
+class InfluxDBv3CoreParameters(AWSProperty):
+    """
+    `InfluxDBv3CoreParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-influxdbv3coreparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataFusionConfig": (str, False),
+        "DataFusionMaxParquetFanout": (integer, False),
+        "DataFusionNumThreads": (integer, False),
+        "DataFusionRuntimeDisableLifoSlot": (boolean, False),
+        "DataFusionRuntimeEventInterval": (integer, False),
+        "DataFusionRuntimeGlobalQueueInterval": (integer, False),
+        "DataFusionRuntimeMaxBlockingThreads": (integer, False),
+        "DataFusionRuntimeMaxIoEventsPerTick": (integer, False),
+        "DataFusionRuntimeThreadKeepAlive": (Duration, False),
+        "DataFusionRuntimeThreadPriority": (integer, False),
+        "DataFusionRuntimeType": (str, False),
+        "DataFusionUseCachedParquetLoader": (boolean, False),
+        "DeleteGracePeriod": (Duration, False),
+        "DisableParquetMemCache": (boolean, False),
+        "DistinctCacheEvictionInterval": (Duration, False),
+        "ExecMemPoolBytes": (PercentOrAbsoluteLong, False),
+        "ForceSnapshotMemThreshold": (PercentOrAbsoluteLong, False),
+        "Gen1Duration": (Duration, False),
+        "Gen1LookbackDuration": (Duration, False),
+        "HardDeleteDefaultDuration": (Duration, False),
+        "LastCacheEvictionInterval": (Duration, False),
+        "LogFilter": (str, False),
+        "LogFormat": (str, False),
+        "MaxHttpRequestSize": (integer, False),
+        "ParquetMemCachePruneInterval": (Duration, False),
+        "ParquetMemCachePrunePercentage": (double, False),
+        "ParquetMemCacheQueryPathDuration": (Duration, False),
+        "ParquetMemCacheSize": (PercentOrAbsoluteLong, False),
+        "PreemptiveCacheAge": (Duration, False),
+        "QueryFileLimit": (integer, False),
+        "QueryLogSize": (integer, False),
+        "RetentionCheckInterval": (Duration, False),
+        "SnapshottedWalFilesToKeep": (integer, False),
+        "TableIndexCacheConcurrencyLimit": (integer, False),
+        "TableIndexCacheMaxEntries": (integer, False),
+        "WalMaxWriteBufferSize": (integer, False),
+        "WalReplayConcurrencyLimit": (integer, False),
+        "WalReplayFailOnError": (boolean, False),
+        "WalSnapshotSize": (integer, False),
+    }
+
+
+class InfluxDBv3EnterpriseParameters(AWSProperty):
+    """
+    `InfluxDBv3EnterpriseParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-influxdbv3enterpriseparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogSyncInterval": (Duration, False),
+        "CompactionCheckInterval": (Duration, False),
+        "CompactionCleanupWait": (Duration, False),
+        "CompactionGen2Duration": (Duration, False),
+        "CompactionMaxNumFilesPerPlan": (integer, False),
+        "CompactionMultipliers": (str, False),
+        "CompactionRowLimit": (integer, False),
+        "DataFusionConfig": (str, False),
+        "DataFusionMaxParquetFanout": (integer, False),
+        "DataFusionNumThreads": (integer, False),
+        "DataFusionRuntimeDisableLifoSlot": (boolean, False),
+        "DataFusionRuntimeEventInterval": (integer, False),
+        "DataFusionRuntimeGlobalQueueInterval": (integer, False),
+        "DataFusionRuntimeMaxBlockingThreads": (integer, False),
+        "DataFusionRuntimeMaxIoEventsPerTick": (integer, False),
+        "DataFusionRuntimeThreadKeepAlive": (Duration, False),
+        "DataFusionRuntimeThreadPriority": (integer, False),
+        "DataFusionRuntimeType": (str, False),
+        "DataFusionUseCachedParquetLoader": (boolean, False),
+        "DedicatedCompactor": (boolean, True),
+        "DeleteGracePeriod": (Duration, False),
+        "DisableParquetMemCache": (boolean, False),
+        "DistinctCacheEvictionInterval": (Duration, False),
+        "DistinctValueCacheDisableFromHistory": (boolean, False),
+        "ExecMemPoolBytes": (PercentOrAbsoluteLong, False),
+        "ForceSnapshotMemThreshold": (PercentOrAbsoluteLong, False),
+        "Gen1Duration": (Duration, False),
+        "Gen1LookbackDuration": (Duration, False),
+        "HardDeleteDefaultDuration": (Duration, False),
+        "IngestQueryInstances": (integer, True),
+        "LastCacheEvictionInterval": (Duration, False),
+        "LastValueCacheDisableFromHistory": (boolean, False),
+        "LogFilter": (str, False),
+        "LogFormat": (str, False),
+        "MaxHttpRequestSize": (integer, False),
+        "ParquetMemCachePruneInterval": (Duration, False),
+        "ParquetMemCachePrunePercentage": (double, False),
+        "ParquetMemCacheQueryPathDuration": (Duration, False),
+        "ParquetMemCacheSize": (PercentOrAbsoluteLong, False),
+        "PreemptiveCacheAge": (Duration, False),
+        "QueryFileLimit": (integer, False),
+        "QueryLogSize": (integer, False),
+        "QueryOnlyInstances": (integer, True),
+        "ReplicationInterval": (Duration, False),
+        "RetentionCheckInterval": (Duration, False),
+        "SnapshottedWalFilesToKeep": (integer, False),
+        "TableIndexCacheConcurrencyLimit": (integer, False),
+        "TableIndexCacheMaxEntries": (integer, False),
+        "WalMaxWriteBufferSize": (integer, False),
+        "WalReplayConcurrencyLimit": (integer, False),
+        "WalReplayFailOnError": (boolean, False),
+        "WalSnapshotSize": (integer, False),
+    }
+
+
+class Parameters(AWSProperty):
+    """
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-parameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfluxDBv2": (InfluxDBv2Parameters, False),
+        "InfluxDBv3Core": (InfluxDBv3CoreParameters, False),
+        "InfluxDBv3Enterprise": (InfluxDBv3EnterpriseParameters, False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbparametergroup-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class InfluxDBParameterGroup(AWSObject):
+    """
+    `InfluxDBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbparametergroup.html>`__
+    """
+
+    resource_type = "AWS::Timestream::InfluxDBParameterGroup"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, False),
+        "Parameters": (Parameters, False),
+        "Tags": ([TagsItems], False),
     }
 
 

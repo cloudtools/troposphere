@@ -152,6 +152,18 @@ class PricingPlan(AWSObject):
     }
 
 
+class CustomTier(AWSProperty):
+    """
+    `CustomTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-customtier.html>`__
+    """
+
+    props: PropsDictType = {
+        "BeginRangeInclusive": (double, True),
+        "EndRangeExclusive": (double, False),
+        "RateValue": (double, True),
+    }
+
+
 class FreeTier(AWSProperty):
     """
     `FreeTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-freetier.html>`__
@@ -168,6 +180,7 @@ class Tiering(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomTiers": ([CustomTier], False),
         "FreeTier": (FreeTier, False),
     }
 

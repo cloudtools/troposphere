@@ -339,6 +339,42 @@ class TimeToLiveSpecification(AWSProperty):
     }
 
 
+class SearchSchemaElement(AWSProperty):
+    """
+    `SearchSchemaElement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-searchschemaelement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeName": (str, True),
+        "SearchSchemaElementType": (str, True),
+    }
+
+
+class VectorAttribute(AWSProperty):
+    """
+    `VectorAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-vectorattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeName": (str, True),
+    }
+
+
+class VectorIndex(AWSProperty):
+    """
+    `VectorIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-vectorindex.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimensions": (integer, True),
+        "DistanceFunction": (str, True),
+        "IndexName": (str, True),
+        "Projection": (Projection, True),
+        "SearchSchema": ([SearchSchemaElement], False),
+        "VectorAttribute": (VectorAttribute, True),
+    }
+
+
 class GlobalTable(AWSObject):
     """
     `GlobalTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html>`__
@@ -365,6 +401,7 @@ class GlobalTable(AWSObject):
         "StreamSpecification": (StreamSpecification, False),
         "TableName": (str, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "VectorIndexes": ([VectorIndex], False),
         "WarmThroughput": (WarmThroughput, False),
         "WriteOnDemandThroughputSettings": (WriteOnDemandThroughputSettings, False),
         "WriteProvisionedThroughputSettings": (
@@ -510,6 +547,7 @@ class Table(AWSObject):
         "TableName": (str, False),
         "Tags": (Tags, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "VectorIndexes": ([VectorIndex], False),
         "WarmThroughput": (WarmThroughput, False),
     }
 

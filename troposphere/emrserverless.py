@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class AutoStartConfiguration(AWSProperty):
@@ -157,7 +157,7 @@ class MonitoringConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-session-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -217,7 +217,7 @@ class Application(AWSObject):
 
 class Configuration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-session-configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -229,12 +229,11 @@ class Configuration(AWSProperty):
 
 class ConfigurationOverrides(AWSProperty):
     """
-    `ConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-jobrun-configurationoverrides.html>`__
+    `ConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-session-configurationoverrides.html>`__
     """
 
     props: PropsDictType = {
-        "ApplicationConfiguration": ([Configuration], False),
-        "MonitoringConfiguration": (MonitoringConfiguration, False),
+        "RuntimeConfiguration": ([Configuration], False),
     }
 
 
@@ -287,6 +286,23 @@ class JobRun(AWSObject):
         "ExecutionTimeoutMinutes": (integer, False),
         "JobDriver": (JobDriver, False),
         "Mode": (str, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-session.html>`__
+    """
+
+    resource_type = "AWS::EMRServerless::Session"
+
+    props: PropsDictType = {
+        "ApplicationId": (str, False),
+        "ConfigurationOverrides": (ConfigurationOverrides, False),
+        "ExecutionRoleArn": (str, False),
+        "IdleTimeoutMinutes": (double, False),
         "Name": (str, False),
         "Tags": (Tags, False),
     }

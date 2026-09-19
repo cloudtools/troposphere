@@ -75,6 +75,57 @@ class Application(AWSObject):
     }
 
 
+class BuildConfiguration(AWSProperty):
+    """
+    `BuildConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-buildconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArtifactName": (str, False),
+        "CodeBuildServiceRole": (str, True),
+        "ComputeType": (str, False),
+        "Image": (str, True),
+        "TimeoutInMinutes": (integer, False),
+    }
+
+
+class ImageBuildConfiguration(AWSProperty):
+    """
+    `ImageBuildConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-imagebuildconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Architecture": (str, False),
+        "Buildpack": (str, False),
+        "CodeBuildServiceRole": (str, True),
+        "ComputeType": (str, False),
+        "DockerfileLocation": (str, False),
+        "TimeoutInMinutes": (integer, False),
+        "Type": (str, True),
+    }
+
+
+class ImageSource(AWSProperty):
+    """
+    `ImageSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-imagesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Uri": (str, False),
+    }
+
+
+class ImageConfiguration(AWSProperty):
+    """
+    `ImageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-imageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Build": (ImageBuildConfiguration, False),
+        "Source": (ImageSource, False),
+    }
+
+
 class SourceBundle(AWSProperty):
     """
     `SourceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html>`__
@@ -95,8 +146,11 @@ class ApplicationVersion(AWSObject):
 
     props: PropsDictType = {
         "ApplicationName": (str, True),
+        "BuildConfiguration": (BuildConfiguration, False),
         "Description": (str, False),
-        "SourceBundle": (SourceBundle, True),
+        "ImageConfiguration": (ImageConfiguration, False),
+        "Process": (boolean, False),
+        "SourceBundle": (SourceBundle, False),
     }
 
 

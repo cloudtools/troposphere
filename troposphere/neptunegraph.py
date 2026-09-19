@@ -62,6 +62,47 @@ class ExportTask(AWSObject):
     }
 
 
+class NeptuneImportOptions(AWSProperty):
+    """
+    `NeptuneImportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-neptuneimportoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PreserveDefaultVertexLabels": (boolean, False),
+        "PreserveEdgeIds": (boolean, False),
+        "S3ExportKmsKeyId": (str, True),
+        "S3ExportPath": (str, True),
+    }
+
+
+class ImportOptions(AWSProperty):
+    """
+    `ImportOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-importoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Neptune": (NeptuneImportOptions, False),
+    }
+
+
+class ImportTask(AWSProperty):
+    """
+    `ImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-importtask.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlankNodeHandling": (str, False),
+        "FailOnError": (boolean, False),
+        "Format": (str, False),
+        "ImportOptions": (ImportOptions, False),
+        "MaxProvisionedMemory": (integer, False),
+        "MinProvisionedMemory": (integer, False),
+        "ParquetType": (str, False),
+        "RoleArn": (str, True),
+        "Source": (str, True),
+    }
+
+
 class VectorSearchConfiguration(AWSProperty):
     """
     `VectorSearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-vectorsearchconfiguration.html>`__
@@ -82,6 +123,7 @@ class Graph(AWSObject):
     props: PropsDictType = {
         "DeletionProtection": (boolean, False),
         "GraphName": (str, False),
+        "ImportTask": (ImportTask, False),
         "KmsKeyIdentifier": (str, False),
         "ProvisionedMemory": (integer, True),
         "PublicConnectivity": (boolean, False),

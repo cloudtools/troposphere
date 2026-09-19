@@ -132,6 +132,21 @@ class ReservedNode(AWSObject):
     props: PropsDictType = {}
 
 
+class Snapshot(AWSObject):
+    """
+    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html>`__
+    """
+
+    resource_type = "AWS::MemoryDB::Snapshot"
+
+    props: PropsDictType = {
+        "ClusterName": (str, True),
+        "KmsKeyId": (str, False),
+        "SnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class SubnetGroup(AWSObject):
     """
     `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html>`__
@@ -170,6 +185,29 @@ class User(AWSObject):
         "AuthenticationMode": (AuthenticationMode, False),
         "Tags": (Tags, False),
         "UserName": (str, True),
+    }
+
+
+class ClusterConfiguration(AWSProperty):
+    """
+    `ClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-snapshot-clusterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Engine": (str, False),
+        "EngineVersion": (str, False),
+        "MaintenanceWindow": (str, False),
+        "Name": (str, False),
+        "NodeType": (str, False),
+        "NumShards": (integer, False),
+        "ParameterGroupName": (str, False),
+        "Port": (integer, False),
+        "SnapshotRetentionLimit": (integer, False),
+        "SnapshotWindow": (str, False),
+        "SubnetGroupName": (str, False),
+        "TopicArn": (str, False),
+        "VpcId": (str, False),
     }
 
 

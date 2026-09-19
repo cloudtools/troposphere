@@ -1086,12 +1086,12 @@ class Metric(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "InstanceArn": (str, True),
-        "MetricCalculation": (MetricCalculation, False),
-        "Name": (str, False),
+        "MetricCalculation": (MetricCalculation, True),
+        "Name": (str, True),
         "PositiveTrendIndicator": (str, False),
-        "Status": (str, False),
+        "Status": (str, True),
         "Tags": (Tags, False),
-        "Unit": (str, False),
+        "Unit": (str, True),
     }
 
 

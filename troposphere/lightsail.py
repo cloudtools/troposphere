@@ -593,6 +593,19 @@ class InstanceSnapshot(AWSObject):
     }
 
 
+class KeyPair(AWSObject):
+    """
+    `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-keypair.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::KeyPair"
+
+    props: PropsDictType = {
+        "KeyPairName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class LoadBalancer(AWSObject):
     """
     `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html>`__
@@ -696,7 +709,7 @@ class ExportSnapshotRecordSourceInfo(AWSProperty):
 
 class ResourceLocation(AWSProperty):
     """
-    `ResourceLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-exportsnapshotrecord-resourcelocation.html>`__
+    `ResourceLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-keypair-resourcelocation.html>`__
     """
 
     props: PropsDictType = {

@@ -638,6 +638,17 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class DefaultEventHold(AWSProperty):
+    """
+    `DefaultEventHold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaulteventhold.html>`__
+    """
+
+    props: PropsDictType = {
+        "Days": (integer, False),
+        "Years": (integer, False),
+    }
+
+
 class DefaultRetention(AWSProperty):
     """
     `DefaultRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html>`__
@@ -645,6 +656,7 @@ class DefaultRetention(AWSProperty):
 
     props: PropsDictType = {
         "Days": (integer, False),
+        "DefaultEventHold": (DefaultEventHold, False),
         "Mode": (str, False),
         "Years": (integer, False),
     }

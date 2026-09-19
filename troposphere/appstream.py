@@ -290,6 +290,7 @@ class ImageBuilder(AWSObject):
         "AccessEndpoints": ([AccessEndpoint], False),
         "AppstreamAgentVersion": (str, False),
         "Description": (str, False),
+        "DisableIMDSV1": (boolean, False),
         "DisplayName": (str, False),
         "DomainJoinInfo": (DomainJoinInfo, False),
         "EnableDefaultInternetAccess": (boolean, False),

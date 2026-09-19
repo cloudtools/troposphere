@@ -138,7 +138,6 @@ class ApiKey(AWSObject):
 
     props: PropsDictType = {
         "ApiId": (str, True),
-        "ApiKeyId": (str, False),
         "Description": (str, False),
         "Expires": (double, False),
     }

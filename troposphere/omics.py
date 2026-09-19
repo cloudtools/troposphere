@@ -193,6 +193,51 @@ class Run(AWSObject):
     }
 
 
+class DefaultRunSetting(AWSProperty):
+    """
+    `DefaultRunSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-runbatch-defaultrunsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "CacheBehavior": (str, False),
+        "CacheId": (str, False),
+        "ConfigurationName": (str, False),
+        "EngineSettings": (dict, False),
+        "LogLevel": (str, False),
+        "Name": (str, False),
+        "NetworkingMode": (str, False),
+        "OutputBucketOwnerId": (str, False),
+        "OutputUri": (str, False),
+        "Parameters": (dict, False),
+        "Priority": (integer, False),
+        "RetentionMode": (str, False),
+        "RoleArn": (str, True),
+        "RunGroupId": (str, False),
+        "RunTags": (dict, False),
+        "ScratchStorageMode": (str, False),
+        "StorageCapacity": (integer, False),
+        "StorageType": (str, False),
+        "WorkflowId": (str, True),
+        "WorkflowOwnerId": (str, False),
+        "WorkflowType": (str, False),
+        "WorkflowVersionName": (str, False),
+    }
+
+
+class RunBatch(AWSObject):
+    """
+    `RunBatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-runbatch.html>`__
+    """
+
+    resource_type = "AWS::Omics::RunBatch"
+
+    props: PropsDictType = {
+        "DefaultRunSetting": (DefaultRunSetting, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class RunCache(AWSObject):
     """
     `RunCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-runcache.html>`__
@@ -451,6 +496,23 @@ class ReadSetFiles(AWSProperty):
     }
 
 
+class RunSummary(AWSProperty):
+    """
+    `RunSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-runbatch-runsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "CancelledRunCount": (integer, False),
+        "CompletedRunCount": (integer, False),
+        "DeletedRunCount": (integer, False),
+        "FailedRunCount": (integer, False),
+        "PendingRunCount": (integer, False),
+        "RunningRunCount": (integer, False),
+        "StartingRunCount": (integer, False),
+        "StoppingRunCount": (integer, False),
+    }
+
+
 class SequenceInformation(AWSProperty):
     """
     `SequenceInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-readset-sequenceinformation.html>`__
@@ -461,4 +523,20 @@ class SequenceInformation(AWSProperty):
         "GeneratedFrom": (str, False),
         "TotalBaseCount": (integer, False),
         "TotalReadCount": (integer, False),
+    }
+
+
+class SubmissionSummary(AWSProperty):
+    """
+    `SubmissionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-runbatch-submissionsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailedCancelSubmissionCount": (integer, False),
+        "FailedDeleteSubmissionCount": (integer, False),
+        "FailedStartSubmissionCount": (integer, False),
+        "PendingStartSubmissionCount": (integer, False),
+        "SuccessfulCancelSubmissionCount": (integer, False),
+        "SuccessfulDeleteSubmissionCount": (integer, False),
+        "SuccessfulStartSubmissionCount": (integer, False),
     }

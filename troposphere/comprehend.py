@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import integer
 
 
 class InputDataConfig(AWSProperty):
@@ -133,6 +134,21 @@ class DocumentClassifier(AWSObject):
     }
 
 
+class DocumentClassifierEndpoint(AWSObject):
+    """
+    `DocumentClassifierEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifierendpoint.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::DocumentClassifierEndpoint"
+
+    props: PropsDictType = {
+        "DesiredInferenceUnits": (integer, True),
+        "EndpointName": (str, True),
+        "ModelArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DominantLanguageDetectionJob(AWSObject):
     """
     `DominantLanguageDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-dominantlanguagedetectionjob.html>`__
@@ -256,6 +272,47 @@ class FlywheelDataset(AWSObject):
     }
 
 
+class RedactionConfig(AWSProperty):
+    """
+    `RedactionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-piientitiesdetectionjob-redactionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaskCharacter": (str, False),
+        "MaskMode": (str, False),
+        "PiiEntityTypes": ([str], False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-targetedsentimentdetectionjob-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class PiiEntitiesDetectionJob(AWSObject):
+    """
+    `PiiEntitiesDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-piientitiesdetectionjob.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::PiiEntitiesDetectionJob"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "InputDataConfig": (InputDataConfig, True),
+        "JobName": (str, False),
+        "LanguageCode": (str, True),
+        "Mode": (str, True),
+        "RedactionConfig": (RedactionConfig, False),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class SentimentDetectionJob(AWSObject):
     """
     `SentimentDetectionJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-sentimentdetectionjob.html>`__
@@ -269,17 +326,6 @@ class SentimentDetectionJob(AWSObject):
         "JobName": (str, False),
         "LanguageCode": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class TagsItems(AWSProperty):
-    """
-    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-targetedsentimentdetectionjob-tagsitems.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
     }
 
 

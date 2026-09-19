@@ -10,6 +10,163 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
+class AIBenchmarkNetworkConfig(AWSProperty):
+    """
+    `AIBenchmarkNetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aibenchmarkjob-aibenchmarknetworkconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
+class AIBenchmarkOutputConfig(AWSProperty):
+    """
+    `AIBenchmarkOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aibenchmarkjob-aibenchmarkoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3OutputLocation": (str, True),
+    }
+
+
+class AIBenchmarkInferenceComponent(AWSProperty):
+    """
+    `AIBenchmarkInferenceComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aibenchmarkjob-aibenchmarkinferencecomponent.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+    }
+
+
+class AIBenchmarkEndpoint(AWSProperty):
+    """
+    `AIBenchmarkEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aibenchmarkjob-aibenchmarkendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+        "InferenceComponents": ([AIBenchmarkInferenceComponent], False),
+        "TargetContainerHostname": (str, False),
+    }
+
+
+class AIBenchmarkTarget(AWSProperty):
+    """
+    `AIBenchmarkTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aibenchmarkjob-aibenchmarktarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Endpoint": (AIBenchmarkEndpoint, True),
+    }
+
+
+class AIBenchmarkJob(AWSObject):
+    """
+    `AIBenchmarkJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-aibenchmarkjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::AIBenchmarkJob"
+
+    props: PropsDictType = {
+        "AIBenchmarkJobName": (str, True),
+        "AIWorkloadConfigIdentifier": (str, True),
+        "BenchmarkTarget": (AIBenchmarkTarget, True),
+        "NetworkConfig": (AIBenchmarkNetworkConfig, False),
+        "OutputConfig": (AIBenchmarkOutputConfig, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AIWorkloadS3DataSource(AWSProperty):
+    """
+    `AIWorkloadS3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-aiworkloads3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+    }
+
+
+class AIWorkloadDataSource(AWSProperty):
+    """
+    `AIWorkloadDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-aiworkloaddatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (AIWorkloadS3DataSource, False),
+    }
+
+
+class AIWorkloadInputDataConfig(AWSProperty):
+    """
+    `AIWorkloadInputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-aiworkloadinputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "DataSource": (AIWorkloadDataSource, True),
+    }
+
+
+class AIDatasetConfig(AWSProperty):
+    """
+    `AIDatasetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-aidatasetconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputDataConfig": ([AIWorkloadInputDataConfig], True),
+    }
+
+
+class WorkloadSpec(AWSProperty):
+    """
+    `WorkloadSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-workloadspec.html>`__
+    """
+
+    props: PropsDictType = {
+        "Inline": (str, True),
+    }
+
+
+class AIWorkloadConfigs(AWSProperty):
+    """
+    `AIWorkloadConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-aiworkloadconfig-aiworkloadconfigs.html>`__
+    """
+
+    props: PropsDictType = {
+        "WorkloadSpec": (WorkloadSpec, True),
+    }
+
+
+class AIWorkloadConfig(AWSObject):
+    """
+    `AIWorkloadConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-aiworkloadconfig.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::AIWorkloadConfig"
+
+    props: PropsDictType = {
+        "AIWorkloadConfigName": (str, True),
+        "AIWorkloadConfigs": (AIWorkloadConfigs, False),
+        "DatasetConfig": (AIDatasetConfig, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ActionSource(AWSProperty):
     """
     `ActionSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-action-actionsource.html>`__
@@ -440,6 +597,36 @@ class Artifact(AWSObject):
     }
 
 
+class EmrServerlessComputeConfig(AWSProperty):
+    """
+    `EmrServerlessComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-emrserverlesscomputeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionRoleARN": (str, True),
+    }
+
+
+class AutoMLComputeConfig(AWSProperty):
+    """
+    `AutoMLComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlcomputeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmrServerlessComputeConfig": (EmrServerlessComputeConfig, False),
+    }
+
+
+class AutoMLDataSplitConfig(AWSProperty):
+    """
+    `AutoMLDataSplitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automldatasplitconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValidationFraction": (double, False),
+    }
+
+
 class AutoMLS3DataSource(AWSProperty):
     """
     `AutoMLS3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automls3datasource.html>`__
@@ -461,9 +648,9 @@ class AutoMLDataSource(AWSProperty):
     }
 
 
-class AutoMLChannel(AWSProperty):
+class AutoMLJobChannel(AWSProperty):
     """
-    `AutoMLChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlchannel.html>`__
+    `AutoMLJobChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobchannel.html>`__
     """
 
     props: PropsDictType = {
@@ -471,87 +658,6 @@ class AutoMLChannel(AWSProperty):
         "CompressionType": (str, False),
         "ContentType": (str, False),
         "DataSource": (AutoMLDataSource, False),
-        "TargetAttributeName": (str, True),
-    }
-
-
-class AutoMLAlgorithmConfig(AWSProperty):
-    """
-    `AutoMLAlgorithmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlalgorithmconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AutoMLAlgorithms": ([str], True),
-    }
-
-
-class AutoMLCandidateGenerationConfig(AWSProperty):
-    """
-    `AutoMLCandidateGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlcandidategenerationconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AlgorithmsConfig": ([AutoMLAlgorithmConfig], False),
-        "FeatureSpecificationS3Uri": (str, False),
-    }
-
-
-class AutoMLDataSplitConfig(AWSProperty):
-    """
-    `AutoMLDataSplitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automldatasplitconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "ValidationFraction": (double, False),
-    }
-
-
-class AutoMLJobCompletionCriteria(AWSProperty):
-    """
-    `AutoMLJobCompletionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobcompletioncriteria.html>`__
-    """
-
-    props: PropsDictType = {
-        "MaxAutoMLJobRuntimeInSeconds": (integer, False),
-        "MaxCandidates": (integer, False),
-        "MaxRuntimePerTrainingJobInSeconds": (integer, False),
-    }
-
-
-class VpcConfig(AWSProperty):
-    """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingjob-vpcconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], True),
-        "Subnets": ([str], True),
-    }
-
-
-class AutoMLSecurityConfig(AWSProperty):
-    """
-    `AutoMLSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlsecurityconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "EnableInterContainerTrafficEncryption": (boolean, False),
-        "VolumeKmsKeyId": (str, False),
-        "VpcConfig": (VpcConfig, False),
-    }
-
-
-class AutoMLJobConfig(AWSProperty):
-    """
-    `AutoMLJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "CandidateGenerationConfig": (AutoMLCandidateGenerationConfig, False),
-        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
-        "DataSplitConfig": (AutoMLDataSplitConfig, False),
-        "Mode": (str, False),
-        "SecurityConfig": (AutoMLSecurityConfig, False),
     }
 
 
@@ -576,6 +682,168 @@ class AutoMLOutputDataConfig(AWSProperty):
     }
 
 
+class AutoMLJobCompletionCriteria(AWSProperty):
+    """
+    `AutoMLJobCompletionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automljobcompletioncriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxAutoMLJobRuntimeInSeconds": (integer, False),
+        "MaxCandidates": (integer, False),
+        "MaxRuntimePerTrainingJobInSeconds": (integer, False),
+    }
+
+
+class ImageClassificationJobConfig(AWSProperty):
+    """
+    `ImageClassificationJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-imageclassificationjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+    }
+
+
+class AutoMLAlgorithmConfig(AWSProperty):
+    """
+    `AutoMLAlgorithmConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlalgorithmconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoMLAlgorithms": ([str], True),
+    }
+
+
+class CandidateGenerationConfig(AWSProperty):
+    """
+    `CandidateGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-candidategenerationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmsConfig": ([AutoMLAlgorithmConfig], False),
+    }
+
+
+class TabularJobConfig(AWSProperty):
+    """
+    `TabularJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-tabularjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CandidateGenerationConfig": (CandidateGenerationConfig, False),
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+        "FeatureSpecificationS3Uri": (str, False),
+        "GenerateCandidateDefinitionsOnly": (boolean, False),
+        "Mode": (str, False),
+        "ProblemType": (str, False),
+        "SampleWeightAttributeName": (str, False),
+        "TargetAttributeName": (str, True),
+    }
+
+
+class TextClassificationJobConfig(AWSProperty):
+    """
+    `TextClassificationJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-textclassificationjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+        "ContentColumn": (str, True),
+        "TargetLabelColumn": (str, True),
+    }
+
+
+class TextGenerationJobConfig(AWSProperty):
+    """
+    `TextGenerationJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-textgenerationjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseModelName": (str, False),
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+        "ModelAccessConfig": (ModelAccessConfig, False),
+        "TextGenerationHyperParameters": (dict, False),
+    }
+
+
+class HolidayConfigAttributes(AWSProperty):
+    """
+    `HolidayConfigAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-holidayconfigattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "CountryCode": (str, False),
+    }
+
+
+class TimeSeriesConfig(AWSProperty):
+    """
+    `TimeSeriesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-timeseriesconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupingAttributeNames": ([str], False),
+        "ItemIdentifierAttributeName": (str, True),
+        "TargetAttributeName": (str, True),
+        "TimestampAttributeName": (str, True),
+    }
+
+
+class TimeSeriesTransformations(AWSProperty):
+    """
+    `TimeSeriesTransformations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-timeseriestransformations.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (dict, False),
+        "Filling": (dict, False),
+    }
+
+
+class TimeSeriesForecastingJobConfig(AWSProperty):
+    """
+    `TimeSeriesForecastingJobConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-timeseriesforecastingjobconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CandidateGenerationConfig": (CandidateGenerationConfig, False),
+        "CompletionCriteria": (AutoMLJobCompletionCriteria, False),
+        "FeatureSpecificationS3Uri": (str, False),
+        "ForecastFrequency": (str, True),
+        "ForecastHorizon": (integer, True),
+        "ForecastQuantiles": ([str], False),
+        "HolidayConfig": ([HolidayConfigAttributes], False),
+        "TimeSeriesConfig": (TimeSeriesConfig, True),
+        "Transformations": (TimeSeriesTransformations, False),
+    }
+
+
+class AutoMLProblemTypeConfig(AWSProperty):
+    """
+    `AutoMLProblemTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlproblemtypeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageClassificationJobConfig": (ImageClassificationJobConfig, False),
+        "TabularJobConfig": (TabularJobConfig, False),
+        "TextClassificationJobConfig": (TextClassificationJobConfig, False),
+        "TextGenerationJobConfig": (TextGenerationJobConfig, False),
+        "TimeSeriesForecastingJobConfig": (TimeSeriesForecastingJobConfig, False),
+    }
+
+
+class AutoMLSecurityConfig(AWSProperty):
+    """
+    `AutoMLSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-automljob-automlsecurityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableInterContainerTrafficEncryption": (boolean, False),
+        "VolumeKmsKeyId": (str, False),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
 class AutoMLJob(AWSObject):
     """
     `AutoMLJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-automljob.html>`__
@@ -584,13 +852,14 @@ class AutoMLJob(AWSObject):
     resource_type = "AWS::SageMaker::AutoMLJob"
 
     props: PropsDictType = {
-        "AutoMLJobConfig": (AutoMLJobConfig, False),
+        "AutoMLComputeConfig": (AutoMLComputeConfig, False),
+        "AutoMLJobInputDataConfig": ([AutoMLJobChannel], False),
         "AutoMLJobObjective": (AutoMLJobObjective, False),
-        "GenerateCandidateDefinitionsOnly": (boolean, False),
-        "InputDataConfig": ([AutoMLChannel], False),
+        "AutoMLProblemTypeConfig": (AutoMLProblemTypeConfig, False),
+        "DataSplitConfig": (AutoMLDataSplitConfig, False),
         "OutputDataConfig": (AutoMLOutputDataConfig, False),
-        "ProblemType": (str, False),
         "RoleArn": (str, False),
+        "SecurityConfig": (AutoMLSecurityConfig, False),
         "Tags": (Tags, False),
     }
 

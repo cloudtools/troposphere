@@ -7,8 +7,167 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, integer
 from .validators.kinesis import kinesis_stream_mode, validate_tags_or_list
+
+
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": (str, True),
+        "KeyId": (str, True),
+    }
+
+
+class CloudWatchLogsConfiguration(AWSProperty):
+    """
+    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-cloudwatchlogsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "LogGroupName": (str, False),
+        "LogStreamName": (str, False),
+    }
+
+
+class LoggingConfiguration(AWSProperty):
+    """
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-loggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogsConfiguration, True),
+    }
+
+
+class DeadLetterQueueS3Configuration(AWSProperty):
+    """
+    `DeadLetterQueueS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-deadletterqueues3configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketARN": (str, True),
+        "ErrorOutputPrefix": (str, False),
+        "ExpectedBucketOwner": (str, True),
+    }
+
+
+class S3StorageConfiguration(AWSProperty):
+    """
+    `S3StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-s3storageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketARN": (str, True),
+        "CompressionType": (str, True),
+        "ExpectedBucketOwner": (str, True),
+        "OutputKeyTemplate": (str, False),
+        "StorageClass": (str, False),
+    }
+
+
+class S3DestinationConfiguration(AWSProperty):
+    """
+    `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-s3destinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataFreshnessInSeconds": (integer, False),
+        "DeadLetterQueueS3Configuration": (DeadLetterQueueS3Configuration, False),
+        "StorageConfiguration": (S3StorageConfiguration, True),
+    }
+
+
+class PartitionField(AWSProperty):
+    """
+    `PartitionField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-partitionfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceName": (str, True),
+        "Transform": (str, True),
+    }
+
+
+class PartitionSpec(AWSProperty):
+    """
+    `PartitionSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-partitionspec.html>`__
+    """
+
+    props: PropsDictType = {
+        "PartitionFields": ([PartitionField], True),
+    }
+
+
+class S3TableConfiguration(AWSProperty):
+    """
+    `S3TableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-s3tableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionType": (str, True),
+        "Namespace": (str, True),
+        "PartitionSpec": (PartitionSpec, False),
+        "TableBucketARN": (str, True),
+        "TableName": (str, True),
+    }
+
+
+class S3TablesDestinationConfiguration(AWSProperty):
+    """
+    `S3TablesDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-s3tablesdestinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataFreshnessInSeconds": (integer, False),
+        "DeadLetterQueueS3Configuration": (DeadLetterQueueS3Configuration, True),
+        "S3TablesConfigurationList": ([S3TableConfiguration], True),
+    }
+
+
+class RecordConfiguration(AWSProperty):
+    """
+    `RecordConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-recordconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GSRSchemaARN": (str, False),
+        "RecordFormatType": (str, True),
+    }
+
+
+class StreamConfiguration(AWSProperty):
+    """
+    `StreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-channel-streamconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecordConfiguration": (RecordConfiguration, True),
+        "StreamARN": (str, True),
+    }
+
+
+class Channel(AWSObject):
+    """
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-channel.html>`__
+    """
+
+    resource_type = "AWS::Kinesis::Channel"
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
+        "LoggingConfiguration": (LoggingConfiguration, False),
+        "S3DestinationConfiguration": (S3DestinationConfiguration, False),
+        "S3TablesDestinationConfiguration": (S3TablesDestinationConfiguration, False),
+        "ServiceExecutionRoleARN": (str, True),
+        "StreamConfigurationList": ([StreamConfiguration], True),
+        "Tags": (Tags, False),
+    }
 
 
 class ResourcePolicy(AWSObject):

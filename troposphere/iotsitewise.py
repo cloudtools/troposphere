@@ -624,6 +624,51 @@ class Project(AWSObject):
     }
 
 
+class EphemeralStorageConfiguration(AWSProperty):
+    """
+    `EphemeralStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-ephemeralstorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "StorageClass": (str, True),
+        "StorageSizeInGiB": (integer, True),
+    }
+
+
+class S3AccessPointSource(AWSProperty):
+    """
+    `S3AccessPointSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-s3accesspointsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessPointArn": (str, True),
+        "Prefix": (str, False),
+    }
+
+
+class MountSource(AWSProperty):
+    """
+    `MountSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-mountsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3AccessPoint": (S3AccessPointSource, True),
+    }
+
+
+class Mount(AWSProperty):
+    """
+    `Mount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-mount.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "RelativePath": (str, True),
+        "Source": (MountSource, True),
+        "StorageType": (str, True),
+    }
+
+
 class ContainerTaskConfiguration(AWSProperty):
     """
     `ContainerTaskConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html>`__
@@ -633,6 +678,8 @@ class ContainerTaskConfiguration(AWSProperty):
         "Command": ([str], False),
         "EcrUri": (str, True),
         "EnvironmentVariables": (dict, False),
+        "EphemeralStorageConfiguration": (EphemeralStorageConfiguration, False),
+        "Mounts": ([Mount], False),
         "ProcessingType": (str, True),
         "ProcessingUnit": (str, True),
         "TaskExecutionRole": (str, True),

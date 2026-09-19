@@ -158,6 +158,34 @@ class Faq(AWSObject):
     }
 
 
+class FeaturedDocument(AWSProperty):
+    """
+    `FeaturedDocument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-featuredresultsset-featureddocument.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
+    }
+
+
+class FeaturedResultsSet(AWSObject):
+    """
+    `FeaturedResultsSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-featuredresultsset.html>`__
+    """
+
+    resource_type = "AWS::Kendra::FeaturedResultsSet"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "FeaturedDocuments": ([FeaturedDocument], False),
+        "FeaturedResultsSetName": (str, True),
+        "IndexId": (str, True),
+        "QueryTexts": ([str], False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class CapacityUnitsConfiguration(AWSProperty):
     """
     `CapacityUnitsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html>`__

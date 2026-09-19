@@ -121,6 +121,14 @@ class Eac3Settings(AWSProperty):
     }
 
 
+class EmptyConfigurationSettings(AWSProperty):
+    """
+    `EmptyConfigurationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-emptyconfigurationsettings.html>`__
+    """
+
+    props: PropsDictType = {}
+
+
 class Mp2Settings(AWSProperty):
     """
     `Mp2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mp2settings.html>`__
@@ -131,14 +139,6 @@ class Mp2Settings(AWSProperty):
         "CodingMode": (str, False),
         "SampleRate": (double, False),
     }
-
-
-class PassThroughSettings(AWSProperty):
-    """
-    `PassThroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html>`__
-    """
-
-    props: PropsDictType = {}
 
 
 class WavSettings(AWSProperty):
@@ -164,7 +164,7 @@ class AudioCodecSettings(AWSProperty):
         "Eac3AtmosSettings": (Eac3AtmosSettings, False),
         "Eac3Settings": (Eac3Settings, False),
         "Mp2Settings": (Mp2Settings, False),
-        "PassThroughSettings": (PassThroughSettings, False),
+        "PassThroughSettings": (EmptyConfigurationSettings, False),
         "WavSettings": (WavSettings, False),
     }
 
@@ -195,21 +195,9 @@ class NielsenCBET(AWSProperty):
     }
 
 
-class NielsenNaesIiNw(AWSProperty):
+class NielsenNaesIiNwOnlySettings(AWSProperty):
     """
-    `NielsenNaesIiNw <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinw.html>`__
-    """
-
-    props: PropsDictType = {
-        "CheckDigitString": (str, False),
-        "Sid": (double, False),
-        "Timezone": (str, False),
-    }
-
-
-class NielsenNwOnly(AWSProperty):
-    """
-    `NielsenNwOnly <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennwonly.html>`__
+    `NielsenNaesIiNwOnlySettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennaesiinwonlysettings.html>`__
     """
 
     props: PropsDictType = {
@@ -227,8 +215,8 @@ class NielsenWatermarksSettings(AWSProperty):
     props: PropsDictType = {
         "NielsenCbetSettings": (NielsenCBET, False),
         "NielsenDistributionType": (str, False),
-        "NielsenNaesIiNwSettings": (NielsenNaesIiNw, False),
-        "NielsenNwOnlySettings": (NielsenNwOnly, False),
+        "NielsenNaesIiNwSettings": (NielsenNaesIiNwOnlySettings, False),
+        "NielsenNwOnlySettings": (NielsenNaesIiNwOnlySettings, False),
     }
 
 
@@ -336,21 +324,9 @@ class Esam(AWSProperty):
     }
 
 
-class Scte35SpliceInsert(AWSProperty):
+class Scte35SpliceInsertTimeSignalAposSettings(AWSProperty):
     """
-    `Scte35SpliceInsert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html>`__
-    """
-
-    props: PropsDictType = {
-        "AdAvailOffset": (integer, False),
-        "NoRegionalBlackoutFlag": (str, False),
-        "WebDeliveryAllowedFlag": (str, False),
-    }
-
-
-class Scte35TimeSignalApos(AWSProperty):
-    """
-    `Scte35TimeSignalApos <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35timesignalapos.html>`__
+    `Scte35SpliceInsertTimeSignalAposSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinserttimesignalapossettings.html>`__
     """
 
     props: PropsDictType = {
@@ -367,8 +343,8 @@ class AvailSettings(AWSProperty):
 
     props: PropsDictType = {
         "Esam": (Esam, False),
-        "Scte35SpliceInsert": (Scte35SpliceInsert, False),
-        "Scte35TimeSignalApos": (Scte35TimeSignalApos, False),
+        "Scte35SpliceInsert": (Scte35SpliceInsertTimeSignalAposSettings, False),
+        "Scte35TimeSignalApos": (Scte35SpliceInsertTimeSignalAposSettings, False),
     }
 
 
@@ -397,44 +373,9 @@ class BlackoutSlate(AWSProperty):
     }
 
 
-class AribDestinationSettings(AWSProperty):
+class BurnInDvbSubDestinationSettings(AWSProperty):
     """
-    `AribDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribdestinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class BurnInDestinationSettings(AWSProperty):
-    """
-    `BurnInDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "Alignment": (str, False),
-        "BackgroundColor": (str, False),
-        "BackgroundOpacity": (integer, False),
-        "Font": (InputLocation, False),
-        "FontColor": (str, False),
-        "FontOpacity": (integer, False),
-        "FontResolution": (integer, False),
-        "FontSize": (str, False),
-        "OutlineColor": (str, False),
-        "OutlineSize": (integer, False),
-        "ShadowColor": (str, False),
-        "ShadowOpacity": (integer, False),
-        "ShadowXOffset": (integer, False),
-        "ShadowYOffset": (integer, False),
-        "SubtitleRows": (str, False),
-        "TeletextGridControl": (str, False),
-        "XPosition": (integer, False),
-        "YPosition": (integer, False),
-    }
-
-
-class DvbSubDestinationSettings(AWSProperty):
-    """
-    `DvbSubDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html>`__
+    `BurnInDvbSubDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindvbsubdestinationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -474,60 +415,35 @@ class EbuTtDDestinationSettings(AWSProperty):
     }
 
 
+class EmbeddedCaptionPositionSettings(AWSProperty):
+    """
+    `EmbeddedCaptionPositionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedcaptionpositionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "YPositionLine": (integer, False),
+    }
+
+
 class EmbeddedDestinationSettings(AWSProperty):
     """
     `EmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddeddestinationsettings.html>`__
     """
 
-    props: PropsDictType = {}
+    props: PropsDictType = {
+        "Position": (EmbeddedCaptionPositionSettings, False),
+        "StyleControl": (str, False),
+    }
 
 
-class EmbeddedPlusScte20DestinationSettings(AWSProperty):
+class TextCaptionPositionSettings(AWSProperty):
     """
-    `EmbeddedPlusScte20DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedplusscte20destinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class RtmpCaptionInfoDestinationSettings(AWSProperty):
-    """
-    `RtmpCaptionInfoDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rtmpcaptioninfodestinationsettings.html>`__
+    `TextCaptionPositionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-textcaptionpositionsettings.html>`__
     """
 
-    props: PropsDictType = {}
-
-
-class Scte20PlusEmbeddedDestinationSettings(AWSProperty):
-    """
-    `Scte20PlusEmbeddedDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte20plusembeddeddestinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class Scte27DestinationSettings(AWSProperty):
-    """
-    `Scte27DestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27destinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class SmpteTtDestinationSettings(AWSProperty):
-    """
-    `SmpteTtDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smptettdestinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class TeletextDestinationSettings(AWSProperty):
-    """
-    `TeletextDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-teletextdestinationsettings.html>`__
-    """
-
-    props: PropsDictType = {}
+    props: PropsDictType = {
+        "YPositionPercentage": (integer, False),
+    }
 
 
 class TtmlDestinationSettings(AWSProperty):
@@ -536,6 +452,7 @@ class TtmlDestinationSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Position": (TextCaptionPositionSettings, False),
         "StyleControl": (str, False),
     }
 
@@ -546,6 +463,7 @@ class WebvttDestinationSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Position": (TextCaptionPositionSettings, False),
         "StyleControl": (str, False),
     }
 
@@ -556,26 +474,17 @@ class CaptionDestinationSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AribDestinationSettings": (AribDestinationSettings, False),
-        "BurnInDestinationSettings": (BurnInDestinationSettings, False),
-        "DvbSubDestinationSettings": (DvbSubDestinationSettings, False),
+        "AribDestinationSettings": (EmptyConfigurationSettings, False),
+        "BurnInDestinationSettings": (BurnInDvbSubDestinationSettings, False),
+        "DvbSubDestinationSettings": (BurnInDvbSubDestinationSettings, False),
         "EbuTtDDestinationSettings": (EbuTtDDestinationSettings, False),
         "EmbeddedDestinationSettings": (EmbeddedDestinationSettings, False),
-        "EmbeddedPlusScte20DestinationSettings": (
-            EmbeddedPlusScte20DestinationSettings,
-            False,
-        ),
-        "RtmpCaptionInfoDestinationSettings": (
-            RtmpCaptionInfoDestinationSettings,
-            False,
-        ),
-        "Scte20PlusEmbeddedDestinationSettings": (
-            Scte20PlusEmbeddedDestinationSettings,
-            False,
-        ),
-        "Scte27DestinationSettings": (Scte27DestinationSettings, False),
-        "SmpteTtDestinationSettings": (SmpteTtDestinationSettings, False),
-        "TeletextDestinationSettings": (TeletextDestinationSettings, False),
+        "EmbeddedPlusScte20DestinationSettings": (EmptyConfigurationSettings, False),
+        "RtmpCaptionInfoDestinationSettings": (EmptyConfigurationSettings, False),
+        "Scte20PlusEmbeddedDestinationSettings": (EmptyConfigurationSettings, False),
+        "Scte27DestinationSettings": (EmptyConfigurationSettings, False),
+        "SmpteTtDestinationSettings": (EmptyConfigurationSettings, False),
+        "TeletextDestinationSettings": (EmptyConfigurationSettings, False),
         "TtmlDestinationSettings": (TtmlDestinationSettings, False),
         "WebvttDestinationSettings": (WebvttDestinationSettings, False),
     }
@@ -705,21 +614,13 @@ class GlobalConfiguration(AWSProperty):
     }
 
 
-class HtmlMotionGraphicsSettings(AWSProperty):
-    """
-    `HtmlMotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-htmlmotiongraphicssettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class MotionGraphicsSettings(AWSProperty):
     """
     `MotionGraphicsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicssettings.html>`__
     """
 
     props: PropsDictType = {
-        "HtmlMotionGraphicsSettings": (HtmlMotionGraphicsSettings, False),
+        "HtmlMotionGraphicsSettings": (EmptyConfigurationSettings, False),
     }
 
 
@@ -837,14 +738,6 @@ class M2tsSettings(AWSProperty):
     }
 
 
-class RawSettings(AWSProperty):
-    """
-    `RawSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class ArchiveContainerSettings(AWSProperty):
     """
     `ArchiveContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archivecontainersettings.html>`__
@@ -852,7 +745,7 @@ class ArchiveContainerSettings(AWSProperty):
 
     props: PropsDictType = {
         "M2tsSettings": (M2tsSettings, False),
-        "RawSettings": (RawSettings, False),
+        "RawSettings": (EmptyConfigurationSettings, False),
     }
 
 
@@ -868,19 +761,9 @@ class ArchiveOutputSettings(AWSProperty):
     }
 
 
-class CmafIngestOutputSettings(AWSProperty):
+class CmafIngestFrameCaptureOutputSettings(AWSProperty):
     """
-    `CmafIngestOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "NameModifier": (str, False),
-    }
-
-
-class FrameCaptureOutputSettings(AWSProperty):
-    """
-    `FrameCaptureOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html>`__
+    `CmafIngestFrameCaptureOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestframecaptureoutputsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -911,14 +794,6 @@ class Fmp4HlsSettings(AWSProperty):
         "NielsenId3Behavior": (str, False),
         "TimedMetadataBehavior": (str, False),
     }
-
-
-class FrameCaptureHlsSettings(AWSProperty):
-    """
-    `FrameCaptureHlsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturehlssettings.html>`__
-    """
-
-    props: PropsDictType = {}
 
 
 class M3u8Settings(AWSProperty):
@@ -968,7 +843,7 @@ class HlsSettings(AWSProperty):
     props: PropsDictType = {
         "AudioOnlyHlsSettings": (AudioOnlyHlsSettings, False),
         "Fmp4HlsSettings": (Fmp4HlsSettings, False),
-        "FrameCaptureHlsSettings": (FrameCaptureHlsSettings, False),
+        "FrameCaptureHlsSettings": (EmptyConfigurationSettings, False),
         "StandardHlsSettings": (StandardHlsSettings, False),
     }
 
@@ -983,16 +858,6 @@ class HlsOutputSettings(AWSProperty):
         "HlsSettings": (HlsSettings, False),
         "NameModifier": (str, False),
         "SegmentModifier": (str, False),
-    }
-
-
-class MediaConnectRouterContainerSettings(AWSProperty):
-    """
-    `MediaConnectRouterContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectroutercontainersettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "M2tsSettings": (M2tsSettings, False),
     }
 
 
@@ -1017,6 +882,16 @@ class OutputLocationRef(AWSProperty):
     }
 
 
+class UdpMediaConnectRouterContainerSettings(AWSProperty):
+    """
+    `UdpMediaConnectRouterContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpmediaconnectroutercontainersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "M2tsSettings": (M2tsSettings, False),
+    }
+
+
 class MediaConnectRouterOutputSettings(AWSProperty):
     """
     `MediaConnectRouterOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputsettings.html>`__
@@ -1024,7 +899,7 @@ class MediaConnectRouterOutputSettings(AWSProperty):
 
     props: PropsDictType = {
         "ConnectedRouterInputs": (MediaConnectRouterOutputConnectionMap, False),
-        "ContainerSettings": (MediaConnectRouterContainerSettings, False),
+        "ContainerSettings": (UdpMediaConnectRouterContainerSettings, False),
         "Destination": (OutputLocationRef, False),
     }
 
@@ -1039,6 +914,7 @@ class MediaPackageV2DestinationSettings(AWSProperty):
         "AudioRenditionSets": (str, False),
         "HlsAutoSelect": (str, False),
         "HlsDefault": (str, False),
+        "OutputUsage": ([str], False),
     }
 
 
@@ -1120,16 +996,6 @@ class RtmpOutputSettings(AWSProperty):
     }
 
 
-class UdpContainerSettings(AWSProperty):
-    """
-    `UdpContainerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-udpcontainersettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "M2tsSettings": (M2tsSettings, False),
-    }
-
-
 class SrtOutputSettings(AWSProperty):
     """
     `SrtOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html>`__
@@ -1137,7 +1003,7 @@ class SrtOutputSettings(AWSProperty):
 
     props: PropsDictType = {
         "BufferMsec": (integer, False),
-        "ContainerSettings": (UdpContainerSettings, False),
+        "ContainerSettings": (UdpMediaConnectRouterContainerSettings, False),
         "Destination": (OutputLocationRef, False),
         "EncryptionType": (str, False),
         "Latency": (integer, False),
@@ -1163,7 +1029,7 @@ class UdpOutputSettings(AWSProperty):
 
     props: PropsDictType = {
         "BufferMsec": (integer, False),
-        "ContainerSettings": (UdpContainerSettings, False),
+        "ContainerSettings": (UdpMediaConnectRouterContainerSettings, False),
         "Destination": (OutputLocationRef, False),
         "FecOutputSettings": (FecOutputSettings, False),
     }
@@ -1176,8 +1042,8 @@ class OutputSettings(AWSProperty):
 
     props: PropsDictType = {
         "ArchiveOutputSettings": (ArchiveOutputSettings, False),
-        "CmafIngestOutputSettings": (CmafIngestOutputSettings, False),
-        "FrameCaptureOutputSettings": (FrameCaptureOutputSettings, False),
+        "CmafIngestOutputSettings": (CmafIngestFrameCaptureOutputSettings, False),
+        "FrameCaptureOutputSettings": (CmafIngestFrameCaptureOutputSettings, False),
         "HlsOutputSettings": (HlsOutputSettings, False),
         "MediaConnectRouterOutputSettings": (MediaConnectRouterOutputSettings, False),
         "MediaPackageOutputSettings": (MediaPackageOutputSettings, False),
@@ -1203,9 +1069,9 @@ class Output(AWSProperty):
     }
 
 
-class ArchiveS3Settings(AWSProperty):
+class ArchiveFrameCaptureHlsS3Settings(AWSProperty):
     """
-    `ArchiveS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archives3settings.html>`__
+    `ArchiveFrameCaptureHlsS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-archiveframecapturehlss3settings.html>`__
     """
 
     props: PropsDictType = {
@@ -1219,7 +1085,7 @@ class ArchiveCdnSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ArchiveS3Settings": (ArchiveS3Settings, False),
+        "ArchiveS3Settings": (ArchiveFrameCaptureHlsS3Settings, False),
     }
 
 
@@ -1256,6 +1122,48 @@ class CmafIngestCaptionLanguageMapping(AWSProperty):
     }
 
 
+class AbWatermarkingCustomProfile(AWSProperty):
+    """
+    `AbWatermarkingCustomProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-abwatermarkingcustomprofile.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmbeddingFrequency": (double, False),
+        "SceneCut": (double, False),
+        "TargetPsnr": (double, False),
+    }
+
+
+class CmafIngestMediaPackageV2AbWatermarkerIrdetoSettings(AWSProperty):
+    """
+    `CmafIngestMediaPackageV2AbWatermarkerIrdetoSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestmediapackagev2abwatermarkerirdetosettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalDestinationsAlternateDestinations": ([OutputLocationRef], False),
+        "AlternateDestination": (OutputLocationRef, False),
+        "CustomProfile": (AbWatermarkingCustomProfile, False),
+        "License": (str, False),
+        "OperatorId": (integer, False),
+        "PolyPeriod": (integer, False),
+        "Profile": (str, False),
+        "WatermarkIdLength": (str, False),
+    }
+
+
+class CmafIngestWatermarkingSettings(AWSProperty):
+    """
+    `CmafIngestWatermarkingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestwatermarkingsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CmafIngestAbWatermarkerIrdetoSettings": (
+            CmafIngestMediaPackageV2AbWatermarkerIrdetoSettings,
+            False,
+        ),
+    }
+
+
 class CmafIngestGroupSettings(AWSProperty):
     """
     `CmafIngestGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html>`__
@@ -1279,16 +1187,7 @@ class CmafIngestGroupSettings(AWSProperty):
         "TimedMetadataId3Frame": (str, False),
         "TimedMetadataId3Period": (integer, False),
         "TimedMetadataPassthrough": (str, False),
-    }
-
-
-class FrameCaptureS3Settings(AWSProperty):
-    """
-    `FrameCaptureS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptures3settings.html>`__
-    """
-
-    props: PropsDictType = {
-        "CannedAcl": (str, False),
+        "WatermarkingSettings": (CmafIngestWatermarkingSettings, False),
     }
 
 
@@ -1298,7 +1197,7 @@ class FrameCaptureCdnSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "FrameCaptureS3Settings": (FrameCaptureS3Settings, False),
+        "FrameCaptureS3Settings": (ArchiveFrameCaptureHlsS3Settings, False),
     }
 
 
@@ -1368,16 +1267,6 @@ class HlsMediaStoreSettings(AWSProperty):
     }
 
 
-class HlsS3Settings(AWSProperty):
-    """
-    `HlsS3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlss3settings.html>`__
-    """
-
-    props: PropsDictType = {
-        "CannedAcl": (str, False),
-    }
-
-
 class HlsWebdavSettings(AWSProperty):
     """
     `HlsWebdavSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlswebdavsettings.html>`__
@@ -1401,7 +1290,7 @@ class HlsCdnSettings(AWSProperty):
         "HlsAkamaiSettings": (HlsAkamaiSettings, False),
         "HlsBasicPutSettings": (HlsBasicPutSettings, False),
         "HlsMediaStoreSettings": (HlsMediaStoreSettings, False),
-        "HlsS3Settings": (HlsS3Settings, False),
+        "HlsS3Settings": (ArchiveFrameCaptureHlsS3Settings, False),
         "HlsWebdavSettings": (HlsWebdavSettings, False),
     }
 
@@ -1489,13 +1378,16 @@ class MediaConnectRouterGroupSettings(AWSProperty):
     }
 
 
-class MediaPackageAdditionalDestinations(AWSProperty):
+class MediaPackageV2WatermarkingSettings(AWSProperty):
     """
-    `MediaPackageAdditionalDestinations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageadditionaldestinations.html>`__
+    `MediaPackageV2WatermarkingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2watermarkingsettings.html>`__
     """
 
     props: PropsDictType = {
-        "Destination": (OutputLocationRef, False),
+        "MediaPackageV2AbWatermarkerIrdetoSettings": (
+            CmafIngestMediaPackageV2AbWatermarkerIrdetoSettings,
+            False,
+        ),
     }
 
 
@@ -1505,7 +1397,7 @@ class MediaPackageV2GroupSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AdditionalDestinations": ([MediaPackageAdditionalDestinations], False),
+        "AdditionalDestinations": ([AdditionalDestinations], False),
         "CaptionLanguageMappings": ([CaptionLanguageMapping], False),
         "Id3Behavior": (str, False),
         "KlvBehavior": (str, False),
@@ -1516,6 +1408,7 @@ class MediaPackageV2GroupSettings(AWSProperty):
         "TimedMetadataId3Frame": (str, False),
         "TimedMetadataId3Period": (integer, False),
         "TimedMetadataPassthrough": (str, False),
+        "WatermarkingSettings": (MediaPackageV2WatermarkingSettings, False),
     }
 
 
@@ -1556,14 +1449,6 @@ class MsSmoothGroupSettings(AWSProperty):
         "TimestampOffset": (str, False),
         "TimestampOffsetMode": (str, False),
     }
-
-
-class MultiplexGroupSettings(AWSProperty):
-    """
-    `MultiplexGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html>`__
-    """
-
-    props: PropsDictType = {}
 
 
 class RtmpGroupSettings(AWSProperty):
@@ -1618,7 +1503,7 @@ class OutputGroupSettings(AWSProperty):
         "MediaConnectRouterGroupSettings": (MediaConnectRouterGroupSettings, False),
         "MediaPackageGroupSettings": (MediaPackageGroupSettings, False),
         "MsSmoothGroupSettings": (MsSmoothGroupSettings, False),
-        "MultiplexGroupSettings": (MultiplexGroupSettings, False),
+        "MultiplexGroupSettings": (EmptyConfigurationSettings, False),
         "RtmpGroupSettings": (RtmpGroupSettings, False),
         "SrtGroupSettings": (SrtGroupSettings, False),
         "UdpGroupSettings": (UdpGroupSettings, False),
@@ -1658,14 +1543,6 @@ class TimecodeConfig(AWSProperty):
     }
 
 
-class ColorSpacePassthroughSettings(AWSProperty):
-    """
-    `ColorSpacePassthroughSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class Hdr10Settings(AWSProperty):
     """
     `Hdr10Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hdr10settings.html>`__
@@ -1677,41 +1554,17 @@ class Hdr10Settings(AWSProperty):
     }
 
 
-class Hlg2020Settings(AWSProperty):
-    """
-    `Hlg2020Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlg2020settings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class Rec601Settings(AWSProperty):
-    """
-    `Rec601Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec601settings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class Rec709Settings(AWSProperty):
-    """
-    `Rec709Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec709settings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class Av1ColorSpaceSettings(AWSProperty):
     """
     `Av1ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html>`__
     """
 
     props: PropsDictType = {
-        "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
+        "ColorSpacePassthroughSettings": (EmptyConfigurationSettings, False),
         "Hdr10Settings": (Hdr10Settings, False),
-        "Hlg2020Settings": (Hlg2020Settings, False),
-        "Rec601Settings": (Rec601Settings, False),
-        "Rec709Settings": (Rec709Settings, False),
+        "Hlg2020Settings": (EmptyConfigurationSettings, False),
+        "Rec601Settings": (EmptyConfigurationSettings, False),
+        "Rec709Settings": (EmptyConfigurationSettings, False),
     }
 
 
@@ -1778,9 +1631,9 @@ class H264ColorSpaceSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
-        "Rec601Settings": (Rec601Settings, False),
-        "Rec709Settings": (Rec709Settings, False),
+        "ColorSpacePassthroughSettings": (EmptyConfigurationSettings, False),
+        "Rec601Settings": (EmptyConfigurationSettings, False),
+        "Rec709Settings": (EmptyConfigurationSettings, False),
     }
 
 
@@ -1806,9 +1659,9 @@ class TemporalFilterSettings(AWSProperty):
     }
 
 
-class H264FilterSettings(AWSProperty):
+class H264H265FilterSettings(AWSProperty):
     """
-    `H264FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html>`__
+    `H264H265FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264h265filtersettings.html>`__
     """
 
     props: PropsDictType = {
@@ -1831,7 +1684,7 @@ class H264Settings(AWSProperty):
         "ColorMetadata": (str, False),
         "ColorSpaceSettings": (H264ColorSpaceSettings, False),
         "EntropyEncoding": (str, False),
-        "FilterSettings": (H264FilterSettings, False),
+        "FilterSettings": (H264H265FilterSettings, False),
         "FixedAfd": (str, False),
         "FlickerAq": (str, False),
         "ForceFieldPictures": (str, False),
@@ -1870,37 +1723,18 @@ class H264Settings(AWSProperty):
     }
 
 
-class DolbyVision81Settings(AWSProperty):
-    """
-    `DolbyVision81Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class H265ColorSpaceSettings(AWSProperty):
     """
     `H265ColorSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html>`__
     """
 
     props: PropsDictType = {
-        "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
-        "DolbyVision81Settings": (DolbyVision81Settings, False),
+        "ColorSpacePassthroughSettings": (EmptyConfigurationSettings, False),
+        "DolbyVision81Settings": (EmptyConfigurationSettings, False),
         "Hdr10Settings": (Hdr10Settings, False),
-        "Hlg2020Settings": (Hlg2020Settings, False),
-        "Rec601Settings": (Rec601Settings, False),
-        "Rec709Settings": (Rec709Settings, False),
-    }
-
-
-class H265FilterSettings(AWSProperty):
-    """
-    `H265FilterSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "BandwidthReductionFilterSettings": (BandwidthReductionFilterSettings, False),
-        "TemporalFilterSettings": (TemporalFilterSettings, False),
+        "Hlg2020Settings": (EmptyConfigurationSettings, False),
+        "Rec601Settings": (EmptyConfigurationSettings, False),
+        "Rec709Settings": (EmptyConfigurationSettings, False),
     }
 
 
@@ -1918,7 +1752,7 @@ class H265Settings(AWSProperty):
         "ColorMetadata": (str, False),
         "ColorSpaceSettings": (H265ColorSpaceSettings, False),
         "Deblocking": (str, False),
-        "FilterSettings": (H265FilterSettings, False),
+        "FilterSettings": (H264H265FilterSettings, False),
         "FixedAfd": (str, False),
         "FlickerAq": (str, False),
         "FramerateDenominator": (integer, False),
@@ -2005,15 +1839,31 @@ class VideoCodecSettings(AWSProperty):
     }
 
 
+class VideoPositionRectangle(AWSProperty):
+    """
+    `VideoPositionRectangle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videopositionrectangle.html>`__
+    """
+
+    props: PropsDictType = {
+        "Height": (integer, False),
+        "Width": (integer, False),
+        "X": (integer, False),
+        "Y": (integer, False),
+    }
+
+
 class VideoDescription(AWSProperty):
     """
     `VideoDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html>`__
     """
 
     props: PropsDictType = {
+        "Border": (integer, False),
         "CodecSettings": (VideoCodecSettings, False),
+        "CropRectangle": (VideoPositionRectangle, False),
         "Height": (integer, False),
         "Name": (str, False),
+        "OutputPositionRectangle": (VideoPositionRectangle, False),
         "RespondToAfd": (str, False),
         "ScalingBehavior": (str, False),
         "Sharpness": (integer, False),
@@ -2062,6 +1912,7 @@ class InferenceSettings(AWSProperty):
 
     props: PropsDictType = {
         "AudioFeedInputs": ([AudioFeedInput], False),
+        "EnrichmentMethods": ([str], False),
         "FeedArn": (str, False),
     }
 
@@ -2257,25 +2108,6 @@ class AncillarySourceSettings(AWSProperty):
     }
 
 
-class AribSourceSettings(AWSProperty):
-    """
-    `AribSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aribsourcesettings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class DvbSubSourceSettings(AWSProperty):
-    """
-    `DvbSubSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubsourcesettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "OcrLanguage": (str, False),
-        "Pid": (integer, False),
-    }
-
-
 class EmbeddedSourceSettings(AWSProperty):
     """
     `EmbeddedSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-embeddedsourcesettings.html>`__
@@ -2300,9 +2132,9 @@ class Scte20SourceSettings(AWSProperty):
     }
 
 
-class Scte27SourceSettings(AWSProperty):
+class Scte27DvbSubSourceSettings(AWSProperty):
     """
-    `Scte27SourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27sourcesettings.html>`__
+    `Scte27DvbSubSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte27dvbsubsourcesettings.html>`__
     """
 
     props: PropsDictType = {
@@ -2353,11 +2185,11 @@ class CaptionSelectorSettings(AWSProperty):
 
     props: PropsDictType = {
         "AncillarySourceSettings": (AncillarySourceSettings, False),
-        "AribSourceSettings": (AribSourceSettings, False),
-        "DvbSubSourceSettings": (DvbSubSourceSettings, False),
+        "AribSourceSettings": (EmptyConfigurationSettings, False),
+        "DvbSubSourceSettings": (Scte27DvbSubSourceSettings, False),
         "EmbeddedSourceSettings": (EmbeddedSourceSettings, False),
         "Scte20SourceSettings": (Scte20SourceSettings, False),
-        "Scte27SourceSettings": (Scte27SourceSettings, False),
+        "Scte27SourceSettings": (Scte27DvbSubSourceSettings, False),
         "SmartSubtitleSourceSettings": (SmartSubtitleSourceSettings, False),
         "TeletextSourceSettings": (TeletextSourceSettings, False),
     }

@@ -282,3 +282,33 @@ class RecordSetType(AWSObject):
         "Type": (str, True),
         "Weight": (integer, False),
     }
+
+
+class TrafficPolicy(AWSObject):
+    """
+    `TrafficPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-trafficpolicy.html>`__
+    """
+
+    resource_type = "AWS::Route53::TrafficPolicy"
+
+    props: PropsDictType = {
+        "Comment": (str, False),
+        "Document": (str, True),
+        "Name": (str, True),
+    }
+
+
+class TrafficPolicyInstance(AWSObject):
+    """
+    `TrafficPolicyInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-trafficpolicyinstance.html>`__
+    """
+
+    resource_type = "AWS::Route53::TrafficPolicyInstance"
+
+    props: PropsDictType = {
+        "HostedZoneId": (str, True),
+        "Name": (str, True),
+        "TTL": (integer, True),
+        "TrafficPolicyId": (str, True),
+        "TrafficPolicyVersion": (integer, True),
+    }

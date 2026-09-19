@@ -185,6 +185,26 @@ class DBCluster(AWSObject):
     }
 
 
+class DBClusterAutomatedBackup(AWSObject):
+    """
+    `DBClusterAutomatedBackup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterautomatedbackup.html>`__
+    """
+
+    resource_type = "AWS::RDS::DBClusterAutomatedBackup"
+
+    props: PropsDictType = {
+        "BackupRetentionPeriod": (integer, False),
+        "DBClusterIdentifier": (str, False),
+        "Engine": (str, False),
+        "EngineMode": (str, False),
+        "EngineVersion": (str, False),
+        "IAMDatabaseAuthenticationEnabled": (boolean, False),
+        "MasterUsername": (str, False),
+        "Port": (integer, False),
+        "StorageEncrypted": (boolean, False),
+    }
+
+
 class DBClusterParameterGroup(AWSObject):
     """
     `DBClusterParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html>`__
@@ -358,6 +378,25 @@ class DBInstance(AWSObject):
 
     def validate(self):
         validate_dbinstance(self)
+
+
+class DBInstanceAutomatedBackup(AWSObject):
+    """
+    `DBInstanceAutomatedBackup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstanceautomatedbackup.html>`__
+    """
+
+    resource_type = "AWS::RDS::DBInstanceAutomatedBackup"
+
+    props: PropsDictType = {
+        "AllocatedStorage": (integer, False),
+        "BackupRetentionPeriod": (integer, False),
+        "DBInstanceIdentifier": (str, False),
+        "Encrypted": (boolean, False),
+        "Engine": (str, False),
+        "MasterUsername": (str, False),
+        "Port": (integer, False),
+        "StorageType": (str, False),
+    }
 
 
 class DBParameterGroup(AWSObject):
@@ -709,4 +748,15 @@ class RecurringCharge(AWSProperty):
     props: PropsDictType = {
         "RecurringChargeAmount": (double, False),
         "RecurringChargeFrequency": (str, False),
+    }
+
+
+class RestoreWindow(AWSProperty):
+    """
+    `RestoreWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstanceautomatedbackup-restorewindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "EarliestTime": (str, False),
+        "LatestTime": (str, False),
     }

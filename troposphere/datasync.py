@@ -37,6 +37,28 @@ class AzureBlobSasConfiguration(AWSProperty):
     }
 
 
+class AzureOidcConfig(AWSProperty):
+    """
+    `AzureOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureoidcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "TenantId": (str, True),
+    }
+
+
+class AzureFederatedIdentityConfig(AWSProperty):
+    """
+    `AzureFederatedIdentityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azurefederatedidentityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsIamRole": (str, False),
+        "AzureOidc": (AzureOidcConfig, False),
+    }
+
+
 class CmkSecretConfig(AWSProperty):
     """
     `CmkSecretConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-cmksecretconfig.html>`__
@@ -75,6 +97,7 @@ class LocationAzureBlob(AWSObject):
         "AzureBlobType": (str, False),
         "CmkSecretConfig": (CmkSecretConfig, False),
         "CustomSecretConfig": (CustomSecretConfig, False),
+        "FederatedIdentity": (AzureFederatedIdentityConfig, False),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
     }
@@ -327,6 +350,40 @@ class LocationNFS(AWSObject):
     }
 
 
+class GoogleOidcConfig(AWSProperty):
+    """
+    `GoogleOidcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-googleoidcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdentityPoolName": (str, True),
+        "IdentityProviderName": (str, True),
+        "ProjectName": (str, True),
+        "ProjectNumber": (str, True),
+    }
+
+
+class ObjectStorageExternalIdentityConfig(AWSProperty):
+    """
+    `ObjectStorageExternalIdentityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-objectstorageexternalidentityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "GoogleOidc": (GoogleOidcConfig, False),
+    }
+
+
+class ObjectStorageFederatedIdentityConfig(AWSProperty):
+    """
+    `ObjectStorageFederatedIdentityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-objectstoragefederatedidentityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsIamRole": (str, False),
+        "ExternalIdentity": (ObjectStorageExternalIdentityConfig, False),
+    }
+
+
 class LocationObjectStorage(AWSObject):
     """
     `LocationObjectStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html>`__
@@ -340,6 +397,7 @@ class LocationObjectStorage(AWSObject):
         "BucketName": (str, False),
         "CmkSecretConfig": (CmkSecretConfig, False),
         "CustomSecretConfig": (CustomSecretConfig, False),
+        "FederatedIdentity": (ObjectStorageFederatedIdentityConfig, False),
         "SecretKey": (str, False),
         "ServerCertificate": (str, False),
         "ServerHostname": (str, False),

@@ -787,3 +787,24 @@ class ReplicationTask(AWSObject):
         "TargetEndpointArn": (str, True),
         "TaskData": (str, False),
     }
+
+
+class ReplicationTaskAssessmentRun(AWSObject):
+    """
+    `ReplicationTaskAssessmentRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtaskassessmentrun.html>`__
+    """
+
+    resource_type = "AWS::DMS::ReplicationTaskAssessmentRun"
+
+    props: PropsDictType = {}
+
+
+class AssessmentProgress(AWSProperty):
+    """
+    `AssessmentProgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationtaskassessmentrun-assessmentprogress.html>`__
+    """
+
+    props: PropsDictType = {
+        "IndividualAssessmentCompletedCount": (integer, False),
+        "IndividualAssessmentCount": (integer, False),
+    }

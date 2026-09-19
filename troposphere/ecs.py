@@ -437,7 +437,7 @@ class ContainerInstance(AWSObject):
 
 class DaemonAlarmConfiguration(AWSProperty):
     """
-    `DaemonAlarmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemon-daemonalarmconfiguration.html>`__
+    `DaemonAlarmConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemonalarmconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -448,7 +448,7 @@ class DaemonAlarmConfiguration(AWSProperty):
 
 class DaemonDeploymentConfiguration(AWSProperty):
     """
-    `DaemonDeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemon-daemondeploymentconfiguration.html>`__
+    `DaemonDeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemondeploymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -476,6 +476,16 @@ class Daemon(AWSObject):
         "PropagateTags": (str, False),
         "Tags": (Tags, False),
     }
+
+
+class DaemonDeployment(AWSObject):
+    """
+    `DaemonDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemondeployment.html>`__
+    """
+
+    resource_type = "AWS::ECS::DaemonDeployment"
+
+    props: PropsDictType = {}
 
 
 class ContainerDependency(AWSProperty):
@@ -976,6 +986,18 @@ class DeploymentCircuitBreaker(AWSProperty):
     }
 
 
+class DeploymentEarlySuccessCriteria(AWSProperty):
+    """
+    `DeploymentEarlySuccessCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentearlysuccesscriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enable": (boolean, False),
+        "HealthyPercent": (integer, False),
+        "SourceServiceRevisionCleanup": (str, False),
+    }
+
+
 class HookTimeoutConfig(AWSProperty):
     """
     `HookTimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-hooktimeoutconfig.html>`__
@@ -1023,6 +1045,7 @@ class DeploymentConfiguration(AWSProperty):
         "BakeTimeInMinutes": (integer, False),
         "CanaryConfiguration": (CanaryConfiguration, False),
         "DeploymentCircuitBreaker": (DeploymentCircuitBreaker, False),
+        "EarlySuccessCriteria": (DeploymentEarlySuccessCriteria, False),
         "LifecycleHooks": ([DeploymentLifecycleHook], False),
         "LinearConfiguration": (LinearConfiguration, False),
         "MaximumPercent": (integer, False),
@@ -1054,11 +1077,11 @@ class ForceNewDeployment(AWSProperty):
 
 class AdvancedConfiguration(AWSProperty):
     """
-    `AdvancedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-advancedconfiguration.html>`__
+    `AdvancedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-advancedconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "AlternateTargetGroupArn": (str, True),
+        "AlternateTargetGroupArn": (str, False),
         "ProductionListenerRule": (str, False),
         "RoleArn": (str, False),
         "TestListenerRule": (str, False),
@@ -1067,7 +1090,7 @@ class AdvancedConfiguration(AWSProperty):
 
 class LoadBalancer(AWSProperty):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-loadbalancer.html>`__
     """
 
     props: PropsDictType = {
@@ -1081,7 +1104,7 @@ class LoadBalancer(AWSProperty):
 
 class MetricConfiguration(AWSProperty):
     """
-    `MetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-metricconfiguration.html>`__
+    `MetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-metricconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1092,11 +1115,11 @@ class MetricConfiguration(AWSProperty):
 
 class MonitoringConfiguration(AWSProperty):
     """
-    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-monitoringconfiguration.html>`__
+    `MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-monitoringconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "MetricConfigurations": ([MetricConfiguration], True),
+        "MetricConfigurations": ([MetricConfiguration], False),
     }
 
 
@@ -1146,7 +1169,7 @@ class PlacementStrategy(AWSProperty):
 
 class ServiceConnectAccessLogConfiguration(AWSProperty):
     """
-    `ServiceConnectAccessLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectaccesslogconfiguration.html>`__
+    `ServiceConnectAccessLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnectaccesslogconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1155,9 +1178,9 @@ class ServiceConnectAccessLogConfiguration(AWSProperty):
     }
 
 
-class ServiceConnectTestTrafficRulesHeaderValue(AWSProperty):
+class ServiceConnectTestTrafficHeaderMatchRules(AWSProperty):
     """
-    `ServiceConnectTestTrafficRulesHeaderValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheadervalue.html>`__
+    `ServiceConnectTestTrafficHeaderMatchRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnecttesttrafficheadermatchrules.html>`__
     """
 
     props: PropsDictType = {
@@ -1165,30 +1188,30 @@ class ServiceConnectTestTrafficRulesHeaderValue(AWSProperty):
     }
 
 
-class ServiceConnectTestTrafficRulesHeader(AWSProperty):
+class ServiceConnectTestTrafficHeaderRules(AWSProperty):
     """
-    `ServiceConnectTestTrafficRulesHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheader.html>`__
+    `ServiceConnectTestTrafficHeaderRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnecttesttrafficheaderrules.html>`__
     """
 
     props: PropsDictType = {
         "Name": (str, True),
-        "Value": (ServiceConnectTestTrafficRulesHeaderValue, False),
+        "Value": (ServiceConnectTestTrafficHeaderMatchRules, False),
     }
 
 
 class ServiceConnectTestTrafficRules(AWSProperty):
     """
-    `ServiceConnectTestTrafficRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrules.html>`__
+    `ServiceConnectTestTrafficRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnecttesttrafficrules.html>`__
     """
 
     props: PropsDictType = {
-        "Header": (ServiceConnectTestTrafficRulesHeader, True),
+        "Header": (ServiceConnectTestTrafficHeaderRules, True),
     }
 
 
 class ServiceConnectClientAlias(AWSProperty):
     """
-    `ServiceConnectClientAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html>`__
+    `ServiceConnectClientAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnectclientalias.html>`__
     """
 
     props: PropsDictType = {
@@ -1200,7 +1223,7 @@ class ServiceConnectClientAlias(AWSProperty):
 
 class ServiceConnectTlsCertificateAuthority(AWSProperty):
     """
-    `ServiceConnectTlsCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html>`__
+    `ServiceConnectTlsCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnecttlscertificateauthority.html>`__
     """
 
     props: PropsDictType = {
@@ -1210,7 +1233,7 @@ class ServiceConnectTlsCertificateAuthority(AWSProperty):
 
 class ServiceConnectTlsConfiguration(AWSProperty):
     """
-    `ServiceConnectTlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html>`__
+    `ServiceConnectTlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnecttlsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1222,7 +1245,7 @@ class ServiceConnectTlsConfiguration(AWSProperty):
 
 class TimeoutConfiguration(AWSProperty):
     """
-    `TimeoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-timeoutconfiguration.html>`__
+    `TimeoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-timeoutconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1233,7 +1256,7 @@ class TimeoutConfiguration(AWSProperty):
 
 class ServiceConnectService(AWSProperty):
     """
-    `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html>`__
+    `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnectservice.html>`__
     """
 
     props: PropsDictType = {
@@ -1248,7 +1271,7 @@ class ServiceConnectService(AWSProperty):
 
 class ServiceConnectConfiguration(AWSProperty):
     """
-    `ServiceConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html>`__
+    `ServiceConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-serviceconnectconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1275,7 +1298,7 @@ class ServiceRegistry(AWSProperty):
 
 class EBSTagSpecification(AWSProperty):
     """
-    `EBSTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-ebstagspecification.html>`__
+    `EBSTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-ebstagspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1287,7 +1310,7 @@ class EBSTagSpecification(AWSProperty):
 
 class ServiceManagedEBSVolumeConfiguration(AWSProperty):
     """
-    `ServiceManagedEBSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html>`__
+    `ServiceManagedEBSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-servicemanagedebsvolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1307,7 +1330,7 @@ class ServiceManagedEBSVolumeConfiguration(AWSProperty):
 
 class ServiceVolumeConfiguration(AWSProperty):
     """
-    `ServiceVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html>`__
+    `ServiceVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-servicevolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1318,7 +1341,7 @@ class ServiceVolumeConfiguration(AWSProperty):
 
 class VpcLatticeConfiguration(AWSProperty):
     """
-    `VpcLatticeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html>`__
+    `VpcLatticeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-vpclatticeconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -1364,6 +1387,26 @@ class Service(AWSObject):
         "VolumeConfigurations": ([ServiceVolumeConfiguration], False),
         "VpcLatticeConfigurations": ([VpcLatticeConfiguration], False),
     }
+
+
+class ServiceDeployment(AWSObject):
+    """
+    `ServiceDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-servicedeployment.html>`__
+    """
+
+    resource_type = "AWS::ECS::ServiceDeployment"
+
+    props: PropsDictType = {}
+
+
+class ServiceRevision(AWSObject):
+    """
+    `ServiceRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-servicerevision.html>`__
+    """
+
+    resource_type = "AWS::ECS::ServiceRevision"
+
+    props: PropsDictType = {}
 
 
 class Task(AWSObject):
@@ -1606,6 +1649,277 @@ class AutoScalingArns(AWSProperty):
     }
 
 
+class AwsVpcConfiguration(AWSProperty):
+    """
+    `AwsVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-awsvpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssignPublicIp": (str, False),
+        "SecurityGroups": ([str], False),
+        "Subnets": ([str], True),
+    }
+
+
+class ContainerImage(AWSProperty):
+    """
+    `ContainerImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-containerimage.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerName": (str, False),
+        "Image": (str, False),
+        "ImageDigest": (str, False),
+    }
+
+
+class DaemonCircuitBreaker(AWSProperty):
+    """
+    `DaemonCircuitBreaker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemoncircuitbreaker.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureCount": (integer, False),
+        "Status": (str, False),
+        "Threshold": (integer, False),
+    }
+
+
+class DaemonDeploymentAlarms(AWSProperty):
+    """
+    `DaemonDeploymentAlarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemondeploymentalarms.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmNames": ([str], False),
+        "Status": (str, False),
+        "TriggeredAlarmNames": ([str], False),
+    }
+
+
+class DaemonDeploymentCapacityProvider(AWSProperty):
+    """
+    `DaemonDeploymentCapacityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemondeploymentcapacityprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "DrainingInstanceCount": (integer, False),
+        "RunningInstanceCount": (integer, False),
+    }
+
+
+class DaemonDeploymentRevisionDetail(AWSProperty):
+    """
+    `DaemonDeploymentRevisionDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemondeployment-daemondeploymentrevisiondetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "CapacityProviders": ([DaemonDeploymentCapacityProvider], False),
+        "TotalDrainingInstanceCount": (integer, False),
+        "TotalRunningInstanceCount": (integer, False),
+    }
+
+
+class DeploymentEphemeralStorage(AWSProperty):
+    """
+    `DeploymentEphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-deploymentephemeralstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+    }
+
+
+class ManagedApplicationAutoScalingPolicy(AWSProperty):
+    """
+    `ManagedApplicationAutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedapplicationautoscalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Metric": (str, True),
+        "PolicyType": (str, True),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "TargetValue": (double, True),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedScalableTarget(AWSProperty):
+    """
+    `ManagedScalableTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedscalabletarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "MaxCapacity": (integer, True),
+        "MinCapacity": (integer, True),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedAutoScaling(AWSProperty):
+    """
+    `ManagedAutoScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedautoscaling.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationAutoScalingPolicies": (
+            [ManagedApplicationAutoScalingPolicy],
+            False,
+        ),
+        "ScalableTarget": (ManagedScalableTarget, False),
+    }
+
+
+class ManagedCertificate(AWSProperty):
+    """
+    `ManagedCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedcertificate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "DomainName": (str, True),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedListener(AWSProperty):
+    """
+    `ManagedListener <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedlistener.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedListenerRule(AWSProperty):
+    """
+    `ManagedListenerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedlistenerrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedLoadBalancer(AWSProperty):
+    """
+    `ManagedLoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedloadbalancer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Scheme": (str, True),
+        "SecurityGroupIds": ([str], False),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "SubnetIds": ([str], False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedSecurityGroup(AWSProperty):
+    """
+    `ManagedSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedsecuritygroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedTargetGroup(AWSProperty):
+    """
+    `ManagedTargetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedtargetgroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "HealthCheckPath": (str, True),
+        "HealthCheckPort": (integer, True),
+        "Port": (integer, True),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedIngressPath(AWSProperty):
+    """
+    `ManagedIngressPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedingresspath.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessType": (str, True),
+        "Certificate": (ManagedCertificate, False),
+        "Endpoint": (str, True),
+        "Listener": (ManagedListener, False),
+        "LoadBalancer": (ManagedLoadBalancer, False),
+        "LoadBalancerSecurityGroups": ([ManagedSecurityGroup], False),
+        "Rule": (ManagedListenerRule, False),
+        "TargetGroups": ([ManagedTargetGroup], False),
+    }
+
+
+class ManagedLogGroup(AWSProperty):
+    """
+    `ManagedLogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedloggroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "LogGroupName": (str, True),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class ManagedMetricAlarm(AWSProperty):
+    """
+    `ManagedMetricAlarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-managedmetricalarm.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Status": (str, True),
+        "StatusReason": (str, False),
+        "UpdatedAt": (str, True),
+    }
+
+
+class EcsManagedResources(AWSProperty):
+    """
+    `EcsManagedResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-ecsmanagedresources.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoScaling": (ManagedAutoScaling, False),
+        "IngressPaths": ([ManagedIngressPath], False),
+        "LogGroups": ([ManagedLogGroup], False),
+        "MetricAlarms": ([ManagedMetricAlarm], False),
+        "ServiceSecurityGroups": ([ManagedSecurityGroup], False),
+    }
+
+
 class ExpressGatewayServiceStatus(AWSProperty):
     """
     `ExpressGatewayServiceStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayservicestatus.html>`__
@@ -1652,6 +1966,27 @@ class IngressPathSummary(AWSProperty):
     }
 
 
+class ServiceRevisionLoadBalancer(AWSProperty):
+    """
+    `ServiceRevisionLoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-servicerevisionloadbalancer.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProductionListenerRule": (str, False),
+        "TargetGroupArn": (str, False),
+    }
+
+
+class ResolvedConfiguration(AWSProperty):
+    """
+    `ResolvedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicerevision-resolvedconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoadBalancers": ([ServiceRevisionLoadBalancer], False),
+    }
+
+
 class Resource(AWSProperty):
     """
     `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-containerinstance-resource.html>`__
@@ -1664,6 +1999,40 @@ class Resource(AWSProperty):
         "Name": (str, False),
         "StringSetValue": ([str], False),
         "Type": (str, False),
+    }
+
+
+class ServiceConnectTestTrafficRulesHeaderValue(AWSProperty):
+    """
+    `ServiceConnectTestTrafficRulesHeaderValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheadervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exact": (str, True),
+    }
+
+
+class ServiceConnectTestTrafficRulesHeader(AWSProperty):
+    """
+    `ServiceConnectTestTrafficRulesHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (ServiceConnectTestTrafficRulesHeaderValue, False),
+    }
+
+
+class ServiceRevisionSummary(AWSProperty):
+    """
+    `ServiceRevisionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-servicedeployment-servicerevisionsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "PendingTaskCount": (integer, False),
+        "RequestedTaskCount": (integer, False),
+        "RunningTaskCount": (integer, False),
     }
 
 

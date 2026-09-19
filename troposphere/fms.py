@@ -11,6 +11,32 @@ from .validators import boolean, integer
 from .validators.fms import validate_json_checker
 
 
+class App(AWSProperty):
+    """
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-applicationslist-app.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppName": (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, True),
+    }
+
+
+class ApplicationsList(AWSObject):
+    """
+    `ApplicationsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-applicationslist.html>`__
+    """
+
+    resource_type = "AWS::FMS::ApplicationsList"
+
+    props: PropsDictType = {
+        "AppsList": ([App], True),
+        "ListName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class NotificationChannel(AWSObject):
     """
     `NotificationChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html>`__
@@ -162,6 +188,20 @@ class Policy(AWSObject):
         "ResourceTypeList": ([str], False),
         "ResourcesCleanUp": (boolean, False),
         "SecurityServicePolicyData": (validate_json_checker, True),
+        "Tags": (Tags, False),
+    }
+
+
+class ProtocolsList(AWSObject):
+    """
+    `ProtocolsList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-protocolslist.html>`__
+    """
+
+    resource_type = "AWS::FMS::ProtocolsList"
+
+    props: PropsDictType = {
+        "ListName": (str, True),
+        "ProtocolsList": ([str], True),
         "Tags": (Tags, False),
     }
 

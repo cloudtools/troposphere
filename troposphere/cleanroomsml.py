@@ -7,7 +7,41 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double, integer
+
+
+class AudienceGenerationJob(AWSObject):
+    """
+    `AudienceGenerationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-audiencegenerationjob.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::AudienceGenerationJob"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "IncludeSeedInOutput": (boolean, False),
+        "Tags": (Tags, False),
+    }
+
+
+class AudienceModel(AWSObject):
+    """
+    `AudienceModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-audiencemodel.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::AudienceModel"
+
+    props: PropsDictType = {}
+
+
+class ConfiguredAudienceModel(AWSObject):
+    """
+    `ConfiguredAudienceModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-configuredaudiencemodel.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::ConfiguredAudienceModel"
+
+    props: PropsDictType = {}
 
 
 class MetricDefinition(AWSProperty):
@@ -215,6 +249,78 @@ class ConfiguredModelAlgorithmAssociation(AWSObject):
     }
 
 
+class MLInputChannel(AWSObject):
+    """
+    `MLInputChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-mlinputchannel.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::MLInputChannel"
+
+    props: PropsDictType = {}
+
+
+class InferenceReceiverMember(AWSProperty):
+    """
+    `InferenceReceiverMember <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodelinferencejob-inferencereceivermember.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+    }
+
+
+class InferenceOutputConfiguration(AWSProperty):
+    """
+    `InferenceOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodelinferencejob-inferenceoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Accept": (str, False),
+        "Members": ([InferenceReceiverMember], True),
+    }
+
+
+class InferenceResourceConfig(AWSProperty):
+    """
+    `InferenceResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodelinferencejob-inferenceresourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, False),
+        "InstanceType": (str, True),
+    }
+
+
+class ModelInferenceDataSource(AWSProperty):
+    """
+    `ModelInferenceDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodelinferencejob-modelinferencedatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "MlInputChannelArn": (str, True),
+    }
+
+
+class TrainedModelInferenceJob(AWSObject):
+    """
+    `TrainedModelInferenceJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainedmodelinferencejob.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::TrainedModelInferenceJob"
+
+    props: PropsDictType = {
+        "ConfiguredModelAlgorithmAssociationArn": (str, False),
+        "DataSource": (ModelInferenceDataSource, False),
+        "Description": (str, False),
+        "MembershipIdentifier": (str, False),
+        "Name": (str, False),
+        "OutputConfiguration": (InferenceOutputConfiguration, False),
+        "ResourceConfig": (InferenceResourceConfig, False),
+        "Tags": (Tags, False),
+        "TrainedModelArn": (str, False),
+    }
+
+
 class ColumnSchema(AWSProperty):
     """
     `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainingdataset-columnschema.html>`__
@@ -283,4 +389,235 @@ class TrainingDataset(AWSObject):
         "RoleArn": (str, True),
         "Tags": (Tags, False),
         "TrainingData": ([Dataset], True),
+    }
+
+
+class AccessBudgetDetails(AWSProperty):
+    """
+    `AccessBudgetDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-accessbudgetdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoRefresh": (str, False),
+        "Budget": (integer, True),
+        "BudgetType": (str, True),
+        "RemainingBudget": (integer, True),
+    }
+
+
+class AccessBudget(AWSProperty):
+    """
+    `AccessBudget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-accessbudget.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregateRemainingBudget": (integer, True),
+        "Details": ([AccessBudgetDetails], True),
+        "ResourceArn": (str, True),
+    }
+
+
+class S3ConfigMap(AWSProperty):
+    """
+    `S3ConfigMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredaudiencemodel-s3configmap.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+    }
+
+
+class AudienceDestination(AWSProperty):
+    """
+    `AudienceDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredaudiencemodel-audiencedestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Destination": (S3ConfigMap, True),
+    }
+
+
+class AudienceSize(AWSProperty):
+    """
+    `AudienceSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-audiencegenerationjob-audiencesize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class RelevanceMetric(AWSProperty):
+    """
+    `RelevanceMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-audiencegenerationjob-relevancemetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudienceSize": (AudienceSize, True),
+        "Score": (double, False),
+    }
+
+
+class AudienceQualityMetrics(AWSProperty):
+    """
+    `AudienceQualityMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-audiencegenerationjob-audiencequalitymetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecallMetric": (double, False),
+        "RelevanceMetrics": ([RelevanceMetric], True),
+    }
+
+
+class AudienceSizeConfig(AWSProperty):
+    """
+    `AudienceSizeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredaudiencemodel-audiencesizeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudienceSizeBins": ([integer], True),
+        "AudienceSizeType": (str, True),
+    }
+
+
+class SyntheticDataColumnProperties(AWSProperty):
+    """
+    `SyntheticDataColumnProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-syntheticdatacolumnproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "ColumnType": (str, True),
+        "IsPredictiveValue": (boolean, True),
+    }
+
+
+class ColumnClassificationDetails(AWSProperty):
+    """
+    `ColumnClassificationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-columnclassificationdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnMapping": ([SyntheticDataColumnProperties], True),
+    }
+
+
+class Properties(AWSProperty):
+    """
+    `Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-properties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Spark": (dict, True),
+    }
+
+
+class WorkerComputeConfiguration(AWSProperty):
+    """
+    `WorkerComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-workercomputeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Number": (integer, False),
+        "Properties": (Properties, False),
+        "Type": (str, False),
+    }
+
+
+class ComputeConfiguration(AWSProperty):
+    """
+    `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-computeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Worker": (WorkerComputeConfiguration, True),
+    }
+
+
+class ConfiguredAudienceModelOutputConfig(AWSProperty):
+    """
+    `ConfiguredAudienceModelOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-configuredaudiencemodel-configuredaudiencemodeloutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (AudienceDestination, True),
+        "RoleArn": (str, True),
+    }
+
+
+class ProtectedQuerySQLParameters(AWSProperty):
+    """
+    `ProtectedQuerySQLParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-protectedquerysqlparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnalysisTemplateArn": (str, False),
+        "Parameters": (dict, False),
+        "QueryString": (str, False),
+    }
+
+
+class ProtectedQueryInputParameters(AWSProperty):
+    """
+    `ProtectedQueryInputParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-protectedqueryinputparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeConfiguration": (ComputeConfiguration, False),
+        "ResultFormat": (str, False),
+        "SqlParameters": (ProtectedQuerySQLParameters, True),
+    }
+
+
+class InputChannelDataSource(AWSProperty):
+    """
+    `InputChannelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-inputchanneldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProtectedQueryInputParameters": (ProtectedQueryInputParameters, True),
+    }
+
+
+class InputChannel(AWSProperty):
+    """
+    `InputChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-inputchannel.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSource": (InputChannelDataSource, True),
+        "RoleArn": (str, True),
+    }
+
+
+class MLSyntheticDataParameters(AWSProperty):
+    """
+    `MLSyntheticDataParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-mlsyntheticdataparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnClassification": (ColumnClassificationDetails, False),
+        "Epsilon": (double, True),
+        "MaxMembershipInferenceAttackScore": (double, True),
+    }
+
+
+class PrivacyBudgets(AWSProperty):
+    """
+    `PrivacyBudgets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-privacybudgets.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessBudgets": ([AccessBudget], True),
+    }
+
+
+class SyntheticDataConfiguration(AWSProperty):
+    """
+    `SyntheticDataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-syntheticdataconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SyntheticDataParameters": (MLSyntheticDataParameters, True),
     }

@@ -100,7 +100,7 @@ class BatchSegmentJob(AWSObject):
 
 class DataSource(AWSProperty):
     """
-    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasource.html>`__
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-datasetimportjob-datasource.html>`__
     """
 
     props: PropsDictType = {
@@ -123,9 +123,9 @@ class DataDeletionJob(AWSObject):
     }
 
 
-class DatasetImportJob(AWSProperty):
+class DatasetImportJobProperty(AWSProperty):
     """
-    `DatasetImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html>`__
+    `DatasetImportJobProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-dataset-datasetimportjob.html>`__
     """
 
     props: PropsDictType = {
@@ -146,7 +146,7 @@ class Dataset(AWSObject):
 
     props: PropsDictType = {
         "DatasetGroupArn": (str, True),
-        "DatasetImportJob": (DatasetImportJob, False),
+        "DatasetImportJob": (DatasetImportJobProperty, False),
         "DatasetType": (str, True),
         "Name": (str, True),
         "SchemaArn": (str, True),
@@ -192,6 +192,24 @@ class DatasetGroup(AWSObject):
         "Domain": (str, False),
         "KmsKeyArn": (str, False),
         "Name": (str, True),
+        "RoleArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class DatasetImportJob(AWSObject):
+    """
+    `DatasetImportJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetimportjob.html>`__
+    """
+
+    resource_type = "AWS::Personalize::DatasetImportJob"
+
+    props: PropsDictType = {
+        "DataSource": (DataSource, True),
+        "DatasetArn": (str, True),
+        "ImportMode": (str, False),
+        "JobName": (str, True),
+        "PublishAttributionMetricsToS3": (boolean, False),
         "RoleArn": (str, False),
         "Tags": (Tags, False),
     }

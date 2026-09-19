@@ -469,6 +469,16 @@ class Project(AWSObject):
     }
 
 
+class Report(AWSObject):
+    """
+    `Report <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-report.html>`__
+    """
+
+    resource_type = "AWS::CodeBuild::Report"
+
+    props: PropsDictType = {}
+
+
 class S3ReportExportConfig(AWSProperty):
     """
     `S3ReportExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-reportgroup-s3reportexportconfig.html>`__
@@ -535,6 +545,33 @@ class SourceCredential(AWSObject):
         "ServerType": (str, True),
         "Token": (str, True),
         "Username": (str, False),
+    }
+
+
+class CodeCoverageReportSummary(AWSProperty):
+    """
+    `CodeCoverageReportSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-report-codecoveragereportsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "BranchCoveragePercentage": (double, False),
+        "BranchesCovered": (integer, False),
+        "BranchesMissed": (integer, False),
+        "LineCoveragePercentage": (double, False),
+        "LinesCovered": (integer, False),
+        "LinesMissed": (integer, False),
+    }
+
+
+class TestReportSummary(AWSProperty):
+    """
+    `TestReportSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-report-testreportsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInNanoSeconds": (integer, True),
+        "StatusCounts": (dict, True),
+        "Total": (integer, True),
     }
 
 
