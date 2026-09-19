@@ -58,6 +58,10 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::ECS::TaskSet.NetworkConfiguration",
     },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::ECS::ServiceRevision.NetworkConfiguration",
+    },
     # backward compatibility
     {
         "op": "remove",
