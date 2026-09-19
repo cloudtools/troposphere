@@ -57,39 +57,4 @@ patches = [
         "path": "/PropertyTypes/AWS::SageMaker::ModelPackage.TransformJobDefinition/Properties/Environment/PrimitiveType",
         "value": "Json",
     },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyFeatureType",
-    },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/FeatureTypes/ItemType",
-    },
-    {
-        "op": "add",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/FeatureTypes/PrimitiveItemType",
-        "value": "String",
-    },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyHeader",
-    },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/LabelHeaders/ItemType",
-    },
-    {
-        "op": "add",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/LabelHeaders/PrimitiveItemType",
-        "value": "String",
-    },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/FeatureHeaders/ItemType",
-    },
-    {
-        "op": "add",
-        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig/Properties/FeatureHeaders/PrimitiveItemType",
-        "value": "String",
-    },
 ]
