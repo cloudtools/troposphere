@@ -21,7 +21,8 @@ help: ## show this message
 regen: CloudFormationResourceSpecification.json ## regenerates troposphere code
 	./scripts/regen
 
-fix: fix-black fix-isort ## run both fix-black and fix-isort
+fix: fix-black fix-isort ## run formatters and remove copyright-only changes
+	@python3 scripts/fix_copyright.py
 
 fix-black: ## automatically fix all black errors
 	@black ${PYDIRS}
