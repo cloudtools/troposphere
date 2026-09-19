@@ -2197,6 +2197,20 @@ class FlowAlias(AWSObject):
     }
 
 
+class FlowExecution(AWSObject):
+    """
+    `FlowExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowexecution.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::FlowExecution"
+
+    props: PropsDictType = {
+        "FlowAliasIdentifier": (str, False),
+        "FlowExecutionName": (str, False),
+        "FlowIdentifier": (str, False),
+    }
+
+
 class FlowVersion(AWSObject):
     """
     `FlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowversion.html>`__
@@ -2457,6 +2471,40 @@ class GuardrailVersion(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "GuardrailIdentifier": (str, True),
+    }
+
+
+class S3DataSource(AWSProperty):
+    """
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelimportjob-s3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+    }
+
+
+class ModelDataSource(AWSProperty):
+    """
+    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelimportjob-modeldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (S3DataSource, True),
+    }
+
+
+class ImportedModel(AWSObject):
+    """
+    `ImportedModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-importedmodel.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::ImportedModel"
+
+    props: PropsDictType = {
+        "JobName": (str, False),
+        "ModelDataSource": (ModelDataSource, False),
+        "ModelName": (str, False),
     }
 
 
@@ -3049,26 +3097,6 @@ class KnowledgeBasePolicy(AWSObject):
     }
 
 
-class S3DataSource(AWSProperty):
-    """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelimportjob-s3datasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3Uri": (str, True),
-    }
-
-
-class ModelDataSource(AWSProperty):
-    """
-    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelimportjob-modeldatasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3DataSource": (S3DataSource, True),
-    }
-
-
 class VpcConfig(AWSProperty):
     """
     `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-modelinvocationjob-vpcconfig.html>`__
@@ -3241,6 +3269,17 @@ class AsyncInvokeOutputDataConfig(AWSProperty):
 
     props: PropsDictType = {
         "S3OutputDataConfig": (AsyncInvokeS3OutputDataConfig, True),
+    }
+
+
+class CustomModelUnits(AWSProperty):
+    """
+    `CustomModelUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-importedmodel-custommodelunits.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomModelUnitsPerModelCopy": (integer, False),
+        "CustomModelUnitsVersion": (str, False),
     }
 
 

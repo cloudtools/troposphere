@@ -44,6 +44,17 @@ class LogsEncryptionConfiguration(AWSProperty):
     }
 
 
+class TagPropagationConfiguration(AWSProperty):
+    """
+    `TagPropagationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-tagpropagationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationRoleArn": (str, True),
+        "TagConflictResolutionStrategy": (str, False),
+    }
+
+
 class DestinationLogsConfiguration(AWSProperty):
     """
     `DestinationLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html>`__
@@ -53,6 +64,7 @@ class DestinationLogsConfiguration(AWSProperty):
         "BackupConfiguration": (LogsBackupConfiguration, False),
         "LogGroupNameConfiguration": (LogGroupNameConfiguration, False),
         "LogsEncryptionConfiguration": (LogsEncryptionConfiguration, False),
+        "TagPropagationConfiguration": (TagPropagationConfiguration, False),
     }
 
 

@@ -194,6 +194,16 @@ class ComputeResources(AWSProperty):
     }
 
 
+class EcsSettings(AWSProperty):
+    """
+    `EcsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ecssettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerInsights": (str, False),
+    }
+
+
 class EksConfiguration(AWSProperty):
     """
     `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html>`__
@@ -227,6 +237,7 @@ class ComputeEnvironment(AWSObject):
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, False),
         "Context": (str, False),
+        "EcsSettings": (EcsSettings, False),
         "EksConfiguration": (EksConfiguration, False),
         "ReplaceComputeEnvironment": (boolean, False),
         "ServiceRole": (str, False),

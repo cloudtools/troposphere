@@ -717,6 +717,59 @@ class KafkaClusterMtlsAuthentication(AWSProperty):
     }
 
 
+class KafkaClusterOAuthClientCredentials(AWSProperty):
+    """
+    `KafkaClusterOAuthClientCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusteroauthclientcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "TokenRequestSecretArn": (str, True),
+    }
+
+
+class KafkaClusterOAuthClientCredentialsAssertion(AWSProperty):
+    """
+    `KafkaClusterOAuthClientCredentialsAssertion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusteroauthclientcredentialsassertion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audience": (str, True),
+        "SigningAlgorithm": (str, True),
+        "TokenRequestSecretArn": (str, False),
+    }
+
+
+class KafkaClusterOAuthIamJwtBearer(AWSProperty):
+    """
+    `KafkaClusterOAuthIamJwtBearer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusteroauthiamjwtbearer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audience": (str, True),
+        "SigningAlgorithm": (str, True),
+        "TokenRequestSecretArn": (str, False),
+    }
+
+
+class KafkaClusterSaslOAuthBearerAuthentication(AWSProperty):
+    """
+    `KafkaClusterSaslOAuthBearerAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustersasloauthbearerauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientCredentials": (KafkaClusterOAuthClientCredentials, False),
+        "ClientCredentialsAssertion": (
+            KafkaClusterOAuthClientCredentialsAssertion,
+            False,
+        ),
+        "IamJwtBearer": (KafkaClusterOAuthIamJwtBearer, False),
+        "Scope": (str, False),
+        "TokenEndpointAuthenticationMethod": (str, True),
+        "TokenEndpointTlsCertificateArn": (str, False),
+        "TokenEndpointUrl": (str, True),
+    }
+
+
 class KafkaClusterSaslScramAuthentication(AWSProperty):
     """
     `KafkaClusterSaslScramAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustersaslscramauthentication.html>`__
@@ -735,6 +788,7 @@ class KafkaClusterClientAuthentication(AWSProperty):
 
     props: PropsDictType = {
         "MTLS": (KafkaClusterMtlsAuthentication, False),
+        "SaslOAuthBearer": (KafkaClusterSaslOAuthBearerAuthentication, False),
         "SaslScram": (KafkaClusterSaslScramAuthentication, False),
     }
 

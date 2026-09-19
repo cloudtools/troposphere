@@ -9,6 +9,28 @@
 from . import AWSObject, AWSProperty, PropsDictType
 
 
+class CodeS3Location(AWSProperty):
+    """
+    `CodeS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaaserverless-workflow-codes3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "ObjectKey": (str, True),
+        "VersionId": (str, False),
+    }
+
+
+class Code(AWSProperty):
+    """
+    `Code <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaaserverless-workflow-code.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (CodeS3Location, False),
+    }
+
+
 class EncryptionConfiguration(AWSProperty):
     """
     `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaaserverless-workflow-encryptionconfiguration.html>`__
@@ -61,6 +83,7 @@ class Workflow(AWSObject):
     resource_type = "AWS::MWAAServerless::Workflow"
 
     props: PropsDictType = {
+        "Code": (Code, False),
         "DefinitionS3Location": (S3Location, True),
         "Description": (str, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),

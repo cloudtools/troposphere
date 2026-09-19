@@ -240,9 +240,9 @@ class OAuth2Credentials(AWSProperty):
     }
 
 
-class OAuth2PropertiesInput(AWSProperty):
+class OAuth2Properties(AWSProperty):
     """
-    `OAuth2PropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2propertiesinput.html>`__
+    `OAuth2Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2properties.html>`__
     """
 
     props: PropsDictType = {
@@ -255,9 +255,9 @@ class OAuth2PropertiesInput(AWSProperty):
     }
 
 
-class AuthenticationConfigurationInput(AWSProperty):
+class AuthenticationConfiguration(AWSProperty):
     """
-    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authenticationconfigurationinput.html>`__
+    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authenticationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -265,7 +265,7 @@ class AuthenticationConfigurationInput(AWSProperty):
         "BasicAuthenticationCredentials": (BasicAuthenticationCredentials, False),
         "CustomAuthenticationCredentials": (dict, False),
         "KmsKeyArn": (str, False),
-        "OAuth2Properties": (OAuth2PropertiesInput, False),
+        "OAuth2Properties": (OAuth2Properties, False),
         "SecretArn": (str, False),
     }
 
@@ -289,7 +289,7 @@ class ConnectionInput(AWSProperty):
 
     props: PropsDictType = {
         "AthenaProperties": (dict, False),
-        "AuthenticationConfiguration": (AuthenticationConfigurationInput, False),
+        "AuthenticationConfiguration": (AuthenticationConfiguration, False),
         "ConnectionProperties": (dict, False),
         "ConnectionType": (connection_type_validator, True),
         "Description": (str, False),
@@ -313,6 +313,7 @@ class Connection(AWSObject):
     props: PropsDictType = {
         "CatalogId": (str, True),
         "ConnectionInput": (ConnectionInput, True),
+        "Tags": (dict, False),
     }
 
 

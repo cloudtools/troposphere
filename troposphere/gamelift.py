@@ -182,7 +182,7 @@ class ScalingPolicy(AWSProperty):
         "ComparisonOperator": (str, False),
         "EvaluationPeriods": (integer, False),
         "Location": (str, False),
-        "MetricName": (str, True),
+        "MetricName": (str, False),
         "Name": (str, True),
         "PolicyType": (str, False),
         "ScalingAdjustment": (integer, False),

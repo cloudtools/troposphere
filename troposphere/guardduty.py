@@ -10,6 +10,31 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class TagItem(AWSProperty):
+    """
+    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-trustedentityset-tagitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class CustomDetectionRuleAssociation(AWSObject):
+    """
+    `CustomDetectionRuleAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-customdetectionruleassociation.html>`__
+    """
+
+    resource_type = "AWS::GuardDuty::CustomDetectionRuleAssociation"
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+        "RuleId": (str, True),
+        "Tags": ([TagItem], False),
+    }
+
+
 class CFNKubernetesAuditLogsConfiguration(AWSProperty):
     """
     `CFNKubernetesAuditLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html>`__
@@ -95,17 +120,6 @@ class CFNFeatureConfiguration(AWSProperty):
         "AdditionalConfiguration": ([CFNFeatureAdditionalConfiguration], False),
         "Name": (str, True),
         "Status": (str, True),
-    }
-
-
-class TagItem(AWSProperty):
-    """
-    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-trustedentityset-tagitem.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
     }
 
 

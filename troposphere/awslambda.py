@@ -561,6 +561,16 @@ class EphemeralStorage(AWSProperty):
     }
 
 
+class S3FilesConfig(AWSProperty):
+    """
+    `S3FilesConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-s3filesconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DirectS3Read": (str, False),
+    }
+
+
 class FileSystemConfig(AWSProperty):
     """
     `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html>`__
@@ -569,6 +579,7 @@ class FileSystemConfig(AWSProperty):
     props: PropsDictType = {
         "Arn": (str, True),
         "LocalMountPath": (str, True),
+        "S3FilesConfig": (S3FilesConfig, False),
     }
 
 

@@ -1882,7 +1882,7 @@ class CapacityReservationConfig(AWSProperty):
 
 class CoreDumpConfig(AWSProperty):
     """
-    `CoreDumpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-coredumpconfig.html>`__
+    `CoreDumpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-coredumpconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1891,9 +1891,9 @@ class CoreDumpConfig(AWSProperty):
     }
 
 
-class InstancePools(AWSProperty):
+class InstancePool(AWSProperty):
     """
-    `InstancePools <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-instancepools.html>`__
+    `InstancePool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-instancepool.html>`__
     """
 
     props: PropsDictType = {
@@ -1905,7 +1905,7 @@ class InstancePools(AWSProperty):
 
 class ScaleInPolicy(AWSProperty):
     """
-    `ScaleInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling-scaleinpolicy.html>`__
+    `ScaleInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-scaleinpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -1917,7 +1917,7 @@ class ScaleInPolicy(AWSProperty):
 
 class ManagedInstanceScaling(AWSProperty):
     """
-    `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
+    `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-managedinstancescaling.html>`__
     """
 
     props: PropsDictType = {
@@ -1930,7 +1930,7 @@ class ManagedInstanceScaling(AWSProperty):
 
 class PrefixAwareRoutingConfig(AWSProperty):
     """
-    `PrefixAwareRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig-prefixawareroutingconfig.html>`__
+    `PrefixAwareRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-prefixawareroutingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1941,7 +1941,7 @@ class PrefixAwareRoutingConfig(AWSProperty):
 
 class RoutingConfig(AWSProperty):
     """
-    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html>`__
+    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-routingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1952,7 +1952,7 @@ class RoutingConfig(AWSProperty):
 
 class ServerlessConfig(AWSProperty):
     """
-    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`__
+    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-serverlessconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1975,7 +1975,7 @@ class ProductionVariant(AWSProperty):
         "InferenceAmiVersion": (str, False),
         "InitialInstanceCount": (integer, False),
         "InitialVariantWeight": (double, False),
-        "InstancePools": ([InstancePools], False),
+        "InstancePools": ([InstancePool], False),
         "InstanceType": (str, False),
         "ManagedInstanceScaling": (ManagedInstanceScaling, False),
         "ModelDataDownloadTimeoutInSeconds": (integer, False),

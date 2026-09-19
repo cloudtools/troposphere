@@ -259,7 +259,7 @@ class RecordSetGroup(AWSObject):
 
 class RecordSetType(AWSObject):
     """
-    `RecordSetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html>`__
+    `RecordSetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordset.html>`__
     """
 
     resource_type = "AWS::Route53::RecordSet"
@@ -270,7 +270,6 @@ class RecordSetType(AWSObject):
         "Comment": (str, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),
-        "GeoProximityLocation": (GeoProximityLocation, False),
         "HealthCheckId": (str, False),
         "HostedZoneId": (str, False),
         "HostedZoneName": (str, False),

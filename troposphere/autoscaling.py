@@ -147,12 +147,23 @@ class MetricsCollection(AWSProperty):
     }
 
 
+class DistributionSegment(AWSProperty):
+    """
+    `DistributionSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-distributionsegment.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetCapacityTypes": ([str], True),
+    }
+
+
 class InstancesDistribution(AWSProperty):
     """
     `InstancesDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html>`__
     """
 
     props: PropsDictType = {
+        "DistributionSegments": ([DistributionSegment], False),
         "OnDemandAllocationStrategy": (str, False),
         "OnDemandBaseCapacity": (integer, False),
         "OnDemandPercentageAboveBaseCapacity": (integer, False),

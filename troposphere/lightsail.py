@@ -76,6 +76,19 @@ class Certificate(AWSObject):
     }
 
 
+class ContactMethod(AWSObject):
+    """
+    `ContactMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-contactmethod.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::ContactMethod"
+
+    props: PropsDictType = {
+        "ContactEndpoint": (str, True),
+        "Protocol": (str, True),
+    }
+
+
 class EnvironmentVariable(AWSProperty):
     """
     `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html>`__

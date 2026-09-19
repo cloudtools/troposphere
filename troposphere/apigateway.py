@@ -508,6 +508,7 @@ class RestApi(AWSObject):
         "Policy": (dict, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
+        "Version": (str, False),
     }
 
 

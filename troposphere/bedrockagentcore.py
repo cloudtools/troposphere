@@ -923,6 +923,16 @@ class GatewayProtocolConfiguration(AWSProperty):
     }
 
 
+class WafConfiguration(AWSProperty):
+    """
+    `WafConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-wafconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureMode": (str, False),
+    }
+
+
 class Gateway(AWSObject):
     """
     `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html>`__
@@ -943,6 +953,7 @@ class Gateway(AWSObject):
         "ProtocolType": (dict, False),
         "RoleArn": (str, True),
         "Tags": (dict, False),
+        "WafConfiguration": (WafConfiguration, False),
     }
 
 

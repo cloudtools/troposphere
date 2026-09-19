@@ -230,6 +230,16 @@ class HttpRequest(AWSProperty):
     }
 
 
+class VastResponse(AWSProperty):
+    """
+    `VastResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-vastresponse.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdSequencingMode": (str, False),
+    }
+
+
 class AdDecisionServerConfiguration(AWSProperty):
     """
     `AdDecisionServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfiguration.html>`__
@@ -237,6 +247,7 @@ class AdDecisionServerConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "HttpRequest": (HttpRequest, True),
+        "VastResponse": (VastResponse, False),
     }
 
 
@@ -321,12 +332,33 @@ class HlsConfiguration(AWSProperty):
     }
 
 
+class PreRollVastResponse(AWSProperty):
+    """
+    `PreRollVastResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-prerollvastresponse.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdSequencingMode": (str, False),
+    }
+
+
+class PreRollAdDecisionServerConfiguration(AWSProperty):
+    """
+    `PreRollAdDecisionServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-prerolladdecisionserverconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VastResponse": (PreRollVastResponse, False),
+    }
+
+
 class LivePreRollConfiguration(AWSProperty):
     """
     `LivePreRollConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "AdDecisionServerConfiguration": (PreRollAdDecisionServerConfiguration, False),
         "AdDecisionServerUrl": (str, False),
         "MaxDurationSeconds": (integer, False),
     }

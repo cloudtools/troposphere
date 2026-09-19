@@ -929,6 +929,33 @@ class FlowLog(AWSObject):
     }
 
 
+class StorageLocation(AWSProperty):
+    """
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-fpgaimage-storagelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "Key": (str, False),
+    }
+
+
+class FpgaImage(AWSObject):
+    """
+    `FpgaImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-fpgaimage.html>`__
+    """
+
+    resource_type = "AWS::EC2::FpgaImage"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InputStorageLocation": (StorageLocation, False),
+        "LogsStorageLocation": (StorageLocation, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class GatewayRouteTableAssociation(AWSObject):
     """
     `GatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html>`__
@@ -1508,6 +1535,19 @@ class IpPoolRouteTableAssociation(AWSObject):
     props: PropsDictType = {
         "PublicIpv4Pool": (str, True),
         "RouteTableId": (str, True),
+    }
+
+
+class IpamExternalResourceVerificationToken(AWSObject):
+    """
+    `IpamExternalResourceVerificationToken <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamexternalresourceverificationtoken.html>`__
+    """
+
+    resource_type = "AWS::EC2::IpamExternalResourceVerificationToken"
+
+    props: PropsDictType = {
+        "IpamId": (str, True),
+        "Tags": (Tags, False),
     }
 
 

@@ -207,6 +207,18 @@ class NielsenNaesIiNw(AWSProperty):
     }
 
 
+class NielsenNwOnly(AWSProperty):
+    """
+    `NielsenNwOnly <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsennwonly.html>`__
+    """
+
+    props: PropsDictType = {
+        "CheckDigitString": (str, False),
+        "Sid": (double, False),
+        "Timezone": (str, False),
+    }
+
+
 class NielsenWatermarksSettings(AWSProperty):
     """
     `NielsenWatermarksSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html>`__
@@ -216,6 +228,7 @@ class NielsenWatermarksSettings(AWSProperty):
         "NielsenCbetSettings": (NielsenCBET, False),
         "NielsenDistributionType": (str, False),
         "NielsenNaesIiNwSettings": (NielsenNaesIiNw, False),
+        "NielsenNwOnlySettings": (NielsenNwOnly, False),
     }
 
 
@@ -2587,6 +2600,7 @@ class OutputDestinationSettings(AWSProperty):
         "StreamName": (str, False),
         "Url": (str, False),
         "Username": (str, False),
+        "VirtualSourceAddress": (str, False),
     }
 
 

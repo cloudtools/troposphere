@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
+from .validators import boolean
 
 
 class MemberId(AWSProperty):
@@ -58,4 +59,114 @@ class GroupMembership(AWSObject):
         "GroupId": (str, True),
         "IdentityStoreId": (str, True),
         "MemberId": (MemberId, True),
+    }
+
+
+class AddressesItems(AWSProperty):
+    """
+    `AddressesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-addressesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Country": (str, False),
+        "Formatted": (str, False),
+        "Locality": (str, False),
+        "PostalCode": (str, False),
+        "Primary": (boolean, False),
+        "Region": (str, False),
+        "StreetAddress": (str, False),
+        "Type": (str, False),
+    }
+
+
+class EmailsItems(AWSProperty):
+    """
+    `EmailsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-emailsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Primary": (boolean, False),
+        "Type": (str, False),
+        "Value": (str, False),
+    }
+
+
+class Name(AWSProperty):
+    """
+    `Name <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-name.html>`__
+    """
+
+    props: PropsDictType = {
+        "FamilyName": (str, False),
+        "Formatted": (str, False),
+        "GivenName": (str, False),
+        "HonorificPrefix": (str, False),
+        "HonorificSuffix": (str, False),
+        "MiddleName": (str, False),
+    }
+
+
+class PhoneNumbersItems(AWSProperty):
+    """
+    `PhoneNumbersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-phonenumbersitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Primary": (boolean, False),
+        "Type": (str, False),
+        "Value": (str, False),
+    }
+
+
+class PhotosItems(AWSProperty):
+    """
+    `PhotosItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-photositems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Display": (str, False),
+        "Primary": (boolean, False),
+        "Type": (str, False),
+        "Value": (str, True),
+    }
+
+
+class RolesItems(AWSProperty):
+    """
+    `RolesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-identitystore-user-rolesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Primary": (boolean, False),
+        "Type": (str, False),
+        "Value": (str, False),
+    }
+
+
+class User(AWSObject):
+    """
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-user.html>`__
+    """
+
+    resource_type = "AWS::IdentityStore::User"
+
+    props: PropsDictType = {
+        "Addresses": ([AddressesItems], False),
+        "Birthdate": (str, False),
+        "DisplayName": (str, False),
+        "Emails": ([EmailsItems], False),
+        "IdentityStoreId": (str, True),
+        "Locale": (str, False),
+        "Name": (Name, False),
+        "NickName": (str, False),
+        "PhoneNumbers": ([PhoneNumbersItems], False),
+        "Photos": ([PhotosItems], False),
+        "PreferredLanguage": (str, False),
+        "ProfileUrl": (str, False),
+        "Roles": ([RolesItems], False),
+        "Timezone": (str, False),
+        "Title": (str, False),
+        "UserName": (str, False),
+        "UserType": (str, False),
+        "Website": (str, False),
     }
