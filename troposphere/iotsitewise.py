@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -94,6 +94,22 @@ class AccessPolicy(AWSObject):
         "AccessPolicyIdentity": (AccessPolicyIdentity, True),
         "AccessPolicyPermission": (str, True),
         "AccessPolicyResource": (AccessPolicyResource, True),
+    }
+
+
+class Application(AWSObject):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-application.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::Application"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "IdcInstanceArn": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "WorkspaceName": (str, True),
     }
 
 
@@ -429,6 +445,27 @@ class Dashboard(AWSObject):
     }
 
 
+class SessionConfig(AWSProperty):
+    """
+    `SessionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-sessionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SessionEndTime": (str, True),
+        "SessionStartTime": (str, True),
+    }
+
+
+class DatasetConfig(AWSProperty):
+    """
+    `DatasetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-datasetconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Session": (SessionConfig, False),
+    }
+
+
 class KendraSourceDetail(AWSProperty):
     """
     `KendraSourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html>`__
@@ -470,10 +507,13 @@ class Dataset(AWSObject):
     resource_type = "AWS::IoTSiteWise::Dataset"
 
     props: PropsDictType = {
+        "DatasetConfig": (DatasetConfig, False),
         "DatasetDescription": (str, False),
         "DatasetName": (str, True),
-        "DatasetSource": (DatasetSource, True),
+        "DatasetSource": (DatasetSource, False),
+        "DatasetType": (str, False),
         "Tags": (Tags, False),
+        "WorkspaceName": (str, False),
     }
 
 
@@ -710,6 +750,18 @@ class Task(AWSObject):
         "TaskConfiguration": (TaskConfiguration, True),
         "TaskName": (str, True),
         "WorkspaceName": (str, True),
+    }
+
+
+class TimeSeries(AWSObject):
+    """
+    `TimeSeries <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-timeseries.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::TimeSeries"
+
+    props: PropsDictType = {
+        "AssetId": (str, False),
     }
 
 

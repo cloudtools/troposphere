@@ -77,7 +77,7 @@ class AppInstanceBot(AWSObject):
 
 class ExpirationSettings(AWSProperty):
     """
-    `ExpirationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-appinstanceuser-expirationsettings.html>`__
+    `ExpirationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-channel-expirationsettings.html>`__
     """
 
     props: PropsDictType = {
@@ -99,6 +99,41 @@ class AppInstanceUser(AWSObject):
         "ExpirationSettings": (ExpirationSettings, False),
         "Metadata": (str, False),
         "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ElasticChannelConfiguration(AWSProperty):
+    """
+    `ElasticChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-channel-elasticchannelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumSubChannels": (integer, True),
+        "MinimumMembershipPercentage": (integer, True),
+        "TargetMembershipsPerSubChannel": (integer, True),
+    }
+
+
+class Channel(AWSObject):
+    """
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chime-channel.html>`__
+    """
+
+    resource_type = "AWS::Chime::Channel"
+
+    props: PropsDictType = {
+        "AppInstanceArn": (str, True),
+        "ChannelId": (str, False),
+        "ChimeBearer": (str, True),
+        "ElasticChannelConfiguration": (ElasticChannelConfiguration, False),
+        "ExpirationSettings": (ExpirationSettings, False),
+        "MemberArns": ([str], False),
+        "Metadata": (str, False),
+        "Mode": (str, False),
+        "ModeratorArns": ([str], False),
+        "Name": (str, True),
+        "Privacy": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -966,6 +1001,17 @@ class ChannelDefinition(AWSProperty):
     props: PropsDictType = {
         "ChannelId": (integer, True),
         "ParticipantRole": (str, False),
+    }
+
+
+class Identity(AWSProperty):
+    """
+    `Identity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-channel-identity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "Name": (str, False),
     }
 
 

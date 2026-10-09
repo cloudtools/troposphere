@@ -7,6 +7,163 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean, double, integer
+
+
+class ConnectorSsmCommandConfig(AWSProperty):
+    """
+    `ConnectorSsmCommandConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-connector-connectorssmcommandconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogGroupName": (str, False),
+        "CloudWatchOutputEnabled": (boolean, True),
+        "OutputS3BucketName": (str, False),
+        "S3OutputEnabled": (boolean, True),
+    }
+
+
+class Connector(AWSObject):
+    """
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-connector.html>`__
+    """
+
+    resource_type = "AWS::MGN::Connector"
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "SsmCommandConfig": (ConnectorSsmCommandConfig, False),
+        "SsmInstanceID": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Export(AWSObject):
+    """
+    `Export <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-export.html>`__
+    """
+
+    resource_type = "AWS::MGN::Export"
+
+    props: PropsDictType = {
+        "S3Bucket": (str, False),
+        "S3BucketOwner": (str, False),
+        "S3Key": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class S3BucketSource(AWSProperty):
+    """
+    `S3BucketSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-import-s3bucketsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Bucket": (str, True),
+        "S3BucketOwner": (str, False),
+        "S3Key": (str, True),
+    }
+
+
+class Import(AWSObject):
+    """
+    `Import <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-import.html>`__
+    """
+
+    resource_type = "AWS::MGN::Import"
+
+    props: PropsDictType = {
+        "S3BucketSource": (S3BucketSource, True),
+        "Tags": (Tags, False),
+    }
+
+
+class LaunchTemplateDiskConf(AWSProperty):
+    """
+    `LaunchTemplateDiskConf <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-launchtemplatediskconf.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iops": (integer, False),
+        "Throughput": (integer, False),
+        "VolumeType": (str, False),
+    }
+
+
+class Licensing(AWSProperty):
+    """
+    `Licensing <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-licensing.html>`__
+    """
+
+    props: PropsDictType = {
+        "OsByol": (boolean, False),
+    }
+
+
+class SsmExternalParameter(AWSProperty):
+    """
+    `SsmExternalParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-ssmexternalparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DynamicPath": (str, True),
+    }
+
+
+class SsmDocument(AWSProperty):
+    """
+    `SsmDocument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-ssmdocument.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionName": (str, True),
+        "ExternalParameters": (dict, False),
+        "MustSucceedForCutover": (boolean, False),
+        "Parameters": (dict, False),
+        "SsmDocumentName": (str, True),
+        "TimeoutSeconds": (integer, False),
+    }
+
+
+class PostLaunchActions(AWSProperty):
+    """
+    `PostLaunchActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-postlaunchactions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogGroupName": (str, False),
+        "Deployment": (str, False),
+        "S3LogBucket": (str, False),
+        "S3OutputKeyPrefix": (str, False),
+        "SsmDocuments": ([SsmDocument], False),
+    }
+
+
+class LaunchConfigurationTemplate(AWSObject):
+    """
+    `LaunchConfigurationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-launchconfigurationtemplate.html>`__
+    """
+
+    resource_type = "AWS::MGN::LaunchConfigurationTemplate"
+
+    props: PropsDictType = {
+        "AssociatePublicIpAddress": (boolean, False),
+        "BootMode": (str, False),
+        "CopyPrivateIp": (boolean, False),
+        "CopyTags": (boolean, False),
+        "EnableMapAutoTagging": (boolean, False),
+        "EnableParametersEncryption": (boolean, False),
+        "LargeVolumeConf": (LaunchTemplateDiskConf, False),
+        "LaunchDisposition": (str, False),
+        "Licensing": (Licensing, False),
+        "MapAutoTaggingMpeID": (str, False),
+        "ParametersEncryptionKey": (str, False),
+        "PostLaunchActions": (PostLaunchActions, False),
+        "SmallVolumeConf": (LaunchTemplateDiskConf, False),
+        "SmallVolumeMaxSize": (integer, False),
+        "Tags": (Tags, False),
+        "TargetInstanceTypeRightSizingMethod": (str, False),
+    }
 
 
 class SourceS3Configuration(AWSProperty):
@@ -72,4 +229,258 @@ class NetworkMigrationDefinition(AWSObject):
         "TargetDeployment": (str, False),
         "TargetNetwork": (TargetNetwork, True),
         "TargetS3Configuration": (TargetS3Configuration, True),
+    }
+
+
+class SourceServer(AWSObject):
+    """
+    `SourceServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-sourceserver.html>`__
+    """
+
+    resource_type = "AWS::MGN::SourceServer"
+
+    props: PropsDictType = {}
+
+
+class CPU(AWSProperty):
+    """
+    `CPU <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-cpu.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cores": (double, False),
+        "ModelName": (str, False),
+    }
+
+
+class DataReplicationInfoReplicatedDisk(AWSProperty):
+    """
+    `DataReplicationInfoReplicatedDisk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-datareplicationinforeplicateddisk.html>`__
+    """
+
+    props: PropsDictType = {
+        "BackloggedStorageBytes": (double, False),
+        "DeviceName": (str, False),
+        "ReplicatedStorageBytes": (double, False),
+        "RescannedStorageBytes": (double, False),
+        "TotalStorageBytes": (double, False),
+    }
+
+
+class DataReplicationInitiationStep(AWSProperty):
+    """
+    `DataReplicationInitiationStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-datareplicationinitiationstep.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Status": (str, False),
+    }
+
+
+class DataReplicationInitiation(AWSProperty):
+    """
+    `DataReplicationInitiation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-datareplicationinitiation.html>`__
+    """
+
+    props: PropsDictType = {
+        "StartDateTime": (str, False),
+        "Steps": ([DataReplicationInitiationStep], False),
+    }
+
+
+class DataReplicationInfo(AWSProperty):
+    """
+    `DataReplicationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-datareplicationinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataReplicationInitiation": (DataReplicationInitiation, False),
+        "DataReplicationState": (str, False),
+        "LagDuration": (str, False),
+        "LastSnapshotDateTime": (str, False),
+        "ReplicatedDisks": ([DataReplicationInfoReplicatedDisk], False),
+    }
+
+
+class Disk(AWSProperty):
+    """
+    `Disk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-disk.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bytes": (double, False),
+        "DeviceName": (str, False),
+    }
+
+
+class ExportTaskSummary(AWSProperty):
+    """
+    `ExportTaskSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-export-exporttasksummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationsCount": (integer, False),
+        "ServersCount": (integer, False),
+        "WavesCount": (integer, False),
+    }
+
+
+class IdentificationHints(AWSProperty):
+    """
+    `IdentificationHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-identificationhints.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsInstanceID": (str, False),
+        "Fqdn": (str, False),
+        "Hostname": (str, False),
+        "VmPath": (str, False),
+        "VmWareUuid": (str, False),
+    }
+
+
+class ImportTaskSummaryCategory(AWSProperty):
+    """
+    `ImportTaskSummaryCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-import-importtasksummarycategory.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreatedCount": (integer, False),
+        "ModifiedCount": (integer, False),
+    }
+
+
+class ImportTaskSummary(AWSProperty):
+    """
+    `ImportTaskSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-import-importtasksummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "Applications": (ImportTaskSummaryCategory, False),
+        "Servers": (ImportTaskSummaryCategory, False),
+        "Waves": (ImportTaskSummaryCategory, False),
+    }
+
+
+class LaunchedInstance(AWSProperty):
+    """
+    `LaunchedInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-launchedinstance.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ec2InstanceID": (str, False),
+        "FirstBoot": (str, False),
+        "JobID": (str, False),
+    }
+
+
+class LifeCycleEvent(AWSProperty):
+    """
+    `LifeCycleEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-lifecycleevent.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiCallDateTime": (str, False),
+        "JobID": (str, False),
+    }
+
+
+class LifeCycleEventNoJob(AWSProperty):
+    """
+    `LifeCycleEventNoJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-lifecycleeventnojob.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiCallDateTime": (str, False),
+    }
+
+
+class LifeCycleLastCutover(AWSProperty):
+    """
+    `LifeCycleLastCutover <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-lifecyclelastcutover.html>`__
+    """
+
+    props: PropsDictType = {
+        "Finalized": (LifeCycleEventNoJob, False),
+        "Initiated": (LifeCycleEvent, False),
+        "Reverted": (LifeCycleEventNoJob, False),
+    }
+
+
+class LifeCycleLastTest(AWSProperty):
+    """
+    `LifeCycleLastTest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-lifecyclelasttest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Finalized": (LifeCycleEventNoJob, False),
+        "Initiated": (LifeCycleEvent, False),
+        "Reverted": (LifeCycleEventNoJob, False),
+    }
+
+
+class LifeCycle(AWSProperty):
+    """
+    `LifeCycle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-lifecycle.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddedToServiceDateTime": (str, False),
+        "ElapsedReplicationDuration": (str, False),
+        "FirstByteDateTime": (str, False),
+        "LastCutover": (LifeCycleLastCutover, False),
+        "LastSeenByServiceDateTime": (str, False),
+        "LastTest": (LifeCycleLastTest, False),
+        "State": (str, False),
+    }
+
+
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ips": ([str], False),
+        "IsPrimary": (boolean, False),
+        "MacAddress": (str, False),
+    }
+
+
+class OS(AWSProperty):
+    """
+    `OS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-os.html>`__
+    """
+
+    props: PropsDictType = {
+        "FullString": (str, False),
+    }
+
+
+class SourceProperties(AWSProperty):
+    """
+    `SourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-sourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpus": ([CPU], False),
+        "Disks": ([Disk], False),
+        "IdentificationHints": (IdentificationHints, False),
+        "LastUpdatedDateTime": (str, False),
+        "NetworkInterfaces": ([NetworkInterface], False),
+        "Os": (OS, False),
+        "RamBytes": (double, False),
+        "RecommendedInstanceType": (str, False),
+    }
+
+
+class SourceServerConnectorAction(AWSProperty):
+    """
+    `SourceServerConnectorAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-sourceserver-sourceserverconnectoraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectorArn": (str, False),
+        "CredentialsSecretArn": (str, False),
     }

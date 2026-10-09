@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -886,6 +886,43 @@ class DistributionTenant(AWSObject):
         "Name": (str, True),
         "Parameters": ([Parameter], False),
         "Tags": (Tags, False),
+    }
+
+
+class EncryptionEntity(AWSProperty):
+    """
+    `EncryptionEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionprofile-encryptionentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldPatterns": ([str], True),
+        "ProviderId": (str, True),
+        "PublicKeyId": (str, True),
+    }
+
+
+class FieldLevelEncryptionProfileConfig(AWSProperty):
+    """
+    `FieldLevelEncryptionProfileConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionprofile-fieldlevelencryptionprofileconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CallerReference": (str, True),
+        "Comment": (str, False),
+        "EncryptionEntities": ([EncryptionEntity], True),
+        "Name": (str, True),
+    }
+
+
+class FieldLevelEncryptionProfile(AWSObject):
+    """
+    `FieldLevelEncryptionProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-fieldlevelencryptionprofile.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::FieldLevelEncryptionProfile"
+
+    props: PropsDictType = {
+        "FieldLevelEncryptionProfileConfig": (FieldLevelEncryptionProfileConfig, True),
     }
 
 

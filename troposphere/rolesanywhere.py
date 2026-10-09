@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -68,6 +68,16 @@ class Profile(AWSObject):
     }
 
 
+class Subject(AWSObject):
+    """
+    `Subject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-subject.html>`__
+    """
+
+    resource_type = "AWS::RolesAnywhere::Subject"
+
+    props: PropsDictType = {}
+
+
 class NotificationSetting(AWSProperty):
     """
     `NotificationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-notificationsetting.html>`__
@@ -116,4 +126,30 @@ class TrustAnchor(AWSObject):
         "NotificationSettings": ([NotificationSetting], False),
         "Source": (Source, True),
         "Tags": (Tags, False),
+    }
+
+
+class CredentialSummary(AWSProperty):
+    """
+    `CredentialSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-subject-credentialsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "Failed": (boolean, False),
+        "Issuer": (str, False),
+        "SeenAt": (str, False),
+        "SerialNumber": (str, False),
+        "X509CertificateData": (str, False),
+    }
+
+
+class InstanceProperty(AWSProperty):
+    """
+    `InstanceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-subject-instanceproperty.html>`__
+    """
+
+    props: PropsDictType = {
+        "Failed": (boolean, False),
+        "Properties": (dict, False),
+        "SeenAt": (str, False),
     }

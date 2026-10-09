@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -223,6 +223,20 @@ class Registration(AWSObject):
     }
 
 
+class RegistrationAttachment(AWSObject):
+    """
+    `RegistrationAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-registrationattachment.html>`__
+    """
+
+    resource_type = "AWS::SMSVOICE::RegistrationAttachment"
+
+    props: PropsDictType = {
+        "AttachmentBody": (str, False),
+        "AttachmentUrl": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ResourcePolicy(AWSObject):
     """
     `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-resourcepolicy.html>`__
@@ -247,5 +261,18 @@ class SenderId(AWSObject):
         "DeletionProtectionEnabled": (boolean, False),
         "IsoCountryCode": (str, True),
         "SenderId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class VerifiedDestinationNumber(AWSObject):
+    """
+    `VerifiedDestinationNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-verifieddestinationnumber.html>`__
+    """
+
+    resource_type = "AWS::SMSVOICE::VerifiedDestinationNumber"
+
+    props: PropsDictType = {
+        "DestinationPhoneNumber": (str, True),
         "Tags": (Tags, False),
     }

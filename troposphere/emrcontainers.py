@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -111,7 +111,7 @@ class Endpoint(AWSObject):
 
 class SparkSqlJobDriver(AWSProperty):
     """
-    `SparkSqlJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-sparksqljobdriver.html>`__
+    `SparkSqlJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-sparksqljobdriver.html>`__
     """
 
     props: PropsDictType = {
@@ -122,7 +122,7 @@ class SparkSqlJobDriver(AWSProperty):
 
 class SparkSubmitJobDriver(AWSProperty):
     """
-    `SparkSubmitJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-sparksubmitjobdriver.html>`__
+    `SparkSubmitJobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-sparksubmitjobdriver.html>`__
     """
 
     props: PropsDictType = {
@@ -134,7 +134,7 @@ class SparkSubmitJobDriver(AWSProperty):
 
 class JobDriver(AWSProperty):
     """
-    `JobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-jobdriver.html>`__
+    `JobDriver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-jobdriver.html>`__
     """
 
     props: PropsDictType = {
@@ -145,7 +145,7 @@ class JobDriver(AWSProperty):
 
 class Configuration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobrun-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -192,6 +192,93 @@ class JobRun(AWSObject):
         "RetryPolicyConfiguration": (RetryPolicyConfiguration, False),
         "Tags": (Tags, False),
         "VirtualClusterId": (str, False),
+    }
+
+
+class ParametricCloudWatchMonitoringConfiguration(AWSProperty):
+    """
+    `ParametricCloudWatchMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-parametriccloudwatchmonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupName": (str, False),
+        "LogStreamNamePrefix": (str, False),
+    }
+
+
+class ParametricS3MonitoringConfiguration(AWSProperty):
+    """
+    `ParametricS3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-parametrics3monitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogUri": (str, False),
+    }
+
+
+class ParametricMonitoringConfiguration(AWSProperty):
+    """
+    `ParametricMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-parametricmonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchMonitoringConfiguration": (
+            ParametricCloudWatchMonitoringConfiguration,
+            False,
+        ),
+        "PersistentAppUI": (str, False),
+        "S3MonitoringConfiguration": (ParametricS3MonitoringConfiguration, False),
+    }
+
+
+class ParametricConfigurationOverrides(AWSProperty):
+    """
+    `ParametricConfigurationOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-parametricconfigurationoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationConfiguration": ([Configuration], False),
+        "MonitoringConfiguration": (ParametricMonitoringConfiguration, False),
+    }
+
+
+class TemplateParameterConfiguration(AWSProperty):
+    """
+    `TemplateParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-templateparameterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (str, False),
+        "Type": (str, False),
+    }
+
+
+class JobTemplateData(AWSProperty):
+    """
+    `JobTemplateData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrcontainers-jobtemplate-jobtemplatedata.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationOverrides": (ParametricConfigurationOverrides, False),
+        "ExecutionRoleArn": (str, True),
+        "JobDriver": (JobDriver, True),
+        "JobTags": (dict, False),
+        "ParameterConfiguration": (dict, False),
+        "ReleaseLabel": (str, True),
+    }
+
+
+class JobTemplate(AWSObject):
+    """
+    `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-jobtemplate.html>`__
+    """
+
+    resource_type = "AWS::EMRContainers::JobTemplate"
+
+    props: PropsDictType = {
+        "JobTemplateData": (JobTemplateData, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 

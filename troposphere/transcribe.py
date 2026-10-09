@@ -239,6 +239,21 @@ class MedicalTranscriptionJob(AWSObject):
     }
 
 
+class MedicalVocabulary(AWSObject):
+    """
+    `MedicalVocabulary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transcribe-medicalvocabulary.html>`__
+    """
+
+    resource_type = "AWS::Transcribe::MedicalVocabulary"
+
+    props: PropsDictType = {
+        "LanguageCode": (str, True),
+        "Tags": (Tags, False),
+        "VocabularyFileUri": (str, False),
+        "VocabularyName": (str, True),
+    }
+
+
 class ContentRedaction(AWSProperty):
     """
     `ContentRedaction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transcribe-transcriptionjob-contentredaction.html>`__

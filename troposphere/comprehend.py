@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -39,12 +39,15 @@ class DocumentClassificationJob(AWSObject):
 
 class AugmentedManifestsListItem(AWSProperty):
     """
-    `AugmentedManifestsListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-documentclassifier-augmentedmanifestslistitem.html>`__
+    `AugmentedManifestsListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entityrecognizer-augmentedmanifestslistitem.html>`__
     """
 
     props: PropsDictType = {
+        "AnnotationDataS3Uri": (str, False),
         "AttributeNames": ([str], True),
+        "DocumentType": (str, False),
         "S3Uri": (str, True),
+        "SourceDocumentsS3Uri": (str, False),
         "Split": (str, False),
     }
 
@@ -181,6 +184,85 @@ class EntitiesDetectionJob(AWSObject):
     }
 
 
+class EntityRecognizerAnnotations(AWSProperty):
+    """
+    `EntityRecognizerAnnotations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entityrecognizer-entityrecognizerannotations.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+        "TestS3Uri": (str, False),
+    }
+
+
+class EntityRecognizerDocuments(AWSProperty):
+    """
+    `EntityRecognizerDocuments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entityrecognizer-entityrecognizerdocuments.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputFormat": (str, False),
+        "S3Uri": (str, True),
+        "TestS3Uri": (str, False),
+    }
+
+
+class EntityRecognizerEntityList(AWSProperty):
+    """
+    `EntityRecognizerEntityList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entityrecognizer-entityrecognizerentitylist.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, True),
+    }
+
+
+class EntityTypesListItem(AWSProperty):
+    """
+    `EntityTypesListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entitytypeslistitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+    }
+
+
+class EntityRecognizerInputDataConfig(AWSProperty):
+    """
+    `EntityRecognizerInputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-entityrecognizer-entityrecognizerinputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Annotations": (EntityRecognizerAnnotations, False),
+        "AugmentedManifests": ([AugmentedManifestsListItem], False),
+        "DataFormat": (str, False),
+        "Documents": (EntityRecognizerDocuments, False),
+        "EntityList": (EntityRecognizerEntityList, False),
+        "EntityTypes": ([EntityTypesListItem], True),
+    }
+
+
+class EntityRecognizer(AWSObject):
+    """
+    `EntityRecognizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-entityrecognizer.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::EntityRecognizer"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "InputDataConfig": (EntityRecognizerInputDataConfig, True),
+        "LanguageCode": (str, True),
+        "ModelKmsKeyId": (str, False),
+        "ModelPolicy": (str, False),
+        "RecognizerName": (str, True),
+        "Tags": (Tags, False),
+        "VersionName": (str, False),
+        "VolumeKmsKeyId": (str, False),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
 class DataSecurityConfig(AWSProperty):
     """
     `DataSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>`__
@@ -202,16 +284,6 @@ class DocumentClassificationConfig(AWSProperty):
     props: PropsDictType = {
         "Labels": ([str], False),
         "Mode": (str, True),
-    }
-
-
-class EntityTypesListItem(AWSProperty):
-    """
-    `EntityTypesListItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-entitytypeslistitem.html>`__
-    """
-
-    props: PropsDictType = {
-        "Type": (str, True),
     }
 
 

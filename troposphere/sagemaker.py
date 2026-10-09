@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -86,6 +86,110 @@ class AIBenchmarkJob(AWSObject):
         "BenchmarkTarget": (AIBenchmarkTarget, True),
         "NetworkConfig": (AIBenchmarkNetworkConfig, False),
         "OutputConfig": (AIBenchmarkOutputConfig, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AIModelSourceS3(AWSProperty):
+    """
+    `AIModelSourceS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-aimodelsources3.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, False),
+    }
+
+
+class AIModelSource(AWSProperty):
+    """
+    `AIModelSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-aimodelsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (AIModelSourceS3, True),
+    }
+
+
+class AICapacityReservationConfig(AWSProperty):
+    """
+    `AICapacityReservationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-aicapacityreservationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationPreference": (str, False),
+        "MlReservationArns": ([str], False),
+    }
+
+
+class AIRecommendationComputeSpec(AWSProperty):
+    """
+    `AIRecommendationComputeSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-airecommendationcomputespec.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationConfig": (AICapacityReservationConfig, False),
+        "InstanceTypes": ([str], False),
+    }
+
+
+class AIRecommendationInferenceSpecification(AWSProperty):
+    """
+    `AIRecommendationInferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-airecommendationinferencespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Framework": (str, False),
+    }
+
+
+class AIRecommendationOutputConfig(AWSProperty):
+    """
+    `AIRecommendationOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-airecommendationoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelPackageGroupIdentifier": (str, False),
+        "S3OutputLocation": (str, True),
+    }
+
+
+class AIRecommendationConstraint(AWSProperty):
+    """
+    `AIRecommendationConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-airecommendationconstraint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metric": (str, True),
+    }
+
+
+class AIRecommendationPerformanceTarget(AWSProperty):
+    """
+    `AIRecommendationPerformanceTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-airecommendationjob-airecommendationperformancetarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraints": ([AIRecommendationConstraint], True),
+    }
+
+
+class AIRecommendationJob(AWSObject):
+    """
+    `AIRecommendationJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-airecommendationjob.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::AIRecommendationJob"
+
+    props: PropsDictType = {
+        "AIRecommendationJobName": (str, True),
+        "AIWorkloadConfigIdentifier": (str, True),
+        "ComputeSpec": (AIRecommendationComputeSpec, False),
+        "InferenceSpecification": (AIRecommendationInferenceSpecification, False),
+        "ModelSource": (AIModelSource, True),
+        "OptimizeModel": (boolean, False),
+        "OutputConfig": (AIRecommendationOutputConfig, True),
+        "PerformanceTarget": (AIRecommendationPerformanceTarget, True),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
     }
@@ -1280,6 +1384,45 @@ class Cluster(AWSObject):
         "Tags": (Tags, False),
         "TieredStorageConfig": (TieredStorageConfig, False),
         "VpcConfig": (VpcConfig, False),
+    }
+
+
+class PriorityClass(AWSProperty):
+    """
+    `PriorityClass <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-clusterschedulerconfig-priorityclass.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Weight": (integer, True),
+    }
+
+
+class SchedulerConfig(AWSProperty):
+    """
+    `SchedulerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-clusterschedulerconfig-schedulerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FairShare": (str, False),
+        "IdleResourceSharing": (str, False),
+        "PriorityClasses": ([PriorityClass], False),
+    }
+
+
+class ClusterSchedulerConfig(AWSObject):
+    """
+    `ClusterSchedulerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-clusterschedulerconfig.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ClusterSchedulerConfig"
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "SchedulerConfig": (SchedulerConfig, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -4436,6 +4579,7 @@ class NotebookInstanceLifecycleConfig(AWSObject):
         "NotebookInstanceLifecycleConfigName": (str, False),
         "OnCreate": ([NotebookInstanceLifecycleHook], False),
         "OnStart": ([NotebookInstanceLifecycleHook], False),
+        "Tags": (Tags, False),
     }
 
 
@@ -5483,8 +5627,8 @@ class Workteam(AWSObject):
     resource_type = "AWS::SageMaker::Workteam"
 
     props: PropsDictType = {
-        "Description": (str, False),
-        "MemberDefinitions": ([MemberDefinition], False),
+        "Description": (str, True),
+        "MemberDefinitions": ([MemberDefinition], True),
         "NotificationConfiguration": (NotificationConfiguration, False),
         "Tags": (Tags, False),
         "WorkforceName": (str, False),

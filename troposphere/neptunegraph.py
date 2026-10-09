@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -85,9 +85,9 @@ class ImportOptions(AWSProperty):
     }
 
 
-class ImportTask(AWSProperty):
+class ImportTaskProperty(AWSProperty):
     """
-    `ImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-importtask.html>`__
+    `ImportTaskProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptunegraph-graph-importtask.html>`__
     """
 
     props: PropsDictType = {
@@ -123,7 +123,7 @@ class Graph(AWSObject):
     props: PropsDictType = {
         "DeletionProtection": (boolean, False),
         "GraphName": (str, False),
-        "ImportTask": (ImportTask, False),
+        "ImportTask": (ImportTaskProperty, False),
         "KmsKeyIdentifier": (str, False),
         "ProvisionedMemory": (integer, True),
         "PublicConnectivity": (boolean, False),
@@ -144,6 +144,22 @@ class GraphSnapshot(AWSObject):
         "GraphIdentifier": (str, True),
         "SnapshotName": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ImportTask(AWSObject):
+    """
+    `ImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-importtask.html>`__
+    """
+
+    resource_type = "AWS::NeptuneGraph::ImportTask"
+
+    props: PropsDictType = {
+        "Format": (str, False),
+        "GraphIdentifier": (str, True),
+        "ParquetType": (str, False),
+        "RoleArn": (str, True),
+        "Source": (str, True),
     }
 
 

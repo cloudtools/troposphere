@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -548,6 +548,57 @@ class StorageVirtualMachine(AWSObject):
         "RootVolumeSecurityStyle": (str, False),
         "SvmAdminPassword": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class CompletionReport(AWSProperty):
+    """
+    `CompletionReport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-task-completionreport.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "Format": (str, False),
+        "Path": (str, False),
+        "Scope": (str, False),
+    }
+
+
+class DurationSinceLastAccess(AWSProperty):
+    """
+    `DurationSinceLastAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-task-durationsincelastaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, False),
+        "Value": (integer, False),
+    }
+
+
+class ReleaseConfiguration(AWSProperty):
+    """
+    `ReleaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-task-releaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationSinceLastAccess": (DurationSinceLastAccess, False),
+    }
+
+
+class Task(AWSObject):
+    """
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-task.html>`__
+    """
+
+    resource_type = "AWS::FSx::Task"
+
+    props: PropsDictType = {
+        "FileSystemId": (str, False),
+        "Paths": ([str], False),
+        "ReleaseConfiguration": (ReleaseConfiguration, False),
+        "Report": (CompletionReport, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }
 
 

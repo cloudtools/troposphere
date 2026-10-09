@@ -84,7 +84,7 @@ class CostAndUsageExpression(AWSProperty):
 
 class DateTimeValue(AWSProperty):
     """
-    `DateTimeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-dashboard-datetimevalue.html>`__
+    `DateTimeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-scheduledreport-datetimevalue.html>`__
     """
 
     props: PropsDictType = {
@@ -95,7 +95,7 @@ class DateTimeValue(AWSProperty):
 
 class DateTimeRange(AWSProperty):
     """
-    `DateTimeRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-dashboard-datetimerange.html>`__
+    `DateTimeRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-scheduledreport-datetimerange.html>`__
     """
 
     props: PropsDictType = {
@@ -248,4 +248,58 @@ class Dashboard(AWSObject):
         "Name": (str, True),
         "Tags": (Tags, False),
         "Widgets": ([Widget], True),
+    }
+
+
+class SchedulePeriod(AWSProperty):
+    """
+    `SchedulePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-scheduledreport-scheduleperiod.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, False),
+        "StartTime": (str, False),
+    }
+
+
+class ScheduleConfig(AWSProperty):
+    """
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-scheduledreport-scheduleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScheduleExpression": (str, False),
+        "ScheduleExpressionTimeZone": (str, False),
+        "SchedulePeriod": (SchedulePeriod, False),
+        "State": (str, False),
+    }
+
+
+class ScheduledReport(AWSObject):
+    """
+    `ScheduledReport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcm-scheduledreport.html>`__
+    """
+
+    resource_type = "AWS::BCM::ScheduledReport"
+
+    props: PropsDictType = {
+        "DashboardArn": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "ScheduleConfig": (ScheduleConfig, True),
+        "ScheduledReportExecutionRoleArn": (str, True),
+        "Tags": (Tags, False),
+        "WidgetDateRangeOverride": (DateTimeRange, False),
+        "WidgetIds": ([str], False),
+    }
+
+
+class HealthStatus(AWSProperty):
+    """
+    `HealthStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcm-scheduledreport-healthstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "LastRefreshedAt": (str, False),
+        "StatusCode": (str, True),
     }

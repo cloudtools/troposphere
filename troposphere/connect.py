@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -350,6 +350,17 @@ class EvaluationFormItemEnablementConfiguration(AWSProperty):
     }
 
 
+class EvaluationFormMetricConfiguration(AWSProperty):
+    """
+    `EvaluationFormMetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmetricconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricName": (str, True),
+        "MetricType": (str, True),
+    }
+
+
 class EvaluationFormScoreThreshold(AWSProperty):
     """
     `EvaluationFormScoreThreshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html>`__
@@ -629,6 +640,7 @@ class EvaluationFormQuestion(AWSProperty):
     props: PropsDictType = {
         "Enablement": (EvaluationFormItemEnablementConfiguration, False),
         "Instructions": (str, False),
+        "MetricConfiguration": (EvaluationFormMetricConfiguration, False),
         "NotApplicableEnabled": (boolean, False),
         "QuestionType": (str, True),
         "QuestionTypeProperties": (EvaluationFormQuestionTypeProperties, False),
@@ -748,6 +760,7 @@ class EvaluationForm(AWSObject):
     resource_type = "AWS::Connect::EvaluationForm"
 
     props: PropsDictType = {
+        "AIVersion": (str, False),
         "AutoEvaluationConfiguration": (AutoEvaluationConfiguration, False),
         "Description": (str, False),
         "InstanceArn": (str, True),
@@ -2122,6 +2135,22 @@ class ViewVersion(AWSObject):
         "VersionDescription": (str, False),
         "ViewArn": (str, True),
         "ViewContentSha256": (str, False),
+    }
+
+
+class Vocabulary(AWSObject):
+    """
+    `Vocabulary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-vocabulary.html>`__
+    """
+
+    resource_type = "AWS::Connect::Vocabulary"
+
+    props: PropsDictType = {
+        "Content": (str, True),
+        "InstanceId": (str, True),
+        "LanguageCode": (str, True),
+        "Tags": (Tags, False),
+        "VocabularyName": (str, True),
     }
 
 

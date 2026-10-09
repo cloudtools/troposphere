@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -224,6 +224,21 @@ class EventTracker(AWSObject):
 
     props: PropsDictType = {
         "DatasetGroupArn": (str, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Filter(AWSObject):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-filter.html>`__
+    """
+
+    resource_type = "AWS::Personalize::Filter"
+
+    props: PropsDictType = {
+        "DatasetGroupArn": (str, True),
+        "FilterExpression": (str, True),
         "Name": (str, True),
         "Tags": (Tags, False),
     }

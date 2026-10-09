@@ -45,3 +45,48 @@ class Monitor(AWSObject):
         "ScopeArn": (str, False),
         "Tags": (Tags, False),
     }
+
+
+class TargetId(AWSProperty):
+    """
+    `TargetId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkflowmonitor-scope-targetid.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+    }
+
+
+class TargetIdentifier(AWSProperty):
+    """
+    `TargetIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkflowmonitor-scope-targetidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetId": (TargetId, True),
+        "TargetType": (str, True),
+    }
+
+
+class TargetResource(AWSProperty):
+    """
+    `TargetResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkflowmonitor-scope-targetresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, True),
+        "TargetIdentifier": (TargetIdentifier, True),
+    }
+
+
+class Scope(AWSObject):
+    """
+    `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkflowmonitor-scope.html>`__
+    """
+
+    resource_type = "AWS::NetworkFlowMonitor::Scope"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+        "Targets": ([TargetResource], True),
+    }

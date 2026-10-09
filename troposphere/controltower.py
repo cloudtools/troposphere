@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,6 +7,16 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+
+
+class Baseline(AWSObject):
+    """
+    `Baseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-baseline.html>`__
+    """
+
+    resource_type = "AWS::ControlTower::Baseline"
+
+    props: PropsDictType = {}
 
 
 class Parameter(AWSProperty):

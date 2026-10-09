@@ -98,6 +98,26 @@ class TapePool(AWSObject):
     }
 
 
+class Volume(AWSObject):
+    """
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-storagegateway-volume.html>`__
+    """
+
+    resource_type = "AWS::StorageGateway::Volume"
+
+    props: PropsDictType = {
+        "GatewayARN": (str, True),
+        "KMSEncrypted": (boolean, False),
+        "KMSKey": (str, False),
+        "NetworkInterfaceId": (str, True),
+        "SnapshotId": (str, False),
+        "SourceVolumeARN": (str, False),
+        "Tags": (Tags, False),
+        "TargetName": (str, True),
+        "VolumeSizeInBytes": (double, True),
+    }
+
+
 class DeviceiSCSIAttributes(AWSProperty):
     """
     `DeviceiSCSIAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-storagegateway-device-deviceiscsiattributes.html>`__

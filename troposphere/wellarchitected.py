@@ -7,6 +7,69 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean
+
+
+class AgentContext(AWSObject):
+    """
+    `AgentContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wellarchitected-agentcontext.html>`__
+    """
+
+    resource_type = "AWS::WellArchitected::AgentContext"
+
+    props: PropsDictType = {
+        "Content": (dict, True),
+        "ContextType": (str, True),
+        "ProfileArn": (str, True),
+        "Title": (str, True),
+    }
+
+
+class AgentGoal(AWSObject):
+    """
+    `AgentGoal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wellarchitected-agentgoal.html>`__
+    """
+
+    resource_type = "AWS::WellArchitected::AgentGoal"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Pillars": ([str], True),
+        "ProfileArn": (str, True),
+        "Title": (str, True),
+    }
+
+
+class AggregationConfiguration(AWSProperty):
+    """
+    `AggregationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wellarchitected-agentprofile-aggregationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessRoleArn": (str, True),
+        "AccountId": (str, True),
+        "Regions": ([str], True),
+    }
+
+
+class AgentProfile(AWSObject):
+    """
+    `AgentProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wellarchitected-agentprofile.html>`__
+    """
+
+    resource_type = "AWS::WellArchitected::AgentProfile"
+
+    props: PropsDictType = {
+        "AggregationConfiguration": ([AggregationConfiguration], True),
+        "BusinessOverview": (str, False),
+        "DeletionProtection": (boolean, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "ExecutionRoleArn": (str, True),
+        "Name": (str, True),
+        "Pillars": ([str], True),
+        "Tags": (Tags, False),
+    }
 
 
 class TagsItems(AWSProperty):

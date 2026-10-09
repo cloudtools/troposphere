@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -47,6 +47,16 @@ class OperatorApp(AWSProperty):
     }
 
 
+class Preferences(AWSProperty):
+    """
+    `Preferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-preferences.html>`__
+    """
+
+    props: PropsDictType = {
+        "ElevatedActionsEnabled": (boolean, False),
+    }
+
+
 class AgentSpace(AWSObject):
     """
     `AgentSpace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html>`__
@@ -60,6 +70,7 @@ class AgentSpace(AWSObject):
         "Locale": (str, False),
         "Name": (str, True),
         "OperatorApp": (OperatorApp, False),
+        "Preferences": (Preferences, False),
         "Tags": (Tags, False),
     }
 

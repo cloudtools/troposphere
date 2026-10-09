@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -219,6 +219,16 @@ class LogDeliveryParameters(AWSProperty):
     }
 
 
+class MskMonitoringParameters(AWSProperty):
+    """
+    `MskMonitoringParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-mskmonitoringparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnhancedMonitoring": (str, False),
+    }
+
+
 class VPCFlowLogParameters(AWSProperty):
     """
     `VPCFlowLogParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-vpcflowlogparameters.html>`__
@@ -332,6 +342,7 @@ class TelemetryDestinationConfiguration(AWSProperty):
         "ELBLoadBalancerLoggingParameters": (ELBLoadBalancerLoggingParameters, False),
         "KmsKeyArn": (str, False),
         "LogDeliveryParameters": (LogDeliveryParameters, False),
+        "MskMonitoringParameters": (MskMonitoringParameters, False),
         "RetentionInDays": (integer, False),
         "VPCFlowLogParameters": (VPCFlowLogParameters, False),
         "WAFLoggingParameters": (WAFLoggingParameters, False),

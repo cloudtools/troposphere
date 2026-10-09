@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -102,6 +102,7 @@ class Queue(AWSObject):
     props: PropsDictType = {
         "ConcurrentJobs": (integer, False),
         "Description": (str, False),
+        "MaximumConcurrentFeeds": (integer, False),
         "Name": (str, False),
         "PricingPlan": (str, False),
         "Status": (str, False),

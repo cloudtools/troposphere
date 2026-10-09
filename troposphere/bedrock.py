@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -1033,6 +1033,49 @@ class MediaExtractionConfiguration(AWSProperty):
     }
 
 
+class DayOfMonth(AWSProperty):
+    """
+    `DayOfMonth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-dayofmonth.html>`__
+    """
+
+    props: PropsDictType = {
+        "DayNumber": (integer, False),
+        "LastDayOfMonth": (dict, False),
+    }
+
+
+class MonthlySchedule(AWSProperty):
+    """
+    `MonthlySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-monthlyschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "DayOfMonth": (DayOfMonth, True),
+    }
+
+
+class WeeklySchedule(AWSProperty):
+    """
+    `WeeklySchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-weeklyschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "DayOfWeek": (str, True),
+    }
+
+
+class SyncSchedule(AWSProperty):
+    """
+    `SyncSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-syncschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Daily": (dict, False),
+        "Monthly": (MonthlySchedule, False),
+        "Weekly": (WeeklySchedule, False),
+    }
+
+
 class ManagedKnowledgeBaseConnectorConfiguration(AWSProperty):
     """
     `ManagedKnowledgeBaseConnectorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-managedknowledgebaseconnectorconfiguration.html>`__
@@ -1042,6 +1085,7 @@ class ManagedKnowledgeBaseConnectorConfiguration(AWSProperty):
         "ConnectorParameters": (dict, False),
         "DeletionProtectionConfiguration": (DeletionProtectionConfiguration, False),
         "MediaExtractionConfiguration": (MediaExtractionConfiguration, False),
+        "SyncSchedule": (SyncSchedule, False),
     }
 
 

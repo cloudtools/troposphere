@@ -7,7 +7,17 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
+
+
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-job.html>`__
+    """
+
+    resource_type = "AWS::DRS::Job"
+
+    props: PropsDictType = {}
 
 
 class Licensing(AWSProperty):
@@ -50,6 +60,47 @@ class RecoveryInstance(AWSObject):
     props: PropsDictType = {}
 
 
+class PITPolicyRule(AWSProperty):
+    """
+    `PITPolicyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-replicationconfigurationtemplate-pitpolicyrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "Interval": (integer, True),
+        "RetentionDuration": (integer, True),
+        "RuleID": (integer, False),
+        "Units": (str, True),
+    }
+
+
+class ReplicationConfigurationTemplate(AWSObject):
+    """
+    `ReplicationConfigurationTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-replicationconfigurationtemplate.html>`__
+    """
+
+    resource_type = "AWS::DRS::ReplicationConfigurationTemplate"
+
+    props: PropsDictType = {
+        "AssociateDefaultSecurityGroup": (boolean, False),
+        "AutoReplicateNewDisks": (boolean, False),
+        "BandwidthThrottling": (integer, True),
+        "CreatePublicIP": (boolean, False),
+        "DataPlaneRouting": (str, False),
+        "DefaultLargeStagingDiskType": (str, False),
+        "EbsEncryption": (str, True),
+        "EbsEncryptionKeyArn": (str, False),
+        "InternetProtocol": (str, False),
+        "PitPolicy": ([PITPolicyRule], True),
+        "ReplicationServerInstanceType": (str, False),
+        "ReplicationServersSecurityGroupsIDs": ([str], True),
+        "StagingAreaSubnetId": (str, True),
+        "StagingAreaTags": (dict, True),
+        "Tags": (Tags, False),
+        "UseDedicatedReplicationServer": (boolean, False),
+    }
+
+
 class SourceNetwork(AWSObject):
     """
     `SourceNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-sourcenetwork.html>`__
@@ -62,4 +113,187 @@ class SourceNetwork(AWSObject):
         "OriginRegion": (str, True),
         "Tags": (Tags, False),
         "VpcID": (str, True),
+    }
+
+
+class SourceServer(AWSObject):
+    """
+    `SourceServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-sourceserver.html>`__
+    """
+
+    resource_type = "AWS::DRS::SourceServer"
+
+    props: PropsDictType = {}
+
+
+class CPU(AWSProperty):
+    """
+    `CPU <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-cpu.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cores": (integer, False),
+        "ModelName": (str, False),
+    }
+
+
+class DataReplicationInfo(AWSProperty):
+    """
+    `DataReplicationInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-datareplicationinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataReplicationState": (str, False),
+    }
+
+
+class Disk(AWSProperty):
+    """
+    `Disk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-disk.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bytes": (integer, False),
+        "DeviceName": (str, False),
+    }
+
+
+class IdentificationHints(AWSProperty):
+    """
+    `IdentificationHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-identificationhints.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsInstanceID": (str, False),
+        "Fqdn": (str, False),
+        "Hostname": (str, False),
+        "VmWareUuid": (str, False),
+    }
+
+
+class LaunchActionParameter(AWSProperty):
+    """
+    `LaunchActionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-launchactionparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+        "Value": (str, False),
+    }
+
+
+class LaunchAction(AWSProperty):
+    """
+    `LaunchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-launchaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionCode": (str, False),
+        "ActionId": (str, False),
+        "ActionVersion": (str, False),
+        "Active": (boolean, False),
+        "Category": (str, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "Optional": (boolean, False),
+        "Order": (integer, False),
+        "Parameters": (dict, False),
+        "Type": (str, False),
+    }
+
+
+class LaunchActionRun(AWSProperty):
+    """
+    `LaunchActionRun <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-launchactionrun.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (LaunchAction, False),
+        "RunId": (str, False),
+        "Status": (str, False),
+    }
+
+
+class LaunchActionsStatus(AWSProperty):
+    """
+    `LaunchActionsStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-launchactionsstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "Runs": ([LaunchActionRun], False),
+        "SsmAgentDiscoveryDatetime": (str, False),
+    }
+
+
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ips": ([str], False),
+        "IsPrimary": (boolean, False),
+        "MacAddress": (str, False),
+    }
+
+
+class OS(AWSProperty):
+    """
+    `OS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-os.html>`__
+    """
+
+    props: PropsDictType = {
+        "FullString": (str, False),
+    }
+
+
+class ParticipatingResourceID(AWSProperty):
+    """
+    `ParticipatingResourceID <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-participatingresourceid.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceNetworkID": (str, True),
+    }
+
+
+class ParticipatingResource(AWSProperty):
+    """
+    `ParticipatingResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-participatingresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "LaunchStatus": (str, False),
+        "ParticipatingResourceID": (ParticipatingResourceID, False),
+    }
+
+
+class ParticipatingServer(AWSProperty):
+    """
+    `ParticipatingServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-job-participatingserver.html>`__
+    """
+
+    props: PropsDictType = {
+        "LaunchActionsStatus": (LaunchActionsStatus, False),
+        "LaunchStatus": (str, False),
+        "RecoveryInstanceID": (str, False),
+        "SourceServerID": (str, False),
+    }
+
+
+class SourceProperties(AWSProperty):
+    """
+    `SourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-sourceserver-sourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpus": ([CPU], False),
+        "Disks": ([Disk], False),
+        "IdentificationHints": (IdentificationHints, False),
+        "LastUpdatedDateTime": (str, False),
+        "NetworkInterfaces": ([NetworkInterface], False),
+        "Os": (OS, False),
+        "RamBytes": (integer, False),
+        "RecommendedInstanceType": (str, False),
+        "SupportsNitroInstances": (boolean, False),
     }

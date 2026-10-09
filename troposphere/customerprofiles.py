@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -706,6 +706,32 @@ class Recommender(AWSObject):
         "RecommenderName": (str, True),
         "RecommenderRecipeName": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-recommenderschema-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class RecommenderSchema(AWSObject):
+    """
+    `RecommenderSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-recommenderschema.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::RecommenderSchema"
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "Fields": (dict, True),
+        "RecommenderSchemaName": (str, True),
+        "Tags": ([TagsItems], False),
     }
 
 

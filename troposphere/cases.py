@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -245,6 +245,43 @@ class Layout(AWSObject):
         "DomainId": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class CommentContent(AWSProperty):
+    """
+    `CommentContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-relateditem-commentcontent.html>`__
+    """
+
+    props: PropsDictType = {
+        "Body": (str, True),
+        "ContentType": (str, True),
+    }
+
+
+class RelatedItemContent(AWSProperty):
+    """
+    `RelatedItemContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-relateditem-relateditemcontent.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comment": (CommentContent, False),
+    }
+
+
+class RelatedItem(AWSObject):
+    """
+    `RelatedItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-relateditem.html>`__
+    """
+
+    resource_type = "AWS::Cases::RelatedItem"
+
+    props: PropsDictType = {
+        "CaseId": (str, True),
+        "Content": (RelatedItemContent, True),
+        "DomainId": (str, True),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }
 
 

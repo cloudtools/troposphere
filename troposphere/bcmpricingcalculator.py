@@ -25,6 +25,21 @@ class BillScenario(AWSObject):
     }
 
 
+class WorkloadEstimate(AWSObject):
+    """
+    `WorkloadEstimate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bcmpricingcalculator-workloadestimate.html>`__
+    """
+
+    resource_type = "AWS::BcmPricingCalculator::WorkloadEstimate"
+
+    props: PropsDictType = {
+        "ExpiresAt": (str, False),
+        "Name": (str, True),
+        "RateType": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class BillInterval(AWSProperty):
     """
     `BillInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmpricingcalculator-billscenario-billinterval.html>`__

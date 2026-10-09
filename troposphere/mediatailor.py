@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -111,6 +111,32 @@ class ChannelPolicy(AWSObject):
     }
 
 
+class FunctionRef(AWSProperty):
+    """
+    `FunctionRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-functionref.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alias": (str, False),
+        "FunctionId": (str, False),
+        "RunCondition": (str, False),
+    }
+
+
+class ConcurrentExecutorConfiguration(AWSProperty):
+    """
+    `ConcurrentExecutorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-concurrentexecutorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionList": ([FunctionRef], True),
+        "MaxConcurrency": (integer, True),
+        "Output": (dict, True),
+        "Runtime": (str, True),
+        "TimeoutMilliseconds": (integer, True),
+    }
+
+
 class CustomOutputConfiguration(AWSProperty):
     """
     `CustomOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html>`__
@@ -138,17 +164,6 @@ class HttpRequestConfiguration(AWSProperty):
     }
 
 
-class FunctionRef(AWSProperty):
-    """
-    `FunctionRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-functionref.html>`__
-    """
-
-    props: PropsDictType = {
-        "FunctionId": (str, False),
-        "RunCondition": (str, False),
-    }
-
-
 class SequentialExecutorConfiguration(AWSProperty):
     """
     `SequentialExecutorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-sequentialexecutorconfiguration.html>`__
@@ -170,6 +185,7 @@ class Function(AWSObject):
     resource_type = "AWS::MediaTailor::Function"
 
     props: PropsDictType = {
+        "ConcurrentExecutorConfiguration": (ConcurrentExecutorConfiguration, False),
         "CustomOutputConfiguration": (CustomOutputConfiguration, False),
         "Description": (str, False),
         "FunctionId": (str, True),

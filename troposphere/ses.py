@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -366,6 +366,20 @@ class EmailIdentity(AWSObject):
         "FeedbackAttributes": (FeedbackAttributes, False),
         "MailFromAttributes": (MailFromAttributes, False),
         "Tags": (Tags, False),
+    }
+
+
+class EmailIdentityCertificate(AWSObject):
+    """
+    `EmailIdentityCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentitycertificate.html>`__
+    """
+
+    resource_type = "AWS::SES::EmailIdentityCertificate"
+
+    props: PropsDictType = {
+        "CertificateArn": (str, True),
+        "EmailIdentity": (str, True),
+        "FromAddress": (str, True),
     }
 
 

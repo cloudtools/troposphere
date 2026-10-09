@@ -10,6 +10,156 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
+class FieldPriorityDedupeField(AWSProperty):
+    """
+    `FieldPriorityDedupeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-fieldprioritydedupefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "SortOrder": (str, True),
+    }
+
+
+class FieldPriorityDedupeStrategyConfiguration(AWSProperty):
+    """
+    `FieldPriorityDedupeStrategyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-fieldprioritydedupestrategyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([FieldPriorityDedupeField], True),
+    }
+
+
+class DedupeStrategy(AWSProperty):
+    """
+    `DedupeStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-dedupestrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldPriority": (FieldPriorityDedupeStrategyConfiguration, False),
+        "Type": (str, True),
+    }
+
+
+class DatasetOptions(AWSProperty):
+    """
+    `DatasetOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-datasetoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DedupeRecords": (boolean, False),
+        "DedupeStrategy": (DedupeStrategy, False),
+        "LoadType": (str, False),
+    }
+
+
+class DatasetSourceConfiguration(AWSProperty):
+    """
+    `DatasetSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-datasetsourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetIdentifier": (str, True),
+        "Options": (DatasetOptions, False),
+    }
+
+
+class S3Options(AWSProperty):
+    """
+    `S3Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-s3options.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileType": (str, False),
+    }
+
+
+class S3SourceConfiguration(AWSProperty):
+    """
+    `S3SourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-s3sourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "Options": (S3Options, False),
+        "Prefix": (str, True),
+    }
+
+
+class DataIntegrationFlowSource(AWSProperty):
+    """
+    `DataIntegrationFlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-dataintegrationflowsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetSource": (DatasetSourceConfiguration, False),
+        "S3Source": (S3SourceConfiguration, False),
+        "SourceName": (str, True),
+        "SourceType": (str, True),
+    }
+
+
+class DatasetTargetConfiguration(AWSProperty):
+    """
+    `DatasetTargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-datasettargetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetIdentifier": (str, True),
+        "Options": (DatasetOptions, False),
+    }
+
+
+class DataIntegrationFlowTarget(AWSProperty):
+    """
+    `DataIntegrationFlowTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-dataintegrationflowtarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetTarget": (DatasetTargetConfiguration, False),
+        "TargetType": (str, True),
+    }
+
+
+class SqlTransformationConfiguration(AWSProperty):
+    """
+    `SqlTransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-sqltransformationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Query": (str, True),
+    }
+
+
+class DataIntegrationFlowTransformation(AWSProperty):
+    """
+    `DataIntegrationFlowTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataintegrationflow-dataintegrationflowtransformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "SqlTransformation": (SqlTransformationConfiguration, False),
+        "TransformationType": (str, True),
+    }
+
+
+class DataIntegrationFlow(AWSObject):
+    """
+    `DataIntegrationFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scn-dataintegrationflow.html>`__
+    """
+
+    resource_type = "AWS::SCN::DataIntegrationFlow"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "Name": (str, True),
+        "Sources": ([DataIntegrationFlowSource], True),
+        "Tags": (Tags, False),
+        "Target": (DataIntegrationFlowTarget, True),
+        "Transformation": (DataIntegrationFlowTransformation, True),
+    }
+
+
 class Transform(AWSProperty):
     """
     `Transform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scn-dataset-transform.html>`__

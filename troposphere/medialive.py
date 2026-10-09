@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -3140,6 +3140,16 @@ class Offering(AWSObject):
     props: PropsDictType = {}
 
 
+class Reservation(AWSObject):
+    """
+    `Reservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-reservation.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::Reservation"
+
+    props: PropsDictType = {}
+
+
 class SdiSource(AWSObject):
     """
     `SdiSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html>`__
@@ -3251,9 +3261,20 @@ class MulticastSettingsUpdateRequest(AWSProperty):
     }
 
 
+class RenewalSettings(AWSProperty):
+    """
+    `RenewalSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-reservation-renewalsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutomaticRenewal": (str, False),
+        "RenewalCount": (integer, False),
+    }
+
+
 class ReservationResourceSpecification(AWSProperty):
     """
-    `ReservationResourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-offering-reservationresourcespecification.html>`__
+    `ReservationResourceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-reservation-reservationresourcespecification.html>`__
     """
 
     props: PropsDictType = {

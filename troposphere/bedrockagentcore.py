@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -2592,6 +2592,28 @@ class MemoryStrategy(AWSProperty):
     }
 
 
+class NamespaceKeyValidation(AWSProperty):
+    """
+    `NamespaceKeyValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-namespacekeyvalidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedValues": ([str], False),
+        "RegexPattern": (str, False),
+    }
+
+
+class NamespaceKeyEntry(AWSProperty):
+    """
+    `NamespaceKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-namespacekeyentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Validation": (NamespaceKeyValidation, False),
+    }
+
+
 class ContentConfiguration(AWSProperty):
     """
     `ContentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-contentconfiguration.html>`__
@@ -2649,6 +2671,7 @@ class Memory(AWSObject):
         "MemoryExecutionRoleArn": (str, False),
         "MemoryStrategies": ([MemoryStrategy], False),
         "Name": (str, True),
+        "NamespaceKeys": ([NamespaceKeyEntry], False),
         "StreamDeliveryResources": (StreamDeliveryResources, False),
         "Tags": (dict, False),
     }
@@ -3305,6 +3328,7 @@ class Runtime(AWSObject):
         "FilesystemConfigurations": ([FilesystemConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "NetworkConfiguration": (NetworkConfiguration, False),
+        "PlatformVersion": (str, False),
         "ProtocolConfiguration": (str, False),
         "RequestHeaderConfiguration": (RequestHeaderConfiguration, False),
         "RoleArn": (str, True),

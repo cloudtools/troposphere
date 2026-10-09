@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -74,7 +74,7 @@ class BootstrapActionConfig(AWSProperty):
 
 class Configuration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class InstanceFleetResizingSpecifications(AWSProperty):
 
 class VolumeSpecification(AWSProperty):
     """
-    `VolumeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html>`__
+    `VolumeSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-volumespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +197,7 @@ class EbsBlockDeviceConfigs(AWSProperty):
 
 class EbsConfiguration(AWSProperty):
     """
-    `EbsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html>`__
+    `EbsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-ebsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -240,7 +240,7 @@ class InstanceFleetConfigProperty(AWSProperty):
 
 class ScalingConstraints(AWSProperty):
     """
-    `ScalingConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingconstraints.html>`__
+    `ScalingConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingconstraints.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class ScalingConstraints(AWSProperty):
 
 class SimpleScalingPolicyConfiguration(AWSProperty):
     """
-    `SimpleScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html>`__
+    `SimpleScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-simplescalingpolicyconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -266,7 +266,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
 
 class ScalingAction(AWSProperty):
     """
-    `ScalingAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingaction.html>`__
+    `ScalingAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingaction.html>`__
     """
 
     props: PropsDictType = {
@@ -277,7 +277,7 @@ class ScalingAction(AWSProperty):
 
 class CloudWatchAlarmDefinition(AWSProperty):
     """
-    `CloudWatchAlarmDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-cloudwatchalarmdefinition.html>`__
+    `CloudWatchAlarmDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-cloudwatchalarmdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -295,7 +295,7 @@ class CloudWatchAlarmDefinition(AWSProperty):
 
 class ScalingTrigger(AWSProperty):
     """
-    `ScalingTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingtrigger.html>`__
+    `ScalingTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingtrigger.html>`__
     """
 
     props: PropsDictType = {
@@ -305,7 +305,7 @@ class ScalingTrigger(AWSProperty):
 
 class ScalingRule(AWSProperty):
     """
-    `ScalingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html>`__
+    `ScalingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-scalingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +318,7 @@ class ScalingRule(AWSProperty):
 
 class AutoScalingPolicy(AWSProperty):
     """
-    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html>`__
+    `AutoScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-autoscalingpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -517,6 +517,18 @@ class InstanceFleetConfig(AWSObject):
     }
 
 
+class AppConfiguration(AWSProperty):
+    """
+    `AppConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancegroupconfig-appconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, False),
+        "ConfigurationProperties": (dict, False),
+        "Configurations": ([object], False),
+    }
+
+
 class InstanceGroupConfig(AWSObject):
     """
     `InstanceGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html>`__
@@ -527,7 +539,7 @@ class InstanceGroupConfig(AWSObject):
     props: PropsDictType = {
         "AutoScalingPolicy": (AutoScalingPolicy, False),
         "BidPrice": (str, False),
-        "Configurations": ([Configuration], False),
+        "Configurations": ([AppConfiguration], False),
         "CustomAmiId": (str, False),
         "EbsConfiguration": (EbsConfiguration, False),
         "InstanceCount": (integer, True),

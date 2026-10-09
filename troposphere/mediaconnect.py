@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -205,7 +205,7 @@ class Maintenance(AWSProperty):
 
 class Fmtp(AWSProperty):
     """
-    `Fmtp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-fmtp.html>`__
+    `Fmtp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowmediastream-fmtp.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +221,7 @@ class Fmtp(AWSProperty):
 
 class MediaStreamAttributes(AWSProperty):
     """
-    `MediaStreamAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html>`__
+    `MediaStreamAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowmediastream-mediastreamattributes.html>`__
     """
 
     props: PropsDictType = {
@@ -527,6 +527,26 @@ class FlowEntitlement(AWSObject):
         "Name": (str, True),
         "Subscribers": ([str], True),
         "Tags": (Tags, False),
+    }
+
+
+class FlowMediaStream(AWSObject):
+    """
+    `FlowMediaStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowmediastream.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::FlowMediaStream"
+
+    props: PropsDictType = {
+        "Attributes": (MediaStreamAttributes, False),
+        "ClockRate": (integer, False),
+        "Description": (str, False),
+        "FlowArn": (str, True),
+        "MediaStreamId": (integer, True),
+        "MediaStreamName": (str, True),
+        "MediaStreamType": (str, True),
+        "Tags": (Tags, False),
+        "VideoFormat": (str, False),
     }
 
 
@@ -1126,6 +1146,41 @@ class RistRouterOutputConfiguration(AWSProperty):
     }
 
 
+class TlsEncryptionConfiguration(AWSProperty):
+    """
+    `TlsEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-tlsencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Public": (dict, True),
+    }
+
+
+class TlsEncryption(AWSProperty):
+    """
+    `TlsEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-tlsencryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionConfiguration": (TlsEncryptionConfiguration, True),
+        "EncryptionType": (str, False),
+    }
+
+
+class RtmpPushRouterOutputConfiguration(AWSProperty):
+    """
+    `RtmpPushRouterOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-rtmppushrouteroutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationName": (str, True),
+        "DestinationAddress": (str, True),
+        "DestinationPort": (integer, True),
+        "StreamName": (str, True),
+        "TlsEncryption": (TlsEncryption, False),
+    }
+
+
 class RtpRouterOutputConfiguration(AWSProperty):
     """
     `RtpRouterOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-rtprouteroutputconfiguration.html>`__
@@ -1181,6 +1236,7 @@ class RouterOutputProtocolConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Rist": (RistRouterOutputConfiguration, False),
+        "RtmpPush": (RtmpPushRouterOutputConfiguration, False),
         "Rtp": (RtpRouterOutputConfiguration, False),
         "SrtCaller": (SrtCallerRouterOutputConfiguration, False),
         "SrtListener": (SrtListenerRouterOutputConfiguration, False),

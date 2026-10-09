@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -486,6 +486,20 @@ class DaemonDeployment(AWSObject):
     resource_type = "AWS::ECS::DaemonDeployment"
 
     props: PropsDictType = {}
+
+
+class DaemonRevision(AWSObject):
+    """
+    `DaemonRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemonrevision.html>`__
+    """
+
+    resource_type = "AWS::ECS::DaemonRevision"
+
+    props: PropsDictType = {
+        "EnableECSManagedTags": (boolean, False),
+        "EnableExecuteCommand": (boolean, False),
+        "PropagateTags": (str, False),
+    }
 
 
 class ContainerDependency(AWSProperty):

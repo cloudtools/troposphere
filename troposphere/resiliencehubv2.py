@@ -69,6 +69,7 @@ class Policy(AWSObject):
         "MultiAz": (MultiAzTargets, False),
         "MultiRegion": (MultiRegionTargets, False),
         "Name": (str, True),
+        "SharingEnabled": (boolean, False),
         "Tags": (Tags, False),
     }
 
@@ -94,6 +95,29 @@ class AssociatedSystem(AWSProperty):
     }
 
 
+class EksLabelSelectorRequirement(AWSProperty):
+    """
+    `EksLabelSelectorRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehubv2-service-ekslabelselectorrequirement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Operator": (str, True),
+        "Values": ([str], False),
+    }
+
+
+class EksLabelSelector(AWSProperty):
+    """
+    `EksLabelSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehubv2-service-ekslabelselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchExpressions": ([EksLabelSelectorRequirement], False),
+        "MatchLabels": (dict, False),
+    }
+
+
 class EksSource(AWSProperty):
     """
     `EksSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehubv2-service-ekssource.html>`__
@@ -101,6 +125,7 @@ class EksSource(AWSProperty):
 
     props: PropsDictType = {
         "ClusterArn": (str, True),
+        "LabelSelector": (EksLabelSelector, False),
         "Namespaces": ([str], True),
     }
 

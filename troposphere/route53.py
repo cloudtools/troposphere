@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -45,6 +45,16 @@ class DNSSEC(AWSObject):
     props: PropsDictType = {
         "HostedZoneId": (str, True),
     }
+
+
+class DelegationSet(AWSObject):
+    """
+    `DelegationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-delegationset.html>`__
+    """
+
+    resource_type = "AWS::Route53::DelegationSet"
+
+    props: PropsDictType = {}
 
 
 class AlarmIdentifier(AWSProperty):
@@ -128,9 +138,9 @@ class HostedZoneVPCs(AWSProperty):
     }
 
 
-class QueryLoggingConfig(AWSProperty):
+class QueryLoggingConfigProperty(AWSProperty):
     """
-    `QueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html>`__
+    `QueryLoggingConfigProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +160,7 @@ class HostedZone(AWSObject):
         "HostedZoneFeatures": (HostedZoneFeatures, False),
         "HostedZoneTags": (Tags, False),
         "Name": (str, False),
-        "QueryLoggingConfig": (QueryLoggingConfig, False),
+        "QueryLoggingConfig": (QueryLoggingConfigProperty, False),
         "VPCs": ([HostedZoneVPCs], False),
     }
 
@@ -167,6 +177,19 @@ class KeySigningKey(AWSObject):
         "KeyManagementServiceArn": (str, True),
         "Name": (str, True),
         "Status": (str, True),
+    }
+
+
+class QueryLoggingConfig(AWSObject):
+    """
+    `QueryLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-queryloggingconfig.html>`__
+    """
+
+    resource_type = "AWS::Route53::QueryLoggingConfig"
+
+    props: PropsDictType = {
+        "CloudWatchLogsLogGroupArn": (str, True),
+        "HostedZoneId": (str, True),
     }
 
 

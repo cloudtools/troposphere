@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -230,6 +230,7 @@ class ConfigurationRecorder(AWSObject):
         "RecordingGroup": (RecordingGroup, False),
         "RecordingMode": (RecordingMode, False),
         "RoleARN": (str, True),
+        "StartedOnCreate": (boolean, False),
     }
 
 
