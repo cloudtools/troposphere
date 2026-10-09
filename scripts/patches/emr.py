@@ -90,6 +90,23 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::EMR::InstanceFleetConfig.Configuration",
     },
+    # EMR Session adds a different Configuration property type. Preserve the
+    # existing public emr.Configuration class and give Session its own type.
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::EMR::Session.Configuration",
+        "path": "/PropertyTypes/AWS::EMR::Session.SessionConfiguration",
+    },
+    {
+        "op": "replace",
+        "path": "/ResourceTypes/AWS::EMR::Session/Properties/EngineConfigurations/ItemType",
+        "value": "SessionConfiguration",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::EMR::Session.SessionConfiguration/Properties/Configurations/ItemType",
+        "value": "object",
+    },
     # Break the recursive AppConfiguration reference so the generated class
     # does not refer to itself before it has been defined.
     {
