@@ -10,6 +10,11 @@ patches = [
         "value": "object",
     },
     {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::EMRContainers::JobTemplate.Configuration/Properties/Configurations/ItemType",
+        "value": "object",
+    },
+    {
         "op": "move",
         "from": "/PropertyTypes/AWS::EMRContainers::JobRun.ConfigurationOverrides",
         "path": "/PropertyTypes/AWS::EMRContainers::JobRun.JobRunConfigurationOverrides",

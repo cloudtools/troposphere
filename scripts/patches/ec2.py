@@ -102,6 +102,14 @@ def blockdevice_patches():
             "path": "/PropertyTypes/AWS::EC2::Instance.BlockDeviceMapping/Properties/NoDevice/PrimitiveType",
             "value": "dict",
         },
+        # BlockDeviceMapping is shared with SpotInstancesRequest, which is
+        # the last definition seen by the generator and would otherwise
+        # overwrite the Instance NoDevice type with String.
+        {
+            "op": "add",
+            "path": "/PropertyTypes/AWS::EC2::SpotInstancesRequest.BlockDeviceMapping/Properties/NoDevice/PrimitiveType",
+            "value": "dict",
+        },
     ]
 
     return patches

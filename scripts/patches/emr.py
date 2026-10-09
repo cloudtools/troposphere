@@ -83,4 +83,18 @@ patches = [
             "Type": "List",
         },
     },
+    # Reuse Cluster.Configuration for the equivalent InstanceFleetConfig type.
+    # Otherwise the later duplicate overwrites the public Configuration class
+    # and changes its documentation URL.
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::EMR::InstanceFleetConfig.Configuration",
+    },
+    # Break the recursive AppConfiguration reference so the generated class
+    # does not refer to itself before it has been defined.
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::EMR::InstanceGroupConfig.AppConfiguration/Properties/Configurations/ItemType",
+        "value": "object",
+    },
 ]
