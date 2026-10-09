@@ -68,6 +68,14 @@ class TestLogs(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_resource_policy(s)
 
+    def test_loggroup_field_index_policies(self):
+        group = LogGroup(
+            "OrganisationCloudTrailLogGroup",
+            RetentionInDays=365,
+            FieldIndexPolicies=[{"Fields": ["readOnly"]}],
+        )
+        group.to_dict()
+
 
 if __name__ == "__main__":
     unittest.main()

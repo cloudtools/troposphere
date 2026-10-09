@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -176,7 +176,7 @@ class LogGroup(AWSObject):
         "BearerTokenAuthenticationEnabled": (boolean, False),
         "DataProtectionPolicy": (dict, False),
         "DeletionProtectionEnabled": (boolean, False),
-        "FieldIndexPolicies": (Tags, False),
+        "FieldIndexPolicies": ([dict], False),
         "KmsKeyId": (str, False),
         "LogGroupClass": (str, False),
         "LogGroupName": (str, False),
