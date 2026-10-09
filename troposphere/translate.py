@@ -11,7 +11,7 @@ from . import AWSObject, AWSProperty, PropsDictType
 
 class EncryptionKey(AWSProperty):
     """
-    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-translate-paralleldata-encryptionkey.html>`__
+    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-translate-terminology-encryptionkey.html>`__
     """
 
     props: PropsDictType = {
@@ -33,7 +33,7 @@ class ParallelDataConfig(AWSProperty):
 
 class TagsItems(AWSProperty):
     """
-    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-translate-paralleldata-tagsitems.html>`__
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-translate-terminology-tagsitems.html>`__
     """
 
     props: PropsDictType = {
@@ -55,4 +55,33 @@ class ParallelData(AWSObject):
         "Name": (str, True),
         "ParallelDataConfig": (ParallelDataConfig, True),
         "Tags": ([TagsItems], False),
+    }
+
+
+class TerminologyData(AWSProperty):
+    """
+    `TerminologyData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-translate-terminology-terminologydata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Directionality": (str, False),
+        "File": (str, True),
+        "Format": (str, True),
+    }
+
+
+class Terminology(AWSObject):
+    """
+    `Terminology <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-translate-terminology.html>`__
+    """
+
+    resource_type = "AWS::Translate::Terminology"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "EncryptionKey": (EncryptionKey, False),
+        "MergeStrategy": (str, False),
+        "Name": (str, True),
+        "Tags": ([TagsItems], False),
+        "TerminologyData": (TerminologyData, False),
     }

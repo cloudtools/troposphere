@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class DatasetIntegration(AWSObject):
+    """
+    `DatasetIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-datasetintegration.html>`__
+    """
+
+    resource_type = "AWS::ObservabilityAdmin::DatasetIntegration"
+
+    props: PropsDictType = {
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class LogGroupNameConfiguration(AWSProperty):
     """
     `LogGroupNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-loggroupnameconfiguration.html>`__

@@ -59,7 +59,7 @@ class RequestOutputItem(AWSProperty):
 
 class SlateSource(AWSProperty):
     """
-    `SlateSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-slatesource.html>`__
+    `SlateSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-slatesource.html>`__
     """
 
     props: PropsDictType = {
@@ -108,6 +108,24 @@ class ChannelPolicy(AWSObject):
     props: PropsDictType = {
         "ChannelName": (str, True),
         "Policy": (dict, True),
+    }
+
+
+class AwsServiceRequestConfiguration(AWSProperty):
+    """
+    `AwsServiceRequestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-awsservicerequestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Body": (str, False),
+        "Headers": (dict, False),
+        "MethodType": (str, True),
+        "Output": (dict, False),
+        "RequestTimeoutMilliseconds": (integer, True),
+        "Runtime": (str, True),
+        "TargetRegion": (str, True),
+        "TargetService": (str, True),
+        "Url": (str, True),
     }
 
 
@@ -177,6 +195,22 @@ class SequentialExecutorConfiguration(AWSProperty):
     }
 
 
+class VastRequestConfiguration(AWSProperty):
+    """
+    `VastRequestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-vastrequestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Body": (str, False),
+        "Headers": (dict, False),
+        "MethodType": (str, True),
+        "Output": (dict, False),
+        "RequestTimeoutMilliseconds": (integer, True),
+        "Runtime": (str, True),
+        "Url": (str, True),
+    }
+
+
 class Function(AWSObject):
     """
     `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html>`__
@@ -185,6 +219,7 @@ class Function(AWSObject):
     resource_type = "AWS::MediaTailor::Function"
 
     props: PropsDictType = {
+        "AwsServiceRequestConfiguration": (AwsServiceRequestConfiguration, False),
         "ConcurrentExecutorConfiguration": (ConcurrentExecutorConfiguration, False),
         "CustomOutputConfiguration": (CustomOutputConfiguration, False),
         "Description": (str, False),
@@ -193,6 +228,7 @@ class Function(AWSObject):
         "HttpRequestConfiguration": (HttpRequestConfiguration, False),
         "SequentialExecutorConfiguration": (SequentialExecutorConfiguration, False),
         "Tags": (Tags, False),
+        "VastRequestConfiguration": (VastRequestConfiguration, False),
     }
 
 
@@ -262,7 +298,7 @@ class AdDecisionServerConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "HttpRequest": (HttpRequest, True),
+        "HttpRequest": (HttpRequest, False),
         "VastResponse": (VastResponse, False),
     }
 
@@ -580,6 +616,154 @@ class PrefetchSchedule(AWSObject):
         "ScheduleType": (str, False),
         "StreamId": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class KeyValuePair(AWSProperty):
+    """
+    `KeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-keyvaluepair.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class SpliceInsertMessage(AWSProperty):
+    """
+    `SpliceInsertMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-spliceinsertmessage.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailNum": (integer, False),
+        "AvailsExpected": (integer, False),
+        "SpliceEventId": (integer, False),
+        "UniqueProgramId": (integer, False),
+    }
+
+
+class SegmentationDescriptor(AWSProperty):
+    """
+    `SegmentationDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-segmentationdescriptor.html>`__
+    """
+
+    props: PropsDictType = {
+        "SegmentNum": (integer, False),
+        "SegmentationEventId": (integer, False),
+        "SegmentationTypeId": (integer, False),
+        "SegmentationUpid": (str, False),
+        "SegmentationUpidType": (integer, False),
+        "SegmentsExpected": (integer, False),
+        "SubSegmentNum": (integer, False),
+        "SubSegmentsExpected": (integer, False),
+    }
+
+
+class TimeSignalMessage(AWSProperty):
+    """
+    `TimeSignalMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-timesignalmessage.html>`__
+    """
+
+    props: PropsDictType = {
+        "SegmentationDescriptors": ([SegmentationDescriptor], False),
+    }
+
+
+class AdBreak(AWSProperty):
+    """
+    `AdBreak <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-adbreak.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdBreakMetadata": ([KeyValuePair], False),
+        "MessageType": (str, False),
+        "OffsetMillis": (integer, True),
+        "Slate": (SlateSource, False),
+        "SpliceInsertMessage": (SpliceInsertMessage, False),
+        "TimeSignalMessage": (TimeSignalMessage, False),
+    }
+
+
+class ClipRange(AWSProperty):
+    """
+    `ClipRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-cliprange.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndOffsetMillis": (integer, False),
+        "StartOffsetMillis": (integer, False),
+    }
+
+
+class AlternateMedia(AWSProperty):
+    """
+    `AlternateMedia <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-alternatemedia.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdBreaks": ([AdBreak], False),
+        "ClipRange": (ClipRange, False),
+        "DurationMillis": (integer, False),
+        "LiveSourceName": (str, False),
+        "ScheduledStartTimeMillis": (integer, False),
+        "SourceLocationName": (str, False),
+        "VodSourceName": (str, False),
+    }
+
+
+class AudienceMedia(AWSProperty):
+    """
+    `AudienceMedia <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-audiencemedia.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlternateMedia": ([AlternateMedia], False),
+        "Audience": (str, False),
+    }
+
+
+class Transition(AWSProperty):
+    """
+    `Transition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-transition.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationMillis": (integer, False),
+        "RelativePosition": (str, True),
+        "RelativeProgram": (str, False),
+        "ScheduledStartTimeMillis": (integer, False),
+        "Type": (str, True),
+    }
+
+
+class ScheduleConfiguration(AWSProperty):
+    """
+    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-program-scheduleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClipRange": (ClipRange, False),
+        "Transition": (Transition, True),
+    }
+
+
+class Program(AWSObject):
+    """
+    `Program <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-program.html>`__
+    """
+
+    resource_type = "AWS::MediaTailor::Program"
+
+    props: PropsDictType = {
+        "AdBreaks": ([AdBreak], False),
+        "AudienceMedia": ([AudienceMedia], False),
+        "ChannelName": (str, True),
+        "LiveSourceName": (str, False),
+        "ProgramName": (str, True),
+        "ScheduleConfiguration": (ScheduleConfiguration, False),
+        "SourceLocationName": (str, True),
+        "VodSourceName": (str, False),
     }
 
 

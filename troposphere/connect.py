@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class AWSManagedView(AWSObject):
+    """
+    `AWSManagedView <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-awsmanagedview.html>`__
+    """
+
+    resource_type = "AWS::Connect::AWSManagedView"
+
+    props: PropsDictType = {
+        "InstanceId": (str, False),
+        "ViewId": (str, False),
+    }
+
+
 class AgentStatus(AWSObject):
     """
     `AgentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-agentstatus.html>`__
@@ -1015,6 +1028,9 @@ class IntegrationAssociation(AWSObject):
         "InstanceId": (str, True),
         "IntegrationArn": (str, True),
         "IntegrationType": (str, True),
+        "SourceApplicationName": (str, False),
+        "SourceApplicationUrl": (str, False),
+        "SourceType": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -1866,6 +1882,21 @@ class TrafficDistributionGroup(AWSObject):
         "InstanceArn": (str, True),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class UseCase(AWSObject):
+    """
+    `UseCase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-usecase.html>`__
+    """
+
+    resource_type = "AWS::Connect::UseCase"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "IntegrationAssociationId": (str, True),
+        "Tags": (Tags, False),
+        "UseCaseType": (str, True),
     }
 
 

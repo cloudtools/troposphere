@@ -616,6 +616,88 @@ class SecurityConfiguration(AWSObject):
     }
 
 
+class SessionConfiguration(AWSProperty):
+    """
+    `SessionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-session-configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, False),
+        "Configurations": ([object], False),
+        "Properties": (dict, False),
+    }
+
+
+class SessionCloudWatchLoggingConfiguration(AWSProperty):
+    """
+    `SessionCloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-session-sessioncloudwatchloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionKeyArn": (str, False),
+        "LogGroup": (str, False),
+        "LogStreamNamePrefix": (str, False),
+        "LogTypes": (dict, False),
+    }
+
+
+class SessionManagedLoggingConfiguration(AWSProperty):
+    """
+    `SessionManagedLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-session-sessionmanagedloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionKeyArn": (str, False),
+    }
+
+
+class SessionS3LoggingConfiguration(AWSProperty):
+    """
+    `SessionS3LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-session-sessions3loggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionKeyArn": (str, False),
+        "LogTypes": (dict, False),
+        "LogUri": (str, False),
+    }
+
+
+class SessionMonitoringConfiguration(AWSProperty):
+    """
+    `SessionMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-session-sessionmonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLoggingConfiguration": (
+            SessionCloudWatchLoggingConfiguration,
+            False,
+        ),
+        "ManagedLoggingConfiguration": (SessionManagedLoggingConfiguration, False),
+        "S3LoggingConfiguration": (SessionS3LoggingConfiguration, False),
+    }
+
+
+class Session(AWSObject):
+    """
+    `Session <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-session.html>`__
+    """
+
+    resource_type = "AWS::EMR::Session"
+
+    props: PropsDictType = {
+        "EngineConfigurations": ([SessionConfiguration], False),
+        "ExecutionRoleArn": (str, False),
+        "MonitoringConfiguration": (SessionMonitoringConfiguration, False),
+        "Name": (str, False),
+        "SessionIdleTimeoutInMinutes": (double, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Step(AWSObject):
     """
     `Step <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html>`__

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -257,6 +257,18 @@ class MLInputChannel(AWSObject):
     resource_type = "AWS::CleanRoomsML::MLInputChannel"
 
     props: PropsDictType = {}
+
+
+class TrainedModel(AWSObject):
+    """
+    `TrainedModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainedmodel.html>`__
+    """
+
+    resource_type = "AWS::CleanRoomsML::TrainedModel"
+
+    props: PropsDictType = {
+        "MembershipIdentifier": (str, False),
+    }
 
 
 class InferenceReceiverMember(AWSProperty):
@@ -603,6 +615,18 @@ class MLSyntheticDataParameters(AWSProperty):
     }
 
 
+class ModelTrainingDataChannel(AWSProperty):
+    """
+    `ModelTrainingDataChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodel-modeltrainingdatachannel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "MlInputChannelArn": (str, True),
+        "S3DataDistributionType": (str, False),
+    }
+
+
 class PrivacyBudgets(AWSProperty):
     """
     `PrivacyBudgets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-mlinputchannel-privacybudgets.html>`__
@@ -610,6 +634,28 @@ class PrivacyBudgets(AWSProperty):
 
     props: PropsDictType = {
         "AccessBudgets": ([AccessBudget], True),
+    }
+
+
+class ResourceConfig(AWSProperty):
+    """
+    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodel-resourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, False),
+        "InstanceType": (str, True),
+        "VolumeSizeInGB": (integer, True),
+    }
+
+
+class StoppingCondition(AWSProperty):
+    """
+    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanroomsml-trainedmodel-stoppingcondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxRuntimeInSeconds": (integer, False),
     }
 
 

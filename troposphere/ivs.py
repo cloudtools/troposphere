@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -8,6 +8,42 @@
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
+
+
+class MediaTailorPlaybackConfiguration(AWSProperty):
+    """
+    `MediaTailorPlaybackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-adconfiguration-mediatailorplaybackconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PlaybackConfigurationArn": (str, False),
+    }
+
+
+class PostRollConfiguration(AWSProperty):
+    """
+    `PostRollConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-adconfiguration-postrollconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationSeconds": (integer, True),
+        "Enabled": (boolean, True),
+    }
+
+
+class AdConfiguration(AWSObject):
+    """
+    `AdConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-adconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IVS::AdConfiguration"
+
+    props: PropsDictType = {
+        "MediaTailorPlaybackConfigurations": ([MediaTailorPlaybackConfiguration], True),
+        "Name": (str, False),
+        "PostRollConfiguration": (PostRollConfiguration, False),
+        "Tags": (Tags, False),
+    }
 
 
 class MultitrackInputConfiguration(AWSProperty):

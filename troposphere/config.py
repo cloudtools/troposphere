@@ -345,7 +345,6 @@ class OrganizationCustomPolicyRuleMetadata(AWSProperty):
         "DebugLogDeliveryAccounts": ([str], False),
         "Description": (str, False),
         "InputParameters": (str, False),
-        "MaximumExecutionFrequency": (str, False),
         "OrganizationConfigRuleTriggerTypes": ([str], False),
         "PolicyText": (str, True),
         "ResourceIdScope": (str, False),

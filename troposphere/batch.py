@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -204,12 +204,24 @@ class EcsSettings(AWSProperty):
     }
 
 
+class EksAccessEntry(AWSProperty):
+    """
+    `EksAccessEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksaccessentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "DesiredState": (str, False),
+        "Status": (str, False),
+    }
+
+
 class EksConfiguration(AWSProperty):
     """
     `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "AccessEntry": (EksAccessEntry, False),
         "EksClusterArn": (str, True),
         "KubernetesNamespace": (str, True),
     }

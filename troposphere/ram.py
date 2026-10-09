@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -22,6 +22,46 @@ class Permission(AWSObject):
         "PolicyTemplate": (dict, True),
         "ResourceType": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class PermissionAssociation(AWSObject):
+    """
+    `PermissionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permissionassociation.html>`__
+    """
+
+    resource_type = "AWS::RAM::PermissionAssociation"
+
+    props: PropsDictType = {
+        "PermissionArn": (str, True),
+        "Replace": (boolean, False),
+        "ResourceShareArn": (str, True),
+    }
+
+
+class PrincipalAssociation(AWSObject):
+    """
+    `PrincipalAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-principalassociation.html>`__
+    """
+
+    resource_type = "AWS::RAM::PrincipalAssociation"
+
+    props: PropsDictType = {
+        "Principal": (str, True),
+        "ResourceShareArn": (str, True),
+    }
+
+
+class ResourceAssociation(AWSObject):
+    """
+    `ResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceassociation.html>`__
+    """
+
+    resource_type = "AWS::RAM::ResourceAssociation"
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+        "ResourceShareArn": (str, True),
     }
 
 
@@ -52,4 +92,17 @@ class ResourceShare(AWSObject):
         "ResourceShareConfiguration": (ResourceShareConfiguration, False),
         "Sources": ([str], False),
         "Tags": (Tags, False),
+    }
+
+
+class SourceAssociation(AWSObject):
+    """
+    `SourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-sourceassociation.html>`__
+    """
+
+    resource_type = "AWS::RAM::SourceAssociation"
+
+    props: PropsDictType = {
+        "ResourceShareArn": (str, True),
+        "SourceId": (str, True),
     }

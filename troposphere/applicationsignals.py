@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -41,6 +41,93 @@ class GroupingConfiguration(AWSObject):
 
     props: PropsDictType = {
         "GroupingAttributeDefinitions": ([GroupingAttributeDefinition], True),
+    }
+
+
+class CaptureLimitsConfig(AWSProperty):
+    """
+    `CaptureLimitsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-instrumentationconfig-capturelimitsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxCollectionDepth": (integer, False),
+        "MaxCollectionWidth": (integer, False),
+        "MaxFieldsPerObject": (integer, False),
+        "MaxHits": (integer, False),
+        "MaxObjectDepth": (integer, False),
+        "MaxStackFrames": (integer, False),
+        "MaxStackTraceSize": (integer, False),
+        "MaxStringLength": (integer, False),
+    }
+
+
+class CodeCaptureConfiguration(AWSProperty):
+    """
+    `CodeCaptureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-instrumentationconfig-codecaptureconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptureArguments": ([str], False),
+        "CaptureLimits": (CaptureLimitsConfig, True),
+        "CaptureLocals": ([str], False),
+        "CaptureReturn": (boolean, False),
+        "CaptureStackTrace": (boolean, False),
+    }
+
+
+class CaptureConfiguration(AWSProperty):
+    """
+    `CaptureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-instrumentationconfig-captureconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeCapture": (CodeCaptureConfiguration, True),
+    }
+
+
+class CodeLocation(AWSProperty):
+    """
+    `CodeLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-instrumentationconfig-codelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClassName": (str, False),
+        "CodeUnit": (str, False),
+        "FilePath": (str, True),
+        "Language": (str, True),
+        "LineNumber": (integer, False),
+        "MethodName": (str, False),
+    }
+
+
+class Location(AWSProperty):
+    """
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-instrumentationconfig-location.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeLocation": (CodeLocation, True),
+    }
+
+
+class InstrumentationConfig(AWSObject):
+    """
+    `InstrumentationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-instrumentationconfig.html>`__
+    """
+
+    resource_type = "AWS::ApplicationSignals::InstrumentationConfig"
+
+    props: PropsDictType = {
+        "AttributeFilters": (dict, False),
+        "CaptureConfiguration": (CaptureConfiguration, True),
+        "Description": (str, False),
+        "Environment": (str, True),
+        "ExpiresAt": (str, False),
+        "InstrumentationType": (str, True),
+        "Location": (Location, True),
+        "Service": (str, True),
+        "SignalType": (str, True),
+        "Tags": (Tags, False),
     }
 
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -648,6 +648,60 @@ class AssistantAssociation(AWSObject):
     }
 
 
+class Content(AWSObject):
+    """
+    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-content.html>`__
+    """
+
+    resource_type = "AWS::Wisdom::Content"
+
+    props: PropsDictType = {
+        "KnowledgeBaseId": (str, True),
+        "Metadata": (dict, False),
+        "Name": (str, True),
+        "OverrideLinkOutUri": (str, False),
+        "Tags": (Tags, False),
+        "Title": (str, False),
+        "UploadId": (str, False),
+    }
+
+
+class AmazonConnectGuideAssociationData(AWSProperty):
+    """
+    `AmazonConnectGuideAssociationData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-contentassociation-amazonconnectguideassociationdata.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowId": (str, False),
+    }
+
+
+class ContentAssociationContents(AWSProperty):
+    """
+    `ContentAssociationContents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-contentassociation-contentassociationcontents.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmazonConnectGuideAssociation": (AmazonConnectGuideAssociationData, True),
+    }
+
+
+class ContentAssociation(AWSObject):
+    """
+    `ContentAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-contentassociation.html>`__
+    """
+
+    resource_type = "AWS::Wisdom::ContentAssociation"
+
+    props: PropsDictType = {
+        "Association": (ContentAssociationContents, True),
+        "AssociationType": (str, True),
+        "ContentId": (str, True),
+        "KnowledgeBaseId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class RenderingConfiguration(AWSProperty):
     """
     `RenderingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html>`__
@@ -920,9 +974,9 @@ class SmsMessageTemplateContent(AWSProperty):
     }
 
 
-class Content(AWSProperty):
+class ContentProperty(AWSProperty):
     """
-    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html>`__
+    `ContentProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-content.html>`__
     """
 
     props: PropsDictType = {
@@ -1076,7 +1130,7 @@ class MessageTemplate(AWSObject):
 
     props: PropsDictType = {
         "ChannelSubtype": (str, True),
-        "Content": (Content, True),
+        "Content": (ContentProperty, True),
         "DefaultAttributes": (MessageTemplateAttributes, False),
         "Description": (str, False),
         "GroupingConfiguration": (GroupingConfiguration, False),

@@ -263,6 +263,23 @@ class EntityRecognizer(AWSObject):
     }
 
 
+class EntityRecognizerEndpoint(AWSObject):
+    """
+    `EntityRecognizerEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-entityrecognizerendpoint.html>`__
+    """
+
+    resource_type = "AWS::Comprehend::EntityRecognizerEndpoint"
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, False),
+        "DesiredInferenceUnits": (integer, True),
+        "EndpointName": (str, True),
+        "FlywheelArn": (str, False),
+        "ModelArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class DataSecurityConfig(AWSProperty):
     """
     `DataSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-comprehend-flywheel-datasecurityconfig.html>`__

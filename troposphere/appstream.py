@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -87,6 +87,7 @@ class AppBlockBuilder(AWSObject):
         "AccessEndpoints": ([AccessEndpoint], False),
         "AppBlockArns": ([str], False),
         "Description": (str, False),
+        "DisableIMDSV1": (boolean, False),
         "DisplayName": (str, False),
         "EnableDefaultInternetAccess": (boolean, False),
         "IamRoleArn": (str, False),
@@ -252,6 +253,7 @@ class Fleet(AWSObject):
     resource_type = "AWS::AppStream::Fleet"
 
     props: PropsDictType = {
+        "AttributesToDelete": ([str], False),
         "ComputeCapacity": (ComputeCapacity, False),
         "Description": (str, False),
         "DisableIMDSV1": (boolean, False),
@@ -277,6 +279,16 @@ class Fleet(AWSObject):
         "UsbDeviceFilterStrings": ([str], False),
         "VpcConfig": (VpcConfig, False),
     }
+
+
+class Image(AWSObject):
+    """
+    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-image.html>`__
+    """
+
+    resource_type = "AWS::AppStream::Image"
+
+    props: PropsDictType = {}
 
 
 class ImageBuilder(AWSObject):
@@ -468,4 +480,19 @@ class User(AWSObject):
         "LastName": (str, False),
         "MessageAction": (str, False),
         "UserName": (str, True),
+    }
+
+
+class ApplicationProperty(AWSProperty):
+    """
+    `ApplicationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-image-application.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayName": (str, False),
+        "Enabled": (boolean, False),
+        "LaunchParameters": (str, False),
+        "LaunchPath": (str, False),
+        "Metadata": (dict, False),
+        "Name": (str, False),
     }

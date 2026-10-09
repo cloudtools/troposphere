@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -202,6 +202,23 @@ class DBClusterAutomatedBackup(AWSObject):
         "MasterUsername": (str, False),
         "Port": (integer, False),
         "StorageEncrypted": (boolean, False),
+    }
+
+
+class DBClusterEndpoint(AWSObject):
+    """
+    `DBClusterEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterendpoint.html>`__
+    """
+
+    resource_type = "AWS::RDS::DBClusterEndpoint"
+
+    props: PropsDictType = {
+        "CustomEndpointType": (str, True),
+        "DBClusterEndpointIdentifier": (str, True),
+        "DBClusterIdentifier": (str, True),
+        "ExcludedMembers": ([str], False),
+        "StaticMembers": ([str], False),
+        "Tags": (Tags, False),
     }
 
 
@@ -500,6 +517,7 @@ class DBProxyTargetGroup(AWSObject):
         "DBClusterIdentifiers": ([str], False),
         "DBInstanceIdentifiers": ([str], False),
         "DBProxyName": (str, True),
+        "Tags": (Tags, False),
         "TargetGroupName": (str, True),
     }
 

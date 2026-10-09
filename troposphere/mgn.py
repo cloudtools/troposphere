@@ -78,6 +78,18 @@ class Import(AWSObject):
     }
 
 
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mgn-job.html>`__
+    """
+
+    resource_type = "AWS::MGN::Job"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+    }
+
+
 class LaunchTemplateDiskConf(AWSProperty):
     """
     `LaunchTemplateDiskConf <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-launchconfigurationtemplate-launchtemplatediskconf.html>`__
@@ -455,6 +467,18 @@ class OS(AWSProperty):
 
     props: PropsDictType = {
         "FullString": (str, False),
+    }
+
+
+class ParticipatingServer(AWSProperty):
+    """
+    `ParticipatingServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mgn-job-participatingserver.html>`__
+    """
+
+    props: PropsDictType = {
+        "LaunchStatus": (str, False),
+        "LaunchedEc2InstanceID": (str, False),
+        "SourceServerID": (str, True),
     }
 
 

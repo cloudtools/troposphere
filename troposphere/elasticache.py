@@ -328,6 +328,7 @@ class ServerlessCache(AWSObject):
 
     props: PropsDictType = {
         "CacheUsageLimits": (CacheUsageLimits, False),
+        "ConnectionType": (str, False),
         "DailySnapshotTime": (str, False),
         "Description": (str, False),
         "Endpoint": (Endpoint, False),
@@ -358,6 +359,22 @@ class ServerlessCacheSnapshot(AWSObject):
         "KmsKeyId": (str, False),
         "ServerlessCacheName": (str, True),
         "ServerlessCacheSnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Snapshot(AWSObject):
+    """
+    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-snapshot.html>`__
+    """
+
+    resource_type = "AWS::ElastiCache::Snapshot"
+
+    props: PropsDictType = {
+        "CacheClusterId": (str, False),
+        "KmsKeyId": (str, False),
+        "ReplicationGroupId": (str, False),
+        "SnapshotName": (str, True),
         "Tags": (Tags, False),
     }
 
@@ -419,6 +436,21 @@ class UserGroup(AWSObject):
         "Tags": (Tags, False),
         "UserGroupId": (str, True),
         "UserIds": ([str], True),
+    }
+
+
+class NodeSnapshot(AWSProperty):
+    """
+    `NodeSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-snapshot-nodesnapshot.html>`__
+    """
+
+    props: PropsDictType = {
+        "CacheClusterId": (str, False),
+        "CacheNodeCreateTime": (str, False),
+        "CacheNodeId": (str, False),
+        "CacheSize": (str, False),
+        "NodeGroupId": (str, False),
+        "SnapshotCreateTime": (str, False),
     }
 
 

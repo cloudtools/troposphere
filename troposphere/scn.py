@@ -243,6 +243,21 @@ class Dataset(AWSObject):
     }
 
 
+class Instance(AWSObject):
+    """
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scn-instance.html>`__
+    """
+
+    resource_type = "AWS::SCN::Instance"
+
+    props: PropsDictType = {
+        "InstanceDescription": (str, False),
+        "InstanceName": (str, False),
+        "Tags": (Tags, False),
+        "WebAppDnsDomain": (str, False),
+    }
+
+
 class Namespace(AWSObject):
     """
     `Namespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scn-namespace.html>`__

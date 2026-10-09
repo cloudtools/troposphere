@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -272,4 +272,56 @@ class LicenseAssetRuleSet(AWSObject):
         "Name": (str, True),
         "Rules": ([LicenseAssetRule], True),
         "Tags": (Tags, False),
+    }
+
+
+class ReportContext(AWSProperty):
+    """
+    `ReportContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-reportgenerator-reportcontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "LicenseAssetGroupArns": ([str], False),
+        "LicenseConfigurationArns": ([str], False),
+        "ReportEndDate": (str, False),
+        "ReportStartDate": (str, False),
+    }
+
+
+class ReportFrequency(AWSProperty):
+    """
+    `ReportFrequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-reportgenerator-reportfrequency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Period": (str, False),
+        "Value": (integer, False),
+    }
+
+
+class ReportGenerator(AWSObject):
+    """
+    `ReportGenerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-reportgenerator.html>`__
+    """
+
+    resource_type = "AWS::LicenseManager::ReportGenerator"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ReportContext": (ReportContext, True),
+        "ReportFrequency": (ReportFrequency, True),
+        "ReportGeneratorName": (str, True),
+        "ReportType": ([str], True),
+        "Tags": (Tags, False),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-reportgenerator-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "KeyPrefix": (str, False),
     }

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -20,6 +20,198 @@ class ConnectionAlias(AWSObject):
     props: PropsDictType = {
         "ConnectionString": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ActiveDirectoryConfig(AWSProperty):
+    """
+    `ActiveDirectoryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-activedirectoryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "ServiceAccountSecretArn": (str, True),
+    }
+
+
+class CertificateBasedAuthProperties(AWSProperty):
+    """
+    `CertificateBasedAuthProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-certificatebasedauthproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateAuthorityArn": (str, False),
+        "Status": (str, False),
+    }
+
+
+class DefaultWorkspaceCreationProperties(AWSProperty):
+    """
+    `DefaultWorkspaceCreationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-defaultworkspacecreationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomSecurityGroupId": (str, False),
+        "DefaultOu": (str, False),
+        "EnableInternetAccess": (boolean, False),
+        "EnableMaintenanceMode": (boolean, False),
+        "InstanceIamRoleArn": (str, False),
+        "UserEnabledAsLocalAdministrator": (boolean, False),
+    }
+
+
+class MicrosoftEntraConfig(AWSProperty):
+    """
+    `MicrosoftEntraConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-microsoftentraconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationConfigSecretArn": (str, False),
+        "TenantId": (str, False),
+    }
+
+
+class SamlProperties(AWSProperty):
+    """
+    `SamlProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-samlproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "RelayStateParameterName": (str, False),
+        "Status": (str, False),
+        "UserAccessUrl": (str, False),
+    }
+
+
+class SelfservicePermissions(AWSProperty):
+    """
+    `SelfservicePermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-selfservicepermissions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChangeComputeType": (str, False),
+        "IncreaseVolumeSize": (str, False),
+        "RebuildWorkspace": (str, False),
+        "RestartWorkspace": (str, False),
+        "SwitchRunningMode": (str, False),
+    }
+
+
+class GlobalAcceleratorForDirectory(AWSProperty):
+    """
+    `GlobalAcceleratorForDirectory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-globalacceleratorfordirectory.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+        "PreferredProtocol": (str, False),
+    }
+
+
+class StorageConnector(AWSProperty):
+    """
+    `StorageConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-storageconnector.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectorType": (str, True),
+        "Status": (str, True),
+    }
+
+
+class UserSetting(AWSProperty):
+    """
+    `UserSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-usersetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "MaximumLength": (integer, False),
+        "Permission": (str, True),
+    }
+
+
+class StreamingProperties(AWSProperty):
+    """
+    `StreamingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-streamingproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlobalAccelerator": (GlobalAcceleratorForDirectory, False),
+        "StorageConnectors": ([StorageConnector], False),
+        "StreamingExperiencePreferredProtocol": (str, False),
+        "UserSettings": ([UserSetting], False),
+    }
+
+
+class AccessEndpoint(AWSProperty):
+    """
+    `AccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-accessendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessEndpointType": (str, False),
+        "VpcEndpointId": (str, False),
+    }
+
+
+class AccessEndpointConfig(AWSProperty):
+    """
+    `AccessEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-accessendpointconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessEndpoints": ([AccessEndpoint], True),
+        "InternetFallbackProtocols": ([str], False),
+    }
+
+
+class WorkspaceAccessProperties(AWSProperty):
+    """
+    `WorkspaceAccessProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-workspaceaccessproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessEndpointConfig": (AccessEndpointConfig, False),
+        "DeviceTypeAndroid": (str, False),
+        "DeviceTypeChromeOs": (str, False),
+        "DeviceTypeIos": (str, False),
+        "DeviceTypeLinux": (str, False),
+        "DeviceTypeOsx": (str, False),
+        "DeviceTypeWeb": (str, False),
+        "DeviceTypeWindows": (str, False),
+        "DeviceTypeWorkSpacesThinClient": (str, False),
+        "DeviceTypeZeroClient": (str, False),
+    }
+
+
+class Directory(AWSObject):
+    """
+    `Directory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-directory.html>`__
+    """
+
+    resource_type = "AWS::WorkSpaces::Directory"
+
+    props: PropsDictType = {
+        "ActiveDirectoryConfig": (ActiveDirectoryConfig, False),
+        "CertificateBasedAuthProperties": (CertificateBasedAuthProperties, False),
+        "EnableSelfService": (boolean, False),
+        "EndpointEncryptionMode": (str, False),
+        "IdcInstanceArn": (str, False),
+        "IpGroupIds": ([str], False),
+        "MicrosoftEntraConfig": (MicrosoftEntraConfig, False),
+        "SamlProperties": (SamlProperties, False),
+        "SelfservicePermissions": (SelfservicePermissions, False),
+        "StreamingProperties": (StreamingProperties, False),
+        "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
+        "Tenancy": (str, False),
+        "UserIdentityType": (str, False),
+        "WorkspaceAccessProperties": (WorkspaceAccessProperties, False),
+        "WorkspaceCreationProperties": (DefaultWorkspaceCreationProperties, False),
+        "WorkspaceDirectoryDescription": (str, False),
+        "WorkspaceDirectoryName": (str, False),
+        "WorkspaceType": (str, False),
     }
 
 
@@ -63,6 +255,54 @@ class Workspace(AWSObject):
         "UserVolumeEncryptionEnabled": (boolean, False),
         "VolumeEncryptionKey": (str, False),
         "WorkspaceProperties": (WorkspaceProperties, False),
+    }
+
+
+class ComputeType(AWSProperty):
+    """
+    `ComputeType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacebundle-computetype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
+class RootStorage(AWSProperty):
+    """
+    `RootStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacebundle-rootstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Capacity": (str, True),
+    }
+
+
+class UserStorage(AWSProperty):
+    """
+    `UserStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacebundle-userstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Capacity": (str, True),
+    }
+
+
+class WorkspaceBundle(AWSObject):
+    """
+    `WorkspaceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspacebundle.html>`__
+    """
+
+    resource_type = "AWS::WorkSpaces::WorkspaceBundle"
+
+    props: PropsDictType = {
+        "ComputeType": (ComputeType, False),
+        "Description": (str, False),
+        "ImageId": (str, False),
+        "Name": (str, False),
+        "RootStorage": (RootStorage, False),
+        "Tags": (Tags, False),
+        "UserStorage": (UserStorage, False),
     }
 
 
@@ -141,4 +381,15 @@ class WorkspacesPool(AWSObject):
         "PoolName": (str, True),
         "RunningMode": (str, False),
         "TimeoutSettings": (TimeoutSettings, False),
+    }
+
+
+class IDCConfig(AWSProperty):
+    """
+    `IDCConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-directory-idcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationArn": (str, False),
+        "InstanceArn": (str, False),
     }

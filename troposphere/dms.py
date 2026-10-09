@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -94,7 +94,9 @@ class IbmDb2LuwSettings(AWSProperty):
     props: PropsDictType = {
         "CertificateArn": (str, False),
         "DatabaseName": (str, True),
+        "EncryptionAlgorithm": (integer, False),
         "Port": (integer, True),
+        "SecurityMechanism": (integer, False),
         "ServerName": (str, True),
         "SslMode": (str, True),
     }
@@ -347,6 +349,7 @@ class DataProvider(AWSObject):
         "ExactSettings": (boolean, False),
         "Settings": (Settings, False),
         "Tags": (Tags, False),
+        "Virtual": (boolean, False),
     }
 
 

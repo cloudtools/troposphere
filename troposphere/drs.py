@@ -60,6 +60,34 @@ class RecoveryInstance(AWSObject):
     props: PropsDictType = {}
 
 
+class RecoveryPlan(AWSObject):
+    """
+    `RecoveryPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-recoveryplan.html>`__
+    """
+
+    resource_type = "AWS::DRS::RecoveryPlan"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class RecoveryPlanExecution(AWSObject):
+    """
+    `RecoveryPlanExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-drs-recoveryplanexecution.html>`__
+    """
+
+    resource_type = "AWS::DRS::RecoveryPlanExecution"
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+        "RecoveryPlanArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class PITPolicyRule(AWSProperty):
     """
     `PITPolicyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-replicationconfigurationtemplate-pitpolicyrule.html>`__

@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean
 
 
 class ApprovalConfiguration(AWSProperty):
@@ -87,6 +88,16 @@ class DiscoveryConfiguration(AWSProperty):
     }
 
 
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, True),
+    }
+
+
 class Registry(AWSObject):
     """
     `Registry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html>`__
@@ -97,8 +108,11 @@ class Registry(AWSObject):
     props: PropsDictType = {
         "ApprovalConfiguration": (ApprovalConfiguration, False),
         "AuthorizerType": (str, False),
+        "AutoDetectionEnabled": (boolean, False),
+        "AutoDetectionScope": (str, False),
         "Description": (str, False),
         "DiscoveryConfiguration": (DiscoveryConfiguration, False),
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }

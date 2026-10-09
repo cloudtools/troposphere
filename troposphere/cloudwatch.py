@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -213,6 +213,16 @@ class AlarmMuteRule(AWSObject):
     }
 
 
+class MetricCharacteristics(AWSProperty):
+    """
+    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeriodicSpikes": (boolean, False),
+    }
+
+
 class Range(AWSProperty):
     """
     `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html>`__
@@ -224,24 +234,14 @@ class Range(AWSProperty):
     }
 
 
-class Configuration(AWSProperty):
+class MetricConfiguration(AWSProperty):
     """
-    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html>`__
+    `MetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "ExcludedTimeRanges": ([Range], False),
         "MetricTimeZone": (str, False),
-    }
-
-
-class MetricCharacteristics(AWSProperty):
-    """
-    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
-    """
-
-    props: PropsDictType = {
-        "PeriodicSpikes": (boolean, False),
     }
 
 
@@ -277,7 +277,7 @@ class AnomalyDetector(AWSObject):
     resource_type = "AWS::CloudWatch::AnomalyDetector"
 
     props: PropsDictType = {
-        "Configuration": (Configuration, False),
+        "Configuration": (MetricConfiguration, False),
         "Dimensions": ([MetricDimension], False),
         "MetricCharacteristics": (MetricCharacteristics, False),
         "MetricMathAnomalyDetector": (MetricMathAnomalyDetector, False),
@@ -450,6 +450,17 @@ class MetricStream(AWSObject):
     }
 
 
+class OTelEnrichmentMetricSelector(AWSProperty):
+    """
+    `OTelEnrichmentMetricSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-otelenrichment-otelenrichmentmetricselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricNames": ([str], False),
+        "Namespace": (str, True),
+    }
+
+
 class OTelEnrichment(AWSObject):
     """
     `OTelEnrichment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-otelenrichment.html>`__
@@ -457,4 +468,45 @@ class OTelEnrichment(AWSObject):
 
     resource_type = "AWS::CloudWatch::OTelEnrichment"
 
-    props: PropsDictType = {}
+    props: PropsDictType = {
+        "ExcludeFilters": ([OTelEnrichmentMetricSelector], False),
+        "IncludeFilters": ([OTelEnrichmentMetricSelector], False),
+    }
+
+
+class ResourceMetricSelection(AWSProperty):
+    """
+    `ResourceMetricSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-resourcemetricsconfiguration-resourcemetricselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeMetrics": ([str], True),
+    }
+
+
+class ResourceMetricsConfiguration(AWSObject):
+    """
+    `ResourceMetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-resourcemetricsconfiguration.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::ResourceMetricsConfiguration"
+
+    props: PropsDictType = {
+        "MetricSelections": ([ResourceMetricSelection], False),
+        "ResourceArn": (str, True),
+    }
+
+
+class View(AWSObject):
+    """
+    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-view.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::View"
+
+    props: PropsDictType = {
+        "Definition": (str, True),
+        "Description": (str, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }

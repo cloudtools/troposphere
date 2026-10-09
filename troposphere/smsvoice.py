@@ -74,6 +74,25 @@ class ConfigurationSet(AWSObject):
     }
 
 
+class NotifyConfiguration(AWSObject):
+    """
+    `NotifyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-notifyconfiguration.html>`__
+    """
+
+    resource_type = "AWS::SMSVOICE::NotifyConfiguration"
+
+    props: PropsDictType = {
+        "DefaultTemplateId": (str, False),
+        "DeletionProtectionEnabled": (boolean, False),
+        "DisplayName": (str, True),
+        "EnabledChannels": ([str], True),
+        "EnabledCountries": ([str], False),
+        "PoolId": (str, False),
+        "Tags": (Tags, False),
+        "UseCase": (str, True),
+    }
+
+
 class OptOutList(AWSObject):
     """
     `OptOutList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-optoutlist.html>`__
@@ -210,6 +229,28 @@ class ProtectConfiguration(AWSObject):
     }
 
 
+class RcsAgent(AWSObject):
+    """
+    `RcsAgent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-rcsagent.html>`__
+    """
+
+    resource_type = "AWS::SMSVOICE::RcsAgent"
+
+    props: PropsDictType = {
+        "DeletionProtectionEnabled": (boolean, False),
+        "OptOutListName": (str, False),
+        "SelfManagedOptOutsEnabled": (boolean, False),
+        "Tags": (Tags, False),
+        "TwoWayChannelArn": (str, False),
+        "TwoWayChannelRole": (str, False),
+        "TwoWayEnabled": (boolean, False),
+        "TwoWayMediaS3BucketName": (str, False),
+        "TwoWayMediaS3KeyPrefix": (str, False),
+        "TwoWayMediaS3Role": (str, False),
+        "TwoWayRcsEventsEnabled": ([str], False),
+    }
+
+
 class Registration(AWSObject):
     """
     `Registration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-smsvoice-registration.html>`__
@@ -275,4 +316,16 @@ class VerifiedDestinationNumber(AWSObject):
     props: PropsDictType = {
         "DestinationPhoneNumber": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class TestingAgentInformation(AWSProperty):
+    """
+    `TestingAgentInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-smsvoice-rcsagent-testingagentinformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "RegistrationId": (str, True),
+        "TestingAgentId": (str, False),
+        "TestingAgentStatus": (str, True),
     }

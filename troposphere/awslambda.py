@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -348,12 +348,11 @@ class FilterCriteria(AWSProperty):
 
 class LoggingConfig(AWSProperty):
     """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html>`__
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-loggingconfig.html>`__
     """
 
     props: PropsDictType = {
         "ApplicationLogLevel": (str, False),
-        "LogFormat": (str, False),
         "LogGroup": (str, False),
         "SystemLogLevel": (str, False),
     }
@@ -383,11 +382,11 @@ class ProvisionedPollerConfig(AWSProperty):
 
 class ScalingConfig(AWSProperty):
     """
-    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
+    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-scalingconfig.html>`__
     """
 
     props: PropsDictType = {
-        "MaximumConcurrency": (integer, False),
+        "MaxEnvironments": (integer, False),
     }
 
 
@@ -418,6 +417,7 @@ class SelfManagedKafkaEventSourceConfig(AWSProperty):
 
     props: PropsDictType = {
         "ConsumerGroupId": (str, False),
+        "ConsumptionMode": (str, False),
         "SchemaRegistryConfig": (SchemaRegistryConfig, False),
     }
 
@@ -1006,6 +1006,161 @@ class Version(AWSObject):
         "FunctionScalingConfig": (FunctionScalingConfig, False),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
         "RuntimePolicy": (RuntimePolicy, False),
+    }
+
+
+class WebFunction(AWSObject):
+    """
+    `WebFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-webfunction.html>`__
+    """
+
+    resource_type = "AWS::Lambda::WebFunction"
+
+    props: PropsDictType = {
+        "FunctionName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class RevisionWeight(AWSProperty):
+    """
+    `RevisionWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-revisionweight.html>`__
+    """
+
+    props: PropsDictType = {
+        "RevisionId": (str, True),
+        "Weight": (integer, True),
+    }
+
+
+class ThrottleConfig(AWSProperty):
+    """
+    `ThrottleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-throttleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RateLimit": (integer, False),
+    }
+
+
+class WebFunctionEndpoint(AWSObject):
+    """
+    `WebFunctionEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-webfunctionendpoint.html>`__
+    """
+
+    resource_type = "AWS::Lambda::WebFunctionEndpoint"
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "Description": (str, False),
+        "EndpointName": (str, True),
+        "EndpointType": (str, True),
+        "FunctionName": (str, True),
+        "Regions": ([str], False),
+        "RevisionWeights": ([RevisionWeight], False),
+        "ScalingConfig": (ScalingConfig, False),
+        "ThrottleConfig": (ThrottleConfig, False),
+    }
+
+
+class S3Object(AWSProperty):
+    """
+    `S3Object <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-s3object.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "VersionId": (str, False),
+    }
+
+
+class CodeConfig(AWSProperty):
+    """
+    `CodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-codeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Object": (S3Object, True),
+    }
+
+
+class RuntimeConfig(AWSProperty):
+    """
+    `RuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-runtimeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Runtime": (str, True),
+    }
+
+
+class BuildConfig(AWSProperty):
+    """
+    `BuildConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-buildconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeConfig": (CodeConfig, True),
+        "RuntimeConfig": (RuntimeConfig, True),
+    }
+
+
+class TelemetryConfig(AWSProperty):
+    """
+    `TelemetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-telemetryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoggingConfig": (LoggingConfig, False),
+    }
+
+
+class ServiceConfig(AWSProperty):
+    """
+    `ServiceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-serviceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnvironmentVariables": (dict, False),
+        "ExecutionRoleArn": (str, True),
+        "MaxConcurrencyPerEnvironment": (integer, False),
+        "TelemetryConfig": (TelemetryConfig, False),
+        "TimeoutSeconds": (integer, False),
+    }
+
+
+class WebFunctionRevision(AWSObject):
+    """
+    `WebFunctionRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-webfunctionrevision.html>`__
+    """
+
+    resource_type = "AWS::Lambda::WebFunctionRevision"
+
+    props: PropsDictType = {
+        "BuildConfig": (BuildConfig, True),
+        "Description": (str, False),
+        "FunctionName": (str, True),
+        "KmsKeyArn": (str, False),
+        "ServiceConfig": (ServiceConfig, True),
+    }
+
+
+class RegionalEndpoint(AWSProperty):
+    """
+    `RegionalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-regionalendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, False),
+        "DomainName": (str, False),
+        "RevisionWeights": ([RevisionWeight], False),
+        "ScalingConfig": (ScalingConfig, False),
+        "State": (str, False),
+        "StateReason": (str, False),
+        "ThrottleConfig": (ThrottleConfig, False),
+        "UpdateStatus": (str, False),
+        "UpdateStatusReason": (str, False),
     }
 
 

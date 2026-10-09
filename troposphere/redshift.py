@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -254,6 +254,110 @@ class QEV2IdcApplication(AWSObject):
         "IdcDisplayName": (str, True),
         "IdcInstanceArn": (str, True),
         "Qev2IdcApplicationName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AuthorizedTokenIssuer(AWSProperty):
+    """
+    `AuthorizedTokenIssuer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-authorizedtokenissuer.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizedAudiencesList": ([str], False),
+        "TrustedTokenIssuerArn": (str, False),
+    }
+
+
+class LakeFormationQuery(AWSProperty):
+    """
+    `LakeFormationQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-lakeformationquery.html>`__
+    """
+
+    props: PropsDictType = {
+        "Authorization": (str, True),
+    }
+
+
+class LakeFormationScopeUnion(AWSProperty):
+    """
+    `LakeFormationScopeUnion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-lakeformationscopeunion.html>`__
+    """
+
+    props: PropsDictType = {
+        "LakeFormationQuery": (LakeFormationQuery, False),
+    }
+
+
+class Connect(AWSProperty):
+    """
+    `Connect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-connect.html>`__
+    """
+
+    props: PropsDictType = {
+        "Authorization": (str, True),
+    }
+
+
+class RedshiftScopeUnion(AWSProperty):
+    """
+    `RedshiftScopeUnion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-redshiftscopeunion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Connect": (Connect, False),
+    }
+
+
+class ReadWriteAccess(AWSProperty):
+    """
+    `ReadWriteAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-readwriteaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "Authorization": (str, True),
+    }
+
+
+class S3AccessGrantsScopeUnion(AWSProperty):
+    """
+    `S3AccessGrantsScopeUnion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-s3accessgrantsscopeunion.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReadWriteAccess": (ReadWriteAccess, False),
+    }
+
+
+class ServiceIntegrationsUnion(AWSProperty):
+    """
+    `ServiceIntegrationsUnion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-redshiftidcapplication-serviceintegrationsunion.html>`__
+    """
+
+    props: PropsDictType = {
+        "LakeFormation": ([LakeFormationScopeUnion], False),
+        "Redshift": ([RedshiftScopeUnion], False),
+        "S3AccessGrants": ([S3AccessGrantsScopeUnion], False),
+    }
+
+
+class RedshiftIdcApplication(AWSObject):
+    """
+    `RedshiftIdcApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-redshiftidcapplication.html>`__
+    """
+
+    resource_type = "AWS::Redshift::RedshiftIdcApplication"
+
+    props: PropsDictType = {
+        "ApplicationType": (str, False),
+        "AuthorizedTokenIssuerList": ([AuthorizedTokenIssuer], False),
+        "IamRoleArn": (str, True),
+        "IdcDisplayName": (str, True),
+        "IdcInstanceArn": (str, True),
+        "IdentityNamespace": (str, False),
+        "RedshiftIdcApplicationName": (str, True),
+        "ServiceIntegrations": ([ServiceIntegrationsUnion], False),
+        "SsoTagKeys": ([str], False),
         "Tags": (Tags, False),
     }
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -193,6 +193,7 @@ class IamPropertiesInput(AWSProperty):
 
     props: PropsDictType = {
         "GlueLineageSyncEnabled": (boolean, False),
+        "RoleArn": (str, False),
     }
 
 
@@ -1055,12 +1056,12 @@ class PolicyGrant(AWSObject):
     resource_type = "AWS::DataZone::PolicyGrant"
 
     props: PropsDictType = {
-        "Detail": (PolicyGrantDetail, False),
+        "Detail": (PolicyGrantDetail, True),
         "DomainIdentifier": (str, True),
         "EntityIdentifier": (str, True),
         "EntityType": (str, True),
         "PolicyType": (str, True),
-        "Principal": (PolicyGrantPrincipal, False),
+        "Principal": (PolicyGrantPrincipal, True),
     }
 
 

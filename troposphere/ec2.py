@@ -216,6 +216,18 @@ class ClientVpnAuthorizationRule(AWSObject):
     }
 
 
+class AuthorizationPolicy(AWSProperty):
+    """
+    `AuthorizationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-authorizationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "PolicyDocument": (str, True),
+        "ShadowMode": (str, False),
+    }
+
+
 class CertificateAuthenticationRequest(AWSProperty):
     """
     `CertificateAuthenticationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html>`__
@@ -301,6 +313,30 @@ class ConnectionLogOptions(AWSProperty):
         "CloudwatchLogGroup": (str, False),
         "CloudwatchLogStream": (str, False),
         "Enabled": (boolean, True),
+        "IncludeAuthorizationPolicyContext": (boolean, False),
+    }
+
+
+class DevicePostureTrustProvider(AWSProperty):
+    """
+    `DevicePostureTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-deviceposturetrustprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "PublicSigningKeyUrl": (str, False),
+        "TenantId": (str, True),
+        "TrustProviderType": (str, True),
+    }
+
+
+class DevicePostureOptions(AWSProperty):
+    """
+    `DevicePostureOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-devicepostureoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "TrustProviders": ([DevicePostureTrustProvider], True),
     }
 
 
@@ -325,12 +361,14 @@ class ClientVpnEndpoint(AWSObject):
 
     props: PropsDictType = {
         "AuthenticationOptions": ([ClientAuthenticationRequest], True),
+        "AuthorizationPolicy": (AuthorizationPolicy, False),
         "ClientCidrBlock": (str, False),
         "ClientConnectOptions": (ClientConnectOptions, False),
         "ClientLoginBannerOptions": (ClientLoginBannerOptions, False),
         "ClientRouteEnforcementOptions": (ClientRouteEnforcementOptions, False),
         "ConnectionLogOptions": (ConnectionLogOptions, True),
         "Description": (str, False),
+        "DevicePostureOptions": (DevicePostureOptions, False),
         "DisconnectOnSessionTimeout": (boolean, False),
         "DnsServers": ([str], False),
         "EndpointIpAddressType": (str, False),
@@ -1074,6 +1112,20 @@ class Host(AWSObject):
     }
 
 
+class HostReservation(AWSObject):
+    """
+    `HostReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-hostreservation.html>`__
+    """
+
+    resource_type = "AWS::EC2::HostReservation"
+
+    props: PropsDictType = {
+        "HostIdSet": ([str], False),
+        "OfferingId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class IpamOperatingRegion(AWSProperty):
     """
     `IpamOperatingRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html>`__
@@ -1338,6 +1390,16 @@ class IPv4Pool(AWSObject):
     props: PropsDictType = {
         "Tags": (Tags, False),
     }
+
+
+class Image(AWSObject):
+    """
+    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-image.html>`__
+    """
+
+    resource_type = "AWS::EC2::Image"
+
+    props: PropsDictType = {}
 
 
 class ImageUsageResourceTypeOption(AWSProperty):
@@ -2611,6 +2673,16 @@ class NetworkPerformanceMetricSubscription(AWSObject):
     }
 
 
+class OutpostLag(AWSObject):
+    """
+    `OutpostLag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-outpostlag.html>`__
+    """
+
+    resource_type = "AWS::EC2::OutpostLag"
+
+    props: PropsDictType = {}
+
+
 class PlacementGroup(AWSObject):
     """
     `PlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html>`__
@@ -2802,6 +2874,20 @@ class RouteTable(AWSObject):
     props: PropsDictType = {
         "Tags": (validate_tags_or_list, False),
         "VpcId": (str, True),
+    }
+
+
+class SecondaryNetwork(AWSObject):
+    """
+    `SecondaryNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-secondarynetwork.html>`__
+    """
+
+    resource_type = "AWS::EC2::SecondaryNetwork"
+
+    props: PropsDictType = {
+        "Ipv4CidrBlock": (str, True),
+        "NetworkType": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -3721,6 +3807,16 @@ class TransitGatewayRouteTable(AWSObject):
     }
 
 
+class TransitGatewayRouteTableAnnouncement(AWSObject):
+    """
+    `TransitGatewayRouteTableAnnouncement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableannouncement.html>`__
+    """
+
+    resource_type = "AWS::EC2::TransitGatewayRouteTableAnnouncement"
+
+    props: PropsDictType = {}
+
+
 class TransitGatewayRouteTableAssociation(AWSObject):
     """
     `TransitGatewayRouteTableAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html>`__
@@ -4069,7 +4165,7 @@ class VPNConcentrator(AWSObject):
 
     props: PropsDictType = {
         "Tags": (Tags, False),
-        "TransitGatewayId": (str, True),
+        "TransitGatewayId": (str, False),
         "Type": (str, True),
     }
 
@@ -4661,6 +4757,20 @@ class Egress(AWSProperty):
     }
 
 
+class ImageWatermark(AWSProperty):
+    """
+    `ImageWatermark <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-image-imagewatermark.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceImageCreationTime": (str, False),
+        "SourceImageId": (str, False),
+        "SourceImageRegion": (str, False),
+        "WatermarkCreationTime": (str, False),
+        "WatermarkKey": (str, False),
+    }
+
+
 class Ingress(AWSProperty):
     """
     `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html>`__
@@ -4699,6 +4809,18 @@ class InstanceConnectEndpointPublicDnsNames(AWSProperty):
     props: PropsDictType = {
         "Dualstack": (InstanceConnectEndpointDnsNames, False),
         "Ipv4": (InstanceConnectEndpointDnsNames, False),
+    }
+
+
+class Ipv4CidrBlockAssociation(AWSProperty):
+    """
+    `Ipv4CidrBlockAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-secondarynetwork-ipv4cidrblockassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssociationId": (str, False),
+        "CidrBlock": (str, False),
+        "State": (str, False),
     }
 
 
@@ -4743,6 +4865,17 @@ class PeeringAttachmentStatus(AWSProperty):
     props: PropsDictType = {
         "Code": (str, False),
         "Message": (str, False),
+    }
+
+
+class ProductCode(AWSProperty):
+    """
+    `ProductCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-image-productcode.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProductCodeId": (str, False),
+        "ProductCodeType": (str, False),
     }
 
 

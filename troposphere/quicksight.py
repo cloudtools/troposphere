@@ -1789,7 +1789,7 @@ class SheetLayoutGroupMember(AWSProperty):
 
     props: PropsDictType = {
         "Id": (str, True),
-        "Type": (dict, True),
+        "Type": (str, True),
     }
 
 

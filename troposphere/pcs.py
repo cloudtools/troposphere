@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -171,7 +171,7 @@ class ComputeNodeGroup(AWSObject):
     props: PropsDictType = {
         "AmiId": (str, False),
         "ClusterId": (str, True),
-        "CustomLaunchTemplate": (CustomLaunchTemplate, True),
+        "CustomLaunchTemplate": (CustomLaunchTemplate, False),
         "IamInstanceProfileArn": (str, True),
         "InstanceConfigs": ([InstanceConfig], True),
         "Name": (str, False),

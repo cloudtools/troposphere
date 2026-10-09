@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -53,6 +53,16 @@ class Hypervisor(AWSObject):
     }
 
 
+class VirtualMachine(AWSObject):
+    """
+    `VirtualMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-virtualmachine.html>`__
+    """
+
+    resource_type = "AWS::BackupGateway::VirtualMachine"
+
+    props: PropsDictType = {}
+
+
 class MaintenanceStartTime(AWSProperty):
     """
     `MaintenanceStartTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backupgateway-gateway-maintenancestarttime.html>`__
@@ -63,4 +73,16 @@ class MaintenanceStartTime(AWSProperty):
         "DayOfWeek": (integer, False),
         "HourOfDay": (integer, True),
         "MinuteOfHour": (integer, True),
+    }
+
+
+class VmwareTag(AWSProperty):
+    """
+    `VmwareTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backupgateway-virtualmachine-vmwaretag.html>`__
+    """
+
+    props: PropsDictType = {
+        "VmwareCategory": (str, False),
+        "VmwareTagDescription": (str, False),
+        "VmwareTagName": (str, False),
     }

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -215,6 +215,7 @@ class Stream(AWSObject):
         "DesiredShardLevelMetrics": ([str], False),
         "MaxRecordSizeInKiB": (integer, False),
         "Name": (str, False),
+        "RecordDistributionStrategy": (str, False),
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, False),
         "StreamEncryption": (StreamEncryption, False),

@@ -98,6 +98,35 @@ class BatchSegmentJob(AWSObject):
     }
 
 
+class CampaignConfig(AWSProperty):
+    """
+    `CampaignConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-campaign-campaignconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableMetadataWithRecommendations": (boolean, False),
+        "ItemExplorationConfig": (dict, False),
+        "RankingInfluence": (dict, False),
+        "SyncWithLatestSolutionVersion": (boolean, False),
+    }
+
+
+class Campaign(AWSObject):
+    """
+    `Campaign <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-campaign.html>`__
+    """
+
+    resource_type = "AWS::Personalize::Campaign"
+
+    props: PropsDictType = {
+        "CampaignConfig": (CampaignConfig, False),
+        "MinProvisionedTPS": (integer, False),
+        "Name": (str, True),
+        "SolutionVersionArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DataSource(AWSProperty):
     """
     `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-personalize-datasetimportjob-datasource.html>`__

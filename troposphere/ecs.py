@@ -2071,3 +2071,15 @@ class VersionInfo(AWSProperty):
         "AgentVersion": (str, False),
         "DockerVersion": (str, False),
     }
+
+
+class VpcLatticeAdvancedConfiguration(AWSProperty):
+    """
+    `VpcLatticeAdvancedConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeadvancedconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlternateTargetGroupArn": (str, False),
+        "ProductionListenerRule": (str, False),
+        "TestListenerRule": (str, False),
+    }

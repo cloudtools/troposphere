@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -355,6 +355,28 @@ class LogicallyAirGappedBackupVault(AWSObject):
     }
 
 
+class ManagedRecoveryPoint(AWSObject):
+    """
+    `ManagedRecoveryPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-managedrecoverypoint.html>`__
+    """
+
+    resource_type = "AWS::Backup::ManagedRecoveryPoint"
+
+    props: PropsDictType = {}
+
+
+class RecoveryPoint(AWSObject):
+    """
+    `RecoveryPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-recoverypoint.html>`__
+    """
+
+    resource_type = "AWS::Backup::RecoveryPoint"
+
+    props: PropsDictType = {
+        "BackupVaultName": (str, False),
+    }
+
+
 class ReportDeliveryChannel(AWSProperty):
     """
     `ReportDeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportdeliverychannel.html>`__
@@ -493,4 +515,28 @@ class TieringConfiguration(AWSObject):
         "ResourceSelection": ([ResourceSelection], True),
         "TieringConfigurationName": (str, True),
         "TieringConfigurationTags": (dict, False),
+    }
+
+
+class CalculatedLifecycle(AWSProperty):
+    """
+    `CalculatedLifecycle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-recoverypoint-calculatedlifecycle.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeleteAt": (str, False),
+        "MoveToColdStorageAt": (str, False),
+    }
+
+
+class Lifecycle(AWSProperty):
+    """
+    `Lifecycle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-recoverypoint-lifecycle.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeleteAfterDays": (double, False),
+        "DeleteAfterEvent": (str, False),
+        "MoveToColdStorageAfterDays": (double, False),
+        "OptInToArchiveForSupportedResources": (boolean, False),
     }

@@ -5053,6 +5053,16 @@ class Project(AWSObject):
     }
 
 
+class ReservedCapacity(AWSObject):
+    """
+    `ReservedCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-reservedcapacity.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ReservedCapacity"
+
+    props: PropsDictType = {}
+
+
 class OwnershipSettings(AWSProperty):
     """
     `OwnershipSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html>`__
@@ -5388,6 +5398,16 @@ class TrainingJob(AWSObject):
         "TrainingJobName": (str, True),
         "VpcConfig": (VpcConfig, False),
     }
+
+
+class TrainingPlan(AWSObject):
+    """
+    `TrainingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-trainingplan.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::TrainingPlan"
+
+    props: PropsDictType = {}
 
 
 class DataProcessing(AWSProperty):
@@ -5809,6 +5829,27 @@ class RSessionAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class ReservedCapacitySummary(AWSProperty):
+    """
+    `ReservedCapacitySummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-trainingplan-reservedcapacitysummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "DurationHours": (integer, False),
+        "DurationMinutes": (integer, False),
+        "EndTime": (str, False),
+        "InstanceType": (str, True),
+        "ReservedCapacityArn": (str, True),
+        "ReservedCapacityType": (str, False),
+        "StartTime": (str, False),
+        "Status": (str, True),
+        "TotalInstanceCount": (integer, True),
+        "UltraServerCount": (integer, False),
+        "UltraServerType": (str, False),
     }
 
 

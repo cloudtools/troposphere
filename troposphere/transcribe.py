@@ -157,6 +157,34 @@ class CallAnalyticsJob(AWSObject):
     }
 
 
+class InputDataConfig(AWSProperty):
+    """
+    `InputDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transcribe-languagemodel-inputdataconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataAccessRoleArn": (str, True),
+        "S3Uri": (str, True),
+        "TuningDataS3Uri": (str, False),
+    }
+
+
+class LanguageModel(AWSObject):
+    """
+    `LanguageModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transcribe-languagemodel.html>`__
+    """
+
+    resource_type = "AWS::Transcribe::LanguageModel"
+
+    props: PropsDictType = {
+        "BaseModelName": (str, False),
+        "InputDataConfig": (InputDataConfig, False),
+        "LanguageCode": (str, False),
+        "ModelName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class MedicalScribeChannelDefinition(AWSProperty):
     """
     `MedicalScribeChannelDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transcribe-medicalscribejob-medicalscribechanneldefinition.html>`__

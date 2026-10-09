@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import double
+from .validators import boolean, double
 
 
 class AssociatedAlarm(AWSProperty):
@@ -217,6 +217,7 @@ class Ec2AsgCapacityIncreaseConfiguration(AWSProperty):
         "TargetPercent": (double, False),
         "TimeoutMinutes": (double, False),
         "Ungraceful": (Ec2Ungraceful, False),
+        "WaitELBTargetGroupHealthy": (str, False),
     }
 
 
@@ -254,6 +255,7 @@ class EcsCapacityIncreaseConfiguration(AWSProperty):
         "TargetPercent": (double, False),
         "TimeoutMinutes": (double, False),
         "Ungraceful": (EcsUngraceful, False),
+        "WaitELBTargetGroupHealthy": (str, False),
     }
 
 
@@ -584,6 +586,7 @@ class Plan(AWSObject):
         "RecoveryTimeObjectiveMinutes": (double, False),
         "Regions": ([str], True),
         "ReportConfiguration": (ReportConfiguration, False),
+        "ServiceQuotaChecksEnabled": (boolean, False),
         "Tags": (dict, False),
         "Triggers": ([Trigger], False),
         "Workflows": ([Workflow], True),

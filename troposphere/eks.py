@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -606,6 +606,33 @@ class Cluster(AWSObject):
     }
 
 
+class EksAnywhereSubscriptionTerm(AWSProperty):
+    """
+    `EksAnywhereSubscriptionTerm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-eksanywheresubscription-eksanywheresubscriptionterm.html>`__
+    """
+
+    props: PropsDictType = {
+        "Duration": (integer, False),
+        "Unit": (str, False),
+    }
+
+
+class EksAnywhereSubscription(AWSObject):
+    """
+    `EksAnywhereSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-eksanywheresubscription.html>`__
+    """
+
+    resource_type = "AWS::EKS::EksAnywhereSubscription"
+
+    props: PropsDictType = {
+        "AutoRenew": (boolean, False),
+        "LicenseQuantity": (integer, False),
+        "LicenseType": (str, False),
+        "Tags": (Tags, False),
+        "Term": (EksAnywhereSubscriptionTerm, False),
+    }
+
+
 class Label(AWSProperty):
     """
     `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html>`__
@@ -836,6 +863,16 @@ class PodIdentityAssociation(AWSObject):
         "ServiceAccount": (str, True),
         "Tags": (Tags, False),
         "TargetRoleArn": (str, False),
+    }
+
+
+class License(AWSProperty):
+    """
+    `License <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-eksanywheresubscription-license.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
     }
 
 

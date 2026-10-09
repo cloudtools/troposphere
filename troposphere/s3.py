@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -985,6 +985,449 @@ class BucketPolicy(AWSObject):
     }
 
 
+class JobManifestLocation(AWSProperty):
+    """
+    `JobManifestLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobmanifestlocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ETag": (str, True),
+        "ObjectArn": (str, True),
+        "ObjectVersionId": (str, False),
+    }
+
+
+class JobManifestSpec(AWSProperty):
+    """
+    `JobManifestSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobmanifestspec.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([str], False),
+        "Format": (str, True),
+    }
+
+
+class JobManifest(AWSProperty):
+    """
+    `JobManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobmanifest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (JobManifestLocation, True),
+        "Spec": (JobManifestSpec, True),
+    }
+
+
+class KeyNameConstraint(AWSProperty):
+    """
+    `KeyNameConstraint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-keynameconstraint.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchAnyPrefix": ([str], False),
+        "MatchAnySubstring": ([str], False),
+        "MatchAnySuffix": ([str], False),
+    }
+
+
+class DSSEKMSFilter(AWSProperty):
+    """
+    `DSSEKMSFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-dssekmsfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, False),
+    }
+
+
+class SSEKMSFilter(AWSProperty):
+    """
+    `SSEKMSFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-ssekmsfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketKeyEnabled": (boolean, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
+class ObjectEncryptionFilter(AWSProperty):
+    """
+    `ObjectEncryptionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-objectencryptionfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DSSEKMS": (DSSEKMSFilter, False),
+        "NOTSSE": (dict, False),
+        "SSEC": (dict, False),
+        "SSEKMS": (SSEKMSFilter, False),
+        "SSES3": (dict, False),
+    }
+
+
+class JobManifestGeneratorFilter(AWSProperty):
+    """
+    `JobManifestGeneratorFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobmanifestgeneratorfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreatedAfter": (str, False),
+        "CreatedBefore": (str, False),
+        "EligibleForReplication": (boolean, False),
+        "KeyNameConstraint": (KeyNameConstraint, False),
+        "MatchAnyObjectEncryption": ([ObjectEncryptionFilter], False),
+        "MatchAnyStorageClass": ([str], False),
+        "ObjectReplicationStatuses": ([str], False),
+        "ObjectSizeGreaterThanBytes": (integer, False),
+        "ObjectSizeLessThanBytes": (integer, False),
+    }
+
+
+class SSEKMSEncryption(AWSProperty):
+    """
+    `SSEKMSEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-ssekmsencryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyId": (str, True),
+    }
+
+
+class GeneratedManifestEncryption(AWSProperty):
+    """
+    `GeneratedManifestEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-generatedmanifestencryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "SSEKMS": (SSEKMSEncryption, False),
+        "SSES3": (dict, False),
+    }
+
+
+class S3ManifestOutputLocation(AWSProperty):
+    """
+    `S3ManifestOutputLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3manifestoutputlocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "ExpectedManifestBucketOwner": (str, False),
+        "ManifestEncryption": (GeneratedManifestEncryption, False),
+        "ManifestFormat": (str, True),
+        "ManifestPrefix": (str, False),
+    }
+
+
+class S3JobManifestGenerator(AWSProperty):
+    """
+    `S3JobManifestGenerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3jobmanifestgenerator.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableManifestOutput": (boolean, True),
+        "ExpectedBucketOwner": (str, False),
+        "Filter": (JobManifestGeneratorFilter, False),
+        "ManifestOutputLocation": (S3ManifestOutputLocation, False),
+        "SourceBucket": (str, True),
+    }
+
+
+class JobManifestGenerator(AWSProperty):
+    """
+    `JobManifestGenerator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobmanifestgenerator.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3JobManifestGenerator": (S3JobManifestGenerator, True),
+    }
+
+
+class LambdaInvokeOperation(AWSProperty):
+    """
+    `LambdaInvokeOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-lambdainvokeoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionArn": (str, False),
+        "InvocationSchemaVersion": (str, False),
+        "UserArguments": (dict, False),
+    }
+
+
+class S3ComputeObjectChecksumOperation(AWSProperty):
+    """
+    `S3ComputeObjectChecksumOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3computeobjectchecksumoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChecksumAlgorithm": (str, False),
+        "ChecksumType": (str, False),
+    }
+
+
+class S3Grantee(AWSProperty):
+    """
+    `S3Grantee <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3grantee.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayName": (str, False),
+        "Identifier": (str, False),
+        "TypeIdentifier": (str, False),
+    }
+
+
+class S3Grant(AWSProperty):
+    """
+    `S3Grant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3grant.html>`__
+    """
+
+    props: PropsDictType = {
+        "Grantee": (S3Grantee, False),
+        "Permission": (str, False),
+    }
+
+
+class S3ObjectMetadata(AWSProperty):
+    """
+    `S3ObjectMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3objectmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "CacheControl": (str, False),
+        "ContentDisposition": (str, False),
+        "ContentEncoding": (str, False),
+        "ContentLanguage": (str, False),
+        "ContentLength": (integer, False),
+        "ContentMD5": (str, False),
+        "ContentType": (str, False),
+        "HttpExpiresDate": (str, False),
+        "RequesterCharged": (boolean, False),
+        "SSEAlgorithm": (str, False),
+        "UserMetadata": (dict, False),
+    }
+
+
+class S3CopyObjectOperation(AWSProperty):
+    """
+    `S3CopyObjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3copyobjectoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessControlGrants": ([S3Grant], False),
+        "BucketKeyEnabled": (boolean, False),
+        "CannedAccessControlList": (str, False),
+        "ChecksumAlgorithm": (str, False),
+        "MetadataDirective": (str, False),
+        "ModifiedSinceConstraint": (str, False),
+        "NewObjectMetadata": (S3ObjectMetadata, False),
+        "NewObjectTagging": (Tags, False),
+        "ObjectLockLegalHoldStatus": (str, False),
+        "ObjectLockMode": (str, False),
+        "ObjectLockRetainUntilDate": (str, False),
+        "RedirectLocation": (str, False),
+        "RequesterPays": (boolean, False),
+        "SSEAwsKmsKeyId": (str, False),
+        "StorageClass": (str, False),
+        "TargetKeyPrefix": (str, False),
+        "TargetResource": (str, False),
+        "UnModifiedSinceConstraint": (str, False),
+    }
+
+
+class S3InitiateRestoreObjectOperation(AWSProperty):
+    """
+    `S3InitiateRestoreObjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3initiaterestoreobjectoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExpirationInDays": (integer, False),
+        "GlacierJobTier": (str, False),
+    }
+
+
+class S3ObjectOwner(AWSProperty):
+    """
+    `S3ObjectOwner <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3objectowner.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayName": (str, False),
+        "ID": (str, False),
+    }
+
+
+class S3AccessControlList(AWSProperty):
+    """
+    `S3AccessControlList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3accesscontrollist.html>`__
+    """
+
+    props: PropsDictType = {
+        "Grants": ([S3Grant], False),
+        "Owner": (S3ObjectOwner, True),
+    }
+
+
+class S3AccessControlPolicy(AWSProperty):
+    """
+    `S3AccessControlPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3accesscontrolpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessControlList": (S3AccessControlList, False),
+        "CannedAccessControlList": (str, False),
+    }
+
+
+class S3SetObjectAclOperation(AWSProperty):
+    """
+    `S3SetObjectAclOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3setobjectacloperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessControlPolicy": (S3AccessControlPolicy, False),
+    }
+
+
+class S3ObjectLockLegalHold(AWSProperty):
+    """
+    `S3ObjectLockLegalHold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3objectlocklegalhold.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
+class S3SetObjectLegalHoldOperation(AWSProperty):
+    """
+    `S3SetObjectLegalHoldOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3setobjectlegalholdoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "LegalHold": (S3ObjectLockLegalHold, True),
+    }
+
+
+class S3Retention(AWSProperty):
+    """
+    `S3Retention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3retention.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, False),
+        "RetainUntilDate": (str, False),
+    }
+
+
+class S3SetObjectRetentionOperation(AWSProperty):
+    """
+    `S3SetObjectRetentionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3setobjectretentionoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "BypassGovernanceRetention": (boolean, False),
+        "Retention": (S3Retention, True),
+    }
+
+
+class S3SetObjectTaggingOperation(AWSProperty):
+    """
+    `S3SetObjectTaggingOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3setobjecttaggingoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "TagSet": (Tags, False),
+    }
+
+
+class S3UpdateObjectEncryptionSSEKMS(AWSProperty):
+    """
+    `S3UpdateObjectEncryptionSSEKMS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3updateobjectencryptionssekms.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketKeyEnabled": (boolean, False),
+        "KMSKeyArn": (str, True),
+    }
+
+
+class ObjectEncryption(AWSProperty):
+    """
+    `ObjectEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-objectencryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "SSEKMS": (S3UpdateObjectEncryptionSSEKMS, False),
+    }
+
+
+class S3UpdateObjectEncryptionOperation(AWSProperty):
+    """
+    `S3UpdateObjectEncryptionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3updateobjectencryptionoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObjectEncryption": (ObjectEncryption, False),
+    }
+
+
+class JobOperation(AWSProperty):
+    """
+    `JobOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-joboperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaInvoke": (LambdaInvokeOperation, False),
+        "S3ComputeObjectChecksum": (S3ComputeObjectChecksumOperation, False),
+        "S3DeleteObjectTagging": (dict, False),
+        "S3InitiateRestoreObject": (S3InitiateRestoreObjectOperation, False),
+        "S3PutObjectAcl": (S3SetObjectAclOperation, False),
+        "S3PutObjectCopy": (S3CopyObjectOperation, False),
+        "S3PutObjectLegalHold": (S3SetObjectLegalHoldOperation, False),
+        "S3PutObjectRetention": (S3SetObjectRetentionOperation, False),
+        "S3PutObjectTagging": (S3SetObjectTaggingOperation, False),
+        "S3ReplicateObject": (dict, False),
+        "S3UpdateObjectEncryption": (S3UpdateObjectEncryptionOperation, False),
+    }
+
+
+class JobReport(AWSProperty):
+    """
+    `JobReport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobreport.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "Enabled": (boolean, True),
+        "ExpectedBucketOwner": (str, False),
+        "Format": (str, False),
+        "Prefix": (str, False),
+        "ReportScope": (str, False),
+    }
+
+
+class Job(AWSObject):
+    """
+    `Job <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-job.html>`__
+    """
+
+    resource_type = "AWS::S3::Job"
+
+    props: PropsDictType = {
+        "ConfirmationRequired": (boolean, False),
+        "Description": (str, False),
+        "Manifest": (JobManifest, False),
+        "ManifestGenerator": (JobManifestGenerator, False),
+        "Operation": (JobOperation, True),
+        "Priority": (integer, True),
+        "Report": (JobReport, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Region(AWSProperty):
     """
     `Region <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html>`__
@@ -1371,6 +1814,29 @@ class StorageLensGroup(AWSObject):
     }
 
 
+class JobTimers(AWSProperty):
+    """
+    `JobTimers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobtimers.html>`__
+    """
+
+    props: PropsDictType = {
+        "ElapsedTimeInActiveSeconds": (integer, False),
+    }
+
+
+class JobProgressSummary(AWSProperty):
+    """
+    `JobProgressSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-jobprogresssummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "NumberOfTasksFailed": (integer, False),
+        "NumberOfTasksSucceeded": (integer, False),
+        "Timers": (JobTimers, False),
+        "TotalNumberOfTasks": (integer, False),
+    }
+
+
 class PolicyStatus(AWSProperty):
     """
     `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html>`__
@@ -1378,4 +1844,15 @@ class PolicyStatus(AWSProperty):
 
     props: PropsDictType = {
         "IsPublic": (str, True),
+    }
+
+
+class S3GeneratedManifestDescriptor(AWSProperty):
+    """
+    `S3GeneratedManifestDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-job-s3generatedmanifestdescriptor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Format": (str, False),
+        "Location": (JobManifestLocation, False),
     }
