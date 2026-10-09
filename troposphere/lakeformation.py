@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -103,15 +103,24 @@ class PermissionsDataLocationResource(AWSProperty):
     }
 
 
+class TableWildcard(AWSProperty):
+    """
+    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
+    """
+
+    props: PropsDictType = {}
+
+
 class TableResource(AWSProperty):
     """
-    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tableresource.html>`__
+    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html>`__
     """
 
     props: PropsDictType = {
-        "CatalogId": (str, True),
-        "DatabaseName": (str, True),
+        "CatalogId": (str, False),
+        "DatabaseName": (str, False),
         "Name": (str, False),
+        "TableWildcard": (TableWildcard, False),
     }
 
 
@@ -348,11 +357,3 @@ class PrincipalPermissionsProperty(AWSProperty):
         "Permissions": ([str], True),
         "Principal": (DataLakePrincipal, True),
     }
-
-
-class TableWildcard(AWSProperty):
-    """
-    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
-    """
-
-    props: PropsDictType = {}

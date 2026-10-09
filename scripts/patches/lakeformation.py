@@ -1,4 +1,15 @@
 patches = [
+    # Keep the Permissions.TableResource definition as the shared Python type.
+    # These other Lake Formation resources use the same unqualified type name,
+    # and the generator would otherwise overwrite it with their definitions.
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.TableResource",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.TableResource",
+    },
     # Rename AWS::LakeFormation::Permissions.Resource to AWS::LakeFormation::Permissions.ResourceProperty
     {
         "op": "move",
