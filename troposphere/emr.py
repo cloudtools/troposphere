@@ -86,7 +86,7 @@ class Configuration(AWSProperty):
 
 class OnDemandCapacityReservationOptions(AWSProperty):
     """
-    `OnDemandCapacityReservationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html>`__
+    `OnDemandCapacityReservationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandcapacityreservationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -98,7 +98,7 @@ class OnDemandCapacityReservationOptions(AWSProperty):
 
 class OnDemandProvisioningSpecification(AWSProperty):
     """
-    `OnDemandProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html>`__
+    `OnDemandProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandprovisioningspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -112,7 +112,7 @@ class OnDemandProvisioningSpecification(AWSProperty):
 
 class SpotProvisioningSpecification(AWSProperty):
     """
-    `SpotProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotprovisioningspecification.html>`__
+    `SpotProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-spotprovisioningspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -128,7 +128,7 @@ class SpotProvisioningSpecification(AWSProperty):
 
 class InstanceFleetProvisioningSpecifications(AWSProperty):
     """
-    `InstanceFleetProvisioningSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html>`__
+    `InstanceFleetProvisioningSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-instancefleetprovisioningspecifications.html>`__
     """
 
     props: PropsDictType = {
@@ -139,7 +139,7 @@ class InstanceFleetProvisioningSpecifications(AWSProperty):
 
 class OnDemandResizingSpecification(AWSProperty):
     """
-    `OnDemandResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html>`__
+    `OnDemandResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-ondemandresizingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -151,7 +151,7 @@ class OnDemandResizingSpecification(AWSProperty):
 
 class SpotResizingSpecification(AWSProperty):
     """
-    `SpotResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotresizingspecification.html>`__
+    `SpotResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-spotresizingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -162,12 +162,24 @@ class SpotResizingSpecification(AWSProperty):
 
 class InstanceFleetResizingSpecifications(AWSProperty):
     """
-    `InstanceFleetResizingSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html>`__
+    `InstanceFleetResizingSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-instancefleetresizingspecifications.html>`__
     """
 
     props: PropsDictType = {
         "OnDemandResizeSpecification": (OnDemandResizingSpecification, False),
         "SpotResizeSpecification": (SpotResizingSpecification, False),
+    }
+
+
+class ApplicationConfiguration(AWSProperty):
+    """
+    `ApplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-applicationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Classification": (str, False),
+        "ConfigurationProperties": (dict, False),
+        "Configurations": ([object], False),
     }
 
 
@@ -208,13 +220,13 @@ class EbsConfiguration(AWSProperty):
 
 class InstanceTypeConfig(AWSProperty):
     """
-    `InstanceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html>`__
+    `InstanceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-instancefleetconfig-instancetypeconfig.html>`__
     """
 
     props: PropsDictType = {
         "BidPrice": (str, False),
         "BidPriceAsPercentageOfOnDemandPrice": (double, False),
-        "Configurations": ([Configuration], False),
+        "Configurations": ([ApplicationConfiguration], False),
         "CustomAmiId": (str, False),
         "EbsConfiguration": (EbsConfiguration, False),
         "InstanceType": (str, True),
@@ -500,7 +512,7 @@ class Cluster(AWSObject):
 
 class InstanceFleetConfig(AWSObject):
     """
-    `InstanceFleetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html>`__
+    `InstanceFleetConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html>`__
     """
 
     resource_type = "AWS::EMR::InstanceFleetConfig"

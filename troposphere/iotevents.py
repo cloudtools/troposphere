@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -10,34 +10,13 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
-class AcknowledgeFlow(AWSProperty):
+class ClearTimer(AWSProperty):
     """
-    `AcknowledgeFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-acknowledgeflow.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, False),
-    }
-
-
-class InitializationConfiguration(AWSProperty):
-    """
-    `InitializationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-initializationconfiguration.html>`__
+    `ClearTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html>`__
     """
 
     props: PropsDictType = {
-        "DisabledOnInitialization": (boolean, True),
-    }
-
-
-class AlarmCapabilities(AWSProperty):
-    """
-    `AlarmCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmcapabilities.html>`__
-    """
-
-    props: PropsDictType = {
-        "AcknowledgeFlow": (AcknowledgeFlow, False),
-        "InitializationConfiguration": (InitializationConfiguration, False),
+        "TimerName": (str, True),
     }
 
 
@@ -177,109 +156,6 @@ class Lambda(AWSProperty):
     }
 
 
-class Sns(AWSProperty):
-    """
-    `Sns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html>`__
-    """
-
-    props: PropsDictType = {
-        "Payload": (Payload, False),
-        "TargetArn": (str, True),
-    }
-
-
-class Sqs(AWSProperty):
-    """
-    `Sqs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html>`__
-    """
-
-    props: PropsDictType = {
-        "Payload": (Payload, False),
-        "QueueUrl": (str, True),
-        "UseBase64": (boolean, False),
-    }
-
-
-class AlarmAction(AWSProperty):
-    """
-    `AlarmAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "DynamoDB": (DynamoDB, False),
-        "DynamoDBv2": (DynamoDBv2, False),
-        "Firehose": (Firehose, False),
-        "IotEvents": (IotEvents, False),
-        "IotSiteWise": (IotSiteWise, False),
-        "IotTopicPublish": (IotTopicPublish, False),
-        "Lambda": (Lambda, False),
-        "Sns": (Sns, False),
-        "Sqs": (Sqs, False),
-    }
-
-
-class AlarmEventActions(AWSProperty):
-    """
-    `AlarmEventActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmeventactions.html>`__
-    """
-
-    props: PropsDictType = {
-        "AlarmActions": ([AlarmAction], False),
-    }
-
-
-class SimpleRule(AWSProperty):
-    """
-    `SimpleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-simplerule.html>`__
-    """
-
-    props: PropsDictType = {
-        "ComparisonOperator": (str, True),
-        "InputProperty": (str, True),
-        "Threshold": (str, True),
-    }
-
-
-class AlarmRule(AWSProperty):
-    """
-    `AlarmRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-alarmmodel-alarmrule.html>`__
-    """
-
-    props: PropsDictType = {
-        "SimpleRule": (SimpleRule, False),
-    }
-
-
-class AlarmModel(AWSObject):
-    """
-    `AlarmModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-alarmmodel.html>`__
-    """
-
-    resource_type = "AWS::IoTEvents::AlarmModel"
-
-    props: PropsDictType = {
-        "AlarmCapabilities": (AlarmCapabilities, False),
-        "AlarmEventActions": (AlarmEventActions, False),
-        "AlarmModelDescription": (str, False),
-        "AlarmModelName": (str, False),
-        "AlarmRule": (AlarmRule, True),
-        "Key": (str, False),
-        "RoleArn": (str, True),
-        "Severity": (integer, False),
-        "Tags": (Tags, False),
-    }
-
-
-class ClearTimer(AWSProperty):
-    """
-    `ClearTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html>`__
-    """
-
-    props: PropsDictType = {
-        "TimerName": (str, True),
-    }
-
-
 class ResetTimer(AWSProperty):
     """
     `ResetTimer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html>`__
@@ -310,6 +186,29 @@ class SetVariable(AWSProperty):
     props: PropsDictType = {
         "Value": (str, True),
         "VariableName": (str, True),
+    }
+
+
+class Sns(AWSProperty):
+    """
+    `Sns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html>`__
+    """
+
+    props: PropsDictType = {
+        "Payload": (Payload, False),
+        "TargetArn": (str, True),
+    }
+
+
+class Sqs(AWSProperty):
+    """
+    `Sqs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html>`__
+    """
+
+    props: PropsDictType = {
+        "Payload": (Payload, False),
+        "QueueUrl": (str, True),
+        "UseBase64": (boolean, False),
     }
 
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -82,6 +82,21 @@ class ResourcePolicy(AWSObject):
     }
 
 
+class ResponsibilityTransfer(AWSObject):
+    """
+    `ResponsibilityTransfer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-responsibilitytransfer.html>`__
+    """
+
+    resource_type = "AWS::Organizations::ResponsibilityTransfer"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "StartTimestamp": (str, False),
+        "Tags": (Tags, False),
+        "Type": (str, False),
+    }
+
+
 class Root(AWSObject):
     """
     `Root <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-root.html>`__
@@ -100,4 +115,15 @@ class PolicyTypeSummary(AWSProperty):
     props: PropsDictType = {
         "Status": (str, False),
         "Type": (str, False),
+    }
+
+
+class TransferParticipant(AWSProperty):
+    """
+    `TransferParticipant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-organizations-responsibilitytransfer-transferparticipant.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManagementAccountEmail": (str, False),
+        "ManagementAccountId": (str, False),
     }

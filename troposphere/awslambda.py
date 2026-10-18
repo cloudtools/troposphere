@@ -886,8 +886,8 @@ class VpcEgressConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AssociatedComputeResourceTypes": ([str], True),
-        "NetworkProtocol": (str, False),
-        "SecurityGroupIds": ([str], False),
+        "NetworkProtocol": (str, True),
+        "SecurityGroupIds": ([str], True),
         "SubnetIds": ([str], True),
     }
 
@@ -1122,6 +1122,7 @@ class ServiceConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EgressNetworkConnectorArn": (str, False),
         "EnvironmentVariables": (dict, False),
         "ExecutionRoleArn": (str, True),
         "MaxConcurrencyPerEnvironment": (integer, False),

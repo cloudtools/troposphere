@@ -1126,7 +1126,7 @@ class Metric(AWSObject):
 
 class NotificationContent(AWSProperty):
     """
-    `NotificationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-notification-notificationcontent.html>`__
+    `NotificationContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationcontent.html>`__
     """
 
     props: PropsDictType = {
@@ -1515,6 +1515,30 @@ class EventBridgeAction(AWSProperty):
     }
 
 
+class InAppNotificationRecipientType(AWSProperty):
+    """
+    `InAppNotificationRecipientType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-inappnotificationrecipienttype.html>`__
+    """
+
+    props: PropsDictType = {
+        "UserArns": ([str], False),
+        "UserTags": (dict, False),
+    }
+
+
+class SendInAppNotificationAction(AWSProperty):
+    """
+    `SendInAppNotificationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendinappnotificationaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": (NotificationContent, True),
+        "Exclusion": (InAppNotificationRecipientType, False),
+        "Priority": (str, False),
+        "Recipient": (InAppNotificationRecipientType, True),
+    }
+
+
 class NotificationRecipientType(AWSProperty):
     """
     `NotificationRecipientType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html>`__
@@ -1596,6 +1620,7 @@ class Actions(AWSProperty):
         "CreateCaseActions": ([CreateCaseAction], False),
         "EndAssociatedTasksActions": (Tags, False),
         "EventBridgeActions": ([EventBridgeAction], False),
+        "SendInAppNotificationActions": ([SendInAppNotificationAction], False),
         "SendNotificationActions": ([SendNotificationAction], False),
         "SubmitAutoEvaluationActions": ([SubmitAutoEvaluationAction], False),
         "TaskActions": ([TaskAction], False),

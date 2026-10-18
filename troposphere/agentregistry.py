@@ -20,6 +20,28 @@ class ApprovalConfiguration(AWSProperty):
     }
 
 
+class RecordTypeSchemaOverride(AWSProperty):
+    """
+    `RecordTypeSchemaOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-recordtypeschemaoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecordType": (str, True),
+        "Schema": (str, True),
+    }
+
+
+class CustomMetadataSchemaConfiguration(AWSProperty):
+    """
+    `CustomMetadataSchemaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-custommetadataschemaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultSchema": (str, False),
+        "RecordTypeSchemaOverrides": ([RecordTypeSchemaOverride], False),
+    }
+
+
 class ClaimMatchValueType(AWSProperty):
     """
     `ClaimMatchValueType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-claimmatchvaluetype.html>`__
@@ -110,6 +132,7 @@ class Registry(AWSObject):
         "AuthorizerType": (str, False),
         "AutoDetectionEnabled": (boolean, False),
         "AutoDetectionScope": (str, False),
+        "CustomMetadataSchemaConfiguration": (CustomMetadataSchemaConfiguration, False),
         "Description": (str, False),
         "DiscoveryConfiguration": (DiscoveryConfiguration, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
@@ -362,6 +385,7 @@ class RegistryRecord(AWSObject):
     resource_type = "AWS::AgentRegistry::RegistryRecord"
 
     props: PropsDictType = {
+        "CustomMetadata": (dict, False),
         "Description": (str, False),
         "Descriptors": (Descriptors, True),
         "DisplayName": (str, False),

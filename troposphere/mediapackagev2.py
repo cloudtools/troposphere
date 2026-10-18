@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -286,6 +286,17 @@ class DashUtcTiming(AWSProperty):
     }
 
 
+class MultiviewFilterConfiguration(AWSProperty):
+    """
+    `MultiviewFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-multiviewfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Layout": (str, True),
+        "Sources": ([str], True),
+    }
+
+
 class FilterConfiguration(AWSProperty):
     """
     `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>`__
@@ -296,6 +307,7 @@ class FilterConfiguration(AWSProperty):
         "DrmSettings": (str, False),
         "End": (str, False),
         "ManifestFilter": (str, False),
+        "Multiview": (MultiviewFilterConfiguration, False),
         "Start": (str, False),
         "TimeDelaySeconds": (integer, False),
     }
@@ -395,6 +407,21 @@ class HlsManifestConfiguration(AWSProperty):
     }
 
 
+class LowLatencyHlsFilterConfiguration(AWSProperty):
+    """
+    `LowLatencyHlsFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClipStartTime": (str, False),
+        "DrmSettings": (str, False),
+        "End": (str, False),
+        "ManifestFilter": (str, False),
+        "Start": (str, False),
+        "TimeDelaySeconds": (integer, False),
+    }
+
+
 class LowLatencyHlsManifestConfiguration(AWSProperty):
     """
     `LowLatencyHlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html>`__
@@ -402,7 +429,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ChildManifestName": (str, False),
-        "FilterConfiguration": (FilterConfiguration, False),
+        "FilterConfiguration": (LowLatencyHlsFilterConfiguration, False),
         "ManifestName": (str, True),
         "ManifestWindowSeconds": (integer, False),
         "ProgramDateTimeIntervalSeconds": (integer, False),
@@ -414,13 +441,28 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
     }
 
 
+class MssFilterConfiguration(AWSProperty):
+    """
+    `MssFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-mssfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClipStartTime": (str, False),
+        "DrmSettings": (str, False),
+        "End": (str, False),
+        "ManifestFilter": (str, False),
+        "Start": (str, False),
+        "TimeDelaySeconds": (integer, False),
+    }
+
+
 class MssManifestConfiguration(AWSProperty):
     """
     `MssManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-mssmanifestconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "FilterConfiguration": (FilterConfiguration, False),
+        "FilterConfiguration": (MssFilterConfiguration, False),
         "ManifestLayout": (str, False),
         "ManifestName": (str, True),
         "ManifestWindowSeconds": (integer, False),
@@ -436,6 +478,16 @@ class EncryptionMethod(AWSProperty):
         "CmafEncryptionMethod": (str, False),
         "IsmEncryptionMethod": (str, False),
         "TsEncryptionMethod": (str, False),
+    }
+
+
+class ContentKeyPeriodConfiguration(AWSProperty):
+    """
+    `ContentKeyPeriodConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-contentkeyperiodconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentKeyPeriodTiming": (str, False),
     }
 
 
@@ -457,10 +509,12 @@ class SpekeKeyProvider(AWSProperty):
 
     props: PropsDictType = {
         "CertificateArn": (str, False),
+        "ContentKeyPeriodConfiguration": (ContentKeyPeriodConfiguration, False),
         "DrmSystems": ([str], True),
         "EncryptionContractConfiguration": (EncryptionContractConfiguration, True),
         "ResourceId": (str, True),
         "RoleArn": (str, True),
+        "SpekeVersion": (str, False),
         "Url": (str, True),
     }
 

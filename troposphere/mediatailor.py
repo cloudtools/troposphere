@@ -340,6 +340,27 @@ class AvailSuppression(AWSProperty):
     }
 
 
+class ClientSideBeaconingConfiguration(AWSProperty):
+    """
+    `ClientSideBeaconingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-clientsidebeaconingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalEventTypes": ([str], False),
+        "ReportingMode": (str, True),
+    }
+
+
+class BeaconingConfiguration(AWSProperty):
+    """
+    `BeaconingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-beaconingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientSide": (ClientSideBeaconingConfiguration, False),
+    }
+
+
 class Bumper(AWSProperty):
     """
     `Bumper <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-bumper.html>`__
@@ -484,6 +505,7 @@ class PlaybackConfiguration(AWSObject):
         "AdsPersonalizationConcurrency": (AdsPersonalizationConcurrency, False),
         "AdsPersonalizationTimeouts": (AdsPersonalizationTimeouts, False),
         "AvailSuppression": (AvailSuppression, False),
+        "BeaconingConfiguration": (BeaconingConfiguration, False),
         "Bumper": (Bumper, False),
         "CdnConfiguration": (CdnConfiguration, False),
         "ConfigurationAliases": (dict, False),

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -20,6 +20,21 @@ class Database(AWSObject):
     props: PropsDictType = {
         "DatabaseName": (str, False),
         "KmsKeyId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class InfluxDBBackup(AWSObject):
+    """
+    `InfluxDBBackup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbbackup.html>`__
+    """
+
+    resource_type = "AWS::Timestream::InfluxDBBackup"
+
+    props: PropsDictType = {
+        "DbResourceId": (str, True),
+        "Name": (str, True),
+        "RetentionDays": (integer, False),
         "Tags": (Tags, False),
     }
 
@@ -532,4 +547,16 @@ class Table(AWSObject):
         "Schema": (Schema, False),
         "TableName": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class ClusterConfiguration(AWSProperty):
+    """
+    `ClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbbackup-clusterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DedicatedCompactor": (boolean, False),
+        "IngestQueryInstances": (integer, False),
+        "QueryOnlyInstances": (integer, False),
     }

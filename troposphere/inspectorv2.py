@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -378,6 +378,7 @@ class FilterCriteria(AWSProperty):
         "Ec2InstanceVpcId": ([StringFilter], False),
         "EcrImageArchitecture": ([StringFilter], False),
         "EcrImageHash": ([StringFilter], False),
+        "EcrImageInUseCount": ([NumberFilter], False),
         "EcrImagePushedAt": ([DateFilter], False),
         "EcrImageRegistry": ([StringFilter], False),
         "EcrImageRepositoryName": ([StringFilter], False),

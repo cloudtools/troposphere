@@ -368,6 +368,7 @@ class NdiSourceSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AudioReferenceLevel": (integer, False),
         "SourceName": (str, False),
     }
 
@@ -616,6 +617,7 @@ class FlowOutput(AWSObject):
         "MediaStreamOutputConfigurations": ([MediaStreamOutputConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
+        "NdiAudioReferenceLevel": (integer, False),
         "NdiOutputTimecodeSource": (str, False),
         "NdiProgramName": (str, False),
         "NdiSpeedHqQuality": (integer, False),

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -49,6 +49,54 @@ class Project(AWSObject):
     props: PropsDictType = {
         "ProjectName": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ContentModerationConfig(AWSProperty):
+    """
+    `ContentModerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-projectversion-contentmoderationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfidenceThreshold": (double, False),
+    }
+
+
+class CustomizationFeatureConfig(AWSProperty):
+    """
+    `CustomizationFeatureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-projectversion-customizationfeatureconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentModeration": (ContentModerationConfig, False),
+    }
+
+
+class OutputConfig(AWSProperty):
+    """
+    `OutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-projectversion-outputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Bucket": (str, False),
+        "S3KeyPrefix": (str, False),
+    }
+
+
+class ProjectVersion(AWSObject):
+    """
+    `ProjectVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-projectversion.html>`__
+    """
+
+    resource_type = "AWS::Rekognition::ProjectVersion"
+
+    props: PropsDictType = {
+        "FeatureConfig": (CustomizationFeatureConfig, False),
+        "KmsKeyId": (str, False),
+        "OutputConfig": (OutputConfig, False),
+        "ProjectArn": (str, False),
+        "VersionDescription": (str, False),
+        "VersionName": (str, False),
     }
 
 
@@ -159,4 +207,14 @@ class StreamProcessor(AWSObject):
         "RoleArn": (str, True),
         "S3Destination": (S3Destination, False),
         "Tags": (Tags, False),
+    }
+
+
+class EvaluationResult(AWSProperty):
+    """
+    `EvaluationResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-projectversion-evaluationresult.html>`__
+    """
+
+    props: PropsDictType = {
+        "F1Score": (double, False),
     }

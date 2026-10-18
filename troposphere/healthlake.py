@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -70,6 +70,16 @@ class DataTransformationProfile(AWSObject):
     }
 
 
+class AnalyticsConfiguration(AWSProperty):
+    """
+    `AnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-analyticsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
 class IdentityProviderConfiguration(AWSProperty):
     """
     `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>`__
@@ -83,6 +93,16 @@ class IdentityProviderConfiguration(AWSProperty):
     }
 
 
+class NlpConfiguration(AWSProperty):
+    """
+    `NlpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-nlpconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
 class PreloadDataConfig(AWSProperty):
     """
     `PreloadDataConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-preloaddataconfig.html>`__
@@ -90,6 +110,16 @@ class PreloadDataConfig(AWSProperty):
 
     props: PropsDictType = {
         "PreloadDataType": (str, True),
+    }
+
+
+class ProfileConfiguration(AWSProperty):
+    """
+    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-profileconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultProfiles": ([str], True),
     }
 
 
@@ -122,10 +152,13 @@ class FHIRDatastore(AWSObject):
     resource_type = "AWS::HealthLake::FHIRDatastore"
 
     props: PropsDictType = {
+        "AnalyticsConfiguration": (AnalyticsConfiguration, False),
         "DatastoreName": (str, False),
         "DatastoreTypeVersion": (str, True),
         "IdentityProviderConfiguration": (IdentityProviderConfiguration, False),
+        "NlpConfiguration": (NlpConfiguration, False),
         "PreloadDataConfig": (PreloadDataConfig, False),
+        "ProfileConfiguration": (ProfileConfiguration, False),
         "SseConfiguration": (SseConfiguration, False),
         "Tags": (Tags, False),
     }

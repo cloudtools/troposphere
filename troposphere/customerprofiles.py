@@ -720,6 +720,23 @@ class TagsItems(AWSProperty):
     }
 
 
+class RecommenderFilter(AWSObject):
+    """
+    `RecommenderFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-recommenderfilter.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::RecommenderFilter"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "RecommenderFilterExpression": (str, True),
+        "RecommenderFilterName": (str, True),
+        "RecommenderSchemaName": (str, False),
+        "Tags": ([TagsItems], False),
+    }
+
+
 class RecommenderSchema(AWSObject):
     """
     `RecommenderSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-recommenderschema.html>`__

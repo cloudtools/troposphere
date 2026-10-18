@@ -1302,6 +1302,26 @@ class Template(AWSObject):
     }
 
 
+class ReputationPolicy(AWSProperty):
+    """
+    `ReputationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-tenant-reputationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReputationEntityPolicy": (str, True),
+    }
+
+
+class ReputationEntity(AWSProperty):
+    """
+    `ReputationEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-tenant-reputationentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Policy": (ReputationPolicy, True),
+    }
+
+
 class ResourceAssociation(AWSProperty):
     """
     `ResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-tenant-resourceassociation.html>`__
@@ -1309,6 +1329,17 @@ class ResourceAssociation(AWSProperty):
 
     props: PropsDictType = {
         "ResourceArn": (str, True),
+    }
+
+
+class TenantSuppressionAttributes(AWSProperty):
+    """
+    `TenantSuppressionAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-tenant-tenantsuppressionattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "SuppressedReasons": ([str], True),
+        "SuppressionScope": (str, True),
     }
 
 
@@ -1320,7 +1351,9 @@ class Tenant(AWSObject):
     resource_type = "AWS::SES::Tenant"
 
     props: PropsDictType = {
+        "ReputationEntity": (ReputationEntity, False),
         "ResourceAssociations": ([ResourceAssociation], False),
+        "SuppressionAttributes": (TenantSuppressionAttributes, False),
         "Tags": (Tags, False),
         "TenantName": (str, True),
     }

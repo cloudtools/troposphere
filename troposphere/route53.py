@@ -156,6 +156,7 @@ class HostedZone(AWSObject):
     resource_type = "AWS::Route53::HostedZone"
 
     props: PropsDictType = {
+        "DelegationSetId": (str, False),
         "HostedZoneConfig": (HostedZoneConfiguration, False),
         "HostedZoneFeatures": (HostedZoneFeatures, False),
         "HostedZoneTags": (Tags, False),

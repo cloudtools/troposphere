@@ -161,6 +161,7 @@ class ArgoCd(AWSProperty):
 
     props: PropsDictType = {
         "AwsIdc": (AwsIdc, True),
+        "EndpointPrefix": (str, False),
         "Namespace": (str, False),
         "NetworkAccess": (NetworkAccess, False),
         "RbacRoleMappings": ([ArgoCdRoleMapping], False),

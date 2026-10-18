@@ -304,6 +304,7 @@ class GameServerContainerDefinition(AWSProperty):
         "PortConfiguration": (PortConfiguration, False),
         "ResolvedImageDigest": (str, False),
         "ServerSdkVersion": (str, True),
+        "Vcpu": (double, False),
     }
 
 

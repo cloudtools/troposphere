@@ -613,6 +613,29 @@ class DBSubnetGroup(AWSObject):
     }
 
 
+class Deployment(AWSObject):
+    """
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-deployment.html>`__
+    """
+
+    resource_type = "AWS::RDS::Deployment"
+
+    props: PropsDictType = {
+        "BlueGreenDeploymentName": (str, True),
+        "Source": (str, True),
+        "Tags": (Tags, False),
+        "TargetAllocatedStorage": (integer, False),
+        "TargetDBClusterParameterGroupName": (str, False),
+        "TargetDBInstanceClass": (str, False),
+        "TargetDBParameterGroupName": (str, False),
+        "TargetEngineVersion": (str, False),
+        "TargetIops": (integer, False),
+        "TargetStorageThroughput": (integer, False),
+        "TargetStorageType": (str, False),
+        "UpgradeTargetStorageConfig": (boolean, False),
+    }
+
+
 class EventSubscription(AWSObject):
     """
     `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html>`__
@@ -748,6 +771,17 @@ class DBInstanceStatusInfo(AWSProperty):
     }
 
 
+class DeploymentTask(AWSProperty):
+    """
+    `DeploymentTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-deployment-deploymenttask.html>`__
+    """
+
+    props: PropsDictType = {
+        "TaskName": (str, False),
+        "TaskStatus": (str, False),
+    }
+
+
 class ReadEndpoint(AWSProperty):
     """
     `ReadEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html>`__
@@ -777,4 +811,16 @@ class RestoreWindow(AWSProperty):
     props: PropsDictType = {
         "EarliestTime": (str, False),
         "LatestTime": (str, False),
+    }
+
+
+class SwitchoverDetail(AWSProperty):
+    """
+    `SwitchoverDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-deployment-switchoverdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceMember": (str, False),
+        "SwitchoverDetailStatus": (str, False),
+        "TargetMember": (str, False),
     }

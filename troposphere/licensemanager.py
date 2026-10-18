@@ -275,6 +275,50 @@ class LicenseAssetRuleSet(AWSObject):
     }
 
 
+class ProductInformationFilter(AWSProperty):
+    """
+    `ProductInformationFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseconfiguration-productinformationfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProductInformationFilterComparator": (str, True),
+        "ProductInformationFilterName": (str, True),
+        "ProductInformationFilterValue": ([str], False),
+    }
+
+
+class ProductInformation(AWSProperty):
+    """
+    `ProductInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-licenseconfiguration-productinformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProductInformationFilterList": ([ProductInformationFilter], True),
+        "ResourceType": (str, True),
+    }
+
+
+class LicenseConfiguration(AWSObject):
+    """
+    `LicenseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-licenseconfiguration.html>`__
+    """
+
+    resource_type = "AWS::LicenseManager::LicenseConfiguration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DisassociateWhenNotFound": (boolean, False),
+        "LicenseCount": (integer, False),
+        "LicenseCountHardLimit": (boolean, False),
+        "LicenseCountingType": (str, True),
+        "LicenseExpiry": (integer, False),
+        "LicenseRules": ([str], False),
+        "Name": (str, True),
+        "ProductInformationList": ([ProductInformation], False),
+        "Tags": (Tags, False),
+    }
+
+
 class ReportContext(AWSProperty):
     """
     `ReportContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-reportgenerator-reportcontext.html>`__

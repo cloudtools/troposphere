@@ -213,16 +213,6 @@ class AlarmMuteRule(AWSObject):
     }
 
 
-class MetricCharacteristics(AWSProperty):
-    """
-    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
-    """
-
-    props: PropsDictType = {
-        "PeriodicSpikes": (boolean, False),
-    }
-
-
 class Range(AWSProperty):
     """
     `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-range.html>`__
@@ -234,14 +224,24 @@ class Range(AWSProperty):
     }
 
 
-class MetricConfiguration(AWSProperty):
+class Configuration(AWSProperty):
     """
-    `MetricConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metricconfiguration.html>`__
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-configuration.html>`__
     """
 
     props: PropsDictType = {
         "ExcludedTimeRanges": ([Range], False),
         "MetricTimeZone": (str, False),
+    }
+
+
+class MetricCharacteristics(AWSProperty):
+    """
+    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeriodicSpikes": (boolean, False),
     }
 
 
@@ -277,7 +277,7 @@ class AnomalyDetector(AWSObject):
     resource_type = "AWS::CloudWatch::AnomalyDetector"
 
     props: PropsDictType = {
-        "Configuration": (MetricConfiguration, False),
+        "Configuration": (Configuration, False),
         "Dimensions": ([MetricDimension], False),
         "MetricCharacteristics": (MetricCharacteristics, False),
         "MetricMathAnomalyDetector": (MetricMathAnomalyDetector, False),
@@ -340,6 +340,54 @@ class InsightRule(AWSObject):
         "RuleName": (str, True),
         "RuleState": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ApiKeyCredential(AWSProperty):
+    """
+    `ApiKeyCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-integration-apikeycredential.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyValue": (str, True),
+    }
+
+
+class IntegrationCredential(AWSProperty):
+    """
+    `IntegrationCredential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-integration-integrationcredential.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyCredential": (ApiKeyCredential, True),
+    }
+
+
+class TagsItems(AWSProperty):
+    """
+    `TagsItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-integration-tagsitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-integration.html>`__
+    """
+
+    resource_type = "AWS::CloudWatch::Integration"
+
+    props: PropsDictType = {
+        "Credential": (IntegrationCredential, False),
+        "IntegrationAttributes": (dict, False),
+        "IntegrationType": (str, True),
+        "Name": (str, True),
+        "RoleArn": (str, False),
+        "Tags": ([TagsItems], False),
     }
 
 
