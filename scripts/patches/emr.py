@@ -107,4 +107,9 @@ patches = [
         "path": "/PropertyTypes/AWS::EMR::InstanceGroupConfig.AppConfiguration/Properties/Configurations/ItemType",
         "value": "object",
     },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::EMR::InstanceFleetConfig.ApplicationConfiguration/Properties/Configurations/ItemType",
+        "value": "object",
+    },
 ]
