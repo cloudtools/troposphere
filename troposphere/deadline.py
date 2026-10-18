@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -259,6 +259,16 @@ class Ec2EbsVolume(AWSProperty):
     }
 
 
+class FleetSoftwareAddOn(AWSProperty):
+    """
+    `FleetSoftwareAddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetsoftwareaddon.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class ServiceManagedEc2InstanceCapabilities(AWSProperty):
     """
     `ServiceManagedEc2InstanceCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html>`__
@@ -274,6 +284,7 @@ class ServiceManagedEc2InstanceCapabilities(AWSProperty):
         "MemoryMiB": (MemoryMiBRange, True),
         "OsFamily": (str, True),
         "RootEbsVolume": (Ec2EbsVolume, False),
+        "SoftwareAddOns": ([FleetSoftwareAddOn], False),
         "VCpuCount": (VCpuCountRange, True),
     }
 

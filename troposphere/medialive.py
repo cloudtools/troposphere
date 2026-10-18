@@ -2881,9 +2881,9 @@ class Input(AWSObject):
     }
 
 
-class InputWhitelistRuleCidr(AWSProperty):
+class InputWhitelistRule(AWSProperty):
     """
-    `InputWhitelistRuleCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrulecidr.html>`__
+    `InputWhitelistRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-inputsecuritygroup-inputwhitelistrule.html>`__
     """
 
     props: PropsDictType = {
@@ -2900,7 +2900,7 @@ class InputSecurityGroup(AWSObject):
 
     props: PropsDictType = {
         "Tags": (dict, False),
-        "WhitelistRules": ([InputWhitelistRuleCidr], False),
+        "WhitelistRules": ([InputWhitelistRule], False),
     }
 
 

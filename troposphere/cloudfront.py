@@ -889,6 +889,66 @@ class DistributionTenant(AWSObject):
     }
 
 
+class ContentTypeProfile(AWSProperty):
+    """
+    `ContentTypeProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionconfig-contenttypeprofile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentType": (str, True),
+        "Format": (str, True),
+        "ProfileId": (str, True),
+    }
+
+
+class ContentTypeProfileConfig(AWSProperty):
+    """
+    `ContentTypeProfileConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionconfig-contenttypeprofileconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentTypeProfiles": ([ContentTypeProfile], True),
+        "ForwardWhenContentTypeIsUnknown": (boolean, True),
+    }
+
+
+class QueryArgProfile(AWSProperty):
+    """
+    `QueryArgProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionconfig-queryargprofile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProfileId": (str, True),
+        "QueryArg": (str, True),
+    }
+
+
+class QueryArgProfileConfig(AWSProperty):
+    """
+    `QueryArgProfileConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionconfig-queryargprofileconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ForwardWhenQueryArgProfileIsUnknown": (boolean, True),
+        "QueryArgProfiles": ([QueryArgProfile], True),
+    }
+
+
+class FieldLevelEncryptionConfig(AWSObject):
+    """
+    `FieldLevelEncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-fieldlevelencryptionconfig.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::FieldLevelEncryptionConfig"
+
+    props: PropsDictType = {
+        "CallerReference": (str, True),
+        "Comment": (str, False),
+        "ContentTypeProfileConfig": (ContentTypeProfileConfig, True),
+        "QueryArgProfileConfig": (QueryArgProfileConfig, True),
+    }
+
+
 class EncryptionEntity(AWSProperty):
     """
     `EncryptionEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-fieldlevelencryptionprofile-encryptionentity.html>`__

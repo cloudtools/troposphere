@@ -10,6 +10,18 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import integer
 
 
+class CertificateAssociation(AWSObject):
+    """
+    `CertificateAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-certificateassociation.html>`__
+    """
+
+    resource_type = "AWS::MediaConvert::CertificateAssociation"
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+    }
+
+
 class AccelerationSettings(AWSProperty):
     """
     `AccelerationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconvert-jobtemplate-accelerationsettings.html>`__

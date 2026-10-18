@@ -63,6 +63,98 @@ class Gateway(AWSObject):
     }
 
 
+class CacheAttributes(AWSProperty):
+    """
+    `CacheAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-storagegateway-smbfileshare-cacheattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "CacheStaleTimeoutInSeconds": (integer, False),
+    }
+
+
+class NFSFileShareDefaults(AWSProperty):
+    """
+    `NFSFileShareDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-storagegateway-nfsfileshare-nfsfilesharedefaults.html>`__
+    """
+
+    props: PropsDictType = {
+        "DirectoryMode": (str, False),
+        "FileMode": (str, False),
+        "GroupId": (integer, False),
+        "OwnerId": (integer, False),
+    }
+
+
+class NFSFileShare(AWSObject):
+    """
+    `NFSFileShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-storagegateway-nfsfileshare.html>`__
+    """
+
+    resource_type = "AWS::StorageGateway::NFSFileShare"
+
+    props: PropsDictType = {
+        "AuditDestinationARN": (str, False),
+        "BucketRegion": (str, False),
+        "CacheAttributes": (CacheAttributes, False),
+        "ClientList": ([str], False),
+        "DefaultStorageClass": (str, False),
+        "EncryptionType": (str, False),
+        "FileShareName": (str, False),
+        "GatewayARN": (str, True),
+        "GuessMIMETypeEnabled": (boolean, False),
+        "KMSEncrypted": (boolean, False),
+        "KMSKey": (str, False),
+        "LocationARN": (str, True),
+        "NFSFileShareDefaults": (NFSFileShareDefaults, False),
+        "NotificationPolicy": (str, False),
+        "ObjectACL": (str, False),
+        "ReadOnly": (boolean, False),
+        "RequesterPays": (boolean, False),
+        "Role": (str, True),
+        "Squash": (str, False),
+        "Tags": (Tags, False),
+        "VPCEndpointDNSName": (str, False),
+    }
+
+
+class SMBFileShare(AWSObject):
+    """
+    `SMBFileShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-storagegateway-smbfileshare.html>`__
+    """
+
+    resource_type = "AWS::StorageGateway::SMBFileShare"
+
+    props: PropsDictType = {
+        "AccessBasedEnumeration": (boolean, False),
+        "AdminUserList": ([str], False),
+        "AuditDestinationARN": (str, False),
+        "Authentication": (str, False),
+        "BucketRegion": (str, False),
+        "CacheAttributes": (CacheAttributes, False),
+        "CaseSensitivity": (str, False),
+        "DefaultStorageClass": (str, False),
+        "EncryptionType": (str, False),
+        "FileShareName": (str, False),
+        "GatewayARN": (str, True),
+        "GuessMIMETypeEnabled": (boolean, False),
+        "InvalidUserList": ([str], False),
+        "KMSEncrypted": (boolean, False),
+        "KMSKey": (str, False),
+        "LocationARN": (str, True),
+        "NotificationPolicy": (str, False),
+        "ObjectACL": (str, False),
+        "OplocksEnabled": (boolean, False),
+        "ReadOnly": (boolean, False),
+        "RequesterPays": (boolean, False),
+        "Role": (str, True),
+        "SMBACLEnabled": (boolean, False),
+        "Tags": (Tags, False),
+        "VPCEndpointDNSName": (str, False),
+        "ValidUserList": ([str], False),
+    }
+
+
 class Tape(AWSObject):
     """
     `Tape <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-storagegateway-tape.html>`__

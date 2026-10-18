@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double, integer
+from .validators import boolean, double, integer
 from .validators.transfer import validate_homedirectory_type
 
 
@@ -275,6 +275,7 @@ class Server(AWSObject):
 
     props: PropsDictType = {
         "Certificate": (str, False),
+        "CreateWithHostKey": (boolean, False),
         "Domain": (str, False),
         "EndpointDetails": (EndpointDetails, False),
         "EndpointType": (str, False),

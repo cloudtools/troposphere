@@ -1831,6 +1831,22 @@ class IpamExternalResourceVerificationToken(AWSObject):
     }
 
 
+class IpamInternetRegistryAssociation(AWSObject):
+    """
+    `IpamInternetRegistryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipaminternetregistryassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::IpamInternetRegistryAssociation"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "IpamId": (str, True),
+        "OrganizationHandle": (str, True),
+        "Rir": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class KeyPair(AWSObject):
     """
     `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html>`__
@@ -4695,6 +4711,22 @@ class VpnConnectionDeviceType(AWSObject):
     resource_type = "AWS::EC2::VpnConnectionDeviceType"
 
     props: PropsDictType = {}
+
+
+class AnalysisTransitGatewayPolicyTableEntry(AWSProperty):
+    """
+    `AnalysisTransitGatewayPolicyTableEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-analysistransitgatewaypolicytableentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationCidr": (str, False),
+        "DestinationPortRange": (PortRange, False),
+        "Protocol": (str, False),
+        "RuleNumber": (integer, False),
+        "SourceCidr": (str, False),
+        "SourcePortRange": (PortRange, False),
+        "TargetRouteTableId": (str, False),
+    }
 
 
 class BlockPublicAccessStates(AWSProperty):

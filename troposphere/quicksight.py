@@ -7392,6 +7392,109 @@ class AssetBundleImportJob(AWSObject):
     }
 
 
+class Assignment(AWSObject):
+    """
+    `Assignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-assignment.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Assignment"
+
+    props: PropsDictType = {
+        "AssignmentName": (str, True),
+        "AssignmentStatus": (str, True),
+        "Identities": (dict, False),
+        "Namespace": (str, True),
+        "PolicyArn": (str, False),
+    }
+
+
+class Palette(AWSProperty):
+    """
+    `Palette <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-palette.html>`__
+    """
+
+    props: PropsDictType = {
+        "Background": (str, False),
+        "Foreground": (str, False),
+    }
+
+
+class BrandColorPalette(AWSProperty):
+    """
+    `BrandColorPalette <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-brandcolorpalette.html>`__
+    """
+
+    props: PropsDictType = {
+        "Accent": (Palette, False),
+        "Danger": (Palette, False),
+        "Dimension": (Palette, False),
+        "Info": (Palette, False),
+        "Measure": (Palette, False),
+        "Primary": (Palette, False),
+        "Secondary": (Palette, False),
+        "Success": (Palette, False),
+        "Warning": (Palette, False),
+    }
+
+
+class NavbarStyle(AWSProperty):
+    """
+    `NavbarStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-navbarstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContextualNavbar": (Palette, False),
+        "GlobalNavbar": (Palette, False),
+    }
+
+
+class BrandElementStyle(AWSProperty):
+    """
+    `BrandElementStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-brandelementstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "NavbarStyle": (NavbarStyle, False),
+    }
+
+
+class ApplicationTheme(AWSProperty):
+    """
+    `ApplicationTheme <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-applicationtheme.html>`__
+    """
+
+    props: PropsDictType = {
+        "BrandColorPalette": (BrandColorPalette, False),
+        "BrandElementStyle": (BrandElementStyle, False),
+    }
+
+
+class BrandDefinition(AWSProperty):
+    """
+    `BrandDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-brand-branddefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationTheme": (ApplicationTheme, False),
+        "BrandName": (str, False),
+        "Description": (str, False),
+    }
+
+
+class Brand(AWSObject):
+    """
+    `Brand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-brand.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Brand"
+
+    props: PropsDictType = {
+        "BrandDefinition": (BrandDefinition, False),
+        "BrandId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Capabilities(AWSProperty):
     """
     `Capabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html>`__
@@ -9196,13 +9299,38 @@ class AuroraPostgreSqlParameters(AWSProperty):
     }
 
 
+class VpcConnectionProperties(AWSProperty):
+    """
+    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcConnectionArn": (str, True),
+    }
+
+
+class OAuthParameters(AWSProperty):
+    """
+    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdentityProviderResourceUri": (str, False),
+        "IdentityProviderVpcConnectionProperties": (VpcConnectionProperties, False),
+        "OAuthScope": (str, False),
+        "TokenProviderUrl": (str, True),
+    }
+
+
 class DatabricksParameters(AWSProperty):
     """
     `DatabricksParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html>`__
     """
 
     props: PropsDictType = {
+        "AuthenticationType": (str, False),
         "Host": (str, True),
+        "OAuthParameters": (OAuthParameters, False),
         "Port": (double, True),
         "SqlEndpointPath": (str, True),
     }
@@ -9340,29 +9468,6 @@ class S3TablesParameters(AWSProperty):
     }
 
 
-class VpcConnectionProperties(AWSProperty):
-    """
-    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
-    """
-
-    props: PropsDictType = {
-        "VpcConnectionArn": (str, True),
-    }
-
-
-class OAuthParameters(AWSProperty):
-    """
-    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html>`__
-    """
-
-    props: PropsDictType = {
-        "IdentityProviderResourceUri": (str, False),
-        "IdentityProviderVpcConnectionProperties": (VpcConnectionProperties, False),
-        "OAuthScope": (str, False),
-        "TokenProviderUrl": (str, True),
-    }
-
-
 class SnowflakeParameters(AWSProperty):
     """
     `SnowflakeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html>`__
@@ -9495,6 +9600,18 @@ class KeyPairCredentials(AWSProperty):
     }
 
 
+class OAuthClientCredentials(AWSProperty):
+    """
+    `OAuthClientCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthclientcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "Username": (str, False),
+    }
+
+
 class DataSourceCredentials(AWSProperty):
     """
     `DataSourceCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html>`__
@@ -9504,6 +9621,7 @@ class DataSourceCredentials(AWSProperty):
         "CopySourceArn": (str, False),
         "CredentialPair": (CredentialPair, False),
         "KeyPairCredentials": (KeyPairCredentials, False),
+        "OAuthClientCredentials": (OAuthClientCredentials, False),
         "SecretArn": (str, False),
     }
 
@@ -9596,6 +9714,20 @@ class Folder(AWSObject):
         "Permissions": ([ResourcePermission], False),
         "SharingModel": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class Group(AWSObject):
+    """
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-group.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Group"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "GroupName": (str, True),
+        "Namespace": (str, True),
     }
 
 

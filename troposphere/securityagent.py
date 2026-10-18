@@ -12,7 +12,7 @@ from .validators import boolean
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-vpcconfig.html>`__
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-vpcconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -228,9 +228,92 @@ class Artifact(AWSObject):
     }
 
 
+class BitbucketInput(AWSProperty):
+    """
+    `BitbucketInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-integration-bitbucketinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, True),
+        "InstallationId": (str, True),
+        "State": (str, True),
+        "Workspace": (str, True),
+    }
+
+
+class ConfluenceInput(AWSProperty):
+    """
+    `ConfluenceInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-integration-confluenceinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, True),
+        "InstallationId": (str, True),
+        "SiteUrl": (str, True),
+        "State": (str, True),
+    }
+
+
+class GitHubInput(AWSProperty):
+    """
+    `GitHubInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-integration-githubinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, True),
+        "InstallationId": (str, False),
+        "OrganizationName": (str, False),
+        "State": (str, True),
+        "TargetUrl": (str, False),
+    }
+
+
+class GitLabInput(AWSProperty):
+    """
+    `GitLabInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-integration-gitlabinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, True),
+        "GroupId": (str, False),
+        "TargetUrl": (str, False),
+        "TokenType": (str, True),
+    }
+
+
+class ProviderInput(AWSProperty):
+    """
+    `ProviderInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-integration-providerinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bitbucket": (BitbucketInput, False),
+        "Confluence": (ConfluenceInput, False),
+        "Github": (GitHubInput, False),
+        "Gitlab": (GitLabInput, False),
+    }
+
+
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityagent-integration.html>`__
+    """
+
+    resource_type = "AWS::SecurityAgent::Integration"
+
+    props: PropsDictType = {
+        "DisplayName": (str, True),
+        "KmsKeyId": (str, False),
+        "PrivateConnectionName": (str, False),
+        "Provider": (str, True),
+        "ProviderInput": (ProviderInput, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Authentication(AWSProperty):
     """
-    `Authentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-authentication.html>`__
+    `Authentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-authentication.html>`__
     """
 
     props: PropsDictType = {
@@ -241,26 +324,36 @@ class Authentication(AWSProperty):
 
 class Actor(AWSProperty):
     """
-    `Actor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-actor.html>`__
+    `Actor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-actor.html>`__
     """
 
     props: PropsDictType = {
         "Authentication": (Authentication, False),
         "Description": (str, False),
-        "EnableEmailMfa": (boolean, False),
         "Identifier": (str, False),
-        "MfaForwardingAddress": (str, False),
         "Uris": ([str], False),
+    }
+
+
+class IntegratedDocument(AWSProperty):
+    """
+    `IntegratedDocument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-integrateddocument.html>`__
+    """
+
+    props: PropsDictType = {
+        "IntegrationId": (str, True),
+        "ResourceId": (str, True),
     }
 
 
 class DocumentInfo(AWSProperty):
     """
-    `DocumentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-documentinfo.html>`__
+    `DocumentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-documentinfo.html>`__
     """
 
     props: PropsDictType = {
         "ArtifactId": (str, False),
+        "IntegratedDocument": (IntegratedDocument, False),
         "S3Location": (str, False),
     }
 
@@ -277,7 +370,7 @@ class Endpoint(AWSProperty):
 
 class IntegratedRepository(AWSProperty):
     """
-    `IntegratedRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-integratedrepository.html>`__
+    `IntegratedRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-integratedrepository.html>`__
     """
 
     props: PropsDictType = {
@@ -289,7 +382,7 @@ class IntegratedRepository(AWSProperty):
 
 class SourceCodeRepository(AWSProperty):
     """
-    `SourceCodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-sourcecoderepository.html>`__
+    `SourceCodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-sourcecoderepository.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +429,7 @@ class Assets(AWSProperty):
 
 class CloudWatchLog(AWSProperty):
     """
-    `CloudWatchLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-cloudwatchlog.html>`__
+    `CloudWatchLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-cloudwatchlog.html>`__
     """
 
     props: PropsDictType = {
@@ -347,7 +440,7 @@ class CloudWatchLog(AWSProperty):
 
 class CustomHeader(AWSProperty):
     """
-    `CustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-customheader.html>`__
+    `CustomHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-customheader.html>`__
     """
 
     props: PropsDictType = {
@@ -358,7 +451,7 @@ class CustomHeader(AWSProperty):
 
 class NetworkTrafficRule(AWSProperty):
     """
-    `NetworkTrafficRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-networktrafficrule.html>`__
+    `NetworkTrafficRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-networktrafficrule.html>`__
     """
 
     props: PropsDictType = {
@@ -370,7 +463,7 @@ class NetworkTrafficRule(AWSProperty):
 
 class NetworkTrafficConfig(AWSProperty):
     """
-    `NetworkTrafficConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentest-networktrafficconfig.html>`__
+    `NetworkTrafficConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-pentestjob-networktrafficconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -398,6 +491,19 @@ class Pentest(AWSObject):
         "ServiceRole": (str, True),
         "Title": (str, False),
         "VpcConfig": (VpcConfig, False),
+    }
+
+
+class PentestJob(AWSObject):
+    """
+    `PentestJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityagent-pentestjob.html>`__
+    """
+
+    resource_type = "AWS::SecurityAgent::PentestJob"
+
+    props: PropsDictType = {
+        "AgentSpaceId": (str, True),
+        "PentestId": (str, True),
     }
 
 

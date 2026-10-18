@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2026, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -318,6 +318,16 @@ class Collaboration(AWSObject):
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),
     }
+
+
+class ConfiguredAudienceModelAssociation(AWSObject):
+    """
+    `ConfiguredAudienceModelAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredaudiencemodelassociation.html>`__
+    """
+
+    resource_type = "AWS::CleanRooms::ConfiguredAudienceModelAssociation"
+
+    props: PropsDictType = {}
 
 
 class AggregateColumn(AWSProperty):

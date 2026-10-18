@@ -221,7 +221,7 @@ class ReadCacheConfiguration(AWSProperty):
 
 class ClientConfigurations(AWSProperty):
     """
-    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html>`__
+    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-clientconfigurations.html>`__
     """
 
     props: PropsDictType = {
@@ -232,7 +232,7 @@ class ClientConfigurations(AWSProperty):
 
 class NfsExports(AWSProperty):
     """
-    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports.html>`__
+    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-nfsexports.html>`__
     """
 
     props: PropsDictType = {
@@ -242,7 +242,7 @@ class NfsExports(AWSProperty):
 
 class UserAndGroupQuotas(AWSProperty):
     """
-    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-userandgroupquotas.html>`__
+    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-userandgroupquotas.html>`__
     """
 
     props: PropsDictType = {
@@ -316,7 +316,7 @@ class FsrmConfiguration(AWSProperty):
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     """
-    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
+    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-selfmanagedactivedirectoryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -604,7 +604,7 @@ class Task(AWSObject):
 
 class AggregateConfiguration(AWSProperty):
     """
-    `AggregateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-aggregateconfiguration.html>`__
+    `AggregateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-aggregateconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -615,7 +615,7 @@ class AggregateConfiguration(AWSProperty):
 
 class AutocommitPeriod(AWSProperty):
     """
-    `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>`__
+    `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-autocommitperiod.html>`__
     """
 
     props: PropsDictType = {
@@ -649,7 +649,7 @@ class SnaplockRetentionPeriod(AWSProperty):
 
 class SnaplockConfiguration(AWSProperty):
     """
-    `SnaplockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration.html>`__
+    `SnaplockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -664,7 +664,7 @@ class SnaplockConfiguration(AWSProperty):
 
 class TieringPolicy(AWSProperty):
     """
-    `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>`__
+    `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-tieringpolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -697,7 +697,7 @@ class VolumeOntapConfiguration(AWSProperty):
 
 class OriginSnapshot(AWSProperty):
     """
-    `OriginSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html>`__
+    `OriginSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-originsnapshot.html>`__
     """
 
     props: PropsDictType = {

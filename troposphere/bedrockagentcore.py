@@ -474,6 +474,46 @@ class ConfigurationBundleVersion(AWSObject):
     }
 
 
+class ConsentPortalSource(AWSProperty):
+    """
+    `ConsentPortalSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-consentportal-consentportalsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+        "Type": (str, True),
+    }
+
+
+class IdpConfig(AWSProperty):
+    """
+    `IdpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-consentportal-idpconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audience": (str, False),
+        "CredentialProviderArn": (str, True),
+        "Scopes": ([str], True),
+    }
+
+
+class ConsentPortal(AWSObject):
+    """
+    `ConsentPortal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-consentportal.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::ConsentPortal"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ExecutionRoleArn": (str, True),
+        "IdpConfig": (IdpConfig, True),
+        "Name": (str, True),
+        "Sources": ([ConsentPortalSource], True),
+        "Tags": (Tags, False),
+    }
+
+
 class InlineExamplesSource(AWSProperty):
     """
     `InlineExamplesSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-dataset-inlineexamplessource.html>`__
@@ -550,6 +590,7 @@ class InferenceConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "MaxTokens": (integer, False),
+        "StopSequences": ([str], False),
         "Temperature": (double, False),
         "TopP": (double, False),
     }
@@ -1892,9 +1933,9 @@ class HarnessAgentCoreMemoryRetrievalConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "RelevanceScore": (str, False),
+        "RelevanceScore": (double, False),
         "StrategyId": (str, False),
-        "TopK": (str, False),
+        "TopK": (integer, False),
     }
 
 
@@ -1957,6 +1998,7 @@ class HarnessGeminiModelConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdditionalParams": (dict, False),
         "ApiKeyArn": (str, True),
         "MaxTokens": (integer, False),
         "ModelId": (str, True),
@@ -1989,6 +2031,7 @@ class HarnessOpenAiModelConfig(AWSProperty):
 
     props: PropsDictType = {
         "AdditionalParams": (dict, False),
+        "ApiBase": (str, False),
         "ApiFormat": (str, False),
         "ApiKeyArn": (str, True),
         "MaxTokens": (integer, False),

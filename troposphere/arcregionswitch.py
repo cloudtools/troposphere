@@ -504,6 +504,55 @@ class Route53HealthCheckConfiguration(AWSProperty):
     }
 
 
+class SsmTarget(AWSProperty):
+    """
+    `SsmTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ssmtarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class SsmDocumentConfig(AWSProperty):
+    """
+    `SsmDocumentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ssmdocumentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRole": (str, False),
+        "DocumentArn": (str, True),
+        "DocumentVersion": (str, False),
+        "ExternalId": (str, False),
+        "Parameters": (dict, False),
+        "Targets": ([SsmTarget], True),
+    }
+
+
+class SsmSendCommandUngraceful(AWSProperty):
+    """
+    `SsmSendCommandUngraceful <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ssmsendcommandungraceful.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, False),
+    }
+
+
+class SsmSendCommandConfiguration(AWSProperty):
+    """
+    `SsmSendCommandConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ssmsendcommandconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RegionDocuments": (dict, True),
+        "RetryIntervalMinutes": (double, True),
+        "TimeoutMinutes": (double, False),
+        "Ungraceful": (SsmSendCommandUngraceful, False),
+    }
+
+
 class ExecutionBlockConfiguration(AWSProperty):
     """
     `ExecutionBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html>`__
@@ -540,6 +589,7 @@ class ExecutionBlockConfiguration(AWSProperty):
         ),
         "RegionSwitchPlanConfig": (RegionSwitchPlanConfiguration, False),
         "Route53HealthCheckConfig": (Route53HealthCheckConfiguration, False),
+        "SsmSendCommandConfig": (SsmSendCommandConfiguration, False),
     }
 
 

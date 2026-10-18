@@ -36,6 +36,23 @@ class IdcAuthConfiguration(AWSProperty):
     }
 
 
+class IdpAuthConfiguration(AWSProperty):
+    """
+    `IdpAuthConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-idpauthconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "CreatedAt": (str, False),
+        "IssuerUrl": (str, True),
+        "OperatorAppRoleArn": (str, True),
+        "Provider": (str, True),
+        "UpdatedAt": (str, False),
+        "UserIdClaim": (str, False),
+    }
+
+
 class OperatorApp(AWSProperty):
     """
     `OperatorApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html>`__
@@ -44,6 +61,7 @@ class OperatorApp(AWSProperty):
     props: PropsDictType = {
         "Iam": (IamAuthConfiguration, False),
         "Idc": (IdcAuthConfiguration, False),
+        "Idp": (IdpAuthConfiguration, False),
     }
 
 
@@ -135,6 +153,7 @@ class AWSConfiguration(AWSProperty):
     props: PropsDictType = {
         "AccountId": (str, True),
         "AccountType": (str, True),
+        "AgentElevatedRoleArn": (str, False),
         "AssumableRoleArn": (str, True),
         "Resources": ([AWSResource], False),
         "Tags": ([KeyValuePair], False),
@@ -221,6 +240,7 @@ class MCPServerDatadogConfiguration(AWSProperty):
     props: PropsDictType = {
         "Description": (str, False),
         "EnableWebhookUpdates": (boolean, False),
+        "EnabledElevatedTools": ([str], False),
         "Endpoint": (str, False),
         "Name": (str, False),
     }
@@ -233,6 +253,7 @@ class MCPServerGrafanaConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "EnableWebhookUpdates": (boolean, False),
+        "EnabledElevatedTools": ([str], False),
         "Endpoint": (str, True),
         "Tools": ([str], False),
     }
@@ -295,6 +316,17 @@ class ServiceNowConfiguration(AWSProperty):
     }
 
 
+class SlackBidirectionalConfiguration(AWSProperty):
+    """
+    `SlackBidirectionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackbidirectionalconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "RoleArn": (str, True),
+    }
+
+
 class SlackChannel(AWSProperty):
     """
     `SlackChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackchannel.html>`__
@@ -322,6 +354,7 @@ class SlackConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Bidirectional": (SlackBidirectionalConfiguration, False),
         "TransmissionTarget": (SlackTransmissionTarget, True),
         "WorkspaceId": (str, True),
         "WorkspaceName": (str, True),
@@ -336,6 +369,7 @@ class SourceAwsConfiguration(AWSProperty):
     props: PropsDictType = {
         "AccountId": (str, True),
         "AccountType": (str, True),
+        "AgentElevatedRoleArn": (str, False),
         "AssumableRoleArn": (str, True),
         "Resources": ([AWSResource], False),
         "Tags": ([KeyValuePair], False),
@@ -479,6 +513,42 @@ class DynatraceServiceDetails(AWSProperty):
     props: PropsDictType = {
         "AccountUrn": (str, True),
         "AuthorizationConfig": (DynatraceAuthorizationConfig, False),
+    }
+
+
+class GitHubAppVerificationDetails(AWSProperty):
+    """
+    `GitHubAppVerificationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-githubappverificationdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppVariant": (str, True),
+        "OrganizationName": (str, False),
+        "TargetUrl": (str, False),
+        "TokenValue": (str, True),
+    }
+
+
+class GitHubPatDetails(AWSProperty):
+    """
+    `GitHubPatDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-githubpatdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "OrganizationName": (str, False),
+        "TargetUrl": (str, False),
+        "TokenValue": (str, True),
+    }
+
+
+class GitHubDetails(AWSProperty):
+    """
+    `GitHubDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-githubdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppVerification": (GitHubAppVerificationDetails, False),
+        "DirectAccess": (GitHubPatDetails, False),
     }
 
 
@@ -717,6 +787,7 @@ class ServiceDetails(AWSProperty):
     props: PropsDictType = {
         "AzureIdentity": (AzureIdentityServiceDetails, False),
         "Dynatrace": (DynatraceServiceDetails, False),
+        "GitHub": (GitHubDetails, False),
         "GitLab": (GitLabDetails, False),
         "MCPServer": (MCPServerDetails, False),
         "MCPServerGrafana": (MCPServerGrafanaDetails, False),
@@ -738,6 +809,7 @@ class Service(AWSObject):
     props: PropsDictType = {
         "ExchangeUrlPrivateConnectionName": (str, False),
         "KmsKeyArn": (str, False),
+        "Name": (str, False),
         "PrivateConnectionName": (str, False),
         "ServiceDetails": (ServiceDetails, False),
         "ServiceType": (str, True),
@@ -802,6 +874,21 @@ class RegisteredDynatraceDetails(AWSProperty):
 
     props: PropsDictType = {
         "AccountUrn": (str, True),
+    }
+
+
+class RegisteredGitHubServiceDetails(AWSProperty):
+    """
+    `RegisteredGitHubServiceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredgithubservicedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppVariant": (str, False),
+        "AuthMode": (str, False),
+        "HostingType": (str, False),
+        "Owner": (str, True),
+        "OwnerType": (str, True),
+        "TargetUrl": (str, False),
     }
 
 
@@ -901,6 +988,7 @@ class AdditionalServiceDetails(AWSProperty):
     props: PropsDictType = {
         "AzureIdentity": (RegisteredAzureIdentityDetails, False),
         "Dynatrace": (RegisteredDynatraceDetails, False),
+        "GitHub": (RegisteredGitHubServiceDetails, False),
         "GitLab": (RegisteredGitLabServiceDetails, False),
         "MCPServer": (RegisteredMCPServerDetails, False),
         "MCPServerGrafana": (RegisteredMCPServerGrafanaDetails, False),

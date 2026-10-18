@@ -468,6 +468,7 @@ class Daemon(AWSObject):
     props: PropsDictType = {
         "CapacityProviderArns": ([str], False),
         "ClusterArn": (str, False),
+        "Critical": (boolean, False),
         "DaemonName": (str, False),
         "DaemonTaskDefinitionArn": (str, False),
         "DeploymentConfiguration": (DaemonDeploymentConfiguration, False),
@@ -1477,7 +1478,7 @@ class ResourceRequirement(AWSProperty):
 
     props: PropsDictType = {
         "Type": (str, True),
-        "Value": (str, True),
+        "Value": (str, False),
     }
 
 
