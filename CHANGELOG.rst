@@ -1,3 +1,15 @@
+4.11.1 (2026*10*20)
+-------------------
+* Bring back TableWildcard in lakeformation.TableResource
+* Patches for spec 266.0.0
+* Updates from spec version 266.0.0
+* Patches for spec 267.0.0
+* Updates from spec version 267.0.0
+* Fix LogGroup.FieldIndexPolicies type
+* EMR: remove InstanceFleetConfig.Configuration patch
+* emr: fix EMR::InstanceFleetConfig recurision issue
+* Updates from spec version 268.0.0
+
 4.11.0 (2026*09*19)
 -------------------
 * Add script to help with release process
