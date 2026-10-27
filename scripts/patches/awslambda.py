@@ -1,4 +1,21 @@
 patches = [
+    # Keep EventSourceMapping.ScalingConfig backward compatible while giving the
+    # WebFunctionEndpoint property type a unique name.
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::Lambda::WebFunctionEndpoint.ScalingConfig",
+        "path": "/PropertyTypes/AWS::Lambda::WebFunctionEndpoint.WebFunctionEndpointScalingConfig",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Lambda::WebFunctionEndpoint.RegionalEndpoint/Properties/ScalingConfig/Type",
+        "value": "WebFunctionEndpointScalingConfig",
+    },
+    {
+        "op": "replace",
+        "path": "/ResourceTypes/AWS::Lambda::WebFunctionEndpoint/Properties/ScalingConfig/Type",
+        "value": "WebFunctionEndpointScalingConfig",
+    },
     # Remove AWS::Lambda::EventSourceMapping.DestinationConfig and prefer AWS::Lambda::EventInvokeConfig.DestinationConfig
     # which includes OnSuccess
     {

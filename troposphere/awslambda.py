@@ -382,11 +382,11 @@ class ProvisionedPollerConfig(AWSProperty):
 
 class ScalingConfig(AWSProperty):
     """
-    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-scalingconfig.html>`__
+    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
     """
 
     props: PropsDictType = {
-        "MaxEnvironments": (integer, False),
+        "MaximumConcurrency": (integer, False),
     }
 
 
@@ -1043,6 +1043,16 @@ class ThrottleConfig(AWSProperty):
     }
 
 
+class WebFunctionEndpointScalingConfig(AWSProperty):
+    """
+    `WebFunctionEndpointScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionendpoint-scalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxEnvironments": (integer, False),
+    }
+
+
 class WebFunctionEndpoint(AWSObject):
     """
     `WebFunctionEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-webfunctionendpoint.html>`__
@@ -1058,7 +1068,7 @@ class WebFunctionEndpoint(AWSObject):
         "FunctionName": (str, True),
         "Regions": ([str], False),
         "RevisionWeights": ([RevisionWeight], False),
-        "ScalingConfig": (ScalingConfig, False),
+        "ScalingConfig": (WebFunctionEndpointScalingConfig, False),
         "ThrottleConfig": (ThrottleConfig, False),
     }
 
@@ -1156,7 +1166,7 @@ class RegionalEndpoint(AWSProperty):
         "AuthType": (str, False),
         "DomainName": (str, False),
         "RevisionWeights": ([RevisionWeight], False),
-        "ScalingConfig": (ScalingConfig, False),
+        "ScalingConfig": (WebFunctionEndpointScalingConfig, False),
         "State": (str, False),
         "StateReason": (str, False),
         "ThrottleConfig": (ThrottleConfig, False),
