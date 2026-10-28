@@ -16,6 +16,18 @@ patches = [
         "path": "/ResourceTypes/AWS::Lambda::WebFunctionEndpoint/Properties/ScalingConfig/Type",
         "value": "WebFunctionEndpointScalingConfig",
     },
+    # Keep Function.LoggingConfig backward compatible while giving the
+    # WebFunctionRevision property type a unique name.
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::Lambda::WebFunctionRevision.LoggingConfig",
+        "path": "/PropertyTypes/AWS::Lambda::WebFunctionRevision.WebFunctionRevisionLoggingConfig",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Lambda::WebFunctionRevision.TelemetryConfig/Properties/LoggingConfig/Type",
+        "value": "WebFunctionRevisionLoggingConfig",
+    },
     # Remove AWS::Lambda::EventSourceMapping.DestinationConfig and prefer AWS::Lambda::EventInvokeConfig.DestinationConfig
     # which includes OnSuccess
     {

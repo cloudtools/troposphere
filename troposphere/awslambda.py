@@ -348,11 +348,12 @@ class FilterCriteria(AWSProperty):
 
 class LoggingConfig(AWSProperty):
     """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-loggingconfig.html>`__
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html>`__
     """
 
     props: PropsDictType = {
         "ApplicationLogLevel": (str, False),
+        "LogFormat": (str, False),
         "LogGroup": (str, False),
         "SystemLogLevel": (str, False),
     }
@@ -1116,13 +1117,25 @@ class BuildConfig(AWSProperty):
     }
 
 
+class WebFunctionRevisionLoggingConfig(AWSProperty):
+    """
+    `WebFunctionRevisionLoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-loggingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationLogLevel": (str, False),
+        "LogGroup": (str, False),
+        "SystemLogLevel": (str, False),
+    }
+
+
 class TelemetryConfig(AWSProperty):
     """
     `TelemetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-telemetryconfig.html>`__
     """
 
     props: PropsDictType = {
-        "LoggingConfig": (LoggingConfig, False),
+        "LoggingConfig": (WebFunctionRevisionLoggingConfig, False),
     }
 
 
